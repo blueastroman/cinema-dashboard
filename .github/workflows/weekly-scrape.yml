@@ -1,0 +1,38 @@
+name: Weekly Cinema Scrape
+
+on:
+  schedule:
+    # Every Wednesday at 7:00 AM EST (12:00 UTC)
+    - cron: "0 12 * * 3"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests anthropic
+
+      - name: Run scraper
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/scrape.py
+
+      - name: Commit updated data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Cinema Bot"
+          git add public/data.json
+          git diff --staged --quiet || git commit -m "Weekly cinema update — $(date +'%B %d, %Y')"
+          git push

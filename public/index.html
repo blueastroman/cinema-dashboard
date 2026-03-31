@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Cinema — This Week</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --off-black: #111111;
+      --charcoal: #1a1a1a;
+      --dark-gray: #242424;
+      --mid-gray: #3a3a3a;
+      --muted: #666;
+      --text: #e8e4dc;
+      --text-dim: #9a9490;
+      --cream: #f0ead8;
+      --accent: #c8a96e;       /* warm gold */
+      --accent-dim: #6b5a38;
+      --watch: #4a9e6b;
+      --watch-bg: #0f2a1a;
+      --depends: #c8a96e;
+      --depends-bg: #2a200a;
+      --skip: #9e4a4a;
+      --skip-bg: #2a0f0f;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Film grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+    }
+
+    /* ── HEADER ────────────────────────────────────────────── */
+    header {
+      border-bottom: 1px solid var(--mid-gray);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 32px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .week-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── FILTERS ───────────────────────────────────────────── */
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      border: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--black);
+    }
+
+    /* ── HERO / STATS BAR ──────────────────────────────────── */
+    .stats-bar {
+      border-bottom: 1px solid var(--dark-gray);
+      padding: 20px 40px;
+    }
+
+    .stats-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stats-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--dark-gray);
+    }
+
+    .search-wrap {
+      flex: 1;
+      max-width: 320px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--dark-gray);
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      padding: 8px 14px 8px 34px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus { border-color: var(--accent-dim); }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── MAIN GRID ─────────────────────────────────────────── */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* ── VERDICT SECTION HEADERS ───────────────────────────── */
+    .verdict-section {
+      margin-bottom: 56px;
+    }
+
+    .verdict-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--dark-gray);
+    }
+
+    .verdict-badge-large {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .verdict-badge-large.watch {
+      background: var(--watch-bg);
+      color: var(--watch);
+      border: 1px solid var(--watch);
+    }
+    .verdict-badge-large.depends {
+      background: var(--depends-bg);
+      color: var(--depends);
+      border: 1px solid var(--depends);
+    }
+    .verdict-badge-large.skip {
+      background: var(--skip-bg);
+      color: var(--skip);
+      border: 1px solid var(--skip);
+    }
+
+    .section-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── MOVIE GRID ────────────────────────────────────────── */
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--mid-gray);
+      border: 1px solid var(--mid-gray);
+    }
+
+    /* ── MOVIE CARD ────────────────────────────────────────── */
+    .movie-card {
+      background: var(--off-black);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.15s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .movie-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: transparent;
+      transition: background 0.15s;
+    }
+
+    .movie-card.watch::before { background: var(--watch); }
+    .movie-card.depends::before { background: var(--depends); }
+    .movie-card.skip::before { background: var(--skip); }
+
+    .movie-card:hover {
+      background: var(--charcoal);
+    }
+
+    /* Card top row */
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .movie-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--cream);
+      flex: 1;
+    }
+
+    .movie-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.1em;
+    }
+
+    /* Verdict badge */
+    .verdict-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .verdict-pill.watch { background: var(--watch-bg); color: var(--watch); }
+    .verdict-pill.depends { background: var(--depends-bg); color: var(--depends); }
+    .verdict-pill.skip { background: var(--skip-bg); color: var(--skip); }
+
+    /* Meta row */
+    .card-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .meta-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .meta-value.rt-high { color: var(--watch); }
+    .meta-value.rt-mid { color: var(--depends); }
+    .meta-value.rt-low { color: var(--skip); }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-sep {
+      width: 1px;
+      height: 28px;
+      background: var(--dark-gray);
+    }
+
+    /* Genre + runtime row */
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: var(--dark-gray);
+      color: var(--text-dim);
+    }
+
+    /* Reason */
+    .card-reason {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.5;
+      border-left: 2px solid var(--mid-gray);
+      padding-left: 12px;
+    }
+
+    /* Plot */
+    .card-plot {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Theaters */
+    .card-theaters {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .theater-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .theater-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .showtime-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .showtime-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      padding: 2px 7px;
+      border-radius: 2px;
+      border: 1px solid var(--mid-gray);
+      color: var(--text-dim);
+    }
+
+    .theater-day {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+      letter-spacing: 0.08em;
+    }
+
+    /* Expand toggle */
+    .expand-theaters {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 4px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .expand-theaters:hover { color: var(--accent); }
+
+    .theaters-detail { display: none; }
+    .theaters-detail.open { display: flex; flex-direction: column; gap: 10px; }
+
+    /* ── EMPTY STATE ───────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 80px 40px;
+      color: var(--muted);
+    }
+
+    .empty-state p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    /* ── LOADING ────────────────────────────────────────────── */
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 16px;
+    }
+
+    .loading-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--dark-gray);
+      padding: 24px 40px;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ────────────────────────────────────────── */
+    .movie-card {
+      animation: fadeUp 0.3s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* stagger via nth-child */
+    .movie-card:nth-child(1) { animation-delay: 0ms; }
+    .movie-card:nth-child(2) { animation-delay: 40ms; }
+    .movie-card:nth-child(3) { animation-delay: 80ms; }
+    .movie-card:nth-child(4) { animation-delay: 120ms; }
+    .movie-card:nth-child(5) { animation-delay: 160ms; }
+    .movie-card:nth-child(6) { animation-delay: 200ms; }
+
+    /* ── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
+      .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
+      .filters { gap: 6px; }
+      .stats-inner { flex-wrap: wrap; gap: 20px; }
+      .search-wrap { max-width: 100%; width: 100%; }
+      .movies-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="logo">NYC <span>Cinema</span></div>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="WATCH">Watch</button>
+        <button class="filter-btn" data-filter="DEPENDS">Depends</button>
+        <button class="filter-btn" data-filter="SKIP">Skip</button>
+        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
+        <!-- Theater filters injected by JS -->
+      </div>
+
+      <div class="week-label" id="week-label">Loading...</div>
+    </div>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat">
+        <span class="stat-num" id="stat-total">—</span>
+        <span class="stat-label">Films This Week</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stat">
+        <span class="stat-num" id="stat-watch" style="color: var(--watch)">—</span>
+        <span class="stat-label">Must Watch</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stat">
+        <span class="stat-num" id="stat-theaters">—</span>
+        <span class="stat-label">Theaters</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stats-divider" style="display:none" id="gen-divider"></div>
+      <div class="stat">
+        <span class="stat-num" id="stat-generated" style="font-size:0.75rem; color: var(--muted)">—</span>
+        <span class="stat-label">Last Updated</span>
+      </div>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main-content">
+    <div class="loading">
+      <div class="loading-text">Loading this week's program</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">
+      Updated every Wednesday · Theaters: Metrograph · IFC Center · Angelika · Film Forum · Village East · Film at Lincoln Center · Alamo Lower Manhattan
+    </div>
+  </footer>
+
+<script>
+let allMovies = [];
+let activeFilter = 'all';
+let activeTheater = 'all';
+let searchQuery = '';
+
+// ── DATA LOAD ──────────────────────────────────────────────────────────────
+
+async function loadData() {
+  try {
+    const res = await fetch('./data.json?t=' + Date.now());
+    const data = await res.json();
+    initDashboard(data);
+  } catch (e) {
+    // Fallback to mock data for demo
+    initDashboard(getMockData());
+  }
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+
+function initDashboard(data) {
+  allMovies = data.movies || [];
+
+  // Week label
+  document.getElementById('week-label').textContent = 'Week of ' + (data.week_of || '');
+
+  // Stats
+  const watchCount = allMovies.filter(m => m.verdict?.verdict === 'WATCH').length;
+  document.getElementById('stat-total').textContent = allMovies.length;
+  document.getElementById('stat-watch').textContent = watchCount;
+  document.getElementById('stat-theaters').textContent = (data.theaters || []).length;
+
+  const gen = new Date(data.generated_at);
+  document.getElementById('stat-generated').textContent =
+    isNaN(gen) ? '—' : gen.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+  // Theater filter buttons
+  const theaters = data.theaters || [];
+  const filtersEl = document.getElementById('filters');
+  theaters.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.theater = t;
+    btn.textContent = t.split(' ')[0]; // Short name
+    btn.title = t;
+    btn.addEventListener('click', () => {
+      activeTheater = activeTheater === t ? 'all' : t;
+      document.querySelectorAll('[data-theater]').forEach(b => b.classList.remove('active'));
+      if (activeTheater !== 'all') btn.classList.add('active');
+      render();
+    });
+    filtersEl.appendChild(btn);
+  });
+
+  render();
+}
+
+// ── FILTER & RENDER ─────────────────────────────────────────────────────────
+
+function getFiltered() {
+  return allMovies.filter(movie => {
+    const verdict = movie.verdict?.verdict || '';
+    if (activeFilter !== 'all' && verdict !== activeFilter) return false;
+    if (activeTheater !== 'all') {
+      const inTheater = (movie.theaters || []).some(t => t.name === activeTheater);
+      if (!inTheater) return false;
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const title = (movie.title || '').toLowerCase();
+      const genre = (movie.ratings?.genre || '').toLowerCase();
+      if (!title.includes(q) && !genre.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function render() {
+  const movies = getFiltered();
+  const main = document.getElementById('main-content');
+  main.innerHTML = '';
+
+  if (!movies.length) {
+    main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+    return;
+  }
+
+  const groups = { WATCH: [], DEPENDS: [], SKIP: [] };
+  movies.forEach(m => {
+    const v = m.verdict?.verdict || 'SKIP';
+    (groups[v] || groups.SKIP).push(m);
+  });
+
+  const order = activeFilter === 'all'
+    ? ['WATCH', 'DEPENDS', 'SKIP']
+    : [activeFilter];
+
+  order.forEach(verdict => {
+    const list = groups[verdict] || [];
+    if (!list.length) return;
+
+    const section = document.createElement('div');
+    section.className = 'verdict-section';
+
+    const labels = { WATCH: 'Watch', DEPENDS: 'Depends', SKIP: 'Skip' };
+    const header = document.createElement('div');
+    header.className = 'verdict-section-header';
+    header.innerHTML = `
+      <span class="verdict-badge-large ${verdict.toLowerCase()}">${labels[verdict]}</span>
+      <span class="section-count">${list.length} film${list.length !== 1 ? 's' : ''}</span>
+    `;
+    section.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'movies-grid';
+
+    list.forEach((movie, idx) => {
+      grid.appendChild(buildCard(movie, idx));
+    });
+
+    section.appendChild(grid);
+    main.appendChild(section);
+  });
+}
+
+// ── CARD BUILDER ────────────────────────────────────────────────────────────
+
+function buildCard(movie, idx) {
+  const verdict = (movie.verdict?.verdict || 'SKIP').toLowerCase();
+  const ratings = movie.ratings || {};
+  const rt = ratings.rt || null;
+  const imdb = ratings.imdb || null;
+  const meta = ratings.metacritic || null;
+  const reason = movie.verdict?.reason || '';
+  const vibe = movie.verdict?.vibe || '';
+  const plot = ratings.plot || '';
+  const genre = ratings.genre || '';
+  const runtime = ratings.runtime || '';
+  const year = ratings.year || '';
+  const theaters = movie.theaters || [];
+
+  // RT color
+  let rtClass = '';
+  if (rt) {
+    const n = parseInt(rt);
+    rtClass = n >= 80 ? 'rt-high' : n >= 60 ? 'rt-mid' : 'rt-low';
+  }
+
+  // Genre tags
+  const tags = genre.split(',').map(g => g.trim()).filter(Boolean);
+  if (runtime) tags.push(runtime);
+  if (vibe) tags.unshift(vibe);
+
+  // Theater section — show first theater inline, rest behind toggle
+  const firstTheater = theaters[0];
+  const extraTheaters = theaters.slice(1);
+
+  const tagsHTML = tags.slice(0, 4).map(t => `<span class="tag">${t}</span>`).join('');
+
+  const firstTheaterHTML = firstTheater ? `
+    <div class="theater-row">
+      <div class="theater-name">${firstTheater.name}</div>
+      ${buildScheduleHTML(firstTheater.schedule)}
+    </div>
+  ` : '';
+
+  const extraHTML = extraTheaters.map(t => `
+    <div class="theater-row">
+      <div class="theater-name">${t.name}</div>
+      ${buildScheduleHTML(t.schedule)}
+    </div>
+  `).join('');
+
+  const card = document.createElement('div');
+  card.className = `movie-card ${verdict}`;
+  card.style.animationDelay = `${idx * 40}ms`;
+
+  card.innerHTML = `
+    <div class="card-top">
+      <div>
+        <div class="movie-title">${movie.title}</div>
+        <div class="movie-year">${year}${ratings.director ? ' · ' + ratings.director : ''}</div>
+      </div>
+      <span class="verdict-pill ${verdict}">${verdict.toUpperCase()}</span>
+    </div>
+
+    <div class="card-meta">
+      ${rt ? `<div class="meta-item">
+        <span class="meta-value ${rtClass}">${rt}</span>
+        <span class="meta-label">Tomatometer</span>
+      </div><div class="meta-sep"></div>` : ''}
+      ${imdb ? `<div class="meta-item">
+        <span class="meta-value">${imdb}</span>
+        <span class="meta-label">IMDB</span>
+      </div><div class="meta-sep"></div>` : ''}
+      ${meta ? `<div class="meta-item">
+        <span class="meta-value">${meta}</span>
+        <span class="meta-label">Metacritic</span>
+      </div>` : ''}
+    </div>
+
+    ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
+
+    ${reason ? `<div class="card-reason">"${reason}"</div>` : ''}
+
+    ${plot ? `<div class="card-plot">${plot}</div>` : ''}
+
+    <div class="card-theaters">
+      ${firstTheaterHTML}
+      ${extraTheaters.length ? `
+        <button class="expand-theaters" onclick="toggleTheaters(this)">
+          + ${extraTheaters.length} more theater${extraTheaters.length > 1 ? 's' : ''}
+        </button>
+        <div class="theaters-detail">${extraHTML}</div>
+      ` : ''}
+    </div>
+  `;
+
+  return card;
+}
+
+function buildScheduleHTML(schedule) {
+  if (!schedule || !schedule.length) return '';
+  return schedule.slice(0, 3).map(s => `
+    <div>
+      <div class="theater-day">${s.day}</div>
+      <div class="showtime-list">
+        ${(s.times || []).map(t => `<span class="showtime-chip">${t}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleTheaters(btn) {
+  const detail = btn.nextElementSibling;
+  detail.classList.toggle('open');
+  btn.textContent = detail.classList.contains('open')
+    ? '↑ collapse'
+    : btn.textContent.replace('↑ collapse', '').trim();
+}
+
+// ── FILTER CONTROLS ─────────────────────────────────────────────────────────
+
+document.querySelectorAll('[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeFilter = btn.dataset.filter;
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+
+// ── MOCK DATA ────────────────────────────────────────────────────────────────
+
+function getMockData() {
+  return {
+    generated_at: new Date().toISOString(),
+    week_of: "April 4, 2026",
+    theaters: [
+      "Metrograph", "IFC Center", "Angelika Film Center",
+      "Film Forum", "Village East by Angelika",
+      "Film at Lincoln Center", "Alamo Drafthouse Lower Manhattan"
+    ],
+    movies: [
+      {
+        title: "Caught by the Tides",
+        ratings: { rt: "97%", imdb: "7.8", metacritic: "92", genre: "Drama", runtime: "112 min", year: "2024", director: "Jia Zhangke", plot: "A decade-spanning portrait of a woman searching for a lost love across a rapidly changing China." },
+        verdict: { verdict: "WATCH", reason: "Jia Zhangke's most emotionally urgent film in years.", vibe: "Essential" },
+        theaters: [
+          { name: "Metrograph", schedule: [{ day: "Friday", times: ["2:30 PM", "7:45 PM"] }, { day: "Saturday", times: ["2:30 PM", "7:45 PM"] }] },
+          { name: "Film Forum", schedule: [{ day: "Sunday", times: ["4:00 PM"] }] }
+        ]
+      },
+      {
+        title: "A Real Pain",
+        ratings: { rt: "99%", imdb: "7.9", metacritic: "94", genre: "Comedy, Drama", runtime: "90 min", year: "2024", director: "Jesse Eisenberg", plot: "Two cousins travel to Poland to honor their late grandmother and confront the weight of their family history." },
+        verdict: { verdict: "WATCH", reason: "Kieran Culkin is electric — don't miss this one.", vibe: "Funny & devastating" },
+        theaters: [
+          { name: "IFC Center", schedule: [{ day: "Friday", times: ["1:00 PM", "5:30 PM", "9:15 PM"] }, { day: "Saturday", times: ["1:00 PM", "5:30 PM", "9:15 PM"] }] }
+        ]
+      },
+      {
+        title: "Nickel Boys",
+        ratings: { rt: "98%", imdb: "7.6", metacritic: "95", genre: "Drama, History", runtime: "140 min", year: "2024", director: "RaMell Ross", plot: "Two boys navigate the brutal Nickel Academy reform school in Jim Crow-era Florida." },
+        verdict: { verdict: "WATCH", reason: "A formal breakthrough that demands the big screen.", vibe: "Visionary" },
+        theaters: [
+          { name: "Angelika Film Center", schedule: [{ day: "Friday", times: ["3:00 PM", "8:00 PM"] }] },
+          { name: "Village East by Angelika", schedule: [{ day: "Saturday", times: ["2:00 PM", "6:30 PM"] }] }
+        ]
+      },
+      {
+        title: "Hard Truths",
+        ratings: { rt: "96%", imdb: "7.3", metacritic: "88", genre: "Drama", runtime: "97 min", year: "2024", director: "Mike Leigh", plot: "A volatile, deeply unhappy woman navigates her fractured family life in contemporary London." },
+        verdict: { verdict: "WATCH", reason: "Marianne Jean-Baptiste delivers a performance for the ages.", vibe: "Bruising" },
+        theaters: [
+          { name: "Film Forum", schedule: [{ day: "Friday", times: ["1:30 PM", "6:45 PM"] }, { day: "Sunday", times: ["1:30 PM", "6:45 PM"] }] }
+        ]
+      },
+      {
+        title: "September Says",
+        ratings: { rt: "78%", imdb: "6.8", metacritic: "74", genre: "Drama, Thriller", runtime: "118 min", year: "2024", director: "Angélique Litzenburger", plot: "Two sisters share an obsessive bond on a Greek island that grows increasingly dangerous." },
+        verdict: { verdict: "DEPENDS", reason: "Haunting atmosphere, deliberately opaque — requires patience.", vibe: "Slow burn" },
+        theaters: [
+          { name: "Metrograph", schedule: [{ day: "Saturday", times: ["4:15 PM", "9:00 PM"] }] },
+          { name: "Film at Lincoln Center", schedule: [{ day: "Friday", times: ["7:00 PM"] }] }
+        ]
+      },
+      {
+        title: "The Shrouds",
+        ratings: { rt: "40%", imdb: "5.9", metacritic: "52", genre: "Drama, Sci-Fi", runtime: "119 min", year: "2024", director: "David Cronenberg", plot: "A tech entrepreneur creates a way to watch the decomposition of the dead." },
+        verdict: { verdict: "DEPENDS", reason: "Cronenberg at his most personal and uneven — for fans only.", vibe: "Divisive" },
+        theaters: [
+          { name: "IFC Center", schedule: [{ day: "Friday", times: ["7:30 PM"] }, { day: "Saturday", times: ["2:15 PM"] }] }
+        ]
+      },
+      {
+        title: "Presence",
+        ratings: { rt: "79%", imdb: "6.2", metacritic: "70", genre: "Horror, Drama", runtime: "85 min", year: "2024", director: "Steven Soderbergh", plot: "A family moves into a new home and sense they are not alone." },
+        verdict: { verdict: "DEPENDS", reason: "Smart formal conceit that outstays its welcome slightly.", vibe: "Formal exercise" },
+        theaters: [
+          { name: "Alamo Drafthouse Lower Manhattan", schedule: [{ day: "Friday", times: ["6:00 PM", "8:30 PM"] }, { day: "Saturday", times: ["4:00 PM", "8:30 PM"] }] },
+          { name: "Angelika Film Center", schedule: [{ day: "Sunday", times: ["5:15 PM"] }] }
+        ]
+      },
+      {
+        title: "Companion",
+        ratings: { rt: "75%", imdb: "6.8", metacritic: "64", genre: "Thriller, Sci-Fi", runtime: "97 min", year: "2025", director: "Drew Hancock", plot: "A woman discovers she may not be human during a weekend getaway gone wrong." },
+        verdict: { verdict: "SKIP", reason: "Clever premise suffocated by genre predictability.", vibe: "Middling" },
+        theaters: [
+          { name: "Village East by Angelika", schedule: [{ day: "Friday", times: ["7:45 PM"] }] }
+        ]
+      }
+    ]
+  };
+}
+
+// ── BOOT ─────────────────────────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>
