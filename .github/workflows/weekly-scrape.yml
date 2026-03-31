@@ -36,3 +36,6 @@ jobs:
           git add public/data.json
           git diff --staged --quiet || git commit -m "Weekly cinema update — $(date +'%B %d, %Y')"
           git push
+
+      - name: Deploy to Vercel
+        run: npx vercel deploy public/ --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --name cinema-dashboard
