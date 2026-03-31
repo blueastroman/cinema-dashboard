@@ -27,6 +27,20 @@ SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
+# ─── TITLE CLEANING ───────────────────────────────────────────────────────────
+
+import re
+
+FORMAT_TAGS = re.compile(
+    r'\b(70mm|35mm|imax|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
+    r'|\s*[\(\[]?(70mm|35mm|imax|4k|dcp)[\)\]]?',
+    re.IGNORECASE
+)
+
+def clean_title(raw: str) -> str:
+    """Strip projection format tags from a showtime title before lookup."""
+    return FORMAT_TAGS.sub('', raw).strip(' -–—·')
+
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
 def fetch_showtimes(theater: dict) -> list[dict]:
@@ -50,7 +64,7 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                 for showing in movie.get("showing", []):
                     times.extend(showing.get("time", []))
                 movies.append({
-                    "title": movie.get("name", "Unknown"),
+                    "title": clean_title(movie.get("name", "Unknown")),
                     "theater": theater["name"],
                     "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
                     "times": times,
