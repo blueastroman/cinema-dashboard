@@ -452,6 +452,14 @@
       border-radius: 2px;
       border: 1px solid var(--mid-gray);
       color: var(--text-dim);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    a.showtime-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      cursor: pointer;
     }
 
     .theater-day {
@@ -1002,14 +1010,14 @@ function buildCard(movie, idx) {
   const firstTheaterHTML = firstTheater ? `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(firstTheater.name)}</div>
-      ${buildScheduleHTML(firstTheater.schedule)}
+      ${buildScheduleHTML(firstTheater.schedule, firstTheater.name, movie.title)}
     </div>
   ` : '';
 
   const extraHTML = extraTheaters.map(t => `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(t.name)}</div>
-      ${buildScheduleHTML(t.schedule)}
+      ${buildScheduleHTML(t.schedule, t.name, movie.title)}
     </div>
   `).join('');
 
@@ -1100,13 +1108,48 @@ function onHide(btn, title) {
   setTimeout(() => render(), 320);
 }
 
-function buildScheduleHTML(schedule) {
+function makeSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/['']/g, '')
+    .replace(/[.,:!?()&]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
+function getTicketUrl(theaterName, movieTitle) {
+  const slug = makeSlug(movieTitle);
+  const enc = encodeURIComponent(movieTitle);
+  switch (theaterName) {
+    case 'Metrograph':
+      return `https://metrograph.com/film/?slug=${slug}`;
+    case 'IFC Center':
+      return `https://www.ifccenter.com/films/${slug}/`;
+    case 'Angelika Film Center':
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+    case 'Film Forum':
+      return `https://filmforum.org/film/${slug}/`;
+    case 'Village East by Angelika':
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+    case 'Lincoln Center - Film at Lincoln Center':
+      return `https://www.filmlinc.org/films/${slug}/`;
+    case 'Alamo Drafthouse Lower Manhattan':
+      return `https://drafthouse.com/nyc/show/${slug}`;
+    default:
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+  }
+}
+
+function buildScheduleHTML(schedule, theaterName, movieTitle) {
   if (!schedule || !schedule.length) return '';
+  const url = getTicketUrl(theaterName, movieTitle);
   return schedule.slice(0, 3).map(s => `
     <div>
       <div class="theater-day">${s.day}</div>
       <div class="showtime-list">
-        ${(s.times || []).map(t => `<span class="showtime-chip">${t}</span>`).join('')}
+        ${(s.times || []).map(t => `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>`).join('')}
       </div>
     </div>
   `).join('');
