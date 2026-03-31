@@ -44,16 +44,17 @@ def fetch_showtimes(theater: dict) -> list[dict]:
         r = requests.get("https://serpapi.com/search", params=params, timeout=15)
         data = r.json()
         movies = []
-        # SerpAPI returns showtimes_results for theater queries
-        for result in data.get("showtimes", []):
-            for day in result.get("day_results", []):
-                for movie in day.get("movies", []):
-                    movies.append({
-                        "title": movie.get("name", "Unknown"),
-                        "theater": theater["name"],
-                        "day": day.get("day", ""),
-                        "times": movie.get("times", []),
-                    })
+        for day in data.get("showtimes", []):
+            for movie in day.get("movies", []):
+                times = []
+                for showing in movie.get("showing", []):
+                    times.extend(showing.get("time", []))
+                movies.append({
+                    "title": movie.get("name", "Unknown"),
+                    "theater": theater["name"],
+                    "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
+                    "times": times,
+                })
         return movies
     except Exception as e:
         print(f"  [ERROR] SerpAPI failed for {theater['name']}: {e}")
