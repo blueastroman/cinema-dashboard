@@ -31,7 +31,7 @@
       --skip-bg: #2a0f0f;
     }
 
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html { font-size: 17px; scroll-behavior: smooth; }
 
     body {
       background: var(--black);
@@ -90,7 +90,7 @@
 
     .week-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: var(--muted);
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -106,7 +106,7 @@
 
     .filter-btn {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 5px 12px;
@@ -160,7 +160,7 @@
 
     .stat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
+      font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -226,7 +226,7 @@
 
     .verdict-badge-large {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 6px 14px;
@@ -252,7 +252,7 @@
 
     .section-count {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: var(--muted);
       letter-spacing: 0.1em;
     }
@@ -308,7 +308,7 @@
 
     .movie-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1.3rem;
       font-weight: 700;
       line-height: 1.25;
       color: var(--cream);
@@ -317,7 +317,7 @@
 
     .movie-year {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: var(--muted);
       margin-top: 4px;
       letter-spacing: 0.1em;
@@ -326,7 +326,7 @@
     /* Verdict badge */
     .verdict-pill {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       padding: 4px 10px;
@@ -355,7 +355,7 @@
 
     .meta-value {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1;
@@ -367,7 +367,7 @@
 
     .meta-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
@@ -388,7 +388,7 @@
 
     .tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
+      font-size: 0.66rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 3px 8px;
@@ -399,7 +399,7 @@
 
     /* Reason */
     .card-reason {
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       color: var(--text-dim);
       font-style: italic;
       line-height: 1.5;
@@ -409,7 +409,7 @@
 
     /* Plot */
     .card-plot {
-      font-size: 0.78rem;
+      font-size: 0.86rem;
       color: var(--muted);
       line-height: 1.6;
       display: -webkit-box;
@@ -433,7 +433,7 @@
 
     .theater-name {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
@@ -447,7 +447,7 @@
 
     .showtime-chip {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
+      font-size: 0.66rem;
       padding: 2px 7px;
       border-radius: 2px;
       border: 1px solid var(--mid-gray);
@@ -456,7 +456,7 @@
 
     .theater-day {
       font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
+      font-size: 0.64rem;
       color: var(--muted);
       margin-bottom: 2px;
       letter-spacing: 0.08em;
@@ -465,7 +465,7 @@
     /* Expand toggle */
     .expand-theaters {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
+      font-size: 0.66rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
@@ -483,6 +483,60 @@
 
     .theaters-detail { display: none; }
     .theaters-detail.open { display: flex; flex-direction: column; gap: 10px; }
+
+    /* Theater link */
+    .theater-name a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .theater-name a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── CARD ACTIONS ──────────────────────────────────────── */
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      padding-top: 4px;
+      border-top: 1px solid var(--dark-gray);
+      margin-top: 4px;
+    }
+
+    .action-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .action-btn:hover { border-color: var(--accent-dim); color: var(--accent); }
+    .action-btn.active-watched { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
+    .action-btn.active-hidden { border-color: var(--skip); color: var(--skip); background: var(--skip-bg); }
+
+    /* Watched card overlay */
+    .movie-card.is-watched {
+      opacity: 0.5;
+    }
+    .movie-card.is-watched .movie-title::after {
+      content: ' ✓';
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--watch);
+      font-weight: 400;
+    }
+
+    /* Hidden card */
+    .movie-card.is-hidden {
+      display: none;
+    }
 
     /* ── EMPTY STATE ───────────────────────────────────────── */
     .empty-state {
@@ -530,7 +584,7 @@
 
     .footer-text {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
+      font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -610,6 +664,12 @@
         <span class="stat-num" id="stat-generated" style="font-size:0.75rem; color: var(--muted)">—</span>
         <span class="stat-label">Last Updated</span>
       </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Sort</span>
+        <button class="filter-btn active" id="sort-verdict" onclick="setSort('verdict')">Verdict</button>
+        <button class="filter-btn" id="sort-rt" onclick="setSort('rt')">Tomatometer</button>
+        <button class="filter-btn" id="sort-day" onclick="setSort('day')">Day</button>
+      </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
@@ -635,6 +695,41 @@ let allMovies = [];
 let activeFilter = 'all';
 let activeTheater = 'all';
 let searchQuery = '';
+let activeSort = 'verdict';
+
+// ── THEATER URLs ───────────────────────────────────────────────────────────
+const THEATER_URLS = {
+  'Metrograph': 'https://metrograph.com',
+  'IFC Center': 'https://ifccenter.com',
+  'Angelika Film Center': 'https://angelikafilmcenter.com/nyc',
+  'Film Forum': 'https://filmforum.org',
+  'Village East by Angelika': 'https://angelikafilmcenter.com/villageeast',
+  'Lincoln Center - Film at Lincoln Center': 'https://filmlinc.org',
+  'Alamo Drafthouse Lower Manhattan': 'https://drafthouse.com/nyc',
+};
+
+// ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
+const MOCK_REASONS = [
+  "Critics are united — this one earns its runtime.",
+  "Strong but divisive — know what you're signing up for.",
+  "The scores don't lie — pass on this one.",
+];
+
+// ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
+function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
+function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
+function toggleWatched(title) {
+  const list = getWatched();
+  const idx = list.indexOf(title);
+  if (idx > -1) list.splice(idx, 1); else list.push(title);
+  localStorage.setItem('cinema_watched', JSON.stringify(list));
+}
+function toggleHidden(title) {
+  const list = getHidden();
+  const idx = list.indexOf(title);
+  if (idx > -1) list.splice(idx, 1); else list.push(title);
+  localStorage.setItem('cinema_hidden', JSON.stringify(list));
+}
 
 // ── DATA LOAD ──────────────────────────────────────────────────────────────
 
@@ -691,7 +786,9 @@ function initDashboard(data) {
 // ── FILTER & RENDER ─────────────────────────────────────────────────────────
 
 function getFiltered() {
+  const hidden = getHidden();
   return allMovies.filter(movie => {
+    if (hidden.includes(movie.title)) return false;
     const verdict = movie.verdict?.verdict || '';
     if (activeFilter !== 'all' && verdict !== activeFilter) return false;
     if (activeTheater !== 'all') {
@@ -708,13 +805,65 @@ function getFiltered() {
   });
 }
 
+// ── SORT ────────────────────────────────────────────────────────────────────
+
+const DAY_ORDER = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+function getRTScore(movie) {
+  const rt = movie.ratings?.rt || '0%';
+  return parseInt(rt) || 0;
+}
+
+function getEarliestDay(movie) {
+  const days = (movie.theaters || []).flatMap(t =>
+    (t.schedule || []).map(s => {
+      const d = (s.day || '').slice(0, 3);
+      const idx = DAY_ORDER.indexOf(d);
+      return idx === -1 ? 99 : idx;
+    })
+  );
+  return days.length ? Math.min(...days) : 99;
+}
+
+function sortMovies(movies) {
+  if (activeSort === 'rt') {
+    return [...movies].sort((a, b) => getRTScore(b) - getRTScore(a));
+  }
+  if (activeSort === 'day') {
+    return [...movies].sort((a, b) => getEarliestDay(a) - getEarliestDay(b));
+  }
+  // default: verdict order
+  return movies;
+}
+
+function setSort(mode) {
+  activeSort = mode;
+  ['verdict', 'rt', 'day'].forEach(m => {
+    document.getElementById('sort-' + m)?.classList.toggle('active', m === mode);
+  });
+  render();
+}
+
 function render() {
-  const movies = getFiltered();
+  let movies = getFiltered();
   const main = document.getElementById('main-content');
   main.innerHTML = '';
 
   if (!movies.length) {
     main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+    return;
+  }
+
+  // For non-verdict sorts, render as a flat grid (no verdict sections)
+  if (activeSort !== 'verdict') {
+    movies = sortMovies(movies);
+    const section = document.createElement('div');
+    section.className = 'verdict-section';
+    const grid = document.createElement('div');
+    grid.className = 'movies-grid';
+    movies.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
+    section.appendChild(grid);
+    main.appendChild(section);
     return;
   }
 
@@ -758,19 +907,28 @@ function render() {
 
 // ── CARD BUILDER ────────────────────────────────────────────────────────────
 
+function theaterLink(name) {
+  const url = THEATER_URLS[name];
+  return url
+    ? `<a href="${url}" target="_blank" rel="noopener">${name}</a>`
+    : name;
+}
+
 function buildCard(movie, idx) {
   const verdict = (movie.verdict?.verdict || 'SKIP').toLowerCase();
   const ratings = movie.ratings || {};
   const rt = ratings.rt || null;
-  const imdb = ratings.imdb || null;
   const meta = ratings.metacritic || null;
-  const reason = movie.verdict?.reason || '';
+  const cinemaScore = ratings.cinemaScore || null;
+  const rawReason = movie.verdict?.reason || '';
+  const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
   const vibe = movie.verdict?.vibe || '';
   const plot = ratings.plot || '';
   const genre = ratings.genre || '';
   const runtime = ratings.runtime || '';
   const year = ratings.year || '';
   const theaters = movie.theaters || [];
+  const watched = getWatched().includes(movie.title);
 
   // RT color
   let rtClass = '';
@@ -784,7 +942,7 @@ function buildCard(movie, idx) {
   if (runtime) tags.push(runtime);
   if (vibe) tags.unshift(vibe);
 
-  // Theater section — show first theater inline, rest behind toggle
+  // Theater rows
   const firstTheater = theaters[0];
   const extraTheaters = theaters.slice(1);
 
@@ -792,21 +950,22 @@ function buildCard(movie, idx) {
 
   const firstTheaterHTML = firstTheater ? `
     <div class="theater-row">
-      <div class="theater-name">${firstTheater.name}</div>
+      <div class="theater-name">${theaterLink(firstTheater.name)}</div>
       ${buildScheduleHTML(firstTheater.schedule)}
     </div>
   ` : '';
 
   const extraHTML = extraTheaters.map(t => `
     <div class="theater-row">
-      <div class="theater-name">${t.name}</div>
+      <div class="theater-name">${theaterLink(t.name)}</div>
       ${buildScheduleHTML(t.schedule)}
     </div>
   `).join('');
 
   const card = document.createElement('div');
-  card.className = `movie-card ${verdict}`;
+  card.className = `movie-card ${verdict}${watched ? ' is-watched' : ''}`;
   card.style.animationDelay = `${idx * 40}ms`;
+  card.dataset.title = movie.title;
 
   card.innerHTML = `
     <div class="card-top">
@@ -821,14 +980,14 @@ function buildCard(movie, idx) {
       ${rt ? `<div class="meta-item">
         <span class="meta-value ${rtClass}">${rt}</span>
         <span class="meta-label">Tomatometer</span>
-      </div><div class="meta-sep"></div>` : ''}
-      ${imdb ? `<div class="meta-item">
-        <span class="meta-value">${imdb}</span>
-        <span class="meta-label">IMDB</span>
-      </div><div class="meta-sep"></div>` : ''}
-      ${meta ? `<div class="meta-item">
+      </div>` : ''}
+      ${meta ? `<div class="meta-sep"></div><div class="meta-item">
         <span class="meta-value">${meta}</span>
         <span class="meta-label">Metacritic</span>
+      </div>` : ''}
+      ${cinemaScore ? `<div class="meta-sep"></div><div class="meta-item">
+        <span class="meta-value">${cinemaScore}</span>
+        <span class="meta-label">CinemaScore</span>
       </div>` : ''}
     </div>
 
@@ -847,9 +1006,36 @@ function buildCard(movie, idx) {
         <div class="theaters-detail">${extraHTML}</div>
       ` : ''}
     </div>
+
+    <div class="card-actions">
+      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${movie.title.replace(/'/g, "\\'")}')">
+        ${watched ? '✓ Watched' : 'Mark Watched'}
+      </button>
+      <button class="action-btn" onclick="onHide(this, '${movie.title.replace(/'/g, "\\'")}')">
+        Not Interested
+      </button>
+    </div>
   `;
 
   return card;
+}
+
+function onWatched(btn, title) {
+  toggleWatched(title);
+  const card = btn.closest('.movie-card');
+  const isNowWatched = getWatched().includes(title);
+  card.classList.toggle('is-watched', isNowWatched);
+  btn.classList.toggle('active-watched', isNowWatched);
+  btn.textContent = isNowWatched ? '✓ Watched' : 'Mark Watched';
+}
+
+function onHide(btn, title) {
+  toggleHidden(title);
+  const card = btn.closest('.movie-card');
+  card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  card.style.opacity = '0';
+  card.style.transform = 'scale(0.97)';
+  setTimeout(() => render(), 320);
 }
 
 function buildScheduleHTML(schedule) {

@@ -102,10 +102,12 @@ def fetch_ratings(title: str) -> dict:
             return {"rt": None, "imdb": None, "metacritic": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None}
 
         rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
+        cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
         return {
             "rt": rt,
             "imdb": data.get("imdbRating"),
             "metacritic": data.get("Metascore"),
+            "cinemaScore": cinema_score,
             "poster": data.get("Poster"),
             "genre": data.get("Genre"),
             "runtime": data.get("Runtime"),
