@@ -1018,7 +1018,16 @@ function buildCard(movie, idx) {
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
-  const lbUrl = `https://letterboxd.com/search/films/${encodeURIComponent(movie.title)}/`;
+  const lbSlug = movie.title
+    .toLowerCase()
+    .replace(/['']/g, '')
+    .replace(/[.,:!?()&]/g, '')
+    .replace(/\.\.\./g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+  const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
   card.innerHTML = `
     <div class="card-top">
