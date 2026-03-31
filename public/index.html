@@ -629,6 +629,8 @@
       </div>
 
       <div class="filters" id="filters">
+        <button class="filter-btn" id="today-btn" data-filter="today" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
+        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="WATCH">Watch</button>
         <button class="filter-btn" data-filter="DEPENDS">Depends</button>
@@ -696,6 +698,40 @@ let activeFilter = 'all';
 let activeTheater = 'all';
 let searchQuery = '';
 let activeSort = 'verdict';
+
+// ── DATE HELPERS ───────────────────────────────────────────────────────────
+
+function getTodayLabel() {
+  // Returns e.g. "Mar 31" to match against "Tue Mar 31" schedule day strings
+  return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function getThisWeekDayOrder() {
+  // Returns sorted day labels starting from today
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const todayIdx = new Date().getDay();
+  const ordered = [];
+  for (let i = 0; i < 7; i++) ordered.push(days[(todayIdx + i) % 7]);
+  return ordered;
+}
+
+function moviePlayingOn(movie, dateLabel) {
+  return (movie.theaters || []).some(t =>
+    (t.schedule || []).some(s => (s.day || '').includes(dateLabel))
+  );
+}
+
+function movieEarliestDayIdx(movie, dayOrder) {
+  let best = 99;
+  (movie.theaters || []).forEach(t =>
+    (t.schedule || []).forEach(s => {
+      const d = (s.day || '').slice(0, 3);
+      const idx = dayOrder.indexOf(d);
+      if (idx !== -1 && idx < best) best = idx;
+    })
+  );
+  return best;
+}
 
 // ── THEATER URLs ───────────────────────────────────────────────────────────
 const THEATER_URLS = {
@@ -787,10 +823,15 @@ function initDashboard(data) {
 
 function getFiltered() {
   const hidden = getHidden();
+  const today = getTodayLabel();
   return allMovies.filter(movie => {
     if (hidden.includes(movie.title)) return false;
-    const verdict = movie.verdict?.verdict || '';
-    if (activeFilter !== 'all' && verdict !== activeFilter) return false;
+    if (activeFilter === 'today') {
+      if (!moviePlayingOn(movie, today)) return false;
+    } else {
+      const verdict = movie.verdict?.verdict || '';
+      if (activeFilter !== 'all' && verdict !== activeFilter) return false;
+    }
     if (activeTheater !== 'all') {
       const inTheater = (movie.theaters || []).some(t => t.name === activeTheater);
       if (!inTheater) return false;
@@ -807,33 +848,9 @@ function getFiltered() {
 
 // ── SORT ────────────────────────────────────────────────────────────────────
 
-const DAY_ORDER = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
 function getRTScore(movie) {
   const rt = movie.ratings?.rt || '0%';
   return parseInt(rt) || 0;
-}
-
-function getEarliestDay(movie) {
-  const days = (movie.theaters || []).flatMap(t =>
-    (t.schedule || []).map(s => {
-      const d = (s.day || '').slice(0, 3);
-      const idx = DAY_ORDER.indexOf(d);
-      return idx === -1 ? 99 : idx;
-    })
-  );
-  return days.length ? Math.min(...days) : 99;
-}
-
-function sortMovies(movies) {
-  if (activeSort === 'rt') {
-    return [...movies].sort((a, b) => getRTScore(b) - getRTScore(a));
-  }
-  if (activeSort === 'day') {
-    return [...movies].sort((a, b) => getEarliestDay(a) - getEarliestDay(b));
-  }
-  // default: verdict order
-  return movies;
 }
 
 function setSort(mode) {
@@ -844,8 +861,25 @@ function setSort(mode) {
   render();
 }
 
+function renderSection(label, labelClass, list, main) {
+  const section = document.createElement('div');
+  section.className = 'verdict-section';
+  const header = document.createElement('div');
+  header.className = 'verdict-section-header';
+  header.innerHTML = `
+    <span class="verdict-badge-large ${labelClass}">${label}</span>
+    <span class="section-count">${list.length} film${list.length !== 1 ? 's' : ''}</span>
+  `;
+  section.appendChild(header);
+  const grid = document.createElement('div');
+  grid.className = 'movies-grid';
+  list.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
+  section.appendChild(grid);
+  main.appendChild(section);
+}
+
 function render() {
-  let movies = getFiltered();
+  const movies = getFiltered();
   const main = document.getElementById('main-content');
   main.innerHTML = '';
 
@@ -854,54 +888,71 @@ function render() {
     return;
   }
 
-  // For non-verdict sorts, render as a flat grid (no verdict sections)
-  if (activeSort !== 'verdict') {
-    movies = sortMovies(movies);
+  // ── DAY sort: group by day of week ──────────────────────────────────────
+  if (activeSort === 'day' || activeFilter === 'today') {
+    const dayOrder = getThisWeekDayOrder();
+    const today = getTodayLabel();
+    const dayNames = { Sun: 'Sunday', Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday' };
+
+    // For each day in week order, collect movies playing that day
+    // Build a map: dayAbbr -> Set of movie titles (to avoid duplicates per day)
+    const dayGroups = {};
+    dayOrder.forEach(d => { dayGroups[d] = []; });
+
+    movies.forEach(movie => {
+      const seen = new Set();
+      (movie.theaters || []).forEach(t => {
+        (t.schedule || []).forEach(s => {
+          const abbr = (s.day || '').slice(0, 3);
+          if (dayOrder.includes(abbr) && !seen.has(abbr)) {
+            seen.add(abbr);
+            dayGroups[abbr].push(movie);
+          }
+        });
+      });
+    });
+
+    dayOrder.forEach(abbr => {
+      const list = dayGroups[abbr];
+      if (!list.length) return;
+      const isToday = list.some(m => moviePlayingOn(m, today)) &&
+        list[0] && moviePlayingOn(list[0], today) || abbr === new Date().toLocaleDateString('en-US', {weekday:'short'}).slice(0,3);
+      const label = isToday ? 'Today' : (dayNames[abbr] || abbr);
+      const cls = isToday ? 'watch' : 'depends';
+      renderSection(label, cls, list, main);
+    });
+    return;
+  }
+
+  // ── RT sort: flat list by score ─────────────────────────────────────────
+  if (activeSort === 'rt') {
+    const sorted = [...movies].sort((a, b) => getRTScore(b) - getRTScore(a));
     const section = document.createElement('div');
     section.className = 'verdict-section';
     const grid = document.createElement('div');
     grid.className = 'movies-grid';
-    movies.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
+    sorted.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
     section.appendChild(grid);
     main.appendChild(section);
     return;
   }
 
+  // ── Default: verdict groups ─────────────────────────────────────────────
   const groups = { WATCH: [], DEPENDS: [], SKIP: [] };
   movies.forEach(m => {
     const v = m.verdict?.verdict || 'SKIP';
     (groups[v] || groups.SKIP).push(m);
   });
 
-  const order = activeFilter === 'all'
+  const order = (activeFilter === 'all' || activeFilter === 'today')
     ? ['WATCH', 'DEPENDS', 'SKIP']
     : [activeFilter];
 
+  const labels = { WATCH: 'Watch', DEPENDS: 'Depends', SKIP: 'Skip' };
   order.forEach(verdict => {
     const list = groups[verdict] || [];
     if (!list.length) return;
-
-    const section = document.createElement('div');
-    section.className = 'verdict-section';
-
-    const labels = { WATCH: 'Watch', DEPENDS: 'Depends', SKIP: 'Skip' };
-    const header = document.createElement('div');
-    header.className = 'verdict-section-header';
-    header.innerHTML = `
-      <span class="verdict-badge-large ${verdict.toLowerCase()}">${labels[verdict]}</span>
-      <span class="section-count">${list.length} film${list.length !== 1 ? 's' : ''}</span>
-    `;
-    section.appendChild(header);
-
-    const grid = document.createElement('div');
-    grid.className = 'movies-grid';
-
-    list.forEach((movie, idx) => {
-      grid.appendChild(buildCard(movie, idx));
-    });
-
-    section.appendChild(grid);
-    main.appendChild(section);
+    renderSection(labels[verdict], verdict.toLowerCase(), list, main);
   });
 }
 
@@ -917,9 +968,9 @@ function theaterLink(name) {
 function buildCard(movie, idx) {
   const verdict = (movie.verdict?.verdict || 'SKIP').toLowerCase();
   const ratings = movie.ratings || {};
-  const rt = ratings.rt || null;
-  const meta = ratings.metacritic || null;
-  const cinemaScore = ratings.cinemaScore || null;
+  const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
+  const meta = (ratings.metacritic && ratings.metacritic !== 'N/A' && ratings.metacritic !== '0') ? ratings.metacritic : null;
+  const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? ratings.cinemaScore : null;
   const rawReason = movie.verdict?.reason || '';
   const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
   const vibe = movie.verdict?.vibe || '';
@@ -967,10 +1018,12 @@ function buildCard(movie, idx) {
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
+  const lbUrl = `https://letterboxd.com/search/films/${encodeURIComponent(movie.title)}/`;
+
   card.innerHTML = `
     <div class="card-top">
       <div>
-        <div class="movie-title">${movie.title}</div>
+        <div class="movie-title"><a href="${lbUrl}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${movie.title}</a></div>
         <div class="movie-year">${year}${ratings.director ? ' · ' + ratings.director : ''}</div>
       </div>
       <span class="verdict-pill ${verdict}">${verdict.toUpperCase()}</span>
@@ -1063,8 +1116,19 @@ function toggleTheaters(btn) {
 document.querySelectorAll('[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => {
     activeFilter = btn.dataset.filter;
-    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('[data-filter]').forEach(b => {
+      b.classList.remove('active');
+      // Restore Today button's gold styling when not active
+      if (b.id === 'today-btn') {
+        b.style.borderColor = 'var(--accent-dim)';
+        b.style.color = 'var(--accent)';
+      }
+    });
     btn.classList.add('active');
+    if (btn.id === 'today-btn') {
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }
     render();
   });
 });
