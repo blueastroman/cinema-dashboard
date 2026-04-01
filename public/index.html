@@ -377,6 +377,11 @@
       gap: 12px;
     }
 
+    .card-top > div {
+      min-width: 0;
+      flex: 1;
+    }
+
     .movie-title {
       font-family: var(--font-sans);
       font-size: 1.65rem;
@@ -384,6 +389,8 @@
       line-height: 1.2;
       color: var(--cream);
       flex: 1;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .movie-year {
