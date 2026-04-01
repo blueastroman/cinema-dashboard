@@ -1651,7 +1651,7 @@ function renderTheaterView() {
     // Skip if theater filter is active and this isn't the selected one
     if (activeTheater !== 'all' && activeTheater !== theaterName) return;
 
-    // Films at this theater, ordered by earliest upcoming showtime at this theater.
+    // Films at this theater, ordered by active sort mode.
     const filmEntries = movies.map(movie => {
       const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
       if (!theaterData) return null;
@@ -1659,6 +1659,10 @@ function renderTheaterView() {
       if (!nextShow) return null;
       return { movie, theaterData, nextShow };
     }).filter(Boolean).sort((a, b) => {
+      if (activeSort === 'rating') {
+        const scoreDelta = getPriorityScore(b.movie) - getPriorityScore(a.movie);
+        if (scoreDelta !== 0) return scoreDelta;
+      }
       if (a.nextShow.at.getTime() !== b.nextShow.at.getTime()) return a.nextShow.at - b.nextShow.at;
       return (a.movie.title || '').localeCompare(b.movie.title || '');
     });
