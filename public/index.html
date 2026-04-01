@@ -1022,18 +1022,22 @@ function getActiveDayFilterLabel() {
   return null;
 }
 
-function getShowtimeDayShortLabel(dayLabel) {
+function getShowtimeDayLabel(dayLabel) {
   const raw = String(dayLabel || '').trim();
   if (!raw) return '';
   if (/^today$/i.test(raw)) {
-    return getNYNow().toLocaleDateString('en-US', { weekday: 'short' });
+    return getNYNow().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   }
   if (/^tomorrow$/i.test(raw)) {
     const d = getNYNow();
     d.setDate(d.getDate() + 1);
-    return d.toLocaleDateString('en-US', { weekday: 'short' });
+    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   }
-  return raw.slice(0, 3);
+  const parsed = parseShowtimeDate(raw, '12:00PM');
+  if (parsed) {
+    return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+  return raw;
 }
 
 function dayMatchesActiveScope(dayLabel, activeDayLabel) {
@@ -2010,7 +2014,7 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
       if (!showAt || showAt < now) continue;
       items.push({
         at: showAt,
-        label: showDayPrefix ? `${getShowtimeDayShortLabel(dayRaw)} ${t}` : t,
+        label: showDayPrefix ? `${getShowtimeDayLabel(dayRaw)} ${t}` : t,
       });
     }
   }
