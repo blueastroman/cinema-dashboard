@@ -7,9 +7,6 @@ on:
     - cron: "0 13 * * 3"
   workflow_dispatch: # Allow manual trigger
 
-permissions:
-  contents: write
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -32,22 +29,19 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests anthropic
+        run: pip install -r requirements.txt
 
       - name: Run scraper
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/scrape.py
+        run: python files/scrape.py
 
       - name: Commit updated data
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Cinema Bot"
-          git add public/data.json
+          git add files/data.json
           git diff --staged --quiet || git commit -m "Weekly cinema update — $(date +'%B %d, %Y')"
           git push
-
-      - name: Deploy to Vercel
-        run: npx vercel deploy public/ --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --name cinema-dashboard

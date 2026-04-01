@@ -2,8 +2,6 @@
 
 Weekly auto-refreshing dashboard for NYC indie cinema. Pulls showtimes, ratings, and Claude-generated verdicts every Wednesday morning.
 
-Live production updates are deployed via the connected Vercel project.
-
 ## Theaters Tracked
 - Metrograph
 - IFC Center
@@ -43,7 +41,7 @@ In your repo → Settings → Secrets and variables → Actions:
 npm i -g vercel
 vercel --prod
 ```
-Point Vercel to the `public/` folder as the output directory.
+Point Vercel to the `files/` folder as the output directory.
 
 ### 5. Trigger first run
 Go to Actions → "Weekly Cinema Scrape" → Run workflow manually.
@@ -51,17 +49,18 @@ Go to Actions → "Weekly Cinema Scrape" → Run workflow manually.
 ## Local Development
 ```bash
 pip install -r requirements.txt
-python scripts/scrape.py  # runs with mock data if no API keys set
+python files/scrape.py  # runs with mock data if no API keys set
+python3 -m http.server 8000 --directory files
 ```
-Open `public/index.html` in your browser.
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ## How It Works
 Every Wednesday at 8am New York time, GitHub Actions:
-1. Runs `scripts/scrape.py`
+1. Runs `files/scrape.py`
 2. Hits SerpAPI for showtimes at each theater
 3. Hits OMDb for RT/IMDB/Metacritic scores per film
 4. Asks Claude for a Watch/Skip/Depends verdict + one-line reason
-5. Writes `public/data.json`
+5. Writes `files/data.json`
 6. Commits and pushes
 7. Vercel auto-deploys the updated static site
 
