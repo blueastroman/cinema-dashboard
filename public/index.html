@@ -752,6 +752,10 @@
           <option value="all">All Theaters</option>
         </select>
       </div>
+      <div class="control-group">
+        <span class="control-label">Quality</span>
+        <button class="filter-btn" id="toggle-unverified">Show Unverified</button>
+      </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
@@ -779,6 +783,8 @@ let activeTheater = 'all';
 let searchQuery = '';
 let activeSort = 'rating';
 let viewMode = 'cards';
+let showLowConfidence = false;
+const CONFIDENCE_THRESHOLD = 60;
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
 
@@ -944,6 +950,67 @@ function getPriorityScore(movie) {
   return 0;
 }
 
+function getMovieConfidence(movie) {
+  const ratings = movie?.ratings || {};
+  const theaters = movie?.theaters || [];
+  const title = String(movie?.title || '').trim();
+  const now = new Date();
+
+  let score = 0;
+
+  if (title.length >= 2 && title.length <= 80) score += 12;
+  if (/[A-Za-z]/.test(title)) score += 4;
+
+  const year = parseInt(String(ratings.year || ''), 10);
+  if (Number.isFinite(year) && year >= 1888 && year <= now.getFullYear() + 1) score += 12;
+
+  const director = String(ratings.director || '').trim();
+  if (director.length >= 3) score += 8;
+
+  const genre = String(ratings.genre || '').trim();
+  if (genre && genre !== 'N/A') score += 8;
+
+  const plot = String(ratings.plot || '').trim();
+  if (plot.length >= 60) score += 12;
+
+  const rt = String(ratings.rt || '').trim();
+  const hasRT = /^\d{1,3}%$/.test(rt);
+  if (hasRT) score += 10;
+
+  const imdb = parseFloat(String(ratings.imdb || ''));
+  const hasImdb = Number.isFinite(imdb) && imdb > 0 && imdb <= 10;
+  if (hasImdb) score += 8;
+
+  const cinema = String(ratings.cinemaScore || '').trim().toUpperCase();
+  const hasCinemaScore = /^(A\+|A-|A|B\+|B-|B|C\+|C-|C|D\+|D-|D|F)$/.test(cinema);
+  if (hasCinemaScore) score += 6;
+
+  const lb = parseFloat(String(ratings.letterboxd || ''));
+  const hasLetterboxd = Number.isFinite(lb) && lb > 0 && lb <= 5;
+  if (hasLetterboxd) score += 6;
+
+  if (theaters.length) score += 8;
+
+  let hasSchedule = false;
+  let hasAnyTime = false;
+  for (const theater of theaters) {
+    const schedule = theater?.schedule || [];
+    if (schedule.length) hasSchedule = true;
+    for (const day of schedule) {
+      const times = day?.times || [];
+      if (times.length) hasAnyTime = true;
+    }
+  }
+  if (hasSchedule) score += 8;
+  if (hasAnyTime) score += 8;
+
+  if (!hasRT && !hasImdb && !hasCinemaScore && !hasLetterboxd) score -= 8;
+  if (plot.length < 20) score -= 8;
+  if (!hasAnyTime) score -= 10;
+
+  return score;
+}
+
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
@@ -981,7 +1048,10 @@ async function loadData() {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 function initDashboard(data) {
-  allMovies = data.movies || [];
+  allMovies = (data.movies || []).map(movie => ({
+    ...movie,
+    _confidence: getMovieConfidence(movie),
+  }));
 
   // Week label
   document.getElementById('week-label').textContent = data.week_of
@@ -1002,6 +1072,18 @@ function initDashboard(data) {
     theaterSelect.value = activeTheater;
     theaterSelect.addEventListener('change', (e) => {
       activeTheater = e.target.value;
+      render();
+    });
+  }
+
+  const unverifiedToggle = document.getElementById('toggle-unverified');
+  if (unverifiedToggle) {
+    unverifiedToggle.textContent = showLowConfidence ? 'Hide Unverified' : 'Show Unverified';
+    unverifiedToggle.classList.toggle('active', showLowConfidence);
+    unverifiedToggle.addEventListener('click', () => {
+      showLowConfidence = !showLowConfidence;
+      unverifiedToggle.textContent = showLowConfidence ? 'Hide Unverified' : 'Show Unverified';
+      unverifiedToggle.classList.toggle('active', showLowConfidence);
       render();
     });
   }
@@ -1029,6 +1111,7 @@ function getFiltered() {
   const today = getTodayLabel();
   return allMovies.filter(movie => {
     if (hidden.includes(movie.title)) return false;
+    if (!showLowConfidence && (movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (activeFilter === 'today') {
       if (!moviePlayingOn(movie, today)) return false;
     } else {
