@@ -955,6 +955,10 @@ function getDisplayTheaterName(name) {
   return name;
 }
 
+function getCanonicalTheaterName(name) {
+  return String(getDisplayTheaterName(name) || '').trim();
+}
+
 function getCinemaScoreWeight(score) {
   if (!score || score === 'N/A') return null;
   const normalized = String(score).trim().toUpperCase();
@@ -1099,18 +1103,20 @@ function initDashboard(data) {
     : 'Awaiting latest scrape';
 
   // Theater filter dropdown
-  const theaters = [...(data.theaters || [])].sort((a, b) =>
-    getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b))
-  );
+  const theaters = [...new Set((data.theaters || [])
+    .map(t => getCanonicalTheaterName(t))
+    .filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b));
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
     theaters.forEach(t => {
       const option = document.createElement('option');
       option.value = t;
-      option.textContent = getDisplayTheaterName(t);
+      option.textContent = t;
       theaterSelect.appendChild(option);
     });
+    if (activeTheater !== 'all' && !theaters.includes(activeTheater)) activeTheater = 'all';
     theaterSelect.value = activeTheater;
     theaterSelect.addEventListener('change', (e) => {
       activeTheater = e.target.value;
@@ -1150,7 +1156,7 @@ function getFiltered() {
       if (activeFilter !== 'all' && verdict !== activeFilter) return false;
     }
     if (activeTheater !== 'all') {
-      const inTheater = (movie.theaters || []).some(t => t.name === activeTheater);
+      const inTheater = (movie.theaters || []).some(t => getCanonicalTheaterName(t.name) === activeTheater);
       if (!inTheater) return false;
     }
     if (searchQuery) {
