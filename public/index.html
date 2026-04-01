@@ -728,10 +728,9 @@
     }
 
     .theater-view-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px 32px;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
 
     .theater-film-list {
@@ -875,12 +874,10 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-view-grid { grid-template-columns: repeat(2, 1fr); }
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 768px) {
-      .theater-view-grid { grid-template-columns: 1fr; }
       .theater-film-list { grid-template-columns: 1fr; }
       header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 72px); }
