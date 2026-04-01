@@ -778,16 +778,6 @@
       gap: 12px;
     }
 
-    .theater-film-next {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
     .theater-film-title {
       font-family: var(--font-sans);
       font-size: 1.1rem;
@@ -1700,7 +1690,6 @@ function renderTheaterView() {
       const year = ratings.year || '';
       const director = ratings.director || '';
       const theaterData = entry.theaterData;
-      const nextShowLabel = `${entry.nextShow.day} · ${entry.nextShow.time}`;
 
       let rtClass = '';
       if (rt) {
@@ -1726,7 +1715,6 @@ function renderTheaterView() {
       row.className = `theater-film-row ${verdict}`;
       row.innerHTML = `
         <div class="theater-film-info">
-          <div class="theater-film-next">${nextShowLabel}</div>
           <div class="theater-film-head">
             <div class="theater-film-title">
               <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
