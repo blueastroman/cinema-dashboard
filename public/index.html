@@ -1999,6 +1999,7 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
   const url = getTicketUrl(theaterName, movieTitle);
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
+  const showDayPrefix = dateScope !== 'today';
   const items = [];
 
   for (const s of schedule) {
@@ -2007,7 +2008,10 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
       if (!showAt || showAt < now) continue;
-      items.push({ at: showAt, label: `${getShowtimeDayShortLabel(dayRaw)} ${t}` });
+      items.push({
+        at: showAt,
+        label: showDayPrefix ? `${getShowtimeDayShortLabel(dayRaw)} ${t}` : t,
+      });
     }
   }
 
