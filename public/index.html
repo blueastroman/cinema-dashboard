@@ -968,7 +968,16 @@ function getDisplayReason(movie) {
 }
 
 function getDisplayTheaterName(name) {
-  return getCanonicalTheaterName(name) || name;
+  const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
+  const shortNames = {
+    'Film at Lincoln Center': 'FLC',
+    'Alamo Drafthouse Lower Manhattan': 'Alamo',
+    'Angelika Film Center': 'Angelika',
+    'Village East by Angelika': 'Village East',
+    'IFC Center': 'IFC',
+    'Paris Theater': 'Paris',
+  };
+  return shortNames[canonical] || canonical;
 }
 
 function getCanonicalTheaterName(name) {
@@ -1148,7 +1157,7 @@ function initDashboard(data) {
       const btn = document.createElement('button');
       btn.className = `filter-btn${activeTheater === t ? ' active' : ''}`;
       btn.dataset.theater = t;
-      btn.textContent = t;
+      btn.textContent = getDisplayTheaterName(t);
       btn.addEventListener('click', () => {
         activeTheater = t;
         syncTheaterFilterButtons();
