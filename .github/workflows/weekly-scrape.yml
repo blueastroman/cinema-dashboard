@@ -45,9 +45,16 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Cinema Bot"
-          git add public/data.json
-          git diff --staged --quiet || git commit -m "Weekly cinema update — $(date +'%B %d, %Y')"
-          git push
+          git add public/data.json scripts/rating_cache.json
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Weekly cinema update — $(date +'%B %d, %Y')"
+            # Rebase in case main advanced during this run.
+            git pull --rebase origin main
+            git push
+          fi
 
       - name: Deploy to Vercel
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
         run: npx vercel deploy public/ --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --name cinema-dashboard
