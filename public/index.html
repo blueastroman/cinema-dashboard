@@ -840,9 +840,15 @@ function hasUpcomingShowtimes(movie) {
   );
 }
 
+function getVisibleTheaters(movie) {
+  const theaters = movie?.theaters || [];
+  if (activeTheater === 'all') return theaters;
+  return theaters.filter(t => getCanonicalTheaterName(t?.name) === activeTheater);
+}
+
 function moviePlayingOn(movie, dateLabel) {
   const now = new Date();
-  return (movie.theaters || []).some(t =>
+  return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
       (s.day || '').includes(dateLabel) &&
       (s.times || []).some(time => {
@@ -855,7 +861,7 @@ function moviePlayingOn(movie, dateLabel) {
 
 function movieEarliestDayIdx(movie, dayOrder) {
   let best = 99;
-  (movie.theaters || []).forEach(t =>
+  getVisibleTheaters(movie).forEach(t =>
     (t.schedule || []).forEach(s => {
       const d = (s.day || '').slice(0, 3);
       const idx = dayOrder.indexOf(d);
@@ -1195,14 +1201,15 @@ function getFiltered() {
   const hidden = getHidden();
   const today = getTodayLabel();
   return allMovies.filter(movie => {
+    const visibleTheaters = getVisibleTheaters(movie);
     if (hidden.includes(movie.title)) return false;
-    if (!hasUpcomingShowtimes(movie)) return false;
+    if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (showTodayOnly) {
-      if (!moviePlayingOn(movie, today)) return false;
+      if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
     }
     if (activeTheater !== 'all') {
-      const inTheater = (movie.theaters || []).some(t => getCanonicalTheaterName(t.name) === activeTheater);
+      const inTheater = visibleTheaters.length > 0;
       if (!inTheater) return false;
     }
     if (searchQuery) {
@@ -1277,7 +1284,7 @@ function render() {
 
     movies.forEach(movie => {
       const seen = new Set();
-      (movie.theaters || []).forEach(t => {
+      getVisibleTheaters(movie).forEach(t => {
         (t.schedule || []).forEach(s => {
           const abbr = (s.day || '').slice(0, 3);
           if (dayOrder.includes(abbr) && !seen.has(abbr)) {
@@ -1346,7 +1353,7 @@ function buildCard(movie, idx) {
   const genre = ratings.genre || '';
   const runtime = ratings.runtime || '';
   const year = ratings.year || '';
-  const theaters = movie.theaters || [];
+  const theaters = getVisibleTheaters(movie);
   const watched = getWatched().includes(movie.title);
 
   // RT color
