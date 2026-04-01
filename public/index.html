@@ -817,8 +817,9 @@
     .theater-film-times {
       margin-top: 8px;
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .theater-film-scores {
@@ -1718,7 +1719,7 @@ function renderTheaterView() {
       const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
       const scheduleHTML = theaterData
-        ? buildScheduleHTML(theaterData.schedule, theaterData.name, movie.title)
+        ? buildInlineShowtimeHTML(theaterData.schedule, theaterData.name, movie.title)
         : '';
 
       const row = document.createElement('div');
@@ -1963,6 +1964,32 @@ function buildScheduleHTML(schedule, theaterName, movieTitle) {
       </div>
     </div>
   `).join('');
+}
+
+function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
+  if (!schedule || !schedule.length) return '';
+  const url = getTicketUrl(theaterName, movieTitle);
+  const now = getNYNow();
+  const activeDayLabel = getActiveDayFilterLabel();
+  const items = [];
+
+  for (const s of schedule) {
+    if (!dayMatchesActiveScope(s.day, activeDayLabel)) continue;
+    const dayRaw = String(s.day || '').trim();
+    const dayAbbr = dayRaw.slice(0, 3);
+    for (const t of (s.times || [])) {
+      const showAt = parseShowtimeDate(dayRaw, t);
+      if (!showAt || showAt < now) continue;
+      items.push({ at: showAt, label: `${dayAbbr} ${t}` });
+    }
+  }
+
+  if (!items.length) return '';
+  items.sort((a, b) => a.at - b.at);
+
+  return items.slice(0, limit).map(item =>
+    `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`
+  ).join('');
 }
 
 function toggleTheaters(btn) {
