@@ -824,6 +824,14 @@
       margin-top: 3px;
     }
 
+    .theater-film-meta {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
     .theater-film-times {
       margin-top: 8px;
       display: flex;
@@ -1771,7 +1779,12 @@ function renderTheaterView() {
       const letterboxd = getLetterboxdScore(movie);
       const year = ratings.year || '';
       const director = ratings.director || '';
+      const genre = String(ratings.genre || '').trim();
+      const runtime = String(ratings.runtime || '').trim();
       const theaterData = entry.theaterData;
+      const metaParts = [];
+      if (genre && genre !== 'N/A') metaParts.push(genre);
+      if (runtime && runtime !== 'N/A') metaParts.push(runtime);
 
       let rtClass = '';
       if (rt) {
@@ -1807,6 +1820,7 @@ function renderTheaterView() {
             </div>
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
+          ${metaParts.length ? `<div class="theater-film-meta">${metaParts.join(' · ')}</div>` : ''}
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
