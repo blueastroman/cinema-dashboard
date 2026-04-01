@@ -55,6 +55,11 @@ python scripts/scrape.py  # runs with mock data if no API keys set
 ```
 Open `public/index.html` in your browser.
 
+### Ratings Matching
+- `scripts/rating_overrides.json`: manual title → `imdbID` mapping for known edge cases.
+- `scripts/rating_cache.json`: auto-populated cache of resolved OMDb IDs to improve weekly stability.
+- If a title misses exact OMDb lookup, scraper now falls back to OMDb search (`s=`) and chooses the best candidate.
+
 ## How It Works
 Every Wednesday at 8am New York time, GitHub Actions:
 1. Runs `scripts/scrape.py`

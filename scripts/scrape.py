@@ -10,6 +10,7 @@ import requests
 import anthropic
 from datetime import datetime, timedelta
 from collections import defaultdict
+from pathlib import Path
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
@@ -36,6 +37,15 @@ FORMAT_TAGS = re.compile(
     r'|\s*[\(\[]?(70mm|35mm|imax|4k|dcp)[\)\]]?',
     re.IGNORECASE
 )
+
+NON_ALNUM = re.compile(r"[^a-z0-9]+")
+SCRIPT_DIR = Path(__file__).resolve().parent
+RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
+RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
+
+
+def normalize_title(title: str) -> str:
+    return NON_ALNUM.sub(" ", (title or "").lower()).strip()
 
 def clean_title(raw: str) -> str:
     """Strip projection format tags from a showtime title before lookup."""
@@ -100,44 +110,190 @@ def mock_showtimes(theater_name: str) -> list[dict]:
 
 # ─── RATINGS ─────────────────────────────────────────────────────────────────
 
+def load_json_file(path: Path) -> dict:
+    try:
+        if path.exists():
+            with path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    return data
+    except Exception as e:
+        print(f"  [WARN] Failed to load {path.name}: {e}")
+    return {}
+
+
+def save_json_file(path: Path, data: dict) -> None:
+    try:
+        with path.open("w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, sort_keys=True)
+    except Exception as e:
+        print(f"  [WARN] Failed to save {path.name}: {e}")
+
+
+RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
+RATING_CACHE = load_json_file(RATING_CACHE_PATH)
+
+
+def omdb_request(params: dict) -> dict | None:
+    try:
+        r = requests.get("http://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10)
+        data = r.json()
+        if data.get("Response") == "False":
+            return None
+        return data
+    except Exception:
+        return None
+
+
+def parse_omdb_ratings(data: dict) -> dict:
+    rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
+    cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
+    imdb_rating = data.get("imdbRating")
+    letterboxd_score = None
+    try:
+        imdb_num = float(imdb_rating) if imdb_rating not in (None, "N/A") else None
+        if imdb_num is not None:
+            letterboxd_score = f"{(imdb_num / 2):.1f}"
+    except Exception:
+        letterboxd_score = None
+
+    return {
+        "rt": rt,
+        "imdb": imdb_rating,
+        "metacritic": data.get("Metascore"),
+        "letterboxd": letterboxd_score,
+        "cinemaScore": cinema_score,
+        "poster": data.get("Poster"),
+        "genre": data.get("Genre"),
+        "runtime": data.get("Runtime"),
+        "plot": data.get("Plot"),
+        "year": data.get("Year"),
+        "director": data.get("Director"),
+    }
+
+
+def title_match_score(query_title: str, result_title: str, query_year: int | None = None, result_year: str | None = None) -> float:
+    q_norm = normalize_title(query_title)
+    r_norm = normalize_title(result_title or "")
+    if not q_norm or not r_norm:
+        return 0.0
+
+    q_tokens = set(q_norm.split())
+    r_tokens = set(r_norm.split())
+    overlap = len(q_tokens & r_tokens)
+    coverage = overlap / max(1, len(q_tokens))
+
+    exact_bonus = 0.45 if q_norm == r_norm else 0.0
+    startswith_bonus = 0.20 if r_norm.startswith(q_norm) or q_norm.startswith(r_norm) else 0.0
+    score = coverage + exact_bonus + startswith_bonus
+
+    if query_year and result_year and result_year.isdigit():
+        result_y = int(result_year)
+        diff = abs(query_year - result_y)
+        if diff == 0:
+            score += 0.2
+        elif diff == 1:
+            score += 0.1
+        elif diff > 3:
+            score -= 0.25
+
+    return score
+
+
+def fetch_omdb_by_imdb_id(imdb_id: str) -> dict | None:
+    if not imdb_id:
+        return None
+    return omdb_request({"i": imdb_id, "tomatoes": "true"})
+
+
+def resolve_omdb_record(title: str) -> dict | None:
+    normalized = normalize_title(title)
+    override = RATING_OVERRIDES.get(normalized, {})
+    if isinstance(override, str):
+        override = {"imdbID": override}
+
+    override_imdb = override.get("imdbID")
+    if override_imdb:
+        data = fetch_omdb_by_imdb_id(override_imdb)
+        if data:
+            RATING_CACHE[normalized] = {
+                "imdbID": data.get("imdbID"),
+                "title": data.get("Title"),
+                "year": data.get("Year"),
+                "source": "override",
+            }
+            return data
+        print(f"  [WARN] Override imdbID failed for '{title}': {override_imdb}")
+
+    cached_imdb = (RATING_CACHE.get(normalized) or {}).get("imdbID")
+    if cached_imdb:
+        data = fetch_omdb_by_imdb_id(cached_imdb)
+        if data:
+            return data
+
+    exact = omdb_request({"t": title, "tomatoes": "true"})
+    if exact:
+        RATING_CACHE[normalized] = {
+            "imdbID": exact.get("imdbID"),
+            "title": exact.get("Title"),
+            "year": exact.get("Year"),
+            "source": "exact",
+        }
+        return exact
+
+    query_year = None
+    override_year = override.get("year")
+    if isinstance(override_year, int):
+        query_year = override_year
+    elif isinstance(override_year, str) and override_year.isdigit():
+        query_year = int(override_year)
+
+    search = omdb_request({"s": title, "type": "movie"})
+    if not search:
+        return None
+
+    candidates = search.get("Search", [])
+    if not candidates:
+        return None
+
+    best = max(
+        candidates,
+        key=lambda c: title_match_score(
+            title,
+            c.get("Title", ""),
+            query_year=query_year,
+            result_year=c.get("Year"),
+        ),
+    )
+    best_score = title_match_score(
+        title,
+        best.get("Title", ""),
+        query_year=query_year,
+        result_year=best.get("Year"),
+    )
+    if best_score < 0.55:
+        return None
+
+    best_data = fetch_omdb_by_imdb_id(best.get("imdbID"))
+    if best_data:
+        RATING_CACHE[normalized] = {
+            "imdbID": best_data.get("imdbID"),
+            "title": best_data.get("Title"),
+            "year": best_data.get("Year"),
+            "source": "search",
+        }
+    return best_data
+
 def fetch_ratings(title: str) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     if not OMDB_KEY:
         return mock_ratings(title)
 
     try:
-        r = requests.get(
-            "http://www.omdbapi.com/",
-            params={"apikey": OMDB_KEY, "t": title, "tomatoes": "true"},
-            timeout=10,
-        )
-        data = r.json()
-        if data.get("Response") == "False":
-            return {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None}
-
-        rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
-        cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
-        imdb_rating = data.get("imdbRating")
-        letterboxd_score = None
-        try:
-            imdb_num = float(imdb_rating) if imdb_rating not in (None, "N/A") else None
-            if imdb_num is not None:
-                letterboxd_score = f"{(imdb_num / 2):.1f}"
-        except Exception:
-            letterboxd_score = None
-        return {
-            "rt": rt,
-            "imdb": imdb_rating,
-            "metacritic": data.get("Metascore"),
-            "letterboxd": letterboxd_score,
-            "cinemaScore": cinema_score,
-            "poster": data.get("Poster"),
-            "genre": data.get("Genre"),
-            "runtime": data.get("Runtime"),
-            "plot": data.get("Plot"),
-            "year": data.get("Year"),
-            "director": data.get("Director"),
-        }
+        data = resolve_omdb_record(title)
+        if not data:
+            return {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None, "director": None, "cinemaScore": None}
+        return parse_omdb_ratings(data)
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
         return mock_ratings(title)
@@ -325,6 +481,7 @@ def build_dataset() -> dict:
 
 if __name__ == "__main__":
     dataset = build_dataset()
+    save_json_file(RATING_CACHE_PATH, RATING_CACHE)
 
     output_path = os.path.join(os.path.dirname(__file__), "../public/data.json")
     with open(output_path, "w") as f:
