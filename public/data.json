@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T16:16:51.874782",
+  "generated_at": "2026-04-01T22:31:17.153412",
   "week_of": "April 03, 2026",
   "theaters": [
     "Metrograph",
@@ -253,12 +253,6 @@
           "name": "IFC Center",
           "schedule": [
             {
-              "day": "Wed Apr 1",
-              "times": [
-                "12:35pm"
-              ]
-            },
-            {
               "day": "Thu Apr 2",
               "times": [
                 "12:35pm"
@@ -292,12 +286,6 @@
         {
           "name": "IFC Center",
           "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "4:40pm"
-              ]
-            },
             {
               "day": "Thu Apr 2",
               "times": [
@@ -363,16 +351,14 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "6:30pm",
-                "1:00pm",
-                "3:45pm",
                 "9:35pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "6:30pm",
                 "10:15am",
@@ -460,7 +446,7 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "7:00pm"
               ]
@@ -549,14 +535,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "3:10pm",
                 "8:45pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "3:10pm",
                 "7:50pm"
@@ -578,40 +563,6 @@
               "day": "Sun Apr 5",
               "times": [
                 "3:35pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Vagabond",
-      "ratings": {
-        "rt": "100%",
-        "imdb": "7.6",
-        "metacritic": "N/A",
-        "letterboxd": "3.8",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZTY2NTQwNjMtYmQ4OS00M2MwLTk1MGEtYzMyNTBlMzIyY2QyXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "105 min",
-        "plot": "A young woman's body is found frozen in a ditch. Through flashbacks and interviews, we see the events that led to her inevitable death.",
-        "year": "1985",
-        "director": "Agn\u00e8s Varda"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "5:45pm"
               ]
             }
           ]
@@ -751,17 +702,14 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "12:00pm",
-                "2:50pm",
-                "4:20pm",
                 "7:00pm",
                 "9:55pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "11:35am",
                 "2:10pm",
@@ -807,13 +755,7 @@
           "name": "Film at Lincoln Center",
           "schedule": [
             {
-              "day": "Today",
-              "times": [
-                "3:00pm"
-              ]
-            },
-            {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "3:00pm"
               ]
@@ -921,7 +863,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "7:00pm"
               ]
@@ -1101,6 +1043,74 @@
       ]
     },
     {
+      "title": "The Vanishing",
+      "ratings": {
+        "rt": "96%",
+        "imdb": "7.7",
+        "metacritic": "N/A",
+        "letterboxd": "3.9",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZTdlMmViNGMtMzJmZC00YTJlLTg3MDMtYTFmNWI1MTlkNzU1XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Mystery, Thriller",
+        "runtime": "107 min",
+        "plot": "Rex and Saskia, a young couple in love, are on vacation. They stop at a busy service station and Saskia is abducted. After three years and no sign of Saskia, Rex begins receiving letters from the abductor.",
+        "year": "1988",
+        "director": "George Sluizer"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Who's Afraid of Virginia Woolf?",
+      "ratings": {
+        "rt": "96%",
+        "imdb": "8.0",
+        "metacritic": "75",
+        "letterboxd": "4.0",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOGY5YWJlMjUtNWI4Zi00NTExLWIwMDUtNGJkOTM0MzliNjE4XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama",
+        "runtime": "131 min",
+        "plot": "A middle-aged New England associate professor and his wife, with the help of alcohol, use their young guests to fuel anguish and emotional pain towards each other over the course of a distressing night.",
+        "year": "1966",
+        "director": "Mike Nichols"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Fantasia",
       "ratings": {
         "rt": "95%",
@@ -1159,16 +1169,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "12:20pm",
-                "3:00pm",
-                "5:30pm",
                 "8:00pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "12:20pm",
                 "3:00pm",
@@ -1229,26 +1236,21 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "1:25pm",
-                "2:20pm",
-                "4:45pm",
                 "7:20pm",
                 "8:15pm"
               ]
             },
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "11:40am",
-                "3:05pm",
                 "6:30pm",
                 "10:00pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "1:25pm",
                 "4:45pm",
@@ -1256,7 +1258,7 @@
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "11:40am",
                 "3:05pm",
@@ -1287,18 +1289,15 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "1:15pm",
-                "3:20pm",
-                "5:10pm",
                 "7:10pm",
                 "8:55pm",
                 "9:00pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "9:20am",
                 "11:35am",
@@ -1380,6 +1379,46 @@
       ]
     },
     {
+      "title": "Midnight Run",
+      "ratings": {
+        "rt": "95%",
+        "imdb": "7.5",
+        "metacritic": "78",
+        "letterboxd": "3.8",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNmQ2NWU5OWYtOTNiOC00MjA1LWJhOWQtMzYyMDgwMmE5ZDE0XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Action, Comedy, Crime",
+        "runtime": "126 min",
+        "plot": "A bounty hunter pursues a former Mafia accountant who is also being chased by a rival bounty hunter, the F.B.I., and his old mob boss after jumping bail.",
+        "year": "1988",
+        "director": "Martin Brest"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:45pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Miroirs No. 3",
       "ratings": {
         "rt": "94%",
@@ -1406,7 +1445,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "2:40pm",
                 "7:00pm",
                 "9:40pm"
               ]
@@ -1485,7 +1523,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "12:45pm",
                 "9:00pm"
               ]
             },
@@ -1623,16 +1660,13 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "12:00pm",
-                "3:00pm",
-                "6:00pm",
                 "9:00pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "9:00am",
                 "12:00pm",
@@ -1718,15 +1752,89 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "mi\u00e9 1 abr",
+              "day": "Tomorrow",
               "times": [
-                "4:00p.m."
+                "9:45pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Out of Sight",
+      "ratings": {
+        "rt": "94%",
+        "imdb": "7.0",
+        "metacritic": "84",
+        "letterboxd": "3.5",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BM2U3OGQ0NTMtNmQxYS00MmRiLTg2OTctZDI3ZjNjZjM5N2NlXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Crime, Drama",
+        "runtime": "123 min",
+        "plot": "A career bank robber breaks out of jail, and shares a moment of mutual attraction with a U.S. Marshal he has kidnapped.",
+        "year": "1998",
+        "director": "Steven Soderbergh"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "7:00pm"
               ]
             },
             {
-              "day": "jue 2 abr",
+              "day": "Sun Apr 5",
               "times": [
-                "9:45p.m."
+                "8:45pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Spy",
+      "ratings": {
+        "rt": "94%",
+        "imdb": "7.0",
+        "metacritic": "75",
+        "letterboxd": "3.5",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNjI5OTQ0MDQxM15BMl5BanBnXkFtZTgwMzcwNjMyNTE@._V1_SX300.jpg",
+        "genre": "Action, Comedy",
+        "runtime": "120 min",
+        "plot": "A desk-bound CIA analyst volunteers to go undercover to infiltrate the world of a deadly arms dealer and prevent diabolical global disaster.",
+        "year": "2015",
+        "director": "Paul Feig"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "3:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15pm"
               ]
             }
           ]
@@ -1758,9 +1866,9 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "s\u00e1b 4 abr",
+              "day": "Sat Apr 4",
               "times": [
-                "4:45p.m."
+                "4:45pm"
               ]
             }
           ]
@@ -2036,7 +2144,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "8:00pm"
               ]
@@ -2070,9 +2178,49 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "12:50pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Goodfellas",
+      "ratings": {
+        "rt": "93%",
+        "imdb": "8.7",
+        "metacritic": "92",
+        "letterboxd": "4.3",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BN2E5NzI2ZGMtY2VjNi00YTRjLWI1MDUtZGY5OWU1MWJjZjRjXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Biography, Crime, Drama",
+        "runtime": "145 min",
+        "plot": "The story of Henry Hill and his life in the mafia, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.",
+        "year": "1990",
+        "director": "Martin Scorsese"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "5:15pm"
               ]
             }
           ]
@@ -2144,16 +2292,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "1:00pm",
-                "3:30pm",
-                "6:00pm",
                 "8:20pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "1:00pm",
                 "3:30pm",
@@ -2364,6 +2509,40 @@
       ]
     },
     {
+      "title": "The Wicker Man",
+      "ratings": {
+        "rt": "91%",
+        "imdb": "7.5",
+        "metacritic": "87",
+        "letterboxd": "3.8",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMWU5NmUxMmYtM2QwYS00ODc1LTkxOGItMWY3ZmEzNzJkNGU3XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Horror, Mystery, Thriller",
+        "runtime": "88 min",
+        "plot": "A puritan police sergeant arrives in a Scottish island village in search of a missing girl, who the pagan locals claim never existed.",
+        "year": "1973",
+        "director": "Robin Hardy"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "10:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Allegro non troppo",
       "ratings": {
         "rt": "90%",
@@ -2554,12 +2733,6 @@
           "name": "IFC Center",
           "schedule": [
             {
-              "day": "Wed Apr 1",
-              "times": [
-                "6:00pm"
-              ]
-            },
-            {
               "day": "Thu Apr 2",
               "times": [
                 "5:15pm"
@@ -2602,6 +2775,40 @@
               "times": [
                 "11:05am",
                 "9:40pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Eastern Promises",
+      "ratings": {
+        "rt": "90%",
+        "imdb": "7.6",
+        "metacritic": "83",
+        "letterboxd": "3.8",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTcwMzU0OTY3NF5BMl5BanBnXkFtZTYwNzkwNjg2._V1_SX300.jpg",
+        "genre": "Crime, Drama, Thriller",
+        "runtime": "100 min",
+        "plot": "A teenager who dies during childbirth leaves clues in her journal that could tie her child to a rape involving a violent Russian mob family.",
+        "year": "2007",
+        "director": "David Cronenberg"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00pm"
               ]
             }
           ]
@@ -2701,13 +2908,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
-              "times": [
-                "12:30pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "2:50pm"
               ]
@@ -2717,7 +2918,7 @@
       ]
     },
     {
-      "title": "Brasco",
+      "title": "Donnie Brasco",
       "ratings": {
         "rt": "88%",
         "imdb": "7.7",
@@ -2741,9 +2942,9 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "dom 5 abr",
+              "day": "Sun Apr 5",
               "times": [
-                "2:00p.m."
+                "2:00pm"
               ]
             }
           ]
@@ -2883,15 +3084,7 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
-              "times": [
-                "1:00pm",
-                "3:30pm",
-                "6:00pm"
-              ]
-            },
-            {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "10:35am",
                 "1:00pm",
@@ -2921,13 +3114,7 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
-              "times": [
-                "12:05pm"
-              ]
-            },
-            {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:10pm"
               ]
@@ -3087,25 +3274,34 @@
                 "6:15pm",
                 "8:45pm"
               ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:15pm",
+                "3:45pm",
+                "6:15pm",
+                "8:45pm"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "title": "The Unbearable Lightness of Being",
+      "title": "Gosford Park",
       "ratings": {
-        "rt": "86%",
+        "rt": "87%",
         "imdb": "7.2",
-        "metacritic": "73",
+        "metacritic": "90",
         "letterboxd": "3.6",
         "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMzQyMTliMzMtNzliZi00MmMwLWExZGEtNzQ3MDc1NmY4M2I1XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Romance",
-        "runtime": "171 min",
-        "plot": "A doctor in 1968 Prague struggles with monogamy to his wife's frustration, and then the Soviet invasion further disrupts their lives.",
-        "year": "1988",
-        "director": "Philip Kaufman"
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGRjODg5ZTEtYzZjMC00NmQ3LWFiNjUtYjhhODIxNTYyZDk2XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Drama, Mystery",
+        "runtime": "137 min",
+        "plot": "Set in the 1930s, a group of pretentious rich and famous get together for a weekend of relaxation at a hunting resort. But when a murder occurs, each one of these interesting characters becomes a suspect.",
+        "year": "2001",
+        "director": "Robert Altman"
       },
       "verdict": {
         "verdict": "WATCH",
@@ -3114,12 +3310,52 @@
       },
       "theaters": [
         {
-          "name": "Metrograph",
+          "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Sat Apr 4",
               "times": [
-                "4:00pm"
+                "1:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Eraserhead",
+      "ratings": {
+        "rt": "87%",
+        "imdb": "7.2",
+        "metacritic": "87",
+        "letterboxd": "3.6",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGYxNzZkYzAtMDExMS00MzE1LTg5ZGItMTgzMzJhZWMyNTBjXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Fantasy, Horror",
+        "runtime": "89 min",
+        "plot": "Henry Spencer tries to survive his industrial environment, his angry girlfriend, and the unbearable screams of his newborn mutant child.",
+        "year": "1977",
+        "director": "David Lynch"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am"
               ]
             }
           ]
@@ -3194,203 +3430,6 @@
               "day": "Thu Apr 2",
               "times": [
                 "7:50pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "The Drama",
-      "ratings": {
-        "rt": "85%",
-        "imdb": "8.2",
-        "metacritic": "N/A",
-        "letterboxd": "4.1",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOTE4MDEzMDU2OF5BMl5BanBnXkFtZTcwMTM5MDExNw@@._V1_SX300.jpg",
-        "genre": "Comedy",
-        "runtime": "23 min",
-        "plot": "A down-on-his-luck high school athlete finds himself thrown into an advanced drama class, where he falls in love with a beautiful ing\u00e9nue and makes enemies with the intensely aggressive class star.",
-        "year": "2011",
-        "director": "Joe Flowers, Mathew Grodsky"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Village East by Angelika",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "5:20pm",
-                "6:30pm",
-                "8:00pm",
-                "9:00pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:45am",
-                "12:45pm",
-                "2:15pm",
-                "3:15pm",
-                "4:45pm",
-                "5:45pm",
-                "7:15pm",
-                "8:15pm",
-                "9:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:45am",
-                "2:15pm",
-                "4:45pm",
-                "7:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:45am",
-                "2:15pm",
-                "4:45pm",
-                "7:15pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "2:15pm",
-                "4:45pm",
-                "7:15pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "2:15pm",
-                "4:45pm",
-                "7:15pm",
-                "9:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "schedule": [
-            {
-              "day": "Tomorrow",
-              "times": [
-                "4:00pm",
-                "4:30pm",
-                "5:15pm",
-                "7:00pm",
-                "8:20pm",
-                "8:50pm",
-                "9:20pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:15am",
-                "11:05am",
-                "12:30pm",
-                "1:15pm",
-                "2:05pm",
-                "2:55pm",
-                "3:35pm",
-                "4:15pm",
-                "6:35pm",
-                "7:15pm",
-                "8:00pm",
-                "8:50pm",
-                "9:35pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:15am",
-                "12:30pm",
-                "1:15pm",
-                "2:55pm",
-                "3:35pm",
-                "4:15pm",
-                "6:35pm",
-                "7:15pm",
-                "7:25pm",
-                "8:50pm",
-                "9:35pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00am",
-                "10:15am",
-                "12:30pm",
-                "1:15pm",
-                "2:50pm",
-                "3:35pm",
-                "4:15pm",
-                "5:20pm",
-                "6:35pm",
-                "7:15pm",
-                "8:50pm",
-                "9:35pm",
-                "10:15pm",
-                "10:20pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:15am",
-                "11:25am",
-                "1:15pm",
-                "1:45pm",
-                "2:25pm",
-                "3:00pm",
-                "4:15pm",
-                "5:30pm",
-                "7:15pm",
-                "8:35pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:15am",
-                "11:20am",
-                "11:45am",
-                "1:15pm",
-                "2:20pm",
-                "2:50pm",
-                "4:15pm",
-                "5:25pm",
-                "7:15pm",
-                "8:30pm",
-                "9:00pm",
-                "10:15pm"
               ]
             }
           ]
@@ -3668,17 +3707,14 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "12:20pm",
-                "2:40pm",
-                "5:00pm",
                 "7:20pm",
                 "9:40pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "10:00am",
                 "12:20pm",
@@ -3749,7 +3785,7 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "6:05pm"
               ]
@@ -3787,6 +3823,203 @@
               "times": [
                 "4:20pm",
                 "6:10pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Drama",
+      "ratings": {
+        "rt": "81%",
+        "imdb": "8.2",
+        "metacritic": "N/A",
+        "letterboxd": "4.1",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTE4MDEzMDU2OF5BMl5BanBnXkFtZTcwMTM5MDExNw@@._V1_SX300.jpg",
+        "genre": "Comedy",
+        "runtime": "23 min",
+        "plot": "A down-on-his-luck high school athlete finds himself thrown into an advanced drama class, where he falls in love with a beautiful ing\u00e9nue and makes enemies with the intensely aggressive class star.",
+        "year": "2011",
+        "director": "Joe Flowers, Mathew Grodsky"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Village East by Angelika",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "4:00pm",
+                "5:20pm",
+                "6:30pm",
+                "8:00pm",
+                "9:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:45am",
+                "12:45pm",
+                "2:15pm",
+                "3:15pm",
+                "4:45pm",
+                "5:45pm",
+                "7:15pm",
+                "8:15pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:45am",
+                "2:15pm",
+                "4:45pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:45am",
+                "2:15pm",
+                "4:45pm",
+                "7:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "2:15pm",
+                "4:45pm",
+                "7:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:15pm",
+                "4:45pm",
+                "7:15pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:30pm",
+                "5:15pm",
+                "7:00pm",
+                "8:20pm",
+                "8:50pm",
+                "9:20pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am",
+                "11:05am",
+                "12:30pm",
+                "1:15pm",
+                "2:05pm",
+                "2:55pm",
+                "3:35pm",
+                "4:15pm",
+                "6:35pm",
+                "7:15pm",
+                "8:00pm",
+                "8:50pm",
+                "9:35pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am",
+                "12:30pm",
+                "1:15pm",
+                "2:55pm",
+                "3:35pm",
+                "4:15pm",
+                "6:35pm",
+                "7:15pm",
+                "7:25pm",
+                "8:50pm",
+                "9:35pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:15am",
+                "12:30pm",
+                "1:15pm",
+                "2:50pm",
+                "3:35pm",
+                "4:15pm",
+                "5:20pm",
+                "6:35pm",
+                "7:15pm",
+                "8:50pm",
+                "9:35pm",
+                "10:15pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15am",
+                "11:25am",
+                "1:15pm",
+                "1:45pm",
+                "2:25pm",
+                "3:00pm",
+                "4:15pm",
+                "5:30pm",
+                "7:15pm",
+                "8:35pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "11:20am",
+                "11:45am",
+                "1:15pm",
+                "2:20pm",
+                "2:50pm",
+                "4:15pm",
+                "5:25pm",
+                "7:15pm",
+                "8:30pm",
+                "9:00pm",
+                "10:15pm"
               ]
             }
           ]
@@ -3854,8 +4087,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "12:55pm",
-                "3:50pm",
                 "6:45pm",
                 "9:45pm"
               ]
@@ -3909,19 +4140,19 @@
       ]
     },
     {
-      "title": "El rapto",
+      "title": "Melancholia",
       "ratings": {
-        "rt": "80%",
-        "imdb": "7.0",
-        "metacritic": "N/A",
+        "rt": "79%",
+        "imdb": "7.1",
+        "metacritic": "81",
         "letterboxd": "3.5",
         "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMjgyODE1MTYwNl5BMl5BanBnXkFtZTcwOTM5MTk2MQ@@._V1_SX300.jpg",
-        "genre": "Comedy, Drama, Music",
-        "runtime": "85 min",
-        "plot": "Ricardo Alfaro, rich rancher of a small town disappears without a trace. Taking advantage of this, Aurora Campos purchase his properties, but when Ricardo reappears a battle is triggered.",
-        "year": "1954",
-        "director": "Emilio Fern\u00e1ndez"
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTk4NjM0MjI3MV5BMl5BanBnXkFtZTcwNjcxMDYzNg@@._V1_SX300.jpg",
+        "genre": "Drama, Sci-Fi",
+        "runtime": "135 min",
+        "plot": "Two sisters find their already strained relationship challenged as a mysterious new planet threatens to collide with Earth.",
+        "year": "2011",
+        "director": "Lars von Trier"
       },
       "verdict": {
         "verdict": "WATCH",
@@ -3933,9 +4164,9 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "mi\u00e9 1 abr",
+              "day": "Tomorrow",
               "times": [
-                "7:00p.m."
+                "3:30pm"
               ]
             }
           ]
@@ -3967,13 +4198,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
-              "times": [
-                "12:20pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "12:05pm"
               ]
@@ -4007,14 +4232,14 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "7:20pm",
                 "10:25pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "7:30pm",
                 "10:35pm"
@@ -4053,40 +4278,6 @@
               "times": [
                 "7:25pm",
                 "10:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Inherent Vice",
-      "ratings": {
-        "rt": "73%",
-        "imdb": "6.6",
-        "metacritic": "81",
-        "letterboxd": "3.3",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMmU3YjYzZWEtZDEzYy00YjA4LWI0YTUtY2RiMzVlYzZkZjg3XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy, Crime, Drama",
-        "runtime": "148 min",
-        "plot": "In 1970, drug-fueled Los Angeles private investigator Larry \"Doc\" Sportello investigates the disappearance of a former girlfriend.",
-        "year": "2014",
-        "director": "Paul Thomas Anderson"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "4:10pm"
               ]
             }
           ]
@@ -4134,6 +4325,40 @@
       ]
     },
     {
+      "title": "Clue",
+      "ratings": {
+        "rt": "73%",
+        "imdb": "7.3",
+        "metacritic": "41",
+        "letterboxd": "3.6",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMzMwZTY3ZGItYTY3Zi00YTRmLWE3Y2UtYWE1NmMwZDVjMmYxXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Crime, Mystery",
+        "runtime": "94 min",
+        "plot": "Six guests are anonymously invited to a strange mansion for dinner, but after their host is killed, they must cooperate with the staff to identify the murderer as the bodies pile up.",
+        "year": "1985",
+        "director": "Jonathan Lynn"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:50pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "A Magnificent Life",
       "ratings": {
         "rt": "72%",
@@ -4158,17 +4383,14 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "12:35pm",
-                "2:50pm",
-                "5:05pm",
                 "7:25pm",
                 "9:45pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "10:00am",
                 "12:05pm",
@@ -4221,7 +4443,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "9:35pm"
               ]
@@ -4255,16 +4477,14 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "1:30pm",
-                "3:45pm",
                 "8:30pm",
                 "9:40pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "10:30am",
                 "12:45pm",
@@ -4436,40 +4656,6 @@
       ]
     },
     {
-      "title": "One Sings, the Other Doesn't",
-      "ratings": {
-        "rt": "65%",
-        "imdb": "7.4",
-        "metacritic": "N/A",
-        "letterboxd": "3.7",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOWQzYTNiNTAtNjQ4NS00OTNmLTkxYTUtNGE0MzYxYjFkYTkzXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, History",
-        "runtime": "120 min",
-        "plot": "The lives of Pomme, an aspiring singer, and Suzanne, a struggling mother, as they search for their own identity in 1970s France.",
-        "year": "1977",
-        "director": "Agn\u00e8s Varda"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "3:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "They Will Kill You",
       "ratings": {
         "rt": "64%",
@@ -4494,16 +4680,14 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "2:10pm",
-                "5:05pm",
                 "7:55pm",
                 "10:45pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "11:20am",
                 "2:10pm",
@@ -4763,9 +4947,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "12:50pm",
-                "3:20pm",
-                "5:20pm",
                 "7:50pm"
               ]
             },
@@ -4859,8 +5040,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "12:40pm",
-                "3:35pm",
                 "6:30pm",
                 "9:25pm"
               ]
@@ -4924,47 +5103,6 @@
       ]
     },
     {
-      "title": "Billy Preston: That\u2019s The Way God Planned It",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOTk1MzUyOTAtMTNlNy00N2M3LTgxNzItOTk3YTdkYjhiMWZkXkEyXkFqcGdeQXVyMTU0ODMwNjg2._V1_SX300.jpg",
-        "genre": "Documentary",
-        "runtime": "105 min",
-        "plot": "Follows the story and challenging life of legendary musician and genius keyboardist Billy Preston.",
-        "year": "2024",
-        "director": "Paris Barclay"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "12:50pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "12:50pm",
-                "5:40pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "The Root",
       "ratings": {
         "rt": null,
@@ -4989,9 +5127,44 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "6:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Billy Preston: That\u2019s The Way God Planned It",
+      "ratings": {
+        "rt": null,
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTk1MzUyOTAtMTNlNy00N2M3LTgxNzItOTk3YTdkYjhiMWZkXkEyXkFqcGdeQXVyMTU0ODMwNjg2._V1_SX300.jpg",
+        "genre": "Documentary",
+        "runtime": "105 min",
+        "plot": "Follows the story and challenging life of legendary musician and genius keyboardist Billy Preston.",
+        "year": "2024",
+        "director": "Paris Barclay"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "Film Forum",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:50pm",
+                "5:40pm"
               ]
             }
           ]
@@ -5023,7 +5196,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "9:30pm"
               ]
@@ -5057,49 +5230,15 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "7:00pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "2:55pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Kiki\u2019s Delivery Service",
-      "ratings": {
-        "rt": null,
-        "imdb": "7.8",
-        "metacritic": "85",
-        "letterboxd": "3.9",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOTFhYWI1NGUtZWFhZS00MTdkLWIzZTItMDBhNWNiZDNlMjYyXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Family, Fantasy",
-        "runtime": "103 min",
-        "plot": "Along with her black cat Jiji, Kiki settles in a seaside town and starts a high-flying delivery service. Here begins her magical encounter with independence and responsibility, making lifelong friends and finding her place in the ...",
-        "year": "1989",
-        "director": "Hayao Miyazaki"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Village East by Angelika",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "1:40pm"
               ]
             }
           ]
@@ -5131,14 +5270,13 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "4:10pm",
                 "9:15pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "1:10pm",
                 "4:40pm",
@@ -5181,7 +5319,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "7:00pm"
               ]
@@ -5215,16 +5353,14 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
-                "1:45pm",
-                "4:30pm",
                 "7:15pm",
                 "10:00pm"
               ]
             },
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "12:00pm",
                 "2:35pm",
@@ -5393,518 +5529,6 @@
       ]
     },
     {
-      "title": "El sacrificio del ciervo sagrado",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "mi\u00e9 1 abr",
-              "times": [
-                "1:00p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "El hombre de mimbre",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "mi\u00e9 1 abr",
-              "times": [
-                "10:00p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Horas de terror",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "jue 2 abr",
-              "times": [
-                "7:00p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "\u00bfQui\u00e9n le teme a Virginia Woolf?",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "jue 2 abr",
-              "times": [
-                "12:30p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Melancol\u00eda",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMjkyMmJmYTctYzJlMS00NTkwLWIxN2YtMWMzYmUwNDNlYzI3XkEyXkFqcGdeQXVyNDE1Mjg1MTI@._V1_SX300.jpg",
-        "genre": "Drama, Horror, Mystery",
-        "runtime": "89 min",
-        "plot": "A hospice nurse takes care of terminally ill patients all while trying to move past the tragedy of having lost her daughter in a school shooting.",
-        "year": "2021",
-        "director": "Jorge Xolalpa"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "jue 2 abr",
-              "times": [
-                "3:30p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Buenos muchachos",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "N/A",
-        "genre": "Short",
-        "runtime": "6 min",
-        "plot": "N/A",
-        "year": "2004",
-        "director": "Santiago Rindel"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "vie 3 abr",
-              "times": [
-                "12:15p.m."
-              ]
-            },
-            {
-              "day": "dom 5 abr",
-              "times": [
-                "5:15p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Un romance peligroso",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "vie 3 abr",
-              "times": [
-                "7:00p.m."
-              ]
-            },
-            {
-              "day": "dom 5 abr",
-              "times": [
-                "8:45p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Spy: una esp\u00eda despistada",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "vie 3 abr",
-              "times": [
-                "3:45p.m."
-              ]
-            },
-            {
-              "day": "s\u00e1b 4 abr",
-              "times": [
-                "10:15p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Promesas del este",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "vie 3 abr",
-              "times": [
-                "10:00p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "El planeta de los simios",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "s\u00e1b 4 abr",
-              "times": [
-                "11:00a.m."
-              ]
-            },
-            {
-              "day": "mar 7 abr",
-              "times": [
-                "7:00p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Fuga a la medianoche",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "N/A",
-        "genre": "Comedy, Talk-Show",
-        "runtime": "60 min",
-        "plot": "N/A",
-        "year": "2006\u20132007",
-        "director": "N/A"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "s\u00e1b 4 abr",
-              "times": [
-                "7:15p.m."
-              ]
-            },
-            {
-              "day": "mar 7 abr",
-              "times": [
-                "3:45p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Muerte a la media noche",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "s\u00e1b 4 abr",
-              "times": [
-                "1:40p.m."
-              ]
-            },
-            {
-              "day": "mar 7 abr",
-              "times": [
-                "12:30p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Cabeza borradora",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "dom 5 abr",
-              "times": [
-                "11:00a.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "El juego de la sospecha",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "mar 7 abr",
-              "times": [
-                "9:50p.m."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Forbidden Fruits",
       "ratings": {
         "rt": "54%",
@@ -5929,15 +5553,14 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "4:35pm",
                 "7:35pm",
                 "10:35pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "4:35pm",
                 "7:35pm",
@@ -5989,6 +5612,40 @@
       ]
     },
     {
+      "title": "Funny Games",
+      "ratings": {
+        "rt": "53%",
+        "imdb": "6.5",
+        "metacritic": "44",
+        "letterboxd": "3.2",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTg4OTExNTYzMV5BMl5BanBnXkFtZTcwOTg1MDU1MQ@@._V1_SX300.jpg",
+        "genre": "Crime, Drama, Thriller",
+        "runtime": "111 min",
+        "plot": "Two psychopathic young men take a family hostage in their cabin.",
+        "year": "2007",
+        "director": "Michael Haneke"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "The Creatures",
       "ratings": {
         "rt": "50%",
@@ -6013,7 +5670,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "4:50pm"
               ]
@@ -6081,16 +5738,14 @@
           "name": "Angelika Film Center",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "12:10pm",
-                "3:25pm",
                 "6:40pm",
                 "9:55pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:10pm",
                 "3:25pm",
@@ -6150,7 +5805,7 @@
     {
       "title": "The Super Mario Galaxy Movie",
       "ratings": {
-        "rt": "44%",
+        "rt": "43%",
         "imdb": "N/A",
         "metacritic": "N/A",
         "letterboxd": null,
@@ -6172,28 +5827,8 @@
           "name": "Alamo Drafthouse Lower Manhattan",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "12:00pm",
-                "12:25pm",
-                "12:55pm",
-                "1:10pm",
-                "1:30pm",
-                "1:35pm",
-                "1:55pm",
-                "2:00pm",
-                "2:25pm",
-                "2:55pm",
-                "3:05pm",
-                "3:20pm",
-                "3:50pm",
-                "4:15pm",
-                "4:30pm",
-                "4:50pm",
-                "5:00pm",
-                "5:20pm",
-                "5:50pm",
-                "6:00pm",
                 "6:15pm",
                 "6:45pm",
                 "7:30pm",
@@ -6207,7 +5842,7 @@
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "9:00am",
                 "9:45am",
@@ -6367,6 +6002,46 @@
                 "8:50pm",
                 "9:40pm",
                 "10:40pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Planet of the Apes",
+      "ratings": {
+        "rt": "42%",
+        "imdb": "5.7",
+        "metacritic": "50",
+        "letterboxd": "2.9",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BYjczODRhOTQtZjdkYi00MmM2LTg1ZmEtZDQ3YjA5MDJhODNhXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Action, Adventure, Sci-Fi",
+        "runtime": "120 min",
+        "plot": "In 2029, an Air Force astronaut crash-lands on a mysterious planet where evolved, talking apes dominate a race of primitive humans.",
+        "year": "2001",
+        "director": "Tim Burton"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "7:00pm"
               ]
             }
           ]
