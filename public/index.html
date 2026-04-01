@@ -121,14 +121,6 @@
       color: var(--accent);
     }
 
-    .week-label {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
     /* ── FILTERS ───────────────────────────────────────────── */
     .filters {
       display: flex;
@@ -675,21 +667,6 @@
       50% { opacity: 1; }
     }
 
-    /* ── FOOTER ────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--dark-gray);
-      padding: 24px 40px;
-      text-align: center;
-    }
-
-    .footer-text {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
     /* ── ANIMATIONS ────────────────────────────────────────── */
     .movie-card {
       animation: fadeUp 0.3s ease both;
@@ -867,6 +844,18 @@
       transition: transform 0.12s ease, border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
     }
 
+    .theater-action-btn.star {
+      border-color: rgba(212, 175, 55, 0.55);
+      color: #d4af37;
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .theater-action-btn.hide {
+      border-color: rgba(200, 91, 91, 0.55);
+      color: #c85b5b;
+      background: rgba(200, 91, 91, 0.08);
+    }
+
     .theater-action-btn:hover {
       transform: translateY(-1px);
     }
@@ -955,7 +944,7 @@
 
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
-      header, .stats-bar, .date-scope-row, main, footer { padding-left: 20px; padding-right: 20px; }
+      header, .stats-bar, .date-scope-row, main { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
@@ -979,8 +968,6 @@
       <div>
         <div class="logo">NYC <span>Cinema</span></div>
       </div>
-
-      <div class="week-label" id="week-label">Loading...</div>
     </div>
   </header>
 
@@ -1025,12 +1012,6 @@
       <div class="loading-text">Loading this week's program</div>
     </div>
   </main>
-
-  <footer>
-    <div class="footer-text">
-      Updated every Wednesday · Theaters: Metrograph · IFC Center · Angelika · Film Forum · Village East · Film at Lincoln Center · Alamo Lower Manhattan · Paris Theater
-    </div>
-  </footer>
 
 <script>
 let allMovies = [];
@@ -1079,16 +1060,20 @@ function getShowtimeDayLabel(dayLabel) {
   const raw = String(dayLabel || '').trim();
   if (!raw) return '';
   if (/^today$/i.test(raw)) {
-    return getNYNow().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    return getNYNow().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
   }
   if (/^tomorrow$/i.test(raw)) {
     const d = getNYNow();
     d.setDate(d.getDate() + 1);
-    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
+  }
+  const explicit = raw.match(/\b(Sun|Mon|Tue|Wed|Thu|Fri|Sat)\b\.?\s+\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})\b/i);
+  if (explicit) {
+    return `${explicit[1]} ${explicit[2]} ${explicit[3]}`;
   }
   const parsed = parseShowtimeDate(raw, '12:00PM');
   if (parsed) {
-    return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
   }
   return raw;
 }
@@ -1255,7 +1240,7 @@ function getAvailableTheaters(data = null) {
     ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
   ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
   return [...observed]
-    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+    .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 }
 
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
@@ -1301,6 +1286,17 @@ function getDisplayVerdict(movie) {
   return rawVerdict === 'SKIP' ? 'SKIP' : 'WATCH';
 }
 
+function getCardTone(movie) {
+  const rt = parseInt(movie?.ratings?.rt || '', 10);
+  if (Number.isFinite(rt)) {
+    if (rt < 50) return 'skip';
+    if (rt < 70) return 'depends';
+    return 'watch';
+  }
+
+  return getDisplayVerdict(movie).toLowerCase();
+}
+
 function getDisplayReason(movie) {
   if (!hasReviewSignals(movie)) return '';
   return movie?.verdict?.reason || '';
@@ -1317,6 +1313,13 @@ function getDisplayTheaterName(name) {
     'Paris Theater': 'Paris',
   };
   return shortNames[canonical] || canonical;
+}
+
+function getTheaterSortLabel(name) {
+  return getDisplayTheaterName(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
 }
 
 function getCanonicalTheaterName(name) {
@@ -1464,11 +1467,6 @@ function initDashboard(data) {
     ...movie,
     _confidence: getMovieConfidence(movie),
   }));
-
-  // Week label
-  document.getElementById('week-label').textContent = data.week_of
-    ? 'Week of ' + data.week_of
-    : 'Awaiting latest scrape';
 
   // Theater dropdown
   const theaters = getAvailableTheaters(data);
@@ -1772,7 +1770,7 @@ function renderTheaterView() {
 
     filmEntries.forEach(entry => {
       const movie = entry.movie;
-      const verdict = getDisplayVerdict(movie).toLowerCase();
+      const verdict = getCardTone(movie);
       const watched = getWatched().includes(movie.title);
       const ratings = movie.ratings || {};
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
@@ -1789,7 +1787,7 @@ function renderTheaterView() {
       let rtClass = '';
       if (rt) {
         const n = parseInt(rt);
-        rtClass = n >= 80 ? 'rt-high' : n >= 60 ? 'rt-mid' : 'rt-low';
+        rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
       }
 
       const lbSlug = movie.title
@@ -1854,7 +1852,7 @@ function theaterLink(name) {
 }
 
 function buildCard(movie, idx) {
-  const verdict = getDisplayVerdict(movie).toLowerCase();
+  const verdict = getCardTone(movie);
   const ratings = movie.ratings || {};
   const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? ratings.cinemaScore : null;
   const letterboxd = getLetterboxdScore(movie);
@@ -1872,7 +1870,7 @@ function buildCard(movie, idx) {
   let rtClass = '';
   if (rt) {
     const n = parseInt(rt);
-    rtClass = n >= 80 ? 'rt-high' : n >= 60 ? 'rt-mid' : 'rt-low';
+    rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
   }
 
   // Genre tags

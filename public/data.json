@@ -1,51 +1,17 @@
 {
-  "generated_at": "2026-04-01T22:31:17.153412",
+  "generated_at": "2026-04-01T19:46:27.215818",
   "week_of": "April 03, 2026",
   "theaters": [
-    "Metrograph",
-    "IFC Center",
+    "Alamo Drafthouse Lower Manhattan",
     "Angelika Film Center",
     "Film Forum",
-    "Village East by Angelika",
     "Film at Lincoln Center",
-    "Alamo Drafthouse Lower Manhattan",
-    "Paris Theater"
+    "IFC Center",
+    "Metrograph",
+    "Paris Theater",
+    "Village East by Angelika"
   ],
   "movies": [
-    {
-      "title": "Cool Hand Luke",
-      "ratings": {
-        "rt": "100%",
-        "imdb": "8.0",
-        "metacritic": "92",
-        "letterboxd": "4.0",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BYzI1NzBkNmMtOWRmMS00YmY2LTk5MjQtZjAzMmIwZDQ2M2UwXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Crime, Drama",
-        "runtime": "127 min",
-        "plot": "A laid-back Southern man is sentenced to two years in a rural prison, but refuses to conform.",
-        "year": "1967",
-        "director": "Stuart Rosenberg"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:10pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
     {
       "title": "Ju Dou",
       "ratings": {
@@ -71,7 +37,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "9:50pm"
               ]
@@ -353,7 +319,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "6:30pm",
                 "9:35pm"
               ]
             },
@@ -535,13 +500,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "8:45pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "3:10pm",
                 "7:50pm"
@@ -702,14 +667,13 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "7:00pm",
                 "9:55pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "11:35am",
                 "2:10pm",
@@ -789,7 +753,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "5:00pm"
               ]
@@ -863,7 +827,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "7:00pm"
               ]
@@ -897,7 +861,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "5:15pm"
               ]
@@ -1043,40 +1007,6 @@
       ]
     },
     {
-      "title": "The Vanishing",
-      "ratings": {
-        "rt": "96%",
-        "imdb": "7.7",
-        "metacritic": "N/A",
-        "letterboxd": "3.9",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZTdlMmViNGMtMzJmZC00YTJlLTg3MDMtYTFmNWI1MTlkNzU1XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Mystery, Thriller",
-        "runtime": "107 min",
-        "plot": "Rex and Saskia, a young couple in love, are on vacation. They stop at a busy service station and Saskia is abducted. After three years and no sign of Saskia, Rex begins receiving letters from the abductor.",
-        "year": "1988",
-        "director": "George Sluizer"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Who's Afraid of Virginia Woolf?",
       "ratings": {
         "rt": "96%",
@@ -1101,7 +1031,7 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:30pm"
               ]
@@ -1135,7 +1065,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "2:25pm"
               ]
@@ -1169,13 +1099,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "8:00pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:20pm",
                 "3:00pm",
@@ -1236,21 +1166,20 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "7:20pm",
                 "8:15pm"
               ]
             },
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "6:30pm",
                 "10:00pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "1:25pm",
                 "4:45pm",
@@ -1258,7 +1187,7 @@
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "11:40am",
                 "3:05pm",
@@ -1291,7 +1220,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "7:10pm",
                 "8:55pm",
                 "9:00pm"
               ]
@@ -1445,7 +1373,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "7:00pm",
                 "9:40pm"
               ]
             },
@@ -1752,7 +1679,7 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "9:45pm"
               ]
@@ -2144,7 +2071,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "8:00pm"
               ]
@@ -2178,7 +2105,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:50pm"
               ]
@@ -2292,13 +2219,13 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "8:20pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "1:00pm",
                 "3:30pm",
@@ -2356,46 +2283,6 @@
       ]
     },
     {
-      "title": "Clouds of Sils Maria",
-      "ratings": {
-        "rt": "91%",
-        "imdb": "6.7",
-        "metacritic": "80",
-        "letterboxd": "3.4",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMjAwMTg3MDE0NF5BMl5BanBnXkFtZTgwNjQ1ODQyNTE@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "124 min",
-        "plot": "A film star comes face-to-face with an uncomfortable reflection of herself while starring in a revival of the play that launched her career.",
-        "year": "2014",
-        "director": "Olivier Assayas"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "5:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Three Colors: White",
       "ratings": {
         "rt": "91%",
@@ -2429,6 +2316,40 @@
               "day": "Sat Apr 4",
               "times": [
                 "6:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Clouds of Sils Maria",
+      "ratings": {
+        "rt": "91%",
+        "imdb": "6.7",
+        "metacritic": "80",
+        "letterboxd": "3.4",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjAwMTg3MDE0NF5BMl5BanBnXkFtZTgwNjQ1ODQyNTE@._V1_SX300.jpg",
+        "genre": "Drama",
+        "runtime": "124 min",
+        "plot": "A film star comes face-to-face with an uncomfortable reflection of herself while starring in a revival of the play that launched her career.",
+        "year": "2014",
+        "director": "Olivier Assayas"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "5:30pm"
               ]
             }
           ]
@@ -2533,7 +2454,7 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "10:00pm"
               ]
@@ -2567,7 +2488,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "8:00pm"
               ]
@@ -2874,7 +2795,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "2:30pm"
               ]
@@ -2908,7 +2829,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "2:50pm"
               ]
@@ -3427,7 +3348,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "7:50pm"
               ]
@@ -3854,7 +3775,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "4:00pm",
                 "5:20pm",
@@ -4087,7 +4008,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "6:45pm",
                 "9:45pm"
               ]
             },
@@ -4164,7 +4084,7 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "3:30pm"
               ]
@@ -4198,7 +4118,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:05pm"
               ]
@@ -4208,9 +4128,49 @@
       ]
     },
     {
+      "title": "Naked Lunch",
+      "ratings": {
+        "rt": "73%",
+        "imdb": "6.9",
+        "metacritic": "67",
+        "letterboxd": "3.5",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BYzBkOWM0MTYtN2QwYy00YTg3LWIwNmEtMGRlNDNhN2UyNjU3XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, Mystery",
+        "runtime": "115 min",
+        "plot": "After developing an addiction to the substance he uses to kill bugs, an exterminator accidentally kills his wife and becomes involved in a secret government plot being orchestrated by giant bugs in a port town in North Africa.",
+        "year": "1991",
+        "director": "David Cronenberg"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "IFC Center",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:59pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:59pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Ready or Not 2: Here I Come",
       "ratings": {
-        "rt": "74%",
+        "rt": "73%",
         "imdb": "N/A",
         "metacritic": "N/A",
         "letterboxd": null,
@@ -4278,46 +4238,6 @@
               "times": [
                 "7:25pm",
                 "10:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Naked Lunch",
-      "ratings": {
-        "rt": "73%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BYzBkOWM0MTYtN2QwYy00YTg3LWIwNmEtMGRlNDNhN2UyNjU3XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Mystery",
-        "runtime": "115 min",
-        "plot": "After developing an addiction to the substance he uses to kill bugs, an exterminator accidentally kills his wife and becomes involved in a secret government plot being orchestrated by giant bugs in a port town in North Africa.",
-        "year": "1991",
-        "director": "David Cronenberg"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "IFC Center",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:59pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:59pm"
               ]
             }
           ]
@@ -4443,7 +4363,7 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "9:35pm"
               ]
@@ -4578,7 +4498,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "9:45pm"
               ]
@@ -4646,7 +4566,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Wed Apr 1",
+              "day": "Today",
               "times": [
                 "9:45pm"
               ]
@@ -4809,7 +4729,7 @@
           "name": "Metrograph",
           "schedule": [
             {
-              "day": "Thu Apr 2",
+              "day": "Tomorrow",
               "times": [
                 "9:50pm"
               ]
@@ -5040,7 +4960,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "6:30pm",
                 "9:25pm"
               ]
             },
@@ -5103,40 +5022,6 @@
       ]
     },
     {
-      "title": "The Root",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTZjZmJiODMtM2MwOS00MzViLWJkMmItYzY3MDUzNjlkODdhXkEyXkFqcGdeQXVyNTkzNjEwMjI@._V1_SX300.jpg",
-        "genre": "Drama, Romance",
-        "runtime": "N/A",
-        "plot": "Roisaithong is an orphan girl who was adopted by Rungrorng's father, and upon his father's death was looked after by him. When Roisaithong discovered that Rungrorng viewed her in a romantic way and not as a sister, she begins to a...",
-        "year": "2022",
-        "director": "N/A"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "6:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Billy Preston: That\u2019s The Way God Planned It",
       "ratings": {
         "rt": null,
@@ -5161,7 +5046,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:50pm",
                 "5:40pm"
@@ -5196,49 +5081,9 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "9:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Stand by Me 40th Anniversary",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Village East by Angelika",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Tomorrow",
-              "times": [
-                "2:55pm"
               ]
             }
           ]
@@ -5270,13 +5115,13 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
                 "9:15pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "1:10pm",
                 "4:40pm",
@@ -5288,40 +5133,6 @@
               "day": "Fri Apr 3",
               "times": [
                 "4:40pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Mystery Screening",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "Village East by Angelika",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "7:00pm"
               ]
             }
           ]
@@ -5353,20 +5164,53 @@
           "name": "Village East by Angelika",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Wed Apr 1",
               "times": [
-                "7:15pm",
                 "10:00pm"
               ]
             },
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "12:00pm",
                 "2:35pm",
                 "5:00pm",
                 "7:35pm",
                 "10:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stand by Me 40th Anniversary",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "Village East by Angelika",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "2:55pm"
               ]
             }
           ]
@@ -5636,7 +5480,7 @@
           "name": "Paris Theater",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "7:00pm"
               ]
@@ -5670,7 +5514,7 @@
           "name": "Film Forum",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Thu Apr 2",
               "times": [
                 "4:50pm"
               ]
@@ -5740,7 +5584,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "6:40pm",
                 "9:55pm"
               ]
             },
@@ -5805,7 +5648,7 @@
     {
       "title": "The Super Mario Galaxy Movie",
       "ratings": {
-        "rt": "43%",
+        "rt": "44%",
         "imdb": "N/A",
         "metacritic": "N/A",
         "letterboxd": null,
@@ -5829,8 +5672,6 @@
             {
               "day": "Wed Apr 1",
               "times": [
-                "6:15pm",
-                "6:45pm",
                 "7:30pm",
                 "7:45pm",
                 "8:00pm",
