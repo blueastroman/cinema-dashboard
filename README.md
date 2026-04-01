@@ -12,6 +12,7 @@ Live production updates are deployed via the connected Vercel project.
 - Village East by Angelika
 - Film at Lincoln Center
 - Alamo Drafthouse Lower Manhattan
+- Paris Theater
 
 ## Stack
 - **Showtimes**: SerpAPI (free tier — 100 searches/month, ~10/week)

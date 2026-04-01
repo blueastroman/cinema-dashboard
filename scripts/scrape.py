@@ -22,6 +22,7 @@ THEATERS = [
     {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
     {"name": "Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
     {"name": "Alamo Drafthouse Lower Manhattan", "serpapi_id": "alamo drafthouse lower manhattan new york"},
+    {"name": "Paris Theater", "serpapi_id": "paris theater new york"},
 ]
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
