@@ -148,61 +148,18 @@ def omdb_request(params: dict) -> Optional[dict]:
         return None
 
 
-def serpapi_google_search(query: str) -> Optional[dict]:
-    if not SERPAPI_KEY:
-        return None
-    try:
-        r = requests.get(
-            "https://serpapi.com/search",
-            params={
-                "engine": "google",
-                "q": query,
-                "api_key": SERPAPI_KEY,
-            },
-            timeout=15,
-        )
-        return r.json()
-    except Exception:
-        return None
+def rt_slug(title: str) -> str:
+    return normalize_title(title).replace(" ", "_")
 
 
 def fetch_rt_fallback(title: str) -> Optional[str]:
-    data = serpapi_google_search(f"site:rottentomatoes.com {title} movie")
-    if not data:
-        return None
-
-    organic = data.get("organic_results", []) or []
-    target_url = None
-    for result in organic:
-        link = result.get("link", "")
-        if "rottentomatoes.com/m/" in link:
-            target_url = link
-            break
-
-    snippet_text = " ".join(
-        [
-            str(result.get("snippet", ""))
-            for result in organic[:3]
-            if result.get("snippet")
-        ]
-    )
-    snippet_match = re.search(r"\b(\d{1,3})%\b", snippet_text)
-
-    if not target_url:
-        if snippet_match:
-            pct = int(snippet_match.group(1))
-            if 0 <= pct <= 100:
-                return f"{pct}%"
-        return None
-
-    try:
-        page = requests.get(
-            target_url,
-            timeout=15,
-            headers={"User-Agent": "Mozilla/5.0"},
-        ).text
-    except Exception:
-        page = ""
+    slug = rt_slug(title)
+    candidates = [
+        f"https://www.rottentomatoes.com/m/{slug}",
+        f"https://www.rottentomatoes.com/m/{slug}_{datetime.now().year}",
+        f"https://www.rottentomatoes.com/m/{slug}_{datetime.now().year + 1}",
+        f"https://www.rottentomatoes.com/m/{slug}_{datetime.now().year - 1}",
+    ]
 
     patterns = [
         r'tomatometerscore="(\d{1,3})"',
@@ -212,17 +169,22 @@ def fetch_rt_fallback(title: str) -> Optional[str]:
         r'"scorePercent"\s*:\s*"(\d{1,3})%"',
         r'"Tomatometer","ratingCount":\d+,"ratingValue":"(\d{1,3})"',
     ]
-    for pat in patterns:
-        m = re.search(pat, page)
-        if m:
-            pct = int(m.group(1))
-            if 0 <= pct <= 100:
-                return f"{pct}%"
 
-    if snippet_match:
-        pct = int(snippet_match.group(1))
-        if 0 <= pct <= 100:
-            return f"{pct}%"
+    for url in candidates:
+        try:
+            page = requests.get(
+                url,
+                timeout=12,
+                headers={"User-Agent": "Mozilla/5.0"},
+            ).text
+        except Exception:
+            continue
+        for pat in patterns:
+            m = re.search(pat, page)
+            if m:
+                pct = int(m.group(1))
+                if 0 <= pct <= 100:
+                    return f"{pct}%"
     return None
 
 
