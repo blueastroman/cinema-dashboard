@@ -732,7 +732,6 @@
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
         <button class="filter-btn active" id="thisweek-btn" data-filter="all">All</button>
         <button class="filter-btn" data-filter="WATCH">Watch</button>
-        <button class="filter-btn" data-filter="DEPENDS">Depends</button>
         <button class="filter-btn" data-filter="SKIP">Skip</button>
       </div>
 
@@ -923,27 +922,21 @@ function getDisplayVerdict(movie) {
   const rawVerdict = movie?.verdict?.verdict || 'SKIP';
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
   if (cinemaWeight !== null) {
-    if (cinemaWeight >= 105) return 'WATCH';
-    if (cinemaWeight >= 85) return 'DEPENDS';
-    return 'SKIP';
+    return cinemaWeight <= 65 ? 'SKIP' : 'WATCH';
   }
 
   const rt = parseInt(movie?.ratings?.rt || '', 10);
   if (Number.isFinite(rt)) {
-    if (rt >= 85) return 'WATCH';
-    if (rt >= 65) return 'DEPENDS';
-    return 'SKIP';
+    return rt < 50 ? 'SKIP' : 'WATCH';
   }
 
   const lb = parseFloat(getLetterboxdScore(movie));
   if (Number.isFinite(lb)) {
-    if (lb >= 3.8) return 'WATCH';
-    if (lb >= 3.1) return 'DEPENDS';
-    return 'SKIP';
+    return lb < 2.7 ? 'SKIP' : 'WATCH';
   }
 
-  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) return 'DEPENDS';
-  return rawVerdict;
+  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) return 'WATCH';
+  return rawVerdict === 'SKIP' ? 'SKIP' : 'WATCH';
 }
 
 function getDisplayReason(movie) {
@@ -1243,7 +1236,7 @@ function render() {
       const isToday = list.some(m => moviePlayingOn(m, today)) &&
         list[0] && moviePlayingOn(list[0], today) || abbr === new Date().toLocaleDateString('en-US', {weekday:'short'}).slice(0,3);
       const label = isToday ? 'Today' : (dayNames[abbr] || abbr);
-      const cls = isToday ? 'watch' : 'depends';
+      const cls = isToday ? 'watch' : 'skip';
       renderSection(label, cls, list, main);
     });
     return;
@@ -1263,17 +1256,17 @@ function render() {
   }
 
   // ── Default: verdict groups ─────────────────────────────────────────────
-  const groups = { WATCH: [], DEPENDS: [], SKIP: [] };
+  const groups = { WATCH: [], SKIP: [] };
   movies.forEach(m => {
     const v = getDisplayVerdict(m);
-    (groups[v] || groups.SKIP).push(m);
+    (groups[v] || groups.WATCH).push(m);
   });
 
   const order = (activeFilter === 'all' || activeFilter === 'today')
-    ? ['WATCH', 'DEPENDS', 'SKIP']
+    ? ['WATCH', 'SKIP']
     : [activeFilter];
 
-  const labels = { WATCH: 'Watch', DEPENDS: 'Depends', SKIP: 'Skip' };
+  const labels = { WATCH: 'Watch', SKIP: 'Skip' };
   order.forEach(verdict => {
     const list = groups[verdict] || [];
     if (!list.length) return;

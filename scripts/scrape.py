@@ -329,7 +329,7 @@ def mock_ratings(title: str) -> dict:
 # ─── VERDICTS ─────────────────────────────────────────────────────────────────
 
 def fetch_verdict(title: str, ratings: dict) -> dict:
-    """Ask Claude for a Watch/Skip/Depends verdict + one-line reason."""
+    """Ask Claude for a Watch/Skip verdict + one-line reason."""
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY) if ANTHROPIC_KEY else None
 
     rt = ratings.get("rt", "N/A")
@@ -353,12 +353,12 @@ IMDB: {imdb}
 
 Return ONLY a JSON object with exactly these fields:
 {{
-  "verdict": "WATCH" | "SKIP" | "DEPENDS",
+  "verdict": "WATCH" | "SKIP",
   "reason": "One sharp sentence (max 15 words) explaining why.",
   "vibe": "One or two words describing the feeling/mood of the film"
 }}
 
-Be direct. No hedging. Think like someone with genuinely high standards who respects both arthouse and accessible cinema. DEPENDS means it's good but niche or divisive."""
+Be direct. No hedging. Use SKIP only for clear duds; otherwise choose WATCH."""
 
     if not client:
         return mock_verdict(title, ratings)
@@ -399,8 +399,8 @@ def mock_verdict(title: str, ratings: dict) -> dict:
     # If there is no critic/audience signal yet, avoid manufacturing a harsh skip.
     if cinema_weight is None and not has_rt and not has_letterboxd and not has_imdb:
         return {
-            "verdict": "DEPENDS",
-            "reason": "Too early for a real consensus — wait for reviews or go on premise.",
+            "verdict": "WATCH",
+            "reason": "No clear consensus yet, but nothing suggests it's a dud.",
             "vibe": "Unscored",
         }
 
@@ -415,10 +415,8 @@ def mock_verdict(title: str, ratings: dict) -> dict:
     else:
         score = 0
 
-    if score >= 85:
+    if score >= 55:
         return {"verdict": "WATCH", "reason": "Critics are united — this one earns its runtime.", "vibe": "Essential"}
-    elif score >= 70:
-        return {"verdict": "DEPENDS", "reason": "Strong but divisive — know what you're signing up for.", "vibe": "Challenging"}
     else:
         return {"verdict": "SKIP", "reason": "The scores don't lie — pass on this one.", "vibe": "Mediocre"}
 
@@ -466,7 +464,7 @@ def build_dataset() -> dict:
     movies_list = sorted(
         all_movies.values(),
         key=lambda m: (
-            {"WATCH": 0, "DEPENDS": 1, "SKIP": 2}.get(m["verdict"]["verdict"], 3),
+            {"WATCH": 0, "SKIP": 1}.get(m["verdict"]["verdict"], 2),
             -(int((m["ratings"].get("rt") or "0%").replace("%", "")) if m["ratings"].get("rt") else 0)
         )
     )
