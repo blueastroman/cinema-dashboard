@@ -771,9 +771,51 @@ function getThisWeekDayOrder() {
   return ordered;
 }
 
+function parseShowtimeDate(dayLabel, timeLabel) {
+  const timeStr = String(timeLabel || '').trim().toUpperCase().replace(/\s+/g, ' ');
+  if (!timeStr) return null;
+
+  const timeMatch = timeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+  if (!timeMatch) return null;
+
+  let hour = parseInt(timeMatch[1], 10);
+  const minute = parseInt(timeMatch[2] || '0', 10);
+  const meridiem = timeMatch[3].toUpperCase();
+  if (meridiem === 'PM' && hour !== 12) hour += 12;
+  if (meridiem === 'AM' && hour === 12) hour = 0;
+
+  const now = new Date();
+  const dayText = String(dayLabel || '').trim();
+  let baseDate = null;
+
+  const mdMatch = dayText.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2})\b/i);
+  if (mdMatch) {
+    baseDate = new Date(now.getFullYear(), new Date(`${mdMatch[1]} 1, ${now.getFullYear()}`).getMonth(), parseInt(mdMatch[2], 10));
+  } else {
+    const weekdayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+    const weekday = weekdayMap[dayText.slice(0, 3).toLowerCase()];
+    if (weekday === undefined) return null;
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = weekday - today.getDay();
+    baseDate = new Date(today);
+    baseDate.setDate(today.getDate() + diff);
+  }
+
+  if (!(baseDate instanceof Date) || Number.isNaN(baseDate.getTime())) return null;
+  baseDate.setHours(hour, minute, 0, 0);
+  return baseDate;
+}
+
 function moviePlayingOn(movie, dateLabel) {
+  const now = new Date();
   return (movie.theaters || []).some(t =>
-    (t.schedule || []).some(s => (s.day || '').includes(dateLabel))
+    (t.schedule || []).some(s =>
+      (s.day || '').includes(dateLabel) &&
+      (s.times || []).some(time => {
+        const showAt = parseShowtimeDate(s.day, time);
+        return !showAt || showAt >= now;
+      })
+    )
   );
 }
 
@@ -1277,7 +1319,20 @@ function getTicketUrl(theaterName, movieTitle) {
 function buildScheduleHTML(schedule, theaterName, movieTitle) {
   if (!schedule || !schedule.length) return '';
   const url = getTicketUrl(theaterName, movieTitle);
-  return schedule.slice(0, 3).map(s => `
+  const now = new Date();
+  const upcoming = schedule
+    .map(s => {
+      const times = (s.times || []).filter(time => {
+        const showAt = parseShowtimeDate(s.day, time);
+        return !showAt || showAt >= now;
+      });
+      return { ...s, times };
+    })
+    .filter(s => s.times.length > 0);
+
+  if (!upcoming.length) return '';
+
+  return upcoming.slice(0, 3).map(s => `
     <div>
       <div class="theater-day">${s.day}</div>
       <div class="showtime-list">
