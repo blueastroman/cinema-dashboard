@@ -186,6 +186,25 @@
       position: relative;
     }
 
+    .theater-select {
+      min-width: 210px;
+      background: var(--dark-gray);
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      padding: 7px 10px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .theater-select:focus {
+      border-color: var(--accent-dim);
+    }
+
     .search-input {
       width: 100%;
       background: var(--dark-gray);
@@ -686,6 +705,7 @@
       .stats-inner { gap: 10px; justify-content: flex-start; }
       .control-group { width: 100%; }
       #view-cards { display: none; }
+      .theater-select { width: 100%; min-width: 0; }
       .search-wrap { max-width: 100%; width: 100%; }
       .movies-grid { grid-template-columns: 1fr; }
     }
@@ -707,8 +727,6 @@
         <button class="filter-btn" data-filter="WATCH">Watch</button>
         <button class="filter-btn" data-filter="DEPENDS">Depends</button>
         <button class="filter-btn" data-filter="SKIP">Skip</button>
-        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
-        <!-- Theater filters injected by JS -->
       </div>
 
       <div class="week-label" id="week-label">Loading...</div>
@@ -727,6 +745,12 @@
         <span class="control-label">View</span>
         <button class="filter-btn active" id="view-cards" onclick="setView('cards')">Cards</button>
         <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
+      </div>
+      <div class="control-group">
+        <span class="control-label">Theater</span>
+        <select id="theater-select" class="theater-select">
+          <option value="all">All Theaters</option>
+        </select>
       </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -964,25 +988,23 @@ function initDashboard(data) {
     ? 'Week of ' + data.week_of
     : 'Awaiting latest scrape';
 
-  // Theater filter buttons
+  // Theater filter dropdown
   const theaters = data.theaters || [];
-  const filtersEl = document.getElementById('filters');
-  theaters.forEach(t => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.theater = t;
-    btn.textContent = (t === 'Lincoln Center - Film at Lincoln Center' || t === 'Film at Lincoln Center')
-      ? 'FLC'
-      : t.split(' ')[0];
-    btn.title = t;
-    btn.addEventListener('click', () => {
-      activeTheater = activeTheater === t ? 'all' : t;
-      document.querySelectorAll('[data-theater]').forEach(b => b.classList.remove('active'));
-      if (activeTheater !== 'all') btn.classList.add('active');
+  const theaterSelect = document.getElementById('theater-select');
+  if (theaterSelect) {
+    theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
+    theaters.forEach(t => {
+      const option = document.createElement('option');
+      option.value = t;
+      option.textContent = getDisplayTheaterName(t);
+      theaterSelect.appendChild(option);
+    });
+    theaterSelect.value = activeTheater;
+    theaterSelect.addEventListener('change', (e) => {
+      activeTheater = e.target.value;
       render();
     });
-    filtersEl.appendChild(btn);
-  });
+  }
 
   render();
 }
