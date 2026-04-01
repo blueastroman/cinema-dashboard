@@ -211,8 +211,23 @@ Be direct. No hedging. Think like someone with genuinely high standards who resp
 
 
 def mock_verdict(title: str, ratings: dict) -> dict:
-    rt_str = ratings.get("rt") or "0%"
-    score = int(rt_str.replace("%", "")) if rt_str and "%" in rt_str else 0
+    rt_str = ratings.get("rt")
+    meta_str = ratings.get("metacritic")
+    imdb_str = ratings.get("imdb")
+
+    has_rt = isinstance(rt_str, str) and "%" in rt_str
+    has_meta = meta_str not in (None, "N/A", "0")
+    has_imdb = imdb_str not in (None, "N/A")
+
+    # If there is no critic/audience signal yet, avoid manufacturing a harsh skip.
+    if not has_rt and not has_meta and not has_imdb:
+        return {
+            "verdict": "DEPENDS",
+            "reason": "Too early for a real consensus — wait for reviews or go on premise.",
+            "vibe": "Unscored",
+        }
+
+    score = int(rt_str.replace("%", "")) if has_rt else 0
     if score >= 85:
         return {"verdict": "WATCH", "reason": "Critics are united — this one earns its runtime.", "vibe": "Essential"}
     elif score >= 70:
@@ -221,7 +236,7 @@ def mock_verdict(title: str, ratings: dict) -> dict:
         return {"verdict": "SKIP", "reason": "The scores don't lie — pass on this one.", "vibe": "Mediocre"}
 
 
-# ─── ASSEMBLE ─────────────────────────────────────────────────────────────────
+# ─── ASSEMBLE ────────────────────────────────────────────────────────────────
 
 def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")
