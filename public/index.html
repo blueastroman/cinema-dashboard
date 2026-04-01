@@ -45,6 +45,7 @@
       font-weight: 300;
       min-height: 100vh;
       overflow-x: hidden;
+      overscroll-behavior-y: none;
     }
 
     /* Film grain overlay */
@@ -58,13 +59,25 @@
       opacity: 0.35;
     }
 
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: calc(var(--safe-top) + 20px);
+      background: var(--black);
+      pointer-events: none;
+      z-index: 90;
+    }
+
     /* ── HEADER ────────────────────────────────────────────── */
     header {
       border-bottom: 1px solid var(--mid-gray);
       padding: 0 40px;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 110;
       background: rgba(10,10,10,0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -638,6 +651,7 @@
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 768px) {
       header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
+      body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .filters { gap: 6px; }
