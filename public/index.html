@@ -898,6 +898,37 @@ const THEATER_URLS = {
   'Alamo': 'https://drafthouse.com/nyc',
 };
 
+const CANONICAL_THEATERS = [
+  'Metrograph',
+  'IFC Center',
+  'Angelika Film Center',
+  'Film Forum',
+  'Village East by Angelika',
+  'Film at Lincoln Center',
+  'Alamo Drafthouse Lower Manhattan',
+];
+
+const THEATER_ALIASES = {
+  'flc': 'Film at Lincoln Center',
+  'lincoln center - film at lincoln center': 'Film at Lincoln Center',
+  'lincoln center': 'Film at Lincoln Center',
+  'film at lincoln center': 'Film at Lincoln Center',
+  'film linc': 'Film at Lincoln Center',
+  'film': 'Film Forum',
+  'film forum': 'Film Forum',
+  'angelika': 'Angelika Film Center',
+  'angelika film center': 'Angelika Film Center',
+  'alamo': 'Alamo Drafthouse Lower Manhattan',
+  'alamo drafthouse lower manhattan': 'Alamo Drafthouse Lower Manhattan',
+  'ifc': 'IFC Center',
+  'ifc center': 'IFC Center',
+  'metro': 'Metrograph',
+  'metrograph': 'Metrograph',
+  'village': 'Village East by Angelika',
+  'village east': 'Village East by Angelika',
+  'village east by angelika': 'Village East by Angelika',
+};
+
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
 const MOCK_REASONS = [
   "Critics are united — this one earns its runtime.",
@@ -947,16 +978,15 @@ function getDisplayReason(movie) {
 }
 
 function getDisplayTheaterName(name) {
-  const normalized = String(name || '').trim();
-  if (normalized === 'FLC' || normalized === 'Lincoln Center - Film at Lincoln Center') return 'Film at Lincoln Center';
-  if (normalized === 'Film') return 'Film Forum';
-  if (normalized === 'Angelika') return 'Angelika Film Center';
-  if (normalized === 'Alamo') return 'Alamo Drafthouse Lower Manhattan';
-  return name;
+  return getCanonicalTheaterName(name) || name;
 }
 
 function getCanonicalTheaterName(name) {
-  return String(getDisplayTheaterName(name) || '').trim();
+  const raw = String(name || '').trim();
+  if (!raw) return '';
+  const lowered = raw.toLowerCase();
+  const canonical = THEATER_ALIASES[lowered] || raw;
+  return CANONICAL_THEATERS.includes(canonical) ? canonical : canonical;
 }
 
 function getCinemaScoreWeight(score) {
@@ -1103,10 +1133,11 @@ function initDashboard(data) {
     : 'Awaiting latest scrape';
 
   // Theater filter dropdown
-  const theaters = [...new Set((data.theaters || [])
-    .map(t => getCanonicalTheaterName(t))
-    .filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b));
+  const observed = new Set([
+    ...(data.theaters || []),
+    ...((data.movies || []).flatMap(m => (m.theaters || []).map(t => t?.name))),
+  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
+  const theaters = CANONICAL_THEATERS.filter(t => observed.has(t)).sort((a, b) => a.localeCompare(b));
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
