@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NYC Cinema — This Week</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700;800&family=Limelight&family=Poiret+One&display=swap" rel="stylesheet" />
 
   <style>
     /* ── RESET & BASE ──────────────────────────────────────── */
@@ -33,6 +33,7 @@
       --safe-top: env(safe-area-inset-top, 0px);
       --font-sans: 'Poiret One', sans-serif;
       --font-display: 'Limelight', serif;
+      --font-title: 'Lexend Deca', sans-serif;
       --panel-glow: rgba(215, 179, 106, 0.18);
     }
 
@@ -411,10 +412,11 @@
     }
 
     .movie-title {
-      font-family: var(--font-sans);
+      font-family: var(--font-title);
       font-size: 1.65rem;
-      font-weight: 900;
+      font-weight: 800;
       line-height: 1.2;
+      letter-spacing: -0.02em;
       color: var(--cream);
       flex: 1;
       overflow-wrap: anywhere;
@@ -859,12 +861,12 @@
     }
 
     .theater-film-title {
-      font-family: var(--font-sans);
+      font-family: var(--font-title);
       font-size: 1.5rem;
       font-weight: 800;
       color: var(--cream);
       line-height: 1.08;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.025em;
       min-width: 0;
       flex: 1;
       text-wrap: balance;
