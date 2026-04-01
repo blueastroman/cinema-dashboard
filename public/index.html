@@ -1246,13 +1246,8 @@ function getAvailableTheaters(data = null) {
     ...((data?.theaters || [])),
     ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
   ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
-
-  const canonical = CANONICAL_THEATERS.filter(t => observed.has(t));
-  const extras = [...observed]
-    .filter(t => !CANONICAL_THEATERS.includes(t))
+  return [...observed]
     .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
-
-  return [...canonical, ...extras];
 }
 
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
