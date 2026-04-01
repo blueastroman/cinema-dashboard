@@ -738,8 +738,8 @@
     <div class="stats-inner">
       <div class="control-group">
         <span class="control-label">Sort</span>
-        <button class="filter-btn active" id="sort-rating" onclick="setSort('rating')">Rating</button>
-        <button class="filter-btn" id="sort-day" onclick="setSort('day')">Day</button>
+        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
+        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
       </div>
       <div class="control-group">
         <span class="control-label">View</span>
@@ -781,7 +781,7 @@ let allMovies = [];
 let activeFilter = 'all';
 let activeTheater = 'all';
 let searchQuery = '';
-let activeSort = 'rating';
+let activeSort = 'day';
 let viewMode = 'cards';
 let showLowConfidence = false;
 const CONFIDENCE_THRESHOLD = 60;
