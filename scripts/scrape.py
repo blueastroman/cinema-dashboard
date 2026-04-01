@@ -11,6 +11,7 @@ import anthropic
 from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
+from urllib.parse import quote
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
@@ -144,6 +145,123 @@ def omdb_request(params: dict) -> dict | None:
         return data
     except Exception:
         return None
+
+
+def serpapi_google_search(query: str) -> dict | None:
+    if not SERPAPI_KEY:
+        return None
+    try:
+        r = requests.get(
+            "https://serpapi.com/search",
+            params={
+                "engine": "google",
+                "q": query,
+                "api_key": SERPAPI_KEY,
+            },
+            timeout=15,
+        )
+        return r.json()
+    except Exception:
+        return None
+
+
+def fetch_rt_fallback(title: str) -> str | None:
+    data = serpapi_google_search(f"site:rottentomatoes.com {title} movie")
+    if not data:
+        return None
+
+    organic = data.get("organic_results", []) or []
+    target_url = None
+    for result in organic:
+        link = result.get("link", "")
+        if "rottentomatoes.com/m/" in link:
+            target_url = link
+            break
+
+    snippet_text = " ".join(
+        [
+            str(result.get("snippet", ""))
+            for result in organic[:3]
+            if result.get("snippet")
+        ]
+    )
+    snippet_match = re.search(r"\b(\d{1,3})%\b", snippet_text)
+
+    if not target_url:
+        if snippet_match:
+            pct = int(snippet_match.group(1))
+            if 0 <= pct <= 100:
+                return f"{pct}%"
+        return None
+
+    try:
+        page = requests.get(
+            target_url,
+            timeout=15,
+            headers={"User-Agent": "Mozilla/5.0"},
+        ).text
+    except Exception:
+        page = ""
+
+    patterns = [
+        r'tomatometerscore="(\d{1,3})"',
+        r'"tomatometerScoreAll"\s*:\s*\{"score"\s*:\s*(\d{1,3})',
+        r'"criticsScore"\s*:\s*(\d{1,3})',
+    ]
+    for pat in patterns:
+        m = re.search(pat, page)
+        if m:
+            pct = int(m.group(1))
+            if 0 <= pct <= 100:
+                return f"{pct}%"
+
+    if snippet_match:
+        pct = int(snippet_match.group(1))
+        if 0 <= pct <= 100:
+            return f"{pct}%"
+    return None
+
+
+def fetch_letterboxd_fallback(title: str) -> str | None:
+    try:
+        search_url = f"https://letterboxd.com/search/{quote(title)}/"
+        search_page = requests.get(
+            search_url,
+            timeout=15,
+            headers={"User-Agent": "Mozilla/5.0"},
+        ).text
+    except Exception:
+        return None
+
+    m = re.search(r'href="(/film/[^"/]+/)"', search_page)
+    if not m:
+        return None
+
+    film_url = f"https://letterboxd.com{m.group(1)}"
+    try:
+        film_page = requests.get(
+            film_url,
+            timeout=15,
+            headers={"User-Agent": "Mozilla/5.0"},
+        ).text
+    except Exception:
+        return None
+
+    patterns = [
+        r'"ratingValue"\s*:\s*"?(?P<score>\d(?:\.\d)?)"?',
+        r'"averageRating"\s*:\s*"?(?P<score>\d(?:\.\d)?)"?',
+    ]
+    for pat in patterns:
+        mm = re.search(pat, film_page)
+        if mm:
+            try:
+                score = float(mm.group("score"))
+                if 0.0 < score <= 5.0:
+                    return f"{score:.1f}"
+            except Exception:
+                continue
+
+    return None
 
 
 def parse_omdb_ratings(data: dict) -> dict:
@@ -292,9 +410,18 @@ def fetch_ratings(title: str) -> dict:
 
     try:
         data = resolve_omdb_record(title)
-        if not data:
-            return {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None, "director": None, "cinemaScore": None}
-        return parse_omdb_ratings(data)
+        if data:
+            parsed = parse_omdb_ratings(data)
+        else:
+            parsed = {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None, "director": None, "cinemaScore": None}
+
+        # Fallbacks for new/edge releases where OMDb is lagging.
+        if not parsed.get("rt"):
+            parsed["rt"] = fetch_rt_fallback(title)
+        if not parsed.get("letterboxd"):
+            parsed["letterboxd"] = fetch_letterboxd_fallback(title)
+
+        return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
         return mock_ratings(title)
