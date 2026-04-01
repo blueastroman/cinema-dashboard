@@ -864,11 +864,11 @@ function getPriorityScore(movie) {
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
   if (cinemaWeight !== null) return cinemaWeight;
 
-  const lb = parseFloat(getLetterboxdScore(movie));
-  if (Number.isFinite(lb)) return lb * 20;
-
   const rt = parseInt(movie?.ratings?.rt || '0', 10);
   if (Number.isFinite(rt)) return rt;
+
+  const lb = parseFloat(getLetterboxdScore(movie));
+  if (Number.isFinite(lb)) return lb * 20;
 
   return 0;
 }
@@ -936,8 +936,8 @@ function initDashboard(data) {
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.theater = t;
-    btn.textContent = t === 'Lincoln Center - Film at Lincoln Center'
-      ? 'Film at Lincoln Center'
+    btn.textContent = (t === 'Lincoln Center - Film at Lincoln Center' || t === 'Film at Lincoln Center')
+      ? 'FLC'
       : t.split(' ')[0];
     btn.title = t;
     btn.addEventListener('click', () => {
@@ -1183,13 +1183,13 @@ function buildCard(movie, idx) {
         <span class="meta-value">${cinemaScore}</span>
         <span class="meta-label">CinemaScore</span>
       </div>` : ''}
-      ${letterboxd ? `<div class="meta-sep"></div><div class="meta-item">
-        <span class="meta-value">${letterboxd}</span>
-        <span class="meta-label">Letterboxd</span>
-      </div>` : ''}
       ${rt ? `<div class="meta-sep"></div><div class="meta-item">
         <span class="meta-value ${rtClass}">${rt}</span>
         <span class="meta-label">Tomatometer</span>
+      </div>` : ''}
+      ${letterboxd ? `<div class="meta-sep"></div><div class="meta-item">
+        <span class="meta-value">${letterboxd}</span>
+        <span class="meta-label">Letterboxd</span>
       </div>` : ''}
     </div>
 
