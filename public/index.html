@@ -1092,6 +1092,20 @@ function getActiveDayFilterLabel() {
   return null;
 }
 
+function getShowtimeDayShortLabel(dayLabel) {
+  const raw = String(dayLabel || '').trim();
+  if (!raw) return '';
+  if (/^today$/i.test(raw)) {
+    return getNYNow().toLocaleDateString('en-US', { weekday: 'short' });
+  }
+  if (/^tomorrow$/i.test(raw)) {
+    const d = getNYNow();
+    d.setDate(d.getDate() + 1);
+    return d.toLocaleDateString('en-US', { weekday: 'short' });
+  }
+  return raw.slice(0, 3);
+}
+
 function dayMatchesActiveScope(dayLabel, activeDayLabel) {
   if (!activeDayLabel) return true;
   const raw = String(dayLabel || '').trim();
@@ -2043,11 +2057,10 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
   for (const s of schedule) {
     if (!dayMatchesActiveScope(s.day, activeDayLabel)) continue;
     const dayRaw = String(s.day || '').trim();
-    const dayAbbr = dayRaw.slice(0, 3);
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
       if (!showAt || showAt < now) continue;
-      items.push({ at: showAt, label: `${dayAbbr} ${t}` });
+      items.push({ at: showAt, label: `${getShowtimeDayShortLabel(dayRaw)} ${t}` });
     }
   }
 
@@ -2069,51 +2082,39 @@ function toggleTheaters(btn) {
 
 // ── FILTER CONTROLS ─────────────────────────────────────────────────────────
 
+function syncDateScopeButtons() {
+  const todayBtn = document.getElementById('today-btn');
+  const tomorrowBtn = document.getElementById('tomorrow-btn');
+  const weekBtn = document.getElementById('thisweek-btn');
+  const buttons = [
+    { el: todayBtn, active: dateScope === 'today' },
+    { el: tomorrowBtn, active: dateScope === 'tomorrow' },
+    { el: weekBtn, active: dateScope === 'week' },
+  ];
+
+  buttons.forEach(({ el, active }) => {
+    if (!el) return;
+    el.classList.toggle('active', active);
+    el.style.borderColor = active ? '' : 'var(--accent-dim)';
+    el.style.color = active ? '' : 'var(--accent)';
+  });
+}
+
 document.getElementById('today-btn')?.addEventListener('click', () => {
   dateScope = 'today';
-  document.getElementById('today-btn')?.classList.add('active');
-  document.getElementById('today-btn').style.borderColor = '';
-  document.getElementById('today-btn').style.color = '';
-  const tomorrowBtn = document.getElementById('tomorrow-btn');
-  tomorrowBtn?.classList.remove('active');
-  if (tomorrowBtn) {
-    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
-    tomorrowBtn.style.color = 'var(--accent)';
-  }
-  document.getElementById('thisweek-btn')?.classList.remove('active');
+  syncDateScopeButtons();
   render();
 });
 
 document.getElementById('tomorrow-btn')?.addEventListener('click', () => {
   dateScope = 'tomorrow';
-  document.getElementById('tomorrow-btn')?.classList.add('active');
-  document.getElementById('tomorrow-btn').style.borderColor = '';
-  document.getElementById('tomorrow-btn').style.color = '';
-  const todayBtn = document.getElementById('today-btn');
-  todayBtn?.classList.remove('active');
-  if (todayBtn) {
-    todayBtn.style.borderColor = 'var(--accent-dim)';
-    todayBtn.style.color = 'var(--accent)';
-  }
-  document.getElementById('thisweek-btn')?.classList.remove('active');
+  syncDateScopeButtons();
   render();
 });
 
 document.getElementById('thisweek-btn')?.addEventListener('click', () => {
   dateScope = 'week';
-  document.getElementById('thisweek-btn')?.classList.add('active');
-  const todayBtn = document.getElementById('today-btn');
-  todayBtn?.classList.remove('active');
-  if (todayBtn) {
-    todayBtn.style.borderColor = 'var(--accent-dim)';
-    todayBtn.style.color = 'var(--accent)';
-  }
-  const tomorrowBtn = document.getElementById('tomorrow-btn');
-  tomorrowBtn?.classList.remove('active');
-  if (tomorrowBtn) {
-    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
-    tomorrowBtn.style.color = 'var(--accent)';
-  }
+  syncDateScopeButtons();
   render();
 });
 
@@ -2123,6 +2124,7 @@ document.getElementById('search-input').addEventListener('input', e => {
 });
 
 initializeViewMode();
+syncDateScopeButtons();
 
 // ── MOCK DATA ────────────────────────────────────────────────────────────────
 
