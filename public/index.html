@@ -759,10 +759,6 @@
           <option value="all">All Theaters</option>
         </select>
       </div>
-      <div class="control-group">
-        <span class="control-label">Quality</span>
-        <button class="filter-btn" id="toggle-unverified">Show Unverified</button>
-      </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
@@ -790,7 +786,6 @@ let activeTheater = 'all';
 let searchQuery = '';
 let activeSort = 'day';
 let viewMode = 'cards';
-let showLowConfidence = false;
 const CONFIDENCE_THRESHOLD = 60;
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
@@ -1124,18 +1119,6 @@ function initDashboard(data) {
     });
   }
 
-  const unverifiedToggle = document.getElementById('toggle-unverified');
-  if (unverifiedToggle) {
-    unverifiedToggle.textContent = showLowConfidence ? 'Hide Unverified' : 'Show Unverified';
-    unverifiedToggle.classList.toggle('active', showLowConfidence);
-    unverifiedToggle.addEventListener('click', () => {
-      showLowConfidence = !showLowConfidence;
-      unverifiedToggle.textContent = showLowConfidence ? 'Hide Unverified' : 'Show Unverified';
-      unverifiedToggle.classList.toggle('active', showLowConfidence);
-      render();
-    });
-  }
-
   render();
 }
 
@@ -1160,7 +1143,7 @@ function getFiltered() {
   return allMovies.filter(movie => {
     if (hidden.includes(movie.title)) return false;
     if (!hasUpcomingShowtimes(movie)) return false;
-    if (!showLowConfidence && (movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
+    if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (activeFilter === 'today') {
       if (!moviePlayingOn(movie, today)) return false;
     } else {
