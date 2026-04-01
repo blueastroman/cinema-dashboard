@@ -179,6 +179,27 @@
       flex-wrap: wrap;
     }
 
+    .date-scope-row {
+      border-bottom: 1px solid var(--dark-gray);
+      padding: 14px 40px;
+    }
+
+    .date-scope-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .date-scope-inner .filter-btn {
+      font-size: 0.98rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      letter-spacing: 0.05em;
+    }
+
     .search-wrap {
       flex: 1;
       max-width: 420px;
@@ -883,12 +904,14 @@
 
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
-      header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
+      header, .stats-bar, .date-scope-row, main, footer { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; justify-content: flex-start; }
+      .date-scope-inner { gap: 8px; }
+      .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
       .control-group { width: 100%; }
       .theater-filters { width: 100%; }
       .search-wrap { max-width: 100%; width: 100%; }
@@ -914,11 +937,6 @@
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="control-group">
-        <button class="filter-btn active" id="today-btn">Today</button>
-        <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
-        <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
-      </div>
-      <div class="control-group">
         <span class="control-label">View</span>
         <button class="filter-btn" id="view-cards" onclick="setView('cards')">Cards</button>
         <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
@@ -943,6 +961,14 @@
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
       </div>
+    </div>
+  </div>
+
+  <div class="date-scope-row">
+    <div class="date-scope-inner">
+      <button class="filter-btn active" id="today-btn">Today</button>
+      <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
+      <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
     </div>
   </div>
 
