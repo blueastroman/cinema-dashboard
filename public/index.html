@@ -174,7 +174,7 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
       gap: 16px;
       flex-wrap: wrap;
     }
@@ -727,20 +727,24 @@
       color: var(--muted);
     }
 
-    .theater-film-list {
+    .theater-view-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--mid-gray);
-      border: 1px solid var(--mid-gray);
+      gap: 40px 32px;
+      align-items: start;
+    }
+
+    .theater-film-list {
+      display: flex;
+      flex-direction: column;
     }
 
     .theater-film-row {
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      padding: 18px 18px 18px 20px;
-      background: var(--off-black);
+      padding: 14px 0 14px 14px;
+      border-bottom: 1px solid var(--dark-gray);
       position: relative;
       transition: background 0.12s ease;
     }
@@ -858,11 +862,11 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-list { grid-template-columns: repeat(2, 1fr); }
+      .theater-view-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-      .theater-film-list { grid-template-columns: 1fr; }
+      .theater-view-grid { grid-template-columns: 1fr; }
       header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
@@ -1592,6 +1596,8 @@ function renderTheaterView() {
   }
 
   let rendered = 0;
+  const grid = document.createElement('div');
+  grid.className = 'theater-view-grid';
 
   CANONICAL_THEATERS.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
@@ -1603,7 +1609,6 @@ function renderTheaterView() {
     );
     if (!films.length) return;
 
-    rendered++;
     const section = document.createElement('div');
     section.className = 'theater-view-section';
 
@@ -1673,11 +1678,14 @@ function renderTheaterView() {
     });
 
     section.appendChild(filmList);
-    main.appendChild(section);
+    grid.appendChild(section);
+    rendered++;
   });
 
   if (!rendered) {
     main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+  } else {
+    main.appendChild(grid);
   }
 }
 
