@@ -768,16 +768,21 @@ let searchQuery = '';
 let activeSort = 'day';
 let viewMode = 'cards';
 const CONFIDENCE_THRESHOLD = 60;
+const NYC_TIMEZONE = 'America/New_York';
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
 
+function getNYNow() {
+  return new Date(new Date().toLocaleString('en-US', { timeZone: NYC_TIMEZONE }));
+}
+
 function getTodayLabel() {
   // Returns e.g. "Mar 31" to match against "Tue Mar 31" schedule day strings
-  return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return getNYNow().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
 function getTomorrowLabel() {
-  const d = new Date();
+  const d = getNYNow();
   d.setDate(d.getDate() + 1);
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
@@ -785,7 +790,7 @@ function getTomorrowLabel() {
 function getThisWeekDayOrder() {
   // Returns sorted day labels starting from today
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const todayIdx = new Date().getDay();
+  const todayIdx = getNYNow().getDay();
   const ordered = [];
   for (let i = 0; i < 7; i++) ordered.push(days[(todayIdx + i) % 7]);
   return ordered;
@@ -804,7 +809,7 @@ function parseShowtimeDate(dayLabel, timeLabel) {
   if (meridiem === 'PM' && hour !== 12) hour += 12;
   if (meridiem === 'AM' && hour === 12) hour = 0;
 
-  const now = new Date();
+  const now = getNYNow();
   const dayText = String(dayLabel || '').trim();
   let baseDate = null;
 
@@ -836,7 +841,7 @@ function parseShowtimeDate(dayLabel, timeLabel) {
 }
 
 function hasUpcomingShowtimes(movie) {
-  const now = new Date();
+  const now = getNYNow();
   return (movie.theaters || []).some(t =>
     (t.schedule || []).some(s =>
       (s.times || []).some(time => {
@@ -854,7 +859,7 @@ function getVisibleTheaters(movie) {
 }
 
 function moviePlayingOn(movie, dateLabel) {
-  const now = new Date();
+  const now = getNYNow();
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
       (s.day || '').includes(dateLabel) &&
@@ -1037,7 +1042,7 @@ function getMovieConfidence(movie) {
   const ratings = movie?.ratings || {};
   const theaters = movie?.theaters || [];
   const title = String(movie?.title || '').trim();
-  const now = new Date();
+  const now = getNYNow();
 
   let score = 0;
 
@@ -1310,7 +1315,7 @@ function render() {
       const list = dayGroups[abbr];
       if (!list.length) return;
       const isToday = list.some(m => moviePlayingOn(m, today)) &&
-        list[0] && moviePlayingOn(list[0], today) || abbr === new Date().toLocaleDateString('en-US', {weekday:'short'}).slice(0,3);
+        list[0] && moviePlayingOn(list[0], today) || abbr === getNYNow().toLocaleDateString('en-US', { weekday: 'short' }).slice(0, 3);
       const isTomorrow = list.some(m => moviePlayingOn(m, tomorrow));
       const label = isToday ? 'Today' : (isTomorrow ? 'Tomorrow' : (dayNames[abbr] || abbr));
       const cls = (isToday || isTomorrow) ? 'watch' : 'skip';
@@ -1530,7 +1535,7 @@ function getTicketUrl(theaterName, movieTitle) {
 function buildScheduleHTML(schedule, theaterName, movieTitle) {
   if (!schedule || !schedule.length) return '';
   const url = getTicketUrl(theaterName, movieTitle);
-  const now = new Date();
+  const now = getNYNow();
   const upcoming = schedule
     .map(s => {
       const times = (s.times || []).filter(time => {
