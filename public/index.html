@@ -771,6 +771,13 @@
       min-width: 0;
     }
 
+    .theater-film-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
     .theater-film-next {
       font-family: var(--font-sans);
       font-size: 0.72rem;
@@ -787,6 +794,8 @@
       font-weight: 800;
       color: var(--cream);
       line-height: 1.25;
+      min-width: 0;
+      flex: 1;
     }
 
     .theater-film-title a {
@@ -815,16 +824,19 @@
     .theater-film-scores {
       display: flex;
       gap: 12px;
-      align-items: flex-start;
-      width: 100%;
+      align-items: baseline;
       justify-content: flex-end;
+      text-align: right;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .t-score {
       font-family: var(--font-sans);
-      font-size: 0.8rem;
+      font-size: 1.05rem;
       font-weight: 700;
       white-space: nowrap;
+      line-height: 1;
     }
 
     .t-score.rt-high { color: var(--watch); }
@@ -832,11 +844,12 @@
     .t-score.rt-low  { color: var(--skip); }
     .t-score.lb-score { color: var(--text-dim); }
     .t-score-label {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--muted);
+      margin-top: 2px;
     }
 
     /* ── GENRE DROPDOWN ─────────────────────────────────────── */
@@ -1713,15 +1726,17 @@ function renderTheaterView() {
       row.innerHTML = `
         <div class="theater-film-info">
           <div class="theater-film-next">${nextShowLabel}</div>
-          <div class="theater-film-title">
-            <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
+          <div class="theater-film-head">
+            <div class="theater-film-title">
+              <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
+            </div>
+            <div class="theater-film-scores">
+              ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
+              ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
+            </div>
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
           <div class="theater-film-times">${scheduleHTML}</div>
-        </div>
-        <div class="theater-film-scores">
-          ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
-          ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
         </div>
       `;
       filmList.appendChild(row);
