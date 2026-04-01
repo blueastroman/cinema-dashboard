@@ -715,11 +715,9 @@
       </div>
 
       <div class="filters" id="filters">
-        <button class="filter-btn" id="today-btn" data-filter="today" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
+        <button class="filter-btn" id="today-btn" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
-        <button class="filter-btn active" id="thisweek-btn" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="WATCH">Watch</button>
-        <button class="filter-btn" data-filter="SKIP">Skip</button>
+        <button class="filter-btn active" id="thisweek-btn">This Week</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
         <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
         <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
@@ -763,7 +761,7 @@
 
 <script>
 let allMovies = [];
-let activeFilter = 'all';
+let showTodayOnly = false;
 let activeTheater = 'all';
 let searchQuery = '';
 let activeSort = 'day';
@@ -1200,11 +1198,8 @@ function getFiltered() {
     if (hidden.includes(movie.title)) return false;
     if (!hasUpcomingShowtimes(movie)) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
-    if (activeFilter === 'today') {
+    if (showTodayOnly) {
       if (!moviePlayingOn(movie, today)) return false;
-    } else {
-      const verdict = getDisplayVerdict(movie);
-      if (activeFilter !== 'all' && verdict !== activeFilter) return false;
     }
     if (activeTheater !== 'all') {
       const inTheater = (movie.theaters || []).some(t => getCanonicalTheaterName(t.name) === activeTheater);
@@ -1270,7 +1265,7 @@ function render() {
   }
 
   // ── DAY sort: group by day of week ──────────────────────────────────────
-  if (activeSort === 'day' || activeFilter === 'today') {
+  if (activeSort === 'day' || showTodayOnly) {
     const dayOrder = getThisWeekDayOrder();
     const today = getTodayLabel();
     const dayNames = { Sun: 'Sunday', Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday' };
@@ -1319,22 +1314,14 @@ function render() {
   }
 
   // ── Default: verdict groups ─────────────────────────────────────────────
-  const groups = { WATCH: [], SKIP: [] };
-  movies.forEach(m => {
-    const v = getDisplayVerdict(m);
-    (groups[v] || groups.WATCH).push(m);
-  });
-
-  const order = (activeFilter === 'all' || activeFilter === 'today')
-    ? ['WATCH', 'SKIP']
-    : [activeFilter];
-
-  const labels = { WATCH: 'Watch', SKIP: 'Skip' };
-  order.forEach(verdict => {
-    const list = groups[verdict] || [];
-    if (!list.length) return;
-    renderSection(labels[verdict], verdict.toLowerCase(), list, main);
-  });
+  const sorted = [...movies].sort((a, b) => getPriorityScore(b) - getPriorityScore(a));
+  const section = document.createElement('div');
+  section.className = 'verdict-section';
+  const grid = document.createElement('div');
+  grid.className = 'movies-grid';
+  sorted.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
+  section.appendChild(grid);
+  main.appendChild(section);
 }
 
 // ── CARD BUILDER ────────────────────────────────────────────────────────────
@@ -1557,24 +1544,25 @@ function toggleTheaters(btn) {
 
 // ── FILTER CONTROLS ─────────────────────────────────────────────────────────
 
-document.querySelectorAll('[data-filter]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    activeFilter = btn.dataset.filter;
-    document.querySelectorAll('[data-filter]').forEach(b => {
-      b.classList.remove('active');
-      // Restore Today button's gold styling when not active
-      if (b.id === 'today-btn') {
-        b.style.borderColor = 'var(--accent-dim)';
-        b.style.color = 'var(--accent)';
-      }
-    });
-    btn.classList.add('active');
-    if (btn.id === 'today-btn') {
-      btn.style.borderColor = '';
-      btn.style.color = '';
-    }
-    render();
-  });
+document.getElementById('today-btn')?.addEventListener('click', () => {
+  showTodayOnly = true;
+  document.getElementById('today-btn')?.classList.add('active');
+  document.getElementById('today-btn').style.borderColor = '';
+  document.getElementById('today-btn').style.color = '';
+  document.getElementById('thisweek-btn')?.classList.remove('active');
+  render();
+});
+
+document.getElementById('thisweek-btn')?.addEventListener('click', () => {
+  showTodayOnly = false;
+  document.getElementById('thisweek-btn')?.classList.add('active');
+  const todayBtn = document.getElementById('today-btn');
+  todayBtn?.classList.remove('active');
+  if (todayBtn) {
+    todayBtn.style.borderColor = 'var(--accent-dim)';
+    todayBtn.style.color = 'var(--accent)';
+  }
+  render();
 });
 
 document.getElementById('search-input').addEventListener('input', e => {
