@@ -904,9 +904,7 @@ function getDisplayVerdict(movie) {
 }
 
 function getDisplayReason(movie) {
-  if (!hasReviewSignals(movie)) {
-    return 'Too early for a real consensus — go on premise, director, or wait for reviews.';
-  }
+  if (!hasReviewSignals(movie)) return '';
   return movie?.verdict?.reason || '';
 }
 
