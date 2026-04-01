@@ -716,6 +716,7 @@
 
       <div class="filters" id="filters">
         <button class="filter-btn" id="today-btn" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
+        <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
         <button class="filter-btn active" id="thisweek-btn">This Week</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
@@ -761,7 +762,7 @@
 
 <script>
 let allMovies = [];
-let showTodayOnly = false;
+let dateScope = 'week'; // week | today | tomorrow
 let activeTheater = 'all';
 let searchQuery = '';
 let activeSort = 'day';
@@ -773,6 +774,12 @@ const CONFIDENCE_THRESHOLD = 60;
 function getTodayLabel() {
   // Returns e.g. "Mar 31" to match against "Tue Mar 31" schedule day strings
   return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function getTomorrowLabel() {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
 function getThisWeekDayOrder() {
@@ -1200,13 +1207,16 @@ function syncTheaterFilterButtons() {
 function getFiltered() {
   const hidden = getHidden();
   const today = getTodayLabel();
+  const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
     if (hidden.includes(movie.title)) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
-    if (showTodayOnly) {
+    if (dateScope === 'today') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
+    } else if (dateScope === 'tomorrow') {
+      if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, tomorrow)) return false;
     }
     if (activeTheater !== 'all') {
       const inTheater = visibleTheaters.length > 0;
@@ -1272,9 +1282,10 @@ function render() {
   }
 
   // ── DAY sort: group by day of week ──────────────────────────────────────
-  if (activeSort === 'day' || showTodayOnly) {
+  if (activeSort === 'day' || dateScope !== 'week') {
     const dayOrder = getThisWeekDayOrder();
     const today = getTodayLabel();
+    const tomorrow = getTomorrowLabel();
     const dayNames = { Sun: 'Sunday', Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday' };
 
     // For each day in week order, collect movies playing that day
@@ -1300,8 +1311,9 @@ function render() {
       if (!list.length) return;
       const isToday = list.some(m => moviePlayingOn(m, today)) &&
         list[0] && moviePlayingOn(list[0], today) || abbr === new Date().toLocaleDateString('en-US', {weekday:'short'}).slice(0,3);
-      const label = isToday ? 'Today' : (dayNames[abbr] || abbr);
-      const cls = isToday ? 'watch' : 'skip';
+      const isTomorrow = list.some(m => moviePlayingOn(m, tomorrow));
+      const label = isToday ? 'Today' : (isTomorrow ? 'Tomorrow' : (dayNames[abbr] || abbr));
+      const cls = (isToday || isTomorrow) ? 'watch' : 'skip';
       renderSection(label, cls, list, main);
     });
     return;
@@ -1552,22 +1564,49 @@ function toggleTheaters(btn) {
 // ── FILTER CONTROLS ─────────────────────────────────────────────────────────
 
 document.getElementById('today-btn')?.addEventListener('click', () => {
-  showTodayOnly = true;
+  dateScope = 'today';
   document.getElementById('today-btn')?.classList.add('active');
   document.getElementById('today-btn').style.borderColor = '';
   document.getElementById('today-btn').style.color = '';
+  const tomorrowBtn = document.getElementById('tomorrow-btn');
+  tomorrowBtn?.classList.remove('active');
+  if (tomorrowBtn) {
+    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
+    tomorrowBtn.style.color = 'var(--accent)';
+  }
+  document.getElementById('thisweek-btn')?.classList.remove('active');
+  render();
+});
+
+document.getElementById('tomorrow-btn')?.addEventListener('click', () => {
+  dateScope = 'tomorrow';
+  document.getElementById('tomorrow-btn')?.classList.add('active');
+  document.getElementById('tomorrow-btn').style.borderColor = '';
+  document.getElementById('tomorrow-btn').style.color = '';
+  const todayBtn = document.getElementById('today-btn');
+  todayBtn?.classList.remove('active');
+  if (todayBtn) {
+    todayBtn.style.borderColor = 'var(--accent-dim)';
+    todayBtn.style.color = 'var(--accent)';
+  }
   document.getElementById('thisweek-btn')?.classList.remove('active');
   render();
 });
 
 document.getElementById('thisweek-btn')?.addEventListener('click', () => {
-  showTodayOnly = false;
+  dateScope = 'week';
   document.getElementById('thisweek-btn')?.classList.add('active');
   const todayBtn = document.getElementById('today-btn');
   todayBtn?.classList.remove('active');
   if (todayBtn) {
     todayBtn.style.borderColor = 'var(--accent-dim)';
     todayBtn.style.color = 'var(--accent)';
+  }
+  const tomorrowBtn = document.getElementById('tomorrow-btn');
+  tomorrowBtn?.classList.remove('active');
+  if (tomorrowBtn) {
+    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
+    tomorrowBtn.style.color = 'var(--accent)';
   }
   render();
 });
