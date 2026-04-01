@@ -685,6 +685,7 @@
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; justify-content: flex-start; }
       .control-group { width: 100%; }
+      #view-cards { display: none; }
       .search-wrap { max-width: 100%; width: 100%; }
       .movies-grid { grid-template-columns: 1fr; }
     }
@@ -1037,10 +1038,19 @@ function setSort(mode) {
 }
 
 function setView(mode) {
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    mode = 'list';
+  }
   viewMode = mode;
   document.body.classList.toggle('compact-mode', mode === 'list');
   document.getElementById('view-cards')?.classList.toggle('active', mode === 'cards');
   document.getElementById('view-list')?.classList.toggle('active', mode === 'list');
+}
+
+function enforceMobileListMode() {
+  if (window.matchMedia('(max-width: 768px)').matches && viewMode !== 'list') {
+    setView('list');
+  }
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -1376,6 +1386,9 @@ document.getElementById('search-input').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
   render();
 });
+
+window.addEventListener('resize', enforceMobileListMode);
+enforceMobileListMode();
 
 // ── MOCK DATA ────────────────────────────────────────────────────────────────
 
