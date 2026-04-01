@@ -907,9 +907,9 @@
       </div>
 
       <div class="filters" id="filters">
-        <button class="filter-btn" id="today-btn" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
+        <button class="filter-btn active" id="today-btn">Today</button>
         <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
-        <button class="filter-btn active" id="thisweek-btn">This Week</button>
+        <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
         <span class="control-label">Sort by</span>
         <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
@@ -925,9 +925,9 @@
     <div class="stats-inner">
       <div class="control-group">
         <span class="control-label">View</span>
-        <button class="filter-btn active" id="view-cards" onclick="setView('cards')">Cards</button>
+        <button class="filter-btn" id="view-cards" onclick="setView('cards')">Cards</button>
         <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
-        <button class="filter-btn" id="view-theaters" onclick="setView('theaters')">Theaters</button>
+        <button class="filter-btn active" id="view-theaters" onclick="setView('theaters')">Theaters</button>
       </div>
       <div class="control-group">
         <span class="control-label">Genre</span>
@@ -961,12 +961,12 @@
 
 <script>
 let allMovies = [];
-let dateScope = 'week'; // week | today | tomorrow
+let dateScope = 'today'; // week | today | tomorrow
 let activeTheater = 'all';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
-let viewMode = 'cards';
+let viewMode = 'theaters';
 const CONFIDENCE_THRESHOLD = 60;
 const NYC_TIMEZONE = 'America/New_York';
 
@@ -1502,8 +1502,7 @@ function setView(mode) {
 }
 
 function initializeViewMode() {
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  setView(isMobile ? 'list' : 'cards');
+  setView('theaters');
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -1645,7 +1644,10 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  CANONICAL_THEATERS.forEach(theaterName => {
+  const theaterOrder = [...CANONICAL_THEATERS]
+    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+
+  theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
     if (activeTheater !== 'all' && activeTheater !== theaterName) return;
 
