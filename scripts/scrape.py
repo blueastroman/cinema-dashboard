@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
+from typing import Optional
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
@@ -136,7 +137,7 @@ RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
 RATING_CACHE = load_json_file(RATING_CACHE_PATH)
 
 
-def omdb_request(params: dict) -> dict | None:
+def omdb_request(params: dict) -> Optional[dict]:
     try:
         r = requests.get("http://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10)
         data = r.json()
@@ -147,7 +148,7 @@ def omdb_request(params: dict) -> dict | None:
         return None
 
 
-def serpapi_google_search(query: str) -> dict | None:
+def serpapi_google_search(query: str) -> Optional[dict]:
     if not SERPAPI_KEY:
         return None
     try:
@@ -165,7 +166,7 @@ def serpapi_google_search(query: str) -> dict | None:
         return None
 
 
-def fetch_rt_fallback(title: str) -> str | None:
+def fetch_rt_fallback(title: str) -> Optional[str]:
     data = serpapi_google_search(f"site:rottentomatoes.com {title} movie")
     if not data:
         return None
@@ -207,6 +208,9 @@ def fetch_rt_fallback(title: str) -> str | None:
         r'tomatometerscore="(\d{1,3})"',
         r'"tomatometerScoreAll"\s*:\s*\{"score"\s*:\s*(\d{1,3})',
         r'"criticsScore"\s*:\s*(\d{1,3})',
+        r'"criticsScore"\s*:\s*\{[^{}]{0,240}"score"\s*:\s*"(\d{1,3})"',
+        r'"scorePercent"\s*:\s*"(\d{1,3})%"',
+        r'"Tomatometer","ratingCount":\d+,"ratingValue":"(\d{1,3})"',
     ]
     for pat in patterns:
         m = re.search(pat, page)
@@ -222,7 +226,7 @@ def fetch_rt_fallback(title: str) -> str | None:
     return None
 
 
-def fetch_letterboxd_fallback(title: str) -> str | None:
+def fetch_letterboxd_fallback(title: str) -> Optional[str]:
     try:
         search_url = f"https://letterboxd.com/search/{quote(title)}/"
         search_page = requests.get(
@@ -291,7 +295,7 @@ def parse_omdb_ratings(data: dict) -> dict:
     }
 
 
-def title_match_score(query_title: str, result_title: str, query_year: int | None = None, result_year: str | None = None) -> float:
+def title_match_score(query_title: str, result_title: str, query_year: Optional[int] = None, result_year: Optional[str] = None) -> float:
     q_norm = normalize_title(query_title)
     r_norm = normalize_title(result_title or "")
     if not q_norm or not r_norm:
@@ -319,13 +323,13 @@ def title_match_score(query_title: str, result_title: str, query_year: int | Non
     return score
 
 
-def fetch_omdb_by_imdb_id(imdb_id: str) -> dict | None:
+def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
     if not imdb_id:
         return None
     return omdb_request({"i": imdb_id, "tomatoes": "true"})
 
 
-def resolve_omdb_record(title: str) -> dict | None:
+def resolve_omdb_record(title: str) -> Optional[dict]:
     normalized = normalize_title(title)
     override = RATING_OVERRIDES.get(normalized, {})
     if isinstance(override, str):
