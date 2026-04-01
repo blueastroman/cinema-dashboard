@@ -733,6 +733,9 @@
         <button class="filter-btn active" id="thisweek-btn" data-filter="all">All</button>
         <button class="filter-btn" data-filter="WATCH">Watch</button>
         <button class="filter-btn" data-filter="SKIP">Skip</button>
+        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
+        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
+        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
       </div>
 
       <div class="week-label" id="week-label">Loading...</div>
@@ -742,11 +745,6 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="control-group">
-        <span class="control-label">Sort</span>
-        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
-        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
-      </div>
       <div class="control-group">
         <span class="control-label">View</span>
         <button class="filter-btn active" id="view-cards" onclick="setView('cards')">Cards</button>
@@ -889,11 +887,15 @@ const THEATER_URLS = {
   'Metrograph': 'https://metrograph.com',
   'IFC Center': 'https://ifccenter.com',
   'Angelika Film Center': 'https://angelikafilmcenter.com/nyc',
+  'Angelika': 'https://angelikafilmcenter.com/nyc',
   'Film Forum': 'https://www.filmforum.org/now-playing/',
+  'Film': 'https://www.filmforum.org/now-playing/',
   'Village East by Angelika': 'https://angelikafilmcenter.com/villageeast',
   'Lincoln Center - Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
   'Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
+  'FLC': 'https://www.filmlinc.org/now-playing/',
   'Alamo Drafthouse Lower Manhattan': 'https://drafthouse.com/nyc',
+  'Alamo': 'https://drafthouse.com/nyc',
 };
 
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
@@ -945,7 +947,11 @@ function getDisplayReason(movie) {
 }
 
 function getDisplayTheaterName(name) {
-  if (name === 'Lincoln Center - Film at Lincoln Center') return 'Film at Lincoln Center';
+  const normalized = String(name || '').trim();
+  if (normalized === 'FLC' || normalized === 'Lincoln Center - Film at Lincoln Center') return 'Film at Lincoln Center';
+  if (normalized === 'Film') return 'Film Forum';
+  if (normalized === 'Angelika') return 'Angelika Film Center';
+  if (normalized === 'Alamo') return 'Alamo Drafthouse Lower Manhattan';
   return name;
 }
 
@@ -1439,13 +1445,16 @@ function getTicketUrl(theaterName, movieTitle) {
     case 'Angelika Film Center':
       return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
     case 'Film Forum':
+    case 'Film':
       return `https://www.filmforum.org/now-playing/`;
     case 'Village East by Angelika':
       return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
     case 'Lincoln Center - Film at Lincoln Center':
     case 'Film at Lincoln Center':
+    case 'FLC':
       return `https://www.filmlinc.org/now-playing/`;
     case 'Alamo Drafthouse Lower Manhattan':
+    case 'Alamo':
       return `https://drafthouse.com/nyc/show/${slug}`;
     default:
       return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
