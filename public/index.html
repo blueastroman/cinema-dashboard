@@ -1003,7 +1003,9 @@ function getMovieConfidence(movie) {
   if (hasSchedule) score += 8;
   if (hasAnyTime) score += 8;
 
-  if (!hasRT && !hasImdb && !hasCinemaScore && !hasLetterboxd) score -= 8;
+  const hasAnyReviewSignal = hasRT || hasImdb || hasCinemaScore || hasLetterboxd;
+  if (!hasAnyReviewSignal) score -= 8;
+  if (!hasAnyReviewSignal && Number.isFinite(year) && year >= now.getFullYear()) score -= 32;
   if (plot.length < 20) score -= 8;
   if (!hasAnyTime) score -= 10;
 
