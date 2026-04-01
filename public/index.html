@@ -763,7 +763,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding: 14px 14px 14px 16px;
+      padding: 14px 14px 56px 16px;
       border: 1px solid var(--dark-gray);
       border-radius: 2px;
       position: relative;
@@ -784,6 +784,7 @@
     .theater-film-row.depends::before { background: var(--depends); }
     .theater-film-row.skip::before   { background: var(--skip); }
     .theater-film-row:hover { background: var(--charcoal); }
+    .theater-film-row.is-watched { opacity: 0.72; }
 
     .theater-film-info {
       width: 100%;
@@ -829,6 +830,50 @@
       gap: 6px;
       flex-wrap: wrap;
       align-items: center;
+    }
+
+    .theater-film-actions {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .theater-action-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--mid-gray);
+      background: rgba(17, 17, 17, 0.96);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.12s ease, border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+    }
+
+    .theater-action-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .theater-action-btn.star:hover,
+    .theater-action-btn.star.active {
+      border-color: #d4af37;
+      color: #d4af37;
+      background: rgba(212, 175, 55, 0.12);
+    }
+
+    .theater-action-btn.hide:hover {
+      border-color: #c85b5b;
+      color: #c85b5b;
+      background: rgba(200, 91, 91, 0.12);
     }
 
     .theater-film-scores {
@@ -1725,6 +1770,7 @@ function renderTheaterView() {
     filmEntries.forEach(entry => {
       const movie = entry.movie;
       const verdict = getDisplayVerdict(movie).toLowerCase();
+      const watched = getWatched().includes(movie.title);
       const ratings = movie.ratings || {};
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
       const letterboxd = getLetterboxdScore(movie);
@@ -1753,7 +1799,7 @@ function renderTheaterView() {
         : '';
 
       const row = document.createElement('div');
-      row.className = `theater-film-row ${verdict}`;
+      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
       row.innerHTML = `
         <div class="theater-film-info">
           <div class="theater-film-head">
@@ -1767,6 +1813,10 @@ function renderTheaterView() {
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
           <div class="theater-film-times">${scheduleHTML}</div>
+        </div>
+        <div class="theater-film-actions">
+          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Mark watched" title="Mark watched" onclick="onTheaterWatched(this, '${movie.title.replace(/'/g, "\\'")}')">★</button>
+          <button class="theater-action-btn hide" aria-label="Hide movie" title="Hide movie" onclick="onTheaterHide(this, '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
       `;
       filmList.appendChild(row);
@@ -1924,6 +1974,25 @@ function onHide(btn, title) {
   card.style.opacity = '0';
   card.style.transform = 'scale(0.97)';
   setTimeout(() => render(), 320);
+}
+
+function onTheaterWatched(btn, title) {
+  toggleWatched(title);
+  const row = btn.closest('.theater-film-row');
+  const isNowWatched = getWatched().includes(title);
+  row?.classList.toggle('is-watched', isNowWatched);
+  btn.classList.toggle('active', isNowWatched);
+}
+
+function onTheaterHide(btn, title) {
+  toggleHidden(title);
+  const row = btn.closest('.theater-film-row');
+  if (row) {
+    row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+    row.style.opacity = '0';
+    row.style.transform = 'scale(0.98)';
+  }
+  setTimeout(() => render(), 220);
 }
 
 function makeSlug(title) {
