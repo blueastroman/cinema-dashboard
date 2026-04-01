@@ -1083,7 +1083,9 @@ function initDashboard(data) {
     : 'Awaiting latest scrape';
 
   // Theater filter dropdown
-  const theaters = data.theaters || [];
+  const theaters = [...(data.theaters || [])].sort((a, b) =>
+    getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b))
+  );
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
