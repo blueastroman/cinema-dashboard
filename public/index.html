@@ -174,41 +174,15 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .stat-num {
-      font-family: var(--font-sans);
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: var(--cream);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .stats-divider {
-      width: 1px;
-      height: 36px;
-      background: var(--dark-gray);
+      justify-content: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .search-wrap {
       flex: 1;
-      max-width: 320px;
+      max-width: 420px;
+      min-width: 220px;
       position: relative;
     }
 
@@ -235,6 +209,22 @@
       transform: translateY(-50%);
       color: var(--muted);
       font-size: 0.8rem;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .control-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 2px;
     }
 
     /* ── MAIN GRID ─────────────────────────────────────────── */
@@ -298,6 +288,34 @@
       gap: 1px;
       background: var(--mid-gray);
       border: 1px solid var(--mid-gray);
+    }
+
+    /* Compact list mode */
+    body.compact-mode .movies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    body.compact-mode .movie-card {
+      padding: 16px 18px;
+      gap: 10px;
+    }
+
+    body.compact-mode .movie-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    body.compact-mode .movie-year {
+      font-size: 0.78rem;
+    }
+
+    body.compact-mode .card-tags,
+    body.compact-mode .card-reason,
+    body.compact-mode .card-plot,
+    body.compact-mode .card-actions,
+    body.compact-mode .expand-theaters,
+    body.compact-mode .theaters-detail {
+      display: none;
     }
 
     /* ── MOVIE CARD ────────────────────────────────────────── */
@@ -665,7 +683,8 @@
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .filters { gap: 6px; }
-      .stats-inner { flex-wrap: wrap; gap: 20px; }
+      .stats-inner { gap: 10px; justify-content: flex-start; }
+      .control-group { width: 100%; }
       .search-wrap { max-width: 100%; width: 100%; }
       .movies-grid { grid-template-columns: 1fr; }
     }
@@ -683,7 +702,7 @@
       <div class="filters" id="filters">
         <button class="filter-btn" id="today-btn" data-filter="today" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
         <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
-        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn active" id="thisweek-btn" data-filter="all">This Week</button>
         <button class="filter-btn" data-filter="WATCH">Watch</button>
         <button class="filter-btn" data-filter="DEPENDS">Depends</button>
         <button class="filter-btn" data-filter="SKIP">Skip</button>
@@ -698,31 +717,15 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat">
-        <span class="stat-num" id="stat-total">—</span>
-        <span class="stat-label">Films This Week</span>
-      </div>
-      <div class="stats-divider"></div>
-      <div class="stat">
-        <span class="stat-num" id="stat-watch" style="color: var(--watch)">—</span>
-        <span class="stat-label">Must Watch</span>
-      </div>
-      <div class="stats-divider"></div>
-      <div class="stat">
-        <span class="stat-num" id="stat-theaters">—</span>
-        <span class="stat-label">Theaters</span>
-      </div>
-      <div class="stats-divider"></div>
-      <div class="stats-divider" style="display:none" id="gen-divider"></div>
-      <div class="stat">
-        <span class="stat-num" id="stat-generated" style="font-size:0.75rem; color: var(--muted)">—</span>
-        <span class="stat-label">Last Updated</span>
-      </div>
-      <div style="display:flex;gap:6px;align-items:center;">
-        <span style="font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);">Sort</span>
-        <button class="filter-btn active" id="sort-verdict" onclick="setSort('verdict')">Verdict</button>
-        <button class="filter-btn" id="sort-rt" onclick="setSort('rt')">Audience</button>
+      <div class="control-group">
+        <span class="control-label">Sort</span>
+        <button class="filter-btn active" id="sort-rating" onclick="setSort('rating')">Rating</button>
         <button class="filter-btn" id="sort-day" onclick="setSort('day')">Day</button>
+      </div>
+      <div class="control-group">
+        <span class="control-label">View</span>
+        <button class="filter-btn active" id="view-cards" onclick="setView('cards')">Cards</button>
+        <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
       </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -749,7 +752,8 @@ let allMovies = [];
 let activeFilter = 'all';
 let activeTheater = 'all';
 let searchQuery = '';
-let activeSort = 'verdict';
+let activeSort = 'rating';
+let viewMode = 'cards';
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
 
@@ -917,18 +921,6 @@ function initDashboard(data) {
     ? 'Week of ' + data.week_of
     : 'Awaiting latest scrape';
 
-  // Stats
-  const watchCount = allMovies.filter(m => getDisplayVerdict(m) === 'WATCH').length;
-  document.getElementById('stat-total').textContent = allMovies.length;
-  document.getElementById('stat-watch').textContent = watchCount;
-  document.getElementById('stat-theaters').textContent = (data.theaters || []).length;
-
-  const gen = new Date(data.generated_at);
-  document.getElementById('stat-generated').textContent =
-    isNaN(gen)
-      ? 'Awaiting scrape'
-      : gen.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-
   // Theater filter buttons
   const theaters = data.theaters || [];
   const filtersEl = document.getElementById('filters');
@@ -996,10 +988,17 @@ function getFiltered() {
 
 function setSort(mode) {
   activeSort = mode;
-  ['verdict', 'rt', 'day'].forEach(m => {
+  ['rating', 'day'].forEach(m => {
     document.getElementById('sort-' + m)?.classList.toggle('active', m === mode);
   });
   render();
+}
+
+function setView(mode) {
+  viewMode = mode;
+  document.body.classList.toggle('compact-mode', mode === 'list');
+  document.getElementById('view-cards')?.classList.toggle('active', mode === 'cards');
+  document.getElementById('view-list')?.classList.toggle('active', mode === 'list');
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -1065,8 +1064,8 @@ function render() {
     return;
   }
 
-  // ── RT sort: flat list by score ─────────────────────────────────────────
-  if (activeSort === 'rt') {
+  // ── Rating sort: flat list by score ─────────────────────────────────────
+  if (activeSort === 'rating') {
     const sorted = [...movies].sort((a, b) => getPriorityScore(b) - getPriorityScore(a));
     const section = document.createElement('div');
     section.className = 'verdict-section';
