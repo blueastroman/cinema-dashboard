@@ -2,6 +2,8 @@
 
 Weekly auto-refreshing dashboard for NYC indie cinema. Pulls showtimes, ratings, and Claude-generated verdicts every Wednesday morning.
 
+Live production updates are deployed via the connected Vercel project.
+
 ## Theaters Tracked
 - Metrograph
 - IFC Center
