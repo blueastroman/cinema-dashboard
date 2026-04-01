@@ -728,25 +728,30 @@
     }
 
     .theater-view-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px 32px;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
 
     .theater-film-list {
       display: flex;
-      flex-direction: column;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      scroll-snap-type: x proximity;
     }
 
     .theater-film-row {
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 14px 0 14px 14px;
-      border-bottom: 1px solid var(--dark-gray);
+      flex-direction: column;
+      gap: 14px;
+      padding: 14px 14px 14px 16px;
+      border: 1px solid var(--dark-gray);
+      border-radius: 2px;
       position: relative;
       transition: background 0.12s ease;
+      flex: 0 0 min(360px, 85vw);
+      scroll-snap-align: start;
     }
 
     .theater-film-row::before {
@@ -764,8 +769,18 @@
     .theater-film-row:hover { background: var(--charcoal); }
 
     .theater-film-info {
-      flex: 1;
+      width: 100%;
       min-width: 0;
+    }
+
+    .theater-film-next {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
     }
 
     .theater-film-title {
@@ -801,11 +816,10 @@
 
     .theater-film-scores {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      flex-shrink: 0;
-      padding-top: 2px;
+      gap: 12px;
+      align-items: flex-start;
+      width: 100%;
+      justify-content: flex-end;
     }
 
     .t-score {
@@ -861,12 +875,8 @@
     }
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
-    @media (max-width: 1100px) {
-      .theater-view-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
     @media (max-width: 768px) {
-      .theater-view-grid { grid-template-columns: 1fr; }
+      .theater-film-row { flex-basis: 84vw; }
       header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
@@ -1585,6 +1595,20 @@ function render() {
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────
 
+function getNextShowFromSchedule(schedule) {
+  const now = getNYNow();
+  let best = null;
+  for (const slot of (schedule || [])) {
+    const day = slot?.day || '';
+    for (const time of (slot?.times || [])) {
+      const at = parseShowtimeDate(day, time);
+      if (!at || at < now) continue;
+      if (!best || at < best.at) best = { at, day, time };
+    }
+  }
+  return best;
+}
+
 function renderTheaterView() {
   const movies = getFiltered();
   const main = document.getElementById('main-content');
@@ -1603,11 +1627,18 @@ function renderTheaterView() {
     // Skip if theater filter is active and this isn't the selected one
     if (activeTheater !== 'all' && activeTheater !== theaterName) return;
 
-    // Films playing at this theater (from filtered set)
-    const films = movies.filter(movie =>
-      (movie.theaters || []).some(t => getCanonicalTheaterName(t.name) === theaterName)
-    );
-    if (!films.length) return;
+    // Films at this theater, ordered by earliest upcoming showtime at this theater.
+    const filmEntries = movies.map(movie => {
+      const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
+      if (!theaterData) return null;
+      const nextShow = getNextShowFromSchedule(theaterData.schedule);
+      if (!nextShow) return null;
+      return { movie, theaterData, nextShow };
+    }).filter(Boolean).sort((a, b) => {
+      if (a.nextShow.at.getTime() !== b.nextShow.at.getTime()) return a.nextShow.at - b.nextShow.at;
+      return (a.movie.title || '').localeCompare(b.movie.title || '');
+    });
+    if (!filmEntries.length) return;
 
     const section = document.createElement('div');
     section.className = 'theater-view-section';
@@ -1621,23 +1652,23 @@ function renderTheaterView() {
     headerEl.className = 'theater-view-header';
     headerEl.innerHTML = `
       <span class="theater-view-name">${nameHTML}</span>
-      <span class="theater-view-count">${films.length} film${films.length !== 1 ? 's' : ''}</span>
+      <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
     `;
     section.appendChild(headerEl);
 
     const filmList = document.createElement('div');
     filmList.className = 'theater-film-list';
 
-    films.forEach(movie => {
+    filmEntries.forEach(entry => {
+      const movie = entry.movie;
       const verdict = getDisplayVerdict(movie).toLowerCase();
       const ratings = movie.ratings || {};
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
       const letterboxd = getLetterboxdScore(movie);
       const year = ratings.year || '';
       const director = ratings.director || '';
-
-      // Only this theater's schedule
-      const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
+      const theaterData = entry.theaterData;
+      const nextShowLabel = `${entry.nextShow.day} · ${entry.nextShow.time}`;
 
       let rtClass = '';
       if (rt) {
@@ -1663,6 +1694,7 @@ function renderTheaterView() {
       row.className = `theater-film-row ${verdict}`;
       row.innerHTML = `
         <div class="theater-film-info">
+          <div class="theater-film-next">${nextShowLabel}</div>
           <div class="theater-film-title">
             <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
           </div>
