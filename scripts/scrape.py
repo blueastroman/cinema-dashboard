@@ -1,7 +1,7 @@
 """
 NYC Cinema Dashboard - Weekly Scraper
 Runs every Wednesday via GitHub Actions
-Pulls showtimes via SerpAPI, ratings via OMDb, verdicts via Claude API
+Pulls showtimes via SerpAPI/AMC API, ratings via OMDb, verdicts via Claude API
 """
 
 import os
@@ -16,7 +16,7 @@ from typing import Optional
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
-THEATERS = [
+SERPAPI_THEATERS = [
     {"name": "Metrograph", "serpapi_id": "metrograph new york"},
     {"name": "IFC Center", "serpapi_id": "ifc center new york"},
     {"name": "Angelika Film Center", "serpapi_id": "angelika film center new york"},
@@ -30,6 +30,16 @@ THEATERS = [
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
+AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
+AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
+AMC_CITY_SEARCHES = [
+    ("New York", "NY"),
+    ("Brooklyn", "NY"),
+    ("Queens", "NY"),
+    ("Bronx", "NY"),
+    ("Staten Island", "NY"),
+]
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
 
@@ -53,6 +63,31 @@ def normalize_title(title: str) -> str:
 def clean_title(raw: str) -> str:
     """Strip projection format tags from a showtime title before lookup."""
     return FORMAT_TAGS.sub('', raw).strip(' -–—·')
+
+
+def format_day_label(dt: datetime) -> str:
+    return dt.strftime("%a %b %d").replace(" 0", " ")
+
+
+def format_time_label(dt: datetime) -> str:
+    return dt.strftime("%I:%M%p").lstrip("0").lower()
+
+
+def sort_time_labels(times: list[str]) -> list[str]:
+    def parse_time(value: str) -> tuple[int, int]:
+        m = re.match(r"(\d{1,2}):(\d{2})(am|pm)", (value or "").strip().lower())
+        if not m:
+            return (99, 99)
+        hour = int(m.group(1))
+        minute = int(m.group(2))
+        meridiem = m.group(3)
+        if meridiem == "pm" and hour != 12:
+            hour += 12
+        if meridiem == "am" and hour == 12:
+            hour = 0
+        return (hour, minute)
+
+    return sorted(times, key=parse_time)
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
@@ -86,6 +121,149 @@ def fetch_showtimes(theater: dict) -> list[dict]:
     except Exception as e:
         print(f"  [ERROR] SerpAPI failed for {theater['name']}: {e}")
         return mock_showtimes(theater["name"])
+
+
+def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
+    if not AMC_VENDOR_KEY:
+        return None
+
+    try:
+        r = requests.get(
+            f"{AMC_API_BASE}{path}",
+            params=params or {},
+            headers={
+                "X-AMC-Vendor-Key": AMC_VENDOR_KEY,
+                "Accept": "application/json",
+            },
+            timeout=20,
+        )
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f"  [ERROR] AMC API request failed for {path}: {e}")
+        return None
+
+
+def fetch_amc_theatres() -> list[dict]:
+    if not AMC_VENDOR_KEY:
+        return []
+
+    theatres_by_id: dict[str, dict] = {}
+
+    if AMC_THEATRE_IDS:
+        data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": 100})
+        for theatre in ((data or {}).get("_embedded", {}) or {}).get("theatres", []):
+            theatre_id = str(theatre.get("id") or "").strip()
+            if theatre_id:
+                theatres_by_id[theatre_id] = theatre
+    else:
+        for city, state in AMC_CITY_SEARCHES:
+            page = 1
+            while True:
+                data = amc_request(
+                    "/v2/theatres",
+                    {
+                        "brand": "AMC",
+                        "city": city,
+                        "state": state,
+                        "page-size": 100,
+                        "page-number": page,
+                    },
+                )
+                if not data:
+                    break
+
+                theatres = ((data.get("_embedded", {}) or {}).get("theatres", []))
+                for theatre in theatres:
+                    theatre_id = str(theatre.get("id") or "").strip()
+                    if theatre_id and not theatre.get("isClosed"):
+                        theatres_by_id[theatre_id] = theatre
+
+                page_size = int(data.get("pageSize") or 0)
+                page_number = int(data.get("pageNumber") or page)
+                count = int(data.get("count") or 0)
+                if page_size <= 0 or page_number * page_size >= count:
+                    break
+                page += 1
+
+    results = []
+    for theatre in theatres_by_id.values():
+        theatre_id = str(theatre.get("id") or "").strip()
+        name = (theatre.get("longName") or theatre.get("name") or "").strip()
+        if not theatre_id or not name:
+            continue
+        results.append({
+            "id": theatre_id,
+            "name": name,
+            "source": "amc",
+        })
+
+    return sorted(results, key=lambda t: t["name"])
+
+
+def fetch_amc_showtimes(theater: dict) -> list[dict]:
+    theatre_id = theater.get("id")
+    if not theatre_id:
+        return []
+
+    grouped: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
+    start = datetime.now()
+
+    for offset in range(7):
+        target = start + timedelta(days=offset)
+        api_date = target.strftime("%m-%d-%Y")
+        page = 1
+
+        while True:
+            data = amc_request(
+                f"/v2/theatres/{theatre_id}/showtimes/{api_date}",
+                {"page-size": 100, "page-number": page},
+            )
+            if not data:
+                break
+
+            showtimes = ((data.get("_embedded", {}) or {}).get("showtimes", []))
+            for showtime in showtimes:
+                if showtime.get("isCanceled"):
+                    continue
+
+                title = clean_title(
+                    showtime.get("sortableTitleName")
+                    or showtime.get("title")
+                    or ""
+                )
+                local_dt_raw = showtime.get("showDateTimeLocal")
+                if not title or not local_dt_raw:
+                    continue
+
+                try:
+                    local_dt = datetime.fromisoformat(str(local_dt_raw))
+                except Exception:
+                    continue
+
+                day_label = format_day_label(local_dt)
+                time_label = format_time_label(local_dt)
+                grouped[title][day_label].append(time_label)
+
+            page_size = int(data.get("pageSize") or 0)
+            page_number = int(data.get("pageNumber") or page)
+            count = int(data.get("count") or 0)
+            if page_size <= 0 or page_number * page_size >= count:
+                break
+            page += 1
+
+    flattened = []
+    for title, days in grouped.items():
+        for day_label, times in days.items():
+            unique_times = sort_time_labels(sorted(set(times)))
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+            })
+
+    return flattened
 
 
 def mock_showtimes(theater_name: str) -> list[dict]:
@@ -521,10 +699,15 @@ def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")
     all_movies: dict[str, dict] = {}  # keyed by title to deduplicate
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
+    amc_theaters = fetch_amc_theatres()
+    all_theaters = [*SERPAPI_THEATERS, *amc_theaters]
 
-    for theater in THEATERS:
+    for theater in all_theaters:
         print(f"\nFetching: {theater['name']}")
-        showtimes = fetch_showtimes(theater)
+        if theater.get("source") == "amc":
+            showtimes = fetch_amc_showtimes(theater)
+        else:
+            showtimes = fetch_showtimes(theater)
 
         for entry in showtimes:
             title = entry["title"]
@@ -566,7 +749,7 @@ def build_dataset() -> dict:
     return {
         "generated_at": datetime.now().isoformat(),
         "week_of": (datetime.now() + timedelta(days=(4 - datetime.now().weekday()) % 7)).strftime("%B %d, %Y"),
-        "theaters": [t["name"] for t in THEATERS],
+        "theaters": sorted(theater_schedule.keys()),
         "movies": movies_list,
     }
 

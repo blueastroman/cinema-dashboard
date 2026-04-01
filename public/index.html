@@ -1185,6 +1185,27 @@ const THEATER_ALIASES = {
   'village east by angelika': 'Village East by Angelika',
 };
 
+function getTheaterUrl(name) {
+  const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
+  if (THEATER_URLS[canonical]) return THEATER_URLS[canonical];
+  if (/^AMC\b/i.test(canonical)) return 'https://www.amctheatres.com/';
+  return '';
+}
+
+function getAvailableTheaters(data = null) {
+  const observed = new Set([
+    ...((data?.theaters || [])),
+    ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
+  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
+
+  const canonical = CANONICAL_THEATERS.filter(t => observed.has(t));
+  const extras = [...observed]
+    .filter(t => !CANONICAL_THEATERS.includes(t))
+    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+
+  return [...canonical, ...extras];
+}
+
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
 const MOCK_REASONS = [
   "Critics are united — this one earns its runtime.",
@@ -1398,13 +1419,7 @@ function initDashboard(data) {
     : 'Awaiting latest scrape';
 
   // Theater dropdown
-  const observed = new Set([
-    ...(data.theaters || []),
-    ...((data.movies || []).flatMap(m => (m.theaters || []).map(t => t?.name))),
-  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
-  const theaters = CANONICAL_THEATERS
-    .filter(t => observed.has(t))
-    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+  const theaters = getAvailableTheaters(data);
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
     if (activeTheater !== 'all' && !theaters.includes(activeTheater)) activeTheater = 'all';
@@ -1661,8 +1676,7 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  const theaterOrder = [...CANONICAL_THEATERS]
-    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+  const theaterOrder = getAvailableTheaters();
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
@@ -1688,7 +1702,7 @@ function renderTheaterView() {
     const section = document.createElement('div');
     section.className = 'theater-view-section';
 
-    const theaterUrl = THEATER_URLS[theaterName] || '';
+    const theaterUrl = getTheaterUrl(theaterName);
     const nameHTML = theaterUrl
       ? `<a href="${theaterUrl}" target="_blank" rel="noopener">${theaterName}</a>`
       : theaterName;
@@ -1769,7 +1783,7 @@ function renderTheaterView() {
 // ── CARD BUILDER ────────────────────────────────────────────────────────────
 
 function theaterLink(name) {
-  const url = THEATER_URLS[name];
+  const url = getTheaterUrl(name);
   const label = getDisplayTheaterName(name);
   return url
     ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
@@ -1922,6 +1936,9 @@ function makeSlug(title) {
 function getTicketUrl(theaterName, movieTitle) {
   const slug = makeSlug(movieTitle);
   const enc = encodeURIComponent(movieTitle);
+  if (/^AMC\b/i.test(String(theaterName || '').trim())) {
+    return `https://www.amctheatres.com/search?q=${enc}`;
+  }
   switch (theaterName) {
     case 'Metrograph':
       return `https://metrograph.com/film/?slug=${slug}`;
