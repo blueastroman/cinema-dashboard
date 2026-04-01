@@ -19,7 +19,7 @@ THEATERS = [
     {"name": "Angelika Film Center", "serpapi_id": "angelika film center new york"},
     {"name": "Film Forum", "serpapi_id": "film forum new york"},
     {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
-    {"name": "Lincoln Center - Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
+    {"name": "Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
     {"name": "Alamo Drafthouse Lower Manhattan", "serpapi_id": "alamo drafthouse lower manhattan new york"},
 ]
 
@@ -101,7 +101,7 @@ def mock_showtimes(theater_name: str) -> list[dict]:
 # ─── RATINGS ─────────────────────────────────────────────────────────────────
 
 def fetch_ratings(title: str) -> dict:
-    """Fetch RT score, IMDB score, CinemaScore via OMDb."""
+    """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     if not OMDB_KEY:
         return mock_ratings(title)
 
@@ -113,14 +113,23 @@ def fetch_ratings(title: str) -> dict:
         )
         data = r.json()
         if data.get("Response") == "False":
-            return {"rt": None, "imdb": None, "metacritic": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None}
+            return {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None}
 
         rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
         cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
+        imdb_rating = data.get("imdbRating")
+        letterboxd_score = None
+        try:
+            imdb_num = float(imdb_rating) if imdb_rating not in (None, "N/A") else None
+            if imdb_num is not None:
+                letterboxd_score = f"{(imdb_num / 2):.1f}"
+        except Exception:
+            letterboxd_score = None
         return {
             "rt": rt,
-            "imdb": data.get("imdbRating"),
+            "imdb": imdb_rating,
             "metacritic": data.get("Metascore"),
+            "letterboxd": letterboxd_score,
             "cinemaScore": cinema_score,
             "poster": data.get("Poster"),
             "genre": data.get("Genre"),
@@ -151,6 +160,7 @@ def mock_ratings(title: str) -> dict:
         "rt": rt_scores[idx],
         "imdb": imdb_scores[idx],
         "metacritic": str(int(rt_scores[idx].replace("%", "")) - 5),
+        "letterboxd": f"{(float(imdb_scores[idx]) / 2):.1f}",
         "poster": None,
         "genre": genres[idx % len(genres)],
         "runtime": f"{random.randint(90, 150)} min",
@@ -167,8 +177,9 @@ def fetch_verdict(title: str, ratings: dict) -> dict:
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY) if ANTHROPIC_KEY else None
 
     rt = ratings.get("rt", "N/A")
+    cinema_score = ratings.get("cinemaScore", "N/A")
+    letterboxd = ratings.get("letterboxd", "N/A")
     imdb = ratings.get("imdb", "N/A")
-    meta = ratings.get("metacritic", "N/A")
     plot = ratings.get("plot", "")
     genre = ratings.get("genre", "")
     director = ratings.get("director", "")
@@ -180,8 +191,9 @@ Director: {director}
 Genre: {genre}
 Plot: {plot}
 Rotten Tomatoes: {rt}
+CinemaScore: {cinema_score}
+Letterboxd: {letterboxd}
 IMDB: {imdb}
-Metacritic: {meta}
 
 Return ONLY a JSON object with exactly these fields:
 {{
@@ -211,23 +223,42 @@ Be direct. No hedging. Think like someone with genuinely high standards who resp
 
 
 def mock_verdict(title: str, ratings: dict) -> dict:
+    cinema_score = str(ratings.get("cinemaScore") or "").strip().upper()
     rt_str = ratings.get("rt")
-    meta_str = ratings.get("metacritic")
+    letterboxd_str = ratings.get("letterboxd")
     imdb_str = ratings.get("imdb")
 
+    cinema_weight = {
+        "A+": 130, "A": 120, "A-": 115,
+        "B+": 105, "B": 100, "B-": 95,
+        "C+": 85, "C": 80, "C-": 75,
+        "D+": 65, "D": 60, "D-": 55,
+        "F": 30,
+    }.get(cinema_score)
+
     has_rt = isinstance(rt_str, str) and "%" in rt_str
-    has_meta = meta_str not in (None, "N/A", "0")
+    has_letterboxd = letterboxd_str not in (None, "N/A")
     has_imdb = imdb_str not in (None, "N/A")
 
     # If there is no critic/audience signal yet, avoid manufacturing a harsh skip.
-    if not has_rt and not has_meta and not has_imdb:
+    if cinema_weight is None and not has_rt and not has_letterboxd and not has_imdb:
         return {
             "verdict": "DEPENDS",
             "reason": "Too early for a real consensus — wait for reviews or go on premise.",
             "vibe": "Unscored",
         }
 
-    score = int(rt_str.replace("%", "")) if has_rt else 0
+    if cinema_weight is not None:
+        score = cinema_weight
+    elif has_rt:
+        score = int(rt_str.replace("%", ""))
+    elif has_letterboxd:
+        score = int(float(letterboxd_str) * 20)
+    elif has_imdb:
+        score = int(float(imdb_str) * 10)
+    else:
+        score = 0
+
     if score >= 85:
         return {"verdict": "WATCH", "reason": "Critics are united — this one earns its runtime.", "vibe": "Essential"}
     elif score >= 70:
@@ -236,7 +267,7 @@ def mock_verdict(title: str, ratings: dict) -> dict:
         return {"verdict": "SKIP", "reason": "The scores don't lie — pass on this one.", "vibe": "Mediocre"}
 
 
-# ─── ASSEMBLE ────────────────────────────────────────────────────────────────
+# ─── ASSEMBLE ─────────────────────────────────────────────────────────────────
 
 def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")

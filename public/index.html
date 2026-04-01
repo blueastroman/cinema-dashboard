@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NYC Cinema — This Week</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* ── RESET & BASE ──────────────────────────────────────── */
@@ -30,6 +30,7 @@
       --skip: #9e4a4a;
       --skip-bg: #2a0f0f;
       --safe-top: env(safe-area-inset-top, 0px);
+      --font-sans: 'Manrope', sans-serif;
     }
 
     html {
@@ -41,8 +42,8 @@
     body {
       background: var(--black);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-family: var(--font-sans);
+      font-weight: 400;
       min-height: 100vh;
       overflow-x: hidden;
       overscroll-behavior-y: none;
@@ -107,10 +108,10 @@
     }
 
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
       color: var(--cream);
       white-space: nowrap;
       text-transform: uppercase;
@@ -121,10 +122,10 @@
     }
 
     .week-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
       color: var(--muted);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -137,9 +138,10 @@
     }
 
     .filter-btn {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 5px 12px;
       border-radius: 2px;
@@ -183,17 +185,17 @@
     }
 
     .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
+      font-family: var(--font-sans);
+      font-size: 1.65rem;
+      font-weight: 800;
       color: var(--cream);
       line-height: 1;
     }
 
     .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -217,7 +219,7 @@
       border-radius: 2px;
       padding: 8px 14px 8px 34px;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.8rem;
       outline: none;
       transition: border-color 0.15s;
@@ -257,13 +259,13 @@
     }
 
     .verdict-badge-large {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 6px 14px;
       border-radius: 2px;
-      font-weight: 500;
+      font-weight: 700;
     }
 
     .verdict-badge-large.watch {
@@ -283,10 +285,10 @@
     }
 
     .section-count {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
       color: var(--muted);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.04em;
     }
 
     /* ── MOVIE GRID ────────────────────────────────────────── */
@@ -339,27 +341,30 @@
     }
 
     .movie-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.25;
+      font-family: var(--font-sans);
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1.2;
       color: var(--cream);
       flex: 1;
     }
 
     .movie-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      font-size: 0.86rem;
       color: var(--muted);
       margin-top: 4px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Verdict badge */
     .verdict-pill {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 2px;
@@ -386,8 +391,8 @@
     }
 
     .meta-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1;
@@ -398,9 +403,9 @@
     .meta-value.rt-low { color: var(--skip); }
 
     .meta-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -419,9 +424,10 @@
     }
 
     .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.1em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 3px 8px;
       border-radius: 2px;
@@ -464,9 +470,10 @@
     }
 
     .theater-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--accent);
     }
@@ -478,8 +485,9 @@
     }
 
     .showtime-chip {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
       padding: 2px 7px;
       border-radius: 2px;
       border: 1px solid var(--mid-gray);
@@ -495,18 +503,19 @@
     }
 
     .theater-day {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.64rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
       color: var(--muted);
       margin-bottom: 2px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.03em;
     }
 
     /* Expand toggle */
     .expand-theaters {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.1em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--muted);
       background: none;
@@ -544,9 +553,10 @@
     }
 
     .action-btn {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.64rem;
-      letter-spacing: 0.1em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 2px;
@@ -567,10 +577,10 @@
     }
     .movie-card.is-watched .movie-title::after {
       content: ' ✓';
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.75rem;
       color: var(--watch);
-      font-weight: 400;
+      font-weight: 700;
     }
 
     /* Hidden card */
@@ -586,9 +596,9 @@
     }
 
     .empty-state p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-style: italic;
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 600;
     }
 
     /* ── LOADING ────────────────────────────────────────────── */
@@ -602,9 +612,9 @@
     }
 
     .loading-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
       animation: pulse 1.5s ease-in-out infinite;
@@ -623,9 +633,9 @@
     }
 
     .footer-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -709,9 +719,9 @@
         <span class="stat-label">Last Updated</span>
       </div>
       <div style="display:flex;gap:6px;align-items:center;">
-        <span style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Sort</span>
+        <span style="font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);">Sort</span>
         <button class="filter-btn active" id="sort-verdict" onclick="setSort('verdict')">Verdict</button>
-        <button class="filter-btn" id="sort-rt" onclick="setSort('rt')">Tomatometer</button>
+        <button class="filter-btn" id="sort-rt" onclick="setSort('rt')">Audience</button>
         <button class="filter-btn" id="sort-day" onclick="setSort('day')">Day</button>
       </div>
       <div class="search-wrap">
@@ -780,9 +790,10 @@ const THEATER_URLS = {
   'Metrograph': 'https://metrograph.com',
   'IFC Center': 'https://ifccenter.com',
   'Angelika Film Center': 'https://angelikafilmcenter.com/nyc',
-  'Film Forum': 'https://filmforum.org',
+  'Film Forum': 'https://www.filmforum.org/now-playing/',
   'Village East by Angelika': 'https://angelikafilmcenter.com/villageeast',
-  'Lincoln Center - Film at Lincoln Center': 'https://filmlinc.org',
+  'Lincoln Center - Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
+  'Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
   'Alamo Drafthouse Lower Manhattan': 'https://drafthouse.com/nyc',
 };
 
@@ -792,6 +803,75 @@ const MOCK_REASONS = [
   "Strong but divisive — know what you're signing up for.",
   "The scores don't lie — pass on this one.",
 ];
+
+function hasReviewSignals(movie) {
+  const ratings = movie?.ratings || {};
+  const rt = ratings.rt;
+  const cinemaScore = ratings.cinemaScore;
+  const imdb = ratings.imdb;
+  const letterboxd = ratings.letterboxd;
+
+  const hasRT = typeof rt === 'string' && rt.includes('%');
+  const hasCinemaScore = cinemaScore && cinemaScore !== 'N/A';
+  const hasImdb = imdb && imdb !== 'N/A';
+  const hasLetterboxd = letterboxd && letterboxd !== 'N/A';
+
+  return Boolean(hasRT || hasCinemaScore || hasImdb || hasLetterboxd);
+}
+
+function getDisplayVerdict(movie) {
+  const rawVerdict = movie?.verdict?.verdict || 'SKIP';
+  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) {
+    return 'DEPENDS';
+  }
+  return rawVerdict;
+}
+
+function getDisplayReason(movie) {
+  if (!hasReviewSignals(movie)) {
+    return 'Too early for a real consensus — go on premise, director, or wait for reviews.';
+  }
+  return movie?.verdict?.reason || '';
+}
+
+function getDisplayTheaterName(name) {
+  if (name === 'Lincoln Center - Film at Lincoln Center') return 'Film at Lincoln Center';
+  return name;
+}
+
+function getCinemaScoreWeight(score) {
+  if (!score || score === 'N/A') return null;
+  const normalized = String(score).trim().toUpperCase();
+  const map = {
+    'A+': 130, 'A': 120, 'A-': 115,
+    'B+': 105, 'B': 100, 'B-': 95,
+    'C+': 85, 'C': 80, 'C-': 75,
+    'D+': 65, 'D': 60, 'D-': 55,
+    'F': 30
+  };
+  return map[normalized] ?? null;
+}
+
+function getLetterboxdScore(movie) {
+  const raw = movie?.ratings?.letterboxd;
+  if (raw && raw !== 'N/A') return String(raw);
+  const imdb = parseFloat(movie?.ratings?.imdb);
+  if (Number.isFinite(imdb) && imdb > 0) return (imdb / 2).toFixed(1);
+  return null;
+}
+
+function getPriorityScore(movie) {
+  const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
+  if (cinemaWeight !== null) return cinemaWeight;
+
+  const lb = parseFloat(getLetterboxdScore(movie));
+  if (Number.isFinite(lb)) return lb * 20;
+
+  const rt = parseInt(movie?.ratings?.rt || '0', 10);
+  if (Number.isFinite(rt)) return rt;
+
+  return 0;
+}
 
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
@@ -838,7 +918,7 @@ function initDashboard(data) {
     : 'Awaiting latest scrape';
 
   // Stats
-  const watchCount = allMovies.filter(m => m.verdict?.verdict === 'WATCH').length;
+  const watchCount = allMovies.filter(m => getDisplayVerdict(m) === 'WATCH').length;
   document.getElementById('stat-total').textContent = allMovies.length;
   document.getElementById('stat-watch').textContent = watchCount;
   document.getElementById('stat-theaters').textContent = (data.theaters || []).length;
@@ -856,7 +936,9 @@ function initDashboard(data) {
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.theater = t;
-    btn.textContent = t === 'Lincoln Center - Film at Lincoln Center' ? 'FLC' : t.split(' ')[0];
+    btn.textContent = t === 'Lincoln Center - Film at Lincoln Center'
+      ? 'Film at Lincoln Center'
+      : t.split(' ')[0];
     btn.title = t;
     btn.addEventListener('click', () => {
       activeTheater = activeTheater === t ? 'all' : t;
@@ -875,7 +957,7 @@ function renderLoadError(error) {
   main.innerHTML = `
     <div class="empty-state">
       <p>Dashboard data could not be loaded.</p>
-      <div style="margin-top:12px; font-family:'DM Mono', monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase;">
+      <div style="margin-top:12px; font-family:var(--font-sans); font-size:0.72rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">
         The live data file is missing or invalid.
       </div>
     </div>
@@ -893,7 +975,7 @@ function getFiltered() {
     if (activeFilter === 'today') {
       if (!moviePlayingOn(movie, today)) return false;
     } else {
-      const verdict = movie.verdict?.verdict || '';
+      const verdict = getDisplayVerdict(movie);
       if (activeFilter !== 'all' && verdict !== activeFilter) return false;
     }
     if (activeTheater !== 'all') {
@@ -911,11 +993,6 @@ function getFiltered() {
 }
 
 // ── SORT ────────────────────────────────────────────────────────────────────
-
-function getRTScore(movie) {
-  const rt = movie.ratings?.rt || '0%';
-  return parseInt(rt) || 0;
-}
 
 function setSort(mode) {
   activeSort = mode;
@@ -990,7 +1067,7 @@ function render() {
 
   // ── RT sort: flat list by score ─────────────────────────────────────────
   if (activeSort === 'rt') {
-    const sorted = [...movies].sort((a, b) => getRTScore(b) - getRTScore(a));
+    const sorted = [...movies].sort((a, b) => getPriorityScore(b) - getPriorityScore(a));
     const section = document.createElement('div');
     section.className = 'verdict-section';
     const grid = document.createElement('div');
@@ -1004,7 +1081,7 @@ function render() {
   // ── Default: verdict groups ─────────────────────────────────────────────
   const groups = { WATCH: [], DEPENDS: [], SKIP: [] };
   movies.forEach(m => {
-    const v = m.verdict?.verdict || 'SKIP';
+    const v = getDisplayVerdict(m);
     (groups[v] || groups.SKIP).push(m);
   });
 
@@ -1024,20 +1101,20 @@ function render() {
 
 function theaterLink(name) {
   const url = THEATER_URLS[name];
+  const label = getDisplayTheaterName(name);
   return url
-    ? `<a href="${url}" target="_blank" rel="noopener">${name}</a>`
-    : name;
+    ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
+    : label;
 }
 
 function buildCard(movie, idx) {
-  const verdict = (movie.verdict?.verdict || 'SKIP').toLowerCase();
+  const verdict = getDisplayVerdict(movie).toLowerCase();
   const ratings = movie.ratings || {};
-  const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
-  const meta = (ratings.metacritic && ratings.metacritic !== 'N/A' && ratings.metacritic !== '0') ? ratings.metacritic : null;
   const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? ratings.cinemaScore : null;
-  const rawReason = movie.verdict?.reason || '';
+  const letterboxd = getLetterboxdScore(movie);
+  const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
+  const rawReason = getDisplayReason(movie);
   const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
-  const vibe = movie.verdict?.vibe || '';
   const plot = ratings.plot || '';
   const genre = ratings.genre || '';
   const runtime = ratings.runtime || '';
@@ -1055,7 +1132,6 @@ function buildCard(movie, idx) {
   // Genre tags
   const tags = genre.split(',').map(g => g.trim()).filter(Boolean);
   if (runtime) tags.push(runtime);
-  if (vibe) tags.unshift(vibe);
 
   // Theater rows
   const firstTheater = theaters[0];
@@ -1103,17 +1179,17 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-meta">
-      ${rt ? `<div class="meta-item">
-        <span class="meta-value ${rtClass}">${rt}</span>
-        <span class="meta-label">Tomatometer</span>
-      </div>` : ''}
-      ${meta ? `<div class="meta-sep"></div><div class="meta-item">
-        <span class="meta-value">${meta}</span>
-        <span class="meta-label">Metacritic</span>
-      </div>` : ''}
-      ${cinemaScore ? `<div class="meta-sep"></div><div class="meta-item">
+      ${cinemaScore ? `<div class="meta-item">
         <span class="meta-value">${cinemaScore}</span>
         <span class="meta-label">CinemaScore</span>
+      </div>` : ''}
+      ${letterboxd ? `<div class="meta-sep"></div><div class="meta-item">
+        <span class="meta-value">${letterboxd}</span>
+        <span class="meta-label">Letterboxd</span>
+      </div>` : ''}
+      ${rt ? `<div class="meta-sep"></div><div class="meta-item">
+        <span class="meta-value ${rtClass}">${rt}</span>
+        <span class="meta-label">Tomatometer</span>
       </div>` : ''}
     </div>
 
@@ -1186,11 +1262,12 @@ function getTicketUrl(theaterName, movieTitle) {
     case 'Angelika Film Center':
       return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
     case 'Film Forum':
-      return `https://filmforum.org/film/${slug}/`;
+      return `https://www.filmforum.org/now-playing/`;
     case 'Village East by Angelika':
       return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
     case 'Lincoln Center - Film at Lincoln Center':
-      return `https://www.filmlinc.org/films/${slug}/`;
+    case 'Film at Lincoln Center':
+      return `https://www.filmlinc.org/now-playing/`;
     case 'Alamo Drafthouse Lower Manhattan':
       return `https://drafthouse.com/nyc/show/${slug}`;
     default:
