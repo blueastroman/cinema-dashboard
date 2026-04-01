@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NYC Cinema — This Week</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -29,9 +29,14 @@
       --depends-bg: #2a200a;
       --skip: #9e4a4a;
       --skip-bg: #2a0f0f;
+      --safe-top: env(safe-area-inset-top, 0px);
     }
 
-    html { font-size: 17px; scroll-behavior: smooth; }
+    html {
+      font-size: 17px;
+      scroll-behavior: smooth;
+      background: var(--black);
+    }
 
     body {
       background: var(--black);
@@ -62,6 +67,20 @@
       z-index: 100;
       background: rgba(10,10,10,0.95);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(-1 * var(--safe-top));
+      height: var(--safe-top);
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
     }
 
     .header-inner {
@@ -619,6 +638,7 @@
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 768px) {
       header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
+      header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .filters { gap: 6px; }
       .stats-inner { flex-wrap: wrap; gap: 20px; }
@@ -780,11 +800,16 @@ function toggleHidden(title) {
 async function loadData() {
   try {
     const res = await fetch('./data.json?t=' + Date.now());
+    if (!res.ok) {
+      throw new Error(`Failed to load data.json (${res.status})`);
+    }
     const data = await res.json();
+    if (!data || !Array.isArray(data.movies)) {
+      throw new Error('Invalid dashboard payload');
+    }
     initDashboard(data);
   } catch (e) {
-    // Fallback to mock data for demo
-    initDashboard(getMockData());
+    renderLoadError(e);
   }
 }
 
@@ -794,7 +819,9 @@ function initDashboard(data) {
   allMovies = data.movies || [];
 
   // Week label
-  document.getElementById('week-label').textContent = 'Week of ' + (data.week_of || '');
+  document.getElementById('week-label').textContent = data.week_of
+    ? 'Week of ' + data.week_of
+    : 'Awaiting latest scrape';
 
   // Stats
   const watchCount = allMovies.filter(m => m.verdict?.verdict === 'WATCH').length;
@@ -804,7 +831,9 @@ function initDashboard(data) {
 
   const gen = new Date(data.generated_at);
   document.getElementById('stat-generated').textContent =
-    isNaN(gen) ? '—' : gen.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    isNaN(gen)
+      ? 'Awaiting scrape'
+      : gen.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 
   // Theater filter buttons
   const theaters = data.theaters || [];
@@ -813,7 +842,7 @@ function initDashboard(data) {
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.theater = t;
-    btn.textContent = t.split(' ')[0]; // Short name
+    btn.textContent = t === 'Lincoln Center - Film at Lincoln Center' ? 'FLC' : t.split(' ')[0];
     btn.title = t;
     btn.addEventListener('click', () => {
       activeTheater = activeTheater === t ? 'all' : t;
@@ -825,6 +854,19 @@ function initDashboard(data) {
   });
 
   render();
+}
+
+function renderLoadError(error) {
+  const main = document.getElementById('main-content');
+  main.innerHTML = `
+    <div class="empty-state">
+      <p>Dashboard data could not be loaded.</p>
+      <div style="margin-top:12px; font-family:'DM Mono', monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase;">
+        The live data file is missing or invalid.
+      </div>
+    </div>
+  `;
+  console.error('Failed to load dashboard data', error);
 }
 
 // ── FILTER & RENDER ─────────────────────────────────────────────────────────
@@ -1070,7 +1112,7 @@ function buildCard(movie, idx) {
     <div class="card-theaters">
       ${firstTheaterHTML}
       ${extraTheaters.length ? `
-        <button class="expand-theaters" onclick="toggleTheaters(this)">
+        <button class="expand-theaters" data-label="+ ${extraTheaters.length} more theater${extraTheaters.length > 1 ? 's' : ''}" onclick="toggleTheaters(this)">
           + ${extraTheaters.length} more theater${extraTheaters.length > 1 ? 's' : ''}
         </button>
         <div class="theaters-detail">${extraHTML}</div>
@@ -1160,7 +1202,7 @@ function toggleTheaters(btn) {
   detail.classList.toggle('open');
   btn.textContent = detail.classList.contains('open')
     ? '↑ collapse'
-    : btn.textContent.replace('↑ collapse', '').trim();
+    : btn.dataset.label;
 }
 
 // ── FILTER CONTROLS ─────────────────────────────────────────────────────────
