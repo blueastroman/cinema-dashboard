@@ -897,9 +897,28 @@ function hasReviewSignals(movie) {
 
 function getDisplayVerdict(movie) {
   const rawVerdict = movie?.verdict?.verdict || 'SKIP';
-  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) {
-    return 'DEPENDS';
+  const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
+  if (cinemaWeight !== null) {
+    if (cinemaWeight >= 105) return 'WATCH';
+    if (cinemaWeight >= 85) return 'DEPENDS';
+    return 'SKIP';
   }
+
+  const rt = parseInt(movie?.ratings?.rt || '', 10);
+  if (Number.isFinite(rt)) {
+    if (rt >= 85) return 'WATCH';
+    if (rt >= 65) return 'DEPENDS';
+    return 'SKIP';
+  }
+
+  const lb = parseFloat(getLetterboxdScore(movie));
+  if (Number.isFinite(lb)) {
+    if (lb >= 3.8) return 'WATCH';
+    if (lb >= 3.1) return 'DEPENDS';
+    return 'SKIP';
+  }
+
+  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) return 'DEPENDS';
   return rawVerdict;
 }
 
@@ -1003,7 +1022,6 @@ function getMovieConfidence(movie) {
 
   const hasAnyReviewSignal = hasRT || hasImdb || hasCinemaScore || hasLetterboxd;
   if (!hasAnyReviewSignal) score -= 8;
-  if (!hasAnyReviewSignal && Number.isFinite(year) && year >= now.getFullYear()) score -= 32;
   if (plot.length < 20) score -= 8;
   if (!hasAnyTime) score -= 10;
 
