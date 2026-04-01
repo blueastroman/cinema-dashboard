@@ -207,10 +207,8 @@
       position: relative;
     }
 
-    .theater-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+    .theater-select {
+      min-width: 180px;
     }
 
     .search-input {
@@ -913,7 +911,7 @@
       .date-scope-inner { gap: 8px; }
       .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
       .control-group { width: 100%; }
-      .theater-filters { width: 100%; }
+      .theater-select { width: 100%; }
       .search-wrap { max-width: 100%; width: 100%; }
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
@@ -955,7 +953,9 @@
       </div>
       <div class="control-group">
         <span class="control-label">Theater</span>
-        <div id="theater-filters" class="theater-filters"></div>
+        <select class="genre-select theater-select" id="theater-select">
+          <option value="all">All Theaters</option>
+        </select>
       </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -1389,41 +1389,31 @@ function initDashboard(data) {
     ? 'Week of ' + data.week_of
     : 'Awaiting latest scrape';
 
-  // Theater filter buttons
+  // Theater dropdown
   const observed = new Set([
     ...(data.theaters || []),
     ...((data.movies || []).flatMap(m => (m.theaters || []).map(t => t?.name))),
   ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
-  const theaters = CANONICAL_THEATERS.filter(t => observed.has(t)).sort((a, b) => a.localeCompare(b));
-  const theaterFilters = document.getElementById('theater-filters');
-  if (theaterFilters) {
+  const theaters = CANONICAL_THEATERS
+    .filter(t => observed.has(t))
+    .sort((a, b) => getDisplayTheaterName(a).localeCompare(getDisplayTheaterName(b)));
+  const theaterSelect = document.getElementById('theater-select');
+  if (theaterSelect) {
     if (activeTheater !== 'all' && !theaters.includes(activeTheater)) activeTheater = 'all';
-    theaterFilters.innerHTML = '';
-
-    const allBtn = document.createElement('button');
-    allBtn.className = `filter-btn${activeTheater === 'all' ? ' active' : ''}`;
-    allBtn.dataset.theater = 'all';
-    allBtn.textContent = 'All Theaters';
-    allBtn.addEventListener('click', () => {
-      activeTheater = 'all';
-      syncTheaterFilterButtons();
-      render();
-    });
-    theaterFilters.appendChild(allBtn);
+    theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
 
     theaters.forEach(t => {
-      const btn = document.createElement('button');
-      btn.className = `filter-btn${activeTheater === t ? ' active' : ''}`;
-      btn.dataset.theater = t;
-      btn.textContent = getDisplayTheaterName(t);
-      btn.addEventListener('click', () => {
-        activeTheater = t;
-        syncTheaterFilterButtons();
-        render();
-      });
-      theaterFilters.appendChild(btn);
+      const opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = getDisplayTheaterName(t);
+      theaterSelect.appendChild(opt);
     });
-    syncTheaterFilterButtons();
+
+    theaterSelect.value = activeTheater;
+    theaterSelect.onchange = (e) => {
+      activeTheater = e.target.value || 'all';
+      render();
+    };
   }
 
   // Genre dropdown
@@ -1467,13 +1457,6 @@ function renderLoadError(error) {
 }
 
 // ── FILTER & RENDER ─────────────────────────────────────────────────────────
-
-function syncTheaterFilterButtons() {
-  document.querySelectorAll('#theater-filters .filter-btn').forEach(btn => {
-    const value = btn.dataset.theater || 'all';
-    btn.classList.toggle('active', value === activeTheater);
-  });
-}
 
 function getFiltered() {
   const hidden = getHidden();
