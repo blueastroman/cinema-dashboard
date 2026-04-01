@@ -995,6 +995,22 @@ function getThisWeekDayOrder() {
   return ordered;
 }
 
+function getActiveDayFilterLabel() {
+  if (dateScope === 'today') return getTodayLabel();
+  if (dateScope === 'tomorrow') return getTomorrowLabel();
+  return null;
+}
+
+function dayMatchesActiveScope(dayLabel, activeDayLabel) {
+  if (!activeDayLabel) return true;
+  const raw = String(dayLabel || '').trim();
+  if (!raw) return false;
+  if (raw.includes(activeDayLabel)) return true;
+  if (/^today$/i.test(raw)) return activeDayLabel === getTodayLabel();
+  if (/^tomorrow$/i.test(raw)) return activeDayLabel === getTomorrowLabel();
+  return false;
+}
+
 function parseShowtimeDate(dayLabel, timeLabel) {
   const timeStr = String(timeLabel || '').trim().toUpperCase().replace(/\s+/g, ' ');
   if (!timeStr) return null;
@@ -1913,7 +1929,9 @@ function buildScheduleHTML(schedule, theaterName, movieTitle) {
   if (!schedule || !schedule.length) return '';
   const url = getTicketUrl(theaterName, movieTitle);
   const now = getNYNow();
+  const activeDayLabel = getActiveDayFilterLabel();
   const upcoming = schedule
+    .filter(s => dayMatchesActiveScope(s.day, activeDayLabel))
     .map(s => {
       const times = (s.times || []).filter(time => {
         const showAt = parseShowtimeDate(s.day, time);
