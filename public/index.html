@@ -906,16 +906,6 @@
         <div class="logo">NYC <span>Cinema</span></div>
       </div>
 
-      <div class="filters" id="filters">
-        <button class="filter-btn active" id="today-btn">Today</button>
-        <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
-        <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
-        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
-        <span class="control-label">Sort by</span>
-        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
-        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
-      </div>
-
       <div class="week-label" id="week-label">Loading...</div>
     </div>
   </header>
@@ -924,10 +914,20 @@
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="control-group">
+        <button class="filter-btn active" id="today-btn">Today</button>
+        <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
+        <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
+      </div>
+      <div class="control-group">
         <span class="control-label">View</span>
         <button class="filter-btn" id="view-cards" onclick="setView('cards')">Cards</button>
         <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
         <button class="filter-btn active" id="view-theaters" onclick="setView('theaters')">Theaters</button>
+      </div>
+      <div class="control-group">
+        <span class="control-label">Sort by</span>
+        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
+        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
       </div>
       <div class="control-group">
         <span class="control-label">Genre</span>
