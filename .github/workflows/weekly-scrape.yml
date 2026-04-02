@@ -17,12 +17,13 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
     steps:
-      - name: Run only at 8:00 AM New York time
+      - name: Run only at 8:00 AM New York time (skip gate for manual triggers)
+        if: github.event_name == 'schedule'
         run: |
           hour=$(TZ=America/New_York date +%H)
           if [ "$hour" != "08" ]; then
             echo "Skipping run: local NY time is not 08:00."
-            exit 0
+            exit 1
           fi
 
       - name: Checkout repo
