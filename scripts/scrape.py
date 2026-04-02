@@ -33,13 +33,7 @@ ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
-AMC_CITY_SEARCHES = [
-    ("New York", "NY"),
-    ("Brooklyn", "NY"),
-    ("Queens", "NY"),
-    ("Bronx", "NY"),
-    ("Staten Island", "NY"),
-]
+AMC_NYC_CITIES = {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"}
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
 
@@ -144,6 +138,13 @@ def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
         return None
 
 
+def is_nyc_amc_theatre(theatre: dict) -> bool:
+    location = theatre.get("location") or {}
+    city = str(location.get("city") or "").strip().upper()
+    state = str(location.get("state") or "").strip().upper()
+    return state == "NY" and city in AMC_NYC_CITIES
+
+
 def fetch_amc_theatres() -> list[dict]:
     if not AMC_VENDOR_KEY:
         return []
@@ -154,37 +155,34 @@ def fetch_amc_theatres() -> list[dict]:
         data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": 100})
         for theatre in ((data or {}).get("_embedded", {}) or {}).get("theatres", []):
             theatre_id = str(theatre.get("id") or "").strip()
-            if theatre_id:
+            if theatre_id and not theatre.get("isClosed"):
                 theatres_by_id[theatre_id] = theatre
     else:
-        for city, state in AMC_CITY_SEARCHES:
-            page = 1
-            while True:
-                data = amc_request(
-                    "/v2/theatres",
-                    {
-                        "brand": "AMC",
-                        "city": city,
-                        "state": state,
-                        "page-size": 100,
-                        "page-number": page,
-                    },
-                )
-                if not data:
-                    break
+        page = 1
+        while True:
+            data = amc_request(
+                "/v2/theatres",
+                {
+                    "brand": "AMC",
+                    "page-size": 500,
+                    "page-number": page,
+                },
+            )
+            if not data:
+                break
 
-                theatres = ((data.get("_embedded", {}) or {}).get("theatres", []))
-                for theatre in theatres:
-                    theatre_id = str(theatre.get("id") or "").strip()
-                    if theatre_id and not theatre.get("isClosed"):
-                        theatres_by_id[theatre_id] = theatre
+            theatres = ((data.get("_embedded", {}) or {}).get("theatres", []))
+            for theatre in theatres:
+                theatre_id = str(theatre.get("id") or "").strip()
+                if theatre_id and not theatre.get("isClosed") and is_nyc_amc_theatre(theatre):
+                    theatres_by_id[theatre_id] = theatre
 
-                page_size = int(data.get("pageSize") or 0)
-                page_number = int(data.get("pageNumber") or page)
-                count = int(data.get("count") or 0)
-                if page_size <= 0 or page_number * page_size >= count:
-                    break
-                page += 1
+            page_size = int(data.get("pageSize") or 0)
+            page_number = int(data.get("pageNumber") or page)
+            count = int(data.get("count") or 0)
+            if page_size <= 0 or page_number * page_size >= count:
+                break
+            page += 1
 
     results = []
     for theatre in theatres_by_id.values():
@@ -228,7 +226,9 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                     continue
 
                 title = clean_title(
-                    showtime.get("sortableTitleName")
+                    showtime.get("sortableMovieName")
+                    or showtime.get("movieName")
+                    or showtime.get("sortableTitleName")
                     or showtime.get("title")
                     or ""
                 )

@@ -761,7 +761,10 @@
     .theater-film-row.depends::before { background: var(--depends); }
     .theater-film-row.skip::before   { background: var(--skip); }
     .theater-film-row:hover { background: var(--charcoal); }
-    .theater-film-row.is-watched { opacity: 0.72; }
+    .theater-film-row.is-watched {
+      opacity: 0.66;
+      background: rgba(28, 44, 34, 0.28);
+    }
 
     .theater-film-info {
       width: 100%;
@@ -863,8 +866,9 @@
     .theater-action-btn.star:hover,
     .theater-action-btn.star.active {
       border-color: #d4af37;
-      color: #d4af37;
-      background: rgba(212, 175, 55, 0.12);
+      color: #101010;
+      background: #d4af37;
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2);
     }
 
     .theater-action-btn.hide:hover {
@@ -1989,6 +1993,8 @@ function onTheaterWatched(btn, title) {
   const isNowWatched = getWatched().includes(title);
   row?.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active', isNowWatched);
+  btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
+  btn.setAttribute('title', isNowWatched ? 'Watched' : 'Mark watched');
 }
 
 function onTheaterHide(btn, title) {
