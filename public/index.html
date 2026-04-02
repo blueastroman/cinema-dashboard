@@ -1167,10 +1167,6 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="control-group tight">
-        <span class="control-label">Show</span>
-        <button class="filter-btn saved-toggle" id="saved-btn" onclick="toggleSavedOnly()">Saved</button>
-      </div>
       <div class="control-group">
         <span class="control-label">Sort by</span>
         <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
@@ -1197,6 +1193,12 @@
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
+      </div>
+      <div class="control-group tight">
+        <span class="control-label">Show</span>
+        <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
+        <button class="filter-btn saved-toggle" id="saved-btn" onclick="setShowMode('saved')">Saved</button>
+        <button class="filter-btn saved-toggle" id="hidden-btn" onclick="setShowMode('hidden')">Hidden</button>
       </div>
     </div>
   </div>
@@ -1229,7 +1231,7 @@ let activeAmc = 'AMC Lincoln Square 13';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
-let savedOnly = false;
+let showMode = 'all';
 let viewMode = 'theaters';
 let hasLoadedData = false;
 let theaterMeta = {};
@@ -1266,6 +1268,7 @@ function readFiltersFromUrl() {
   const genre = params.get('genre');
   const search = params.get('q');
   const sort = params.get('sort');
+  const show = params.get('show');
   const saved = params.get('saved');
 
   if (scope === 'today' || scope === 'tomorrow' || scope === 'week') dateScope = scope;
@@ -1278,7 +1281,8 @@ function readFiltersFromUrl() {
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
-  if (saved === '1' || saved === 'true') savedOnly = true;
+  if (show === 'saved' || show === 'hidden' || show === 'all') showMode = show;
+  if ((saved === '1' || saved === 'true') && showMode === 'all') showMode = 'saved';
 }
 
 function updateUrlFromState() {
@@ -1290,7 +1294,7 @@ function updateUrlFromState() {
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
-  if (savedOnly) params.set('saved', '1');
+  if (showMode !== 'all') params.set('show', showMode);
 
   const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
   window.history.replaceState({}, '', next);
@@ -1819,7 +1823,8 @@ function describeActiveDateScope() {
 
 function getEmptyStateMessage() {
   const parts = [];
-  if (savedOnly) parts.push('saved');
+  if (showMode === 'saved') parts.push('saved');
+  if (showMode === 'hidden') parts.push('hidden');
   if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
   if (activeTheater === 'AMC') {
     parts.push(activeAmc !== 'none' ? activeAmc : 'AMC');
@@ -1831,7 +1836,8 @@ function getEmptyStateMessage() {
 }
 
 function getEmptyStateHint() {
-  if (savedOnly) return 'Try turning off Saved or broadening the date range.';
+  if (showMode === 'saved') return 'Try switching Show back to All or broadening the date range.';
+  if (showMode === 'hidden') return 'Try switching Show back to All or clearing one of the other filters.';
   if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
   if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
   return 'Try a wider date range or clear one of the filters.';
@@ -1847,9 +1853,9 @@ function renderEmptyState(main) {
   `;
 }
 
-function toggleSavedOnly() {
-  savedOnly = !savedOnly;
-  syncSavedButton();
+function setShowMode(mode) {
+  showMode = mode;
+  syncShowButtons();
   render();
 }
 
@@ -2003,7 +2009,7 @@ function initDashboard(data) {
     searchInput.value = searchQuery;
   }
 
-  syncSavedButton();
+  syncShowButtons();
   syncSortButtons();
 
   render();
@@ -2031,8 +2037,14 @@ function getFiltered() {
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
-    if (hasStoredMovie(hidden, movie)) return false;
-    if (savedOnly && !hasStoredMovie(watched, movie)) return false;
+    const isHidden = hasStoredMovie(hidden, movie);
+    const isSaved = hasStoredMovie(watched, movie);
+    if (showMode === 'hidden') {
+      if (!isHidden) return false;
+    } else {
+      if (isHidden) return false;
+      if (showMode === 'saved' && !isSaved) return false;
+    }
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < effectiveConfidenceThreshold) return false;
     if (dateScope === 'today') {
@@ -2074,8 +2086,10 @@ function syncSortButtons() {
   });
 }
 
-function syncSavedButton() {
-  document.getElementById('saved-btn')?.classList.toggle('active', savedOnly);
+function syncShowButtons() {
+  document.getElementById('show-all-btn')?.classList.toggle('active', showMode === 'all');
+  document.getElementById('saved-btn')?.classList.toggle('active', showMode === 'saved');
+  document.getElementById('hidden-btn')?.classList.toggle('active', showMode === 'hidden');
 }
 
 function setView(mode) {
@@ -2232,7 +2246,7 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  if (dateScope === 'today' && !savedOnly) {
+  if (dateScope === 'today' && showMode === 'all') {
     const bestNow = [...movies]
       .map(movie => {
         const visibleEntries = getVisibleTheaters(movie)
@@ -2372,6 +2386,7 @@ function renderTheaterView() {
         ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
         : '';
       const confidence = getConfidenceNote(movie);
+      const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
@@ -2393,7 +2408,7 @@ function renderTheaterView() {
         </div>
         <div class="theater-film-actions">
           <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
-          <button class="theater-action-btn hide" aria-label="Hide movie" title="Hide movie" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
+          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
       `;
       filmList.appendChild(row);
@@ -2565,8 +2580,12 @@ function onTheaterWatched(btn, movieId, title) {
 
 function onTheaterHide(btn, movieId, title) {
   toggleHidden(movieId, title);
+  const isStillHidden = hasStoredMovie(getHidden(), movieId, title);
+  btn.classList.toggle('active', isStillHidden);
+  btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
+  btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.theater-film-row');
-  if (row) {
+  if (row && !isStillHidden) {
     row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
     row.style.opacity = '0';
     row.style.transform = 'scale(0.98)';
