@@ -1756,6 +1756,13 @@ function initDashboard(data) {
     });
   }
 
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.value = searchQuery;
+  }
+
+  syncSortButtons();
+
   render();
 }
 
@@ -1812,10 +1819,14 @@ function getFiltered() {
 
 function setSort(mode) {
   activeSort = mode;
-  ['rating', 'day'].forEach(m => {
-    document.getElementById('sort-' + m)?.classList.toggle('active', m === mode);
-  });
+  syncSortButtons();
   render();
+}
+
+function syncSortButtons() {
+  ['rating', 'day'].forEach(m => {
+    document.getElementById('sort-' + m)?.classList.toggle('active', m === activeSort);
+  });
 }
 
 function setView(mode) {
