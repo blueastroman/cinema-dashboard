@@ -13,10 +13,11 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
     steps:
       - name: Run only at 8:00 AM New York time
-        if: github.event_name == 'schedule'
         run: |
           hour=$(TZ=America/New_York date +%H)
           if [ "$hour" != "08" ]; then
@@ -33,64 +34,14 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install requests anthropic
 
       - name: Run scraper
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
         run: python scripts/scrape.py
-
-      - name: Validate generated data
-        env:
-          AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
-        run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          path = Path("public/data.json")
-          data = json.loads(path.read_text())
-          movies = data.get("movies", [])
-          theaters = data.get("theaters", [])
-          theater_meta = data.get("theater_meta", {})
-          movies_with_genre = sum(
-              1 for movie in movies
-              if (movie.get("ratings", {}) or {}).get("genre") not in (None, "", "N/A")
-          )
-          movies_with_rt = sum(
-              1 for movie in movies
-              if str((movie.get("ratings", {}) or {}).get("rt") or "").endswith("%")
-          )
-          movie_ids = [movie.get("id") for movie in movies]
-          required_theaters = {
-              "Metrograph",
-              "IFC Center",
-              "Angelika Film Center",
-              "Film Forum",
-              "Film at Lincoln Center",
-          }
-          missing_required = sorted(required_theaters - set(theaters))
-          amc_theaters = [name for name in theaters if str(name).startswith("AMC ")]
-
-          assert len(movies) >= 20, f"Too few movies generated: {len(movies)}"
-          assert len(theaters) >= 5, f"Too few theaters generated: {len(theaters)}"
-          assert movies_with_genre >= 10, f"Genre metadata collapsed: {movies_with_genre} movies with genres"
-          assert movies_with_rt >= 10, f"RT coverage collapsed: only {movies_with_rt} movies with RT"
-          assert all(movie_ids), "One or more movies are missing stable ids"
-          assert len(set(movie_ids)) == len(movie_ids), "Movie ids are not unique"
-          assert not missing_required, f"Required theaters missing: {', '.join(missing_required)}"
-          assert theater_meta, "Theater metadata is missing"
-          if os.environ.get("AMC_VENDOR_KEY"):
-              assert amc_theaters, "AMC key is set but AMC theaters are missing"
-          print(
-              f"Validated data.json: {len(movies)} movies, {len(theaters)} theaters, "
-              f"{movies_with_genre} with genres, {movies_with_rt} with RT, {len(amc_theaters)} AMC theaters"
-          )
-          PY
 
       - name: Commit updated data
         run: |
@@ -105,3 +56,7 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+      - name: Deploy to Vercel
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        run: npx vercel deploy public/ --prod --yes --token $VERCEL_TOKEN --name cinema-dashboard

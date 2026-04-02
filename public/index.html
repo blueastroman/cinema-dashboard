@@ -21,7 +21,7 @@
       --text: #e8e4dc;
       --text-dim: #9a9490;
       --cream: #f0ead8;
-      --accent: #c8a96e;
+      --accent: #c8a96e;       /* warm gold */
       --accent-dim: #6b5a38;
       --watch: #4a9e6b;
       --watch-bg: #0f2a1a;
@@ -66,10 +66,10 @@
       top: 0;
       left: 0;
       right: 0;
-      height: calc(var(--safe-top) + 76px);
+      height: calc(var(--safe-top) + 20px);
       background: var(--black);
       pointer-events: none;
-      z-index: 109;
+      z-index: 90;
     }
 
     /* ── HEADER ────────────────────────────────────────────── */
@@ -119,6 +119,14 @@
 
     .logo span {
       color: var(--accent);
+    }
+
+    .week-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     /* ── FILTERS ───────────────────────────────────────────── */
@@ -171,47 +179,6 @@
       flex-wrap: wrap;
     }
 
-    .date-scope-row {
-      border-bottom: 1px solid var(--dark-gray);
-      padding: 14px 40px;
-    }
-
-    .date-scope-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .date-scope-inner .filter-btn {
-      font-size: 0.98rem;
-      font-weight: 700;
-      padding: 10px 20px;
-      letter-spacing: 0.05em;
-    }
-
-    .date-picker-wrap {
-      position: relative;
-      display: inline-block;
-    }
-
-    .date-picker-wrap #date-picker {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.01;
-      cursor: pointer;
-    }
-
-    .date-picker-wrap.active .filter-btn {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--black);
-    }
-
     .search-wrap {
       flex: 1;
       max-width: 420px;
@@ -219,8 +186,10 @@
       position: relative;
     }
 
-    .theater-select {
-      min-width: 180px;
+    .theater-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     .search-input {
@@ -245,18 +214,13 @@
       top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.8rem;
     }
 
     .control-group {
       display: flex;
       gap: 6px;
       align-items: center;
-    }
-
-    .control-group.tight {
-      gap: 8px;
     }
 
     .control-label {
@@ -267,12 +231,6 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-right: 2px;
-    }
-
-    .saved-toggle.active {
-      background: var(--watch-bg);
-      border-color: var(--watch);
-      color: var(--watch);
     }
 
     /* ── MAIN GRID ─────────────────────────────────────────── */
@@ -644,10 +602,9 @@
     .action-btn.active-watched { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
     .action-btn.active-hidden { border-color: var(--skip); color: var(--skip); background: var(--skip-bg); }
 
-    /* Saved card overlay */
+    /* Watched card overlay */
     .movie-card.is-watched {
-      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
-      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
+      opacity: 0.5;
     }
     .movie-card.is-watched .movie-title::after {
       content: ' ✓';
@@ -675,22 +632,6 @@
       font-weight: 600;
     }
 
-    .empty-state-detail {
-      margin-top: 12px;
-      font-size: 0.82rem;
-      line-height: 1.6;
-      color: var(--text-dim);
-    }
-
-    .empty-state-hint {
-      margin-top: 18px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
     /* ── LOADING ────────────────────────────────────────────── */
     .loading {
       display: flex;
@@ -713,6 +654,21 @@
     @keyframes pulse {
       0%, 100% { opacity: 0.4; }
       50% { opacity: 1; }
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--dark-gray);
+      padding: 24px 40px;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     /* ── ANIMATIONS ────────────────────────────────────────── */
@@ -772,126 +728,25 @@
     }
 
     .theater-view-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .best-strip {
-      margin: 6px 0 4px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--dark-gray);
-    }
-
-    .best-strip-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .best-strip-title {
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--cream);
-    }
-
-    .best-strip-subtitle {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-    }
-
-    .best-strip-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-
-    .best-pick {
-      position: relative;
-      border: 1px solid var(--dark-gray);
-      background: linear-gradient(180deg, rgba(28, 28, 28, 0.96), rgba(14, 14, 14, 0.96));
-      padding: 16px 16px 16px 18px;
-      min-height: 120px;
-    }
-
-    .best-pick::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--accent);
-    }
-
-    .best-pick-title {
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: var(--cream);
-      line-height: 1.25;
-    }
-
-    .best-pick-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .best-pick-title a:hover {
-      text-decoration: underline;
-    }
-
-    .best-pick-meta {
-      margin-top: 6px;
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      line-height: 1.45;
-    }
-
-    .best-pick-time {
-      margin-top: 10px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .best-pick-time a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .best-pick-time a:hover {
-      text-decoration: underline;
-    }
-
-    .best-pick-score {
-      margin-top: 4px;
-      font-size: 0.76rem;
-      color: var(--muted);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+      align-items: start;
     }
 
     .theater-film-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding: 4px 2px 10px;
+      display: flex;
+      flex-direction: column;
     }
 
     .theater-film-row {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding: 14px 14px 56px 16px;
-      border: 1px solid var(--dark-gray);
-      border-radius: 2px;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0 14px 14px;
+      border-bottom: 1px solid var(--dark-gray);
       position: relative;
       transition: background 0.12s ease;
-      min-width: 0;
     }
 
     .theater-film-row::before {
@@ -907,39 +762,10 @@
     .theater-film-row.depends::before { background: var(--depends); }
     .theater-film-row.skip::before   { background: var(--skip); }
     .theater-film-row:hover { background: var(--charcoal); }
-    .theater-film-row.is-watched {
-      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.94));
-      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
-    }
-
-    .theater-film-row.is-watched::after {
-      content: 'SAVED';
-      position: absolute;
-      right: 14px;
-      bottom: 66px;
-      font-family: var(--font-sans);
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--watch);
-      opacity: 0.9;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(79, 190, 128, 0.35);
-      background: rgba(16, 34, 24, 0.92);
-    }
 
     .theater-film-info {
-      width: 100%;
+      flex: 1;
       min-width: 0;
-    }
-
-    .theater-film-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
     }
 
     .theater-film-title {
@@ -948,8 +774,6 @@
       font-weight: 800;
       color: var(--cream);
       line-height: 1.25;
-      min-width: 0;
-      flex: 1;
     }
 
     .theater-film-title a {
@@ -968,121 +792,27 @@
       margin-top: 3px;
     }
 
-    .theater-film-meta {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .confidence-note {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 10px;
-      padding: 4px 8px;
-      border: 1px solid rgba(200, 169, 110, 0.35);
-      background: rgba(200, 169, 110, 0.08);
-      color: var(--accent);
-      font-size: 0.64rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      width: fit-content;
-    }
-
-    .theater-film-runtime.long {
-      color: var(--skip);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
     .theater-film-times {
       margin-top: 8px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 8px;
-    }
-
-    .theater-film-day-group {
-      min-width: 0;
-    }
-
-    .theater-film-actions {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
       display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .theater-action-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid var(--mid-gray);
-      background: rgba(17, 17, 17, 0.96);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 800;
-      line-height: 1;
-      cursor: pointer;
-      transition: transform 0.12s ease, border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
-    }
-
-    .theater-action-btn.star {
-      border-color: rgba(212, 175, 55, 0.55);
-      color: #d4af37;
-      background: rgba(212, 175, 55, 0.08);
-    }
-
-    .theater-action-btn.hide {
-      border-color: rgba(200, 91, 91, 0.55);
-      color: #c85b5b;
-      background: rgba(200, 91, 91, 0.08);
-    }
-
-    .theater-action-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .theater-action-btn.star:hover,
-    .theater-action-btn.star.active {
-      border-color: #d4af37;
-      color: #101010;
-      background: #d4af37;
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2), 0 0 14px rgba(212, 175, 55, 0.18);
-      transform: translateY(-1px) scale(1.04);
-    }
-
-    .theater-action-btn.hide:hover {
-      border-color: #c85b5b;
-      color: #c85b5b;
-      background: rgba(200, 91, 91, 0.12);
+      flex-direction: column;
+      gap: 4px;
     }
 
     .theater-film-scores {
       display: flex;
-      gap: 12px;
-      align-items: baseline;
-      justify-content: flex-end;
-      text-align: right;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
       flex-shrink: 0;
-      margin-top: 1px;
+      padding-top: 2px;
     }
 
     .t-score {
       font-family: var(--font-sans);
-      font-size: 1.05rem;
+      font-size: 0.8rem;
       font-weight: 700;
       white-space: nowrap;
-      line-height: 1;
     }
 
     .t-score.rt-high { color: var(--watch); }
@@ -1090,12 +820,11 @@
     .t-score.rt-low  { color: var(--skip); }
     .t-score.lb-score { color: var(--text-dim); }
     .t-score-label {
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 2px;
     }
 
     /* ── GENRE DROPDOWN ─────────────────────────────────────── */
@@ -1133,38 +862,19 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .theater-view-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-      .theater-film-list { grid-template-columns: 1fr; }
-      header, .stats-bar, .date-scope-row, main { padding-left: 20px; padding-right: 20px; }
-      body::after { height: calc(var(--safe-top) + 76px); }
+      .theater-view-grid { grid-template-columns: 1fr; }
+      header, .stats-bar, main, footer { padding-left: 20px; padding-right: 20px; }
+      body::after { height: calc(var(--safe-top) + 72px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; justify-content: flex-start; }
-      .date-scope-inner { gap: 8px; }
-      .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
-      .date-picker-wrap {
-        display: inline-block;
-        position: relative;
-      }
-      .date-picker-wrap #pickdate-btn {
-        display: inline-flex;
-        min-width: 146px;
-        justify-content: center;
-      }
-      .date-picker-wrap #date-picker {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.01;
-        cursor: pointer;
-      }
       .control-group { width: 100%; }
-      .theater-select { width: 100%; }
+      .theater-filters { width: 100%; }
       .search-wrap { max-width: 100%; width: 100%; }
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
@@ -1177,8 +887,20 @@
   <header>
     <div class="header-inner">
       <div>
-        <div class="logo">NY<span>Cinema</span></div>
+        <div class="logo">NYC <span>Cinema</span></div>
       </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn" id="today-btn" style="border-color:var(--accent-dim);color:var(--accent)">Today</button>
+        <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
+        <button class="filter-btn active" id="thisweek-btn">This Week</button>
+        <div style="width:1px;height:20px;background:var(--mid-gray);"></div>
+        <span class="control-label">Sort by</span>
+        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Day</button>
+        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Rating</button>
+      </div>
+
+      <div class="week-label" id="week-label">Loading...</div>
     </div>
   </header>
 
@@ -1186,9 +908,10 @@
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="control-group">
-        <span class="control-label">Sort by</span>
-        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
-        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Best</button>
+        <span class="control-label">View</span>
+        <button class="filter-btn active" id="view-cards" onclick="setView('cards')">Cards</button>
+        <button class="filter-btn" id="view-list" onclick="setView('list')">List</button>
+        <button class="filter-btn" id="view-theaters" onclick="setView('theaters')">Theaters</button>
       </div>
       <div class="control-group">
         <span class="control-label">Genre</span>
@@ -1198,125 +921,40 @@
       </div>
       <div class="control-group">
         <span class="control-label">Theater</span>
-        <select class="genre-select theater-select" id="theater-select">
-          <option value="all">All Theaters</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <span class="control-label">Choose AMC</span>
-        <select class="genre-select theater-select" id="amc-select">
-          <option value="all">All AMC</option>
-        </select>
+        <div id="theater-filters" class="theater-filters"></div>
       </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
-      </div>
-      <div class="control-group tight">
-        <span class="control-label">Show</span>
-        <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
-        <button class="filter-btn saved-toggle" id="saved-btn" onclick="setShowMode('saved')">Saved</button>
-        <button class="filter-btn saved-toggle" id="hidden-btn" onclick="setShowMode('hidden')">Hidden</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="date-scope-row">
-    <div class="date-scope-inner">
-      <button class="filter-btn active" id="today-btn">Today</button>
-      <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
-      <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
-      <div class="date-picker-wrap">
-        <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
-        <input type="date" id="date-picker" />
       </div>
     </div>
   </div>
 
   <!-- MAIN -->
   <main id="main-content">
-  <div class="loading" data-build="2026-04-01-2255">
+    <div class="loading">
       <div class="loading-text">Loading this week's program</div>
     </div>
   </main>
 
+  <footer>
+    <div class="footer-text">
+      Updated every Wednesday · Theaters: Metrograph · IFC Center · Angelika · Film Forum · Village East · Film at Lincoln Center · Alamo Lower Manhattan · Paris Theater
+    </div>
+  </footer>
+
 <script>
 let allMovies = [];
-let dateScope = 'today'; // week | today | tomorrow
-let selectedDateISO = '';
+let dateScope = 'week'; // week | today | tomorrow
 let activeTheater = 'all';
-let activeAmc = 'AMC Lincoln Square 13';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
-let showMode = 'all';
-let viewMode = 'theaters';
-let hasLoadedData = false;
-let theaterMeta = {};
+let viewMode = 'cards';
 const CONFIDENCE_THRESHOLD = 60;
-let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
-const DEFAULT_THEATER_META = {
-  'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'serpapi', aliases: ['metro'] },
-  'IFC Center': { slug: 'ifc', short_name: 'IFC', sort_name: 'IFC', official_url: 'https://www.ifccenter.com', source_type: 'serpapi', aliases: ['ifc'] },
-  'Angelika Film Center': { slug: 'angelika', short_name: 'Angelika', sort_name: 'Angelika', official_url: 'https://angelikafilmcenter.com/nyc', source_type: 'serpapi', aliases: ['angelika'] },
-  'Film Forum': { slug: 'film-forum', short_name: 'Film Forum', sort_name: 'Film Forum', official_url: 'https://www.filmforum.org/now-playing/', source_type: 'serpapi', aliases: ['film', 'film forum'] },
-  'Village East by Angelika': { slug: 'village-east', short_name: 'Village East', sort_name: 'Village East', official_url: 'https://angelikafilmcenter.com/villageeast', source_type: 'serpapi', aliases: ['village', 'village east'] },
-  'Film at Lincoln Center': { slug: 'flc', short_name: 'FLC', sort_name: 'FLC', official_url: 'https://www.filmlinc.org/now-playing/', source_type: 'serpapi', aliases: ['flc', 'film linc', 'lincoln center', 'film at lincoln center'] },
-  'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo', sort_name: 'Alamo', official_url: 'https://drafthouse.com/nyc', source_type: 'serpapi', aliases: ['alamo'] },
-  'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'serpapi', aliases: ['paris'] },
-};
-
-function slugify(value) {
-  return String(value || '')
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
-
-function readFiltersFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  const scope = params.get('date');
-  const customDate = params.get('on');
-  const theater = params.get('theater');
-  const amc = params.get('amc');
-  const genre = params.get('genre');
-  const search = params.get('q');
-  const sort = params.get('sort');
-  const show = params.get('show');
-  const saved = params.get('saved');
-
-  if (scope === 'today' || scope === 'tomorrow' || scope === 'week') dateScope = scope;
-  if (scope === 'custom' && customDate) {
-    dateScope = 'custom';
-    selectedDateISO = customDate;
-  }
-  if (theater) activeTheater = theater;
-  if (amc) activeAmc = amc;
-  if (genre) activeGenre = genre;
-  if (typeof search === 'string') searchQuery = search;
-  if (sort === 'day' || sort === 'rating') activeSort = sort;
-  if (show === 'saved' || show === 'hidden' || show === 'all') showMode = show;
-  if ((saved === '1' || saved === 'true') && showMode === 'all') showMode = 'saved';
-}
-
-function updateUrlFromState() {
-  const params = new URLSearchParams();
-  params.set('date', dateScope);
-  if (dateScope === 'custom' && selectedDateISO) params.set('on', selectedDateISO);
-  if (activeTheater !== 'all') params.set('theater', getTheaterStateSlug(activeTheater));
-  if (activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
-  if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
-  if (searchQuery) params.set('q', searchQuery);
-  if (activeSort !== 'day') params.set('sort', activeSort);
-  if (showMode !== 'all') params.set('show', showMode);
-
-  const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
-  window.history.replaceState({}, '', next);
-}
 
 function getNYNow() {
   return new Date(new Date().toLocaleString('en-US', { timeZone: NYC_TIMEZONE }));
@@ -1325,19 +963,6 @@ function getNYNow() {
 function getTodayLabel() {
   // Returns e.g. "Mar 31" to match against "Tue Mar 31" schedule day strings
   return getNYNow().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-}
-
-function toISODate(date) {
-  if (!(date instanceof Date) || Number.isNaN(date.getTime())) return '';
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-function parseISODate(iso) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(iso || ''))) return null;
-  return new Date(`${iso}T12:00:00`);
 }
 
 function getTomorrowLabel() {
@@ -1353,76 +978,6 @@ function getThisWeekDayOrder() {
   const ordered = [];
   for (let i = 0; i < 7; i++) ordered.push(days[(todayIdx + i) % 7]);
   return ordered;
-}
-
-function getActiveDayFilterLabel() {
-  if (dateScope === 'today') return getTodayLabel();
-  if (dateScope === 'tomorrow') return getTomorrowLabel();
-  return null;
-}
-
-function getCustomDateLabel() {
-  const parsed = parseISODate(selectedDateISO);
-  if (!parsed) return 'Select Date';
-  return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
-}
-
-function getShowtimeISO(dayLabel) {
-  const parsed = parseShowtimeDate(dayLabel, '12:00PM');
-  return parsed ? toISODate(parsed) : '';
-}
-
-function getAvailableDateBounds(data = null) {
-  const movies = (data?.movies || allMovies) || [];
-  const todayISO = toISODate(getNYNow());
-  let maxISO = todayISO;
-
-  for (const movie of movies) {
-    for (const theater of (movie?.theaters || [])) {
-      for (const slot of (theater?.schedule || [])) {
-        const iso = getShowtimeISO(slot?.day || '');
-        if (!iso) continue;
-        if (iso >= todayISO && iso > maxISO) maxISO = iso;
-      }
-    }
-  }
-
-  return { min: todayISO, max: maxISO };
-}
-
-function getShowtimeDayLabel(dayLabel) {
-  const raw = String(dayLabel || '').trim();
-  if (!raw) return '';
-  if (/^today$/i.test(raw)) {
-    return getNYNow().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
-  }
-  if (/^tomorrow$/i.test(raw)) {
-    const d = getNYNow();
-    d.setDate(d.getDate() + 1);
-    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
-  }
-  const explicit = raw.match(/\b(Sun|Mon|Tue|Wed|Thu|Fri|Sat)\b\.?\s+\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})\b/i);
-  if (explicit) {
-    return `${explicit[1]} ${explicit[2]} ${explicit[3]}`;
-  }
-  const parsed = parseShowtimeDate(raw, '12:00PM');
-  if (parsed) {
-    return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
-  }
-  return raw;
-}
-
-function dayMatchesActiveScope(dayLabel, activeDayLabel) {
-  if (dateScope === 'custom' && selectedDateISO) {
-    return getShowtimeISO(dayLabel) === selectedDateISO;
-  }
-  if (!activeDayLabel) return true;
-  const raw = String(dayLabel || '').trim();
-  if (!raw) return false;
-  if (raw.includes(activeDayLabel)) return true;
-  if (/^today$/i.test(raw)) return activeDayLabel === getTodayLabel();
-  if (/^tomorrow$/i.test(raw)) return activeDayLabel === getTomorrowLabel();
-  return false;
 }
 
 function parseShowtimeDate(dayLabel, timeLabel) {
@@ -1483,20 +1038,8 @@ function hasUpcomingShowtimes(movie) {
 
 function getVisibleTheaters(movie) {
   const theaters = movie?.theaters || [];
-  return theaters.filter(t => {
-    const canonical = getCanonicalTheaterName(t?.name);
-    const isAmc = /^AMC\b/i.test(canonical);
-
-    if (isAmc) {
-      if (activeTheater === 'AMC') {
-        return activeAmc === 'all' ? true : canonical === activeAmc;
-      }
-      return activeAmc !== 'all' && canonical === activeAmc;
-    }
-
-    if (activeTheater === 'all') return true;
-    return canonical === activeTheater;
-  });
+  if (activeTheater === 'all') return theaters;
+  return theaters.filter(t => getCanonicalTheaterName(t?.name) === activeTheater);
 }
 
 function moviePlayingOn(movie, dateLabel) {
@@ -1504,19 +1047,6 @@ function moviePlayingOn(movie, dateLabel) {
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
       (s.day || '').includes(dateLabel) &&
-      (s.times || []).some(time => {
-        const showAt = parseShowtimeDate(s.day, time);
-        return !!showAt && showAt >= now;
-      })
-    )
-  );
-}
-
-function moviePlayingOnISO(movie, dateISO) {
-  const now = getNYNow();
-  return getVisibleTheaters(movie).some(t =>
-    (t.schedule || []).some(s =>
-      getShowtimeISO(s.day) === dateISO &&
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
         return !!showAt && showAt >= now;
@@ -1537,87 +1067,57 @@ function movieEarliestDayIdx(movie, dayOrder) {
   return best;
 }
 
-// ── THEATER META ───────────────────────────────────────────────────────────
-function getTheaterMeta(name) {
-  const raw = String(name || '').trim();
-  if (!raw) return null;
-  if (theaterMeta[raw]) return theaterMeta[raw];
-  if (DEFAULT_THEATER_META[raw]) return DEFAULT_THEATER_META[raw];
-  if (/^AMC\b/i.test(raw)) {
-    return {
-      slug: slugify(raw),
-      short_name: raw,
-      sort_name: raw,
-      official_url: 'https://www.amctheatres.com/',
-      source_type: 'amc',
-      aliases: [],
-    };
-  }
-  return {
-    slug: slugify(raw),
-    short_name: raw,
-    sort_name: raw,
-    official_url: '',
-    source_type: 'serpapi',
-    aliases: [],
-  };
-}
+// ── THEATER URLs ───────────────────────────────────────────────────────────
+const THEATER_URLS = {
+  'Metrograph': 'https://metrograph.com',
+  'IFC Center': 'https://ifccenter.com',
+  'Angelika Film Center': 'https://angelikafilmcenter.com/nyc',
+  'Angelika': 'https://angelikafilmcenter.com/nyc',
+  'Film Forum': 'https://www.filmforum.org/now-playing/',
+  'Film': 'https://www.filmforum.org/now-playing/',
+  'Village East by Angelika': 'https://angelikafilmcenter.com/villageeast',
+  'Lincoln Center - Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
+  'Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
+  'FLC': 'https://www.filmlinc.org/now-playing/',
+  'Alamo Drafthouse Lower Manhattan': 'https://drafthouse.com/nyc',
+  'Alamo': 'https://drafthouse.com/nyc',
+  'Paris Theater': 'https://www.paristheaternyc.com/',
+  'Paris': 'https://www.paristheaternyc.com/',
+};
 
-function getTheaterStateSlug(name) {
-  if (name === 'all' || name === 'AMC') return String(name).toLowerCase();
-  const meta = getTheaterMeta(name);
-  return meta?.slug || slugify(name);
-}
+const CANONICAL_THEATERS = [
+  'Metrograph',
+  'IFC Center',
+  'Angelika Film Center',
+  'Film Forum',
+  'Village East by Angelika',
+  'Film at Lincoln Center',
+  'Alamo Drafthouse Lower Manhattan',
+  'Paris Theater',
+];
 
-function resolveTheaterValue(value, candidates = []) {
-  const raw = String(value || '').trim();
-  if (!raw) return '';
-  if (raw === 'all' || raw === 'AMC') return raw;
-
-  const lowered = raw.toLowerCase();
-  const bySlug = candidates.find(name => getTheaterStateSlug(name) === lowered);
-  if (bySlug) return bySlug;
-
-  const byAlias = candidates.find(name => {
-    const meta = getTheaterMeta(name);
-    const aliases = [name, ...(meta?.aliases || [])].map(item => slugify(item));
-    return aliases.includes(slugify(raw));
-  });
-  if (byAlias) return byAlias;
-
-  return candidates.find(name => String(name).toLowerCase() === lowered) || '';
-}
-
-function resolveGenreValue(value, genres = []) {
-  const raw = String(value || '').trim();
-  if (!raw || raw === 'all') return 'all';
-  return genres.find(g => slugify(g) === slugify(raw)) || 'all';
-}
-
-function getTheaterUrl(name) {
-  const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
-  return getTheaterMeta(canonical)?.official_url || '';
-}
-
-function getAvailableTheaters(data = null) {
-  const observed = new Set([
-    ...((data?.theaters || [])),
-    ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
-  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
-  return [...observed]
-    .filter(name => !/^AMC\b/i.test(name))
-    .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
-}
-
-function getAvailableAmcTheaters(data = null) {
-  const observed = new Set([
-    ...((data?.theaters || [])),
-    ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
-  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
-  return [...observed]
-    .filter(name => /^AMC\b/i.test(name))
-    .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
-}
+const THEATER_ALIASES = {
+  'flc': 'Film at Lincoln Center',
+  'lincoln center - film at lincoln center': 'Film at Lincoln Center',
+  'lincoln center': 'Film at Lincoln Center',
+  'film at lincoln center': 'Film at Lincoln Center',
+  'film linc': 'Film at Lincoln Center',
+  'film': 'Film Forum',
+  'film forum': 'Film Forum',
+  'angelika': 'Angelika Film Center',
+  'angelika film center': 'Angelika Film Center',
+  'alamo': 'Alamo Drafthouse Lower Manhattan',
+  'alamo drafthouse lower manhattan': 'Alamo Drafthouse Lower Manhattan',
+  'paris': 'Paris Theater',
+  'paris theater': 'Paris Theater',
+  'ifc': 'IFC Center',
+  'ifc center': 'IFC Center',
+  'metro': 'Metrograph',
+  'metrograph': 'Metrograph',
+  'village': 'Village East by Angelika',
+  'village east': 'Village East by Angelika',
+  'village east by angelika': 'Village East by Angelika',
+};
 
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
 const MOCK_REASONS = [
@@ -1662,17 +1162,6 @@ function getDisplayVerdict(movie) {
   return rawVerdict === 'SKIP' ? 'SKIP' : 'WATCH';
 }
 
-function getCardTone(movie) {
-  const rt = parseInt(movie?.ratings?.rt || '', 10);
-  if (Number.isFinite(rt)) {
-    if (rt < 50) return 'skip';
-    if (rt < 70) return 'depends';
-    return 'watch';
-  }
-
-  return getDisplayVerdict(movie).toLowerCase();
-}
-
 function getDisplayReason(movie) {
   if (!hasReviewSignals(movie)) return '';
   return movie?.verdict?.reason || '';
@@ -1680,36 +1169,23 @@ function getDisplayReason(movie) {
 
 function getDisplayTheaterName(name) {
   const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
-  return getTheaterMeta(canonical)?.short_name || canonical;
-}
-
-function getTheaterSortLabel(name) {
-  return (getTheaterMeta(name)?.sort_name || getDisplayTheaterName(name))
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-}
-
-function getRuntimeMinutes(runtime) {
-  const match = String(runtime || '').match(/(\d+)/);
-  if (!match) return null;
-  const minutes = parseInt(match[1], 10);
-  return Number.isFinite(minutes) ? minutes : null;
+  const shortNames = {
+    'Film at Lincoln Center': 'FLC',
+    'Alamo Drafthouse Lower Manhattan': 'Alamo',
+    'Angelika Film Center': 'Angelika',
+    'Village East by Angelika': 'Village East',
+    'IFC Center': 'IFC',
+    'Paris Theater': 'Paris',
+  };
+  return shortNames[canonical] || canonical;
 }
 
 function getCanonicalTheaterName(name) {
   const raw = String(name || '').trim();
   if (!raw) return '';
-  const direct = theaterMeta[raw] || DEFAULT_THEATER_META[raw];
-  if (direct) return raw;
   const lowered = raw.toLowerCase();
-  const knownNames = [...new Set([...Object.keys(DEFAULT_THEATER_META), ...Object.keys(theaterMeta)])];
-  const match = knownNames.find(name => {
-    const meta = getTheaterMeta(name);
-    const aliases = [name, ...(meta?.aliases || [])];
-    return aliases.some(alias => alias.toLowerCase() === lowered);
-  });
-  return match || raw;
+  const canonical = THEATER_ALIASES[lowered] || raw;
+  return CANONICAL_THEATERS.includes(canonical) ? canonical : canonical;
 }
 
 function getCinemaScoreWeight(score) {
@@ -1808,107 +1284,19 @@ function getMovieConfidence(movie) {
   return score;
 }
 
-function getConfidenceNote(movie) {
-  const score = movie?._confidence ?? getMovieConfidence(movie);
-  const ratings = movie?.ratings || {};
-  const hasReviews = hasReviewSignals(movie);
-  const hasCoreMeta = Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
-  if (score >= CONFIDENCE_THRESHOLD + 10 && hasReviews && hasCoreMeta) return '';
-  if (effectiveConfidenceThreshold === 0 && hasReviews) return '';
-  if (!hasReviews) return 'Showtimes only';
-  if (!hasCoreMeta) return 'Partial metadata';
-  if (score < CONFIDENCE_THRESHOLD + 10) return 'Low confidence';
-  return '';
-}
-
-function computeEffectiveConfidenceThreshold(movies) {
-  const total = movies.length || 0;
-  if (!total) return 0;
-  const richMetaCount = movies.filter(movie => {
-    const ratings = movie?.ratings || {};
-    return Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
-  }).length;
-  return richMetaCount / total < 0.35 ? 0 : CONFIDENCE_THRESHOLD;
-}
-
-function describeActiveDateScope() {
-  if (dateScope === 'today') return 'today';
-  if (dateScope === 'tomorrow') return 'tomorrow';
-  if (dateScope === 'week') return 'this week';
-  if (dateScope === 'custom' && selectedDateISO) return getCustomDateLabel();
-  return 'this range';
-}
-
-function getEmptyStateMessage() {
-  const parts = [];
-  if (showMode === 'saved') parts.push('saved');
-  if (showMode === 'hidden') parts.push('hidden');
-  if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
-  if (activeTheater === 'AMC') {
-    parts.push(activeAmc !== 'all' ? activeAmc : 'AMC');
-  } else if (activeTheater !== 'all') {
-    parts.push(getDisplayTheaterName(activeTheater));
-  }
-  const subject = parts.length ? parts.join(' ') : 'films';
-  return `No ${subject} match ${describeActiveDateScope()}.`;
-}
-
-function getEmptyStateHint() {
-  if (showMode === 'saved') return 'Try switching Show back to All or broadening the date range.';
-  if (showMode === 'hidden') return 'Try switching Show back to All or clearing one of the other filters.';
-  if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
-  if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
-  return 'Try a wider date range or clear one of the filters.';
-}
-
-function renderEmptyState(main) {
-  main.innerHTML = `
-    <div class="empty-state">
-      <p>${getEmptyStateMessage()}</p>
-      <div class="empty-state-detail">Current filters are narrowing the board more than the scraped schedule can support right now.</div>
-      <div class="empty-state-hint">${getEmptyStateHint()}</div>
-    </div>
-  `;
-}
-
-function setShowMode(mode) {
-  showMode = mode;
-  syncShowButtons();
-  render();
-}
-
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
-function getMovieStorageKeys(movieOrId, fallbackTitle = '') {
-  if (typeof movieOrId === 'object' && movieOrId) {
-    return [movieOrId.id, movieOrId.title].filter(Boolean);
-  }
-  return [movieOrId, fallbackTitle].filter(Boolean);
-}
-function hasStoredMovie(list, movieOrId, fallbackTitle = '') {
-  return getMovieStorageKeys(movieOrId, fallbackTitle).some(key => list.includes(key));
-}
-function toggleWatched(movieId, fallbackTitle = '') {
+function toggleWatched(title) {
   const list = getWatched();
-  const keys = getMovieStorageKeys(movieId, fallbackTitle);
-  const existingIdx = list.findIndex(item => keys.includes(item));
-  if (existingIdx > -1) {
-    list.splice(existingIdx, 1);
-  } else if (movieId) {
-    list.push(movieId);
-  }
+  const idx = list.indexOf(title);
+  if (idx > -1) list.splice(idx, 1); else list.push(title);
   localStorage.setItem('cinema_watched', JSON.stringify(list));
 }
-function toggleHidden(movieId, fallbackTitle = '') {
+function toggleHidden(title) {
   const list = getHidden();
-  const keys = getMovieStorageKeys(movieId, fallbackTitle);
-  const existingIdx = list.findIndex(item => keys.includes(item));
-  if (existingIdx > -1) {
-    list.splice(existingIdx, 1);
-  } else if (movieId) {
-    list.push(movieId);
-  }
+  const idx = list.indexOf(title);
+  if (idx > -1) list.splice(idx, 1); else list.push(title);
   localStorage.setItem('cinema_hidden', JSON.stringify(list));
 }
 
@@ -1916,7 +1304,6 @@ function toggleHidden(movieId, fallbackTitle = '') {
 
 async function loadData() {
   try {
-    readFiltersFromUrl();
     const res = await fetch('./data.json?t=' + Date.now());
     if (!res.ok) {
       throw new Error(`Failed to load data.json (${res.status})`);
@@ -1934,66 +1321,51 @@ async function loadData() {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 function initDashboard(data) {
-  theaterMeta = { ...DEFAULT_THEATER_META, ...(data.theater_meta || {}) };
   allMovies = (data.movies || []).map(movie => ({
     ...movie,
-    id: movie.id || slugify(`${movie.title}-${movie?.ratings?.year || ''}`),
     _confidence: getMovieConfidence(movie),
   }));
-  effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
-  hasLoadedData = true;
 
-  // Theater dropdown
-  const theaters = getAvailableTheaters(data);
-  const theaterSelect = document.getElementById('theater-select');
-  if (theaterSelect) {
-    activeTheater = resolveTheaterValue(activeTheater, theaters) || (String(activeTheater).toLowerCase() === 'amc' ? 'AMC' : 'all');
-    theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
-    theaterSelect.innerHTML += '<option value="AMC">AMC</option>';
+  // Week label
+  document.getElementById('week-label').textContent = data.week_of
+    ? 'Week of ' + data.week_of
+    : 'Awaiting latest scrape';
+
+  // Theater filter buttons
+  const observed = new Set([
+    ...(data.theaters || []),
+    ...((data.movies || []).flatMap(m => (m.theaters || []).map(t => t?.name))),
+  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
+  const theaters = CANONICAL_THEATERS.filter(t => observed.has(t)).sort((a, b) => a.localeCompare(b));
+  const theaterFilters = document.getElementById('theater-filters');
+  if (theaterFilters) {
+    if (activeTheater !== 'all' && !theaters.includes(activeTheater)) activeTheater = 'all';
+    theaterFilters.innerHTML = '';
+
+    const allBtn = document.createElement('button');
+    allBtn.className = `filter-btn${activeTheater === 'all' ? ' active' : ''}`;
+    allBtn.dataset.theater = 'all';
+    allBtn.textContent = 'All Theaters';
+    allBtn.addEventListener('click', () => {
+      activeTheater = 'all';
+      syncTheaterFilterButtons();
+      render();
+    });
+    theaterFilters.appendChild(allBtn);
 
     theaters.forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t;
-      opt.textContent = getDisplayTheaterName(t);
-      theaterSelect.appendChild(opt);
+      const btn = document.createElement('button');
+      btn.className = `filter-btn${activeTheater === t ? ' active' : ''}`;
+      btn.dataset.theater = t;
+      btn.textContent = getDisplayTheaterName(t);
+      btn.addEventListener('click', () => {
+        activeTheater = t;
+        syncTheaterFilterButtons();
+        render();
+      });
+      theaterFilters.appendChild(btn);
     });
-
-    theaterSelect.value = activeTheater;
-    theaterSelect.onchange = (e) => {
-      activeTheater = e.target.value || 'all';
-      render();
-    };
-  }
-
-  const amcTheaters = getAvailableAmcTheaters(data);
-  const amcSelect = document.getElementById('amc-select');
-  if (amcSelect) {
-    activeAmc = resolveTheaterValue(activeAmc, amcTheaters) || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'all');
-    amcSelect.innerHTML = '<option value="all">All AMC</option>';
-
-    amcTheaters.forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t;
-      opt.textContent = t;
-      amcSelect.appendChild(opt);
-    });
-
-    amcSelect.value = activeAmc;
-    amcSelect.onchange = (e) => {
-      activeAmc = e.target.value || 'all';
-      render();
-    };
-  }
-
-  const datePicker = document.getElementById('date-picker');
-  if (datePicker) {
-    const bounds = getAvailableDateBounds(data);
-    datePicker.min = bounds.min;
-    datePicker.max = bounds.max;
-    if (dateScope === 'custom' && (!selectedDateISO || selectedDateISO < bounds.min || selectedDateISO > bounds.max)) {
-      selectedDateISO = bounds.min;
-    }
-    datePicker.value = selectedDateISO;
+    syncTheaterFilterButtons();
   }
 
   // Genre dropdown
@@ -2007,28 +1379,18 @@ function initDashboard(data) {
   const genreSelect = document.getElementById('genre-select');
   if (genreSelect) {
     genreSelect.innerHTML = '<option value="all">All</option>';
-    const genres = [...genreSet].sort();
-    genres.forEach(g => {
+    [...genreSet].sort().forEach(g => {
       const opt = document.createElement('option');
       opt.value = g;
       opt.textContent = g;
       genreSelect.appendChild(opt);
     });
-    activeGenre = resolveGenreValue(activeGenre, genres);
-    genreSelect.value = activeGenre;
+    genreSelect.value = activeGenre !== 'all' && genreSet.has(activeGenre) ? activeGenre : 'all';
     genreSelect.addEventListener('change', e => {
       activeGenre = e.target.value;
       render();
     });
   }
-
-  const searchInput = document.getElementById('search-input');
-  if (searchInput) {
-    searchInput.value = searchQuery;
-  }
-
-  syncShowButtons();
-  syncSortButtons();
 
   render();
 }
@@ -2048,29 +1410,26 @@ function renderLoadError(error) {
 
 // ── FILTER & RENDER ─────────────────────────────────────────────────────────
 
+function syncTheaterFilterButtons() {
+  document.querySelectorAll('#theater-filters .filter-btn').forEach(btn => {
+    const value = btn.dataset.theater || 'all';
+    btn.classList.toggle('active', value === activeTheater);
+  });
+}
+
 function getFiltered() {
   const hidden = getHidden();
-  const watched = getWatched();
   const today = getTodayLabel();
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
-    const isHidden = hasStoredMovie(hidden, movie);
-    const isSaved = hasStoredMovie(watched, movie);
-    if (showMode === 'hidden') {
-      if (!isHidden) return false;
-    } else {
-      if (isHidden) return false;
-      if (showMode === 'saved' && !isSaved) return false;
-    }
+    if (hidden.includes(movie.title)) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
-    if ((movie._confidence ?? getMovieConfidence(movie)) < effectiveConfidenceThreshold) return false;
+    if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (dateScope === 'today') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
     } else if (dateScope === 'tomorrow') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, tomorrow)) return false;
-    } else if (dateScope === 'custom') {
-      if (!selectedDateISO || !moviePlayingOnISO({ ...movie, theaters: visibleTheaters }, selectedDateISO)) return false;
     }
     if (activeTheater !== 'all') {
       const inTheater = visibleTheaters.length > 0;
@@ -2094,20 +1453,10 @@ function getFiltered() {
 
 function setSort(mode) {
   activeSort = mode;
-  syncSortButtons();
-  render();
-}
-
-function syncSortButtons() {
   ['rating', 'day'].forEach(m => {
-    document.getElementById('sort-' + m)?.classList.toggle('active', m === activeSort);
+    document.getElementById('sort-' + m)?.classList.toggle('active', m === mode);
   });
-}
-
-function syncShowButtons() {
-  document.getElementById('show-all-btn')?.classList.toggle('active', showMode === 'all');
-  document.getElementById('saved-btn')?.classList.toggle('active', showMode === 'saved');
-  document.getElementById('hidden-btn')?.classList.toggle('active', showMode === 'hidden');
+  render();
 }
 
 function setView(mode) {
@@ -2121,7 +1470,8 @@ function setView(mode) {
 }
 
 function initializeViewMode() {
-  setView('theaters');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  setView(isMobile ? 'list' : 'cards');
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -2142,7 +1492,6 @@ function renderSection(label, labelClass, list, main) {
 }
 
 function render() {
-  if (hasLoadedData) updateUrlFromState();
   if (viewMode === 'theaters') { renderTheaterView(); return; }
 
   const movies = getFiltered();
@@ -2236,27 +1585,13 @@ function render() {
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────
 
-function getNextShowFromSchedule(schedule) {
-  const now = getNYNow();
-  let best = null;
-  for (const slot of (schedule || [])) {
-    const day = slot?.day || '';
-    for (const time of (slot?.times || [])) {
-      const at = parseShowtimeDate(day, time);
-      if (!at || at < now) continue;
-      if (!best || at < best.at) best = { at, day, time };
-    }
-  }
-  return best;
-}
-
 function renderTheaterView() {
   const movies = getFiltered();
   const main = document.getElementById('main-content');
   main.innerHTML = '';
 
   if (!movies.length) {
-    renderEmptyState(main);
+    main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
     return;
   }
 
@@ -2264,101 +1599,20 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  if (dateScope === 'today' && showMode === 'all') {
-    const bestNow = [...movies]
-      .map(movie => {
-        const visibleEntries = getVisibleTheaters(movie)
-          .map(theaterData => ({ theaterData, nextShow: getNextShowFromSchedule(theaterData.schedule) }))
-          .filter(entry => entry.nextShow);
-        if (!visibleEntries.length) return null;
-        const soonest = visibleEntries.sort((a, b) => a.nextShow.at - b.nextShow.at)[0];
-        return { movie, theaterData: soonest.theaterData, nextShow: soonest.nextShow };
-      })
-      .filter(Boolean)
-      .sort((a, b) => {
-        const scoreDelta = getPriorityScore(b.movie) - getPriorityScore(a.movie);
-        if (scoreDelta !== 0) return scoreDelta;
-        return a.nextShow.at - b.nextShow.at;
-      })
-      .slice(0, 4);
-
-    if (bestNow.length) {
-      const strip = document.createElement('div');
-      strip.className = 'best-strip';
-      strip.innerHTML = `
-        <div class="best-strip-header">
-          <div class="best-strip-title">Best of Today</div>
-          <div class="best-strip-subtitle">A quick shortlist if you do not want to scan the whole city.</div>
-        </div>
-        <div class="best-strip-grid">
-          ${bestNow.map(entry => {
-            const movie = entry.movie;
-            const confidence = getConfidenceNote(movie);
-            const meta = [movie.ratings?.year, movie.ratings?.director].filter(Boolean).join(' · ');
-            const score = movie.ratings?.rt || getLetterboxdScore(movie) || 'Unscored';
-            const scoreLabel = movie.ratings?.rt ? 'RT' : (getLetterboxdScore(movie) ? 'LB' : '');
-            const lbSlug = slugifyLetterboxdTitle(movie.title);
-            const lbUrl = lbSlug ? `https://letterboxd.com/film/${lbSlug}/` : '';
-            const theaterName = getDisplayTheaterName(entry.theaterData.name);
-            const ticketUrl = getTicketUrl(entry.theaterData);
-            return `
-              <div class="best-pick">
-                <div class="best-pick-title">${
-                  lbUrl
-                    ? `<a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>`
-                    : movie.title
-                }</div>
-                <div class="best-pick-meta">${meta || theaterName}</div>
-                <div class="best-pick-time">${
-                  ticketUrl
-                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener">${theaterName} · ${entry.nextShow.time}</a>`
-                    : `${theaterName} · ${entry.nextShow.time}`
-                }</div>
-                <div class="best-pick-score">${score}${scoreLabel ? ` ${scoreLabel}` : ''}</div>
-                ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-      main.appendChild(strip);
-    }
-  }
-
-  const theaterOrder = (
-    activeTheater === 'AMC'
-      ? (activeAmc !== 'all' ? [activeAmc] : getAvailableAmcTheaters())
-      : [
-          ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
-          ...(activeAmc !== 'all' ? [activeAmc] : []),
-        ]
-  ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
-
-  theaterOrder.forEach(theaterName => {
+  CANONICAL_THEATERS.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
-    if (activeTheater !== 'all' && activeTheater !== 'AMC' && activeTheater !== theaterName) return;
+    if (activeTheater !== 'all' && activeTheater !== theaterName) return;
 
-    // Films at this theater, ordered by active sort mode.
-    const filmEntries = movies.map(movie => {
-      const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
-      if (!theaterData) return null;
-      const nextShow = getNextShowFromSchedule(theaterData.schedule);
-      if (!nextShow) return null;
-      return { movie, theaterData, nextShow };
-    }).filter(Boolean).sort((a, b) => {
-      if (activeSort === 'rating') {
-        const scoreDelta = getPriorityScore(b.movie) - getPriorityScore(a.movie);
-        if (scoreDelta !== 0) return scoreDelta;
-      }
-      if (a.nextShow.at.getTime() !== b.nextShow.at.getTime()) return a.nextShow.at - b.nextShow.at;
-      return (a.movie.title || '').localeCompare(b.movie.title || '');
-    });
-    if (!filmEntries.length) return;
+    // Films playing at this theater (from filtered set)
+    const films = movies.filter(movie =>
+      (movie.theaters || []).some(t => getCanonicalTheaterName(t.name) === theaterName)
+    );
+    if (!films.length) return;
 
     const section = document.createElement('div');
     section.className = 'theater-view-section';
 
-    const theaterUrl = getTheaterUrl(theaterName);
+    const theaterUrl = THEATER_URLS[theaterName] || '';
     const nameHTML = theaterUrl
       ? `<a href="${theaterUrl}" target="_blank" rel="noopener">${theaterName}</a>`
       : theaterName;
@@ -2367,39 +1621,28 @@ function renderTheaterView() {
     headerEl.className = 'theater-view-header';
     headerEl.innerHTML = `
       <span class="theater-view-name">${nameHTML}</span>
-      <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
+      <span class="theater-view-count">${films.length} film${films.length !== 1 ? 's' : ''}</span>
     `;
     section.appendChild(headerEl);
 
     const filmList = document.createElement('div');
     filmList.className = 'theater-film-list';
 
-    filmEntries.forEach(entry => {
-      const movie = entry.movie;
-      const verdict = getCardTone(movie);
-      const watched = hasStoredMovie(getWatched(), movie);
+    films.forEach(movie => {
+      const verdict = getDisplayVerdict(movie).toLowerCase();
       const ratings = movie.ratings || {};
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
       const letterboxd = getLetterboxdScore(movie);
       const year = ratings.year || '';
       const director = ratings.director || '';
-      const genre = String(ratings.genre || '').trim();
-      const runtime = String(ratings.runtime || '').trim();
-      const runtimeMinutes = getRuntimeMinutes(runtime);
-      const theaterData = entry.theaterData;
-      const genreParts = genre && genre !== 'N/A'
-        ? genre.split(',').map(part => part.trim()).filter(Boolean).slice(0, 2)
-        : [];
-      const metaParts = [...genreParts];
-      if (runtime && runtime !== 'N/A') {
-        const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
-        metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
-      }
+
+      // Only this theater's schedule
+      const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
 
       let rtClass = '';
       if (rt) {
         const n = parseInt(rt);
-        rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
+        rtClass = n >= 80 ? 'rt-high' : n >= 60 ? 'rt-mid' : 'rt-low';
       }
 
       const lbSlug = movie.title
@@ -2413,32 +1656,22 @@ function renderTheaterView() {
       const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
       const scheduleHTML = theaterData
-        ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
+        ? buildScheduleHTML(theaterData.schedule, theaterData.name, movie.title)
         : '';
-      const confidence = getConfidenceNote(movie);
-      const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
       const row = document.createElement('div');
-      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
+      row.className = `theater-film-row ${verdict}`;
       row.innerHTML = `
         <div class="theater-film-info">
-          <div class="theater-film-head">
-            <div class="theater-film-title">
-              <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
-            </div>
-            <div class="theater-film-scores">
-              ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
-              ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
-            </div>
+          <div class="theater-film-title">
+            <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
-          ${metaParts.length ? `<div class="theater-film-meta">${metaParts.join(' · ')}</div>` : ''}
-          ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
-        <div class="theater-film-actions">
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
-          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
+        <div class="theater-film-scores">
+          ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
+          ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
         </div>
       `;
       filmList.appendChild(row);
@@ -2450,7 +1683,7 @@ function renderTheaterView() {
   });
 
   if (!rendered) {
-    renderEmptyState(main);
+    main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
   } else {
     main.appendChild(grid);
   }
@@ -2459,7 +1692,7 @@ function renderTheaterView() {
 // ── CARD BUILDER ────────────────────────────────────────────────────────────
 
 function theaterLink(name) {
-  const url = getTheaterUrl(name);
+  const url = THEATER_URLS[name];
   const label = getDisplayTheaterName(name);
   return url
     ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
@@ -2467,7 +1700,7 @@ function theaterLink(name) {
 }
 
 function buildCard(movie, idx) {
-  const verdict = getCardTone(movie);
+  const verdict = getDisplayVerdict(movie).toLowerCase();
   const ratings = movie.ratings || {};
   const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? ratings.cinemaScore : null;
   const letterboxd = getLetterboxdScore(movie);
@@ -2479,13 +1712,13 @@ function buildCard(movie, idx) {
   const runtime = ratings.runtime || '';
   const year = ratings.year || '';
   const theaters = getVisibleTheaters(movie);
-  const watched = hasStoredMovie(getWatched(), movie);
+  const watched = getWatched().includes(movie.title);
 
   // RT color
   let rtClass = '';
   if (rt) {
     const n = parseInt(rt);
-    rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
+    rtClass = n >= 80 ? 'rt-high' : n >= 60 ? 'rt-mid' : 'rt-low';
   }
 
   // Genre tags
@@ -2501,14 +1734,14 @@ function buildCard(movie, idx) {
   const firstTheaterHTML = firstTheater ? `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(firstTheater.name)}</div>
-      ${buildScheduleHTML(firstTheater)}
+      ${buildScheduleHTML(firstTheater.schedule, firstTheater.name, movie.title)}
     </div>
   ` : '';
 
   const extraHTML = extraTheaters.map(t => `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(t.name)}</div>
-      ${buildScheduleHTML(t)}
+      ${buildScheduleHTML(t.schedule, t.name, movie.title)}
     </div>
   `).join('');
 
@@ -2568,10 +1801,10 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
-        ${watched ? '★ Saved' : 'Save'}
+      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${movie.title.replace(/'/g, "\\'")}')">
+        ${watched ? '✓ Watched' : 'Mark Watched'}
       </button>
-      <button class="action-btn" onclick="onHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
+      <button class="action-btn" onclick="onHide(this, '${movie.title.replace(/'/g, "\\'")}')">
         Not Interested
       </button>
     </div>
@@ -2580,47 +1813,22 @@ function buildCard(movie, idx) {
   return card;
 }
 
-function onWatched(btn, movieId, title) {
-  toggleWatched(movieId, title);
+function onWatched(btn, title) {
+  toggleWatched(title);
   const card = btn.closest('.movie-card');
-  const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
+  const isNowWatched = getWatched().includes(title);
   card.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active-watched', isNowWatched);
-  btn.textContent = isNowWatched ? '★ Saved' : 'Save';
+  btn.textContent = isNowWatched ? '✓ Watched' : 'Mark Watched';
 }
 
-function onHide(btn, movieId, title) {
-  toggleHidden(movieId, title);
+function onHide(btn, title) {
+  toggleHidden(title);
   const card = btn.closest('.movie-card');
   card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
   card.style.opacity = '0';
   card.style.transform = 'scale(0.97)';
   setTimeout(() => render(), 320);
-}
-
-function onTheaterWatched(btn, movieId, title) {
-  toggleWatched(movieId, title);
-  const row = btn.closest('.theater-film-row');
-  const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
-  row?.classList.toggle('is-watched', isNowWatched);
-  btn.classList.toggle('active', isNowWatched);
-  btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
-  btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
-}
-
-function onTheaterHide(btn, movieId, title) {
-  toggleHidden(movieId, title);
-  const isStillHidden = hasStoredMovie(getHidden(), movieId, title);
-  btn.classList.toggle('active', isStillHidden);
-  btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
-  btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
-  const row = btn.closest('.theater-film-row');
-  if (row && !isStillHidden) {
-    row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
-    row.style.opacity = '0';
-    row.style.transform = 'scale(0.98)';
-  }
-  setTimeout(() => render(), 220);
 }
 
 function makeSlug(title) {
@@ -2634,29 +1842,41 @@ function makeSlug(title) {
     .replace(/-+/g, '-');
 }
 
-function getTicketUrl(theaterData) {
-  return String(theaterData?.ticket_url || getTheaterUrl(theaterData?.name) || '').trim();
+function getTicketUrl(theaterName, movieTitle) {
+  const slug = makeSlug(movieTitle);
+  const enc = encodeURIComponent(movieTitle);
+  switch (theaterName) {
+    case 'Metrograph':
+      return `https://metrograph.com/film/?slug=${slug}`;
+    case 'IFC Center':
+      return `https://www.ifccenter.com/films/${slug}/`;
+    case 'Angelika Film Center':
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+    case 'Film Forum':
+    case 'Film':
+      return `https://www.filmforum.org/now-playing/`;
+    case 'Village East by Angelika':
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+    case 'Lincoln Center - Film at Lincoln Center':
+    case 'Film at Lincoln Center':
+    case 'FLC':
+      return `https://www.filmlinc.org/now-playing/`;
+    case 'Alamo Drafthouse Lower Manhattan':
+    case 'Alamo':
+      return `https://drafthouse.com/nyc/show/${slug}`;
+    case 'Paris Theater':
+    case 'Paris':
+      return `https://www.paristheaternyc.com/`;
+    default:
+      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
+  }
 }
 
-function slugifyLetterboxdTitle(title) {
-  return String(title || '')
-    .toLowerCase()
-    .replace(/['']/g, '')
-    .replace(/[.,:!?()&]/g, '')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-}
-
-function buildScheduleHTML(theaterData) {
-  const schedule = theaterData?.schedule || [];
+function buildScheduleHTML(schedule, theaterName, movieTitle) {
   if (!schedule || !schedule.length) return '';
-  const url = getTicketUrl(theaterData);
+  const url = getTicketUrl(theaterName, movieTitle);
   const now = getNYNow();
-  const activeDayLabel = getActiveDayFilterLabel();
   const upcoming = schedule
-    .filter(s => dayMatchesActiveScope(s.day, activeDayLabel))
     .map(s => {
       const times = (s.times || []).filter(time => {
         const showAt = parseShowtimeDate(s.day, time);
@@ -2672,149 +1892,67 @@ function buildScheduleHTML(theaterData) {
     <div>
       <div class="theater-day">${s.day}</div>
       <div class="showtime-list">
-        ${(s.times || []).map(t => url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>` : `<span class="showtime-chip">${t}</span>`).join('')}
+        ${(s.times || []).map(t => `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>`).join('')}
       </div>
     </div>
   `).join('');
 }
 
-function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
-  if (!schedule || !schedule.length) return '';
-  const url = getTicketUrl(theaterData);
-  const now = getNYNow();
-  const activeDayLabel = getActiveDayFilterLabel();
-  const grouped = [];
-  let count = 0;
-
-  for (const s of schedule) {
-    if (!dayMatchesActiveScope(s.day, activeDayLabel)) continue;
-    const dayRaw = String(s.day || '').trim();
-    const times = [];
-
-    for (const t of (s.times || [])) {
-      const showAt = parseShowtimeDate(dayRaw, t);
-      if (!showAt || showAt < now) continue;
-      times.push({ at: showAt, label: t });
-    }
-
-    if (!times.length) continue;
-    times.sort((a, b) => a.at - b.at);
-    grouped.push({
-      dayLabel: dateScope === 'today' ? '' : getShowtimeDayLabel(dayRaw),
-      times,
-    });
-  }
-
-  if (!grouped.length) return '';
-
-  return grouped.map(group => {
-    const chips = [];
-    for (const item of group.times) {
-      if (count >= limit) break;
-      chips.push(url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
-      count += 1;
-    }
-    if (!chips.length) return '';
-    return `
-      <div class="theater-film-day-group">
-        ${group.dayLabel ? `<div class="theater-day">${group.dayLabel}</div>` : ''}
-        <div class="showtime-list">${chips.join('')}</div>
-      </div>
-    `;
-  }).join('');
-}
-
 function toggleTheaters(btn) {
   const detail = btn.nextElementSibling;
   detail.classList.toggle('open');
-  const originalLabel = btn.dataset.label || btn.getAttribute('data-label') || '+ more theaters';
   btn.textContent = detail.classList.contains('open')
     ? '↑ collapse'
-    : originalLabel;
+    : btn.dataset.label;
 }
 
 // ── FILTER CONTROLS ─────────────────────────────────────────────────────────
 
-function syncDateScopeButtons() {
-  const todayBtn = document.getElementById('today-btn');
-  const tomorrowBtn = document.getElementById('tomorrow-btn');
-  const weekBtn = document.getElementById('thisweek-btn');
-  const dateBtn = document.getElementById('pickdate-btn');
-  const dateWrap = document.querySelector('.date-picker-wrap');
-  const dateInput = document.getElementById('date-picker');
-  const buttons = [
-    { el: todayBtn, active: dateScope === 'today' },
-    { el: tomorrowBtn, active: dateScope === 'tomorrow' },
-    { el: weekBtn, active: dateScope === 'week' },
-    { el: dateBtn, active: dateScope === 'custom' },
-  ];
-
-  buttons.forEach(({ el, active }) => {
-    if (!el) return;
-    el.classList.toggle('active', active);
-    el.style.borderColor = active ? '' : 'var(--accent-dim)';
-    el.style.color = active ? '' : 'var(--accent)';
-  });
-
-  if (dateBtn) {
-    dateBtn.textContent = dateScope === 'custom' ? getCustomDateLabel() : 'Select Date';
-  }
-  if (dateWrap) {
-    dateWrap.classList.toggle('active', dateScope === 'custom');
-  }
-  if (dateInput && window.matchMedia('(max-width: 768px)').matches) {
-    dateInput.setAttribute('aria-label', dateScope === 'custom' ? getCustomDateLabel() : 'Select Date');
-  }
-}
-
-function openDatePicker() {
-  const dateInput = document.getElementById('date-picker');
-  if (!dateInput) return;
-  if (typeof dateInput.showPicker === 'function') {
-    dateInput.showPicker();
-    return;
-  }
-  dateInput.focus();
-  dateInput.click();
-}
-
 document.getElementById('today-btn')?.addEventListener('click', () => {
   dateScope = 'today';
-  syncDateScopeButtons();
+  document.getElementById('today-btn')?.classList.add('active');
+  document.getElementById('today-btn').style.borderColor = '';
+  document.getElementById('today-btn').style.color = '';
+  const tomorrowBtn = document.getElementById('tomorrow-btn');
+  tomorrowBtn?.classList.remove('active');
+  if (tomorrowBtn) {
+    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
+    tomorrowBtn.style.color = 'var(--accent)';
+  }
+  document.getElementById('thisweek-btn')?.classList.remove('active');
   render();
 });
 
 document.getElementById('tomorrow-btn')?.addEventListener('click', () => {
   dateScope = 'tomorrow';
-  syncDateScopeButtons();
+  document.getElementById('tomorrow-btn')?.classList.add('active');
+  document.getElementById('tomorrow-btn').style.borderColor = '';
+  document.getElementById('tomorrow-btn').style.color = '';
+  const todayBtn = document.getElementById('today-btn');
+  todayBtn?.classList.remove('active');
+  if (todayBtn) {
+    todayBtn.style.borderColor = 'var(--accent-dim)';
+    todayBtn.style.color = 'var(--accent)';
+  }
+  document.getElementById('thisweek-btn')?.classList.remove('active');
   render();
 });
 
 document.getElementById('thisweek-btn')?.addEventListener('click', () => {
   dateScope = 'week';
-  syncDateScopeButtons();
-  render();
-});
-
-document.getElementById('pickdate-btn')?.addEventListener('click', () => {
-  openDatePicker();
-});
-
-document.getElementById('date-picker')?.addEventListener('focus', () => {
-  document.querySelector('.date-picker-wrap')?.classList.add('active');
-});
-
-document.getElementById('date-picker')?.addEventListener('blur', () => {
-  if (dateScope !== 'custom') {
-    document.querySelector('.date-picker-wrap')?.classList.remove('active');
+  document.getElementById('thisweek-btn')?.classList.add('active');
+  const todayBtn = document.getElementById('today-btn');
+  todayBtn?.classList.remove('active');
+  if (todayBtn) {
+    todayBtn.style.borderColor = 'var(--accent-dim)';
+    todayBtn.style.color = 'var(--accent)';
   }
-});
-
-document.getElementById('date-picker')?.addEventListener('change', (e) => {
-  selectedDateISO = e.target.value || '';
-  if (!selectedDateISO) return;
-  dateScope = 'custom';
-  syncDateScopeButtons();
+  const tomorrowBtn = document.getElementById('tomorrow-btn');
+  tomorrowBtn?.classList.remove('active');
+  if (tomorrowBtn) {
+    tomorrowBtn.style.borderColor = 'var(--accent-dim)';
+    tomorrowBtn.style.color = 'var(--accent)';
+  }
   render();
 });
 
@@ -2823,9 +1961,7 @@ document.getElementById('search-input').addEventListener('input', e => {
   render();
 });
 
-readFiltersFromUrl();
 initializeViewMode();
-syncDateScopeButtons();
 
 // ── MOCK DATA ────────────────────────────────────────────────────────────────
 

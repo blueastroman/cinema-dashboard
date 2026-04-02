@@ -1,6 +1,6 @@
 # NYC Cinema Dashboard
 
-Weekly auto-refreshing dashboard for NYC cinema. Pulls showtimes, ratings, and Claude-generated verdicts every Wednesday morning.
+Weekly auto-refreshing dashboard for NYC indie cinema. Pulls showtimes, ratings, and Claude-generated verdicts every Wednesday morning.
 
 Live production updates are deployed via the connected Vercel project.
 
@@ -13,9 +13,6 @@ Live production updates are deployed via the connected Vercel project.
 - Film at Lincoln Center
 - Alamo Drafthouse Lower Manhattan
 - Paris Theater
-- AMC locations in NYC
-- AMC Landmark 8
-- AMC Majestic 6
 
 ## Stack
 - **Showtimes**: SerpAPI (free tier — 100 searches/month, ~10/week)
@@ -32,7 +29,6 @@ Live production updates are deployed via the connected Vercel project.
 - **SerpAPI**: https://serpapi.com — free tier is enough
 - **OMDb**: https://www.omdbapi.com/apikey.aspx — free
 - **Anthropic**: https://console.anthropic.com — pay per use (~$0.50/month)
-- **AMC API**: AMC developer vendor key — required if you want AMC theaters included
 
 ### 3. Add GitHub Secrets
 In your repo → Settings → Secrets and variables → Actions:
@@ -42,7 +38,6 @@ In your repo → Settings → Secrets and variables → Actions:
 | `SERPAPI_KEY` | Your SerpAPI key |
 | `OMDB_KEY` | Your OMDb key |
 | `ANTHROPIC_API_KEY` | Your Anthropic key |
-| `AMC_VENDOR_KEY` | Your AMC API vendor key |
 
 ### 4. Deploy to Vercel
 ```bash
@@ -53,7 +48,6 @@ Point Vercel to the `public/` folder as the output directory.
 
 ### 5. Trigger first run
 Go to Actions → "Weekly Cinema Scrape" → Run workflow manually.
-Manual runs now bypass the 8am schedule gate and execute immediately.
 
 ## Local Development
 ```bash
@@ -74,8 +68,7 @@ Every Wednesday at 8am New York time, GitHub Actions:
 3. Hits OMDb for RT/IMDB/Metacritic scores per film
 4. Asks Claude for a Watch/Skip/Depends verdict + one-line reason
 5. Writes `public/data.json`
-6. Validates the generated dataset before shipping it
-7. Commits and pushes
-8. Vercel auto-deploys the updated static site
+6. Commits and pushes
+7. Vercel auto-deploys the updated static site
 
 **Total cost: $0** (within free tiers)
