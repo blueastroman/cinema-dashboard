@@ -1490,13 +1490,14 @@ function getVisibleTheaters(movie) {
     const isAmc = /^AMC\b/i.test(canonical);
 
     if (isAmc) {
+      if (activeTheater === 'no-amc') return false;
       if (activeTheater === 'AMC') {
         return activeAmc === 'all' ? true : canonical === activeAmc;
       }
       return activeAmc !== 'all' && canonical === activeAmc;
     }
 
-    if (activeTheater === 'all') return true;
+    if (activeTheater === 'all' || activeTheater === 'no-amc') return true;
     return canonical === activeTheater;
   });
 }
@@ -1566,7 +1567,7 @@ function getTheaterMeta(name) {
 }
 
 function getTheaterStateSlug(name) {
-  if (name === 'all' || name === 'AMC') return String(name).toLowerCase();
+  if (name === 'all' || name === 'AMC' || name === 'no-amc') return String(name).toLowerCase();
   const meta = getTheaterMeta(name);
   return meta?.slug || slugify(name);
 }
@@ -1574,7 +1575,7 @@ function getTheaterStateSlug(name) {
 function resolveTheaterValue(value, candidates = []) {
   const raw = String(value || '').trim();
   if (!raw) return '';
-  if (raw === 'all' || raw === 'AMC') return raw;
+  if (raw === 'all' || raw === 'AMC' || raw === 'no-amc') return raw;
 
   const lowered = raw.toLowerCase();
   const bySlug = candidates.find(name => getTheaterStateSlug(name) === lowered);
@@ -1848,6 +1849,8 @@ function getEmptyStateMessage() {
   if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
   if (activeTheater === 'AMC') {
     parts.push(activeAmc !== 'all' ? activeAmc : 'AMC');
+  } else if (activeTheater === 'no-amc') {
+    parts.push('non-AMC');
   } else if (activeTheater !== 'all') {
     parts.push(getDisplayTheaterName(activeTheater));
   }
@@ -1949,8 +1952,13 @@ function initDashboard(data) {
   const theaters = getAvailableTheaters(data);
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
-    activeTheater = resolveTheaterValue(activeTheater, theaters) || (String(activeTheater).toLowerCase() === 'amc' ? 'AMC' : 'all');
+    activeTheater = resolveTheaterValue(activeTheater, theaters) || (
+      String(activeTheater).toLowerCase() === 'amc'
+        ? 'AMC'
+        : (String(activeTheater).toLowerCase() === 'no-amc' ? 'no-amc' : 'all')
+    );
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
+    theaterSelect.innerHTML += '<option value="no-amc">No AMC</option>';
     theaterSelect.innerHTML += '<option value="AMC">AMC</option>';
 
     theaters.forEach(t => {
@@ -1964,6 +1972,10 @@ function initDashboard(data) {
     theaterSelect.onchange = (e) => {
       const nextTheater = e.target.value || 'all';
       if (nextTheater === 'AMC' && activeTheater !== 'AMC') {
+        activeAmc = 'all';
+        hasExplicitAmcFilter = false;
+      }
+      if (nextTheater === 'no-amc') {
         activeAmc = 'all';
         hasExplicitAmcFilter = false;
       }
@@ -2341,6 +2353,8 @@ function renderTheaterView() {
   const theaterOrder = (
     activeTheater === 'AMC'
       ? (activeAmc !== 'all' ? [activeAmc] : getAvailableAmcTheaters())
+      : activeTheater === 'no-amc'
+        ? getAvailableTheaters()
       : [
           ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
           ...(activeAmc !== 'all' ? [activeAmc] : []),
@@ -2349,7 +2363,7 @@ function renderTheaterView() {
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
-    if (activeTheater !== 'all' && activeTheater !== 'AMC' && activeTheater !== theaterName) return;
+    if (activeTheater !== 'all' && activeTheater !== 'AMC' && activeTheater !== 'no-amc' && activeTheater !== theaterName) return;
 
     // Films at this theater, ordered by active sort mode.
     const filmEntries = movies.map(movie => {
