@@ -1987,7 +1987,7 @@ function renderTheaterView() {
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
-    if (activeTheater !== 'all' && activeTheater !== theaterName) return;
+    if (activeTheater !== 'all' && activeTheater !== 'AMC' && activeTheater !== theaterName) return;
 
     // Films at this theater, ordered by active sort mode.
     const filmEntries = movies.map(movie => {
