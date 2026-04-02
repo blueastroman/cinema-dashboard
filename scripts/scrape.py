@@ -56,7 +56,11 @@ def normalize_title(title: str) -> str:
 
 def clean_title(raw: str) -> str:
     """Strip projection format tags from a showtime title before lookup."""
-    return FORMAT_TAGS.sub('', raw).strip(' -–—·')
+    cleaned = FORMAT_TAGS.sub('', raw).strip(' -–—·')
+    article_match = re.match(r"^(.*),\s+(The|A|An)$", cleaned, re.IGNORECASE)
+    if article_match:
+        cleaned = f"{article_match.group(2)} {article_match.group(1)}"
+    return re.sub(r"\s+", " ", cleaned).strip()
 
 
 def format_day_label(dt: datetime) -> str:

@@ -822,9 +822,13 @@
     .theater-film-times {
       margin-top: 8px;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 8px;
-      align-items: stretch;
+      align-items: flex-start;
+    }
+
+    .theater-film-day-group {
+      min-width: 118px;
     }
 
     .theater-film-actions {
@@ -1794,7 +1798,7 @@ function renderTheaterView() {
   const theaterOrder = [
     ...getAvailableTheaters(),
     ...(activeAmc !== 'none' ? [activeAmc] : []),
-  ];
+  ].sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
@@ -2188,7 +2192,7 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
     }
     if (!chips.length) return '';
     return `
-      <div>
+      <div class="theater-film-day-group">
         ${group.dayLabel ? `<div class="theater-day">${group.dayLabel}</div>` : ''}
         <div class="showtime-list">${chips.join('')}</div>
       </div>
