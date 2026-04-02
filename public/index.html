@@ -1233,6 +1233,7 @@ let viewMode = 'theaters';
 let hasLoadedData = false;
 let theaterMeta = {};
 const CONFIDENCE_THRESHOLD = 60;
+let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
 const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'serpapi', aliases: ['metro'] },
@@ -1790,10 +1791,21 @@ function getConfidenceNote(movie) {
   const hasReviews = hasReviewSignals(movie);
   const hasCoreMeta = Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
   if (score >= CONFIDENCE_THRESHOLD + 10 && hasReviews && hasCoreMeta) return '';
+  if (effectiveConfidenceThreshold === 0 && hasReviews) return '';
   if (!hasReviews) return 'Showtimes only';
   if (!hasCoreMeta) return 'Partial metadata';
   if (score < CONFIDENCE_THRESHOLD + 10) return 'Low confidence';
   return '';
+}
+
+function computeEffectiveConfidenceThreshold(movies) {
+  const total = movies.length || 0;
+  if (!total) return 0;
+  const richMetaCount = movies.filter(movie => {
+    const ratings = movie?.ratings || {};
+    return Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
+  }).length;
+  return richMetaCount / total < 0.35 ? 0 : CONFIDENCE_THRESHOLD;
 }
 
 function describeActiveDateScope() {
@@ -1903,6 +1915,7 @@ function initDashboard(data) {
     id: movie.id || slugify(`${movie.title}-${movie?.ratings?.year || ''}`),
     _confidence: getMovieConfidence(movie),
   }));
+  effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
   hasLoadedData = true;
 
   // Theater dropdown
@@ -2020,7 +2033,7 @@ function getFiltered() {
     if (hasStoredMovie(hidden, movie)) return false;
     if (savedOnly && !hasStoredMovie(watched, movie)) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
-    if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
+    if ((movie._confidence ?? getMovieConfidence(movie)) < effectiveConfidenceThreshold) return false;
     if (dateScope === 'today') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
     } else if (dateScope === 'tomorrow') {
