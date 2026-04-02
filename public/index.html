@@ -1187,7 +1187,7 @@
       <div class="control-group">
         <span class="control-label">Choose AMC</span>
         <select class="genre-select theater-select" id="amc-select">
-          <option value="none">No AMC</option>
+          <option value="all">All AMC</option>
         </select>
       </div>
       <div class="search-wrap">
@@ -1290,7 +1290,7 @@ function updateUrlFromState() {
   params.set('date', dateScope);
   if (dateScope === 'custom' && selectedDateISO) params.set('on', selectedDateISO);
   if (activeTheater !== 'all') params.set('theater', getTheaterStateSlug(activeTheater));
-  if (activeAmc !== 'none') params.set('amc', getTheaterStateSlug(activeAmc));
+  if (activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
@@ -1471,9 +1471,9 @@ function getVisibleTheaters(movie) {
 
     if (isAmc) {
       if (activeTheater === 'AMC') {
-        return activeAmc === 'none' ? true : canonical === activeAmc;
+        return activeAmc === 'all' ? true : canonical === activeAmc;
       }
-      return activeAmc !== 'none' && canonical === activeAmc;
+      return activeAmc !== 'all' && canonical === activeAmc;
     }
 
     if (activeTheater === 'all') return true;
@@ -1546,7 +1546,7 @@ function getTheaterMeta(name) {
 }
 
 function getTheaterStateSlug(name) {
-  if (name === 'all' || name === 'none' || name === 'AMC') return String(name).toLowerCase();
+  if (name === 'all' || name === 'AMC') return String(name).toLowerCase();
   const meta = getTheaterMeta(name);
   return meta?.slug || slugify(name);
 }
@@ -1554,7 +1554,7 @@ function getTheaterStateSlug(name) {
 function resolveTheaterValue(value, candidates = []) {
   const raw = String(value || '').trim();
   if (!raw) return '';
-  if (raw === 'all' || raw === 'none' || raw === 'AMC') return raw;
+  if (raw === 'all' || raw === 'AMC') return raw;
 
   const lowered = raw.toLowerCase();
   const bySlug = candidates.find(name => getTheaterStateSlug(name) === lowered);
@@ -1827,7 +1827,7 @@ function getEmptyStateMessage() {
   if (showMode === 'hidden') parts.push('hidden');
   if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
   if (activeTheater === 'AMC') {
-    parts.push(activeAmc !== 'none' ? activeAmc : 'AMC');
+    parts.push(activeAmc !== 'all' ? activeAmc : 'AMC');
   } else if (activeTheater !== 'all') {
     parts.push(getDisplayTheaterName(activeTheater));
   }
@@ -1950,8 +1950,8 @@ function initDashboard(data) {
   const amcTheaters = getAvailableAmcTheaters(data);
   const amcSelect = document.getElementById('amc-select');
   if (amcSelect) {
-    activeAmc = resolveTheaterValue(activeAmc, amcTheaters) || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'none');
-    amcSelect.innerHTML = '<option value="none">No AMC</option>';
+    activeAmc = resolveTheaterValue(activeAmc, amcTheaters) || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'all');
+    amcSelect.innerHTML = '<option value="all">All AMC</option>';
 
     amcTheaters.forEach(t => {
       const opt = document.createElement('option');
@@ -1962,7 +1962,7 @@ function initDashboard(data) {
 
     amcSelect.value = activeAmc;
     amcSelect.onchange = (e) => {
-      activeAmc = e.target.value || 'none';
+      activeAmc = e.target.value || 'all';
       render();
     };
   }
@@ -2297,10 +2297,10 @@ function renderTheaterView() {
 
   const theaterOrder = (
     activeTheater === 'AMC'
-      ? (activeAmc !== 'none' ? [activeAmc] : getAvailableAmcTheaters())
+      ? (activeAmc !== 'all' ? [activeAmc] : getAvailableAmcTheaters())
       : [
           ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
-          ...(activeAmc !== 'none' ? [activeAmc] : []),
+          ...(activeAmc !== 'all' ? [activeAmc] : []),
         ]
   ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
