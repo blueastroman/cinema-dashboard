@@ -25,6 +25,8 @@ SERPAPI_THEATERS = [
     {"name": "Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
     {"name": "Alamo Drafthouse Lower Manhattan", "serpapi_id": "alamo drafthouse lower manhattan new york"},
     {"name": "Paris Theater", "serpapi_id": "paris theater new york"},
+    {"name": "AMC Landmark 8", "serpapi_id": "amc landmark 8 stamford ct"},
+    {"name": "AMC Majestic 6", "serpapi_id": "amc majestic 6 stamford ct"},
 ]
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
@@ -33,7 +35,10 @@ ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
-AMC_NYC_CITIES = {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"}
+AMC_ALLOWED_CITIES_BY_STATE = {
+    "NY": {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"},
+    "CT": {"STAMFORD"},
+}
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
 
@@ -142,11 +147,11 @@ def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
         return None
 
 
-def is_nyc_amc_theatre(theatre: dict) -> bool:
+def is_supported_amc_theatre(theatre: dict) -> bool:
     location = theatre.get("location") or {}
     city = str(location.get("city") or "").strip().upper()
     state = str(location.get("state") or "").strip().upper()
-    return state == "NY" and city in AMC_NYC_CITIES
+    return city in AMC_ALLOWED_CITIES_BY_STATE.get(state, set())
 
 
 def fetch_amc_theatres() -> list[dict]:
@@ -178,7 +183,7 @@ def fetch_amc_theatres() -> list[dict]:
             theatres = ((data.get("_embedded", {}) or {}).get("theatres", []))
             for theatre in theatres:
                 theatre_id = str(theatre.get("id") or "").strip()
-                if theatre_id and not theatre.get("isClosed") and is_nyc_amc_theatre(theatre):
+                if theatre_id and not theatre.get("isClosed") and is_supported_amc_theatre(theatre):
                     theatres_by_id[theatre_id] = theatre
 
             page_size = int(data.get("pageSize") or 0)
