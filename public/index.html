@@ -1438,14 +1438,22 @@ function parseShowtimeDate(dayLabel, timeLabel) {
   const timeStr = String(timeLabel || '').trim().toUpperCase().replace(/\s+/g, ' ');
   if (!timeStr) return null;
 
-  const timeMatch = timeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
-  if (!timeMatch) return null;
-
-  let hour = parseInt(timeMatch[1], 10);
-  const minute = parseInt(timeMatch[2] || '0', 10);
-  const meridiem = timeMatch[3].toUpperCase();
-  if (meridiem === 'PM' && hour !== 12) hour += 12;
-  if (meridiem === 'AM' && hour === 12) hour = 0;
+  let hour = null;
+  let minute = 0;
+  const meridiemMatch = timeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+  const twentyFourHourMatch = !meridiemMatch ? timeStr.match(/^(\d{1,2}):(\d{2})$/) : null;
+  if (meridiemMatch) {
+    hour = parseInt(meridiemMatch[1], 10);
+    minute = parseInt(meridiemMatch[2] || '0', 10);
+    const meridiem = meridiemMatch[3].toUpperCase();
+    if (meridiem === 'PM' && hour !== 12) hour += 12;
+    if (meridiem === 'AM' && hour === 12) hour = 0;
+  } else if (twentyFourHourMatch) {
+    hour = parseInt(twentyFourHourMatch[1], 10);
+    minute = parseInt(twentyFourHourMatch[2] || '0', 10);
+  } else {
+    return null;
+  }
 
   const now = getNYNow();
   const dayText = String(dayLabel || '').trim();
