@@ -457,6 +457,12 @@
       flex-wrap: wrap;
     }
 
+    .card-meta.secondary {
+      gap: 12px;
+      margin-top: -8px;
+      opacity: 0.78;
+    }
+
     .meta-item {
       display: flex;
       flex-direction: column;
@@ -474,6 +480,7 @@
     .meta-value.rt-high { color: var(--watch); }
     .meta-value.rt-mid { color: var(--depends); }
     .meta-value.rt-low { color: var(--skip); }
+    .meta-value.cs-score { color: var(--accent); }
 
     .meta-label {
       font-family: var(--font-sans);
@@ -1065,12 +1072,54 @@
 
     .theater-film-scores {
       display: flex;
-      gap: 12px;
-      align-items: baseline;
+      gap: 10px;
+      align-items: flex-start;
       justify-content: flex-end;
       text-align: right;
       flex-shrink: 0;
       margin-top: 1px;
+    }
+
+    .score-primary {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      min-width: 74px;
+    }
+
+    .score-primary .t-score {
+      font-size: 1.22rem;
+    }
+
+    .score-primary .t-score-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+    }
+
+    .score-secondary-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      padding-top: 1px;
+    }
+
+    .score-secondary-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      opacity: 0.78;
+    }
+
+    .score-secondary-item .t-score {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .score-secondary-item .t-score-label {
+      font-size: 0.58rem;
+      margin-top: 0;
     }
 
     .t-score {
@@ -1085,6 +1134,7 @@
     .t-score.rt-mid  { color: var(--depends); }
     .t-score.rt-low  { color: var(--skip); }
     .t-score.lb-score { color: var(--text-dim); }
+    .t-score.cs-score { color: var(--accent); }
     .t-score-label {
       font-size: 0.62rem;
       font-weight: 600;
@@ -1769,6 +1819,29 @@ function getLetterboxdScore(movie) {
   return null;
 }
 
+function getScoreHierarchy(movie) {
+  const ratings = movie?.ratings || {};
+  const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? String(ratings.cinemaScore).trim().toUpperCase() : null;
+  const rt = (ratings.rt && ratings.rt !== 'N/A') ? String(ratings.rt) : null;
+  const letterboxd = getLetterboxdScore(movie);
+
+  let rtClass = '';
+  if (rt) {
+    const n = parseInt(rt, 10);
+    rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
+  }
+
+  const scores = [];
+  if (cinemaScore) scores.push({ key: 'cinema', value: cinemaScore, label: 'Audience', shortLabel: 'CS', className: 'cs-score' });
+  if (rt) scores.push({ key: 'rt', value: rt, label: 'Critics', shortLabel: 'RT', className: rtClass });
+  if (letterboxd) scores.push({ key: 'lb', value: letterboxd, label: 'LB', shortLabel: 'LB', className: 'lb-score' });
+
+  return {
+    primary: scores[0] || null,
+    secondary: scores.slice(1)
+  };
+}
+
 function getPriorityScore(movie) {
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
   if (cinemaWeight !== null) return cinemaWeight;
@@ -2440,9 +2513,7 @@ function renderTheaterView() {
       const verdict = getCardTone(movie);
       const watched = hasStoredMovie(getWatched(), movie);
       const ratings = movie.ratings || {};
-      const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? String(ratings.cinemaScore).trim().toUpperCase() : null;
-      const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
-      const letterboxd = getLetterboxdScore(movie);
+      const scoreHierarchy = getScoreHierarchy(movie);
       const year = ratings.year || '';
       const director = ratings.director || '';
       const genre = String(ratings.genre || '').trim();
@@ -2456,12 +2527,6 @@ function renderTheaterView() {
       if (runtime && runtime !== 'N/A') {
         const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
         metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
-      }
-
-      let rtClass = '';
-      if (rt) {
-        const n = parseInt(rt);
-        rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
       }
 
       const lbSlug = slugifyLetterboxdTitle(movie.title);
@@ -2482,9 +2547,22 @@ function renderTheaterView() {
               <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
             </div>
             <div class="theater-film-scores">
-              ${cinemaScore ? `<div><div class="t-score lb-score">${cinemaScore}</div><div class="t-score-label">CS</div></div>` : ''}
-              ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
-              ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
+              ${scoreHierarchy.primary ? `
+                <div class="score-primary">
+                  <div class="t-score ${scoreHierarchy.primary.className}">${scoreHierarchy.primary.value}</div>
+                  <div class="t-score-label">${scoreHierarchy.primary.label}</div>
+                </div>
+              ` : ''}
+              ${scoreHierarchy.secondary.length ? `
+                <div class="score-secondary-list">
+                  ${scoreHierarchy.secondary.map(score => `
+                    <div class="score-secondary-item">
+                      <div class="t-score ${score.className}">${score.value}</div>
+                      <div class="t-score-label">${score.shortLabel}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
             </div>
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
@@ -2526,9 +2604,7 @@ function theaterLink(name) {
 function buildCard(movie, idx) {
   const verdict = getCardTone(movie);
   const ratings = movie.ratings || {};
-  const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? ratings.cinemaScore : null;
-  const letterboxd = getLetterboxdScore(movie);
-  const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
+  const scoreHierarchy = getScoreHierarchy(movie);
   const rawReason = getDisplayReason(movie);
   const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
   const plot = ratings.plot || '';
@@ -2537,13 +2613,6 @@ function buildCard(movie, idx) {
   const year = ratings.year || '';
   const theaters = getVisibleTheaters(movie);
   const watched = hasStoredMovie(getWatched(), movie);
-
-  // RT color
-  let rtClass = '';
-  if (rt) {
-    const n = parseInt(rt);
-    rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
-  }
 
   // Genre tags
   const tags = genre.split(',').map(g => g.trim()).filter(Boolean);
@@ -2585,20 +2654,25 @@ function buildCard(movie, idx) {
       </div>
     </div>
 
-    <div class="card-meta">
-      ${cinemaScore ? `<div class="meta-item">
-        <span class="meta-value">${cinemaScore}</span>
-        <span class="meta-label">CinemaScore</span>
-      </div>` : ''}
-      ${rt ? `<div class="meta-sep"></div><div class="meta-item">
-        <span class="meta-value ${rtClass}">${rt}</span>
-        <span class="meta-label">Tomatometer</span>
-      </div>` : ''}
-      ${letterboxd ? `<div class="meta-sep"></div><div class="meta-item">
-        <span class="meta-value">${letterboxd}</span>
-        <span class="meta-label">Letterboxd</span>
-      </div>` : ''}
-    </div>
+    ${scoreHierarchy.primary ? `
+      <div class="card-meta">
+        <div class="meta-item">
+          <span class="meta-value ${scoreHierarchy.primary.className}">${scoreHierarchy.primary.value}</span>
+          <span class="meta-label">${scoreHierarchy.primary.label}</span>
+        </div>
+      </div>
+    ` : ''}
+    ${scoreHierarchy.secondary.length ? `
+      <div class="card-meta secondary">
+        ${scoreHierarchy.secondary.map((score, index) => `
+          ${index ? '<div class="meta-sep"></div>' : ''}
+          <div class="meta-item">
+            <span class="meta-value ${score.className}">${score.value}</span>
+            <span class="meta-label">${score.shortLabel}</span>
+          </div>
+        `).join('')}
+      </div>
+    ` : ''}
 
     ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
 
