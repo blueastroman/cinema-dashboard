@@ -615,7 +615,8 @@
 
     /* Watched card overlay */
     .movie-card.is-watched {
-      opacity: 0.5;
+      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
+      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
     }
     .movie-card.is-watched .movie-title::after {
       content: ' ✓';
@@ -762,8 +763,26 @@
     .theater-film-row.skip::before   { background: var(--skip); }
     .theater-film-row:hover { background: var(--charcoal); }
     .theater-film-row.is-watched {
-      opacity: 0.66;
-      background: rgba(28, 44, 34, 0.28);
+      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.94));
+      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
+    }
+
+    .theater-film-row.is-watched::after {
+      content: 'WATCHED';
+      position: absolute;
+      top: 12px;
+      right: 88px;
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--watch);
+      opacity: 0.9;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 190, 128, 0.35);
+      background: rgba(16, 34, 24, 0.92);
     }
 
     .theater-film-info {
@@ -878,7 +897,8 @@
       border-color: #d4af37;
       color: #101010;
       background: #d4af37;
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2), 0 0 14px rgba(212, 175, 55, 0.18);
+      transform: translateY(-1px) scale(1.04);
     }
 
     .theater-action-btn.hide:hover {
@@ -1023,6 +1043,8 @@
       <button class="filter-btn active" id="today-btn">Today</button>
       <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
       <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
+      <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
+      <input type="date" id="date-picker" style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;" />
     </div>
   </div>
 
@@ -1036,8 +1058,9 @@
 <script>
 let allMovies = [];
 let dateScope = 'today'; // week | today | tomorrow
+let selectedDateISO = '';
 let activeTheater = 'all';
-let activeAmc = 'none';
+let activeAmc = 'AMC Lincoln Square 13';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
@@ -1054,6 +1077,19 @@ function getNYNow() {
 function getTodayLabel() {
   // Returns e.g. "Mar 31" to match against "Tue Mar 31" schedule day strings
   return getNYNow().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function toISODate(date) {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) return '';
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function parseISODate(iso) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(iso || ''))) return null;
+  return new Date(`${iso}T12:00:00`);
 }
 
 function getTomorrowLabel() {
@@ -1075,6 +1111,35 @@ function getActiveDayFilterLabel() {
   if (dateScope === 'today') return getTodayLabel();
   if (dateScope === 'tomorrow') return getTomorrowLabel();
   return null;
+}
+
+function getCustomDateLabel() {
+  const parsed = parseISODate(selectedDateISO);
+  if (!parsed) return 'Select Date';
+  return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
+}
+
+function getShowtimeISO(dayLabel) {
+  const parsed = parseShowtimeDate(dayLabel, '12:00PM');
+  return parsed ? toISODate(parsed) : '';
+}
+
+function getAvailableDateBounds(data = null) {
+  const movies = (data?.movies || allMovies) || [];
+  const todayISO = toISODate(getNYNow());
+  let maxISO = todayISO;
+
+  for (const movie of movies) {
+    for (const theater of (movie?.theaters || [])) {
+      for (const slot of (theater?.schedule || [])) {
+        const iso = getShowtimeISO(slot?.day || '');
+        if (!iso) continue;
+        if (iso >= todayISO && iso > maxISO) maxISO = iso;
+      }
+    }
+  }
+
+  return { min: todayISO, max: maxISO };
 }
 
 function getShowtimeDayLabel(dayLabel) {
@@ -1100,6 +1165,9 @@ function getShowtimeDayLabel(dayLabel) {
 }
 
 function dayMatchesActiveScope(dayLabel, activeDayLabel) {
+  if (dateScope === 'custom' && selectedDateISO) {
+    return getShowtimeISO(dayLabel) === selectedDateISO;
+  }
   if (!activeDayLabel) return true;
   const raw = String(dayLabel || '').trim();
   if (!raw) return false;
@@ -1185,6 +1253,19 @@ function moviePlayingOn(movie, dateLabel) {
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
       (s.day || '').includes(dateLabel) &&
+      (s.times || []).some(time => {
+        const showAt = parseShowtimeDate(s.day, time);
+        return !!showAt && showAt >= now;
+      })
+    )
+  );
+}
+
+function moviePlayingOnISO(movie, dateISO) {
+  const now = getNYNow();
+  return getVisibleTheaters(movie).some(t =>
+    (t.schedule || []).some(s =>
+      getShowtimeISO(s.day) === dateISO &&
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
         return !!showAt && showAt >= now;
@@ -1557,6 +1638,17 @@ function initDashboard(data) {
     };
   }
 
+  const datePicker = document.getElementById('date-picker');
+  if (datePicker) {
+    const bounds = getAvailableDateBounds(data);
+    datePicker.min = bounds.min;
+    datePicker.max = bounds.max;
+    if (!selectedDateISO || selectedDateISO < bounds.min || selectedDateISO > bounds.max) {
+      selectedDateISO = bounds.min;
+    }
+    datePicker.value = selectedDateISO;
+  }
+
   // Genre dropdown
   const genreSet = new Set();
   (data.movies || []).forEach(m => {
@@ -1612,6 +1704,8 @@ function getFiltered() {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
     } else if (dateScope === 'tomorrow') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, tomorrow)) return false;
+    } else if (dateScope === 'custom') {
+      if (!selectedDateISO || !moviePlayingOnISO({ ...movie, theaters: visibleTheaters }, selectedDateISO)) return false;
     }
     if (activeTheater !== 'all') {
       const inTheater = visibleTheaters.length > 0;
@@ -2213,10 +2307,12 @@ function syncDateScopeButtons() {
   const todayBtn = document.getElementById('today-btn');
   const tomorrowBtn = document.getElementById('tomorrow-btn');
   const weekBtn = document.getElementById('thisweek-btn');
+  const dateBtn = document.getElementById('pickdate-btn');
   const buttons = [
     { el: todayBtn, active: dateScope === 'today' },
     { el: tomorrowBtn, active: dateScope === 'tomorrow' },
     { el: weekBtn, active: dateScope === 'week' },
+    { el: dateBtn, active: dateScope === 'custom' },
   ];
 
   buttons.forEach(({ el, active }) => {
@@ -2225,6 +2321,10 @@ function syncDateScopeButtons() {
     el.style.borderColor = active ? '' : 'var(--accent-dim)';
     el.style.color = active ? '' : 'var(--accent)';
   });
+
+  if (dateBtn) {
+    dateBtn.textContent = dateScope === 'custom' ? getCustomDateLabel() : 'Select Date';
+  }
 }
 
 document.getElementById('today-btn')?.addEventListener('click', () => {
@@ -2241,6 +2341,31 @@ document.getElementById('tomorrow-btn')?.addEventListener('click', () => {
 
 document.getElementById('thisweek-btn')?.addEventListener('click', () => {
   dateScope = 'week';
+  syncDateScopeButtons();
+  render();
+});
+
+document.getElementById('pickdate-btn')?.addEventListener('click', () => {
+  const datePicker = document.getElementById('date-picker');
+  if (!datePicker) return;
+  if (!datePicker.value) {
+    const bounds = getAvailableDateBounds();
+    selectedDateISO = selectedDateISO || bounds.min;
+    datePicker.value = selectedDateISO;
+    datePicker.min = bounds.min;
+    datePicker.max = bounds.max;
+  }
+  if (typeof datePicker.showPicker === 'function') {
+    datePicker.showPicker();
+  } else {
+    datePicker.click();
+  }
+});
+
+document.getElementById('date-picker')?.addEventListener('change', (e) => {
+  selectedDateISO = e.target.value || '';
+  if (!selectedDateISO) return;
+  dateScope = 'custom';
   syncDateScopeButtons();
   render();
 });
