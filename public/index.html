@@ -254,6 +254,10 @@
       align-items: center;
     }
 
+    .control-group.tight {
+      gap: 8px;
+    }
+
     .control-label {
       font-family: var(--font-sans);
       font-size: 0.72rem;
@@ -262,6 +266,12 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-right: 2px;
+    }
+
+    .saved-toggle.active {
+      background: var(--watch-bg);
+      border-color: var(--watch);
+      color: var(--watch);
     }
 
     /* ── MAIN GRID ─────────────────────────────────────────── */
@@ -664,6 +674,22 @@
       font-weight: 600;
     }
 
+    .empty-state-detail {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+    }
+
+    .empty-state-hint {
+      margin-top: 18px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
     /* ── LOADING ────────────────────────────────────────────── */
     .loading {
       display: flex;
@@ -748,6 +774,86 @@
       display: flex;
       flex-direction: column;
       gap: 28px;
+    }
+
+    .best-strip {
+      margin: 6px 0 4px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--dark-gray);
+    }
+
+    .best-strip-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .best-strip-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .best-strip-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .best-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .best-pick {
+      position: relative;
+      border: 1px solid var(--dark-gray);
+      background: linear-gradient(180deg, rgba(28, 28, 28, 0.96), rgba(14, 14, 14, 0.96));
+      padding: 16px 16px 16px 18px;
+      min-height: 120px;
+    }
+
+    .best-pick::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+    }
+
+    .best-pick-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 1.25;
+    }
+
+    .best-pick-meta {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .best-pick-time {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .best-pick-score {
+      margin-top: 4px;
+      font-size: 0.76rem;
+      color: var(--muted);
     }
 
     .theater-film-list {
@@ -849,6 +955,21 @@
       color: var(--muted);
       margin-top: 6px;
       line-height: 1.4;
+    }
+
+    .confidence-note {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      padding: 4px 8px;
+      border: 1px solid rgba(200, 169, 110, 0.35);
+      background: rgba(200, 169, 110, 0.08);
+      color: var(--accent);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
     }
 
     .theater-film-runtime.long {
@@ -1045,6 +1166,10 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
+      <div class="control-group tight">
+        <span class="control-label">Show</span>
+        <button class="filter-btn saved-toggle" id="saved-btn" onclick="toggleSavedOnly()">Saved</button>
+      </div>
       <div class="control-group">
         <span class="control-label">Sort by</span>
         <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Time</button>
@@ -1103,6 +1228,7 @@ let activeAmc = 'AMC Lincoln Square 13';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
+let savedOnly = false;
 let viewMode = 'theaters';
 let hasLoadedData = false;
 let theaterMeta = {};
@@ -1138,6 +1264,7 @@ function readFiltersFromUrl() {
   const genre = params.get('genre');
   const search = params.get('q');
   const sort = params.get('sort');
+  const saved = params.get('saved');
 
   if (scope === 'today' || scope === 'tomorrow' || scope === 'week') dateScope = scope;
   if (scope === 'custom' && customDate) {
@@ -1149,6 +1276,7 @@ function readFiltersFromUrl() {
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
+  if (saved === '1' || saved === 'true') savedOnly = true;
 }
 
 function updateUrlFromState() {
@@ -1160,6 +1288,7 @@ function updateUrlFromState() {
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
+  if (savedOnly) params.set('saved', '1');
 
   const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
   window.history.replaceState({}, '', next);
@@ -1655,6 +1784,62 @@ function getMovieConfidence(movie) {
   return score;
 }
 
+function getConfidenceNote(movie) {
+  const score = movie?._confidence ?? getMovieConfidence(movie);
+  const ratings = movie?.ratings || {};
+  const hasReviews = hasReviewSignals(movie);
+  const hasCoreMeta = Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
+  if (score >= CONFIDENCE_THRESHOLD + 10 && hasReviews && hasCoreMeta) return '';
+  if (!hasReviews) return 'Showtimes only';
+  if (!hasCoreMeta) return 'Partial metadata';
+  if (score < CONFIDENCE_THRESHOLD + 10) return 'Low confidence';
+  return '';
+}
+
+function describeActiveDateScope() {
+  if (dateScope === 'today') return 'today';
+  if (dateScope === 'tomorrow') return 'tomorrow';
+  if (dateScope === 'week') return 'this week';
+  if (dateScope === 'custom' && selectedDateISO) return getCustomDateLabel();
+  return 'this range';
+}
+
+function getEmptyStateMessage() {
+  const parts = [];
+  if (savedOnly) parts.push('saved');
+  if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
+  if (activeTheater === 'AMC') {
+    parts.push(activeAmc !== 'none' ? activeAmc : 'AMC');
+  } else if (activeTheater !== 'all') {
+    parts.push(getDisplayTheaterName(activeTheater));
+  }
+  const subject = parts.length ? parts.join(' ') : 'films';
+  return `No ${subject} match ${describeActiveDateScope()}.`;
+}
+
+function getEmptyStateHint() {
+  if (savedOnly) return 'Try turning off Saved or broadening the date range.';
+  if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
+  if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
+  return 'Try a wider date range or clear one of the filters.';
+}
+
+function renderEmptyState(main) {
+  main.innerHTML = `
+    <div class="empty-state">
+      <p>${getEmptyStateMessage()}</p>
+      <div class="empty-state-detail">Current filters are narrowing the board more than the scraped schedule can support right now.</div>
+      <div class="empty-state-hint">${getEmptyStateHint()}</div>
+    </div>
+  `;
+}
+
+function toggleSavedOnly() {
+  savedOnly = !savedOnly;
+  syncSavedButton();
+  render();
+}
+
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
@@ -1804,6 +1989,7 @@ function initDashboard(data) {
     searchInput.value = searchQuery;
   }
 
+  syncSavedButton();
   syncSortButtons();
 
   render();
@@ -1826,11 +2012,13 @@ function renderLoadError(error) {
 
 function getFiltered() {
   const hidden = getHidden();
+  const watched = getWatched();
   const today = getTodayLabel();
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
     if (hasStoredMovie(hidden, movie)) return false;
+    if (savedOnly && !hasStoredMovie(watched, movie)) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (dateScope === 'today') {
@@ -1870,6 +2058,10 @@ function syncSortButtons() {
   ['rating', 'day'].forEach(m => {
     document.getElementById('sort-' + m)?.classList.toggle('active', m === activeSort);
   });
+}
+
+function syncSavedButton() {
+  document.getElementById('saved-btn')?.classList.toggle('active', savedOnly);
 }
 
 function setView(mode) {
@@ -2018,13 +2210,62 @@ function renderTheaterView() {
   main.innerHTML = '';
 
   if (!movies.length) {
-    main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+    renderEmptyState(main);
     return;
   }
 
   let rendered = 0;
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
+
+  if (dateScope === 'today' && !savedOnly) {
+    const bestNow = [...movies]
+      .map(movie => {
+        const visibleEntries = getVisibleTheaters(movie)
+          .map(theaterData => ({ theaterData, nextShow: getNextShowFromSchedule(theaterData.schedule) }))
+          .filter(entry => entry.nextShow);
+        if (!visibleEntries.length) return null;
+        const soonest = visibleEntries.sort((a, b) => a.nextShow.at - b.nextShow.at)[0];
+        return { movie, theaterData: soonest.theaterData, nextShow: soonest.nextShow };
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        const scoreDelta = getPriorityScore(b.movie) - getPriorityScore(a.movie);
+        if (scoreDelta !== 0) return scoreDelta;
+        return a.nextShow.at - b.nextShow.at;
+      })
+      .slice(0, 4);
+
+    if (bestNow.length) {
+      const strip = document.createElement('div');
+      strip.className = 'best-strip';
+      strip.innerHTML = `
+        <div class="best-strip-header">
+          <div class="best-strip-title">Best of Today</div>
+          <div class="best-strip-subtitle">A quick shortlist if you do not want to scan the whole city.</div>
+        </div>
+        <div class="best-strip-grid">
+          ${bestNow.map(entry => {
+            const movie = entry.movie;
+            const confidence = getConfidenceNote(movie);
+            const meta = [movie.ratings?.year, movie.ratings?.director].filter(Boolean).join(' · ');
+            const score = movie.ratings?.rt || getLetterboxdScore(movie) || 'Unscored';
+            const scoreLabel = movie.ratings?.rt ? 'RT' : (getLetterboxdScore(movie) ? 'LB' : '');
+            return `
+              <div class="best-pick">
+                <div class="best-pick-title">${movie.title}</div>
+                <div class="best-pick-meta">${meta || getDisplayTheaterName(entry.theaterData.name)}</div>
+                <div class="best-pick-time">${getDisplayTheaterName(entry.theaterData.name)} · ${entry.nextShow.time}</div>
+                <div class="best-pick-score">${score}${scoreLabel ? ` ${scoreLabel}` : ''}</div>
+                ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+      main.appendChild(strip);
+    }
+  }
 
   const theaterOrder = (
     activeTheater === 'AMC'
@@ -2116,6 +2357,7 @@ function renderTheaterView() {
       const scheduleHTML = theaterData
         ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
         : '';
+      const confidence = getConfidenceNote(movie);
 
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
@@ -2132,6 +2374,7 @@ function renderTheaterView() {
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
           ${metaParts.length ? `<div class="theater-film-meta">${metaParts.join(' · ')}</div>` : ''}
+          ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
@@ -2148,7 +2391,7 @@ function renderTheaterView() {
   });
 
   if (!rendered) {
-    main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+    renderEmptyState(main);
   } else {
     main.appendChild(grid);
   }
