@@ -177,6 +177,12 @@ def extract_year_int(value: Optional[str]) -> Optional[int]:
     return int(match.group(0)) if match else None
 
 
+def cache_key_for_title_year(title: str, year: Optional[object] = None) -> str:
+    base = normalize_title(title)
+    parsed_year = extract_year_int(year)
+    return f"{base}|{parsed_year}" if parsed_year else base
+
+
 def make_movie_id(title: str, ratings: dict) -> str:
     imdb_id = str((ratings or {}).get("imdbID") or "").strip()
     if imdb_id:
@@ -530,6 +536,42 @@ def load_existing_movie_metadata(path: Path) -> dict:
 EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
 
 
+def get_existing_metadata(title: str) -> dict:
+    return EXISTING_MOVIE_METADATA.get(normalize_title(title)) or {}
+
+
+def get_best_cached_match(title: str, query_year: Optional[int] = None) -> dict:
+    normalized = normalize_title(title)
+    candidate_keys = []
+    if query_year is not None:
+        candidate_keys.extend([
+            cache_key_for_title_year(title, query_year),
+            cache_key_for_title_year(title, query_year - 1),
+            cache_key_for_title_year(title, query_year + 1),
+        ])
+    candidate_keys.append(normalized)
+
+    for key in candidate_keys:
+        cached = RATING_CACHE.get(key)
+        if isinstance(cached, dict) and cached.get("imdbID"):
+            return cached
+    return {}
+
+
+def set_cached_match(title: str, data: dict, source: str) -> None:
+    entry = {
+        "imdbID": data.get("imdbID"),
+        "title": data.get("Title"),
+        "year": data.get("Year"),
+        "source": source,
+    }
+    result_year = extract_year_int(data.get("Year"))
+    if result_year is not None:
+        RATING_CACHE[cache_key_for_title_year(title, result_year)] = entry
+    else:
+        RATING_CACHE[normalize_title(title)] = entry
+
+
 def omdb_request(params: dict) -> Optional[dict]:
     try:
         r = requests.get("http://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10)
@@ -715,8 +757,27 @@ def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
 
 
 def merge_existing_metadata(title: str, ratings: dict) -> dict:
-    existing = EXISTING_MOVIE_METADATA.get(normalize_title(title)) or {}
+    existing = get_existing_metadata(title)
     if not existing:
+        return ratings
+
+    existing_year = extract_year_int(existing.get("year"))
+    current_year = extract_year_int(ratings.get("year"))
+
+    def completeness(meta: dict) -> int:
+        return sum(1 for key in ("imdbID", "rt", "imdb", "metacritic", "letterboxd", "poster", "genre", "runtime", "plot", "year", "director", "cinemaScore") if meta.get(key) not in (None, "", "N/A"))
+
+    preserve_existing_identity = (
+        existing_year is not None
+        and current_year is not None
+        and abs(current_year - existing_year) >= 10
+        and completeness(existing) >= completeness(ratings)
+    )
+    if preserve_existing_identity:
+        for key in ("imdbID", "imdb", "metacritic", "letterboxd", "poster", "genre", "runtime", "plot", "year", "director", "cinemaScore", "rt"):
+            prior = existing.get(key)
+            if prior not in (None, "", "N/A"):
+                ratings[key] = prior
         return ratings
 
     placeholder = is_placeholder_metadata(ratings)
@@ -747,8 +808,8 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
     return ratings
 
 
-def enrich_from_rating_cache(title: str, ratings: dict) -> dict:
-    cached = RATING_CACHE.get(normalize_title(title)) or {}
+def enrich_from_rating_cache(title: str, ratings: dict, hint_year: Optional[int] = None) -> dict:
+    cached = get_best_cached_match(title, query_year=hint_year or extract_year_int(ratings.get("year")))
     cached_imdb = cached.get("imdbID")
     cached_year = cached.get("year")
     if cached_imdb and not ratings.get("imdbID"):
@@ -797,9 +858,24 @@ def repair_dataset_metadata(dataset: dict) -> dict:
     return dataset
 
 
-def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85) -> bool:
+def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85, existing_year: Optional[int] = None) -> bool:
     if not data:
         return False
+    media_type = str(data.get("Type") or "").strip().lower()
+    if media_type and media_type != "movie":
+        return False
+
+    result_year = extract_year_int(data.get("Year"))
+    title_word_count = len(normalize_title(query_title).split())
+    if (
+        existing_year is not None
+        and result_year is not None
+        and existing_year <= 2005
+        and result_year >= (_CURRENT_YEAR - 1)
+        and title_word_count <= 2
+    ):
+        return False
+
     score = title_match_score(
         query_title,
         data.get("Title", ""),
@@ -823,6 +899,8 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
     override = RATING_OVERRIDES.get(normalized, {})
     if isinstance(override, str):
         override = {"imdbID": override}
+    existing = get_existing_metadata(title)
+    existing_year = extract_year_int(existing.get("year"))
 
     # Build query_year: prefer explicit hint, then override file
     query_year: Optional[int] = hint_year
@@ -832,22 +910,19 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
             query_year = override_year
         elif isinstance(override_year, str) and override_year.isdigit():
             query_year = int(override_year)
+    if query_year is None and existing_year is not None:
+        query_year = existing_year
 
     override_imdb = override.get("imdbID")
     if override_imdb:
         data = fetch_omdb_by_imdb_id(override_imdb)
         if data:
-            RATING_CACHE[normalized] = {
-                "imdbID": data.get("imdbID"),
-                "title": data.get("Title"),
-                "year": data.get("Year"),
-                "source": "override",
-            }
+            set_cached_match(title, data, "override")
             return data
         print(f"  [WARN] Override imdbID failed for '{title}': {override_imdb}")
 
     # Cache — skip if year expectation strongly mismatches cached result
-    cached = RATING_CACHE.get(normalized) or {}
+    cached = get_best_cached_match(title, query_year=query_year)
     cached_imdb = cached.get("imdbID")
     if cached_imdb:
         cached_year_str = str(cached.get("year") or "")
@@ -859,7 +934,7 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
         )
         if not year_mismatch:
             data = fetch_omdb_by_imdb_id(cached_imdb)
-            if is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70):
+            if is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
                 return data
 
     # Try year-specific exact lookups before the open search.
@@ -877,13 +952,8 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
             continue
         result_year_str = str(data.get("Year") or "")
         result_year = int(result_year_str[:4]) if result_year_str[:4].isdigit() else None
-        if result_year is None or abs(y - result_year) <= 2:
-            RATING_CACHE[normalized] = {
-                "imdbID": data.get("imdbID"),
-                "title": data.get("Title"),
-                "year": data.get("Year"),
-                "source": "exact_year",
-            }
+        if (result_year is None or abs(y - result_year) <= 2) and is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
+            set_cached_match(title, data, "exact_year")
             return data
 
     # Unqualified exact search — OMDb picks the most popular result.
@@ -897,13 +967,8 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
             and result_year is not None
             and (query_year - result_year) > 5
         )
-        if not too_old and is_acceptable_omdb_match(title, exact, query_year=query_year, minimum_score=0.90):
-            RATING_CACHE[normalized] = {
-                "imdbID": exact.get("imdbID"),
-                "title": exact.get("Title"),
-                "year": exact.get("Year"),
-                "source": "exact",
-            }
+        if not too_old and is_acceptable_omdb_match(title, exact, query_year=query_year, minimum_score=0.90, existing_year=existing_year):
+            set_cached_match(title, exact, "exact")
             return exact
 
     # Full-text search with year-biased ranking as last resort
@@ -935,14 +1000,10 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
         return None
 
     best_data = fetch_omdb_by_imdb_id(best.get("imdbID"))
-    if best_data:
-        RATING_CACHE[normalized] = {
-            "imdbID": best_data.get("imdbID"),
-            "title": best_data.get("Title"),
-            "year": best_data.get("Year"),
-            "source": "search",
-        }
-    return best_data
+    if best_data and is_acceptable_omdb_match(title, best_data, query_year=query_year, minimum_score=0.55, existing_year=existing_year):
+        set_cached_match(title, best_data, "search")
+        return best_data
+    return None
 
 def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
@@ -960,7 +1021,7 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
 
         parsed = merge_existing_metadata(title, parsed)
-        parsed = enrich_from_rating_cache(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed, hint_year=hint_year)
         parsed = apply_rating_overrides(title, parsed)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
@@ -970,7 +1031,7 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
         parsed["rt"] = fetch_rt_fallback(title)
         parsed["letterboxd"] = fetch_letterboxd_fallback(title)
         parsed = merge_existing_metadata(title, parsed)
-        parsed = enrich_from_rating_cache(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed, hint_year=hint_year)
         parsed = apply_rating_overrides(title, parsed)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
