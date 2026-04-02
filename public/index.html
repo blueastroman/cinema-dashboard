@@ -912,24 +912,6 @@
       box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
     }
 
-    .theater-film-row.is-watched::after {
-      content: 'SAVED';
-      position: absolute;
-      right: 14px;
-      bottom: 66px;
-      font-family: var(--font-sans);
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--watch);
-      opacity: 0.9;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(79, 190, 128, 0.35);
-      background: rgba(16, 34, 24, 0.92);
-    }
-
     .theater-film-info {
       width: 100%;
       min-width: 0;
@@ -1016,6 +998,20 @@
       display: flex;
       gap: 8px;
       align-items: center;
+    }
+
+    .theater-saved-chip {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--watch);
+      opacity: 0.9;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 190, 128, 0.35);
+      background: rgba(16, 34, 24, 0.92);
     }
 
     .theater-action-btn {
@@ -2497,6 +2493,7 @@ function renderTheaterView() {
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
+          ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
           <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
           <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
