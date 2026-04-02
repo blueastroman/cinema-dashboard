@@ -1421,6 +1421,13 @@ function dayMatchesActiveScope(dayLabel, activeDayLabel) {
   if (!activeDayLabel) return true;
   const raw = String(dayLabel || '').trim();
   if (!raw) return false;
+  const activeISO = activeDayLabel === getTodayLabel()
+    ? toISODate(getNYNow())
+    : (activeDayLabel === getTomorrowLabel()
+      ? toISODate(new Date(getNYNow().getFullYear(), getNYNow().getMonth(), getNYNow().getDate() + 1))
+      : '');
+  const rawISO = getShowtimeISO(raw);
+  if (activeISO && rawISO && activeISO === rawISO) return true;
   if (raw.includes(activeDayLabel)) return true;
   if (/^today$/i.test(raw)) return activeDayLabel === getTodayLabel();
   if (/^tomorrow$/i.test(raw)) return activeDayLabel === getTomorrowLabel();
@@ -1452,9 +1459,12 @@ function parseShowtimeDate(dayLabel, timeLabel) {
     baseDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
   }
 
-  const mdMatch = !baseDate ? dayText.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2})\b/i) : null;
+  const mdMatch = !baseDate ? dayText.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})\b/i) : null;
+  const dmMatch = !baseDate ? dayText.match(/\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\b/i) : null;
   if (!baseDate && mdMatch) {
     baseDate = new Date(now.getFullYear(), new Date(`${mdMatch[1]} 1, ${now.getFullYear()}`).getMonth(), parseInt(mdMatch[2], 10));
+  } else if (!baseDate && dmMatch) {
+    baseDate = new Date(now.getFullYear(), new Date(`${dmMatch[2]} 1, ${now.getFullYear()}`).getMonth(), parseInt(dmMatch[1], 10));
   } else if (!baseDate) {
     const weekdayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
     const weekday = weekdayMap[dayText.slice(0, 3).toLowerCase()];
