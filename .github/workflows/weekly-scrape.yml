@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - name: Run only at 8:00 AM New York time
+        if: github.event_name == 'schedule'
         run: |
           hour=$(TZ=America/New_York date +%H)
           if [ "$hour" != "08" ]; then
@@ -32,14 +33,36 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests anthropic
+        run: pip install -r requirements.txt
 
       - name: Run scraper
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
         run: python scripts/scrape.py
+
+      - name: Validate generated data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("public/data.json")
+          data = json.loads(path.read_text())
+          movies = data.get("movies", [])
+          theaters = data.get("theaters", [])
+          movies_with_genre = sum(
+              1 for movie in movies
+              if (movie.get("ratings", {}) or {}).get("genre") not in (None, "", "N/A")
+          )
+
+          assert len(movies) >= 20, f"Too few movies generated: {len(movies)}"
+          assert len(theaters) >= 5, f"Too few theaters generated: {len(theaters)}"
+          assert movies_with_genre >= 10, f"Genre metadata collapsed: {movies_with_genre} movies with genres"
+          print(f"Validated data.json: {len(movies)} movies, {len(theaters)} theaters, {movies_with_genre} with genres")
+          PY
 
       - name: Commit updated data
         run: |

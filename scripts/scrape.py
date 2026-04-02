@@ -6,6 +6,7 @@ Pulls showtimes via SerpAPI/AMC API, ratings via OMDb, verdicts via Claude API
 
 import os
 import json
+import hashlib
 import requests
 import anthropic
 from datetime import datetime, timedelta
@@ -485,11 +486,46 @@ def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
     return omdb_request({"i": imdb_id, "tomatoes": "true"})
 
 
+def empty_ratings() -> dict:
+    return {
+        "rt": None,
+        "imdb": None,
+        "metacritic": None,
+        "letterboxd": None,
+        "poster": None,
+        "genre": None,
+        "runtime": None,
+        "plot": None,
+        "year": None,
+        "director": None,
+        "cinemaScore": None,
+    }
+
+
+def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85) -> bool:
+    if not data:
+        return False
+    score = title_match_score(
+        query_title,
+        data.get("Title", ""),
+        query_year=query_year,
+        result_year=data.get("Year"),
+    )
+    return score >= minimum_score
+
+
 def resolve_omdb_record(title: str) -> Optional[dict]:
     normalized = normalize_title(title)
     override = RATING_OVERRIDES.get(normalized, {})
     if isinstance(override, str):
         override = {"imdbID": override}
+
+    query_year = None
+    override_year = override.get("year")
+    if isinstance(override_year, int):
+        query_year = override_year
+    elif isinstance(override_year, str) and override_year.isdigit():
+        query_year = int(override_year)
 
     override_imdb = override.get("imdbID")
     if override_imdb:
@@ -507,11 +543,11 @@ def resolve_omdb_record(title: str) -> Optional[dict]:
     cached_imdb = (RATING_CACHE.get(normalized) or {}).get("imdbID")
     if cached_imdb:
         data = fetch_omdb_by_imdb_id(cached_imdb)
-        if data:
+        if is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70):
             return data
 
     exact = omdb_request({"t": title, "tomatoes": "true"})
-    if exact:
+    if is_acceptable_omdb_match(title, exact, query_year=query_year, minimum_score=0.90):
         RATING_CACHE[normalized] = {
             "imdbID": exact.get("imdbID"),
             "title": exact.get("Title"),
@@ -519,13 +555,6 @@ def resolve_omdb_record(title: str) -> Optional[dict]:
             "source": "exact",
         }
         return exact
-
-    query_year = None
-    override_year = override.get("year")
-    if isinstance(override_year, int):
-        query_year = override_year
-    elif isinstance(override_year, str) and override_year.isdigit():
-        query_year = int(override_year)
 
     search = omdb_request({"s": title, "type": "movie"})
     if not search:
@@ -570,10 +599,7 @@ def fetch_ratings(title: str) -> dict:
 
     try:
         data = resolve_omdb_record(title)
-        if data:
-            parsed = parse_omdb_ratings(data)
-        else:
-            parsed = {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None, "director": None, "cinemaScore": None}
+        parsed = parse_omdb_ratings(data) if data else empty_ratings()
 
         # Fallbacks for new/edge releases where OMDb is lagging.
         if not parsed.get("rt"):
@@ -581,22 +607,16 @@ def fetch_ratings(title: str) -> dict:
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
 
-        # OMDb can occasionally return partial records with RT but missing core metadata.
-        # Keep the best real scores we have, but backfill empty descriptive fields so the
-        # dashboard doesn't ship blank genres/runtime/director/year/plot.
-        fallback = mock_ratings(title)
-        for key in ("imdb", "metacritic", "letterboxd", "genre", "runtime", "plot", "year", "director", "cinemaScore"):
-            if parsed.get(key) in (None, "", "N/A"):
-                parsed[key] = fallback.get(key)
-
         return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
-        return mock_ratings(title)
+        parsed = empty_ratings()
+        parsed["rt"] = fetch_rt_fallback(title)
+        parsed["letterboxd"] = fetch_letterboxd_fallback(title)
+        return parsed
 
 
 def mock_ratings(title: str) -> dict:
-    import random
     rt_scores = ["94%", "87%", "72%", "65%", "91%", "55%"]
     imdb_scores = ["7.8", "8.1", "6.9", "7.2", "8.4", "6.3"]
     genres = ["Drama", "Drama, History", "Comedy, Drama", "Documentary", "Thriller"]
@@ -607,7 +627,9 @@ def mock_ratings(title: str) -> dict:
         "An epic meditation on the immigrant experience and the American Dream.",
         "Two brothers reckon with grief, distance, and what it means to belong.",
     ]
-    idx = hash(title) % len(rt_scores)
+    digest = hashlib.sha256(title.encode("utf-8")).hexdigest()
+    idx = int(digest[:8], 16) % len(rt_scores)
+    runtime_minutes = 90 + (int(digest[8:12], 16) % 61)
     lower_title = title.lower()
     inferred_genre = None
     horror_markers = [
@@ -636,7 +658,7 @@ def mock_ratings(title: str) -> dict:
         "letterboxd": f"{(float(imdb_scores[idx]) / 2):.1f}",
         "poster": None,
         "genre": inferred_genre or genres[idx % len(genres)],
-        "runtime": f"{random.randint(90, 150)} min",
+        "runtime": f"{runtime_minutes} min",
         "plot": plots[idx % len(plots)],
         "year": "2024",
         "director": "Various",
