@@ -13,6 +13,7 @@ Live production updates are deployed via the connected Vercel project.
 - Film at Lincoln Center
 - Alamo Drafthouse Lower Manhattan
 - Paris Theater
+- Museum of Modern Art (MoMA)
 
 ## Stack
 - **Showtimes**: SerpAPI (free tier — 100 searches/month, ~10/week)

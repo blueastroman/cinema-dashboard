@@ -90,6 +90,15 @@ THEATER_CONFIG = {
         "official_url": "https://www.paristheaternyc.com/",
         "aliases": ["paris"],
     },
+    "Museum of Modern Art": {
+        "slug": "moma",
+        "short_name": "MoMA",
+        "sort_name": "MoMA",
+        "source_type": "serpapi",
+        "serpapi_id": "museum of modern art new york film",
+        "official_url": "https://www.moma.org/calendar/film/",
+        "aliases": ["moma", "museum of modern art", "moma film"],
+    },
     "AMC Landmark 8": {
         "slug": "amc-landmark-8",
         "short_name": "AMC Landmark 8",
