@@ -812,12 +812,19 @@
       line-height: 1.4;
     }
 
+    .theater-film-runtime.long {
+      color: var(--skip);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     .theater-film-times {
       margin-top: 8px;
       display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
     }
 
     .theater-film-actions {
@@ -995,6 +1002,12 @@
           <option value="all">All Theaters</option>
         </select>
       </div>
+      <div class="control-group">
+        <span class="control-label">Choose AMC</span>
+        <select class="genre-select theater-select" id="amc-select">
+          <option value="none">No AMC</option>
+        </select>
+      </div>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
         <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
@@ -1021,6 +1034,7 @@
 let allMovies = [];
 let dateScope = 'today'; // week | today | tomorrow
 let activeTheater = 'all';
+let activeAmc = 'none';
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
@@ -1150,8 +1164,17 @@ function hasUpcomingShowtimes(movie) {
 
 function getVisibleTheaters(movie) {
   const theaters = movie?.theaters || [];
-  if (activeTheater === 'all') return theaters;
-  return theaters.filter(t => getCanonicalTheaterName(t?.name) === activeTheater);
+  return theaters.filter(t => {
+    const canonical = getCanonicalTheaterName(t?.name);
+    const isAmc = /^AMC\b/i.test(canonical);
+
+    if (isAmc) {
+      return activeAmc !== 'none' && canonical === activeAmc;
+    }
+
+    if (activeTheater === 'all') return true;
+    return canonical === activeTheater;
+  });
 }
 
 function moviePlayingOn(movie, dateLabel) {
@@ -1244,6 +1267,17 @@ function getAvailableTheaters(data = null) {
     ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
   ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
   return [...observed]
+    .filter(name => !/^AMC\b/i.test(name))
+    .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
+}
+
+function getAvailableAmcTheaters(data = null) {
+  const observed = new Set([
+    ...((data?.theaters || [])),
+    ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
+  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
+  return [...observed]
+    .filter(name => /^AMC\b/i.test(name))
     .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 }
 
@@ -1324,6 +1358,13 @@ function getTheaterSortLabel(name) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+}
+
+function getRuntimeMinutes(runtime) {
+  const match = String(runtime || '').match(/(\d+)/);
+  if (!match) return null;
+  const minutes = parseInt(match[1], 10);
+  return Number.isFinite(minutes) ? minutes : null;
 }
 
 function getCanonicalTheaterName(name) {
@@ -1489,6 +1530,26 @@ function initDashboard(data) {
     theaterSelect.value = activeTheater;
     theaterSelect.onchange = (e) => {
       activeTheater = e.target.value || 'all';
+      render();
+    };
+  }
+
+  const amcTheaters = getAvailableAmcTheaters(data);
+  const amcSelect = document.getElementById('amc-select');
+  if (amcSelect) {
+    if (activeAmc !== 'none' && !amcTheaters.includes(activeAmc)) activeAmc = 'none';
+    amcSelect.innerHTML = '<option value="none">No AMC</option>';
+
+    amcTheaters.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      amcSelect.appendChild(opt);
+    });
+
+    amcSelect.value = activeAmc;
+    amcSelect.onchange = (e) => {
+      activeAmc = e.target.value || 'none';
       render();
     };
   }
@@ -1730,7 +1791,10 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  const theaterOrder = getAvailableTheaters();
+  const theaterOrder = [
+    ...getAvailableTheaters(),
+    ...(activeAmc !== 'none' ? [activeAmc] : []),
+  ];
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
@@ -1783,10 +1847,16 @@ function renderTheaterView() {
       const director = ratings.director || '';
       const genre = String(ratings.genre || '').trim();
       const runtime = String(ratings.runtime || '').trim();
+      const runtimeMinutes = getRuntimeMinutes(runtime);
       const theaterData = entry.theaterData;
-      const metaParts = [];
-      if (genre && genre !== 'N/A') metaParts.push(genre);
-      if (runtime && runtime !== 'N/A') metaParts.push(runtime);
+      const genreParts = genre && genre !== 'N/A'
+        ? genre.split(',').map(part => part.trim()).filter(Boolean).slice(0, 2)
+        : [];
+      const metaParts = [...genreParts];
+      if (runtime && runtime !== 'N/A') {
+        const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
+        metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
+      }
 
       let rtClass = '';
       if (rt) {
@@ -2085,28 +2155,45 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
   const url = getTicketUrl(theaterName, movieTitle);
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
-  const showDayPrefix = dateScope !== 'today';
-  const items = [];
+  const grouped = [];
+  let count = 0;
 
   for (const s of schedule) {
     if (!dayMatchesActiveScope(s.day, activeDayLabel)) continue;
     const dayRaw = String(s.day || '').trim();
+    const times = [];
+
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
       if (!showAt || showAt < now) continue;
-      items.push({
-        at: showAt,
-        label: showDayPrefix ? `${getShowtimeDayLabel(dayRaw)} ${t}` : t,
-      });
+      times.push({ at: showAt, label: t });
     }
+
+    if (!times.length) continue;
+    times.sort((a, b) => a.at - b.at);
+    grouped.push({
+      dayLabel: dateScope === 'today' ? '' : getShowtimeDayLabel(dayRaw),
+      times,
+    });
   }
 
-  if (!items.length) return '';
-  items.sort((a, b) => a.at - b.at);
+  if (!grouped.length) return '';
 
-  return items.slice(0, limit).map(item =>
-    `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`
-  ).join('');
+  return grouped.map(group => {
+    const chips = [];
+    for (const item of group.times) {
+      if (count >= limit) break;
+      chips.push(`<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`);
+      count += 1;
+    }
+    if (!chips.length) return '';
+    return `
+      <div>
+        ${group.dayLabel ? `<div class="theater-day">${group.dayLabel}</div>` : ''}
+        <div class="showtime-list">${chips.join('')}</div>
+      </div>
+    `;
+  }).join('');
 }
 
 function toggleTheaters(btn) {
