@@ -11,6 +11,12 @@
     "title": "A Clockwork Orange",
     "year": "1971"
   },
+  "a great awakening": {
+    "imdbID": "tt33305882",
+    "source": "exact_year",
+    "title": "A Great Awakening",
+    "year": "2026"
+  },
   "a magnificent life": {
     "imdbID": "tt13968662",
     "source": "exact",
@@ -124,6 +130,12 @@
     "source": "exact",
     "title": "Dead Lover",
     "year": "2025"
+  },
+  "dhurandhar the revenge": {
+    "imdbID": "tt39139925",
+    "source": "exact_year",
+    "title": "Dhurandhar: The Revenge",
+    "year": "2026"
   },
   "dj ahmet": {
     "imdbID": "tt34964187",
@@ -389,6 +401,12 @@
     "title": "Red Sorghum",
     "year": "1988"
   },
+  "reminders of him": {
+    "imdbID": "tt33714084",
+    "source": "exact_year",
+    "title": "Reminders of Him",
+    "year": "2026"
+  },
   "richard iii": {
     "imdbID": "tt0114279",
     "source": "exact",
@@ -421,7 +439,7 @@
   },
   "sir t": {
     "imdbID": "tt32298285",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Sirat",
     "year": "2025"
   },

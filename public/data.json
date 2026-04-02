@@ -1,20 +1,137 @@
 {
-  "generated_at": "2026-04-02T13:45:58.426768",
+  "generated_at": "2026-04-02T13:53:55.860860",
   "week_of": "April 03, 2026",
   "theaters": [
-    "Metrograph",
-    "IFC Center",
+    "AMC Landmark 8",
+    "AMC Majestic 6",
+    "Alamo Drafthouse Lower Manhattan",
     "Angelika Film Center",
     "Film Forum",
-    "Village East by Angelika",
     "Film at Lincoln Center",
-    "Alamo Drafthouse Lower Manhattan",
-    "Paris Theater"
+    "IFC Center",
+    "Metrograph",
+    "Paris Theater",
+    "Village East by Angelika"
   ],
+  "theater_meta": {
+    "Metrograph": {
+      "name": "Metrograph",
+      "slug": "metrograph",
+      "short_name": "Metrograph",
+      "sort_name": "Metrograph",
+      "source_type": "serpapi",
+      "official_url": "https://metrograph.com",
+      "aliases": [
+        "metro"
+      ]
+    },
+    "IFC Center": {
+      "name": "IFC Center",
+      "slug": "ifc",
+      "short_name": "IFC",
+      "sort_name": "IFC",
+      "source_type": "serpapi",
+      "official_url": "https://www.ifccenter.com",
+      "aliases": [
+        "ifc"
+      ]
+    },
+    "Angelika Film Center": {
+      "name": "Angelika Film Center",
+      "slug": "angelika",
+      "short_name": "Angelika",
+      "sort_name": "Angelika",
+      "source_type": "serpapi",
+      "official_url": "https://angelikafilmcenter.com/nyc",
+      "aliases": [
+        "angelika"
+      ]
+    },
+    "Film Forum": {
+      "name": "Film Forum",
+      "slug": "film-forum",
+      "short_name": "Film Forum",
+      "sort_name": "Film Forum",
+      "source_type": "serpapi",
+      "official_url": "https://www.filmforum.org/now-playing/",
+      "aliases": [
+        "film",
+        "film forum"
+      ]
+    },
+    "Village East by Angelika": {
+      "name": "Village East by Angelika",
+      "slug": "village-east",
+      "short_name": "Village East",
+      "sort_name": "Village East",
+      "source_type": "serpapi",
+      "official_url": "https://angelikafilmcenter.com/villageeast",
+      "aliases": [
+        "village",
+        "village east"
+      ]
+    },
+    "Film at Lincoln Center": {
+      "name": "Film at Lincoln Center",
+      "slug": "flc",
+      "short_name": "FLC",
+      "sort_name": "FLC",
+      "source_type": "serpapi",
+      "official_url": "https://www.filmlinc.org/now-playing/",
+      "aliases": [
+        "flc",
+        "film linc",
+        "lincoln center",
+        "film at lincoln center"
+      ]
+    },
+    "Alamo Drafthouse Lower Manhattan": {
+      "name": "Alamo Drafthouse Lower Manhattan",
+      "slug": "alamo",
+      "short_name": "Alamo",
+      "sort_name": "Alamo",
+      "source_type": "serpapi",
+      "official_url": "https://drafthouse.com/nyc",
+      "aliases": [
+        "alamo"
+      ]
+    },
+    "Paris Theater": {
+      "name": "Paris Theater",
+      "slug": "paris",
+      "short_name": "Paris",
+      "sort_name": "Paris",
+      "source_type": "serpapi",
+      "official_url": "https://www.paristheaternyc.com/",
+      "aliases": [
+        "paris"
+      ]
+    },
+    "AMC Landmark 8": {
+      "name": "AMC Landmark 8",
+      "slug": "amc-landmark-8",
+      "short_name": "AMC Landmark 8",
+      "sort_name": "AMC Landmark 8",
+      "source_type": "serpapi",
+      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+      "aliases": []
+    },
+    "AMC Majestic 6": {
+      "name": "AMC Majestic 6",
+      "slug": "amc-majestic-6",
+      "short_name": "AMC Majestic 6",
+      "sort_name": "AMC Majestic 6",
+      "source_type": "serpapi",
+      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+      "aliases": []
+    }
+  },
   "movies": [
     {
+      "id": "tt0099902",
       "title": "Ju Dou",
       "ratings": {
+        "imdbID": "tt0099902",
         "rt": "100%",
         "imdb": "7.6",
         "metacritic": "79",
@@ -35,6 +152,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -47,8 +165,10 @@
       ]
     },
     {
+      "id": "tt0069214",
       "title": "Sambizanga",
       "ratings": {
+        "imdbID": "tt0069214",
         "rt": "100%",
         "imdb": "7.0",
         "metacritic": "N/A",
@@ -69,6 +189,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -81,8 +202,10 @@
       ]
     },
     {
+      "id": "tt0111495",
       "title": "Three Colors: Red",
       "ratings": {
+        "imdbID": "tt0111495",
         "rt": "100%",
         "imdb": "8.1",
         "metacritic": "100",
@@ -103,6 +226,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -121,8 +245,10 @@
       ]
     },
     {
+      "id": "tt0052374",
       "title": "Invention for Destruction",
       "ratings": {
+        "imdbID": "tt0052374",
         "rt": "100%",
         "imdb": "7.5",
         "metacritic": "N/A",
@@ -143,6 +269,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -161,8 +288,10 @@
       ]
     },
     {
+      "id": "tt34965515",
       "title": "Mr Nobody Against Putin",
       "ratings": {
+        "imdbID": "tt34965515",
         "rt": "100%",
         "imdb": "7.9",
         "metacritic": "79",
@@ -183,6 +312,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -195,8 +325,10 @@
       ]
     },
     {
+      "id": "tt35522483",
       "title": "Nirvanna: The Band - the Show - the Movie",
       "ratings": {
+        "imdbID": "tt35522483",
         "rt": "100%",
         "imdb": "8.4",
         "metacritic": "78",
@@ -217,6 +349,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -265,8 +398,10 @@
       ]
     },
     {
+      "id": "tt29271622",
       "title": "Palestine 36",
       "ratings": {
+        "imdbID": "tt29271622",
         "rt": "100%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -287,6 +422,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -363,8 +499,10 @@
       ]
     },
     {
+      "id": "tt35340614",
       "title": "The Blue Trail",
       "ratings": {
+        "imdbID": "tt35340614",
         "rt": "100%",
         "imdb": "7.1",
         "metacritic": "83",
@@ -385,6 +523,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -463,8 +602,10 @@
       ]
     },
     {
+      "id": "tt0065417",
       "title": "Aranyer Din Ratri",
       "ratings": {
+        "imdbID": "tt0065417",
         "rt": "100%",
         "imdb": "8.1",
         "metacritic": "N/A",
@@ -485,6 +626,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -522,8 +664,10 @@
       ]
     },
     {
+      "id": "tt0387522",
       "title": "Living the Land",
       "ratings": {
+        "imdbID": "tt0387522",
         "rt": "100%",
         "imdb": "7.7",
         "metacritic": "N/A",
@@ -544,6 +688,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -604,8 +749,10 @@
       ]
     },
     {
+      "id": "tt0020112",
       "title": "The Love Parade",
       "ratings": {
+        "imdbID": "tt0020112",
         "rt": "100%",
         "imdb": "7.0",
         "metacritic": "N/A",
@@ -626,6 +773,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -639,8 +787,10 @@
       ]
     },
     {
+      "id": "tt32321317",
       "title": "Pillion",
       "ratings": {
+        "imdbID": "tt32321317",
         "rt": "100%",
         "imdb": "6.8",
         "metacritic": "85",
@@ -661,6 +811,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -723,19 +874,21 @@
       ]
     },
     {
+      "id": "tt0111341",
       "title": "S\u00e1t\u00e1ntang\u00f3",
       "ratings": {
+        "imdbID": "tt0111341",
         "rt": "100%",
         "imdb": "8.2",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.1",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BM2U1ZGYwNTItMjcwMS00ZTdjLWE2OWUtNDI5M2JlNjdmMTZlXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama",
         "runtime": "439 min",
         "plot": "On the eve of a large payment, residents of a collapsing collective farm see their plans turn into desolation when they discover that Irimi\u00e1s, a former co-worker who they thought was dead, is returning to the community.",
         "year": "1994",
-        "director": "B\u00e9la Tarr"
+        "director": "B\u00e9la Tarr",
+        "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
@@ -745,6 +898,7 @@
       "theaters": [
         {
           "name": "Film at Lincoln Center",
+          "ticket_url": "https://www.filmlinc.org/now-playing/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -757,8 +911,10 @@
       ]
     },
     {
+      "id": "tt1527793",
       "title": "No Other Choice",
       "ratings": {
+        "imdbID": "tt1527793",
         "rt": "98%",
         "imdb": "7.6",
         "metacritic": "86",
@@ -779,6 +935,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -791,8 +948,10 @@
       ]
     },
     {
+      "id": "tt0108394",
       "title": "Three Colors: Blue",
       "ratings": {
+        "imdbID": "tt0108394",
         "rt": "98%",
         "imdb": "7.8",
         "metacritic": "87",
@@ -813,6 +972,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -831,8 +991,10 @@
       ]
     },
     {
+      "id": "tt9530198",
       "title": "Varda by Agn\u00e8s",
       "ratings": {
+        "imdbID": "tt9530198",
         "rt": "98%",
         "imdb": "7.8",
         "metacritic": "85",
@@ -853,6 +1015,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -865,8 +1028,10 @@
       ]
     },
     {
+      "id": "tt36874833",
       "title": "Pompei: Below the Clouds",
       "ratings": {
+        "imdbID": "tt36874833",
         "rt": "97%",
         "imdb": "6.7",
         "metacritic": "90",
@@ -887,6 +1052,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -899,8 +1065,10 @@
       ]
     },
     {
+      "id": "tt12818328",
       "title": "Hundreds of Beavers",
       "ratings": {
+        "imdbID": "tt12818328",
         "rt": "97%",
         "imdb": "7.6",
         "metacritic": "82",
@@ -921,6 +1089,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -933,8 +1102,10 @@
       ]
     },
     {
+      "id": "tt0120684",
       "title": "Gods and Monsters",
       "ratings": {
+        "imdbID": "tt0120684",
         "rt": "96%",
         "imdb": "7.3",
         "metacritic": "74",
@@ -955,6 +1126,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -967,8 +1139,10 @@
       ]
     },
     {
+      "id": "tt0114279",
       "title": "Richard III",
       "ratings": {
+        "imdbID": "tt0114279",
         "rt": "96%",
         "imdb": "7.3",
         "metacritic": "86",
@@ -989,6 +1163,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -1001,8 +1176,10 @@
       ]
     },
     {
+      "id": "tt0061184",
       "title": "Who's Afraid of Virginia Woolf?",
       "ratings": {
+        "imdbID": "tt0061184",
         "rt": "96%",
         "imdb": "8.0",
         "metacritic": "75",
@@ -1023,6 +1200,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -1035,8 +1213,10 @@
       ]
     },
     {
+      "id": "tt36596439",
       "title": "Fantasia",
       "ratings": {
+        "imdbID": "tt36596439",
         "rt": "95%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -1057,6 +1237,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -1069,8 +1250,10 @@
       ]
     },
     {
+      "id": "tt35521200",
       "title": "Two Prosecutors",
       "ratings": {
+        "imdbID": "tt35521200",
         "rt": "95%",
         "imdb": "7.1",
         "metacritic": "84",
@@ -1091,6 +1274,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -1138,8 +1322,10 @@
       ]
     },
     {
+      "id": "tt12042730",
       "title": "Project Hail Mary",
       "ratings": {
+        "imdbID": "tt12042730",
         "rt": "95%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -1149,7 +1335,7 @@
         "genre": "Drama, Sci-Fi, Thriller",
         "runtime": "156 min",
         "plot": "Science teacher Ryland Grace wakes up alone on a spaceship light-years from Earth. As his memory returns, he uncovers a mission to stop a mysterious substance killing the sun, and save Earth. An unexpected friendship may be the key.",
-        "year": "2026",
+        "year": 2026,
         "director": "Phil Lord, Christopher Miller"
       },
       "verdict": {
@@ -1160,6 +1346,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -1280,6 +1467,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -1371,12 +1559,148 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:15pm",
+                "3:15pm",
+                "7:30pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:50am",
+                "2:30pm",
+                "5:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:50am",
+                "2:15pm",
+                "5:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:50am",
+                "2:15pm",
+                "5:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:50am",
+                "2:15pm",
+                "5:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:30pm",
+                "4:40pm",
+                "7:40pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "2:30pm",
+                "7:30pm",
+                "9:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:15pm",
+                "5:00pm",
+                "8:45pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "7:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "7:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "7:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:40pm",
+                "2:45pm",
+                "6:00pm",
+                "9:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:15pm",
+                "6:00pm",
+                "9:40pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "2:15pm",
+                "6:00pm",
+                "9:40pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt0095631",
       "title": "Midnight Run",
       "ratings": {
+        "imdbID": "tt0095631",
         "rt": "95%",
         "imdb": "7.5",
         "metacritic": "78",
@@ -1397,6 +1721,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -1415,8 +1740,10 @@
       ]
     },
     {
+      "id": "tt36848172",
       "title": "Miroirs No. 3",
       "ratings": {
+        "imdbID": "tt36848172",
         "rt": "94%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -1437,6 +1764,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -1493,8 +1821,10 @@
       ]
     },
     {
+      "id": "tt32298285",
       "title": "Sir\u00e2t",
       "ratings": {
+        "imdbID": "tt32298285",
         "rt": "94%",
         "imdb": "7.0",
         "metacritic": "85",
@@ -1515,6 +1845,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -1569,6 +1900,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -1593,8 +1925,10 @@
       ]
     },
     {
+      "id": "tt0076786",
       "title": "Suspiria",
       "ratings": {
+        "imdbID": "tt0076786",
         "rt": "94%",
         "imdb": "7.3",
         "metacritic": "79",
@@ -1615,6 +1949,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -1633,8 +1968,10 @@
       ]
     },
     {
+      "id": "tt33088413",
       "title": "Hoppers",
       "ratings": {
+        "imdbID": "tt33088413",
         "rt": "94%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -1655,6 +1992,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -1723,12 +2061,151 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:45pm",
+                "4:30pm",
+                "7:10pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "1:45pm",
+                "4:30pm",
+                "6:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:50pm",
+                "4:30pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:50pm",
+                "4:30pm",
+                "5:50pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:15pm",
+                "3:00pm",
+                "5:45pm",
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:20pm",
+                "3:00pm",
+                "5:45pm",
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:30pm",
+                "5:15pm",
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "2:30pm",
+                "5:15pm",
+                "8:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt0116282",
       "title": "Fargo",
       "ratings": {
+        "imdbID": "tt0116282",
         "rt": "94%",
         "imdb": "8.1",
         "metacritic": "88",
@@ -1749,6 +2226,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -1761,8 +2239,10 @@
       ]
     },
     {
+      "id": "tt0050976",
       "title": "The Seventh Seal",
       "ratings": {
+        "imdbID": "tt0050976",
         "rt": "93%",
         "imdb": "8.1",
         "metacritic": "88",
@@ -1783,6 +2263,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -1795,8 +2276,10 @@
       ]
     },
     {
+      "id": "tt3666024",
       "title": "The Red Turtle",
       "ratings": {
+        "imdbID": "tt3666024",
         "rt": "93%",
         "imdb": "7.5",
         "metacritic": "86",
@@ -1817,6 +2300,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -1829,8 +2313,10 @@
       ]
     },
     {
+      "id": "tt35625305",
       "title": "Best in Show",
       "ratings": {
+        "imdbID": "tt35625305",
         "rt": "93%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -1851,6 +2337,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -1863,8 +2350,10 @@
       ]
     },
     {
+      "id": "tt34964187",
       "title": "DJ Ahmet",
       "ratings": {
+        "imdbID": "tt34964187",
         "rt": "93%",
         "imdb": "7.3",
         "metacritic": "N/A",
@@ -1885,6 +2374,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -1939,8 +2429,10 @@
       ]
     },
     {
+      "id": "tt0477348",
       "title": "No Country for Old Men",
       "ratings": {
+        "imdbID": "tt0477348",
         "rt": "93%",
         "imdb": "8.2",
         "metacritic": "92",
@@ -1961,6 +2453,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -1979,8 +2472,10 @@
       ]
     },
     {
+      "id": "tt0055852",
       "title": "Cl\u00e9o from 5 to 7",
       "ratings": {
+        "imdbID": "tt0055852",
         "rt": "93%",
         "imdb": "7.8",
         "metacritic": "87",
@@ -2001,6 +2496,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -2013,8 +2509,10 @@
       ]
     },
     {
+      "id": "tt0099685",
       "title": "Goodfellas",
       "ratings": {
+        "imdbID": "tt0099685",
         "rt": "93%",
         "imdb": "8.7",
         "metacritic": "92",
@@ -2035,6 +2533,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -2059,8 +2558,10 @@
       ]
     },
     {
+      "id": "tt0071853",
       "title": "Monty Python and the Holy Grail",
       "ratings": {
+        "imdbID": "tt0071853",
         "rt": "92%",
         "imdb": "8.2",
         "metacritic": "91",
@@ -2081,6 +2582,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -2099,8 +2601,10 @@
       ]
     },
     {
+      "id": "tt35492581",
       "title": "Kontinental '25",
       "ratings": {
+        "imdbID": "tt35492581",
         "rt": "92%",
         "imdb": "6.9",
         "metacritic": "82",
@@ -2121,6 +2625,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -2190,8 +2695,10 @@
       ]
     },
     {
+      "id": "tt0111507",
       "title": "Three Colors: White",
       "ratings": {
+        "imdbID": "tt0111507",
         "rt": "91%",
         "imdb": "7.6",
         "metacritic": "91",
@@ -2212,6 +2719,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -2230,8 +2738,10 @@
       ]
     },
     {
+      "id": "tt32525217",
       "title": "Point Blank",
       "ratings": {
+        "imdbID": "tt32525217",
         "rt": "91%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -2252,6 +2762,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -2264,8 +2775,10 @@
       ]
     },
     {
+      "id": "tt2452254",
       "title": "Clouds of Sils Maria",
       "ratings": {
+        "imdbID": "tt2452254",
         "rt": "91%",
         "imdb": "6.7",
         "metacritic": "80",
@@ -2286,6 +2799,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -2298,8 +2812,10 @@
       ]
     },
     {
+      "id": "tt0090756",
       "title": "Blue Velvet",
       "ratings": {
+        "imdbID": "tt0090756",
         "rt": "91%",
         "imdb": "7.7",
         "metacritic": "75",
@@ -2320,6 +2836,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -2380,8 +2897,10 @@
       ]
     },
     {
+      "id": "tt0074121",
       "title": "Allegro non troppo",
       "ratings": {
+        "imdbID": "tt0074121",
         "rt": "90%",
         "imdb": "7.4",
         "metacritic": "N/A",
@@ -2402,6 +2921,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -2420,8 +2940,10 @@
       ]
     },
     {
+      "id": "tt34965959",
       "title": "Zodiac",
       "ratings": {
+        "imdbID": "tt34965959",
         "rt": "90%",
         "imdb": "6.3",
         "metacritic": "72",
@@ -2442,6 +2964,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -2460,8 +2983,10 @@
       ]
     },
     {
+      "id": "tt0115012",
       "title": "Shanghai Triad",
       "ratings": {
+        "imdbID": "tt0115012",
         "rt": "90%",
         "imdb": "7.1",
         "metacritic": "77",
@@ -2482,6 +3007,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -2494,8 +3020,10 @@
       ]
     },
     {
+      "id": "tt0062622",
       "title": "2001: A Space Odyssey",
       "ratings": {
+        "imdbID": "tt0062622",
         "rt": "90%",
         "imdb": "8.3",
         "metacritic": "84",
@@ -2516,6 +3044,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -2540,8 +3069,10 @@
       ]
     },
     {
+      "id": "tt0765443",
       "title": "Eastern Promises",
       "ratings": {
+        "imdbID": "tt0765443",
         "rt": "90%",
         "imdb": "7.6",
         "metacritic": "83",
@@ -2562,6 +3093,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -2580,8 +3112,10 @@
       ]
     },
     {
+      "id": "tt0058715",
       "title": "The Gospel According to St. Matthew",
       "ratings": {
+        "imdbID": "tt0058715",
         "rt": "89%",
         "imdb": "7.6",
         "metacritic": "N/A",
@@ -2602,6 +3136,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -2614,8 +3149,10 @@
       ]
     },
     {
+      "id": "tt0086022",
       "title": "Nostalghia",
       "ratings": {
+        "imdbID": "tt0086022",
         "rt": "88%",
         "imdb": "7.9",
         "metacritic": "74",
@@ -2636,6 +3173,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -2648,8 +3186,10 @@
       ]
     },
     {
+      "id": "tt36314890",
       "title": "Le bonheur",
       "ratings": {
+        "imdbID": "tt36314890",
         "rt": "88%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -2670,6 +3210,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -2682,8 +3223,10 @@
       ]
     },
     {
+      "id": "tt0119008",
       "title": "Donnie Brasco",
       "ratings": {
+        "imdbID": "tt0119008",
         "rt": "88%",
         "imdb": "7.7",
         "metacritic": "77",
@@ -2704,6 +3247,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -2716,8 +3260,10 @@
       ]
     },
     {
+      "id": "tt6423776",
       "title": "Let the Sunshine In",
       "ratings": {
+        "imdbID": "tt6423776",
         "rt": "87%",
         "imdb": "6.0",
         "metacritic": "79",
@@ -2738,6 +3284,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -2750,8 +3297,10 @@
       ]
     },
     {
+      "id": "tt0105197",
       "title": "The Story of Qiu Ju",
       "ratings": {
+        "imdbID": "tt0105197",
         "rt": "87%",
         "imdb": "7.5",
         "metacritic": "N/A",
@@ -2772,6 +3321,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -2784,8 +3334,10 @@
       ]
     },
     {
+      "id": "tt0097108",
       "title": "The Cook, the Thief, His Wife & Her Lover",
       "ratings": {
+        "imdbID": "tt0097108",
         "rt": "87%",
         "imdb": "7.5",
         "metacritic": "62",
@@ -2806,6 +3358,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -2824,8 +3377,10 @@
       ]
     },
     {
+      "id": "tt39150120",
       "title": "The AI Doc: Or How I Became an Apocaloptimist",
       "ratings": {
+        "imdbID": "tt39150120",
         "rt": "87%",
         "imdb": "N/A",
         "metacritic": "51",
@@ -2846,6 +3401,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -2861,6 +3417,7 @@
         },
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -2922,6 +3479,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -2966,12 +3524,62 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "3:45pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:05pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "12:45pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt36243564",
       "title": "The Stranger",
       "ratings": {
+        "imdbID": "tt36243564",
         "rt": "87%",
         "imdb": "7.0",
         "metacritic": "79",
@@ -2992,6 +3600,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -3057,6 +3666,7 @@
         },
         {
           "name": "Film at Lincoln Center",
+          "ticket_url": "https://www.filmlinc.org/now-playing/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3115,8 +3725,10 @@
       ]
     },
     {
+      "id": "tt0280707",
       "title": "Gosford Park",
       "ratings": {
+        "imdbID": "tt0280707",
         "rt": "87%",
         "imdb": "7.2",
         "metacritic": "90",
@@ -3137,6 +3749,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -3155,8 +3768,10 @@
       ]
     },
     {
+      "id": "tt36833174",
       "title": "Eraserhead",
       "ratings": {
+        "imdbID": "tt36833174",
         "rt": "87%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -3177,6 +3792,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -3195,8 +3811,10 @@
       ]
     },
     {
+      "id": "tt14114802",
       "title": "The Outfit",
       "ratings": {
+        "imdbID": "tt14114802",
         "rt": "86%",
         "imdb": "7.2",
         "metacritic": "69",
@@ -3217,6 +3835,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -3235,8 +3854,10 @@
       ]
     },
     {
+      "id": "tt0066921",
       "title": "A Clockwork Orange",
       "ratings": {
+        "imdbID": "tt0066921",
         "rt": "86%",
         "imdb": "8.2",
         "metacritic": "77",
@@ -3257,6 +3878,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Wed Apr 8",
@@ -3271,8 +3893,10 @@
       ]
     },
     {
+      "id": "tt0093206",
       "title": "Red Sorghum",
       "ratings": {
+        "imdbID": "tt0093206",
         "rt": "85%",
         "imdb": "7.3",
         "metacritic": "N/A",
@@ -3293,6 +3917,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -3305,8 +3930,10 @@
       ]
     },
     {
+      "id": "tt0071615",
       "title": "The Holy Mountain",
       "ratings": {
+        "imdbID": "tt0071615",
         "rt": "84%",
         "imdb": "7.7",
         "metacritic": "76",
@@ -3327,6 +3954,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -3339,8 +3967,10 @@
       ]
     },
     {
+      "id": "tt0283283",
       "title": "Millennium Mambo",
       "ratings": {
+        "imdbID": "tt0283283",
         "rt": "84%",
         "imdb": "7.0",
         "metacritic": "72",
@@ -3361,6 +3991,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -3373,8 +4004,10 @@
       ]
     },
     {
+      "id": "tt36833566",
       "title": "The Matrix",
       "ratings": {
+        "imdbID": "tt36833566",
         "rt": "83%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -3395,6 +4028,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -3407,8 +4041,10 @@
       ]
     },
     {
+      "id": "tt27378311",
       "title": "Dead Lover",
       "ratings": {
+        "imdbID": "tt27378311",
         "rt": "83%",
         "imdb": "5.6",
         "metacritic": "N/A",
@@ -3429,6 +4065,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -3483,8 +4120,10 @@
       ]
     },
     {
+      "id": "tt0094721",
       "title": "Beetlejuice",
       "ratings": {
+        "imdbID": "tt0094721",
         "rt": "83%",
         "imdb": "7.4",
         "metacritic": "71",
@@ -3505,6 +4144,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -3517,8 +4157,10 @@
       ]
     },
     {
+      "id": "tt37675862",
       "title": "Beyond Silence",
       "ratings": {
+        "imdbID": "tt37675862",
         "rt": "83%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -3539,6 +4181,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -3551,8 +4194,10 @@
       ]
     },
     {
+      "id": "tt33071426",
       "title": "The Drama",
       "ratings": {
+        "imdbID": "tt33071426",
         "rt": "83%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -3573,6 +4218,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -3662,6 +4308,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -3782,12 +4429,85 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "4:00pm",
+                "6:50pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:15pm",
+                "1:45pm",
+                "4:30pm",
+                "7:30pm",
+                "10:50pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:15pm",
+                "1:45pm",
+                "4:30pm",
+                "7:30pm",
+                "10:50pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:15pm",
+                "1:45pm",
+                "4:30pm",
+                "7:30pm",
+                "10:50pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "4:15pm",
+                "7:00pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:50pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt35519497",
       "title": "Fantasy Life",
       "ratings": {
+        "imdbID": "tt35519497",
         "rt": "82%",
         "imdb": "7.2",
         "metacritic": "N/A",
@@ -3808,6 +4528,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -3890,6 +4611,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -3944,8 +4666,10 @@
       ]
     },
     {
+      "id": "tt0073629",
       "title": "The Rocky Horror Picture Show",
       "ratings": {
+        "imdbID": "tt0073629",
         "rt": "81%",
         "imdb": "7.4",
         "metacritic": "65",
@@ -3966,6 +4690,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -3978,8 +4703,10 @@
       ]
     },
     {
+      "id": "tt1527186",
       "title": "Melancholia",
       "ratings": {
+        "imdbID": "tt1527186",
         "rt": "79%",
         "imdb": "7.1",
         "metacritic": "81",
@@ -4000,6 +4727,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4012,8 +4740,10 @@
       ]
     },
     {
+      "id": "tt11166308",
       "title": "Tow",
       "ratings": {
+        "imdbID": "tt11166308",
         "rt": "78%",
         "imdb": "3.2",
         "metacritic": "N/A",
@@ -4034,6 +4764,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4046,8 +4777,10 @@
       ]
     },
     {
+      "id": "tt0102511",
       "title": "Naked Lunch",
       "ratings": {
+        "imdbID": "tt0102511",
         "rt": "73%",
         "imdb": "6.9",
         "metacritic": "67",
@@ -4068,6 +4801,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -4086,8 +4820,10 @@
       ]
     },
     {
+      "id": "tt33978029",
       "title": "Ready or Not 2: Here I Come",
       "ratings": {
+        "imdbID": "tt33978029",
         "rt": "73%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4108,6 +4844,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4159,12 +4896,63 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:00pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "9:20pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:20pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:20pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:10pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "9:15pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt36410167",
       "title": "Clue",
       "ratings": {
+        "imdbID": "tt36410167",
         "rt": "73%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4185,6 +4973,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -4197,8 +4986,10 @@
       ]
     },
     {
+      "id": "tt13968662",
       "title": "A Magnificent Life",
       "ratings": {
+        "imdbID": "tt13968662",
         "rt": "72%",
         "imdb": "6.7",
         "metacritic": "N/A",
@@ -4219,6 +5010,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -4234,6 +5026,7 @@
         },
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -4297,8 +5090,10 @@
       ]
     },
     {
+      "id": "tt37660536",
       "title": "Marc by Sofia",
       "ratings": {
+        "imdbID": "tt37660536",
         "rt": "71%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4319,6 +5114,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -4402,8 +5198,10 @@
       ]
     },
     {
+      "id": "tt0838221",
       "title": "The Darjeeling Limited",
       "ratings": {
+        "imdbID": "tt0838221",
         "rt": "69%",
         "imdb": "7.2",
         "metacritic": "67",
@@ -4424,6 +5222,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun 05 Apr",
@@ -4436,8 +5235,10 @@
       ]
     },
     {
+      "id": "tt31728330",
       "title": "They Will Kill You",
       "ratings": {
+        "imdbID": "tt31728330",
         "rt": "63%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4458,6 +5259,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4528,12 +5330,62 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:10pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "8:30pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt34959898",
       "title": "Alpha",
       "ratings": {
+        "imdbID": "tt34959898",
         "rt": "57%",
         "imdb": "6.4",
         "metacritic": "N/A",
@@ -4554,6 +5406,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -4611,8 +5464,90 @@
       ]
     },
     {
+      "id": "tt33714084",
+      "title": "Reminders of Him",
+      "ratings": {
+        "imdbID": "tt33714084",
+        "rt": "57%",
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNjI4OGM1NDEtYzA1NS00ZDg3LWFmZjUtMjg1MGQ4MTk3NjQzXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, Romance",
+        "runtime": "114 min",
+        "plot": "After prison, a woman attempts to reconnect with her young daughter but faces resistance from everyone except a bar owner with ties to her child. As they grow closer, she must confront her past mistakes to build a hopeful future.",
+        "year": "2026",
+        "director": "Vanessa Caswill"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "6:00pm",
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "2:20pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "2:20pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "2:20pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "2:20pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:10pm",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "2:10pm",
+                "4:40pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tt39054353",
       "title": "The Player",
       "ratings": {
+        "imdbID": "tt39054353",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4633,6 +5568,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -4645,8 +5581,10 @@
       ]
     },
     {
+      "id": "tt6423364",
       "title": "Bad Blood",
       "ratings": {
+        "imdbID": "tt6423364",
         "rt": null,
         "imdb": "7.5",
         "metacritic": "N/A",
@@ -4667,6 +5605,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu 02 Apr",
@@ -4679,8 +5618,10 @@
       ]
     },
     {
+      "id": "tt3080074",
       "title": "Possessions",
       "ratings": {
+        "imdbID": "tt3080074",
         "rt": null,
         "imdb": "6.8",
         "metacritic": "N/A",
@@ -4701,6 +5642,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -4713,8 +5655,10 @@
       ]
     },
     {
+      "id": "tt0050206",
       "title": "The Wrestler and the Clown",
       "ratings": {
+        "imdbID": "tt0050206",
         "rt": null,
         "imdb": "6.9",
         "metacritic": "N/A",
@@ -4735,6 +5679,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -4747,8 +5692,10 @@
       ]
     },
     {
+      "id": "tt0042930",
       "title": "Bountiful Summer",
       "ratings": {
+        "imdbID": "tt0042930",
         "rt": null,
         "imdb": "5.6",
         "metacritic": "N/A",
@@ -4769,6 +5716,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat 04 Apr",
@@ -4781,8 +5729,10 @@
       ]
     },
     {
+      "id": "tt35811705",
       "title": "Stalker",
       "ratings": {
+        "imdbID": "tt35811705",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4803,6 +5753,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -4815,8 +5766,10 @@
       ]
     },
     {
+      "id": "tt39093784",
       "title": "The Trap",
       "ratings": {
+        "imdbID": "tt39093784",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -4837,6 +5790,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon 06 Apr",
@@ -4849,8 +5803,10 @@
       ]
     },
     {
+      "id": "2026-oscar-nominated-shorts",
       "title": "2026 Oscar Nominated Shorts",
       "ratings": {
+        "imdbID": null,
         "rt": null,
         "imdb": null,
         "metacritic": null,
@@ -4871,6 +5827,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -4946,8 +5903,10 @@
       ]
     },
     {
+      "id": "tt0241588",
       "title": "Serpent's Path",
       "ratings": {
+        "imdbID": "tt0241588",
         "rt": null,
         "imdb": "7.0",
         "metacritic": "N/A",
@@ -4968,6 +5927,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -5036,8 +5996,10 @@
       ]
     },
     {
+      "id": "tt37751185",
       "title": "After Hours",
       "ratings": {
+        "imdbID": "tt37751185",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5058,6 +6020,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Today",
@@ -5117,8 +6080,10 @@
       ]
     },
     {
+      "id": "tt15845614",
       "title": "Billy Preston: That\u2019s The Way God Planned It",
       "ratings": {
+        "imdbID": "tt15845614",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5139,6 +6104,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -5152,8 +6118,10 @@
       ]
     },
     {
+      "id": "jane-b-par-agn-s-v",
       "title": "Jane B. par Agn\u00e8s V.",
       "ratings": {
+        "imdbID": null,
         "rt": null,
         "imdb": null,
         "metacritic": null,
@@ -5174,6 +6142,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -5186,8 +6155,10 @@
       ]
     },
     {
+      "id": "stand-by-me-40th-anniversary",
       "title": "Stand by Me 40th Anniversary",
       "ratings": {
+        "imdbID": null,
         "rt": null,
         "imdb": null,
         "metacritic": null,
@@ -5208,6 +6179,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5220,8 +6192,10 @@
       ]
     },
     {
+      "id": "tt8689278",
       "title": "This Island",
       "ratings": {
+        "imdbID": "tt8689278",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5242,6 +6216,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5293,8 +6268,10 @@
       ]
     },
     {
+      "id": "tt37180878",
       "title": "Baseball: Beyond Belief",
       "ratings": {
+        "imdbID": "tt37180878",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5315,6 +6292,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5331,8 +6309,10 @@
       ]
     },
     {
+      "id": "the-killer-hong-kong-cinema-classics",
       "title": "The Killer - Hong Kong Cinema Classics",
       "ratings": {
+        "imdbID": null,
         "rt": null,
         "imdb": null,
         "metacritic": null,
@@ -5353,6 +6333,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -5376,6 +6357,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -5400,8 +6382,10 @@
       ]
     },
     {
+      "id": "tt30304841",
       "title": "$POSITIONS",
       "ratings": {
+        "imdbID": "tt30304841",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5422,6 +6406,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -5464,8 +6449,10 @@
       ]
     },
     {
+      "id": "tt35022825",
       "title": "Castration Movie Anthology I: Traps",
       "ratings": {
+        "imdbID": "tt35022825",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5486,6 +6473,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -5498,8 +6486,10 @@
       ]
     },
     {
+      "id": "faces-of-death-early-access",
       "title": "Faces of Death Early Access",
       "ratings": {
+        "imdbID": null,
         "rt": null,
         "imdb": null,
         "metacritic": null,
@@ -5520,6 +6510,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Wed Apr 8",
@@ -5532,8 +6523,10 @@
       ]
     },
     {
+      "id": "tt37022726",
       "title": "Out of Sight",
       "ratings": {
+        "imdbID": "tt37022726",
         "rt": null,
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5554,6 +6547,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -5578,8 +6572,10 @@
       ]
     },
     {
+      "id": "tt35522920",
       "title": "Spy",
       "ratings": {
+        "imdbID": "tt35522920",
         "rt": null,
         "imdb": "6.8",
         "metacritic": "N/A",
@@ -5600,6 +6596,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -5618,8 +6615,96 @@
       ]
     },
     {
+      "id": "tt33305882",
+      "title": "A Great Awakening",
+      "ratings": {
+        "imdbID": "tt33305882",
+        "rt": null,
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGU1MjRlZDctNmEzNy00NGVhLWE3ZjAtOGRkNTdlN2VjNTY0XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, History",
+        "runtime": "N/A",
+        "plot": "Exploring the friendship between renowned preacher George Whitefield and Benjamin Franklin, and Whitefield's impact during the pivotal Great Awakening religious movement.",
+        "year": "2026",
+        "director": "N/A"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:15am",
+                "1:00pm",
+                "4:15pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:15am",
+                "1:00pm",
+                "4:15pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:15am",
+                "1:00pm",
+                "4:15pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:40pm",
+                "3:45pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:35pm",
+                "6:10pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:30pm",
+                "6:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tt30691214",
       "title": "Forbidden Fruits",
       "ratings": {
+        "imdbID": "tt30691214",
         "rt": "54%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5640,6 +6725,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5704,8 +6790,10 @@
       ]
     },
     {
+      "id": "tt39328163",
       "title": "Yes!",
       "ratings": {
+        "imdbID": "tt39328163",
         "rt": "53%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5726,6 +6814,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -5794,8 +6883,10 @@
       ]
     },
     {
+      "id": "tt0808279",
       "title": "Funny Games",
       "ratings": {
+        "imdbID": "tt0808279",
         "rt": "53%",
         "imdb": "6.5",
         "metacritic": "44",
@@ -5816,6 +6907,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5828,8 +6920,10 @@
       ]
     },
     {
+      "id": "tt11540908",
       "title": "Carrie",
       "ratings": {
+        "imdbID": "tt11540908",
         "rt": "51%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5850,6 +6944,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5862,8 +6957,10 @@
       ]
     },
     {
+      "id": "tt37241413",
       "title": "The Creatures",
       "ratings": {
+        "imdbID": "tt37241413",
         "rt": "50%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5884,6 +6981,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Today",
@@ -5896,8 +6994,10 @@
       ]
     },
     {
+      "id": "tt36731244",
       "title": "Miami Vice",
       "ratings": {
+        "imdbID": "tt36731244",
         "rt": "47%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5918,6 +7018,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri 03 Apr",
@@ -5930,8 +7031,10 @@
       ]
     },
     {
+      "id": "tt28650488",
       "title": "The Super Mario Galaxy Movie",
       "ratings": {
+        "imdbID": "tt28650488",
         "rt": "42%",
         "imdb": "N/A",
         "metacritic": "N/A",
@@ -5952,6 +7055,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6136,12 +7240,263 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:30pm",
+                "2:15pm",
+                "3:00pm",
+                "5:45pm",
+                "9:30pm",
+                "1:15pm",
+                "4:00pm",
+                "5:00pm",
+                "6:45pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "5:30pm",
+                "8:15pm",
+                "8:50pm",
+                "11:30am",
+                "1:15pm",
+                "4:00pm",
+                "6:15pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "5:30pm",
+                "8:15pm",
+                "10:30am",
+                "1:15pm",
+                "4:00pm",
+                "6:00pm",
+                "6:45pm",
+                "8:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:30am",
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "5:30pm",
+                "8:15pm",
+                "10:30am",
+                "1:15pm",
+                "4:00pm",
+                "6:00pm",
+                "6:45pm",
+                "8:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am",
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "5:30pm",
+                "8:15pm",
+                "9:40pm",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:30pm",
+                "6:15pm",
+                "8:15pm",
+                "9:15pm",
+                "1:30pm",
+                "4:10pm",
+                "5:00pm",
+                "7:00pm",
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "5:30pm",
+                "6:10pm",
+                "8:15pm",
+                "9:10pm",
+                "1:20pm",
+                "4:00pm",
+                "5:00pm",
+                "6:40pm",
+                "7:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:15pm",
+                "1:45pm",
+                "2:30pm",
+                "4:30pm",
+                "5:15pm",
+                "6:15pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "12:45pm",
+                "3:30pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:30pm",
+                "2:15pm",
+                "4:20pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "10:30pm",
+                "11:00pm",
+                "3:15pm",
+                "8:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:30pm",
+                "2:15pm",
+                "4:20pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "10:30pm",
+                "11:00pm",
+                "3:15pm",
+                "8:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:30pm",
+                "2:15pm",
+                "4:20pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "10:30pm",
+                "11:00pm",
+                "3:15pm",
+                "8:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "12:30pm",
+                "2:00pm",
+                "3:15pm",
+                "4:45pm",
+                "6:30pm",
+                "7:30pm",
+                "8:00pm",
+                "9:15pm",
+                "10:15pm",
+                "11:45am",
+                "2:30pm",
+                "5:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "4:45pm",
+                "6:45pm",
+                "7:30pm",
+                "9:30pm",
+                "10:15pm",
+                "5:45pm",
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:15pm",
+                "2:00pm",
+                "4:00pm",
+                "4:45pm",
+                "6:45pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:15pm",
+                "3:00pm",
+                "5:45pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "tt0133152",
       "title": "Planet of the Apes",
       "ratings": {
+        "imdbID": "tt0133152",
         "rt": "42%",
         "imdb": "5.7",
         "metacritic": "50",
@@ -6162,6 +7517,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -6173,6 +7529,86 @@
               "day": "Tue Apr 7",
               "times": [
                 "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tt39139925",
+      "title": "Dhurandhar The Revenge",
+      "ratings": {
+        "imdbID": "tt39139925",
+        "rt": "35%",
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTU1Zjk4MTYtMjc2YS00NjI5LWJkOWEtMjJlOGQ0ZTVjNmFjXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Action, Thriller",
+        "runtime": "N/A",
+        "plot": "Hamza Ali Mazari, whose real identity is Jaskirat Singh Rangi, pursues his undercover operation within Pakistan's criminal world while tracking down Majo.",
+        "year": "2026",
+        "director": "Aditya Dhar"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:45pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:10pm",
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:10pm",
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:10pm",
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:10pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:40pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Wed Apr 8",
+              "times": [
+                "1:00pm",
+                "7:15pm"
               ]
             }
           ]
