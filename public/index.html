@@ -2444,6 +2444,7 @@ function renderTheaterView() {
       const verdict = getCardTone(movie);
       const watched = hasStoredMovie(getWatched(), movie);
       const ratings = movie.ratings || {};
+      const cinemaScore = (ratings.cinemaScore && ratings.cinemaScore !== 'N/A') ? String(ratings.cinemaScore).trim().toUpperCase() : null;
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
       const letterboxd = getLetterboxdScore(movie);
       const year = ratings.year || '';
@@ -2485,6 +2486,7 @@ function renderTheaterView() {
               <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
             </div>
             <div class="theater-film-scores">
+              ${cinemaScore ? `<div><div class="t-score lb-score">${cinemaScore}</div><div class="t-score-label">CS</div></div>` : ''}
               ${rt ? `<div><div class="t-score ${rtClass}">${rt}</div><div class="t-score-label">RT</div></div>` : ''}
               ${letterboxd ? `<div><div class="t-score lb-score">${letterboxd}</div><div class="t-score-label">LB</div></div>` : ''}
             </div>
