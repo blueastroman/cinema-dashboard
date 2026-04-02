@@ -146,6 +146,14 @@ NON_ALNUM = re.compile(r"[^a-z0-9]+")
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
+OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
+LEGACY_FAKE_PLOTS = {
+    "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
+    "Two cousins reunite in Poland and confront the weight of their family history.",
+    "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
+    "An epic meditation on the immigrant experience and the American Dream.",
+    "Two brothers reckon with grief, distance, and what it means to belong.",
+}
 
 
 def normalize_title(title: str) -> str:
@@ -492,6 +500,28 @@ RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
 RATING_CACHE = load_json_file(RATING_CACHE_PATH)
 
 
+def load_existing_movie_metadata(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  [WARN] Failed to load existing dashboard data: {e}")
+        return {}
+
+    movies = data.get("movies", [])
+    existing = {}
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        ratings = movie.get("ratings") or {}
+        if title and isinstance(ratings, dict):
+            existing[normalize_title(title)] = ratings
+    return existing
+
+
+EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
+
+
 def omdb_request(params: dict) -> Optional[dict]:
     try:
         r = requests.get("http://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10)
@@ -664,6 +694,51 @@ def empty_ratings() -> dict:
     }
 
 
+def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
+    if not ratings:
+        return False
+    director = str(ratings.get("director") or "").strip()
+    year = str(ratings.get("year") or "").strip()
+    plot = str(ratings.get("plot") or "").strip()
+    return (
+        (director == "Various" and year == "2024")
+        or plot in LEGACY_FAKE_PLOTS
+    )
+
+
+def merge_existing_metadata(title: str, ratings: dict) -> dict:
+    existing = EXISTING_MOVIE_METADATA.get(normalize_title(title)) or {}
+    if not existing:
+        return ratings
+
+    placeholder = is_placeholder_metadata(ratings)
+    for key in ("imdbID", "imdb", "metacritic", "letterboxd", "poster", "genre", "runtime", "plot", "year", "director", "cinemaScore"):
+        current = ratings.get(key)
+        prior = existing.get(key)
+        if prior in (None, "", "N/A"):
+            continue
+        if current in (None, "", "N/A") or (placeholder and key in {"genre", "runtime", "plot", "year", "director"}):
+            ratings[key] = prior
+
+    if not ratings.get("rt") and existing.get("rt") not in (None, "", "N/A"):
+        ratings["rt"] = existing.get("rt")
+
+    return ratings
+
+
+def apply_rating_overrides(title: str, ratings: dict) -> dict:
+    override = RATING_OVERRIDES.get(normalize_title(title), {})
+    if isinstance(override, str):
+        override = {"imdbID": override}
+    if not isinstance(override, dict):
+        return ratings
+
+    for key, value in override.items():
+        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"} and value not in (None, "", "N/A"):
+            ratings[key] = value
+    return ratings
+
+
 def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85) -> bool:
     if not data:
         return False
@@ -769,12 +844,16 @@ def fetch_ratings(title: str) -> dict:
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
 
+        parsed = merge_existing_metadata(title, parsed)
+        parsed = apply_rating_overrides(title, parsed)
         return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(title)
         parsed["letterboxd"] = fetch_letterboxd_fallback(title)
+        parsed = merge_existing_metadata(title, parsed)
+        parsed = apply_rating_overrides(title, parsed)
         return parsed
 
 
