@@ -1,11 +1,12 @@
 """
 NYC Cinema Dashboard - Weekly Scraper
 Runs every Wednesday via GitHub Actions
-Pulls showtimes via SerpAPI, ratings via OMDb, verdicts via Claude API
+Pulls showtimes via SerpAPI/AMC API, ratings via OMDb, verdicts via Claude API
 """
 
 import os
 import json
+import hashlib
 import requests
 import anthropic
 from datetime import datetime, timedelta
@@ -16,20 +17,120 @@ from typing import Optional
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
-THEATERS = [
-    {"name": "Metrograph", "serpapi_id": "metrograph new york"},
-    {"name": "IFC Center", "serpapi_id": "ifc center new york"},
-    {"name": "Angelika Film Center", "serpapi_id": "angelika film center new york"},
-    {"name": "Film Forum", "serpapi_id": "film forum new york"},
-    {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
-    {"name": "Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
-    {"name": "Alamo Drafthouse Lower Manhattan", "serpapi_id": "alamo drafthouse lower manhattan new york"},
-    {"name": "Paris Theater", "serpapi_id": "paris theater new york"},
+THEATER_CONFIG = {
+    "Metrograph": {
+        "slug": "metrograph",
+        "short_name": "Metrograph",
+        "sort_name": "Metrograph",
+        "source_type": "serpapi",
+        "serpapi_id": "metrograph new york",
+        "official_url": "https://metrograph.com",
+        "aliases": ["metro"],
+    },
+    "IFC Center": {
+        "slug": "ifc",
+        "short_name": "IFC",
+        "sort_name": "IFC",
+        "source_type": "serpapi",
+        "serpapi_id": "ifc center new york",
+        "official_url": "https://www.ifccenter.com",
+        "aliases": ["ifc"],
+    },
+    "Angelika Film Center": {
+        "slug": "angelika",
+        "short_name": "Angelika",
+        "sort_name": "Angelika",
+        "source_type": "serpapi",
+        "serpapi_id": "angelika film center new york",
+        "official_url": "https://angelikafilmcenter.com/nyc",
+        "aliases": ["angelika"],
+    },
+    "Film Forum": {
+        "slug": "film-forum",
+        "short_name": "Film Forum",
+        "sort_name": "Film Forum",
+        "source_type": "serpapi",
+        "serpapi_id": "film forum new york",
+        "official_url": "https://www.filmforum.org/now-playing/",
+        "aliases": ["film", "film forum"],
+    },
+    "Village East by Angelika": {
+        "slug": "village-east",
+        "short_name": "Village East",
+        "sort_name": "Village East",
+        "source_type": "serpapi",
+        "serpapi_id": "village east cinema new york",
+        "official_url": "https://angelikafilmcenter.com/villageeast",
+        "aliases": ["village", "village east"],
+    },
+    "Film at Lincoln Center": {
+        "slug": "flc",
+        "short_name": "FLC",
+        "sort_name": "FLC",
+        "source_type": "serpapi",
+        "serpapi_id": "film at lincoln center new york",
+        "official_url": "https://www.filmlinc.org/now-playing/",
+        "aliases": ["flc", "film linc", "lincoln center", "film at lincoln center"],
+    },
+    "Alamo Drafthouse Lower Manhattan": {
+        "slug": "alamo",
+        "short_name": "Alamo",
+        "sort_name": "Alamo",
+        "source_type": "serpapi",
+        "serpapi_id": "alamo drafthouse lower manhattan new york",
+        "official_url": "https://drafthouse.com/nyc",
+        "aliases": ["alamo"],
+    },
+    "Paris Theater": {
+        "slug": "paris",
+        "short_name": "Paris",
+        "sort_name": "Paris",
+        "source_type": "serpapi",
+        "serpapi_id": "paris theater new york",
+        "official_url": "https://www.paristheaternyc.com/",
+        "aliases": ["paris"],
+    },
+    "AMC Landmark 8": {
+        "slug": "amc-landmark-8",
+        "short_name": "AMC Landmark 8",
+        "sort_name": "AMC Landmark 8",
+        "source_type": "serpapi",
+        "serpapi_id": "amc landmark 8 stamford ct",
+        "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+        "aliases": [],
+    },
+    "AMC Majestic 6": {
+        "slug": "amc-majestic-6",
+        "short_name": "AMC Majestic 6",
+        "sort_name": "AMC Majestic 6",
+        "source_type": "serpapi",
+        "serpapi_id": "amc majestic 6 stamford ct",
+        "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+        "aliases": [],
+    },
+}
+
+SERPAPI_THEATERS = [
+    {"name": name, **config}
+    for name, config in THEATER_CONFIG.items()
+    if config.get("source_type") == "serpapi"
 ]
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
+AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
+AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
+AMC_ALLOWED_CITIES_BY_STATE = {
+    "NY": {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"},
+    "CT": {"STAMFORD"},
+}
+AMC_EXCLUDED_THEATRES = {
+    "AMC BAY PLAZA CINEMA 13",
+    "AMC MAGIC JOHNSON HARLEM 9",
+    "AMC STATEN ISLAND 11",
+}
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
 
@@ -45,14 +146,96 @@ NON_ALNUM = re.compile(r"[^a-z0-9]+")
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
+OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
+LEGACY_FAKE_PLOTS = {
+    "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
+    "Two cousins reunite in Poland and confront the weight of their family history.",
+    "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
+    "An epic meditation on the immigrant experience and the American Dream.",
+    "Two brothers reckon with grief, distance, and what it means to belong.",
+}
 
 
 def normalize_title(title: str) -> str:
     return NON_ALNUM.sub(" ", (title or "").lower()).strip()
 
+
+def slugify(value: str) -> str:
+    return NON_ALNUM.sub("-", (value or "").lower()).strip("-")
+
 def clean_title(raw: str) -> str:
     """Strip projection format tags from a showtime title before lookup."""
-    return FORMAT_TAGS.sub('', raw).strip(' -–—·')
+    cleaned = FORMAT_TAGS.sub('', raw).strip(' -–—·')
+    article_match = re.match(r"^(.*),\s+(The|A|An)$", cleaned, re.IGNORECASE)
+    if article_match:
+        cleaned = f"{article_match.group(2)} {article_match.group(1)}"
+    return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def extract_year_int(value: Optional[str]) -> Optional[int]:
+    match = re.search(r"\b(18|19|20)\d{2}\b", str(value or ""))
+    return int(match.group(0)) if match else None
+
+
+def make_movie_id(title: str, ratings: dict) -> str:
+    imdb_id = str((ratings or {}).get("imdbID") or "").strip()
+    if imdb_id:
+        return imdb_id
+    year = extract_year_int((ratings or {}).get("year"))
+    base = slugify(title)
+    return f"{base}-{year}" if year else base
+
+
+def build_theater_meta(name: str, overrides: Optional[dict] = None) -> dict:
+    base = dict(THEATER_CONFIG.get(name, {}))
+    if overrides:
+        base.update(overrides)
+    official_url = str(base.get("official_url") or "https://www.amctheatres.com/").strip()
+    short_name = str(base.get("short_name") or name).strip()
+    sort_name = str(base.get("sort_name") or short_name).strip()
+    return {
+        "name": name,
+        "slug": str(base.get("slug") or slugify(name)).strip(),
+        "short_name": short_name,
+        "sort_name": sort_name,
+        "source_type": str(base.get("source_type") or "serpapi").strip(),
+        "official_url": official_url,
+        "aliases": [a for a in base.get("aliases", []) if a],
+    }
+
+
+def get_source_ticket_url(theater: dict, fallback_url: Optional[str] = None) -> str:
+    return str(
+        theater.get("ticket_url")
+        or theater.get("official_url")
+        or fallback_url
+        or ""
+    ).strip()
+
+
+def format_day_label(dt: datetime) -> str:
+    return dt.strftime("%a %b %d").replace(" 0", " ")
+
+
+def format_time_label(dt: datetime) -> str:
+    return dt.strftime("%I:%M%p").lstrip("0").lower()
+
+
+def sort_time_labels(times: list[str]) -> list[str]:
+    def parse_time(value: str) -> tuple[int, int]:
+        m = re.match(r"(\d{1,2}):(\d{2})(am|pm)", (value or "").strip().lower())
+        if not m:
+            return (99, 99)
+        hour = int(m.group(1))
+        minute = int(m.group(2))
+        meridiem = m.group(3)
+        if meridiem == "pm" and hour != 12:
+            hour += 12
+        if meridiem == "am" and hour == 12:
+            hour = 0
+        return (hour, minute)
+
+    return sorted(times, key=parse_time)
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
@@ -76,8 +259,15 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                 times = []
                 for showing in movie.get("showing", []):
                     times.extend(showing.get("time", []))
-                # SerpAPI sometimes includes a year field — capture it for
-                # disambiguation when a new film shares a title with an old one.
+                ticket_url = next(
+                    (
+                        str(showing.get(key) or "").strip()
+                        for showing in movie.get("showing", [])
+                        for key in ("link", "ticket_link", "ticketUrl", "url")
+                        if str(showing.get(key) or "").strip()
+                    ),
+                    get_source_ticket_url(theater),
+                )
                 raw_year = movie.get("year") or movie.get("Year")
                 hint_year: Optional[int] = None
                 if raw_year:
@@ -91,11 +281,182 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                     "theater": theater["name"],
                     "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
                     "times": times,
+                    "ticket_url": ticket_url,
                 })
         return movies
     except Exception as e:
         print(f"  [ERROR] SerpAPI failed for {theater['name']}: {e}")
         return mock_showtimes(theater["name"])
+
+
+def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
+    if not AMC_VENDOR_KEY:
+        return None
+
+    try:
+        r = requests.get(
+            f"{AMC_API_BASE}{path}",
+            params=params or {},
+            headers={
+                "X-AMC-Vendor-Key": AMC_VENDOR_KEY,
+                "Accept": "application/json",
+            },
+            timeout=20,
+        )
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f"  [ERROR] AMC API request failed for {path}: {e}")
+        return None
+
+
+def is_supported_amc_theatre(theatre: dict) -> bool:
+    location = theatre.get("location") or {}
+    city = str(location.get("city") or "").strip().upper()
+    state = str(location.get("state") or "").strip().upper()
+    return city in AMC_ALLOWED_CITIES_BY_STATE.get(state, set())
+
+
+def fetch_amc_theatres() -> list[dict]:
+    if not AMC_VENDOR_KEY:
+        return []
+
+    theatres_by_id: dict[str, dict] = {}
+
+    if AMC_THEATRE_IDS:
+        data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": 100})
+        for theatre in ((data or {}).get("_embedded", {}) or {}).get("theatres", []):
+            theatre_id = str(theatre.get("id") or "").strip()
+            if theatre_id and not theatre.get("isClosed"):
+                theatres_by_id[theatre_id] = theatre
+    else:
+        page = 1
+        while True:
+            data = amc_request(
+                "/v2/theatres",
+                {
+                    "brand": "AMC",
+                    "page-size": 500,
+                    "page-number": page,
+                },
+            )
+            if not data:
+                break
+
+            theatres = ((data.get("_embedded", {}) or {}).get("theatres", []))
+            for theatre in theatres:
+                theatre_id = str(theatre.get("id") or "").strip()
+                if theatre_id and not theatre.get("isClosed") and is_supported_amc_theatre(theatre):
+                    theatres_by_id[theatre_id] = theatre
+
+            page_size = int(data.get("pageSize") or 0)
+            page_number = int(data.get("pageNumber") or page)
+            count = int(data.get("count") or 0)
+            if page_size <= 0 or page_number * page_size >= count:
+                break
+            page += 1
+
+    results = []
+    for theatre in theatres_by_id.values():
+        theatre_id = str(theatre.get("id") or "").strip()
+        name = (theatre.get("longName") or theatre.get("name") or "").strip()
+        if not theatre_id or not name:
+            continue
+        if name.strip().upper() in AMC_EXCLUDED_THEATRES:
+            continue
+        results.append({
+            "id": theatre_id,
+            "name": name,
+            "source": "amc",
+            "official_url": str(
+                theatre.get("websiteUrl")
+                or theatre.get("websiteURL")
+                or theatre.get("mobileUrl")
+                or theatre.get("mobileURL")
+                or "https://www.amctheatres.com/"
+            ).strip(),
+        })
+
+    return sorted(results, key=lambda t: t["name"])
+
+
+def fetch_amc_showtimes(theater: dict) -> list[dict]:
+    theatre_id = theater.get("id")
+    if not theatre_id:
+        return []
+
+    grouped: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
+    start = datetime.now()
+
+    for offset in range(7):
+        target = start + timedelta(days=offset)
+        api_date = target.strftime("%m-%d-%Y")
+        page = 1
+
+        while True:
+            data = amc_request(
+                f"/v2/theatres/{theatre_id}/showtimes/{api_date}",
+                {"page-size": 100, "page-number": page},
+            )
+            if not data:
+                break
+
+            showtimes = ((data.get("_embedded", {}) or {}).get("showtimes", []))
+            for showtime in showtimes:
+                if showtime.get("isCanceled"):
+                    continue
+
+                title = clean_title(
+                    showtime.get("sortableMovieName")
+                    or showtime.get("movieName")
+                    or showtime.get("sortableTitleName")
+                    or showtime.get("title")
+                    or ""
+                )
+                local_dt_raw = showtime.get("showDateTimeLocal")
+                if not title or not local_dt_raw:
+                    continue
+
+                try:
+                    local_dt = datetime.fromisoformat(str(local_dt_raw))
+                except Exception:
+                    continue
+
+                day_label = format_day_label(local_dt)
+                time_label = format_time_label(local_dt)
+                grouped[title][day_label].append(time_label)
+                if "__ticket_url__" not in grouped[title]:
+                    grouped[title]["__ticket_url__"] = str(
+                        showtime.get("purchaseUrl")
+                        or showtime.get("purchaseURL")
+                        or showtime.get("ticketUrl")
+                        or showtime.get("ticketURL")
+                        or showtime.get("webSalesUrl")
+                        or showtime.get("webSalesURL")
+                        or get_source_ticket_url(theater)
+                    ).strip()
+
+            page_size = int(data.get("pageSize") or 0)
+            page_number = int(data.get("pageNumber") or page)
+            count = int(data.get("count") or 0)
+            if page_size <= 0 or page_number * page_size >= count:
+                break
+            page += 1
+
+    flattened = []
+    for title, days in grouped.items():
+        ticket_url = str(days.pop("__ticket_url__", "") or get_source_ticket_url(theater)).strip()
+        for day_label, times in days.items():
+            unique_times = sort_time_labels(sorted(set(times)))
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+            })
+
+    return flattened
 
 
 def mock_showtimes(theater_name: str) -> list[dict]:
@@ -145,6 +506,28 @@ def save_json_file(path: Path, data: dict) -> None:
 
 RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
 RATING_CACHE = load_json_file(RATING_CACHE_PATH)
+
+
+def load_existing_movie_metadata(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  [WARN] Failed to load existing dashboard data: {e}")
+        return {}
+
+    movies = data.get("movies", [])
+    existing = {}
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        ratings = movie.get("ratings") or {}
+        if title and isinstance(ratings, dict):
+            existing[normalize_title(title)] = ratings
+    return existing
+
+
+EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
 
 
 def omdb_request(params: dict) -> Optional[dict]:
@@ -253,6 +636,7 @@ def parse_omdb_ratings(data: dict) -> dict:
         letterboxd_score = None
 
     return {
+        "imdbID": data.get("imdbID"),
         "rt": rt,
         "imdb": imdb_rating,
         "metacritic": data.get("Metascore"),
@@ -301,42 +685,146 @@ def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
     return omdb_request({"i": imdb_id, "tomatoes": "true"})
 
 
-CURRENT_YEAR = datetime.now().year
-
-
-def _cache_and_return(normalized: str, data: dict, source: str) -> dict:
-    RATING_CACHE[normalized] = {
-        "imdbID": data.get("imdbID"),
-        "title": data.get("Title"),
-        "year": data.get("Year"),
-        "source": source,
+def empty_ratings() -> dict:
+    return {
+        "imdbID": None,
+        "rt": None,
+        "imdb": None,
+        "metacritic": None,
+        "letterboxd": None,
+        "poster": None,
+        "genre": None,
+        "runtime": None,
+        "plot": None,
+        "year": None,
+        "director": None,
+        "cinemaScore": None,
     }
-    return data
+
+
+def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
+    if not ratings:
+        return False
+    director = str(ratings.get("director") or "").strip()
+    year = str(ratings.get("year") or "").strip()
+    plot = str(ratings.get("plot") or "").strip()
+    return (
+        (director == "Various" and year == "2024")
+        or plot in LEGACY_FAKE_PLOTS
+    )
+
+
+def merge_existing_metadata(title: str, ratings: dict) -> dict:
+    existing = EXISTING_MOVIE_METADATA.get(normalize_title(title)) or {}
+    if not existing:
+        return ratings
+
+    placeholder = is_placeholder_metadata(ratings)
+    for key in ("imdbID", "imdb", "metacritic", "letterboxd", "poster", "genre", "runtime", "plot", "year", "director", "cinemaScore"):
+        current = ratings.get(key)
+        prior = existing.get(key)
+        if prior in (None, "", "N/A"):
+            continue
+        if current in (None, "", "N/A") or (placeholder and key in {"genre", "runtime", "plot", "year", "director"}):
+            ratings[key] = prior
+
+    if not ratings.get("rt") and existing.get("rt") not in (None, "", "N/A"):
+        ratings["rt"] = existing.get("rt")
+
+    return ratings
+
+
+def apply_rating_overrides(title: str, ratings: dict) -> dict:
+    override = RATING_OVERRIDES.get(normalize_title(title), {})
+    if isinstance(override, str):
+        override = {"imdbID": override}
+    if not isinstance(override, dict):
+        return ratings
+
+    for key, value in override.items():
+        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
+            ratings[key] = value
+    return ratings
+
+
+def enrich_from_rating_cache(title: str, ratings: dict) -> dict:
+    cached = RATING_CACHE.get(normalize_title(title)) or {}
+    cached_imdb = cached.get("imdbID")
+    cached_year = cached.get("year")
+    if cached_imdb and not ratings.get("imdbID"):
+        ratings["imdbID"] = cached_imdb
+    if cached_year not in (None, "", "N/A"):
+        current_year = ratings.get("year")
+        if current_year in (None, "", "N/A", "2024") or str(current_year).strip() == "2024":
+            ratings["year"] = cached_year
+    return ratings
+
+
+def strip_placeholder_metadata(ratings: dict) -> dict:
+    director = str(ratings.get("director") or "").strip()
+    year = str(ratings.get("year") or "").strip()
+    plot = str(ratings.get("plot") or "").strip()
+    if director == "Various":
+        ratings["director"] = None
+    if plot in LEGACY_FAKE_PLOTS:
+        ratings["plot"] = None
+    if director == "Various" or plot in LEGACY_FAKE_PLOTS:
+        if year == "2024" and not ratings.get("imdbID"):
+            ratings["year"] = None
+        if str(ratings.get("genre") or "").strip() in {"Drama", "Drama, History", "Comedy, Drama", "Documentary", "Thriller"}:
+            ratings["genre"] = None
+        runtime = str(ratings.get("runtime") or "").strip()
+        if re.fullmatch(r"\d{2,3}\s+min", runtime):
+            ratings["runtime"] = None
+    return ratings
+
+
+def repair_dataset_metadata(dataset: dict) -> dict:
+    movies = dataset.get("movies", [])
+    repaired = 0
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        if not title:
+            continue
+        ratings = fetch_ratings(title)
+        if not ratings:
+            continue
+        movie["ratings"] = ratings
+        if not movie.get("id"):
+            movie["id"] = make_movie_id(title, ratings)
+        repaired += 1
+    print(f"Repaired metadata for {repaired} movies without touching showtimes")
+    return dataset
+
+
+def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85) -> bool:
+    if not data:
+        return False
+    score = title_match_score(
+        query_title,
+        data.get("Title", ""),
+        query_year=query_year,
+        result_year=data.get("Year"),
+    )
+    return score >= minimum_score
+
+
+_CURRENT_YEAR = datetime.now().year
 
 
 def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional[dict]:
     """
-    Look up a movie record in OMDb.
+    Look up a movie in OMDb, preferring year-specific matches to avoid
+    confusing a new release with an older film that shares the same title.
 
-    hint_year: year extracted from SerpAPI or the override file.
-    When present we try year-specific lookups before the unqualified fallback,
-    so a new film named after a classic isn't silently replaced by the classic.
+    hint_year: year hint from SerpAPI or rating_overrides.json.
     """
     normalized = normalize_title(title)
-
-    # ── 1. Manual override always wins ──────────────────────────────────────
     override = RATING_OVERRIDES.get(normalized, {})
     if isinstance(override, str):
         override = {"imdbID": override}
 
-    override_imdb = override.get("imdbID")
-    if override_imdb:
-        data = fetch_omdb_by_imdb_id(override_imdb)
-        if data:
-            return _cache_and_return(normalized, data, "override")
-        print(f"  [WARN] Override imdbID failed for '{title}': {override_imdb}")
-
-    # Resolve query_year: prefer explicit hint, then override, then current year
+    # Build query_year: prefer explicit hint, then override file
     query_year: Optional[int] = hint_year
     if query_year is None:
         override_year = override.get("year")
@@ -345,15 +833,25 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
         elif isinstance(override_year, str) and override_year.isdigit():
             query_year = int(override_year)
 
-    # ── 2. Cache — only trust if year matches expectation ───────────────────
+    override_imdb = override.get("imdbID")
+    if override_imdb:
+        data = fetch_omdb_by_imdb_id(override_imdb)
+        if data:
+            RATING_CACHE[normalized] = {
+                "imdbID": data.get("imdbID"),
+                "title": data.get("Title"),
+                "year": data.get("Year"),
+                "source": "override",
+            }
+            return data
+        print(f"  [WARN] Override imdbID failed for '{title}': {override_imdb}")
+
+    # Cache — skip if year expectation strongly mismatches cached result
     cached = RATING_CACHE.get(normalized) or {}
     cached_imdb = cached.get("imdbID")
-    cached_year_str = str(cached.get("year") or "")
-    cached_year = int(cached_year_str[:4]) if cached_year_str[:4].isdigit() else None
-
     if cached_imdb:
-        # If we have a hint year and the cached result is way off, skip the cache
-        # so we re-query and potentially find the right film.
+        cached_year_str = str(cached.get("year") or "")
+        cached_year = int(cached_year_str[:4]) if cached_year_str[:4].isdigit() else None
         year_mismatch = (
             query_year is not None
             and cached_year is not None
@@ -361,45 +859,55 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
         )
         if not year_mismatch:
             data = fetch_omdb_by_imdb_id(cached_imdb)
-            if data:
+            if is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70):
                 return data
 
-    # ── 3. Year-specific exact lookups (avoids grabbing same-named classics) ─
+    # Try year-specific exact lookups before the open search.
+    # This catches new releases that share a title with a classic — OMDb's
+    # unqualified search returns the most popular (usually oldest) match.
     years_to_try: list[int] = []
     if query_year:
         years_to_try = [query_year, query_year - 1, query_year + 1]
     else:
-        # No year hint — try current and previous year before the open search.
-        # This catches new releases even when SerpAPI omits the year.
-        years_to_try = [CURRENT_YEAR, CURRENT_YEAR - 1]
+        years_to_try = [_CURRENT_YEAR, _CURRENT_YEAR - 1]
 
     for y in years_to_try:
         data = omdb_request({"t": title, "y": y, "tomatoes": "true"})
-        if data:
-            result_year_str = str(data.get("Year") or "")
-            result_year = int(result_year_str[:4]) if result_year_str[:4].isdigit() else None
-            # Accept if the returned year is within 2 years of what we asked for
-            if result_year is None or abs(y - result_year) <= 2:
-                return _cache_and_return(normalized, data, "exact_year")
+        if not data:
+            continue
+        result_year_str = str(data.get("Year") or "")
+        result_year = int(result_year_str[:4]) if result_year_str[:4].isdigit() else None
+        if result_year is None or abs(y - result_year) <= 2:
+            RATING_CACHE[normalized] = {
+                "imdbID": data.get("imdbID"),
+                "title": data.get("Title"),
+                "year": data.get("Year"),
+                "source": "exact_year",
+            }
+            return data
 
-    # ── 4. Unqualified exact title search (OMDb picks most popular match) ───
+    # Unqualified exact search — OMDb picks the most popular result.
+    # Guard: if we expect a recent film and got something old, fall through.
     exact = omdb_request({"t": title, "tomatoes": "true"})
     if exact:
         result_year_str = str(exact.get("Year") or "")
         result_year = int(result_year_str[:4]) if result_year_str[:4].isdigit() else None
-        # If we expected a recent film and got something >5 years old, distrust it
-        # and fall through to the search endpoint instead.
         too_old = (
             query_year is not None
             and result_year is not None
             and (query_year - result_year) > 5
         )
-        if not too_old:
-            return _cache_and_return(normalized, exact, "exact")
+        if not too_old and is_acceptable_omdb_match(title, exact, query_year=query_year, minimum_score=0.90):
+            RATING_CACHE[normalized] = {
+                "imdbID": exact.get("imdbID"),
+                "title": exact.get("Title"),
+                "year": exact.get("Year"),
+                "source": "exact",
+            }
+            return exact
 
-    # ── 5. Full-text search with year-biased candidate ranking ───────────────
-    effective_year = query_year or CURRENT_YEAR
-
+    # Full-text search with year-biased ranking as last resort
+    effective_year = query_year or _CURRENT_YEAR
     search = omdb_request({"s": title, "type": "movie"})
     if not search:
         return None
@@ -428,8 +936,13 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
 
     best_data = fetch_omdb_by_imdb_id(best.get("imdbID"))
     if best_data:
-        return _cache_and_return(normalized, best_data, "search")
-    return None
+        RATING_CACHE[normalized] = {
+            "imdbID": best_data.get("imdbID"),
+            "title": best_data.get("Title"),
+            "year": best_data.get("Year"),
+            "source": "search",
+        }
+    return best_data
 
 def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
@@ -438,10 +951,7 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
 
     try:
         data = resolve_omdb_record(title, hint_year=hint_year)
-        if data:
-            parsed = parse_omdb_ratings(data)
-        else:
-            parsed = {"rt": None, "imdb": None, "metacritic": None, "letterboxd": None, "poster": None, "genre": None, "runtime": None, "plot": None, "year": None, "director": None, "cinemaScore": None}
+        parsed = parse_omdb_ratings(data) if data else empty_ratings()
 
         # Fallbacks for new/edge releases where OMDb is lagging.
         if not parsed.get("rt"):
@@ -449,14 +959,24 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
 
+        parsed = merge_existing_metadata(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed)
+        parsed = apply_rating_overrides(title, parsed)
+        parsed = strip_placeholder_metadata(parsed)
         return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
-        return mock_ratings(title)
+        parsed = empty_ratings()
+        parsed["rt"] = fetch_rt_fallback(title)
+        parsed["letterboxd"] = fetch_letterboxd_fallback(title)
+        parsed = merge_existing_metadata(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed)
+        parsed = apply_rating_overrides(title, parsed)
+        parsed = strip_placeholder_metadata(parsed)
+        return parsed
 
 
 def mock_ratings(title: str) -> dict:
-    import random
     rt_scores = ["94%", "87%", "72%", "65%", "91%", "55%"]
     imdb_scores = ["7.8", "8.1", "6.9", "7.2", "8.4", "6.3"]
     genres = ["Drama", "Drama, History", "Comedy, Drama", "Documentary", "Thriller"]
@@ -467,18 +987,43 @@ def mock_ratings(title: str) -> dict:
         "An epic meditation on the immigrant experience and the American Dream.",
         "Two brothers reckon with grief, distance, and what it means to belong.",
     ]
-    idx = hash(title) % len(rt_scores)
+    digest = hashlib.sha256(title.encode("utf-8")).hexdigest()
+    idx = int(digest[:8], 16) % len(rt_scores)
+    runtime_minutes = 90 + (int(digest[8:12], 16) % 61)
+    lower_title = title.lower()
+    inferred_genre = None
+    horror_markers = [
+        "ready or not",
+        "scream",
+        "horror",
+        "kill",
+        "killer",
+        "yeti",
+        "monster",
+        "haunt",
+        "ghost",
+        "blood",
+    ]
+    documentary_markers = ["doc", "documentary", "agnes", "beyond belief"]
+
+    if any(marker in lower_title for marker in horror_markers):
+        inferred_genre = "Horror, Thriller"
+    elif any(marker in lower_title for marker in documentary_markers):
+        inferred_genre = "Documentary"
+
     return {
+        "imdbID": None,
         "rt": rt_scores[idx],
         "imdb": imdb_scores[idx],
         "metacritic": str(int(rt_scores[idx].replace("%", "")) - 5),
         "letterboxd": f"{(float(imdb_scores[idx]) / 2):.1f}",
         "poster": None,
-        "genre": genres[idx % len(genres)],
-        "runtime": f"{random.randint(90, 150)} min",
+        "genre": inferred_genre or genres[idx % len(genres)],
+        "runtime": f"{runtime_minutes} min",
         "plot": plots[idx % len(plots)],
         "year": "2024",
         "director": "Various",
+        "cinemaScore": None,
     }
 
 
@@ -581,28 +1126,50 @@ def mock_verdict(title: str, ratings: dict) -> dict:
 
 def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")
-    all_movies: dict[str, dict] = {}  # keyed by title to deduplicate
+    all_movies: dict[str, dict] = {}
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
+    theater_meta: dict[str, dict] = {
+        name: build_theater_meta(name)
+        for name in THEATER_CONFIG.keys()
+    }
+    amc_theaters = fetch_amc_theatres()
+    all_theaters = [*SERPAPI_THEATERS, *amc_theaters]
 
-    for theater in THEATERS:
+    for theater in all_theaters:
         print(f"\nFetching: {theater['name']}")
-        showtimes = fetch_showtimes(theater)
+        if theater.get("source") == "amc":
+            showtimes = fetch_amc_showtimes(theater)
+        else:
+            showtimes = fetch_showtimes(theater)
 
         for entry in showtimes:
             title = entry["title"]
             theater_name = entry["theater"]
             day = entry["day"]
             times = entry["times"]
+            ticket_url = str(entry.get("ticket_url") or get_source_ticket_url(theater)).strip()
+
+            if theater_name not in theater_meta:
+                theater_meta[theater_name] = build_theater_meta(
+                    theater_name,
+                    {
+                        "source_type": theater.get("source", "amc"),
+                        "official_url": theater.get("official_url") or "https://www.amctheatres.com/",
+                    },
+                )
+
+            theater_schedule[theater_name][title].append({"day": day, "times": times, "ticket_url": ticket_url})
+
             hint_year = entry.get("hint_year")
-
-            theater_schedule[theater_name][title].append({"day": day, "times": times})
-
-            if title not in all_movies:
+            provisional_key = normalize_title(title)
+            if provisional_key not in all_movies:
                 print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
                 ratings = fetch_ratings(title, hint_year=hint_year)
+                movie_id = make_movie_id(title, ratings)
                 print(f"  Fetching verdict for: {title}")
                 verdict = fetch_verdict(title, ratings)
-                all_movies[title] = {
+                all_movies[provisional_key] = {
+                    "id": movie_id,
                     "title": title,
                     "ratings": ratings,
                     "verdict": verdict,
@@ -612,10 +1179,14 @@ def build_dataset() -> dict:
     # Attach theater + showtime info to each movie
     for theater_name, movies in theater_schedule.items():
         for title, schedule in movies.items():
-            if title in all_movies:
-                all_movies[title]["theaters"].append({
+            key = normalize_title(title)
+            if key in all_movies:
+                ticket_url = next((slot.get("ticket_url") for slot in schedule if slot.get("ticket_url")), "") or theater_meta.get(theater_name, {}).get("official_url", "")
+                clean_schedule = [{"day": slot["day"], "times": slot["times"]} for slot in schedule]
+                all_movies[key]["theaters"].append({
                     "name": theater_name,
-                    "schedule": schedule,
+                    "ticket_url": ticket_url,
+                    "schedule": clean_schedule,
                 })
 
     movies_list = sorted(
@@ -629,7 +1200,8 @@ def build_dataset() -> dict:
     return {
         "generated_at": datetime.now().isoformat(),
         "week_of": (datetime.now() + timedelta(days=(4 - datetime.now().weekday()) % 7)).strftime("%B %d, %Y"),
-        "theaters": [t["name"] for t in THEATERS],
+        "theaters": sorted(theater_schedule.keys()),
+        "theater_meta": theater_meta,
         "movies": movies_list,
     }
 
