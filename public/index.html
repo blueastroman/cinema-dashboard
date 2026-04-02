@@ -2429,14 +2429,7 @@ function renderTheaterView() {
         rtClass = n >= 70 ? 'rt-high' : n >= 50 ? 'rt-mid' : 'rt-low';
       }
 
-      const lbSlug = movie.title
-        .toLowerCase()
-        .replace(/['']/g, '')
-        .replace(/[.,:!?()&]/g, '')
-        .replace(/[^a-z0-9\s-]/g, '')
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
+      const lbSlug = slugifyLetterboxdTitle(movie.title);
       const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
       const scheduleHTML = theaterData
@@ -2544,15 +2537,7 @@ function buildCard(movie, idx) {
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
-  const lbSlug = movie.title
-    .toLowerCase()
-    .replace(/['']/g, '')
-    .replace(/[.,:!?()&]/g, '')
-    .replace(/\.\.\./g, '')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+  const lbSlug = slugifyLetterboxdTitle(movie.title);
   const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
   card.innerHTML = `
@@ -2667,8 +2652,11 @@ function getTicketUrl(theaterData) {
 
 function slugifyLetterboxdTitle(title) {
   return String(title || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/['']/g, '')
+    .replace(/\.\.\./g, '')
     .replace(/[.,:!?()&]/g, '')
     .replace(/[^a-z0-9\s-]/g, '')
     .trim()
