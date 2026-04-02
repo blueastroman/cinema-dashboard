@@ -226,7 +226,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -238,7 +238,10 @@
               "day": "Thu 02 Apr",
               "times": [
                 "21:50"
-              ]
+              ],
+              "ticket_urls": {
+                "21:50": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29627&visLang=1"
+              }
             }
           ]
         }
@@ -263,7 +266,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -275,7 +278,10 @@
               "day": "Fri 03 Apr",
               "times": [
                 "18:10"
-              ]
+              ],
+              "ticket_urls": {
+                "18:10": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29482&visLang=1"
+              }
             }
           ]
         }
@@ -300,7 +306,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -312,13 +318,19 @@
               "day": "Sat 04 Apr",
               "times": [
                 "20:30"
-              ]
+              ],
+              "ticket_urls": {
+                "20:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29493&visLang=1"
+              }
             },
             {
               "day": "Sun 05 Apr",
               "times": [
                 "21:40"
-              ]
+              ],
+              "ticket_urls": {
+                "21:40": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29507&visLang=1"
+              }
             }
           ]
         }
@@ -343,7 +355,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -355,13 +367,19 @@
               "day": "Sun 05 Apr",
               "times": [
                 "11:10"
-              ]
+              ],
+              "ticket_urls": {
+                "11:10": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29498&visLang=1"
+              }
             },
             {
               "day": "Mon 06 Apr",
               "times": [
                 "15:40"
-              ]
+              ],
+              "ticket_urls": {
+                "15:40": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29664&visLang=1"
+              }
             }
           ]
         }
@@ -386,7 +404,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -423,7 +441,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -496,7 +514,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -597,7 +615,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -700,7 +718,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -762,7 +780,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -847,7 +865,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -885,7 +903,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -955,7 +973,7 @@
     },
     {
       "id": "tt0111341",
-      "title": "S\u00e1t\u00e1ntang\u00f3",
+      "title": "Sátántangó",
       "ratings": {
         "imdbID": "tt0111341",
         "rt": "100%",
@@ -965,14 +983,14 @@
         "poster": "https://m.media-amazon.com/images/M/MV5BM2U1ZGYwNTItMjcwMS00ZTdjLWE2OWUtNDI5M2JlNjdmMTZlXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama",
         "runtime": "439 min",
-        "plot": "On the eve of a large payment, residents of a collapsing collective farm see their plans turn into desolation when they discover that Irimi\u00e1s, a former co-worker who they thought was dead, is returning to the community.",
+        "plot": "On the eve of a large payment, residents of a collapsing collective farm see their plans turn into desolation when they discover that Irimiás, a former co-worker who they thought was dead, is returning to the community.",
         "year": "1994",
-        "director": "B\u00e9la Tarr",
+        "director": "Béla Tarr",
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1009,7 +1027,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1046,7 +1064,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1058,13 +1076,19 @@
               "day": "Fri 03 Apr",
               "times": [
                 "18:25"
-              ]
+              ],
+              "ticket_urls": {
+                "18:25": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29480&visLang=1"
+              }
             },
             {
               "day": "Sat 04 Apr",
               "times": [
                 "16:30"
-              ]
+              ],
+              "ticket_urls": {
+                "16:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29491&visLang=1"
+              }
             }
           ]
         }
@@ -1072,7 +1096,7 @@
     },
     {
       "id": "tt9530198",
-      "title": "Varda by Agn\u00e8s",
+      "title": "Varda by Agnès",
       "ratings": {
         "imdbID": "tt9530198",
         "rt": "98%",
@@ -1083,13 +1107,13 @@
         "poster": "https://m.media-amazon.com/images/M/MV5BODU2MDhhMzUtOGMyMi00MzliLThjMjQtYTk1ZjNmZDVhNGRiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Documentary, Biography",
         "runtime": "119 min",
-        "plot": "Agn\u00e8s Varda, photographer, installation artist and pioneer of the Nouvelle Vague, is an institution of French cinema. Taking a seat on a theatre stage, she uses photos and film excerpts to provide an insight into her unorthodox oe...",
+        "plot": "Agnès Varda, photographer, installation artist and pioneer of the Nouvelle Vague, is an institution of French cinema. Taking a seat on a theatre stage, she uses photos and film excerpts to provide an insight into her unorthodox oe...",
         "year": "2019",
-        "director": "Agn\u00e8s Varda"
+        "director": "Agnès Varda"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1126,7 +1150,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1163,7 +1187,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1200,7 +1224,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1212,7 +1236,10 @@
               "day": "Sun 05 Apr",
               "times": [
                 "19:30"
-              ]
+              ],
+              "ticket_urls": {
+                "19:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29505&visLang=1"
+              }
             }
           ]
         }
@@ -1237,7 +1264,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1249,7 +1276,10 @@
               "day": "Sun 05 Apr",
               "times": [
                 "16:30"
-              ]
+              ],
+              "ticket_urls": {
+                "16:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29504&visLang=1"
+              }
             }
           ]
         }
@@ -1274,7 +1304,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1311,7 +1341,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1348,7 +1378,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -1420,7 +1450,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -2612,7 +2642,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -2655,7 +2685,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -2719,7 +2749,7 @@
     },
     {
       "id": "tt32298285",
-      "title": "Sir\u00e2t",
+      "title": "Sirât",
       "ratings": {
         "imdbID": "tt32298285",
         "rt": "94%",
@@ -2736,7 +2766,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -2840,7 +2870,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -2883,7 +2913,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3724,7 +3754,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3761,7 +3791,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3773,7 +3803,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "14:20"
-              ]
+              ],
+              "ticket_urls": {
+                "14:20": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29489&visLang=1"
+              }
             }
           ]
         }
@@ -3798,7 +3831,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3810,7 +3843,10 @@
               "day": "Sun 05 Apr",
               "times": [
                 "14:30"
-              ]
+              ],
+              "ticket_urls": {
+                "14:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29500&visLang=1"
+              }
             }
           ]
         }
@@ -3829,13 +3865,13 @@
         "poster": "https://m.media-amazon.com/images/M/MV5BYTYyMGE1MDktYzEyNS00MzI5LTg1YjMtYmNkN2QwMTkwYzJiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Talk-Show",
         "runtime": "N/A",
-        "plot": "In her new TV show, Else K\u00e5ss Furuseth will invite some of her absolute favorites from Norwegian entertainment life to some fun in the theater, a guest of honor. This guest will receive a mixture of tribute and loving roast.",
-        "year": "2025\u2013",
+        "plot": "In her new TV show, Else Kåss Furuseth will invite some of her absolute favorites from Norwegian entertainment life to some fun in the theater, a guest of honor. This guest will receive a mixture of tribute and loving roast.",
+        "year": "2025–",
         "director": "N/A"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3872,7 +3908,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3951,7 +3987,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -3977,7 +4013,7 @@
     },
     {
       "id": "tt0055852",
-      "title": "Cl\u00e9o from 5 to 7",
+      "title": "Cléo from 5 to 7",
       "ratings": {
         "imdbID": "tt0055852",
         "rt": "93%",
@@ -3990,11 +4026,11 @@
         "runtime": "90 min",
         "plot": "Cleo, a singer and hypochondriac, becomes increasingly worried that she might have cancer while awaiting test results from her doctor.",
         "year": "1962",
-        "director": "Agn\u00e8s Varda"
+        "director": "Agnès Varda"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4031,7 +4067,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4080,7 +4116,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4092,13 +4128,19 @@
               "day": "Sat 04 Apr",
               "times": [
                 "12:00"
-              ]
+              ],
+              "ticket_urls": {
+                "12:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29487&visLang=1"
+              }
             },
             {
               "day": "Sun 05 Apr",
               "times": [
                 "21:45"
-              ]
+              ],
+              "ticket_urls": {
+                "21:45": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29508&visLang=1"
+              }
             }
           ]
         }
@@ -4123,7 +4165,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4217,7 +4259,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4229,13 +4271,19 @@
               "day": "Fri 03 Apr",
               "times": [
                 "20:30"
-              ]
+              ],
+              "ticket_urls": {
+                "20:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29481&visLang=1"
+              }
             },
             {
               "day": "Sat 04 Apr",
               "times": [
                 "18:30"
-              ]
+              ],
+              "ticket_urls": {
+                "18:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29492&visLang=1"
+              }
             }
           ]
         }
@@ -4260,7 +4308,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4272,7 +4320,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "14:00"
-              ]
+              ],
+              "ticket_urls": {
+                "14:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29682&visLang=1"
+              }
             }
           ]
         }
@@ -4297,7 +4348,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4309,7 +4360,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "17:30"
-              ]
+              ],
+              "ticket_urls": {
+                "17:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29665&visLang=1"
+              }
             }
           ]
         }
@@ -4334,7 +4388,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4419,7 +4473,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4431,13 +4485,19 @@
               "day": "Thu 02 Apr",
               "times": [
                 "20:00"
-              ]
+              ],
+              "ticket_urls": {
+                "20:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29625&visLang=1"
+              }
             },
             {
               "day": "Mon 06 Apr",
               "times": [
                 "14:00"
-              ]
+              ],
+              "ticket_urls": {
+                "14:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29663&visLang=1"
+              }
             }
           ]
         }
@@ -4462,7 +4522,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4474,13 +4534,19 @@
               "day": "Fri 03 Apr",
               "times": [
                 "15:15"
-              ]
+              ],
+              "ticket_urls": {
+                "15:15": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29478&visLang=1"
+              }
             },
             {
               "day": "Mon 06 Apr",
               "times": [
                 "18:10"
-              ]
+              ],
+              "ticket_urls": {
+                "18:10": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29661&visLang=1"
+              }
             }
           ]
         }
@@ -4505,7 +4571,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4517,7 +4583,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "14:15"
-              ]
+              ],
+              "ticket_urls": {
+                "14:15": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29488&visLang=1"
+              }
             }
           ]
         }
@@ -4542,7 +4611,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4591,7 +4660,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4634,7 +4703,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4646,7 +4715,10 @@
               "day": "Sun 05 Apr",
               "times": [
                 "13:30"
-              ]
+              ],
+              "ticket_urls": {
+                "13:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29503&visLang=1"
+              }
             }
           ]
         }
@@ -4671,7 +4743,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4708,7 +4780,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4745,7 +4817,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4782,7 +4854,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4794,7 +4866,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "20:00"
-              ]
+              ],
+              "ticket_urls": {
+                "20:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29666&visLang=1"
+              }
             }
           ]
         }
@@ -4819,7 +4894,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4831,7 +4906,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "16:00"
-              ]
+              ],
+              "ticket_urls": {
+                "16:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29660&visLang=1"
+              }
             }
           ]
         }
@@ -4856,7 +4934,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -4899,7 +4977,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5359,11 +5437,11 @@
         "runtime": "122 min",
         "plot": "In 1930s Algeria, the daily life of an indifferent Frenchman is shaken by the death of his mother and a fateful encounter on a beach.",
         "year": "2025",
-        "director": "Fran\u00e7ois Ozon"
+        "director": "François Ozon"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5512,7 +5590,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5555,7 +5633,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5598,7 +5676,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5610,13 +5688,19 @@
               "day": "Fri 03 Apr",
               "times": [
                 "20:20"
-              ]
+              ],
+              "ticket_urls": {
+                "20:20": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29483&visLang=1"
+              }
             },
             {
               "day": "Sat 04 Apr",
               "times": [
                 "20:30"
-              ]
+              ],
+              "ticket_urls": {
+                "20:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29494&visLang=1"
+              }
             }
           ]
         }
@@ -5641,7 +5725,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5680,7 +5764,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5692,7 +5776,10 @@
               "day": "Thu 02 Apr",
               "times": [
                 "19:50"
-              ]
+              ],
+              "ticket_urls": {
+                "19:50": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29624&visLang=1"
+              }
             }
           ]
         }
@@ -5717,7 +5804,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5729,7 +5816,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "22:45"
-              ]
+              ],
+              "ticket_urls": {
+                "22:45": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29495&visLang=1"
+              }
             }
           ]
         }
@@ -5754,7 +5844,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5766,7 +5856,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "22:45"
-              ]
+              ],
+              "ticket_urls": {
+                "22:45": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29496&visLang=1"
+              }
             }
           ]
         }
@@ -5791,7 +5884,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5803,7 +5896,10 @@
               "day": "Fri 03 Apr",
               "times": [
                 "22:35"
-              ]
+              ],
+              "ticket_urls": {
+                "22:35": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29485&visLang=1"
+              }
             }
           ]
         }
@@ -5828,7 +5924,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5907,7 +6003,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5944,7 +6040,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -5981,7 +6077,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7106,7 +7202,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7375,7 +7471,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7412,7 +7508,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7449,7 +7545,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7486,7 +7582,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -7529,7 +7625,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -8013,7 +8109,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -8050,7 +8146,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -8181,7 +8277,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -8406,7 +8502,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -8418,7 +8514,10 @@
               "day": "Sun 05 Apr",
               "times": [
                 "11:30"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29502&visLang=1"
+              }
             }
           ]
         }
@@ -8443,7 +8542,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9023,12 +9122,12 @@
         "genre": "Crime, Drama",
         "runtime": "N/A",
         "plot": "Diana leads a specialized investigative team for the most urgent cases. From the state-of-the-art mobile command center, the Alpha 00, the team coordinates complex operations on-site.",
-        "year": "2026\u2013",
+        "year": "2026–",
         "director": "N/A"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9110,7 +9209,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9358,12 +9457,12 @@
         "genre": "Crime, Drama",
         "runtime": "47 min",
         "plot": "A dramatization of the life and death of Montreal mob boss Vito Rizzuto.",
-        "year": "2017\u20132018",
+        "year": "2017–2018",
         "director": "N/A"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9396,11 +9495,11 @@
         "runtime": "14 min",
         "plot": "One night of the eighteenth century, in the depths of the mountain, a human being is lost and finds a small temple. In the moment when he enters the room space is transformed into a completely different world.",
         "year": "2012",
-        "director": "Sh\u00fbhei Morita"
+        "director": "Shûhei Morita"
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9437,7 +9536,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9449,7 +9548,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "18:30"
-              ]
+              ],
+              "ticket_urls": {
+                "18:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29497&visLang=1"
+              }
             }
           ]
         }
@@ -9474,7 +9576,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9486,7 +9588,10 @@
               "day": "Sat 04 Apr",
               "times": [
                 "16:30"
-              ]
+              ],
+              "ticket_urls": {
+                "16:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29490&visLang=1"
+              }
             }
           ]
         }
@@ -9523,7 +9628,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "21:15"
-              ]
+              ],
+              "ticket_urls": {
+                "21:15": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29662&visLang=1"
+              }
             }
           ]
         }
@@ -9560,7 +9668,10 @@
               "day": "Mon 06 Apr",
               "times": [
                 "22:00"
-              ]
+              ],
+              "ticket_urls": {
+                "22:00": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29667&visLang=1"
+              }
             }
           ]
         }
@@ -9685,7 +9796,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -9845,7 +9956,7 @@
     },
     {
       "id": "tt15845614",
-      "title": "Billy Preston: That\u2019s The Way God Planned It",
+      "title": "Billy Preston: That’s The Way God Planned It",
       "ratings": {
         "imdbID": "tt15845614",
         "rt": null,
@@ -9883,7 +9994,7 @@
     },
     {
       "id": "jane-b-par-agn-s-v",
-      "title": "Jane B. par Agn\u00e8s V.",
+      "title": "Jane B. par Agnès V.",
       "ratings": {
         "imdbID": null,
         "rt": null,
@@ -10388,7 +10499,7 @@
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "reason": "Critics are united — this one earns its runtime.",
         "vibe": "Essential"
       },
       "theaters": [
@@ -10578,7 +10689,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -10887,12 +10998,12 @@
         "genre": "Drama",
         "runtime": "N/A",
         "plot": "Reunited with his first love after three years, Wataru must choose between protecting a lifelong friendship and risking it all for romance.",
-        "year": "2026\u2013",
+        "year": "2026–",
         "director": "N/A"
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -10985,7 +11096,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -11022,7 +11133,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -11059,7 +11170,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -11096,7 +11207,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -11108,7 +11219,10 @@
               "day": "Fri 03 Apr",
               "times": [
                 "15:30"
-              ]
+              ],
+              "ticket_urls": {
+                "15:30": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=29479&visLang=1"
+              }
             }
           ]
         }
@@ -11133,7 +11247,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -12802,7 +12916,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
@@ -12845,7 +12959,7 @@
       },
       "verdict": {
         "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
+        "reason": "The scores don't lie — pass on this one.",
         "vibe": "Mediocre"
       },
       "theaters": [
