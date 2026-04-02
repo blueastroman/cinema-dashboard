@@ -38,7 +38,7 @@
       "slug": "ifc",
       "short_name": "IFC",
       "sort_name": "IFC",
-      "source_type": "serpapi",
+      "source_type": "ifc",
       "official_url": "https://www.ifccenter.com",
       "aliases": [
         "ifc"
@@ -416,7 +416,11 @@
               "day": "Today",
               "times": [
                 "12:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550083~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550083~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -453,13 +457,21 @@
               "day": "Today",
               "times": [
                 "4:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550088~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550088~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
               "times": [
                 "3:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "3:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551104~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551104~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
@@ -471,13 +483,21 @@
               "day": "Sun Apr 5",
               "times": [
                 "3:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "3:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551105~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551105~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "3:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "3:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551108~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551108~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
@@ -489,7 +509,11 @@
               "day": "Wed Apr 8",
               "times": [
                 "3:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "3:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551106~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551106~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -1162,7 +1186,11 @@
               "day": "Today",
               "times": [
                 "10:35am"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550094~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550094~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -1199,7 +1227,11 @@
               "day": "Tue Apr 7",
               "times": [
                 "7:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548998~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548998~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -2699,49 +2731,85 @@
                 "10:50am",
                 "2:40pm",
                 "7:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:50am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550076~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550064~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550065~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550076~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
               "times": [
                 "1:30pm",
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551090~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551091~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551090~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "1:30pm",
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551092~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551093~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551092~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "1:30pm",
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551094~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551095~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551094~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "1:30pm",
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551102~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551096~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551102~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "1:05pm",
                 "6:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:05pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551097~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551103~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551097~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "1:30pm",
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551098~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551099~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551098~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -2882,13 +2950,21 @@
               "day": "Tomorrow",
               "times": [
                 "11:59pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:59pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550967~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550967~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:59pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:59pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550969~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550969~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -3883,7 +3959,11 @@
               "day": "Today",
               "times": [
                 "10:45am"
-              ]
+              ],
+              "ticket_urls": {
+                "10:45am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549978~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549978~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -3922,7 +4002,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551065~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551066~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:20pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551067~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551065~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
@@ -3930,7 +4016,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551068~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551069~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:20pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551070~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551068~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
@@ -3938,7 +4030,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551071~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551072~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:20pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551073~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551071~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
@@ -3946,7 +4044,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551063~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551064~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551074~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551063~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
@@ -3954,7 +4058,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551056~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551057~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:20pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551058~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551056~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Wed Apr 8",
@@ -3962,7 +4072,13 @@
                 "10:35am",
                 "2:35pm",
                 "7:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551075~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551076~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551059~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551075~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -3999,13 +4115,21 @@
               "day": "Tomorrow",
               "times": [
                 "11:55pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:55pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550963~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550963~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:55pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:55pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550965~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550965~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -4403,7 +4527,14 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549656~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549668~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549674~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549680~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549656~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
@@ -4412,7 +4543,14 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549657~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549669~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549675~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549681~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549657~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
@@ -4421,7 +4559,14 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549658~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549670~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549676~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549682~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549658~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
@@ -4430,7 +4575,14 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549659~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549671~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549677~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549683~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549659~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
@@ -4439,7 +4591,14 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549660~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549672~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549678~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549684~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549660~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Wed Apr 8",
@@ -4448,7 +4607,13 @@
                 "4:00pm",
                 "6:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549661~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "4:00pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549673~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549679~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549661~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -4623,19 +4788,31 @@
               "day": "Today",
               "times": [
                 "9:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550961~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550961~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
               "times": [
                 "11:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550966~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550966~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550968~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550968~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -4946,13 +5123,21 @@
               "day": "Tomorrow",
               "times": [
                 "11:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551124~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551124~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551125~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551125~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -5938,34 +6123,56 @@
                 "3:15pm",
                 "7:30pm",
                 "9:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:30pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550022~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550023~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550022~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
               "times": [
                 "12:35pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551050~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551045~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551050~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "12:35pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551046~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551046~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "12:35pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551047~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551047~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "12:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551049~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551049~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
@@ -5978,7 +6185,11 @@
               "day": "Wed Apr 8",
               "times": [
                 "12:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551051~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=551051~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -7594,13 +7805,21 @@
               "day": "Tomorrow",
               "times": [
                 "11:59pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:59pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550962~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550962~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:59pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:59pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550964~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550964~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }
@@ -9142,42 +9361,71 @@
                 "3:50pm",
                 "6:45pm",
                 "9:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:55pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548500~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "3:50pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548507~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "6:45pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548513~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548520~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=548500~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
               "times": [
                 "12:40pm",
                 "9:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550994~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550988~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550994~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "12:40pm",
                 "9:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550989~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550989~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "12:40pm",
                 "9:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550990~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550990~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "12:40pm",
                 "9:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550991~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550991~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "12:40pm",
                 "9:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550995~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:25pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550992~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550995~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Wed Apr 8",
@@ -9901,7 +10149,11 @@
               "day": "Today",
               "times": [
                 "5:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:15pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549986~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=549986~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tomorrow",
@@ -9909,7 +10161,13 @@
                 "11:05am",
                 "5:35pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:05am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550982~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "5:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550970~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550971~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550982~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sat Apr 4",
@@ -9917,7 +10175,13 @@
                 "11:05am",
                 "5:35pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:05am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550983~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "5:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550972~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550973~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550983~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Sun Apr 5",
@@ -9925,7 +10189,13 @@
                 "11:05am",
                 "5:35pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:05am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550984~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "5:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550974~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550975~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550984~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Mon Apr 6",
@@ -9933,14 +10203,25 @@
                 "11:05am",
                 "5:35pm",
                 "9:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:05am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550985~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "5:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550980~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:50pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550977~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550985~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "11:05am",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:05am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550978~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "9:40pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550987~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550978~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             },
             {
               "day": "Wed Apr 8",
@@ -9948,7 +10229,12 @@
                 "11:35am",
                 "5:35pm",
                 "9:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:35am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550986~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "5:35pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550976~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              },
+              "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=550986~8722a542-64c1-4c0b-af02-c3e8a239d769&"
             }
           ]
         }

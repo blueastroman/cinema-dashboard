@@ -32,7 +32,8 @@ THEATER_CONFIG = {
         "slug": "ifc",
         "short_name": "IFC",
         "sort_name": "IFC",
-        "source_type": "serpapi",
+        "source_type": "ifc",
+        "source_url": "https://www.ifccenter.com/now-playing/",
         "serpapi_id": "ifc center new york",
         "official_url": "https://www.ifccenter.com",
         "aliases": ["ifc"],
@@ -378,6 +379,73 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
                 elif ticket_url.startswith("/"):
                     ticket_url = f"https://t.metrograph.com{ticket_url}"
                 grouped[title][day_label][time_label] = ticket_url or get_source_ticket_url(theater)
+
+    flattened = []
+    for title, days in grouped.items():
+        for day_label, time_map in days.items():
+            unique_times = sort_time_labels(list(time_map.keys()))
+            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+            })
+
+    return flattened
+
+
+def fetch_ifc_showtimes(theater: dict) -> list[dict]:
+    source_url = str(theater.get("source_url") or "").strip()
+    if not source_url:
+        return []
+
+    try:
+        response = requests.get(source_url, timeout=20)
+        response.raise_for_status()
+        content = response.text
+    except Exception as e:
+        print(f"  [ERROR] IFC fetch failed for {theater['name']}: {e}")
+        return []
+
+    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+
+    day_blocks = re.findall(
+        r'(<div class="daily-schedule\s+[^"]*">.*?)(?=<div class="daily-schedule\s+[^"]*"|$)',
+        content,
+        re.DOTALL | re.IGNORECASE,
+    )
+
+    for full_block in day_blocks:
+        day_match = re.search(r"<h3>([^<]+)</h3>", full_block, re.IGNORECASE)
+        if not day_match:
+            continue
+        clean_day = html.unescape(re.sub(r"\s+", " ", day_match.group(1)).strip())
+        movie_blocks = re.findall(
+            r'<div class="details">\s*<h3><a href="[^"]+">([^<]+)</a></h3>\s*<ul class="times">(.*?)</ul>',
+            full_block,
+            re.DOTALL | re.IGNORECASE,
+        )
+
+        for raw_title, times_html in movie_blocks:
+            title = clean_title(html.unescape(raw_title).strip())
+            if not title:
+                continue
+
+            links = re.findall(
+                r'<a href="([^"]*ticketsearchcriteria[^"]*)"[^>]*>([^<]+)</a>',
+                times_html,
+                re.DOTALL | re.IGNORECASE,
+            )
+            for href, raw_time in links:
+                time_label = html.unescape(raw_time).strip().upper()
+                if not time_label:
+                    continue
+                ticket_url = html.unescape(href).replace("&#038;", "&").strip()
+                grouped[title][clean_day][time_label] = ticket_url or get_source_ticket_url(theater)
 
     flattened = []
     for title, days in grouped.items():
@@ -1319,6 +1387,8 @@ def build_dataset() -> dict:
             showtimes = fetch_amc_showtimes(theater)
         elif theater.get("source_type") == "metrograph":
             showtimes = fetch_metrograph_showtimes(theater)
+        elif theater.get("source_type") == "ifc":
+            showtimes = fetch_ifc_showtimes(theater)
         else:
             showtimes = fetch_showtimes(theater)
 
