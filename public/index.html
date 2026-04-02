@@ -835,6 +835,15 @@
       line-height: 1.25;
     }
 
+    .best-pick-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .best-pick-title a:hover {
+      text-decoration: underline;
+    }
+
     .best-pick-meta {
       margin-top: 6px;
       font-size: 0.78rem;
@@ -849,6 +858,15 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--accent);
+    }
+
+    .best-pick-time a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .best-pick-time a:hover {
+      text-decoration: underline;
     }
 
     .best-pick-score {
@@ -2279,11 +2297,23 @@ function renderTheaterView() {
             const meta = [movie.ratings?.year, movie.ratings?.director].filter(Boolean).join(' · ');
             const score = movie.ratings?.rt || getLetterboxdScore(movie) || 'Unscored';
             const scoreLabel = movie.ratings?.rt ? 'RT' : (getLetterboxdScore(movie) ? 'LB' : '');
+            const lbSlug = slugifyLetterboxdTitle(movie.title);
+            const lbUrl = lbSlug ? `https://letterboxd.com/film/${lbSlug}/` : '';
+            const theaterName = getDisplayTheaterName(entry.theaterData.name);
+            const ticketUrl = getTicketUrl(entry.theaterData);
             return `
               <div class="best-pick">
-                <div class="best-pick-title">${movie.title}</div>
-                <div class="best-pick-meta">${meta || getDisplayTheaterName(entry.theaterData.name)}</div>
-                <div class="best-pick-time">${getDisplayTheaterName(entry.theaterData.name)} · ${entry.nextShow.time}</div>
+                <div class="best-pick-title">${
+                  lbUrl
+                    ? `<a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>`
+                    : movie.title
+                }</div>
+                <div class="best-pick-meta">${meta || theaterName}</div>
+                <div class="best-pick-time">${
+                  ticketUrl
+                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener">${theaterName} · ${entry.nextShow.time}</a>`
+                    : `${theaterName} · ${entry.nextShow.time}`
+                }</div>
                 <div class="best-pick-score">${score}${scoreLabel ? ` ${scoreLabel}` : ''}</div>
                 ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
               </div>
@@ -2606,6 +2636,17 @@ function makeSlug(title) {
 
 function getTicketUrl(theaterData) {
   return String(theaterData?.ticket_url || getTheaterUrl(theaterData?.name) || '').trim();
+}
+
+function slugifyLetterboxdTitle(title) {
+  return String(title || '')
+    .toLowerCase()
+    .replace(/['']/g, '')
+    .replace(/[.,:!?()&]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
 }
 
 function buildScheduleHTML(theaterData) {

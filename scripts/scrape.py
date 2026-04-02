@@ -734,7 +734,7 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
         return ratings
 
     for key, value in override.items():
-        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"} and value not in (None, "", "N/A"):
+        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
             ratings[key] = value
     return ratings
 
