@@ -739,6 +739,56 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
     return ratings
 
 
+def enrich_from_rating_cache(title: str, ratings: dict) -> dict:
+    cached = RATING_CACHE.get(normalize_title(title)) or {}
+    cached_imdb = cached.get("imdbID")
+    cached_year = cached.get("year")
+    if cached_imdb and not ratings.get("imdbID"):
+        ratings["imdbID"] = cached_imdb
+    if cached_year not in (None, "", "N/A"):
+        current_year = ratings.get("year")
+        if current_year in (None, "", "N/A", "2024") or str(current_year).strip() == "2024":
+            ratings["year"] = cached_year
+    return ratings
+
+
+def strip_placeholder_metadata(ratings: dict) -> dict:
+    director = str(ratings.get("director") or "").strip()
+    year = str(ratings.get("year") or "").strip()
+    plot = str(ratings.get("plot") or "").strip()
+    if director == "Various":
+        ratings["director"] = None
+    if plot in LEGACY_FAKE_PLOTS:
+        ratings["plot"] = None
+    if director == "Various" or plot in LEGACY_FAKE_PLOTS:
+        if year == "2024" and not ratings.get("imdbID"):
+            ratings["year"] = None
+        if str(ratings.get("genre") or "").strip() in {"Drama", "Drama, History", "Comedy, Drama", "Documentary", "Thriller"}:
+            ratings["genre"] = None
+        runtime = str(ratings.get("runtime") or "").strip()
+        if re.fullmatch(r"\d{2,3}\s+min", runtime):
+            ratings["runtime"] = None
+    return ratings
+
+
+def repair_dataset_metadata(dataset: dict) -> dict:
+    movies = dataset.get("movies", [])
+    repaired = 0
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        if not title:
+            continue
+        ratings = fetch_ratings(title)
+        if not ratings:
+            continue
+        movie["ratings"] = ratings
+        if not movie.get("id"):
+            movie["id"] = make_movie_id(title, ratings)
+        repaired += 1
+    print(f"Repaired metadata for {repaired} movies without touching showtimes")
+    return dataset
+
+
 def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year: Optional[int] = None, minimum_score: float = 0.85) -> bool:
     if not data:
         return False
@@ -845,7 +895,9 @@ def fetch_ratings(title: str) -> dict:
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
 
         parsed = merge_existing_metadata(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed)
         parsed = apply_rating_overrides(title, parsed)
+        parsed = strip_placeholder_metadata(parsed)
         return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
@@ -853,7 +905,9 @@ def fetch_ratings(title: str) -> dict:
         parsed["rt"] = fetch_rt_fallback(title)
         parsed["letterboxd"] = fetch_letterboxd_fallback(title)
         parsed = merge_existing_metadata(title, parsed)
+        parsed = enrich_from_rating_cache(title, parsed)
         parsed = apply_rating_overrides(title, parsed)
+        parsed = strip_placeholder_metadata(parsed)
         return parsed
 
 
