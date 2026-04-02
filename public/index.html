@@ -1104,6 +1104,7 @@ let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
 let viewMode = 'theaters';
+let hasLoadedData = false;
 const CONFIDENCE_THRESHOLD = 60;
 const NYC_TIMEZONE = 'America/New_York';
 
@@ -1675,6 +1676,7 @@ function initDashboard(data) {
     ...movie,
     _confidence: getMovieConfidence(movie),
   }));
+  hasLoadedData = true;
 
   // Theater dropdown
   const theaters = getAvailableTheaters(data);
@@ -1848,7 +1850,7 @@ function renderSection(label, labelClass, list, main) {
 }
 
 function render() {
-  updateUrlFromState();
+  if (hasLoadedData) updateUrlFromState();
   if (viewMode === 'theaters') { renderTheaterView(); return; }
 
   const movies = getFiltered();
@@ -2478,6 +2480,7 @@ document.getElementById('search-input').addEventListener('input', e => {
   render();
 });
 
+readFiltersFromUrl();
 initializeViewMode();
 syncDateScopeButtons();
 
