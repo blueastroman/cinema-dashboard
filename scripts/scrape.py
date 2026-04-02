@@ -17,17 +17,103 @@ from typing import Optional
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
+THEATER_CONFIG = {
+    "Metrograph": {
+        "slug": "metrograph",
+        "short_name": "Metrograph",
+        "sort_name": "Metrograph",
+        "source_type": "serpapi",
+        "serpapi_id": "metrograph new york",
+        "official_url": "https://metrograph.com",
+        "aliases": ["metro"],
+    },
+    "IFC Center": {
+        "slug": "ifc",
+        "short_name": "IFC",
+        "sort_name": "IFC",
+        "source_type": "serpapi",
+        "serpapi_id": "ifc center new york",
+        "official_url": "https://www.ifccenter.com",
+        "aliases": ["ifc"],
+    },
+    "Angelika Film Center": {
+        "slug": "angelika",
+        "short_name": "Angelika",
+        "sort_name": "Angelika",
+        "source_type": "serpapi",
+        "serpapi_id": "angelika film center new york",
+        "official_url": "https://angelikafilmcenter.com/nyc",
+        "aliases": ["angelika"],
+    },
+    "Film Forum": {
+        "slug": "film-forum",
+        "short_name": "Film Forum",
+        "sort_name": "Film Forum",
+        "source_type": "serpapi",
+        "serpapi_id": "film forum new york",
+        "official_url": "https://www.filmforum.org/now-playing/",
+        "aliases": ["film", "film forum"],
+    },
+    "Village East by Angelika": {
+        "slug": "village-east",
+        "short_name": "Village East",
+        "sort_name": "Village East",
+        "source_type": "serpapi",
+        "serpapi_id": "village east cinema new york",
+        "official_url": "https://angelikafilmcenter.com/villageeast",
+        "aliases": ["village", "village east"],
+    },
+    "Film at Lincoln Center": {
+        "slug": "flc",
+        "short_name": "FLC",
+        "sort_name": "FLC",
+        "source_type": "serpapi",
+        "serpapi_id": "film at lincoln center new york",
+        "official_url": "https://www.filmlinc.org/now-playing/",
+        "aliases": ["flc", "film linc", "lincoln center", "film at lincoln center"],
+    },
+    "Alamo Drafthouse Lower Manhattan": {
+        "slug": "alamo",
+        "short_name": "Alamo",
+        "sort_name": "Alamo",
+        "source_type": "serpapi",
+        "serpapi_id": "alamo drafthouse lower manhattan new york",
+        "official_url": "https://drafthouse.com/nyc",
+        "aliases": ["alamo"],
+    },
+    "Paris Theater": {
+        "slug": "paris",
+        "short_name": "Paris",
+        "sort_name": "Paris",
+        "source_type": "serpapi",
+        "serpapi_id": "paris theater new york",
+        "official_url": "https://www.paristheaternyc.com/",
+        "aliases": ["paris"],
+    },
+    "AMC Landmark 8": {
+        "slug": "amc-landmark-8",
+        "short_name": "AMC Landmark 8",
+        "sort_name": "AMC Landmark 8",
+        "source_type": "serpapi",
+        "serpapi_id": "amc landmark 8 stamford ct",
+        "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+        "aliases": [],
+    },
+    "AMC Majestic 6": {
+        "slug": "amc-majestic-6",
+        "short_name": "AMC Majestic 6",
+        "sort_name": "AMC Majestic 6",
+        "source_type": "serpapi",
+        "serpapi_id": "amc majestic 6 stamford ct",
+        "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+        "aliases": [],
+    },
+}
+
 SERPAPI_THEATERS = [
-    {"name": "Metrograph", "serpapi_id": "metrograph new york"},
-    {"name": "IFC Center", "serpapi_id": "ifc center new york"},
-    {"name": "Angelika Film Center", "serpapi_id": "angelika film center new york"},
-    {"name": "Film Forum", "serpapi_id": "film forum new york"},
-    {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
-    {"name": "Film at Lincoln Center", "serpapi_id": "film at lincoln center new york"},
-    {"name": "Alamo Drafthouse Lower Manhattan", "serpapi_id": "alamo drafthouse lower manhattan new york"},
-    {"name": "Paris Theater", "serpapi_id": "paris theater new york"},
-    {"name": "AMC Landmark 8", "serpapi_id": "amc landmark 8 stamford ct"},
-    {"name": "AMC Majestic 6", "serpapi_id": "amc majestic 6 stamford ct"},
+    {"name": name, **config}
+    for name, config in THEATER_CONFIG.items()
+    if config.get("source_type") == "serpapi"
 ]
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
@@ -65,6 +151,10 @@ RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
 def normalize_title(title: str) -> str:
     return NON_ALNUM.sub(" ", (title or "").lower()).strip()
 
+
+def slugify(value: str) -> str:
+    return NON_ALNUM.sub("-", (value or "").lower()).strip("-")
+
 def clean_title(raw: str) -> str:
     """Strip projection format tags from a showtime title before lookup."""
     cleaned = FORMAT_TAGS.sub('', raw).strip(' -–—·')
@@ -72,6 +162,47 @@ def clean_title(raw: str) -> str:
     if article_match:
         cleaned = f"{article_match.group(2)} {article_match.group(1)}"
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def extract_year_int(value: Optional[str]) -> Optional[int]:
+    match = re.search(r"\b(18|19|20)\d{2}\b", str(value or ""))
+    return int(match.group(0)) if match else None
+
+
+def make_movie_id(title: str, ratings: dict) -> str:
+    imdb_id = str((ratings or {}).get("imdbID") or "").strip()
+    if imdb_id:
+        return imdb_id
+    year = extract_year_int((ratings or {}).get("year"))
+    base = slugify(title)
+    return f"{base}-{year}" if year else base
+
+
+def build_theater_meta(name: str, overrides: Optional[dict] = None) -> dict:
+    base = dict(THEATER_CONFIG.get(name, {}))
+    if overrides:
+        base.update(overrides)
+    official_url = str(base.get("official_url") or "https://www.amctheatres.com/").strip()
+    short_name = str(base.get("short_name") or name).strip()
+    sort_name = str(base.get("sort_name") or short_name).strip()
+    return {
+        "name": name,
+        "slug": str(base.get("slug") or slugify(name)).strip(),
+        "short_name": short_name,
+        "sort_name": sort_name,
+        "source_type": str(base.get("source_type") or "serpapi").strip(),
+        "official_url": official_url,
+        "aliases": [a for a in base.get("aliases", []) if a],
+    }
+
+
+def get_source_ticket_url(theater: dict, fallback_url: Optional[str] = None) -> str:
+    return str(
+        theater.get("ticket_url")
+        or theater.get("official_url")
+        or fallback_url
+        or ""
+    ).strip()
 
 
 def format_day_label(dt: datetime) -> str:
@@ -120,11 +251,21 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                 times = []
                 for showing in movie.get("showing", []):
                     times.extend(showing.get("time", []))
+                ticket_url = next(
+                    (
+                        str(showing.get(key) or "").strip()
+                        for showing in movie.get("showing", [])
+                        for key in ("link", "ticket_link", "ticketUrl", "url")
+                        if str(showing.get(key) or "").strip()
+                    ),
+                    get_source_ticket_url(theater),
+                )
                 movies.append({
                     "title": clean_title(movie.get("name", "Unknown")),
                     "theater": theater["name"],
                     "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
                     "times": times,
+                    "ticket_url": ticket_url,
                 })
         return movies
     except Exception as e:
@@ -211,6 +352,13 @@ def fetch_amc_theatres() -> list[dict]:
             "id": theatre_id,
             "name": name,
             "source": "amc",
+            "official_url": str(
+                theatre.get("websiteUrl")
+                or theatre.get("websiteURL")
+                or theatre.get("mobileUrl")
+                or theatre.get("mobileURL")
+                or "https://www.amctheatres.com/"
+            ).strip(),
         })
 
     return sorted(results, key=lambda t: t["name"])
@@ -261,6 +409,16 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                 day_label = format_day_label(local_dt)
                 time_label = format_time_label(local_dt)
                 grouped[title][day_label].append(time_label)
+                if "__ticket_url__" not in grouped[title]:
+                    grouped[title]["__ticket_url__"] = str(
+                        showtime.get("purchaseUrl")
+                        or showtime.get("purchaseURL")
+                        or showtime.get("ticketUrl")
+                        or showtime.get("ticketURL")
+                        or showtime.get("webSalesUrl")
+                        or showtime.get("webSalesURL")
+                        or get_source_ticket_url(theater)
+                    ).strip()
 
             page_size = int(data.get("pageSize") or 0)
             page_number = int(data.get("pageNumber") or page)
@@ -271,6 +429,7 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
 
     flattened = []
     for title, days in grouped.items():
+        ticket_url = str(days.pop("__ticket_url__", "") or get_source_ticket_url(theater)).strip()
         for day_label, times in days.items():
             unique_times = sort_time_labels(sorted(set(times)))
             flattened.append({
@@ -278,6 +437,7 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                 "theater": theater["name"],
                 "day": day_label,
                 "times": unique_times,
+                "ticket_url": ticket_url,
             })
 
     return flattened
@@ -438,6 +598,7 @@ def parse_omdb_ratings(data: dict) -> dict:
         letterboxd_score = None
 
     return {
+        "imdbID": data.get("imdbID"),
         "rt": rt,
         "imdb": imdb_rating,
         "metacritic": data.get("Metascore"),
@@ -488,6 +649,7 @@ def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
 
 def empty_ratings() -> dict:
     return {
+        "imdbID": None,
         "rt": None,
         "imdb": None,
         "metacritic": None,
@@ -652,6 +814,7 @@ def mock_ratings(title: str) -> dict:
         inferred_genre = "Documentary"
 
     return {
+        "imdbID": None,
         "rt": rt_scores[idx],
         "imdb": imdb_scores[idx],
         "metacritic": str(int(rt_scores[idx].replace("%", "")) - 5),
@@ -662,6 +825,7 @@ def mock_ratings(title: str) -> dict:
         "plot": plots[idx % len(plots)],
         "year": "2024",
         "director": "Various",
+        "cinemaScore": None,
     }
 
 
@@ -764,8 +928,12 @@ def mock_verdict(title: str, ratings: dict) -> dict:
 
 def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")
-    all_movies: dict[str, dict] = {}  # keyed by title to deduplicate
+    all_movies: dict[str, dict] = {}
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
+    theater_meta: dict[str, dict] = {
+        name: build_theater_meta(name)
+        for name in THEATER_CONFIG.keys()
+    }
     amc_theaters = fetch_amc_theatres()
     all_theaters = [*SERPAPI_THEATERS, *amc_theaters]
 
@@ -781,15 +949,28 @@ def build_dataset() -> dict:
             theater_name = entry["theater"]
             day = entry["day"]
             times = entry["times"]
+            ticket_url = str(entry.get("ticket_url") or get_source_ticket_url(theater)).strip()
 
-            theater_schedule[theater_name][title].append({"day": day, "times": times})
+            if theater_name not in theater_meta:
+                theater_meta[theater_name] = build_theater_meta(
+                    theater_name,
+                    {
+                        "source_type": theater.get("source", "amc"),
+                        "official_url": theater.get("official_url") or "https://www.amctheatres.com/",
+                    },
+                )
 
-            if title not in all_movies:
+            theater_schedule[theater_name][title].append({"day": day, "times": times, "ticket_url": ticket_url})
+
+            provisional_key = normalize_title(title)
+            if provisional_key not in all_movies:
                 print(f"  Fetching ratings for: {title}")
                 ratings = fetch_ratings(title)
+                movie_id = make_movie_id(title, ratings)
                 print(f"  Fetching verdict for: {title}")
                 verdict = fetch_verdict(title, ratings)
-                all_movies[title] = {
+                all_movies[provisional_key] = {
+                    "id": movie_id,
                     "title": title,
                     "ratings": ratings,
                     "verdict": verdict,
@@ -799,10 +980,14 @@ def build_dataset() -> dict:
     # Attach theater + showtime info to each movie
     for theater_name, movies in theater_schedule.items():
         for title, schedule in movies.items():
-            if title in all_movies:
-                all_movies[title]["theaters"].append({
+            key = normalize_title(title)
+            if key in all_movies:
+                ticket_url = next((slot.get("ticket_url") for slot in schedule if slot.get("ticket_url")), "") or theater_meta.get(theater_name, {}).get("official_url", "")
+                clean_schedule = [{"day": slot["day"], "times": slot["times"]} for slot in schedule]
+                all_movies[key]["theaters"].append({
                     "name": theater_name,
-                    "schedule": schedule,
+                    "ticket_url": ticket_url,
+                    "schedule": clean_schedule,
                 })
 
     movies_list = sorted(
@@ -817,6 +1002,7 @@ def build_dataset() -> dict:
         "generated_at": datetime.now().isoformat(),
         "week_of": (datetime.now() + timedelta(days=(4 - datetime.now().weekday()) % 7)).strftime("%B %d, %Y"),
         "theaters": sorted(theater_schedule.keys()),
+        "theater_meta": theater_meta,
         "movies": movies_list,
     }
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T23:03:40.467284",
+  "generated_at": "2026-04-01T23:38:06.526436",
   "week_of": "April 03, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -21,20 +21,207 @@
     "Paris Theater",
     "Village East by Angelika"
   ],
+  "theater_meta": {
+    "Metrograph": {
+      "name": "Metrograph",
+      "slug": "metrograph",
+      "short_name": "Metrograph",
+      "sort_name": "Metrograph",
+      "source_type": "serpapi",
+      "official_url": "https://metrograph.com",
+      "aliases": [
+        "metro"
+      ]
+    },
+    "IFC Center": {
+      "name": "IFC Center",
+      "slug": "ifc",
+      "short_name": "IFC",
+      "sort_name": "IFC",
+      "source_type": "serpapi",
+      "official_url": "https://www.ifccenter.com",
+      "aliases": [
+        "ifc"
+      ]
+    },
+    "Angelika Film Center": {
+      "name": "Angelika Film Center",
+      "slug": "angelika",
+      "short_name": "Angelika",
+      "sort_name": "Angelika",
+      "source_type": "serpapi",
+      "official_url": "https://angelikafilmcenter.com/nyc",
+      "aliases": [
+        "angelika"
+      ]
+    },
+    "Film Forum": {
+      "name": "Film Forum",
+      "slug": "film-forum",
+      "short_name": "Film Forum",
+      "sort_name": "Film Forum",
+      "source_type": "serpapi",
+      "official_url": "https://www.filmforum.org/now-playing/",
+      "aliases": [
+        "film",
+        "film forum"
+      ]
+    },
+    "Village East by Angelika": {
+      "name": "Village East by Angelika",
+      "slug": "village-east",
+      "short_name": "Village East",
+      "sort_name": "Village East",
+      "source_type": "serpapi",
+      "official_url": "https://angelikafilmcenter.com/villageeast",
+      "aliases": [
+        "village",
+        "village east"
+      ]
+    },
+    "Film at Lincoln Center": {
+      "name": "Film at Lincoln Center",
+      "slug": "flc",
+      "short_name": "FLC",
+      "sort_name": "FLC",
+      "source_type": "serpapi",
+      "official_url": "https://www.filmlinc.org/now-playing/",
+      "aliases": [
+        "flc",
+        "film linc",
+        "lincoln center",
+        "film at lincoln center"
+      ]
+    },
+    "Alamo Drafthouse Lower Manhattan": {
+      "name": "Alamo Drafthouse Lower Manhattan",
+      "slug": "alamo",
+      "short_name": "Alamo",
+      "sort_name": "Alamo",
+      "source_type": "serpapi",
+      "official_url": "https://drafthouse.com/nyc",
+      "aliases": [
+        "alamo"
+      ]
+    },
+    "Paris Theater": {
+      "name": "Paris Theater",
+      "slug": "paris",
+      "short_name": "Paris",
+      "sort_name": "Paris",
+      "source_type": "serpapi",
+      "official_url": "https://www.paristheaternyc.com/",
+      "aliases": [
+        "paris"
+      ]
+    },
+    "AMC Landmark 8": {
+      "name": "AMC Landmark 8",
+      "slug": "amc-landmark-8",
+      "short_name": "AMC Landmark 8",
+      "sort_name": "AMC Landmark 8",
+      "source_type": "serpapi",
+      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+      "aliases": []
+    },
+    "AMC Majestic 6": {
+      "name": "AMC Majestic 6",
+      "slug": "amc-majestic-6",
+      "short_name": "AMC Majestic 6",
+      "sort_name": "AMC Majestic 6",
+      "source_type": "serpapi",
+      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+      "aliases": []
+    },
+    "AMC 19th St. East 6": {
+      "name": "AMC 19th St. East 6",
+      "slug": "amc-19th-st-east-6",
+      "short_name": "AMC 19th St. East 6",
+      "sort_name": "AMC 19th St. East 6",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+      "aliases": []
+    },
+    "AMC 34th Street 14": {
+      "name": "AMC 34th Street 14",
+      "slug": "amc-34th-street-14",
+      "short_name": "AMC 34th Street 14",
+      "sort_name": "AMC 34th Street 14",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
+      "aliases": []
+    },
+    "AMC 84th Street 6": {
+      "name": "AMC 84th Street 6",
+      "slug": "amc-84th-street-6",
+      "short_name": "AMC 84th Street 6",
+      "sort_name": "AMC 84th Street 6",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-84th-street-6",
+      "aliases": []
+    },
+    "AMC Empire 25": {
+      "name": "AMC Empire 25",
+      "slug": "amc-empire-25",
+      "short_name": "AMC Empire 25",
+      "sort_name": "AMC Empire 25",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
+      "aliases": []
+    },
+    "AMC Kips Bay 15": {
+      "name": "AMC Kips Bay 15",
+      "slug": "amc-kips-bay-15",
+      "short_name": "AMC Kips Bay 15",
+      "sort_name": "AMC Kips Bay 15",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
+      "aliases": []
+    },
+    "AMC Lincoln Square 13": {
+      "name": "AMC Lincoln Square 13",
+      "slug": "amc-lincoln-square-13",
+      "short_name": "AMC Lincoln Square 13",
+      "sort_name": "AMC Lincoln Square 13",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+      "aliases": []
+    },
+    "AMC Orpheum 7": {
+      "name": "AMC Orpheum 7",
+      "slug": "amc-orpheum-7",
+      "short_name": "AMC Orpheum 7",
+      "sort_name": "AMC Orpheum 7",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
+      "aliases": []
+    },
+    "AMC Village 7": {
+      "name": "AMC Village 7",
+      "slug": "amc-village-7",
+      "short_name": "AMC Village 7",
+      "sort_name": "AMC Village 7",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
+      "aliases": []
+    }
+  },
   "movies": [
     {
+      "id": "ju-dou",
       "title": "Ju Dou",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "129 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -45,6 +232,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -57,18 +245,20 @@
       ]
     },
     {
+      "id": "sambizanga",
       "title": "Sambizanga",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "112 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -79,6 +269,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -91,18 +282,20 @@
       ]
     },
     {
+      "id": "three-colors-red",
       "title": "Three Colors: Red",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "142 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -113,6 +306,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -131,18 +325,20 @@
       ]
     },
     {
+      "id": "mr-nobody-against-putin",
       "title": "Mr Nobody Against Putin",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "135 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -153,6 +349,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -165,18 +362,20 @@
       ]
     },
     {
+      "id": "palestine-36",
       "title": "Palestine 36",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "137 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -187,6 +386,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -263,18 +463,20 @@
       ]
     },
     {
+      "id": "the-blue-trail",
       "title": "The Blue Trail",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "118 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -285,6 +487,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -363,18 +566,20 @@
       ]
     },
     {
+      "id": "living-the-land",
       "title": "Living the Land",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "93 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -385,6 +590,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -445,18 +651,20 @@
       ]
     },
     {
+      "id": "the-love-parade",
       "title": "The Love Parade",
       "ratings": {
+        "imdbID": null,
         "rt": "100%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "115 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -467,6 +675,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -480,18 +689,20 @@
       ]
     },
     {
+      "id": "pillion",
       "title": "Pillion",
       "ratings": {
+        "imdbID": null,
         "rt": "99%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "125 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -502,6 +713,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -526,18 +738,20 @@
       ]
     },
     {
+      "id": "nirvanna-the-band-the-show-the-movie",
       "title": "Nirvanna: The Band - the Show - the Movie",
       "ratings": {
+        "imdbID": null,
         "rt": "98%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "145 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -548,6 +762,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -596,18 +811,20 @@
       ]
     },
     {
+      "id": "no-other-choice",
       "title": "No Other Choice",
       "ratings": {
+        "imdbID": null,
         "rt": "97%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "116 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -618,6 +835,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -630,18 +848,20 @@
       ]
     },
     {
+      "id": "pompei-below-the-clouds",
       "title": "Pompei: Below the Clouds",
       "ratings": {
+        "imdbID": null,
         "rt": "97%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "91 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -652,6 +872,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -664,18 +885,20 @@
       ]
     },
     {
+      "id": "hundreds-of-beavers",
       "title": "Hundreds of Beavers",
       "ratings": {
+        "imdbID": null,
         "rt": "97%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "114 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -686,6 +909,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -698,18 +922,20 @@
       ]
     },
     {
+      "id": "two-prosecutors",
       "title": "Two Prosecutors",
       "ratings": {
+        "imdbID": null,
         "rt": "97%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "141 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -720,6 +946,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -767,18 +994,20 @@
       ]
     },
     {
+      "id": "three-colors-blue",
       "title": "Three Colors: Blue",
       "ratings": {
+        "imdbID": null,
         "rt": "96%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "137 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -789,6 +1018,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -807,18 +1037,20 @@
       ]
     },
     {
+      "id": "gods-and-monsters",
       "title": "Gods and Monsters",
       "ratings": {
+        "imdbID": null,
         "rt": "96%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "145 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -829,6 +1061,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -841,18 +1074,20 @@
       ]
     },
     {
+      "id": "fantasia",
       "title": "Fantasia",
       "ratings": {
+        "imdbID": null,
         "rt": "95%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "148 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -863,6 +1098,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -875,18 +1111,20 @@
       ]
     },
     {
+      "id": "project-hail-mary",
       "title": "Project Hail Mary",
       "ratings": {
+        "imdbID": null,
         "rt": "95%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "124 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -897,6 +1135,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -936,6 +1175,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -1019,6 +1259,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -1149,6 +1390,7 @@
         },
         {
           "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -1274,6 +1516,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/140777923",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1352,6 +1595,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/140669950",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1462,6 +1706,7 @@
         },
         {
           "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141759488",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1547,6 +1792,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799970",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1686,6 +1932,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869679",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1812,6 +2059,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838980",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -1918,6 +2166,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/140658346",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2002,6 +2251,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/140831148",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2084,18 +2334,20 @@
       ]
     },
     {
+      "id": "fargo",
       "title": "Fargo",
       "ratings": {
+        "imdbID": null,
         "rt": "95%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "94 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -2106,6 +2358,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -2118,18 +2371,20 @@
       ]
     },
     {
+      "id": "midnight-run",
       "title": "Midnight Run",
       "ratings": {
+        "imdbID": null,
         "rt": "95%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "117 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -2140,6 +2395,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -2158,18 +2414,20 @@
       ]
     },
     {
+      "id": "miroirs-no-3",
       "title": "Miroirs No. 3",
       "ratings": {
+        "imdbID": null,
         "rt": "94%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "144 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -2180,6 +2438,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -2236,18 +2495,20 @@
       ]
     },
     {
+      "id": "hoppers",
       "title": "Hoppers",
       "ratings": {
+        "imdbID": null,
         "rt": "94%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "116 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -2258,6 +2519,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -2321,6 +2583,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -2448,6 +2711,7 @@
         },
         {
           "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -2582,6 +2846,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141713540",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2657,6 +2922,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732648",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2730,6 +2996,7 @@
         },
         {
           "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141759460",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2804,6 +3071,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799797",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2881,6 +3149,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869686",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -2966,6 +3235,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838991",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -3040,6 +3310,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141799574",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -3109,6 +3380,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141733448",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -3182,18 +3454,20 @@
       ]
     },
     {
+      "id": "the-red-turtle",
       "title": "The Red Turtle",
       "ratings": {
+        "imdbID": null,
         "rt": "93%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "126 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3204,6 +3478,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -3216,18 +3491,20 @@
       ]
     },
     {
+      "id": "best-in-show",
       "title": "Best in Show",
       "ratings": {
+        "imdbID": null,
         "rt": "93%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "134 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3238,6 +3515,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -3250,18 +3528,20 @@
       ]
     },
     {
+      "id": "dj-ahmet",
       "title": "DJ Ahmet",
       "ratings": {
+        "imdbID": null,
         "rt": "93%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "119 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3272,6 +3552,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3326,18 +3607,20 @@
       ]
     },
     {
+      "id": "no-country-for-old-men",
       "title": "No Country for Old Men",
       "ratings": {
+        "imdbID": null,
         "rt": "93%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "111 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3348,6 +3631,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3366,18 +3650,20 @@
       ]
     },
     {
+      "id": "goodfellas",
       "title": "Goodfellas",
       "ratings": {
+        "imdbID": null,
         "rt": "93%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "107 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3388,6 +3674,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3412,18 +3699,20 @@
       ]
     },
     {
+      "id": "monty-python-and-the-holy-grail",
       "title": "Monty Python and the Holy Grail",
       "ratings": {
+        "imdbID": null,
         "rt": "92%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "141 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3434,6 +3723,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -3452,18 +3742,20 @@
       ]
     },
     {
+      "id": "kontinental-25",
       "title": "Kontinental '25",
       "ratings": {
+        "imdbID": null,
         "rt": "92%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "127 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3474,6 +3766,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -3543,18 +3836,20 @@
       ]
     },
     {
+      "id": "three-colors-white",
       "title": "Three Colors: White",
       "ratings": {
+        "imdbID": null,
         "rt": "91%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "138 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3565,6 +3860,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3583,18 +3879,20 @@
       ]
     },
     {
+      "id": "clouds-of-sils-maria",
       "title": "Clouds of Sils Maria",
       "ratings": {
+        "imdbID": null,
         "rt": "91%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "134 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3605,6 +3903,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -3617,18 +3916,20 @@
       ]
     },
     {
+      "id": "point-blank",
       "title": "Point Blank",
       "ratings": {
+        "imdbID": null,
         "rt": "91%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "123 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3639,6 +3940,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -3651,18 +3953,20 @@
       ]
     },
     {
+      "id": "blue-velvet",
       "title": "Blue Velvet",
       "ratings": {
+        "imdbID": null,
         "rt": "91%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "122 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3673,6 +3977,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3733,18 +4038,20 @@
       ]
     },
     {
+      "id": "zodiac",
       "title": "Zodiac",
       "ratings": {
+        "imdbID": null,
         "rt": "90%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "117 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3755,6 +4062,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3773,18 +4081,20 @@
       ]
     },
     {
+      "id": "shanghai-triad",
       "title": "Shanghai Triad",
       "ratings": {
+        "imdbID": null,
         "rt": "90%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "138 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3795,6 +4105,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -3807,18 +4118,20 @@
       ]
     },
     {
+      "id": "2001-a-space-odyssey",
       "title": "2001: A Space Odyssey",
       "ratings": {
+        "imdbID": null,
         "rt": "90%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "126 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3829,6 +4142,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -3853,18 +4167,20 @@
       ]
     },
     {
+      "id": "eastern-promises",
       "title": "Eastern Promises",
       "ratings": {
+        "imdbID": null,
         "rt": "90%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "100 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3875,6 +4191,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -3893,18 +4210,20 @@
       ]
     },
     {
+      "id": "nostalghia",
       "title": "Nostalghia",
       "ratings": {
+        "imdbID": null,
         "rt": "88%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "99 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3915,6 +4234,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -3927,18 +4247,20 @@
       ]
     },
     {
+      "id": "le-bonheur",
       "title": "Le bonheur",
       "ratings": {
+        "imdbID": null,
         "rt": "88%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "115 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3949,6 +4271,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -3961,18 +4284,20 @@
       ]
     },
     {
+      "id": "donnie-brasco",
       "title": "Donnie Brasco",
       "ratings": {
+        "imdbID": null,
         "rt": "88%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "123 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -3983,6 +4308,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -3995,18 +4321,20 @@
       ]
     },
     {
+      "id": "she-dances",
       "title": "She Dances",
       "ratings": {
+        "imdbID": null,
         "rt": "88%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "97 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4017,6 +4345,7 @@
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141550700",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -4037,18 +4366,20 @@
       ]
     },
     {
+      "id": "let-the-sunshine-in",
       "title": "Let the Sunshine In",
       "ratings": {
+        "imdbID": null,
         "rt": "87%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "119 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4059,6 +4390,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -4071,18 +4403,20 @@
       ]
     },
     {
+      "id": "the-ai-doc-or-how-i-became-an-apocaloptimist",
       "title": "The AI Doc: Or How I Became an Apocaloptimist",
       "ratings": {
+        "imdbID": null,
         "rt": "87%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "127 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4093,6 +4427,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -4108,6 +4443,7 @@
         },
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -4123,6 +4459,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -4164,6 +4501,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4256,6 +4594,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141202534",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -4308,6 +4647,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/34thstreet/all/141900273",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4350,6 +4690,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141039923",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -4406,6 +4747,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776860",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -4457,6 +4799,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141886342",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4501,6 +4844,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141018102",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -4516,18 +4860,20 @@
       ]
     },
     {
+      "id": "the-stranger",
       "title": "The Stranger",
       "ratings": {
+        "imdbID": null,
         "rt": "87%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "112 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4538,6 +4884,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -4603,6 +4950,7 @@
         },
         {
           "name": "Film at Lincoln Center",
+          "ticket_url": "https://www.filmlinc.org/now-playing/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -4661,18 +5009,20 @@
       ]
     },
     {
+      "id": "gosford-park",
       "title": "Gosford Park",
       "ratings": {
+        "imdbID": null,
         "rt": "87%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "92 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4683,6 +5033,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -4701,18 +5052,20 @@
       ]
     },
     {
+      "id": "eraserhead",
       "title": "Eraserhead",
       "ratings": {
+        "imdbID": null,
         "rt": "87%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "116 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4723,6 +5076,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -4741,18 +5095,20 @@
       ]
     },
     {
+      "id": "dead-lover",
       "title": "Dead Lover",
       "ratings": {
+        "imdbID": null,
         "rt": "86%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "120 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4763,6 +5119,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -4817,18 +5174,20 @@
       ]
     },
     {
+      "id": "red-sorghum",
       "title": "Red Sorghum",
       "ratings": {
+        "imdbID": null,
         "rt": "85%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "109 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4839,6 +5198,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4851,18 +5211,20 @@
       ]
     },
     {
+      "id": "goat",
       "title": "Goat",
       "ratings": {
+        "imdbID": null,
         "rt": "85%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "123 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4873,6 +5235,7 @@
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/142010307",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -4917,18 +5280,20 @@
       ]
     },
     {
+      "id": "millennium-mambo",
       "title": "Millennium Mambo",
       "ratings": {
+        "imdbID": null,
         "rt": "84%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "134 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4939,6 +5304,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -4951,18 +5317,20 @@
       ]
     },
     {
+      "id": "the-matrix",
       "title": "The Matrix",
       "ratings": {
+        "imdbID": null,
         "rt": "83%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "94 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -4973,6 +5341,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -4985,18 +5354,20 @@
       ]
     },
     {
+      "id": "beetlejuice",
       "title": "Beetlejuice",
       "ratings": {
+        "imdbID": null,
         "rt": "83%",
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "135 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -5007,6 +5378,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -5019,18 +5391,20 @@
       ]
     },
     {
+      "id": "beyond-silence",
       "title": "Beyond Silence",
       "ratings": {
+        "imdbID": null,
         "rt": "83%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "105 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -5041,6 +5415,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -5053,18 +5428,20 @@
       ]
     },
     {
+      "id": "fantasy-life",
       "title": "Fantasy Life",
       "ratings": {
+        "imdbID": null,
         "rt": "82%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "101 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -5075,6 +5452,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -5157,6 +5535,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -5203,6 +5582,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141475121",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5268,6 +5648,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/kipsbay/all/141932123",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -5309,18 +5690,20 @@
       ]
     },
     {
+      "id": "the-drama",
       "title": "The Drama",
       "ratings": {
+        "imdbID": null,
         "rt": "82%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "94 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -5331,6 +5714,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -5408,6 +5792,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -5514,6 +5899,7 @@
         },
         {
           "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -5640,6 +6026,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/19thstreet/all/141315032",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5726,6 +6113,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/34thstreet/all/141376717",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5856,6 +6244,7 @@
         },
         {
           "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/84thstreet/all/141441337",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -5936,6 +6325,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141469850",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6059,6 +6449,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141364774",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6189,6 +6580,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141493075",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6307,6 +6699,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/orpheum/all/141476562",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6368,6 +6761,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/village7/all/141517118",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6448,18 +6842,20 @@
       ]
     },
     {
+      "id": "the-rocky-horror-picture-show",
       "title": "The Rocky Horror Picture Show",
       "ratings": {
+        "imdbID": null,
         "rt": "81%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "109 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -6470,6 +6866,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -6482,18 +6879,20 @@
       ]
     },
     {
+      "id": "the-outfit",
       "title": "The Outfit",
       "ratings": {
+        "imdbID": null,
         "rt": "80%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "105 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -6504,6 +6903,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -6522,18 +6922,20 @@
       ]
     },
     {
+      "id": "tow",
       "title": "Tow",
       "ratings": {
+        "imdbID": null,
         "rt": "78%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "126 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -6544,6 +6946,7 @@
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -6556,18 +6959,20 @@
       ]
     },
     {
+      "id": "naked-lunch",
       "title": "Naked Lunch",
       "ratings": {
+        "imdbID": null,
         "rt": "73%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "99 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -6578,6 +6983,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -6596,18 +7002,20 @@
       ]
     },
     {
+      "id": "ready-or-not-2-here-i-come",
       "title": "Ready or Not 2: Here I Come",
       "ratings": {
+        "imdbID": null,
         "rt": "73%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "111 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -6618,6 +7026,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -6671,6 +7080,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -6756,6 +7166,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/140669991",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -6827,6 +7238,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140832839",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -6903,6 +7315,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776906",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -6960,6 +7373,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141839001",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7008,6 +7422,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/140862859",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7059,6 +7474,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141733495",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7106,18 +7522,20 @@
       ]
     },
     {
+      "id": "clue",
       "title": "Clue",
       "ratings": {
+        "imdbID": null,
         "rt": "73%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "131 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -7128,6 +7546,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -7140,18 +7559,20 @@
       ]
     },
     {
+      "id": "marc-by-sofia",
       "title": "Marc by Sofia",
       "ratings": {
+        "imdbID": null,
         "rt": "71%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "121 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -7162,6 +7583,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -7244,6 +7666,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141469939",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7297,6 +7720,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141932060",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -7338,6 +7762,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141839007",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7359,18 +7784,20 @@
       ]
     },
     {
+      "id": "suspiria",
       "title": "Suspiria",
       "ratings": {
+        "imdbID": null,
         "rt": "65%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "95 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -7381,6 +7808,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -7399,18 +7827,20 @@
       ]
     },
     {
+      "id": "they-will-kill-you",
       "title": "They Will Kill You",
       "ratings": {
+        "imdbID": null,
         "rt": "63%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "122 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -7421,6 +7851,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -7492,6 +7923,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -7583,6 +8015,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141074209",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7660,6 +8093,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141039805",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7738,6 +8172,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869657",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7816,6 +8251,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838997",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7885,6 +8321,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141023443",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -7946,6 +8383,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141254229",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -8016,18 +8454,20 @@
       ]
     },
     {
+      "id": "holy-days",
       "title": "Holy Days",
       "ratings": {
+        "imdbID": null,
         "rt": "63%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "107 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -8038,6 +8478,7 @@
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141475119",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -8056,18 +8497,20 @@
       ]
     },
     {
+      "id": "a-magnificent-life",
       "title": "A Magnificent Life",
       "ratings": {
+        "imdbID": null,
         "rt": "62%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "114 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -8078,6 +8521,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -8093,6 +8537,7 @@
         },
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -8108,6 +8553,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141469901",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -8120,6 +8566,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776823",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -8134,18 +8581,20 @@
       ]
     },
     {
+      "id": "crime-101",
       "title": "Crime 101",
       "ratings": {
+        "imdbID": null,
         "rt": "59%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "109 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -8156,6 +8605,7 @@
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/142010422",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8168,18 +8618,20 @@
       ]
     },
     {
+      "id": "alpha",
       "title": "Alpha",
       "ratings": {
+        "imdbID": null,
         "rt": "57%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "124 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -8190,6 +8642,7 @@
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -8247,18 +8700,20 @@
       ]
     },
     {
+      "id": "reminders-of-him",
       "title": "Reminders of Him",
       "ratings": {
+        "imdbID": null,
         "rt": "57%",
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "103 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -8269,6 +8724,7 @@
       "theaters": [
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8365,6 +8821,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/19thstreet/all/141900212",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8406,6 +8863,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799891",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -8457,6 +8915,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141960598",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8499,28 +8958,31 @@
       ]
     },
     {
+      "id": "the-player",
       "title": "The Player",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "147 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8533,28 +8995,31 @@
       ]
     },
     {
+      "id": "allegro-non-troppo",
       "title": "Allegro non troppo",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "145 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8573,28 +9038,31 @@
       ]
     },
     {
+      "id": "bad-blood",
       "title": "Bad Blood",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "134 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -8607,28 +9075,31 @@
       ]
     },
     {
+      "id": "possessions",
       "title": "Possessions",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "133 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -8641,28 +9112,31 @@
       ]
     },
     {
+      "id": "the-holy-mountain",
       "title": "The Holy Mountain",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "118 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -8675,28 +9149,31 @@
       ]
     },
     {
+      "id": "the-seventh-seal",
       "title": "The Seventh Seal",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "105 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -8709,28 +9186,31 @@
       ]
     },
     {
+      "id": "the-wrestler-and-the-clown",
       "title": "The Wrestler and the Clown",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "102 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -8743,28 +9223,31 @@
       ]
     },
     {
+      "id": "bountiful-summer",
       "title": "Bountiful Summer",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "90 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -8777,28 +9260,31 @@
       ]
     },
     {
+      "id": "the-gospel-according-to-st-matthew",
       "title": "The Gospel According to St. Matthew",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "122 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -8811,28 +9297,31 @@
       ]
     },
     {
+      "id": "the-darjeeling-limited",
       "title": "The Darjeeling Limited",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "135 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -8845,28 +9334,31 @@
       ]
     },
     {
+      "id": "invention-for-destruction",
       "title": "Invention for Destruction",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "99 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -8885,28 +9377,31 @@
       ]
     },
     {
+      "id": "richard-iii",
       "title": "Richard III",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "107 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -8919,28 +9414,31 @@
       ]
     },
     {
+      "id": "stalker",
       "title": "Stalker",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "110 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -8953,28 +9451,31 @@
       ]
     },
     {
+      "id": "the-story-of-qiu-ju",
       "title": "The Story of Qiu Ju",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "90 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -8987,28 +9488,31 @@
       ]
     },
     {
+      "id": "the-trap",
       "title": "The Trap",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "91 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -9021,28 +9525,31 @@
       ]
     },
     {
+      "id": "sir-t",
       "title": "Sir\u00e2t",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "110 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9097,6 +9604,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -9121,28 +9629,31 @@
       ]
     },
     {
+      "id": "2026-oscar-nominated-shorts",
       "title": "2026 Oscar Nominated Shorts",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "115 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9218,28 +9729,31 @@
       ]
     },
     {
+      "id": "serpent-s-path",
       "title": "Serpent's Path",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "135 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9308,28 +9822,31 @@
       ]
     },
     {
+      "id": "after-hours",
       "title": "After Hours",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "102 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9389,28 +9906,31 @@
       ]
     },
     {
+      "id": "the-cook-the-thief-his-wife-her-lover",
       "title": "The Cook, the Thief, His Wife & Her Lover",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "129 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "IFC Center",
+          "ticket_url": "https://www.ifccenter.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -9429,28 +9949,31 @@
       ]
     },
     {
+      "id": "billy-preston-that-s-the-way-god-planned-it",
       "title": "Billy Preston: That\u2019s The Way God Planned It",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "137 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9464,28 +9987,31 @@
       ]
     },
     {
+      "id": "aranyer-din-ratri",
       "title": "Aranyer Din Ratri",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "133 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9523,28 +10049,31 @@
       ]
     },
     {
+      "id": "cl-o-from-5-to-7",
       "title": "Cl\u00e9o from 5 to 7",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "142 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9557,28 +10086,31 @@
       ]
     },
     {
+      "id": "varda-by-agn-s",
       "title": "Varda by Agn\u00e8s",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "96 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9591,28 +10123,31 @@
       ]
     },
     {
+      "id": "jane-b-par-agn-s-v",
       "title": "Jane B. par Agn\u00e8s V.",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "109 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9625,28 +10160,31 @@
       ]
     },
     {
+      "id": "stand-by-me-40th-anniversary",
       "title": "Stand by Me 40th Anniversary",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "97 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9655,32 +10193,69 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140951434",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "11:30am",
+                "2:00pm",
+                "3:15pm",
+                "5:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141120979",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "8:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
     {
+      "id": "this-island",
       "title": "This Island",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "109 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9702,28 +10277,31 @@
       ]
     },
     {
+      "id": "baseball-beyond-belief",
       "title": "Baseball: Beyond Belief",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "138 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -9740,28 +10318,31 @@
       ]
     },
     {
+      "id": "the-killer-hong-kong-cinema-classics",
       "title": "The Killer - Hong Kong Cinema Classics",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "93 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -9785,6 +10366,7 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -9809,28 +10391,31 @@
       ]
     },
     {
+      "id": "a-clockwork-orange",
       "title": "A Clockwork Orange",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "125 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
               "day": "Wed Apr 8",
@@ -9845,28 +10430,31 @@
       ]
     },
     {
+      "id": "s-t-ntang",
       "title": "S\u00e1t\u00e1ntang\u00f3",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "142 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Film at Lincoln Center",
+          "ticket_url": "https://www.filmlinc.org/now-playing/",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -9879,28 +10467,31 @@
       ]
     },
     {
+      "id": "positions",
       "title": "$POSITIONS",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "135 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -9937,28 +10528,31 @@
       ]
     },
     {
+      "id": "castration-movie-anthology-i-traps",
       "title": "Castration Movie Anthology I: Traps",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "139 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Tue Apr 7",
@@ -9971,28 +10565,31 @@
       ]
     },
     {
+      "id": "funny-games",
       "title": "Funny Games",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "106 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -10005,28 +10602,31 @@
       ]
     },
     {
+      "id": "who-s-afraid-of-virginia-woolf",
       "title": "Who's Afraid of Virginia Woolf?",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "132 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -10039,28 +10639,31 @@
       ]
     },
     {
+      "id": "melancholia",
       "title": "Melancholia",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "108 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -10073,28 +10676,31 @@
       ]
     },
     {
+      "id": "out-of-sight",
       "title": "Out of Sight",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "144 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -10119,28 +10725,31 @@
       ]
     },
     {
+      "id": "spy",
       "title": "Spy",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "104 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -10159,28 +10768,31 @@
       ]
     },
     {
+      "id": "planet-of-the-apes",
       "title": "Planet of the Apes",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "142 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -10199,28 +10811,31 @@
       ]
     },
     {
+      "id": "a-great-awakening",
       "title": "A Great Awakening",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "141 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -10329,6 +10944,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141004962",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -10390,28 +11006,31 @@
       ]
     },
     {
+      "id": "amc-scream-unseen-april-6",
       "title": "AMC Scream Unseen: April 6",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "100 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141523859",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10423,6 +11042,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/19thstreet/all/141523452",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10434,6 +11054,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/34thstreet/all/141523389",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10445,6 +11066,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/empire/all/141518028",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10456,6 +11078,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/kipsbay/all/141523959",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10467,6 +11090,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/lincolnsquare/all/141517206",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10478,6 +11102,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/orpheum/all/141520836",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10489,6 +11114,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/village7/all/141518281",
           "schedule": [
             {
               "day": "Mon Apr 6",
@@ -10501,28 +11127,31 @@
       ]
     },
     {
+      "id": "pandas-3d-an-original-film-2026",
       "title": "Pandas 3D: An Original Film (2026)",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "94 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/34thstreet/all/139817066",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -10535,28 +11164,31 @@
       ]
     },
     {
+      "id": "the-yeti",
       "title": "The Yeti",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "138 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/34thstreet/all/141320513",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -10568,6 +11200,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/empire/all/141320323",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -10579,6 +11212,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/kipsbay/all/141320519",
           "schedule": [
             {
               "day": "Sat Apr 4",
@@ -10591,28 +11225,31 @@
       ]
     },
     {
+      "id": "food-truck-stolen-love-and-moo-deng",
       "title": "Food Truck: Stolen Love...and Moo Deng",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "99 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799748",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10637,28 +11274,31 @@
       ]
     },
     {
+      "id": "alpha-dir-ducournau",
       "title": "Alpha (dir. Ducournau)",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "135 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141550654",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10710,6 +11350,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141886284",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -10722,28 +11363,31 @@
       ]
     },
     {
+      "id": "jesus-revolution-ff26",
       "title": "Jesus Revolution (FF26)",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "117 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140654088",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10756,28 +11400,31 @@
       ]
     },
     {
+      "id": "ben-hur-2026-event",
       "title": "Ben-Hur (2026 Event)",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "115 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140483815",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10795,6 +11442,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/140485243",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10813,83 +11461,31 @@
       ]
     },
     {
-      "title": "Stand By Me 40th Anniversary",
-      "ratings": {
-        "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
-        "poster": null,
-        "genre": "Drama",
-        "runtime": "105 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:00am",
-                "11:30am",
-                "2:00pm",
-                "3:15pm",
-                "5:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "8:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
+      "id": "mile-end-kicks-q-a-with-director-chandler-levack-stars-barbie-ferreira-and-devon-bostick",
       "title": "MILE END KICKS Q&A with director Chandler Levack & stars Barbie Ferreira and Devon Bostick",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.1",
-        "metacritic": "82",
-        "letterboxd": "4.0",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "124 min",
-        "plot": "Two cousins reunite in Poland and confront the weight of their family history.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141874779",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -10903,28 +11499,31 @@
       ]
     },
     {
+      "id": "the-king-s-warden",
       "title": "The King's Warden",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "123 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/142032433",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -10974,28 +11573,31 @@
       ]
     },
     {
+      "id": "biker",
       "title": "Biker",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "96 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/142010102",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -11042,28 +11644,31 @@
       ]
     },
     {
+      "id": "the-secret-between-us",
       "title": "The Secret Between Us",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "136 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/142032434",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -11106,28 +11711,31 @@
       ]
     },
     {
+      "id": "rabb-da-radio-3",
       "title": "Rabb Da Radio 3",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "92 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/empire/all/142010530",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -11167,28 +11775,31 @@
       ]
     },
     {
+      "id": "raakaasaa",
       "title": "Raakaasaa",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "145 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/empire/all/142010469",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -11230,28 +11841,31 @@
       ]
     },
     {
+      "id": "vaazha-2",
       "title": "Vaazha 2",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Thriller",
-        "runtime": "131 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/empire/all/142010128",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -11288,28 +11902,31 @@
       ]
     },
     {
+      "id": "premarital",
       "title": "Premarital",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "146 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/empire/all/141550668",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -11346,28 +11963,31 @@
       ]
     },
     {
+      "id": "killer-the-hong-kong-cinema-classics",
       "title": "Killer, The - Hong Kong Cinema Classics",
       "ratings": {
+        "imdbID": null,
         "rt": null,
-        "imdb": "6.9",
-        "metacritic": "67",
-        "letterboxd": "3.5",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "96 min",
-        "plot": "A Ghanaian immigrant navigates life in 1990s London with quiet determination.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
       },
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/empire/all/142010219",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -11399,6 +12019,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/kipsbay/all/138924476",
           "schedule": [
             {
               "day": "Sun Apr 5",
@@ -11418,18 +12039,20 @@
       ]
     },
     {
+      "id": "forbidden-fruits",
       "title": "Forbidden Fruits",
       "ratings": {
+        "imdbID": null,
         "rt": "54%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "104 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11440,6 +12063,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -11499,6 +12123,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732628",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -11556,6 +12181,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799937",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -11636,6 +12262,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141932058",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -11677,6 +12304,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141886285",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -11721,18 +12349,20 @@
       ]
     },
     {
+      "id": "yes",
       "title": "Yes!",
       "ratings": {
+        "imdbID": null,
         "rt": "53%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "103 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11743,6 +12373,7 @@
       "theaters": [
         {
           "name": "Angelika Film Center",
+          "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -11811,18 +12442,20 @@
       ]
     },
     {
+      "id": "carrie",
       "title": "Carrie",
       "ratings": {
+        "imdbID": null,
         "rt": "51%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama, History",
-        "runtime": "150 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11833,6 +12466,7 @@
       "theaters": [
         {
           "name": "Paris Theater",
+          "ticket_url": "https://www.paristheaternyc.com/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -11845,18 +12479,20 @@
       ]
     },
     {
+      "id": "the-creatures",
       "title": "The Creatures",
       "ratings": {
+        "imdbID": null,
         "rt": "50%",
-        "imdb": "7.2",
-        "metacritic": "60",
-        "letterboxd": "3.6",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "122 min",
-        "plot": "An epic meditation on the immigrant experience and the American Dream.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11867,6 +12503,7 @@
       "theaters": [
         {
           "name": "Film Forum",
+          "ticket_url": "https://www.filmforum.org/now-playing/",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -11879,18 +12516,20 @@
       ]
     },
     {
+      "id": "miami-vice",
       "title": "Miami Vice",
       "ratings": {
+        "imdbID": null,
         "rt": "47%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Drama",
-        "runtime": "147 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11901,6 +12540,7 @@
       "theaters": [
         {
           "name": "Metrograph",
+          "ticket_url": "https://metrograph.com",
           "schedule": [
             {
               "day": "Fri Apr 3",
@@ -11913,18 +12553,20 @@
       ]
     },
     {
+      "id": "the-super-mario-galaxy-movie",
       "title": "The Super Mario Galaxy Movie",
       "ratings": {
+        "imdbID": null,
         "rt": "43%",
-        "imdb": "7.8",
-        "metacritic": "89",
-        "letterboxd": "3.9",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Documentary",
-        "runtime": "126 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -11935,6 +12577,7 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc",
           "schedule": [
             {
               "day": "Today",
@@ -12109,6 +12752,7 @@
         },
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -12349,6 +12993,7 @@
         },
         {
           "name": "AMC Majestic 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
           "schedule": [
             {
               "day": "Tomorrow",
@@ -12600,6 +13245,7 @@
         },
         {
           "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141713608",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -12703,6 +13349,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732812",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -12875,6 +13522,7 @@
         },
         {
           "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141254024",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -12987,6 +13635,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141187690",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13241,6 +13890,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141840208",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13424,6 +14074,7 @@
         },
         {
           "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838985",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13573,6 +14224,7 @@
         },
         {
           "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141023597",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13686,6 +14338,7 @@
         },
         {
           "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141254115",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13800,18 +14453,20 @@
       ]
     },
     {
+      "id": "dhurandhar-the-revenge",
       "title": "Dhurandhar The Revenge",
       "ratings": {
+        "imdbID": null,
         "rt": "38%",
-        "imdb": "6.3",
-        "metacritic": "50",
-        "letterboxd": "3.1",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Comedy, Drama",
-        "runtime": "111 min",
-        "plot": "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -13822,6 +14477,7 @@
       "theaters": [
         {
           "name": "AMC Landmark 8",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
           "schedule": [
             {
               "day": "Thu Apr 2",
@@ -13918,6 +14574,7 @@
         },
         {
           "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732766",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -13970,6 +14627,7 @@
         },
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799840",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -14054,6 +14712,7 @@
         },
         {
           "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141840211",
           "schedule": [
             {
               "day": "Wed Apr 1",
@@ -14106,18 +14765,20 @@
       ]
     },
     {
+      "id": "scream-7",
       "title": "Scream 7",
       "ratings": {
+        "imdbID": null,
         "rt": "31%",
-        "imdb": "8.4",
-        "metacritic": "86",
-        "letterboxd": "4.2",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
         "poster": null,
-        "genre": "Horror, Thriller",
-        "runtime": "148 min",
-        "plot": "Two brothers reckon with grief, distance, and what it means to belong.",
-        "year": "2024",
-        "director": "Various",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
         "cinemaScore": null
       },
       "verdict": {
@@ -14128,6 +14789,7 @@
       "theaters": [
         {
           "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799890",
           "schedule": [
             {
               "day": "Wed Apr 1",

@@ -1105,8 +1105,27 @@ let searchQuery = '';
 let activeSort = 'day';
 let viewMode = 'theaters';
 let hasLoadedData = false;
+let theaterMeta = {};
 const CONFIDENCE_THRESHOLD = 60;
 const NYC_TIMEZONE = 'America/New_York';
+const DEFAULT_THEATER_META = {
+  'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'serpapi', aliases: ['metro'] },
+  'IFC Center': { slug: 'ifc', short_name: 'IFC', sort_name: 'IFC', official_url: 'https://www.ifccenter.com', source_type: 'serpapi', aliases: ['ifc'] },
+  'Angelika Film Center': { slug: 'angelika', short_name: 'Angelika', sort_name: 'Angelika', official_url: 'https://angelikafilmcenter.com/nyc', source_type: 'serpapi', aliases: ['angelika'] },
+  'Film Forum': { slug: 'film-forum', short_name: 'Film Forum', sort_name: 'Film Forum', official_url: 'https://www.filmforum.org/now-playing/', source_type: 'serpapi', aliases: ['film', 'film forum'] },
+  'Village East by Angelika': { slug: 'village-east', short_name: 'Village East', sort_name: 'Village East', official_url: 'https://angelikafilmcenter.com/villageeast', source_type: 'serpapi', aliases: ['village', 'village east'] },
+  'Film at Lincoln Center': { slug: 'flc', short_name: 'FLC', sort_name: 'FLC', official_url: 'https://www.filmlinc.org/now-playing/', source_type: 'serpapi', aliases: ['flc', 'film linc', 'lincoln center', 'film at lincoln center'] },
+  'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo', sort_name: 'Alamo', official_url: 'https://drafthouse.com/nyc', source_type: 'serpapi', aliases: ['alamo'] },
+  'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'serpapi', aliases: ['paris'] },
+};
+
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
 
@@ -1136,9 +1155,9 @@ function updateUrlFromState() {
   const params = new URLSearchParams();
   params.set('date', dateScope);
   if (dateScope === 'custom' && selectedDateISO) params.set('on', selectedDateISO);
-  if (activeTheater !== 'all') params.set('theater', activeTheater);
-  if (activeAmc !== 'none') params.set('amc', activeAmc);
-  if (activeGenre !== 'all') params.set('genre', activeGenre);
+  if (activeTheater !== 'all') params.set('theater', getTheaterStateSlug(activeTheater));
+  if (activeAmc !== 'none') params.set('amc', getTheaterStateSlug(activeAmc));
+  if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
 
@@ -1365,63 +1384,66 @@ function movieEarliestDayIdx(movie, dayOrder) {
   return best;
 }
 
-// ── THEATER URLs ───────────────────────────────────────────────────────────
-const THEATER_URLS = {
-  'Metrograph': 'https://metrograph.com',
-  'IFC Center': 'https://ifccenter.com',
-  'Angelika Film Center': 'https://angelikafilmcenter.com/nyc',
-  'Angelika': 'https://angelikafilmcenter.com/nyc',
-  'Film Forum': 'https://www.filmforum.org/now-playing/',
-  'Film': 'https://www.filmforum.org/now-playing/',
-  'Village East by Angelika': 'https://angelikafilmcenter.com/villageeast',
-  'Lincoln Center - Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
-  'Film at Lincoln Center': 'https://www.filmlinc.org/now-playing/',
-  'FLC': 'https://www.filmlinc.org/now-playing/',
-  'Alamo Drafthouse Lower Manhattan': 'https://drafthouse.com/nyc',
-  'Alamo': 'https://drafthouse.com/nyc',
-  'Paris Theater': 'https://www.paristheaternyc.com/',
-  'Paris': 'https://www.paristheaternyc.com/',
-};
+// ── THEATER META ───────────────────────────────────────────────────────────
+function getTheaterMeta(name) {
+  const raw = String(name || '').trim();
+  if (!raw) return null;
+  if (theaterMeta[raw]) return theaterMeta[raw];
+  if (DEFAULT_THEATER_META[raw]) return DEFAULT_THEATER_META[raw];
+  if (/^AMC\b/i.test(raw)) {
+    return {
+      slug: slugify(raw),
+      short_name: raw,
+      sort_name: raw,
+      official_url: 'https://www.amctheatres.com/',
+      source_type: 'amc',
+      aliases: [],
+    };
+  }
+  return {
+    slug: slugify(raw),
+    short_name: raw,
+    sort_name: raw,
+    official_url: '',
+    source_type: 'serpapi',
+    aliases: [],
+  };
+}
 
-const CANONICAL_THEATERS = [
-  'Metrograph',
-  'IFC Center',
-  'Angelika Film Center',
-  'Film Forum',
-  'Village East by Angelika',
-  'Film at Lincoln Center',
-  'Alamo Drafthouse Lower Manhattan',
-  'Paris Theater',
-];
+function getTheaterStateSlug(name) {
+  if (name === 'all' || name === 'none' || name === 'AMC') return String(name).toLowerCase();
+  const meta = getTheaterMeta(name);
+  return meta?.slug || slugify(name);
+}
 
-const THEATER_ALIASES = {
-  'flc': 'Film at Lincoln Center',
-  'lincoln center - film at lincoln center': 'Film at Lincoln Center',
-  'lincoln center': 'Film at Lincoln Center',
-  'film at lincoln center': 'Film at Lincoln Center',
-  'film linc': 'Film at Lincoln Center',
-  'film': 'Film Forum',
-  'film forum': 'Film Forum',
-  'angelika': 'Angelika Film Center',
-  'angelika film center': 'Angelika Film Center',
-  'alamo': 'Alamo Drafthouse Lower Manhattan',
-  'alamo drafthouse lower manhattan': 'Alamo Drafthouse Lower Manhattan',
-  'paris': 'Paris Theater',
-  'paris theater': 'Paris Theater',
-  'ifc': 'IFC Center',
-  'ifc center': 'IFC Center',
-  'metro': 'Metrograph',
-  'metrograph': 'Metrograph',
-  'village': 'Village East by Angelika',
-  'village east': 'Village East by Angelika',
-  'village east by angelika': 'Village East by Angelika',
-};
+function resolveTheaterValue(value, candidates = []) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (raw === 'all' || raw === 'none' || raw === 'AMC') return raw;
+
+  const lowered = raw.toLowerCase();
+  const bySlug = candidates.find(name => getTheaterStateSlug(name) === lowered);
+  if (bySlug) return bySlug;
+
+  const byAlias = candidates.find(name => {
+    const meta = getTheaterMeta(name);
+    const aliases = [name, ...(meta?.aliases || [])].map(item => slugify(item));
+    return aliases.includes(slugify(raw));
+  });
+  if (byAlias) return byAlias;
+
+  return candidates.find(name => String(name).toLowerCase() === lowered) || '';
+}
+
+function resolveGenreValue(value, genres = []) {
+  const raw = String(value || '').trim();
+  if (!raw || raw === 'all') return 'all';
+  return genres.find(g => slugify(g) === slugify(raw)) || 'all';
+}
 
 function getTheaterUrl(name) {
   const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
-  if (THEATER_URLS[canonical]) return THEATER_URLS[canonical];
-  if (/^AMC\b/i.test(canonical)) return 'https://www.amctheatres.com/';
-  return '';
+  return getTheaterMeta(canonical)?.official_url || '';
 }
 
 function getAvailableTheaters(data = null) {
@@ -1505,19 +1527,11 @@ function getDisplayReason(movie) {
 
 function getDisplayTheaterName(name) {
   const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
-  const shortNames = {
-    'Film at Lincoln Center': 'FLC',
-    'Alamo Drafthouse Lower Manhattan': 'Alamo',
-    'Angelika Film Center': 'Angelika',
-    'Village East by Angelika': 'Village East',
-    'IFC Center': 'IFC',
-    'Paris Theater': 'Paris',
-  };
-  return shortNames[canonical] || canonical;
+  return getTheaterMeta(canonical)?.short_name || canonical;
 }
 
 function getTheaterSortLabel(name) {
-  return getDisplayTheaterName(name)
+  return (getTheaterMeta(name)?.sort_name || getDisplayTheaterName(name))
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
@@ -1533,9 +1547,16 @@ function getRuntimeMinutes(runtime) {
 function getCanonicalTheaterName(name) {
   const raw = String(name || '').trim();
   if (!raw) return '';
+  const direct = theaterMeta[raw] || DEFAULT_THEATER_META[raw];
+  if (direct) return raw;
   const lowered = raw.toLowerCase();
-  const canonical = THEATER_ALIASES[lowered] || raw;
-  return CANONICAL_THEATERS.includes(canonical) ? canonical : canonical;
+  const knownNames = [...new Set([...Object.keys(DEFAULT_THEATER_META), ...Object.keys(theaterMeta)])];
+  const match = knownNames.find(name => {
+    const meta = getTheaterMeta(name);
+    const aliases = [name, ...(meta?.aliases || [])];
+    return aliases.some(alias => alias.toLowerCase() === lowered);
+  });
+  return match || raw;
 }
 
 function getCinemaScoreWeight(score) {
@@ -1637,16 +1658,35 @@ function getMovieConfidence(movie) {
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
-function toggleWatched(title) {
+function getMovieStorageKeys(movieOrId, fallbackTitle = '') {
+  if (typeof movieOrId === 'object' && movieOrId) {
+    return [movieOrId.id, movieOrId.title].filter(Boolean);
+  }
+  return [movieOrId, fallbackTitle].filter(Boolean);
+}
+function hasStoredMovie(list, movieOrId, fallbackTitle = '') {
+  return getMovieStorageKeys(movieOrId, fallbackTitle).some(key => list.includes(key));
+}
+function toggleWatched(movieId, fallbackTitle = '') {
   const list = getWatched();
-  const idx = list.indexOf(title);
-  if (idx > -1) list.splice(idx, 1); else list.push(title);
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const existingIdx = list.findIndex(item => keys.includes(item));
+  if (existingIdx > -1) {
+    list.splice(existingIdx, 1);
+  } else if (movieId) {
+    list.push(movieId);
+  }
   localStorage.setItem('cinema_watched', JSON.stringify(list));
 }
-function toggleHidden(title) {
+function toggleHidden(movieId, fallbackTitle = '') {
   const list = getHidden();
-  const idx = list.indexOf(title);
-  if (idx > -1) list.splice(idx, 1); else list.push(title);
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const existingIdx = list.findIndex(item => keys.includes(item));
+  if (existingIdx > -1) {
+    list.splice(existingIdx, 1);
+  } else if (movieId) {
+    list.push(movieId);
+  }
   localStorage.setItem('cinema_hidden', JSON.stringify(list));
 }
 
@@ -1672,8 +1712,10 @@ async function loadData() {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 function initDashboard(data) {
+  theaterMeta = { ...DEFAULT_THEATER_META, ...(data.theater_meta || {}) };
   allMovies = (data.movies || []).map(movie => ({
     ...movie,
+    id: movie.id || slugify(`${movie.title}-${movie?.ratings?.year || ''}`),
     _confidence: getMovieConfidence(movie),
   }));
   hasLoadedData = true;
@@ -1682,7 +1724,7 @@ function initDashboard(data) {
   const theaters = getAvailableTheaters(data);
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
-    if (activeTheater !== 'all' && activeTheater !== 'AMC' && !theaters.includes(activeTheater)) activeTheater = 'all';
+    activeTheater = resolveTheaterValue(activeTheater, theaters) || (String(activeTheater).toLowerCase() === 'amc' ? 'AMC' : 'all');
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
     theaterSelect.innerHTML += '<option value="AMC">AMC</option>';
 
@@ -1703,7 +1745,7 @@ function initDashboard(data) {
   const amcTheaters = getAvailableAmcTheaters(data);
   const amcSelect = document.getElementById('amc-select');
   if (amcSelect) {
-    if (activeAmc !== 'none' && !amcTheaters.includes(activeAmc)) activeAmc = amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'none';
+    activeAmc = resolveTheaterValue(activeAmc, amcTheaters) || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'none');
     amcSelect.innerHTML = '<option value="none">No AMC</option>';
 
     amcTheaters.forEach(t => {
@@ -1742,14 +1784,15 @@ function initDashboard(data) {
   const genreSelect = document.getElementById('genre-select');
   if (genreSelect) {
     genreSelect.innerHTML = '<option value="all">All</option>';
-    [...genreSet].sort().forEach(g => {
+    const genres = [...genreSet].sort();
+    genres.forEach(g => {
       const opt = document.createElement('option');
       opt.value = g;
       opt.textContent = g;
       genreSelect.appendChild(opt);
     });
-    genreSelect.value = activeGenre !== 'all' && genreSet.has(activeGenre) ? activeGenre : 'all';
-    if (activeGenre !== 'all' && !genreSet.has(activeGenre)) activeGenre = 'all';
+    activeGenre = resolveGenreValue(activeGenre, genres);
+    genreSelect.value = activeGenre;
     genreSelect.addEventListener('change', e => {
       activeGenre = e.target.value;
       render();
@@ -1787,7 +1830,7 @@ function getFiltered() {
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
-    if (hidden.includes(movie.title)) return false;
+    if (hasStoredMovie(hidden, movie)) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if ((movie._confidence ?? getMovieConfidence(movie)) < CONFIDENCE_THRESHOLD) return false;
     if (dateScope === 'today') {
@@ -2035,7 +2078,7 @@ function renderTheaterView() {
     filmEntries.forEach(entry => {
       const movie = entry.movie;
       const verdict = getCardTone(movie);
-      const watched = getWatched().includes(movie.title);
+      const watched = hasStoredMovie(getWatched(), movie);
       const ratings = movie.ratings || {};
       const rt = (ratings.rt && ratings.rt !== 'N/A') ? ratings.rt : null;
       const letterboxd = getLetterboxdScore(movie);
@@ -2071,7 +2114,7 @@ function renderTheaterView() {
       const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
 
       const scheduleHTML = theaterData
-        ? buildInlineShowtimeHTML(theaterData.schedule, theaterData.name, movie.title)
+        ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
         : '';
 
       const row = document.createElement('div');
@@ -2092,8 +2135,8 @@ function renderTheaterView() {
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${movie.title.replace(/'/g, "\\'")}')">★</button>
-          <button class="theater-action-btn hide" aria-label="Hide movie" title="Hide movie" onclick="onTheaterHide(this, '${movie.title.replace(/'/g, "\\'")}')">×</button>
+          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
+          <button class="theater-action-btn hide" aria-label="Hide movie" title="Hide movie" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
       `;
       filmList.appendChild(row);
@@ -2134,7 +2177,7 @@ function buildCard(movie, idx) {
   const runtime = ratings.runtime || '';
   const year = ratings.year || '';
   const theaters = getVisibleTheaters(movie);
-  const watched = getWatched().includes(movie.title);
+  const watched = hasStoredMovie(getWatched(), movie);
 
   // RT color
   let rtClass = '';
@@ -2156,14 +2199,14 @@ function buildCard(movie, idx) {
   const firstTheaterHTML = firstTheater ? `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(firstTheater.name)}</div>
-      ${buildScheduleHTML(firstTheater.schedule, firstTheater.name, movie.title)}
+      ${buildScheduleHTML(firstTheater)}
     </div>
   ` : '';
 
   const extraHTML = extraTheaters.map(t => `
     <div class="theater-row">
       <div class="theater-name">${theaterLink(t.name)}</div>
-      ${buildScheduleHTML(t.schedule, t.name, movie.title)}
+      ${buildScheduleHTML(t)}
     </div>
   `).join('');
 
@@ -2223,10 +2266,10 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${movie.title.replace(/'/g, "\\'")}')">
+      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
         ${watched ? '★ Saved' : 'Save'}
       </button>
-      <button class="action-btn" onclick="onHide(this, '${movie.title.replace(/'/g, "\\'")}')">
+      <button class="action-btn" onclick="onHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
         Not Interested
       </button>
     </div>
@@ -2235,17 +2278,17 @@ function buildCard(movie, idx) {
   return card;
 }
 
-function onWatched(btn, title) {
-  toggleWatched(title);
+function onWatched(btn, movieId, title) {
+  toggleWatched(movieId, title);
   const card = btn.closest('.movie-card');
-  const isNowWatched = getWatched().includes(title);
+  const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
   card.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active-watched', isNowWatched);
   btn.textContent = isNowWatched ? '★ Saved' : 'Save';
 }
 
-function onHide(btn, title) {
-  toggleHidden(title);
+function onHide(btn, movieId, title) {
+  toggleHidden(movieId, title);
   const card = btn.closest('.movie-card');
   card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
   card.style.opacity = '0';
@@ -2253,18 +2296,18 @@ function onHide(btn, title) {
   setTimeout(() => render(), 320);
 }
 
-function onTheaterWatched(btn, title) {
-  toggleWatched(title);
+function onTheaterWatched(btn, movieId, title) {
+  toggleWatched(movieId, title);
   const row = btn.closest('.theater-film-row');
-  const isNowWatched = getWatched().includes(title);
+  const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
   row?.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
 }
 
-function onTheaterHide(btn, title) {
-  toggleHidden(title);
+function onTheaterHide(btn, movieId, title) {
+  toggleHidden(movieId, title);
   const row = btn.closest('.theater-film-row');
   if (row) {
     row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
@@ -2285,42 +2328,14 @@ function makeSlug(title) {
     .replace(/-+/g, '-');
 }
 
-function getTicketUrl(theaterName, movieTitle) {
-  const slug = makeSlug(movieTitle);
-  const enc = encodeURIComponent(movieTitle);
-  if (/^AMC\b/i.test(String(theaterName || '').trim())) {
-    return `https://www.amctheatres.com/search?q=${enc}`;
-  }
-  switch (theaterName) {
-    case 'Metrograph':
-      return `https://metrograph.com/film/?slug=${slug}`;
-    case 'IFC Center':
-      return `https://www.ifccenter.com/films/${slug}/`;
-    case 'Angelika Film Center':
-      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
-    case 'Film Forum':
-    case 'Film':
-      return `https://www.filmforum.org/now-playing/`;
-    case 'Village East by Angelika':
-      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
-    case 'Lincoln Center - Film at Lincoln Center':
-    case 'Film at Lincoln Center':
-    case 'FLC':
-      return `https://www.filmlinc.org/now-playing/`;
-    case 'Alamo Drafthouse Lower Manhattan':
-    case 'Alamo':
-      return `https://drafthouse.com/nyc/show/${slug}`;
-    case 'Paris Theater':
-    case 'Paris':
-      return `https://www.paristheaternyc.com/`;
-    default:
-      return `https://www.fandango.com/search?q=${enc}&location=New+York+NY`;
-  }
+function getTicketUrl(theaterData) {
+  return String(theaterData?.ticket_url || getTheaterUrl(theaterData?.name) || '').trim();
 }
 
-function buildScheduleHTML(schedule, theaterName, movieTitle) {
+function buildScheduleHTML(theaterData) {
+  const schedule = theaterData?.schedule || [];
   if (!schedule || !schedule.length) return '';
-  const url = getTicketUrl(theaterName, movieTitle);
+  const url = getTicketUrl(theaterData);
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
   const upcoming = schedule
@@ -2340,15 +2355,15 @@ function buildScheduleHTML(schedule, theaterName, movieTitle) {
     <div>
       <div class="theater-day">${s.day}</div>
       <div class="showtime-list">
-        ${(s.times || []).map(t => `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>`).join('')}
+        ${(s.times || []).map(t => url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>` : `<span class="showtime-chip">${t}</span>`).join('')}
       </div>
     </div>
   `).join('');
 }
 
-function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
+function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
   if (!schedule || !schedule.length) return '';
-  const url = getTicketUrl(theaterName, movieTitle);
+  const url = getTicketUrl(theaterData);
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
   const grouped = [];
@@ -2379,7 +2394,7 @@ function buildInlineShowtimeHTML(schedule, theaterName, movieTitle, limit = 8) {
     const chips = [];
     for (const item of group.times) {
       if (count >= limit) break;
-      chips.push(`<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`);
+      chips.push(url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
       count += 1;
     }
     if (!chips.length) return '';
