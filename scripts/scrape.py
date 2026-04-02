@@ -608,13 +608,34 @@ def mock_ratings(title: str) -> dict:
         "Two brothers reckon with grief, distance, and what it means to belong.",
     ]
     idx = hash(title) % len(rt_scores)
+    lower_title = title.lower()
+    inferred_genre = None
+    horror_markers = [
+        "ready or not",
+        "scream",
+        "horror",
+        "kill",
+        "killer",
+        "yeti",
+        "monster",
+        "haunt",
+        "ghost",
+        "blood",
+    ]
+    documentary_markers = ["doc", "documentary", "agnes", "beyond belief"]
+
+    if any(marker in lower_title for marker in horror_markers):
+        inferred_genre = "Horror, Thriller"
+    elif any(marker in lower_title for marker in documentary_markers):
+        inferred_genre = "Documentary"
+
     return {
         "rt": rt_scores[idx],
         "imdb": imdb_scores[idx],
         "metacritic": str(int(rt_scores[idx].replace("%", "")) - 5),
         "letterboxd": f"{(float(imdb_scores[idx]) / 2):.1f}",
         "poster": None,
-        "genre": genres[idx % len(genres)],
+        "genre": inferred_genre or genres[idx % len(genres)],
         "runtime": f"{random.randint(90, 150)} min",
         "plot": plots[idx % len(plots)],
         "year": "2024",
