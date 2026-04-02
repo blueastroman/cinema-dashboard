@@ -1246,6 +1246,7 @@ let dateScope = 'today'; // week | today | tomorrow
 let selectedDateISO = '';
 let activeTheater = 'all';
 let activeAmc = 'AMC Lincoln Square 13';
+let hasExplicitAmcFilter = false;
 let activeGenre = 'all';
 let searchQuery = '';
 let activeSort = 'day';
@@ -1295,6 +1296,7 @@ function readFiltersFromUrl() {
     selectedDateISO = customDate;
   }
   if (theater) activeTheater = theater;
+  hasExplicitAmcFilter = params.has('amc');
   if (amc) activeAmc = amc;
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
@@ -1960,7 +1962,12 @@ function initDashboard(data) {
 
     theaterSelect.value = activeTheater;
     theaterSelect.onchange = (e) => {
-      activeTheater = e.target.value || 'all';
+      const nextTheater = e.target.value || 'all';
+      if (nextTheater === 'AMC' && activeTheater !== 'AMC') {
+        activeAmc = 'all';
+        hasExplicitAmcFilter = false;
+      }
+      activeTheater = nextTheater;
       render();
     };
   }
@@ -1968,7 +1975,12 @@ function initDashboard(data) {
   const amcTheaters = getAvailableAmcTheaters(data);
   const amcSelect = document.getElementById('amc-select');
   if (amcSelect) {
-    activeAmc = resolveTheaterValue(activeAmc, amcTheaters) || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'all');
+    const resolvedAmc = resolveTheaterValue(activeAmc, amcTheaters);
+    if (activeTheater === 'AMC' && !hasExplicitAmcFilter) {
+      activeAmc = 'all';
+    } else {
+      activeAmc = resolvedAmc || (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'all');
+    }
     amcSelect.innerHTML = '<option value="all">All AMC</option>';
 
     amcTheaters.forEach(t => {
@@ -1981,6 +1993,7 @@ function initDashboard(data) {
     amcSelect.value = activeAmc;
     amcSelect.onchange = (e) => {
       activeAmc = e.target.value || 'all';
+      hasExplicitAmcFilter = activeAmc !== 'all';
       render();
     };
   }
