@@ -98,7 +98,7 @@
       "slug": "alamo",
       "short_name": "Alamo",
       "sort_name": "Alamo",
-      "source_type": "serpapi",
+      "source_type": "alamo",
       "official_url": "https://drafthouse.com/nyc",
       "aliases": [
         "alamo"
@@ -1623,7 +1623,13 @@
                 "7:20pm",
                 "8:00pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87613",
+                "8:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87637",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87614"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87613"
             },
             {
               "day": "Fri Apr 3",
@@ -1637,7 +1643,19 @@
                 "6:30pm",
                 "7:20pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:20am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87646",
+                "11:30am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87669",
+                "1:15pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87647",
+                "2:35pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87685",
+                "3:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87670",
+                "5:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87648",
+                "6:30pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87682",
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87671",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87649"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87646"
             },
             {
               "day": "Sat Apr 4",
@@ -1651,7 +1669,19 @@
                 "7:20pm",
                 "9:00pm",
                 "9:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:20am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87691",
+                "11:30am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87714",
+                "1:15pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87692",
+                "2:30pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87730",
+                "3:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87715",
+                "5:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87947",
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87716",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87694",
+                "9:15pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87727"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87691"
             },
             {
               "day": "Sun Apr 5",
@@ -1664,7 +1694,18 @@
                 "7:20pm",
                 "8:25pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:20am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87732",
+                "11:30am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87760",
+                "1:15pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87733",
+                "3:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87761",
+                "5:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87734",
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87762",
+                "8:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87768",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87948"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87732"
             },
             {
               "day": "Mon Apr 6",
@@ -1676,7 +1717,17 @@
                 "5:05pm",
                 "7:20pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87786",
+                "1:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87949",
+                "3:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87787",
+                "4:15pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87810",
+                "5:05pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87790",
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87788",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87791"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87786"
             },
             {
               "day": "Tue Apr 7",
@@ -1687,7 +1738,16 @@
                 "5:05pm",
                 "7:20pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87826",
+                "1:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87829",
+                "3:25pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87827",
+                "5:05pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87950",
+                "7:20pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87828",
+                "9:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87831"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87826"
             },
             {
               "day": "Wed Apr 8",
@@ -1698,7 +1758,16 @@
                 "5:10pm",
                 "7:55pm",
                 "9:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:55am": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87879",
+                "12:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87860",
+                "4:00pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87880",
+                "5:10pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87854",
+                "7:55pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87881",
+                "9:05pm": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87855"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/project-hail-mary?cinemaId=2103&sessionId=87879"
             }
           ]
         },
@@ -3004,7 +3073,11 @@
                 "3:00pm",
                 "6:00pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87601"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87601"
             },
             {
               "day": "Fri Apr 3",
@@ -3014,7 +3087,15 @@
                 "3:00pm",
                 "6:00pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87672",
+                "12:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87673",
+                "3:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87674",
+                "6:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87675",
+                "9:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87676"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87672"
             },
             {
               "day": "Sat Apr 4",
@@ -3024,7 +3105,15 @@
                 "3:00pm",
                 "6:00pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87717",
+                "12:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87943",
+                "3:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87719",
+                "6:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87720",
+                "9:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87721"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87717"
             },
             {
               "day": "Sun Apr 5",
@@ -3034,7 +3123,15 @@
                 "3:00pm",
                 "6:00pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87755",
+                "12:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87756",
+                "3:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87757",
+                "6:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87758",
+                "9:00pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87944"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87755"
             },
             {
               "day": "Mon Apr 6",
@@ -3043,7 +3140,14 @@
                 "3:10pm",
                 "6:10pm",
                 "9:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87782",
+                "3:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87945",
+                "6:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87784",
+                "9:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87785"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87782"
             },
             {
               "day": "Tue Apr 7",
@@ -3052,7 +3156,14 @@
                 "3:10pm",
                 "6:10pm",
                 "9:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87822",
+                "3:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87823",
+                "6:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87824",
+                "9:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87825"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87822"
             },
             {
               "day": "Wed Apr 8",
@@ -3061,7 +3172,14 @@
                 "3:25pm",
                 "6:05pm",
                 "9:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:20pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87875",
+                "3:25pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87876",
+                "6:05pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87884",
+                "9:10pm": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87946"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/hoppers?cinemaId=2103&sessionId=87875"
             }
           ]
         },
@@ -5258,37 +5376,61 @@
               "day": "Fri Apr 3",
               "times": [
                 "11:50am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:50am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87665"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87665"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "11:45am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:45am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87710"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87710"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "11:40am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:40am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87961"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87961"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "11:55am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:55am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87807"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87807"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "11:45am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:45am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87847"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87847"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "11:40am"
-              ]
+              ],
+              "ticket_urls": {
+                "11:40am": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87962"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-ai-doc-or-how-i-became-an-apocaloptimist?cinemaId=2103&sessionId=87962"
             }
           ]
         },
@@ -6397,7 +6539,15 @@
                 "8:50pm",
                 "9:20pm",
                 "10:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86960",
+                "8:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87607",
+                "8:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87636",
+                "9:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87640",
+                "10:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86961"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86960"
             },
             {
               "day": "Fri Apr 3",
@@ -6416,7 +6566,24 @@
                 "8:50pm",
                 "9:35pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86962",
+                "11:05am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87687",
+                "12:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87677",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86963",
+                "2:05pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87684",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87930",
+                "3:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87678",
+                "4:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86964",
+                "6:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87679",
+                "7:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86965",
+                "8:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87681",
+                "8:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87668",
+                "9:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87680",
+                "10:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86966"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86962"
             },
             {
               "day": "Sat Apr 4",
@@ -6433,7 +6600,22 @@
                 "8:50pm",
                 "9:35pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86967",
+                "12:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87722",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86968",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87931",
+                "3:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87723",
+                "4:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86969",
+                "6:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87724",
+                "7:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86970",
+                "7:25pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87728",
+                "8:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87713",
+                "9:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87725",
+                "10:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86971"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86967"
             },
             {
               "day": "Sun Apr 5",
@@ -6452,7 +6634,24 @@
                 "9:35pm",
                 "10:15pm",
                 "10:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:00am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87772",
+                "10:15am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86975",
+                "12:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87763",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86972",
+                "2:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87932",
+                "3:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87764",
+                "4:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86973",
+                "5:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87769",
+                "6:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87765",
+                "7:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86974",
+                "8:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87754",
+                "9:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87766",
+                "10:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86976",
+                "10:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87767"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87772"
             },
             {
               "day": "Mon Apr 6",
@@ -6468,7 +6667,21 @@
                 "7:15pm",
                 "8:35pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86977",
+                "11:25am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87774",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86980",
+                "1:45pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87811",
+                "2:25pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87775",
+                "3:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87933",
+                "4:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86978",
+                "5:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87776",
+                "7:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86979",
+                "8:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87777",
+                "10:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86981"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86977"
             },
             {
               "day": "Tue Apr 7",
@@ -6485,7 +6698,22 @@
                 "8:30pm",
                 "9:00pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86982",
+                "11:20am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87814",
+                "11:45am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87852",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86986",
+                "2:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87815",
+                "2:50pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87934",
+                "4:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86983",
+                "5:25pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87816",
+                "7:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86984",
+                "8:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87817",
+                "9:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87850",
+                "10:15pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86985"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86982"
             },
             {
               "day": "Wed Apr 8",
@@ -6502,7 +6730,22 @@
                 "8:35pm",
                 "9:55pm",
                 "10:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:25am": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87887",
+                "1:00pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87891",
+                "1:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86991",
+                "2:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87888",
+                "3:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87892",
+                "4:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86988",
+                "5:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87889",
+                "7:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86989",
+                "8:20pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87873",
+                "8:35pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87890",
+                "9:55pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87886",
+                "10:30pm": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=86990"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-drama?cinemaId=2103&sessionId=87887"
             }
           ]
         },
@@ -7515,42 +7758,72 @@
               "times": [
                 "4:20pm",
                 "6:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:20pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87666",
+                "6:00pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87667"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87666"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "4:20pm",
                 "6:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:20pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87711",
+                "6:05pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87712"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87711"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "4:20pm",
                 "6:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:20pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87752",
+                "6:05pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87936"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87752"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "4:15pm",
                 "6:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:15pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87937",
+                "6:05pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87809"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87937"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "4:20pm",
                 "6:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:20pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87848",
+                "6:10pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87849"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87848"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "2:40pm",
                 "6:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:40pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87871",
+                "6:25pm": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87938"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/fantasy-life?cinemaId=2103&sessionId=87871"
             }
           ]
         },
@@ -7857,49 +8130,84 @@
               "times": [
                 "7:30pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:30pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87631",
+                "10:35pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87632"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87631"
             },
             {
               "day": "Fri Apr 3",
               "times": [
                 "7:20pm",
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:20pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87663",
+                "10:25pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87664"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87663"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "7:20pm",
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:20pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87708",
+                "10:25pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87951"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87708"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "7:20pm",
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:20pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87952",
+                "10:25pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87750"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87952"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "7:20pm",
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:20pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87805",
+                "10:25pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87806"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87805"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "7:25pm",
                 "10:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:25pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87845",
+                "10:30pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87953"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87845"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "7:10pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:10pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87954",
+                "10:15pm": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87870"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/ready-or-not-2-here-i-come?cinemaId=2103&sessionId=87954"
             }
           ]
         },
@@ -8777,7 +9085,12 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87626",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87627"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87626"
             },
             {
               "day": "Fri Apr 3",
@@ -8787,7 +9100,15 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:20am": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87655",
+                "2:10pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87656",
+                "5:05pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87657",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87658",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87659"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87655"
             },
             {
               "day": "Sat Apr 4",
@@ -8797,7 +9118,15 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:20am": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87700",
+                "2:10pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87701",
+                "5:05pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87702",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87957",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87704"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87700"
             },
             {
               "day": "Sun Apr 5",
@@ -8807,7 +9136,15 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:20am": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87741",
+                "2:10pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87958",
+                "5:05pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87743",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87744",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87745"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87741"
             },
             {
               "day": "Mon Apr 6",
@@ -8817,7 +9154,15 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:20am": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87797",
+                "2:15pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87798",
+                "5:05pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87799",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87800",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87959"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87797"
             },
             {
               "day": "Tue Apr 7",
@@ -8827,7 +9172,15 @@
                 "5:05pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:20am": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87837",
+                "2:15pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87838",
+                "5:05pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87839",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87840",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87841"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87837"
             },
             {
               "day": "Wed Apr 8",
@@ -8835,7 +9188,13 @@
                 "5:30pm",
                 "7:55pm",
                 "10:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:30pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87960",
+                "7:55pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87862",
+                "10:45pm": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87863"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/they-will-kill-you?cinemaId=2103&sessionId=87960"
             }
           ]
         },
@@ -10558,19 +10917,31 @@
               "day": "Sun Apr 5",
               "times": [
                 "4:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86928"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86928"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "8:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "8:00pm": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86929"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86929"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "8:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "8:00pm": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86930"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-killer-hong-kong-cinema-classics?cinemaId=2103&sessionId=86930"
             }
           ]
         }
@@ -10607,37 +10978,61 @@
               "day": "Fri Apr 3",
               "times": [
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:25pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87093"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87093"
             },
             {
               "day": "Sat Apr 4",
               "times": [
                 "10:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:30pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87094"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87094"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "7:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:25pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87095"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87095"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "8:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "8:50pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87096"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87096"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "5:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:05pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87099"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87099"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "4:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87097"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/positions?cinemaId=2103&sessionId=87097"
             }
           ]
         }
@@ -10989,7 +11384,12 @@
                 "4:35pm",
                 "7:35pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "7:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87621",
+                "10:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87622"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87621"
             },
             {
               "day": "Fri Apr 3",
@@ -10997,7 +11397,13 @@
                 "4:35pm",
                 "7:35pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87652",
+                "7:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87653",
+                "10:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87654"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87652"
             },
             {
               "day": "Sat Apr 4",
@@ -11005,7 +11411,13 @@
                 "4:35pm",
                 "7:35pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87697",
+                "7:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87698",
+                "10:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87939"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87697"
             },
             {
               "day": "Sun Apr 5",
@@ -11013,7 +11425,13 @@
                 "4:35pm",
                 "7:35pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87940",
+                "7:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87739",
+                "10:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87740"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87940"
             },
             {
               "day": "Mon Apr 6",
@@ -11021,7 +11439,13 @@
                 "4:35pm",
                 "7:35pm",
                 "10:35pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87794",
+                "7:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87941",
+                "10:35pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87796"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87794"
             },
             {
               "day": "Tue Apr 7",
@@ -11029,7 +11453,13 @@
                 "4:25pm",
                 "7:25pm",
                 "10:25pm"
-              ]
+              ],
+              "ticket_urls": {
+                "4:25pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87942",
+                "7:25pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87835",
+                "10:25pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87836"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87942"
             },
             {
               "day": "Wed Apr 8",
@@ -11039,7 +11469,15 @@
                 "4:00pm",
                 "7:00pm",
                 "10:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:10am": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87859",
+                "2:10pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87861",
+                "4:00pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87856",
+                "7:00pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87857",
+                "10:00pm": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87858"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/forbidden-fruits?cinemaId=2103&sessionId=87859"
             }
           ]
         },
@@ -11571,7 +12009,15 @@
                 "8:45pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85872",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85867",
+                "8:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85863",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85873",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85868"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85872"
             },
             {
               "day": "Fri Apr 3",
@@ -11597,7 +12043,31 @@
                 "8:45pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85874",
+                "10:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85884",
+                "10:15am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87913",
+                "10:35am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87899",
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85879",
+                "11:40am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87686",
+                "12:00pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85875",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85885",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87914",
+                "1:35pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87898",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85880",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85889",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85886",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85881",
+                "5:05pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87683",
+                "5:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85877",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85887",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85882",
+                "8:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85878",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85888",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85883"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85874"
             },
             {
               "day": "Sat Apr 4",
@@ -11625,7 +12095,32 @@
                 "8:45pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85890",
+                "10:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85899",
+                "10:15am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87915",
+                "10:25am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87726",
+                "10:40am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87900",
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85895",
+                "12:00pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85891",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85900",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87916",
+                "1:35pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87901",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85896",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85892",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85901",
+                "4:30pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87729",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85897",
+                "5:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85893",
+                "6:20pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87731",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85902",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85898",
+                "8:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85894",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85903",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85876"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85890"
             },
             {
               "day": "Sun Apr 5",
@@ -11652,7 +12147,32 @@
                 "8:45pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85904",
+                "10:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85914",
+                "10:20am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87917",
+                "10:35am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87902",
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85909",
+                "11:25am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87773",
+                "12:00pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85919",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85915",
+                "1:05pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87770",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87918",
+                "1:35pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87903",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85910",
+                "2:20pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87771",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85906",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85916",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85911",
+                "5:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85907",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85917",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85912",
+                "8:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85908",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85918",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85913"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85904"
             },
             {
               "day": "Mon Apr 6",
@@ -11676,7 +12196,29 @@
                 "8:55pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85920",
+                "10:20am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87919",
+                "10:40am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87813",
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85921",
+                "12:00pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87778",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85922",
+                "1:05pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87812",
+                "1:15pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87920",
+                "1:35pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87905",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85923",
+                "2:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87779",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85930",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85925",
+                "5:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87780",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85926",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85927",
+                "8:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87781",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85928",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85929"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85920"
             },
             {
               "day": "Tue Apr 7",
@@ -11701,7 +12243,30 @@
                 "8:50pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85935",
+                "10:10am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87921",
+                "10:30am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87907",
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85931",
+                "11:10am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87853",
+                "11:55am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87818",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85936",
+                "1:10pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87922",
+                "1:30pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87906",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85932",
+                "2:10pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87851",
+                "2:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87819",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85939",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85933",
+                "5:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87820",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85937",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85940",
+                "8:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87821",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85938",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85934"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85935"
             },
             {
               "day": "Wed Apr 8",
@@ -11721,7 +12286,25 @@
                 "9:05pm",
                 "9:40pm",
                 "10:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85942",
+                "12:05pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87893",
+                "12:15pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87882",
+                "12:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87923",
+                "12:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85943",
+                "1:30pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87908",
+                "1:55pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85944",
+                "3:10pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87883",
+                "3:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85945",
+                "4:50pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85946",
+                "6:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85947",
+                "7:45pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85948",
+                "9:05pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=87885",
+                "9:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85949",
+                "10:40pm": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85950"
+              },
+              "ticket_url": "https://drafthouse.com/nyc/show/the-super-mario-galaxy-movie?cinemaId=2103&sessionId=85942"
             }
           ]
         },

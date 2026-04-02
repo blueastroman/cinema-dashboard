@@ -78,7 +78,9 @@ THEATER_CONFIG = {
         "slug": "alamo",
         "short_name": "Alamo",
         "sort_name": "Alamo",
-        "source_type": "serpapi",
+        "source_type": "alamo",
+        "market_slug": "nyc",
+        "cinema_id": "2103",
         "serpapi_id": "alamo drafthouse lower manhattan new york",
         "official_url": "https://drafthouse.com/nyc",
         "aliases": ["alamo"],
@@ -446,6 +448,124 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
                     continue
                 ticket_url = html.unescape(href).replace("&#038;", "&").strip()
                 grouped[title][clean_day][time_label] = ticket_url or get_source_ticket_url(theater)
+
+    flattened = []
+    for title, days in grouped.items():
+        for day_label, time_map in days.items():
+            unique_times = sort_time_labels(list(time_map.keys()))
+            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+            })
+
+    return flattened
+
+
+def fetch_alamo_showtimes(theater: dict) -> list[dict]:
+    market_slug = str(theater.get("market_slug") or "").strip()
+    cinema_id = str(theater.get("cinema_id") or "").strip()
+    if not market_slug or not cinema_id:
+        return []
+
+    algolia_headers = {
+        "X-Algolia-Application-Id": "J21VYKWY3K",
+        "X-Algolia-API-Key": "b475e661e58e2a407860db2f4f8f7cff",
+        "Content-Type": "application/json",
+    }
+
+    presentation_hits = []
+    page = 0
+    while True:
+        payload = {
+            "params": f"query=&hitsPerPage=200&page={page}&filters=marketSlug:{market_slug}"
+        }
+        try:
+            response = requests.post(
+                "https://J21VYKWY3K-dsn.algolia.net/1/indexes/prod_on-sale-presentation/query",
+                headers=algolia_headers,
+                json=payload,
+                timeout=20,
+            )
+            response.raise_for_status()
+            data = response.json()
+        except Exception as e:
+            print(f"  [ERROR] Alamo Algolia fetch failed for {theater['name']}: {e}")
+            return []
+
+        hits = data.get("hits") or []
+        if not hits:
+            break
+        presentation_hits.extend(hits)
+        page += 1
+        if page >= int(data.get("nbPages") or 0):
+            break
+
+    unique_slugs = sorted({str(hit.get("slug") or "").strip() for hit in presentation_hits if str(hit.get("slug") or "").strip()})
+    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+
+    for slug in unique_slugs:
+        try:
+            response = requests.get(
+                f"https://drafthouse.com/s/mother/v2/schedule/presentation/{market_slug}/{slug}",
+                timeout=20,
+            )
+            response.raise_for_status()
+            payload = response.json().get("data") or {}
+        except Exception:
+            continue
+
+        presentation_lookup = {}
+        for item in payload.get("presentations") or []:
+            item_slug = str(item.get("slug") or "").strip()
+            if item_slug:
+                presentation_lookup[item_slug] = item
+        primary = payload.get("presentation") or {}
+        primary_slug = str(primary.get("slug") or "").strip()
+        if primary_slug and primary_slug not in presentation_lookup:
+            presentation_lookup[primary_slug] = primary
+
+        for session in payload.get("sessions") or []:
+            if str(session.get("cinemaId") or "").strip() != cinema_id:
+                continue
+            if str(session.get("status") or "").upper() in {"PAST", "CANCELLED", "CANCELED"}:
+                continue
+
+            session_dt_raw = str(session.get("showTimeClt") or "").strip()
+            business_date = str(session.get("businessDateClt") or "").strip()
+            session_id = str(session.get("sessionId") or "").strip()
+            presentation_slug = str(session.get("presentationSlug") or "").strip() or slug
+            if not session_dt_raw or not business_date or not session_id:
+                continue
+
+            try:
+                session_dt = datetime.fromisoformat(session_dt_raw)
+            except Exception:
+                continue
+
+            item = presentation_lookup.get(presentation_slug) or primary
+            show_data = item.get("show") or {}
+            event_data = item.get("event") or {}
+            is_event = bool(event_data)
+            raw_title = html.unescape(re.sub(r"<.*?>", "", event_data.get("title") or show_data.get("title") or "")).strip()
+            title = clean_title(raw_title)
+            if not title:
+                continue
+
+            route = "event" if is_event else "show"
+            route_slug = presentation_slug
+            day_label = format_day_label(datetime.fromisoformat(business_date))
+            time_label = format_time_label(session_dt)
+            ticket_url = (
+                f"https://drafthouse.com/{market_slug}/{route}/{route_slug}"
+                f"?cinemaId={cinema_id}&sessionId={session_id}"
+            )
+            grouped[title][day_label][time_label] = ticket_url
 
     flattened = []
     for title, days in grouped.items():
@@ -1389,6 +1509,8 @@ def build_dataset() -> dict:
             showtimes = fetch_metrograph_showtimes(theater)
         elif theater.get("source_type") == "ifc":
             showtimes = fetch_ifc_showtimes(theater)
+        elif theater.get("source_type") == "alamo":
+            showtimes = fetch_alamo_showtimes(theater)
         else:
             showtimes = fetch_showtimes(theater)
 
