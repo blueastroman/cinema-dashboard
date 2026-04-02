@@ -192,6 +192,20 @@
       letter-spacing: 0.05em;
     }
 
+    .date-picker-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .date-picker-wrap #date-picker {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.01;
+      cursor: pointer;
+    }
+
     .search-wrap {
       flex: 1;
       max-width: 420px;
@@ -613,7 +627,7 @@
     .action-btn.active-watched { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
     .action-btn.active-hidden { border-color: var(--skip); color: var(--skip); background: var(--skip-bg); }
 
-    /* Watched card overlay */
+    /* Saved card overlay */
     .movie-card.is-watched {
       background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
       box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
@@ -768,7 +782,7 @@
     }
 
     .theater-film-row.is-watched::after {
-      content: 'WATCHED';
+      content: 'SAVED';
       position: absolute;
       top: 12px;
       right: 88px;
@@ -1043,8 +1057,10 @@
       <button class="filter-btn active" id="today-btn">Today</button>
       <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
       <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
-      <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
-      <input type="date" id="date-picker" style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;" />
+      <div class="date-picker-wrap">
+        <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
+        <input type="date" id="date-picker" />
+      </div>
     </div>
   </div>
 
@@ -1069,6 +1085,42 @@ const CONFIDENCE_THRESHOLD = 60;
 const NYC_TIMEZONE = 'America/New_York';
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
+
+function readFiltersFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const scope = params.get('date');
+  const customDate = params.get('on');
+  const theater = params.get('theater');
+  const amc = params.get('amc');
+  const genre = params.get('genre');
+  const search = params.get('q');
+  const sort = params.get('sort');
+
+  if (scope === 'today' || scope === 'tomorrow' || scope === 'week') dateScope = scope;
+  if (scope === 'custom' && customDate) {
+    dateScope = 'custom';
+    selectedDateISO = customDate;
+  }
+  if (theater) activeTheater = theater;
+  if (amc) activeAmc = amc;
+  if (genre) activeGenre = genre;
+  if (typeof search === 'string') searchQuery = search;
+  if (sort === 'day' || sort === 'rating') activeSort = sort;
+}
+
+function updateUrlFromState() {
+  const params = new URLSearchParams();
+  params.set('date', dateScope);
+  if (dateScope === 'custom' && selectedDateISO) params.set('on', selectedDateISO);
+  if (activeTheater !== 'all') params.set('theater', activeTheater);
+  if (activeAmc !== 'none') params.set('amc', activeAmc);
+  if (activeGenre !== 'all') params.set('genre', activeGenre);
+  if (searchQuery) params.set('q', searchQuery);
+  if (activeSort !== 'day') params.set('sort', activeSort);
+
+  const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
+  window.history.replaceState({}, '', next);
+}
 
 function getNYNow() {
   return new Date(new Date().toLocaleString('en-US', { timeZone: NYC_TIMEZONE }));
@@ -1240,6 +1292,9 @@ function getVisibleTheaters(movie) {
     const isAmc = /^AMC\b/i.test(canonical);
 
     if (isAmc) {
+      if (activeTheater === 'AMC') {
+        return activeAmc === 'none' ? true : canonical === activeAmc;
+      }
       return activeAmc !== 'none' && canonical === activeAmc;
     }
 
@@ -1575,6 +1630,7 @@ function toggleHidden(title) {
 
 async function loadData() {
   try {
+    readFiltersFromUrl();
     const res = await fetch('./data.json?t=' + Date.now());
     if (!res.ok) {
       throw new Error(`Failed to load data.json (${res.status})`);
@@ -1601,8 +1657,9 @@ function initDashboard(data) {
   const theaters = getAvailableTheaters(data);
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect) {
-    if (activeTheater !== 'all' && !theaters.includes(activeTheater)) activeTheater = 'all';
+    if (activeTheater !== 'all' && activeTheater !== 'AMC' && !theaters.includes(activeTheater)) activeTheater = 'all';
     theaterSelect.innerHTML = '<option value="all">All Theaters</option>';
+    theaterSelect.innerHTML += '<option value="AMC">AMC</option>';
 
     theaters.forEach(t => {
       const opt = document.createElement('option');
@@ -1621,7 +1678,7 @@ function initDashboard(data) {
   const amcTheaters = getAvailableAmcTheaters(data);
   const amcSelect = document.getElementById('amc-select');
   if (amcSelect) {
-    if (activeAmc !== 'none' && !amcTheaters.includes(activeAmc)) activeAmc = 'none';
+    if (activeAmc !== 'none' && !amcTheaters.includes(activeAmc)) activeAmc = amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'none';
     amcSelect.innerHTML = '<option value="none">No AMC</option>';
 
     amcTheaters.forEach(t => {
@@ -1643,7 +1700,7 @@ function initDashboard(data) {
     const bounds = getAvailableDateBounds(data);
     datePicker.min = bounds.min;
     datePicker.max = bounds.max;
-    if (!selectedDateISO || selectedDateISO < bounds.min || selectedDateISO > bounds.max) {
+    if (dateScope === 'custom' && (!selectedDateISO || selectedDateISO < bounds.min || selectedDateISO > bounds.max)) {
       selectedDateISO = bounds.min;
     }
     datePicker.value = selectedDateISO;
@@ -1667,6 +1724,7 @@ function initDashboard(data) {
       genreSelect.appendChild(opt);
     });
     genreSelect.value = activeGenre !== 'all' && genreSet.has(activeGenre) ? activeGenre : 'all';
+    if (activeGenre !== 'all' && !genreSet.has(activeGenre)) activeGenre = 'all';
     genreSelect.addEventListener('change', e => {
       activeGenre = e.target.value;
       render();
@@ -1767,6 +1825,7 @@ function renderSection(label, labelClass, list, main) {
 }
 
 function render() {
+  updateUrlFromState();
   if (viewMode === 'theaters') { renderTheaterView(); return; }
 
   const movies = getFiltered();
@@ -1890,7 +1949,9 @@ function renderTheaterView() {
 
   const theaterOrder = [
     ...getAvailableTheaters(),
-    ...(activeAmc !== 'none' ? [activeAmc] : []),
+    ...(activeTheater === 'AMC'
+      ? (activeAmc !== 'none' ? [activeAmc] : getAvailableAmcTheaters())
+      : (activeAmc !== 'none' ? [activeAmc] : [])),
   ].sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
   theaterOrder.forEach(theaterName => {
@@ -1993,7 +2054,7 @@ function renderTheaterView() {
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Mark watched" title="Mark watched" onclick="onTheaterWatched(this, '${movie.title.replace(/'/g, "\\'")}')">★</button>
+          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${movie.title.replace(/'/g, "\\'")}')">★</button>
           <button class="theater-action-btn hide" aria-label="Hide movie" title="Hide movie" onclick="onTheaterHide(this, '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
       `;
@@ -2125,7 +2186,7 @@ function buildCard(movie, idx) {
 
     <div class="card-actions">
       <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${movie.title.replace(/'/g, "\\'")}')">
-        ${watched ? '✓ Watched' : 'Mark Watched'}
+        ${watched ? '★ Saved' : 'Save'}
       </button>
       <button class="action-btn" onclick="onHide(this, '${movie.title.replace(/'/g, "\\'")}')">
         Not Interested
@@ -2142,7 +2203,7 @@ function onWatched(btn, title) {
   const isNowWatched = getWatched().includes(title);
   card.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active-watched', isNowWatched);
-  btn.textContent = isNowWatched ? '✓ Watched' : 'Mark Watched';
+  btn.textContent = isNowWatched ? '★ Saved' : 'Save';
 }
 
 function onHide(btn, title) {
@@ -2161,7 +2222,7 @@ function onTheaterWatched(btn, title) {
   row?.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
-  btn.setAttribute('title', isNowWatched ? 'Watched' : 'Mark watched');
+  btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
 }
 
 function onTheaterHide(btn, title) {
@@ -2343,23 +2404,6 @@ document.getElementById('thisweek-btn')?.addEventListener('click', () => {
   dateScope = 'week';
   syncDateScopeButtons();
   render();
-});
-
-document.getElementById('pickdate-btn')?.addEventListener('click', () => {
-  const datePicker = document.getElementById('date-picker');
-  if (!datePicker) return;
-  if (!datePicker.value) {
-    const bounds = getAvailableDateBounds();
-    selectedDateISO = selectedDateISO || bounds.min;
-    datePicker.value = selectedDateISO;
-    datePicker.min = bounds.min;
-    datePicker.max = bounds.max;
-  }
-  if (typeof datePicker.showPicker === 'function') {
-    datePicker.showPicker();
-  } else {
-    datePicker.click();
-  }
 });
 
 document.getElementById('date-picker')?.addEventListener('change', (e) => {
