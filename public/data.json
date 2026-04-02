@@ -120,8 +120,8 @@
       "slug": "amc-landmark-8",
       "short_name": "AMC Landmark 8",
       "sort_name": "AMC Landmark 8",
-      "source_type": "serpapi",
-      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-landmark-8",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-landmark-8",
       "aliases": []
     },
     "AMC Majestic 6": {
@@ -129,8 +129,8 @@
       "slug": "amc-majestic-6",
       "short_name": "AMC Majestic 6",
       "sort_name": "AMC Majestic 6",
-      "source_type": "serpapi",
-      "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-majestic-6",
       "aliases": []
     },
     "AMC 19th St. East 6": {
@@ -1800,7 +1800,14 @@
                 "2:15pm",
                 "5:15pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:50am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918631",
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918679",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918623",
+                "9:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918630"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918631"
             },
             {
               "day": "Sun Apr 5",
@@ -1809,7 +1816,14 @@
                 "2:15pm",
                 "5:15pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:50am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918632",
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918680",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918628",
+                "9:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918629"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918632"
             },
             {
               "day": "Mon Apr 6",
@@ -1818,7 +1832,14 @@
                 "2:15pm",
                 "5:15pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:50am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918645",
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918684",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918612",
+                "9:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918609"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918645"
             },
             {
               "day": "Tue Apr 7",
@@ -1827,7 +1848,14 @@
                 "4:40pm",
                 "7:40pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918593",
+                "4:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918599",
+                "7:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918694",
+                "9:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918643"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918593"
             },
             {
               "day": "Wed Apr 8",
@@ -1835,7 +1863,13 @@
                 "2:30pm",
                 "7:30pm",
                 "9:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918596",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918689",
+                "9:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918650"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918596"
             }
           ]
         },
@@ -1867,7 +1901,14 @@
                 "3:30pm",
                 "7:15pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918518",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918493",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918494",
+                "10:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918574"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918518"
             },
             {
               "day": "Sun Apr 5",
@@ -1876,7 +1917,14 @@
                 "3:30pm",
                 "7:15pm",
                 "10:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918522",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918496",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918497",
+                "10:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918573"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918522"
             },
             {
               "day": "Mon Apr 6",
@@ -1885,7 +1933,14 @@
                 "2:45pm",
                 "6:00pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918575",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918529",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918499",
+                "9:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918500"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918575"
             },
             {
               "day": "Tue Apr 7",
@@ -1893,7 +1948,13 @@
                 "2:15pm",
                 "6:00pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918504",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918502",
+                "9:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918503"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918504"
             },
             {
               "day": "Wed Apr 8",
@@ -1901,7 +1962,13 @@
                 "2:15pm",
                 "6:00pm",
                 "9:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918508",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918506",
+                "9:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918507"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918508"
             }
           ]
         },
@@ -3212,7 +3279,14 @@
                 "1:45pm",
                 "4:30pm",
                 "7:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918678",
+                "1:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918677",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918676",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918675"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918678"
             },
             {
               "day": "Sun Apr 5",
@@ -3221,7 +3295,14 @@
                 "1:45pm",
                 "4:30pm",
                 "7:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918673",
+                "1:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918672",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918671",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918670"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918673"
             },
             {
               "day": "Mon Apr 6",
@@ -3230,7 +3311,14 @@
                 "1:45pm",
                 "4:30pm",
                 "6:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918685",
+                "1:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918655",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918654",
+                "6:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918646"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918685"
             },
             {
               "day": "Tue Apr 7",
@@ -3238,7 +3326,13 @@
                 "1:50pm",
                 "4:30pm",
                 "6:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918660",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918659",
+                "6:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918614"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918660"
             },
             {
               "day": "Wed Apr 8",
@@ -3246,7 +3340,13 @@
                 "1:50pm",
                 "4:30pm",
                 "5:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918651",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918652",
+                "5:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918608"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918651"
             }
           ]
         },
@@ -3281,7 +3381,15 @@
                 "5:30pm",
                 "8:15pm",
                 "9:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918553",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918554",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918555",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918556",
+                "9:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918519"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918553"
             },
             {
               "day": "Sun Apr 5",
@@ -3291,7 +3399,15 @@
                 "5:30pm",
                 "8:15pm",
                 "9:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918548",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918549",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918550",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918551",
+                "9:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918532"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918548"
             },
             {
               "day": "Mon Apr 6",
@@ -3300,7 +3416,14 @@
                 "3:00pm",
                 "5:45pm",
                 "8:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918541",
+                "3:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918542",
+                "5:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918543",
+                "8:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918544"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918541"
             },
             {
               "day": "Tue Apr 7",
@@ -3308,7 +3431,13 @@
                 "2:30pm",
                 "5:15pm",
                 "8:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918545",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918546",
+                "8:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918547"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918545"
             },
             {
               "day": "Wed Apr 8",
@@ -3316,7 +3445,13 @@
                 "2:30pm",
                 "5:15pm",
                 "8:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918539",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918537",
+                "8:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918538"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918539"
             }
           ]
         },
@@ -5454,31 +5589,51 @@
               "day": "Sat Apr 4",
               "times": [
                 "5:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918704"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918704"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "5:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918707"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918707"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "5:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918692"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918692"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "2:05pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:05pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918696"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918696"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "12:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918649"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918649"
             }
           ]
         },
@@ -6779,7 +6934,15 @@
                 "4:30pm",
                 "7:30pm",
                 "10:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918512",
+                "1:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141697129",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141697126",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141697127",
+                "10:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918495"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918512"
             },
             {
               "day": "Sun Apr 5",
@@ -6789,7 +6952,15 @@
                 "4:30pm",
                 "7:30pm",
                 "10:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918509",
+                "1:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141697133",
+                "4:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141697130",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141697131",
+                "10:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918498"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918509"
             },
             {
               "day": "Mon Apr 6",
@@ -6798,7 +6969,14 @@
                 "4:15pm",
                 "7:00pm",
                 "9:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141697137",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141697136",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141697135",
+                "9:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141697134"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141697137"
             },
             {
               "day": "Tue Apr 7",
@@ -6807,7 +6985,14 @@
                 "4:15pm",
                 "7:00pm",
                 "9:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141697141",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141697140",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141697139",
+                "9:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141697138"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141697141"
             },
             {
               "day": "Wed Apr 8",
@@ -6816,7 +7001,14 @@
                 "4:15pm",
                 "7:00pm",
                 "9:50pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141697145",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141697144",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141697143",
+                "9:50pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141697142"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141697145"
             }
           ]
         },
@@ -8232,31 +8424,51 @@
               "day": "Sat Apr 4",
               "times": [
                 "9:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918633"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918633"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "9:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918634"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918634"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "9:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918644"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918644"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918602"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918602"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "9:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918606"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918606"
             }
           ]
         },
@@ -9218,31 +9430,51 @@
               "day": "Sat Apr 4",
               "times": [
                 "10:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918674"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918674"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "10:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "10:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918669"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918669"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "9:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918589"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918589"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "9:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "9:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918615"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918615"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "8:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "8:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918616"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918616"
             }
           ]
         },
@@ -9843,35 +10075,60 @@
               "times": [
                 "2:20pm",
                 "6:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918622",
+                "6:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918635"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918622"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "2:20pm",
                 "6:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918627",
+                "6:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918636"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918627"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "11:15am",
                 "2:20pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:15am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918610",
+                "2:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918611"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918610"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "2:10pm",
                 "4:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918683",
+                "4:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918695"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918683"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "2:10pm",
                 "4:40pm"
-              ]
+              ],
+              "ticket_urls": {
+                "2:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918687",
+                "4:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918688"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918687"
             }
           ]
         },
@@ -11253,7 +11510,14 @@
                 "1:00pm",
                 "4:15pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:15am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918625",
+                "1:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918586",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918587",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918709"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918625"
             },
             {
               "day": "Sun Apr 5",
@@ -11262,7 +11526,14 @@
                 "1:00pm",
                 "4:15pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:15am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918626",
+                "1:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918585",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918584",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918706"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918626"
             },
             {
               "day": "Mon Apr 6",
@@ -11270,21 +11541,37 @@
                 "12:40pm",
                 "3:45pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918590",
+                "3:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918591",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918693"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918590"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "1:35pm",
                 "6:10pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:35pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918598",
+                "6:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918592"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918598"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "1:30pm",
                 "6:00pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918690",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918597"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918690"
             }
           ]
         },
@@ -12360,7 +12647,23 @@
                 "6:45pm",
                 "8:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263335",
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263194",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263195",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263318",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263196",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263197",
+                "10:30am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918603",
+                "1:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263299",
+                "4:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263300",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263326",
+                "6:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263301",
+                "8:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263325",
+                "9:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263289"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141263335"
             },
             {
               "day": "Sun Apr 5",
@@ -12378,7 +12681,23 @@
                 "6:45pm",
                 "8:45pm",
                 "9:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:30am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263333",
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263198",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263199",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263320",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263200",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263201",
+                "10:30am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918604",
+                "1:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263296",
+                "4:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263297",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263328",
+                "6:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263298",
+                "8:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263327",
+                "9:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263266"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141263333"
             },
             {
               "day": "Mon Apr 6",
@@ -12395,7 +12714,22 @@
                 "6:00pm",
                 "7:00pm",
                 "8:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918656",
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263210",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263211",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263317",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263212",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263213",
+                "9:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918605",
+                "1:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263285",
+                "4:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263286",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918686",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263287",
+                "8:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141263336"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918656"
             },
             {
               "day": "Tue Apr 7",
@@ -12409,7 +12743,19 @@
                 "5:00pm",
                 "7:00pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263316",
+                "6:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263216",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263217",
+                "9:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918594",
+                "1:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263282",
+                "4:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263283",
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263339",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263284",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263338"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141263316"
             },
             {
               "day": "Wed Apr 8",
@@ -12426,7 +12772,22 @@
                 "5:00pm",
                 "6:40pm",
                 "7:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263218",
+                "2:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263219",
+                "3:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918647",
+                "5:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263220",
+                "6:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918648",
+                "8:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263221",
+                "9:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918595",
+                "1:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263279",
+                "4:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263280",
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263341",
+                "6:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263281",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263340"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141263218"
             }
           ]
         },
@@ -12485,7 +12846,23 @@
                 "11:00pm",
                 "3:15pm",
                 "8:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918571",
+                "11:30am": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263174",
+                "12:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263069",
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263173",
+                "4:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918530",
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263142",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263032",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918531",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263140",
+                "10:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263141",
+                "11:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918540",
+                "3:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263040",
+                "8:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141263041"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Majestic6/all/141918571"
             },
             {
               "day": "Sun Apr 5",
@@ -12503,7 +12880,23 @@
                 "11:00pm",
                 "3:15pm",
                 "8:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:00am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918572",
+                "11:30am": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263151",
+                "12:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263050",
+                "2:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263158",
+                "4:20pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918520",
+                "5:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263139",
+                "6:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263033",
+                "7:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918521",
+                "7:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263137",
+                "10:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263138",
+                "11:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918552",
+                "3:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263042",
+                "8:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141263043"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Majestic6/all/141918572"
             },
             {
               "day": "Mon Apr 6",
@@ -12521,7 +12914,23 @@
                 "11:45am",
                 "2:30pm",
                 "5:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "11:15am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918576",
+                "12:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918505",
+                "2:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263129",
+                "3:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918501",
+                "4:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263136",
+                "6:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918525",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263135",
+                "8:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263044",
+                "9:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918524",
+                "10:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263130",
+                "11:45am": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918511",
+                "2:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263034",
+                "5:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141263045"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Majestic6/all/141918576"
             },
             {
               "day": "Tue Apr 7",
@@ -12537,7 +12946,21 @@
                 "10:15pm",
                 "5:45pm",
                 "8:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263052",
+                "2:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263132",
+                "3:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918510",
+                "4:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918528",
+                "4:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263134",
+                "6:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918527",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263133",
+                "9:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141918526",
+                "10:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263131",
+                "5:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263053",
+                "8:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263035"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Majestic6/all/141263052"
             },
             {
               "day": "Wed Apr 8",
@@ -12553,7 +12976,21 @@
                 "10:15pm",
                 "3:00pm",
                 "5:45pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918536",
+                "2:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263162",
+                "4:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918535",
+                "4:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263126",
+                "6:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918534",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263125",
+                "8:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263037",
+                "9:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918533",
+                "10:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263163",
+                "3:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263049",
+                "5:45pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141263036"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Majestic6/all/141918536"
             }
           ]
         },
@@ -13855,35 +14292,60 @@
               "times": [
                 "12:10pm",
                 "7:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918705",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918588"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-04/Landmark8/all/141918705"
             },
             {
               "day": "Sun Apr 5",
               "times": [
                 "12:10pm",
                 "7:30pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918708",
+                "7:30pm": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918583"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-05/Landmark8/all/141918708"
             },
             {
               "day": "Mon Apr 6",
               "times": [
                 "12:10pm",
                 "7:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "12:10pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918691",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918657"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-06/Landmark8/all/141918691"
             },
             {
               "day": "Tue Apr 7",
               "times": [
                 "1:40pm",
                 "7:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:40pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918613",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918658"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-07/Landmark8/all/141918613"
             },
             {
               "day": "Wed Apr 8",
               "times": [
                 "1:00pm",
                 "7:15pm"
-              ]
+              ],
+              "ticket_urls": {
+                "1:00pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918607",
+                "7:15pm": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918653"
+              },
+              "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-08/Landmark8/all/141918607"
             }
           ]
         },
