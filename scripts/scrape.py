@@ -273,8 +273,20 @@ def fetch_showtimes(theater: dict) -> list[dict]:
         for day in data.get("showtimes", []):
             for movie in day.get("movies", []):
                 times = []
+                ticket_urls = {}
                 for showing in movie.get("showing", []):
-                    times.extend(showing.get("time", []))
+                    show_url = next(
+                        (
+                            str(showing.get(key) or "").strip()
+                            for key in ("link", "ticket_link", "ticketUrl", "url")
+                            if str(showing.get(key) or "").strip()
+                        ),
+                        "",
+                    )
+                    for show_time in showing.get("time", []):
+                        times.append(show_time)
+                        if show_url and show_time not in ticket_urls:
+                            ticket_urls[show_time] = show_url
                 ticket_url = next(
                     (
                         str(showing.get(key) or "").strip()
@@ -298,6 +310,7 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                     "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
                     "times": times,
                     "ticket_url": ticket_url,
+                    "ticket_urls": ticket_urls,
                 })
         return movies
     except Exception as e:
@@ -401,7 +414,9 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
     if not theatre_id:
         return []
 
-    grouped: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
+    grouped: dict[str, dict[str, dict[str, object]]] = defaultdict(
+        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}})
+    )
     start = datetime.now()
 
     for offset in range(7):
@@ -440,17 +455,19 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
 
                 day_label = format_day_label(local_dt)
                 time_label = format_time_label(local_dt)
-                grouped[title][day_label].append(time_label)
-                if "__ticket_url__" not in grouped[title]:
-                    grouped[title]["__ticket_url__"] = str(
-                        showtime.get("purchaseUrl")
-                        or showtime.get("purchaseURL")
-                        or showtime.get("ticketUrl")
-                        or showtime.get("ticketURL")
-                        or showtime.get("webSalesUrl")
-                        or showtime.get("webSalesURL")
-                        or get_source_ticket_url(theater)
-                    ).strip()
+                ticket_url = str(
+                    showtime.get("purchaseUrl")
+                    or showtime.get("purchaseURL")
+                    or showtime.get("ticketUrl")
+                    or showtime.get("ticketURL")
+                    or showtime.get("webSalesUrl")
+                    or showtime.get("webSalesURL")
+                    or get_source_ticket_url(theater)
+                ).strip()
+                day_bucket = grouped[title][day_label]
+                day_bucket["times"].append(time_label)
+                if ticket_url:
+                    day_bucket["ticket_urls"].setdefault(time_label, ticket_url)
 
             page_size = int(data.get("pageSize") or 0)
             page_number = int(data.get("pageNumber") or page)
@@ -461,15 +478,21 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
 
     flattened = []
     for title, days in grouped.items():
-        ticket_url = str(days.pop("__ticket_url__", "") or get_source_ticket_url(theater)).strip()
-        for day_label, times in days.items():
-            unique_times = sort_time_labels(sorted(set(times)))
+        for day_label, payload in days.items():
+            unique_times = sort_time_labels(sorted(set(payload.get("times", []))))
+            ticket_urls = {
+                time_label: str(url).strip()
+                for time_label, url in (payload.get("ticket_urls") or {}).items()
+                if time_label in unique_times and str(url).strip()
+            }
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
             flattened.append({
                 "title": title,
                 "theater": theater["name"],
                 "day": day_label,
                 "times": unique_times,
                 "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
             })
 
     return flattened
@@ -1224,6 +1247,11 @@ def build_dataset() -> dict:
             day = entry["day"]
             times = entry["times"]
             ticket_url = str(entry.get("ticket_url") or get_source_ticket_url(theater)).strip()
+            ticket_urls = {
+                str(time): str(url).strip()
+                for time, url in (entry.get("ticket_urls") or {}).items()
+                if str(time).strip() and str(url).strip()
+            }
 
             if theater_name not in theater_meta:
                 theater_meta[theater_name] = build_theater_meta(
@@ -1234,7 +1262,12 @@ def build_dataset() -> dict:
                     },
                 )
 
-            theater_schedule[theater_name][title].append({"day": day, "times": times, "ticket_url": ticket_url})
+            theater_schedule[theater_name][title].append({
+                "day": day,
+                "times": times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+            })
 
             hint_year = entry.get("hint_year")
             provisional_key = normalize_title(title)
@@ -1258,7 +1291,12 @@ def build_dataset() -> dict:
             key = normalize_title(title)
             if key in all_movies:
                 ticket_url = next((slot.get("ticket_url") for slot in schedule if slot.get("ticket_url")), "") or theater_meta.get(theater_name, {}).get("official_url", "")
-                clean_schedule = [{"day": slot["day"], "times": slot["times"]} for slot in schedule]
+                clean_schedule = []
+                for slot in schedule:
+                    clean_slot = {"day": slot["day"], "times": slot["times"]}
+                    if slot.get("ticket_urls"):
+                        clean_slot["ticket_urls"] = slot["ticket_urls"]
+                    clean_schedule.append(clean_slot)
                 all_movies[key]["theaters"].append({
                     "name": theater_name,
                     "ticket_url": ticket_url,

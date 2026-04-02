@@ -2624,6 +2624,12 @@ function getTicketUrl(theaterData) {
   return String(theaterData?.ticket_url || getTheaterUrl(theaterData?.name) || '').trim();
 }
 
+function getShowtimeTicketUrl(theaterData, scheduleItem, time) {
+  const exactUrl = String(scheduleItem?.ticket_urls?.[time] || '').trim();
+  if (exactUrl) return exactUrl;
+  return getTicketUrl(theaterData);
+}
+
 function slugifyLetterboxdTitle(title) {
   return String(title || '')
     .normalize('NFD')
@@ -2663,7 +2669,8 @@ function buildScheduleHTML(theaterData) {
       <div class="showtime-list">
         ${(s.times || []).map(t => {
           const label = formatShowtimeLabel(t);
-          return url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${label}</a>` : `<span class="showtime-chip">${label}</span>`;
+          const chipUrl = getShowtimeTicketUrl(theaterData, s, t) || url;
+          return chipUrl ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${label}</a>` : `<span class="showtime-chip">${label}</span>`;
         }).join('')}
       </div>
     </div>
@@ -2686,7 +2693,7 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
       if (!showAt || showAt < now) continue;
-      times.push({ at: showAt, label: formatShowtimeLabel(t) });
+      times.push({ at: showAt, label: formatShowtimeLabel(t), raw: t });
     }
 
     if (!times.length) continue;
@@ -2703,7 +2710,8 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     const chips = [];
     for (const item of group.times) {
       if (count >= limit) break;
-      chips.push(url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
+      const chipUrl = getShowtimeTicketUrl(theaterData, s, item.raw) || url;
+      chips.push(chipUrl ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
       count += 1;
     }
     if (!chips.length) return '';
