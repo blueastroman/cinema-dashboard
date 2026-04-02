@@ -9,6 +9,7 @@ import json
 import hashlib
 import requests
 import anthropic
+import html
 from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
@@ -22,8 +23,8 @@ THEATER_CONFIG = {
         "slug": "metrograph",
         "short_name": "Metrograph",
         "sort_name": "Metrograph",
-        "source_type": "serpapi",
-        "serpapi_id": "metrograph new york",
+        "source_type": "metrograph",
+        "source_url": "https://t.metrograph.com/Browsing/Cinemas/Details/9999",
         "official_url": "https://metrograph.com",
         "aliases": ["metro"],
     },
@@ -316,6 +317,84 @@ def fetch_showtimes(theater: dict) -> list[dict]:
     except Exception as e:
         print(f"  [ERROR] SerpAPI failed for {theater['name']}: {e}")
         return mock_showtimes(theater["name"])
+
+
+def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
+    source_url = str(theater.get("source_url") or "").strip()
+    if not source_url:
+        return []
+
+    try:
+        response = requests.get(source_url, timeout=20)
+        response.raise_for_status()
+        content = response.text
+    except Exception as e:
+        print(f"  [ERROR] Metrograph fetch failed for {theater['name']}: {e}")
+        return []
+
+    blocks = re.findall(r'<div class="film-showtimes">(.*?)</div>\s*</div>\s*</div>', content, re.DOTALL | re.IGNORECASE)
+    if not blocks:
+        blocks = re.findall(r'<div class="film-showtimes">(.*?)<!-- end film-showtimes -->', content, re.DOTALL | re.IGNORECASE)
+
+    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+
+    for block in blocks:
+        title_match = re.search(r'<h3 class="film-title">\s*(.*?)\s*</h3>', block, re.DOTALL | re.IGNORECASE)
+        if not title_match:
+            continue
+        title = clean_title(html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).strip())
+        if not title:
+            continue
+
+        session_blocks = re.findall(
+            r'<div class="[^"]*\bsession\b[^"]*">(.*?)</div>\s*</div>',
+            block,
+            re.DOTALL | re.IGNORECASE,
+        )
+        if not session_blocks:
+            session_blocks = re.findall(
+                r'<div class="[^"]*\bsession\b[^"]*">(.*?)(?=<div class="[^"]*\bsession\b|$)',
+                block,
+                re.DOTALL | re.IGNORECASE,
+            )
+
+        for session in session_blocks:
+            links = re.findall(
+                r'<a href="([^"]*visSelectTickets[^"]*)"[^>]*class="session-time[^"]*"[^>]*>.*?<time[^>]*datetime="([^"]+)">[^<]+</time>',
+                session,
+                re.DOTALL | re.IGNORECASE,
+            )
+            for href, iso_dt in links:
+                try:
+                    local_dt = datetime.fromisoformat(str(iso_dt).strip())
+                except Exception:
+                    continue
+
+                time_label = format_time_label(local_dt)
+                day_label = format_day_label(local_dt)
+                ticket_url = html.unescape(str(href).strip())
+                if ticket_url.startswith("//"):
+                    ticket_url = f"https:{ticket_url}"
+                elif ticket_url.startswith("/"):
+                    ticket_url = f"https://t.metrograph.com{ticket_url}"
+                grouped[title][day_label][time_label] = ticket_url or get_source_ticket_url(theater)
+
+    flattened = []
+    for title, days in grouped.items():
+        for day_label, time_map in days.items():
+            unique_times = sort_time_labels(list(time_map.keys()))
+            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+            })
+
+    return flattened
 
 
 def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
@@ -1238,6 +1317,8 @@ def build_dataset() -> dict:
         print(f"\nFetching: {theater['name']}")
         if theater.get("source") == "amc":
             showtimes = fetch_amc_showtimes(theater)
+        elif theater.get("source_type") == "metrograph":
+            showtimes = fetch_metrograph_showtimes(theater)
         else:
             showtimes = fetch_showtimes(theater)
 
