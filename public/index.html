@@ -1522,9 +1522,16 @@ function getVisibleTheaters(movie) {
 
 function moviePlayingOn(movie, dateLabel) {
   const now = getNYNow();
+  let targetISO = '';
+  if (dateLabel === getTodayLabel()) {
+    targetISO = toISODate(now);
+  } else if (dateLabel === getTomorrowLabel()) {
+    targetISO = toISODate(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
+  }
+  if (!targetISO) return false;
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
-      (s.day || '').includes(dateLabel) &&
+      getShowtimeISO(s.day) === targetISO &&
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
         return !!showAt && showAt >= now;
