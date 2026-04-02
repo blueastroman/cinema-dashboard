@@ -39,6 +39,11 @@ AMC_ALLOWED_CITIES_BY_STATE = {
     "NY": {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"},
     "CT": {"STAMFORD"},
 }
+AMC_EXCLUDED_THEATRES = {
+    "AMC BAY PLAZA CINEMA 13",
+    "AMC MAGIC JOHNSON HARLEM 9",
+    "AMC STATEN ISLAND 11",
+}
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
 
@@ -198,6 +203,8 @@ def fetch_amc_theatres() -> list[dict]:
         theatre_id = str(theatre.get("id") or "").strip()
         name = (theatre.get("longName") or theatre.get("name") or "").strip()
         if not theatre_id or not name:
+            continue
+        if name.strip().upper() in AMC_EXCLUDED_THEATRES:
             continue
         results.append({
             "id": theatre_id,
@@ -573,6 +580,14 @@ def fetch_ratings(title: str) -> dict:
             parsed["rt"] = fetch_rt_fallback(title)
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(title)
+
+        # OMDb can occasionally return partial records with RT but missing core metadata.
+        # Keep the best real scores we have, but backfill empty descriptive fields so the
+        # dashboard doesn't ship blank genres/runtime/director/year/plot.
+        fallback = mock_ratings(title)
+        for key in ("imdb", "metacritic", "letterboxd", "genre", "runtime", "plot", "year", "director", "cinemaScore"):
+            if parsed.get(key) in (None, "", "N/A"):
+                parsed[key] = fallback.get(key)
 
         return parsed
     except Exception as e:
