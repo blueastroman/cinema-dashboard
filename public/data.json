@@ -2,12 +2,20 @@
   "generated_at": "2026-04-02T13:53:55.860860",
   "week_of": "April 03, 2026",
   "theaters": [
-    "AMC Landmark 8",
-    "AMC Majestic 6",
     "Alamo Drafthouse Lower Manhattan",
+    "AMC 19th St. East 6",
+    "AMC 34th Street 14",
+    "AMC 84th Street 6",
+    "AMC Empire 25",
+    "AMC Kips Bay 15",
+    "AMC Landmark 8",
+    "AMC Lincoln Square 13",
+    "AMC Majestic 6",
+    "AMC Orpheum 7",
+    "AMC Village 7",
     "Angelika Film Center",
-    "Film Forum",
     "Film at Lincoln Center",
+    "Film Forum",
     "IFC Center",
     "Metrograph",
     "Paris Theater",
@@ -123,6 +131,78 @@
       "sort_name": "AMC Majestic 6",
       "source_type": "serpapi",
       "official_url": "https://www.amctheatres.com/movie-theatres/stamford/amc-majestic-6",
+      "aliases": []
+    },
+    "AMC 19th St. East 6": {
+      "name": "AMC 19th St. East 6",
+      "slug": "amc-19th-st-east-6",
+      "short_name": "AMC 19th St. East 6",
+      "sort_name": "AMC 19th St. East 6",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+      "aliases": []
+    },
+    "AMC 34th Street 14": {
+      "name": "AMC 34th Street 14",
+      "slug": "amc-34th-street-14",
+      "short_name": "AMC 34th Street 14",
+      "sort_name": "AMC 34th Street 14",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
+      "aliases": []
+    },
+    "AMC 84th Street 6": {
+      "name": "AMC 84th Street 6",
+      "slug": "amc-84th-street-6",
+      "short_name": "AMC 84th Street 6",
+      "sort_name": "AMC 84th Street 6",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-84th-street-6",
+      "aliases": []
+    },
+    "AMC Empire 25": {
+      "name": "AMC Empire 25",
+      "slug": "amc-empire-25",
+      "short_name": "AMC Empire 25",
+      "sort_name": "AMC Empire 25",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
+      "aliases": []
+    },
+    "AMC Kips Bay 15": {
+      "name": "AMC Kips Bay 15",
+      "slug": "amc-kips-bay-15",
+      "short_name": "AMC Kips Bay 15",
+      "sort_name": "AMC Kips Bay 15",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
+      "aliases": []
+    },
+    "AMC Lincoln Square 13": {
+      "name": "AMC Lincoln Square 13",
+      "slug": "amc-lincoln-square-13",
+      "short_name": "AMC Lincoln Square 13",
+      "sort_name": "AMC Lincoln Square 13",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+      "aliases": []
+    },
+    "AMC Orpheum 7": {
+      "name": "AMC Orpheum 7",
+      "slug": "amc-orpheum-7",
+      "short_name": "AMC Orpheum 7",
+      "sort_name": "AMC Orpheum 7",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
+      "aliases": []
+    },
+    "AMC Village 7": {
+      "name": "AMC Village 7",
+      "slug": "amc-village-7",
+      "short_name": "AMC Village 7",
+      "sort_name": "AMC Village 7",
+      "source_type": "amc",
+      "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
       "aliases": []
     }
   },
@@ -1693,6 +1773,823 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/140777923",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "2:30pm",
+                "6:20pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "12:40pm",
+                "2:45pm",
+                "6:20pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "3:00pm",
+                "5:00pm",
+                "6:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "2:45pm",
+                "5:00pm",
+                "6:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "3:00pm",
+                "5:00pm",
+                "6:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:20am",
+                "12:45pm",
+                "2:55pm",
+                "6:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "5:00pm",
+                "6:00pm",
+                "9:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/140669950",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "1:00pm",
+                "2:40pm",
+                "3:40pm",
+                "4:30pm",
+                "6:15pm",
+                "7:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "3:30pm",
+                "6:00pm",
+                "7:00pm",
+                "8:40pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "11:45am",
+                "1:25pm",
+                "2:25pm",
+                "3:35pm",
+                "5:00pm",
+                "6:00pm",
+                "7:15pm",
+                "8:30pm",
+                "9:35pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "11:45am",
+                "1:25pm",
+                "2:25pm",
+                "5:00pm",
+                "6:00pm",
+                "7:15pm",
+                "8:30pm",
+                "9:35pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am",
+                "11:45am",
+                "1:25pm",
+                "2:25pm",
+                "3:35pm",
+                "5:00pm",
+                "6:00pm",
+                "7:15pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "1:25pm",
+                "2:40pm",
+                "3:40pm",
+                "5:00pm",
+                "7:15pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:45am",
+                "11:45am",
+                "1:25pm",
+                "2:25pm",
+                "3:35pm",
+                "5:00pm",
+                "6:00pm",
+                "7:15pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141759488",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:30pm",
+                "2:45pm",
+                "3:45pm",
+                "6:30pm",
+                "7:15pm",
+                "9:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "2:45pm",
+                "3:45pm",
+                "6:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "2:45pm",
+                "4:00pm",
+                "6:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "2:45pm",
+                "4:00pm",
+                "6:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "2:45pm",
+                "4:00pm",
+                "6:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "2:30pm",
+                "4:00pm",
+                "6:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "2:30pm",
+                "4:00pm",
+                "6:45pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799970",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:15am",
+                "11:00am",
+                "11:30am",
+                "1:15pm",
+                "2:45pm",
+                "3:15pm",
+                "5:00pm",
+                "6:30pm",
+                "8:00pm",
+                "8:45pm",
+                "9:30pm",
+                "10:15pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:15am",
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "2:45pm",
+                "4:30pm",
+                "6:30pm",
+                "8:00pm",
+                "8:30pm",
+                "9:30pm",
+                "10:15pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:10am",
+                "10:00am",
+                "11:15am",
+                "12:30pm",
+                "12:45pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:20pm",
+                "5:30pm",
+                "6:45pm",
+                "7:15pm",
+                "8:00pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:10am",
+                "10:00am",
+                "10:30am",
+                "11:15am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:20pm",
+                "5:00pm",
+                "5:30pm",
+                "7:15pm",
+                "8:00pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "10:00am",
+                "11:00am",
+                "12:35pm",
+                "1:15pm",
+                "3:30pm",
+                "4:10pm",
+                "6:00pm",
+                "7:15pm",
+                "7:45pm",
+                "9:00pm",
+                "10:00pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "11:15am",
+                "12:30pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:30pm",
+                "6:45pm",
+                "7:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "11:15am",
+                "12:30pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:30pm",
+                "6:45pm",
+                "7:15pm",
+                "8:00pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869679",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "11:20am",
+                "12:00pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "3:40pm",
+                "4:30pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:05pm",
+                "8:45pm",
+                "9:45pm",
+                "10:15pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "2:30pm",
+                "3:30pm",
+                "4:05pm",
+                "6:15pm",
+                "8:40pm",
+                "9:55pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:05am",
+                "11:15am",
+                "12:15pm",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:35pm",
+                "6:35pm",
+                "7:30pm",
+                "8:45pm",
+                "9:30pm",
+                "10:15pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "10:30am",
+                "12:15pm",
+                "1:20pm",
+                "2:10pm",
+                "3:45pm",
+                "5:00pm",
+                "6:00pm",
+                "7:30pm",
+                "8:45pm",
+                "9:30pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:20am",
+                "10:05am",
+                "11:15am",
+                "12:15pm",
+                "1:40pm",
+                "3:00pm",
+                "4:00pm",
+                "5:30pm",
+                "6:30pm",
+                "7:05pm",
+                "7:30pm",
+                "8:50pm",
+                "9:50pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "12:30pm",
+                "1:30pm",
+                "2:15pm",
+                "3:15pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:20am",
+                "12:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm",
+                "10:40pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838980",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:15am",
+                "11:00am",
+                "12:15pm",
+                "2:15pm",
+                "3:00pm",
+                "4:00pm",
+                "6:15pm",
+                "7:45pm",
+                "9:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:45am",
+                "12:15pm",
+                "2:15pm",
+                "3:45pm",
+                "4:15pm",
+                "6:30pm",
+                "8:00pm",
+                "10:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "10:45am",
+                "1:00pm",
+                "2:15pm",
+                "4:00pm",
+                "7:00pm",
+                "8:45pm",
+                "9:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "10:45am",
+                "1:00pm",
+                "2:30pm",
+                "4:00pm",
+                "4:45pm",
+                "7:00pm",
+                "8:00pm",
+                "8:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:45am",
+                "1:30pm",
+                "2:30pm",
+                "4:00pm",
+                "5:15pm",
+                "6:30pm",
+                "8:00pm",
+                "8:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "12:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:15pm",
+                "6:15pm",
+                "7:00pm",
+                "8:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "12:15pm",
+                "2:15pm",
+                "3:15pm",
+                "6:15pm",
+                "7:15pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/140658346",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "2:20pm",
+                "6:00pm",
+                "9:40pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:15pm",
+                "1:30pm",
+                "2:15pm",
+                "6:00pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:30am",
+                "1:15pm",
+                "3:20pm",
+                "4:15pm",
+                "7:00pm",
+                "7:40pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "1:00pm",
+                "3:20pm",
+                "4:20pm",
+                "7:00pm",
+                "7:40pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "12:00pm",
+                "3:00pm",
+                "4:00pm",
+                "7:00pm",
+                "8:00pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am",
+                "1:30pm",
+                "2:40pm",
+                "3:20pm",
+                "6:30pm",
+                "8:00pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:15am",
+                "1:15pm",
+                "2:30pm",
+                "3:00pm",
+                "4:15pm",
+                "6:30pm",
+                "7:40pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/140831148",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "2:15pm",
+                "3:35pm",
+                "6:00pm",
+                "7:15pm",
+                "9:35pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "3:30pm",
+                "7:15pm",
+                "10:00pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:45am",
+                "1:00pm",
+                "3:45pm",
+                "7:15pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "11:15am",
+                "1:00pm",
+                "2:45pm",
+                "4:30pm",
+                "6:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am",
+                "12:15pm",
+                "4:00pm",
+                "4:45pm",
+                "6:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:00pm",
+                "3:30pm",
+                "6:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:45am",
+                "2:00pm",
+                "5:00pm",
+                "5:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2195,6 +3092,613 @@
                 "2:30pm",
                 "5:15pm",
                 "8:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141713540",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:30am",
+                "1:05pm",
+                "3:40pm",
+                "6:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "4:20pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "12:15pm",
+                "3:35pm",
+                "6:35pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "11:40am",
+                "3:35pm",
+                "6:30pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "12:15pm",
+                "3:35pm",
+                "6:30pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "12:40pm",
+                "3:20pm",
+                "7:30pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "12:40pm",
+                "3:20pm",
+                "7:20pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732648",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "1:45pm",
+                "4:45pm",
+                "7:35pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:40pm",
+                "3:20pm",
+                "6:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am",
+                "1:00pm",
+                "3:45pm",
+                "6:30pm",
+                "9:10pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:20am",
+                "1:00pm",
+                "3:45pm",
+                "6:30pm",
+                "9:10pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am",
+                "1:00pm",
+                "3:45pm",
+                "6:30pm",
+                "9:10pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:00pm",
+                "4:00pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "1:00pm",
+                "3:45pm",
+                "6:30pm",
+                "9:10pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141759460",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:00pm",
+                "4:00pm",
+                "6:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "4:00pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:30am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:30am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799797",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:15pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:15am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "6:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "4:30pm",
+                "7:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "12:00pm",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869686",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:30am",
+                "2:30pm",
+                "5:15pm",
+                "7:10pm",
+                "9:50pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:15am",
+                "12:45pm",
+                "1:25pm",
+                "2:30pm",
+                "4:15pm",
+                "6:00pm",
+                "9:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "3:00pm",
+                "4:05pm",
+                "6:45pm",
+                "9:00pm",
+                "10:10pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "11:45am",
+                "2:30pm",
+                "5:15pm",
+                "7:55pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "10:15am",
+                "1:00pm",
+                "3:45pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "1:00pm",
+                "3:45pm",
+                "6:30pm",
+                "9:15pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:15am",
+                "11:45am",
+                "2:00pm",
+                "4:00pm",
+                "6:45pm",
+                "9:30pm",
+                "10:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838991",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:15am",
+                "12:45pm",
+                "3:15pm",
+                "6:30pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:15pm",
+                "6:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "12:40pm",
+                "3:15pm",
+                "6:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am",
+                "12:30pm",
+                "3:15pm",
+                "6:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:30pm",
+                "3:15pm",
+                "6:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "12:35pm",
+                "3:15pm",
+                "6:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "12:35pm",
+                "3:15pm",
+                "6:00pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141799574",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:20pm",
+                "4:10pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm",
+                "4:15pm",
+                "7:15pm",
+                "9:40pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "5:00pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:45pm",
+                "8:00pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am",
+                "2:30pm",
+                "5:15pm",
+                "7:40pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:15pm",
+                "7:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:30pm",
+                "5:00pm",
+                "8:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141733448",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:15am",
+                "12:45pm",
+                "4:30pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am",
+                "12:45pm",
+                "4:35pm",
+                "7:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am",
+                "12:55pm",
+                "3:30pm",
+                "7:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "3:15pm",
+                "6:00pm",
+                "8:45pm"
               ]
             }
           ]
@@ -3572,6 +5076,271 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141202534",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "1:40pm",
+                "4:20pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "1:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "4:20pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:20pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/34thstreet/all/141900273",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:10pm",
+                "1:10pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:45am"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141039923",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "2:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "2:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776860",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:40pm",
+                "7:20pm",
+                "10:05pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:40am"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:10am"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141886342",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "1:45pm",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "1:30pm",
+                "4:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "1:45pm",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141018102",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:45pm",
+                "5:15pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -4500,6 +6269,821 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/19thstreet/all/141315032",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:00pm",
+                "6:45pm",
+                "7:20pm",
+                "8:45pm",
+                "9:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/34thstreet/all/141376717",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:15pm",
+                "4:30pm",
+                "5:00pm",
+                "6:00pm",
+                "6:30pm",
+                "6:45pm",
+                "7:00pm",
+                "7:15pm",
+                "7:45pm",
+                "8:45pm",
+                "9:00pm",
+                "9:15pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "6:15pm",
+                "6:45pm",
+                "7:45pm",
+                "9:00pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:30pm",
+                "4:15pm",
+                "5:00pm",
+                "6:15pm",
+                "6:45pm",
+                "7:45pm",
+                "9:00pm",
+                "9:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/84thstreet/all/141441337",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:30pm",
+                "7:15pm",
+                "7:45pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:35pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141469850",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "6:45pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:15pm",
+                "10:00pm",
+                "11:15pm",
+                "11:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:30pm",
+                "10:00pm",
+                "11:15pm",
+                "11:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:45pm",
+                "10:00pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "1:00pm",
+                "2:00pm",
+                "3:45pm",
+                "4:15pm",
+                "4:45pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:15pm",
+                "9:15pm",
+                "10:15pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "1:00pm",
+                "2:00pm",
+                "3:45pm",
+                "4:15pm",
+                "4:45pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "9:15pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141364774",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:15pm",
+                "6:45pm",
+                "7:00pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:00pm",
+                "8:15pm",
+                "8:50pm",
+                "9:30pm",
+                "10:20pm",
+                "10:45pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:05am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "5:15pm",
+                "6:05pm",
+                "7:00pm",
+                "8:00pm",
+                "8:50pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "9:45am",
+                "10:15am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "3:45pm",
+                "4:15pm",
+                "5:15pm",
+                "6:30pm",
+                "7:00pm",
+                "8:00pm",
+                "9:15pm",
+                "9:45pm",
+                "10:30pm",
+                "11:05pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "9:45am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "8:50pm",
+                "9:15pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "12:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:15pm",
+                "4:45pm",
+                "5:45pm",
+                "7:30pm",
+                "8:30pm",
+                "9:45pm",
+                "10:15pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:15am",
+                "12:15pm",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "3:45pm",
+                "4:45pm",
+                "5:45pm",
+                "6:30pm",
+                "7:05pm",
+                "7:30pm",
+                "8:30pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "11:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141493075",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:30pm",
+                "6:15pm",
+                "6:30pm",
+                "7:00pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:30pm",
+                "8:45pm",
+                "9:15pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:30am",
+                "11:30am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:30am",
+                "12:30pm",
+                "1:30pm",
+                "3:30pm",
+                "4:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/orpheum/all/141476562",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "2:20pm",
+                "5:15pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/village7/all/141517118",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:30pm",
+                "8:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "3:20pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:35pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "8:00pm",
+                "9:45pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "2:00pm",
+                "4:15pm",
+                "7:00pm",
+                "8:35pm",
+                "9:45pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am",
+                "12:30pm",
+                "2:30pm",
+                "3:15pm",
+                "5:15pm",
+                "8:00pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:45am",
+                "2:15pm",
+                "2:30pm",
+                "5:15pm",
+                "8:00pm",
+                "9:15pm",
+                "10:45pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -4659,6 +7243,113 @@
               "times": [
                 "2:40pm",
                 "6:25pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141475121",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "7:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "11:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-03/kipsbay/all/141932123",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "11:15am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:05am",
+                "1:20pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:25am",
+                "4:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "1:30pm"
               ]
             }
           ]
@@ -4945,6 +7636,361 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/140669991",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:30pm",
+                "3:15pm",
+                "6:00pm",
+                "9:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "6:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140832839",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:45pm",
+                "5:15pm",
+                "8:15pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "5:30pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "5:30pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "5:30pm",
+                "7:00pm",
+                "9:45pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "5:30pm",
+                "7:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "5:45pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776906",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:25am",
+                "1:45pm",
+                "4:00pm",
+                "6:45pm",
+                "10:25pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:30pm",
+                "3:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:20pm",
+                "7:20pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "2:00pm",
+                "7:35pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:55pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "2:30pm",
+                "10:05pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:20pm",
+                "8:05pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141839001",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:00am",
+                "1:15pm",
+                "4:15pm",
+                "7:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "7:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "7:30pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "7:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "8:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/140862859",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "2:10pm",
+                "5:00pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "5:10pm",
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:10pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141733495",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:15pm",
+                "3:00pm",
+                "5:45pm",
+                "8:30pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:50pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5086,6 +8132,33 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141469901",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "4:15pm",
+                "6:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141776823",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "1:30pm",
+                "4:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5191,6 +8264,123 @@
                 "5:15pm",
                 "7:30pm",
                 "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141469939",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:00am",
+                "1:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "1:35pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "1:35pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "1:35pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "1:35pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141932060",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:45am"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:20am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:30am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:05am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "4:40pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141839007",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:30pm",
+                "4:00pm",
+                "6:45pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:00pm"
               ]
             }
           ]
@@ -5378,6 +8568,444 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141074209",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:10pm",
+                "2:45pm",
+                "5:15pm",
+                "7:45pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm",
+                "4:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141039805",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:00pm",
+                "2:30pm",
+                "5:00pm",
+                "7:30pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141869657",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "12:00pm",
+                "2:35pm",
+                "5:10pm",
+                "7:40pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:05pm",
+                "2:40pm",
+                "5:10pm",
+                "7:40pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:25am",
+                "12:55pm",
+                "3:25pm",
+                "6:00pm",
+                "8:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:50am",
+                "12:20pm",
+                "3:00pm",
+                "5:45pm",
+                "8:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "11:30am",
+                "2:00pm",
+                "4:30pm",
+                "7:10pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:55am",
+                "2:45pm",
+                "5:20pm",
+                "8:20pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:40pm",
+                "3:15pm",
+                "5:45pm",
+                "8:15pm",
+                "10:50pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838997",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:00am",
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:15pm",
+                "3:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "1:45pm",
+                "4:30pm",
+                "8:15pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "4:30pm",
+                "7:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "4:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "4:00pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141023443",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "2:45pm",
+                "4:30pm",
+                "8:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:45am",
+                "8:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "2:50pm",
+                "5:30pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:15pm",
+                "8:00pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:15pm",
+                "2:50pm",
+                "8:00pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "5:00pm",
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "8:00pm",
+                "10:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141254229",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:45am",
+                "1:00pm",
+                "3:30pm",
+                "6:00pm",
+                "8:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "2:00pm",
+                "6:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:30am",
+                "1:00pm",
+                "3:30pm",
+                "6:00pm",
+                "8:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "1:00pm",
+                "3:30pm",
+                "6:00pm",
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "1:05pm",
+                "3:35pm",
+                "6:05pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am",
+                "2:15pm",
+                "4:45pm",
+                "7:15pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "2:15pm",
+                "4:45pm",
+                "7:15pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5537,6 +9165,142 @@
               "times": [
                 "2:10pm",
                 "4:40pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/19thstreet/all/141900212",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:10pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799891",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:15am",
+                "1:15pm",
+                "5:00pm",
+                "8:00pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:00am"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "8:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "8:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141960598",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "5:20pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "5:40pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "5:25pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "5:15pm"
               ]
             }
           ]
@@ -6188,6 +9952,40 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/140951434",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "11:30am",
+                "2:00pm",
+                "3:15pm",
+                "5:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141120979",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "8:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -6697,6 +10495,67 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/empire/all/141004962",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "7:10pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "10:15pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -6783,6 +10642,231 @@
                 "4:00pm",
                 "7:00pm",
                 "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732628",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:20pm",
+                "6:20pm",
+                "7:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm",
+                "3:20pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:15pm",
+                "8:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799937",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:45pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:30pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "9:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:45pm",
+                "9:15pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/kipsbay/all/141932058",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "2:20pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:05pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:50pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-02/lincolnsquare/all/141886285",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:05pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:15pm"
               ]
             }
           ]
@@ -7489,6 +11573,1213 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/19thstreet/all/141713608",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:20am",
+                "12:30pm",
+                "1:15pm",
+                "2:00pm",
+                "3:05pm",
+                "4:00pm",
+                "4:45pm",
+                "5:40pm",
+                "6:40pm",
+                "7:20pm",
+                "8:15pm",
+                "9:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "11:20am",
+                "12:40pm",
+                "2:00pm",
+                "3:20pm",
+                "4:45pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:00am",
+                "11:35am",
+                "12:45pm",
+                "2:10pm",
+                "3:20pm",
+                "4:45pm",
+                "7:20pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "11:40am",
+                "12:45pm",
+                "2:15pm",
+                "3:20pm",
+                "4:45pm",
+                "7:20pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "11:35am",
+                "12:45pm",
+                "2:10pm",
+                "3:20pm",
+                "4:45pm",
+                "7:20pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:30am",
+                "11:45am",
+                "1:05pm",
+                "2:20pm",
+                "3:40pm",
+                "4:55pm",
+                "6:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "11:35am",
+                "12:45pm",
+                "2:10pm",
+                "3:30pm",
+                "4:45pm",
+                "6:15pm",
+                "9:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732812",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "3:00pm",
+                "3:20pm",
+                "3:50pm",
+                "4:20pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:00pm",
+                "8:30pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:35pm",
+                "3:20pm",
+                "4:20pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "7:30pm",
+                "8:00pm",
+                "9:45pm",
+                "10:10pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:45pm",
+                "2:25pm",
+                "3:10pm",
+                "3:45pm",
+                "4:25pm",
+                "5:00pm",
+                "5:45pm",
+                "6:25pm",
+                "7:00pm",
+                "7:45pm",
+                "8:20pm",
+                "9:00pm",
+                "9:40pm",
+                "10:20pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:30am",
+                "11:00am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:45pm",
+                "2:25pm",
+                "3:10pm",
+                "3:45pm",
+                "4:25pm",
+                "5:00pm",
+                "5:45pm",
+                "6:25pm",
+                "7:00pm",
+                "7:45pm",
+                "8:20pm",
+                "9:40pm",
+                "10:20pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:45pm",
+                "2:25pm",
+                "3:10pm",
+                "3:45pm",
+                "4:25pm",
+                "5:00pm",
+                "5:45pm",
+                "6:25pm",
+                "7:00pm",
+                "7:45pm",
+                "8:20pm",
+                "9:30pm",
+                "10:20pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:35pm",
+                "3:20pm",
+                "3:50pm",
+                "4:20pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "8:35pm",
+                "9:30pm",
+                "10:00pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:45pm",
+                "2:25pm",
+                "3:10pm",
+                "3:45pm",
+                "4:25pm",
+                "5:00pm",
+                "5:45pm",
+                "6:25pm",
+                "7:00pm",
+                "7:45pm",
+                "8:20pm",
+                "9:30pm",
+                "10:20pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 84th Street 6",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/84thstreet/all/141254024",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm",
+                "9:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "12:30pm",
+                "1:30pm",
+                "3:15pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141187690",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:00am",
+                "10:15am",
+                "10:30am",
+                "10:45am",
+                "11:00am",
+                "11:15am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:00pm",
+                "1:15pm",
+                "1:30pm",
+                "1:45pm",
+                "2:00pm",
+                "2:15pm",
+                "2:45pm",
+                "3:15pm",
+                "4:00pm",
+                "4:15pm",
+                "4:45pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "6:45pm",
+                "7:00pm",
+                "7:30pm",
+                "8:00pm",
+                "8:15pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "10:30pm",
+                "10:45pm",
+                "11:00pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "10:15am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:00pm",
+                "1:15pm",
+                "1:45pm",
+                "2:00pm",
+                "2:15pm",
+                "2:45pm",
+                "3:15pm",
+                "4:00pm",
+                "4:15pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "6:45pm",
+                "7:00pm",
+                "7:30pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:00am",
+                "9:30am",
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:15pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:15pm",
+                "4:00pm",
+                "4:15pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "6:45pm",
+                "7:00pm",
+                "7:30pm",
+                "8:15pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "11:00pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:00am",
+                "9:00am",
+                "9:45am",
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:15pm",
+                "12:30pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:00pm",
+                "3:15pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:15pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "10:45pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:00am",
+                "9:00am",
+                "10:00am",
+                "10:15am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:15pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:00pm",
+                "3:15pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:15pm",
+                "8:45pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "11:00pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "10:45am",
+                "11:00am",
+                "11:30am",
+                "12:15pm",
+                "12:45pm",
+                "1:15pm",
+                "1:30pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:00pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "6:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:15pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:00pm",
+                "3:30pm",
+                "3:45pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "6:30pm",
+                "6:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:00pm",
+                "9:30pm",
+                "9:45pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141840208",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:05am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:25pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:45pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:15am",
+                "10:00am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "9:35pm",
+                "10:00pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:15am",
+                "10:00am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:45pm",
+                "1:15pm",
+                "1:45pm",
+                "2:15pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "7:15pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "10:00pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/lincolnsquare/all/141838985",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:30am",
+                "11:00am",
+                "12:00pm",
+                "12:45pm",
+                "1:00pm",
+                "1:30pm",
+                "2:00pm",
+                "3:00pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "6:00pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:00pm",
+                "9:00pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "1:00pm",
+                "1:30pm",
+                "2:00pm",
+                "2:30pm",
+                "3:00pm",
+                "3:30pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "1:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:45pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "12:00pm",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "4:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/orpheum/all/141023597",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:00pm",
+                "2:00pm",
+                "3:45pm",
+                "4:45pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:30am",
+                "1:00pm",
+                "2:00pm",
+                "2:45pm",
+                "3:45pm",
+                "4:45pm",
+                "5:20pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00am",
+                "12:00pm",
+                "12:45pm",
+                "1:45pm",
+                "3:30pm",
+                "4:30pm",
+                "6:20pm",
+                "7:20pm",
+                "8:20pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "12:45pm",
+                "1:45pm",
+                "2:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:20pm",
+                "6:20pm",
+                "7:20pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "11:45am",
+                "12:45pm",
+                "1:45pm",
+                "3:30pm",
+                "4:30pm",
+                "5:20pm",
+                "6:20pm",
+                "7:20pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am",
+                "12:00pm",
+                "12:45pm",
+                "1:45pm",
+                "3:30pm",
+                "4:30pm",
+                "6:15pm",
+                "7:20pm",
+                "9:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "11:45am",
+                "12:45pm",
+                "1:45pm",
+                "3:30pm",
+                "4:30pm",
+                "6:20pm",
+                "7:20pm",
+                "9:00pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/village7/all/141254115",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:45am",
+                "11:15am",
+                "1:15pm",
+                "2:00pm",
+                "4:00pm",
+                "4:45pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:45am",
+                "11:30am",
+                "12:15pm",
+                "1:15pm",
+                "2:15pm",
+                "3:45pm",
+                "4:45pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "11:30am",
+                "12:45pm",
+                "2:15pm",
+                "3:30pm",
+                "4:50pm",
+                "6:15pm",
+                "7:30pm",
+                "9:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "2:15pm",
+                "3:30pm",
+                "5:00pm",
+                "6:15pm",
+                "7:30pm",
+                "9:00pm",
+                "10:15pm",
+                "11:35pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "2:15pm",
+                "3:30pm",
+                "5:00pm",
+                "6:15pm",
+                "7:30pm",
+                "8:15pm",
+                "9:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "12:45pm",
+                "2:15pm",
+                "3:30pm",
+                "5:00pm",
+                "6:15pm",
+                "7:30pm",
+                "9:00pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "12:45pm",
+                "2:15pm",
+                "3:30pm",
+                "5:00pm",
+                "6:15pm",
+                "7:30pm",
+                "9:00pm",
+                "10:15pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -7609,6 +12900,196 @@
               "times": [
                 "1:00pm",
                 "7:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/34thstreet/all/141732766",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:30pm",
+                "2:00pm",
+                "3:00pm",
+                "7:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:00pm",
+                "2:40pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:40pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "3:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:40pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "3:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:40pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/empire/all/141799840",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:15am",
+                "1:15pm",
+                "2:00pm",
+                "5:00pm",
+                "7:00pm",
+                "8:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "4:30pm",
+                "6:00pm",
+                "8:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "9:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/showtimes/all/2026-04-01/kipsbay/all/141840211",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:25am",
+                "2:10pm",
+                "6:30pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:20am",
+                "2:10pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "4:05pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "4:10pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "2:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "4:05pm"
               ]
             }
           ]
