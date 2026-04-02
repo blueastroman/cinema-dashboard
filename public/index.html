@@ -1970,12 +1970,14 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
-  const theaterOrder = [
-    ...getAvailableTheaters(),
-    ...(activeTheater === 'AMC'
+  const theaterOrder = (
+    activeTheater === 'AMC'
       ? (activeAmc !== 'none' ? [activeAmc] : getAvailableAmcTheaters())
-      : (activeAmc !== 'none' ? [activeAmc] : [])),
-  ].sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
+      : [
+          ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
+          ...(activeAmc !== 'none' ? [activeAmc] : []),
+        ]
+  ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
   theaterOrder.forEach(theaterName => {
     // Skip if theater filter is active and this isn't the selected one
