@@ -1134,7 +1134,9 @@
     .t-score.rt-mid  { color: var(--depends); }
     .t-score.rt-low  { color: var(--skip); }
     .t-score.lb-score { color: var(--text-dim); }
-    .t-score.cs-score { color: var(--accent); }
+    .t-score.cs-high { color: var(--watch); }
+    .t-score.cs-mid { color: var(--depends); }
+    .t-score.cs-low { color: var(--skip); }
     .t-score-label {
       font-size: 0.62rem;
       font-weight: 600;
@@ -1749,6 +1751,9 @@ function getDisplayVerdict(movie) {
 }
 
 function getCardTone(movie) {
+  const cinemaTone = getCinemaScoreTone(movie?.ratings?.cinemaScore);
+  if (cinemaTone) return cinemaTone;
+
   const rt = parseInt(movie?.ratings?.rt || '', 10);
   if (Number.isFinite(rt)) {
     if (rt < 50) return 'skip';
@@ -1811,6 +1816,22 @@ function getCinemaScoreWeight(score) {
   return map[normalized] ?? null;
 }
 
+function getCinemaScoreTone(score) {
+  const weight = getCinemaScoreWeight(score);
+  if (weight === null) return null;
+  if (weight >= 105) return 'watch';
+  if (weight >= 85) return 'depends';
+  return 'skip';
+}
+
+function getCinemaScoreClass(score) {
+  const tone = getCinemaScoreTone(score);
+  if (tone === 'watch') return 'cs-high';
+  if (tone === 'depends') return 'cs-mid';
+  if (tone === 'skip') return 'cs-low';
+  return '';
+}
+
 function getLetterboxdScore(movie) {
   const raw = movie?.ratings?.letterboxd;
   if (raw && raw !== 'N/A') return String(raw);
@@ -1832,7 +1853,7 @@ function getScoreHierarchy(movie) {
   }
 
   const scores = [];
-  if (cinemaScore) scores.push({ key: 'cinema', value: cinemaScore, label: 'Audience', shortLabel: 'CS', className: 'cs-score' });
+  if (cinemaScore) scores.push({ key: 'cinema', value: cinemaScore, label: 'Audience', shortLabel: 'CS', className: getCinemaScoreClass(cinemaScore) });
   if (rt) scores.push({ key: 'rt', value: rt, label: 'Critics', shortLabel: 'RT', className: rtClass });
   if (letterboxd) scores.push({ key: 'lb', value: letterboxd, label: 'LB', shortLabel: 'LB', className: 'lb-score' });
 
