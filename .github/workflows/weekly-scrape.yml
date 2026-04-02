@@ -47,8 +47,8 @@ jobs:
 
       - name: Commit updated data
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Cinema Bot"
+          git config --local user.email "daniel@dannymora.com"
+          git config --local user.name "Daniel Mora"
           git add public/data.json scripts/rating_cache.json
           if git diff --staged --quiet; then
             echo "No data changes to commit."
