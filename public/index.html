@@ -1489,6 +1489,18 @@ function parseShowtimeDate(dayLabel, timeLabel) {
   return baseDate;
 }
 
+function formatShowtimeLabel(timeLabel) {
+  const raw = String(timeLabel || '').trim();
+  if (!raw) return '';
+  const twentyFourHourMatch = raw.match(/^(\d{1,2}):(\d{2})$/);
+  if (!twentyFourHourMatch) return raw;
+  let hour = parseInt(twentyFourHourMatch[1], 10);
+  const minute = twentyFourHourMatch[2];
+  const meridiem = hour >= 12 ? 'pm' : 'am';
+  hour = hour % 12 || 12;
+  return `${hour}:${minute}${meridiem}`;
+}
+
 function hasUpcomingShowtimes(movie) {
   const now = getNYNow();
   return (movie.theaters || []).some(t =>
@@ -2362,8 +2374,8 @@ function renderTheaterView() {
                 <div class="best-pick-meta">${meta || theaterName}</div>
                 <div class="best-pick-time">${
                   ticketUrl
-                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener">${theaterName} · ${entry.nextShow.time}</a>`
-                    : `${theaterName} · ${entry.nextShow.time}`
+                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener">${theaterName} · ${formatShowtimeLabel(entry.nextShow.time)}</a>`
+                    : `${theaterName} · ${formatShowtimeLabel(entry.nextShow.time)}`
                 }</div>
                 <div class="best-pick-score">${score}${scoreLabel ? ` ${scoreLabel}` : ''}</div>
                 ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
@@ -2710,10 +2722,13 @@ function buildScheduleHTML(theaterData) {
   if (!upcoming.length) return '';
 
   return upcoming.slice(0, 3).map(s => `
-    <div>
+      <div>
       <div class="theater-day">${s.day}</div>
       <div class="showtime-list">
-        ${(s.times || []).map(t => url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${t}</a>` : `<span class="showtime-chip">${t}</span>`).join('')}
+        ${(s.times || []).map(t => {
+          const label = formatShowtimeLabel(t);
+          return url ? `<a href="${url}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${label}</a>` : `<span class="showtime-chip">${label}</span>`;
+        }).join('')}
       </div>
     </div>
   `).join('');
@@ -2735,7 +2750,7 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
       if (!showAt || showAt < now) continue;
-      times.push({ at: showAt, label: t });
+      times.push({ at: showAt, label: formatShowtimeLabel(t) });
     }
 
     if (!times.length) continue;
