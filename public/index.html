@@ -2699,6 +2699,7 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     if (!times.length) continue;
     times.sort((a, b) => a.at - b.at);
     grouped.push({
+      scheduleItem: s,
       dayLabel: dateScope === 'today' ? '' : getShowtimeDayLabel(dayRaw),
       times,
     });
@@ -2710,7 +2711,7 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     const chips = [];
     for (const item of group.times) {
       if (count >= limit) break;
-      const chipUrl = getShowtimeTicketUrl(theaterData, s, item.raw) || url;
+      const chipUrl = getShowtimeTicketUrl(theaterData, group.scheduleItem, item.raw) || url;
       chips.push(chipUrl ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
       count += 1;
     }
