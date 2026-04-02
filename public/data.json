@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T21:00:46.305146",
+  "generated_at": "2026-04-01T21:19:40.198713",
   "week_of": "April 03, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -4953,6 +4953,265 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "1:40pm",
+                "4:20pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "1:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "4:20pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:20pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:10pm",
+                "1:10pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:45am"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:45pm",
+                "7:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "12:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "2:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:00pm",
+                "2:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "1:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:40pm",
+                "7:20pm",
+                "10:05pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "11:40am"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:15am"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:10am"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "1:45pm",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "1:30pm",
+                "4:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "1:45pm",
+                "4:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:45pm",
+                "5:15pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -4960,16 +5219,16 @@
       "title": "The Stranger",
       "ratings": {
         "rt": "87%",
-        "imdb": "7.2",
-        "metacritic": "N/A",
-        "letterboxd": "3.6",
+        "imdb": "7.0",
+        "metacritic": "79",
+        "letterboxd": "3.5",
         "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMDI3NzI4MzMtZDVjZS00N2ZhLTgyZjYtMzg1YzhkNjBiZjEwXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Crime, Drama, Mystery",
-        "runtime": "363 min",
-        "plot": "The secrets and lies of suburban families are made public by the appearance of a stranger.",
-        "year": "2020",
-        "director": "N/A"
+        "poster": "https://m.media-amazon.com/images/M/MV5BMGM1OWMyMzktZjY3OS00Njg1LThhNTUtODdmNzQwZGJhZDU4XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Crime, Drama",
+        "runtime": "122 min",
+        "plot": "In 1930s Algeria, the daily life of an indifferent Frenchman is shaken by the death of his mother and a fateful encounter on a beach.",
+        "year": "2025",
+        "director": "Fran\u00e7ois Ozon"
       },
       "verdict": {
         "verdict": "WATCH",
@@ -5921,6 +6180,1010 @@
                 "8:30pm",
                 "9:00pm",
                 "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:00pm",
+                "6:45pm",
+                "7:20pm",
+                "8:45pm",
+                "9:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:30pm",
+                "9:00pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:15pm",
+                "4:30pm",
+                "5:00pm",
+                "6:00pm",
+                "6:30pm",
+                "6:45pm",
+                "7:00pm",
+                "7:15pm",
+                "7:45pm",
+                "8:45pm",
+                "9:00pm",
+                "9:15pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "6:15pm",
+                "6:45pm",
+                "7:45pm",
+                "9:00pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:30pm",
+                "4:15pm",
+                "5:00pm",
+                "6:15pm",
+                "6:45pm",
+                "7:45pm",
+                "9:00pm",
+                "9:45pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:20am",
+                "11:00am",
+                "11:30am",
+                "12:45pm",
+                "1:15pm",
+                "2:15pm",
+                "3:15pm",
+                "4:00pm",
+                "5:00pm",
+                "5:30pm",
+                "6:00pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 84th Street 6",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:30pm",
+                "7:15pm",
+                "7:45pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:45am",
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "8:00pm",
+                "10:00pm",
+                "10:35pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Bay Plaza Cinema 13",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:40pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:00pm",
+                "5:30pm",
+                "6:15pm",
+                "6:45pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:15pm",
+                "9:00pm",
+                "9:30pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:15pm",
+                "10:00pm",
+                "11:15pm",
+                "11:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:30pm",
+                "10:00pm",
+                "11:15pm",
+                "11:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "11:00am",
+                "12:15pm",
+                "1:45pm",
+                "3:00pm",
+                "4:30pm",
+                "5:00pm",
+                "5:45pm",
+                "7:15pm",
+                "7:45pm",
+                "8:30pm",
+                "9:45pm",
+                "10:00pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "1:00pm",
+                "2:00pm",
+                "3:45pm",
+                "4:15pm",
+                "4:45pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:15pm",
+                "9:15pm",
+                "10:15pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "11:15am",
+                "1:00pm",
+                "2:00pm",
+                "3:45pm",
+                "4:15pm",
+                "4:45pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "9:15pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:15pm",
+                "6:45pm",
+                "7:00pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:00pm",
+                "8:15pm",
+                "8:50pm",
+                "9:30pm",
+                "10:20pm",
+                "10:45pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:05am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "5:15pm",
+                "6:05pm",
+                "7:00pm",
+                "8:00pm",
+                "8:50pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "9:45am",
+                "10:15am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:00pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "3:45pm",
+                "4:15pm",
+                "5:15pm",
+                "6:30pm",
+                "7:00pm",
+                "8:00pm",
+                "9:15pm",
+                "9:45pm",
+                "10:30pm",
+                "11:05pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "9:45am",
+                "10:45am",
+                "11:45am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:15pm",
+                "4:15pm",
+                "5:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:00pm",
+                "8:50pm",
+                "9:15pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "12:15pm",
+                "2:00pm",
+                "3:00pm",
+                "4:15pm",
+                "4:45pm",
+                "5:45pm",
+                "7:30pm",
+                "8:30pm",
+                "9:45pm",
+                "10:15pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:15am",
+                "12:15pm",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "3:45pm",
+                "4:45pm",
+                "5:45pm",
+                "6:30pm",
+                "7:05pm",
+                "7:30pm",
+                "8:30pm",
+                "9:15pm",
+                "9:45pm",
+                "10:15pm",
+                "11:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "4:45pm",
+                "5:30pm",
+                "6:15pm",
+                "6:30pm",
+                "7:00pm",
+                "7:15pm",
+                "7:30pm",
+                "7:45pm",
+                "8:30pm",
+                "8:45pm",
+                "9:15pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:00pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:00pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:00pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "10:30am",
+                "11:30am",
+                "12:45pm",
+                "1:45pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:30am",
+                "11:30am",
+                "12:30pm",
+                "1:30pm",
+                "2:30pm",
+                "3:30pm",
+                "4:30pm",
+                "5:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:30am",
+                "12:30pm",
+                "1:30pm",
+                "3:30pm",
+                "4:30pm",
+                "6:30pm",
+                "7:30pm",
+                "8:45pm",
+                "9:30pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Magic Johnson Harlem 9",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:45pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:00am",
+                "1:45pm",
+                "4:30pm",
+                "7:15pm",
+                "10:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "2:20pm",
+                "5:15pm",
+                "6:45pm",
+                "9:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Staten Island 11",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:45pm",
+                "9:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "12:15pm",
+                "3:00pm",
+                "5:45pm",
+                "7:15pm",
+                "8:30pm",
+                "9:45pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "12:15pm",
+                "3:00pm",
+                "5:45pm",
+                "7:15pm",
+                "8:30pm",
+                "9:45pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:15am",
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:15am",
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "7:30pm",
+                "8:45pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "3:20pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "8:35pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "8:00pm",
+                "9:45pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "2:00pm",
+                "4:15pm",
+                "7:00pm",
+                "8:35pm",
+                "9:45pm",
+                "11:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am",
+                "12:30pm",
+                "2:30pm",
+                "3:15pm",
+                "5:15pm",
+                "8:00pm",
+                "9:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:45am",
+                "2:15pm",
+                "2:30pm",
+                "5:15pm",
+                "8:00pm",
+                "9:15pm",
+                "10:45pm"
               ]
             }
           ]
@@ -6984,6 +8247,31 @@
               ]
             }
           ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "4:15pm",
+                "6:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "11:00am",
+                "1:30pm",
+                "4:00pm"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -7056,54 +8344,6 @@
               "day": "Tue Apr 7",
               "times": [
                 "9:50pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Magnificent Life, A",
-      "ratings": {
-        "rt": "72%",
-        "imdb": "6.7",
-        "metacritic": "N/A",
-        "letterboxd": "3.4",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOGZlZWI1NGMtNDFlMC00OGIzLWJhNGMtZThhOWM5ZDk4ZThlXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Biography",
-        "runtime": "90 min",
-        "plot": "It follows the life of Pagnol, a playwright, novelist, and filmmaker who grew up in a middle-class household in Marseille and became one of the world's most inventive and prolific artists from the 1930's to the 1950's.",
-        "year": "2025",
-        "director": "Sylvain Chomet"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "4:15pm",
-                "6:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "11:00am",
-                "1:30pm",
-                "4:00pm"
               ]
             }
           ]
@@ -8265,16 +9505,16 @@
       "title": "Crime 101",
       "ratings": {
         "rt": "59%",
-        "imdb": "7.2",
-        "metacritic": "68",
-        "letterboxd": "3.6",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZThlN2M4ZTUtYTU3Mi00MDE5LWFhYWUtNjkxMWEwNjUwNDVhXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Crime, Drama, Thriller",
-        "runtime": "140 min",
-        "plot": "An elusive thief, eyeing his final score, encounters a disillusioned insurance broker at her own crossroads. As their paths intertwine, a relentless detective trails them hoping to thwart the multi-million dollar heist they are pl...",
-        "year": "2026",
-        "director": "Bart Layton"
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
       },
       "verdict": {
         "verdict": "WATCH",
@@ -9173,9 +10413,1635 @@
       ]
     },
     {
-      "title": "Super Mario Galaxy Movie, The",
+      "title": "AMC Scream Unseen: April 6",
       "ratings": {
         "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC 19th St. East 6",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Bay Plaza Cinema 13",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Magic Johnson Harlem 9",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Staten Island 11",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Village 7",
+          "schedule": [
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pandas 3D: An Original Film (2026)",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Yeti",
+      "ratings": {
+        "rt": null,
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNmY0ZDVkMzQtZDQ3NS00Y2FiLTliMGQtMDEwYjM5ZTU2ZWMwXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Horror",
+        "runtime": "91 min",
+        "plot": "Merriell Sunday Sr. and Hollis Bannister vanished in Alaska. Ellie and Merriell Jr. mount a search, but an ancient threat stalks their expedition into the wilderness, hunting them as they seek the truth behind the disappearances.",
+        "year": "2026",
+        "director": "William Pisciotta"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Food Truck: Stolen Love...and Moo Deng",
+      "ratings": {
+        "rt": null,
+        "imdb": "6.4",
+        "metacritic": "N/A",
+        "letterboxd": "3.2",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTg1ZGY4MzEtMmFhZi00OGQ0LWJlYTUtNjUxM2E4MjQ3ZDY1XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Romance",
+        "runtime": "105 min",
+        "plot": "Jake and Bobby, with the art director by the truck, don't know their vehicle will force Mamiew to face his past once more.",
+        "year": "2025",
+        "director": "N/A"
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Critics are united \u2014 this one earns its runtime.",
+        "vibe": "Essential"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:15am",
+                "12:00pm",
+                "2:45pm",
+                "5:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "4:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Alpha (dir. Ducournau)",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "4:00pm",
+                "7:15pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:00pm",
+                "4:00pm",
+                "7:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "4:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Jesus Revolution (FF26)",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "4:15pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ben-Hur (2026 Event)",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stand By Me 40th Anniversary",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00am",
+                "11:30am",
+                "2:00pm",
+                "3:15pm",
+                "5:45pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "8:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "MILE END KICKS Q&A with director Chandler Levack & stars Barbie Ferreira and Devon Bostick",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "7:00pm",
+                "7:45pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The King's Warden",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:30am",
+                "12:15pm",
+                "3:15pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:45am",
+                "2:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:45am",
+                "2:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "2:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:45am",
+                "2:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "11:45am",
+                "2:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A Great Awakening",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:00pm",
+                "7:10pm",
+                "10:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "7:10pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "10:15pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Biker",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:30am",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:30am",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:15am",
+                "4:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Secret Between Us",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:30pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "7:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rabb Da Radio 3",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:45pm",
+                "4:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "4:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Raakaasaa",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:15am",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:15am",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:15am",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:15am",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:15am",
+                "11:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vaazha 2",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "3:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:30am"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "2:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Premarital",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "5:00pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "5:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Killer, The - Hong Kong Cinema Classics",
+      "ratings": {
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
+        "vibe": "Unscored"
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "1:00pm",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:00am",
+                "4:00pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "7:10pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "4:00pm",
+                "7:00pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Forbidden Fruits",
+      "ratings": {
+        "rt": "54%",
+        "imdb": "5.9",
+        "metacritic": "N/A",
+        "letterboxd": "3.0",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjEyMDM2MzE4MV5BMl5BanBnXkFtZTcwNTU3OTM1MQ@@._V1_SX300.jpg",
+        "genre": "Drama",
+        "runtime": "115 min",
+        "plot": "A love story between an African American/Christian girl and an Arabic Muslim man, and the racial division between the two different cultures.",
+        "year": "2006",
+        "director": "Marc Cayce"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "4:35pm",
+                "7:35pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "4:35pm",
+                "7:35pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "4:35pm",
+                "7:35pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "4:35pm",
+                "7:35pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "4:35pm",
+                "7:35pm",
+                "10:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "4:25pm",
+                "7:25pm",
+                "10:25pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "12:20pm",
+                "6:20pm",
+                "7:45pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:30pm",
+                "3:20pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:00am",
+                "8:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "12:15pm",
+                "8:00pm",
+                "10:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "8:15pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Empire 25",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "9:30pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:45pm",
+                "10:30pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "12:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "11:00pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "12:00am",
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:00pm",
+                "9:30pm",
+                "11:30pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "6:00pm",
+                "9:30pm",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:45pm",
+                "9:15pm",
+                "10:30pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "2:20pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:20pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:05pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "9:35pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "9:50pm"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "schedule": [
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "1:05pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "10:45am",
+                "10:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "10:45am",
+                "9:45pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "1:45pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "3:15pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Funny Games",
+      "ratings": {
+        "rt": "53%",
+        "imdb": "6.5",
+        "metacritic": "44",
+        "letterboxd": "3.2",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTg4OTExNTYzMV5BMl5BanBnXkFtZTcwOTg1MDU1MQ@@._V1_SX300.jpg",
+        "genre": "Crime, Drama, Thriller",
+        "runtime": "111 min",
+        "plot": "Two psychopathic young men take a family hostage in their cabin.",
+        "year": "2007",
+        "director": "Michael Haneke"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Paris Theater",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "7:00pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Creatures",
+      "ratings": {
+        "rt": "50%",
+        "imdb": "6.4",
+        "metacritic": "N/A",
+        "letterboxd": "3.2",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGI2MTE3NDgtNmUxYy00OTNhLWJmYWYtMmRlZTE0ZDcxYmFiXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, Fantasy",
+        "runtime": "92 min",
+        "plot": "A young mute woman, living in a small village, is expecting a baby. Her husband is at the same time writing a novel and using the villagers as his characters. In the creative process, reality and imagination are constantly intertw...",
+        "year": "1966",
+        "director": "Agn\u00e8s Varda"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Film Forum",
+          "schedule": [
+            {
+              "day": "Tomorrow",
+              "times": [
+                "4:50pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Miami Vice",
+      "ratings": {
+        "rt": "47%",
+        "imdb": "6.1",
+        "metacritic": "66",
+        "letterboxd": "3.0",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMWRiNDhjYTItMWMwNy00Mzk3LWFjNjktNzk3OWMwNWFjY2RhXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Action, Crime, Drama",
+        "runtime": "132 min",
+        "plot": "Vice detectives Crockett and Tubbs see their respective personal and professional lives become dangerously intertwined.",
+        "year": "2006",
+        "director": "Michael Mann"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "schedule": [
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "3:30pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Yes!",
+      "ratings": {
+        "rt": "44%",
+        "imdb": "6.8",
+        "metacritic": "46",
+        "letterboxd": "3.4",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZWQ4YzBiMzgtM2ZhZC00ZDQ5LWFiZjgtNmFlNzZlMTBkZTJhXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Romance",
+        "runtime": "104 min",
+        "plot": "A man challenges himself to say \"yes\" to everything.",
+        "year": "2008",
+        "director": "Peyton Reed"
+      },
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
+      },
+      "theaters": [
+        {
+          "name": "Angelika Film Center",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "9:55pm"
+              ]
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "12:10pm",
+                "3:25pm",
+                "6:40pm",
+                "9:55pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Super Mario Galaxy Movie",
+      "ratings": {
+        "rt": "43%",
         "imdb": "N/A",
         "metacritic": "N/A",
         "letterboxd": null,
@@ -9188,11 +12054,188 @@
         "director": "Aaron Horvath, Michael Jelenic"
       },
       "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
+        "verdict": "SKIP",
+        "reason": "The scores don't lie \u2014 pass on this one.",
+        "vibe": "Mediocre"
       },
       "theaters": [
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "schedule": [
+            {
+              "day": "Wed Apr 1",
+              "times": [
+                "8:45pm",
+                "9:10pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Thu Apr 2",
+              "times": [
+                "9:00am",
+                "9:45am",
+                "9:55am",
+                "10:00am",
+                "10:10am",
+                "10:35am",
+                "11:00am",
+                "11:25am",
+                "12:00pm",
+                "12:20pm",
+                "12:55pm",
+                "1:05pm",
+                "1:35pm",
+                "1:55pm",
+                "2:20pm",
+                "2:55pm",
+                "3:10pm",
+                "3:20pm",
+                "3:50pm",
+                "4:50pm",
+                "5:00pm",
+                "5:50pm",
+                "6:15pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Fri Apr 3",
+              "times": [
+                "9:00am",
+                "10:00am",
+                "10:15am",
+                "10:35am",
+                "11:00am",
+                "11:40am",
+                "12:00pm",
+                "12:55pm",
+                "1:15pm",
+                "1:35pm",
+                "1:55pm",
+                "2:55pm",
+                "3:50pm",
+                "4:50pm",
+                "5:05pm",
+                "5:50pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Sat Apr 4",
+              "times": [
+                "9:00am",
+                "10:00am",
+                "10:15am",
+                "10:25am",
+                "10:40am",
+                "11:00am",
+                "11:30am",
+                "12:00pm",
+                "12:55pm",
+                "1:15pm",
+                "1:35pm",
+                "1:55pm",
+                "2:55pm",
+                "3:50pm",
+                "4:30pm",
+                "4:50pm",
+                "5:50pm",
+                "6:20pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Sun Apr 5",
+              "times": [
+                "9:00am",
+                "10:00am",
+                "10:20am",
+                "10:35am",
+                "11:00am",
+                "11:25am",
+                "12:00pm",
+                "12:55pm",
+                "1:05pm",
+                "1:15pm",
+                "1:35pm",
+                "1:55pm",
+                "2:20pm",
+                "2:55pm",
+                "3:50pm",
+                "4:50pm",
+                "5:50pm",
+                "6:45pm",
+                "7:45pm",
+                "8:45pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Mon Apr 6",
+              "times": [
+                "10:00am",
+                "10:20am",
+                "10:40am",
+                "11:00am",
+                "12:00pm",
+                "12:55pm",
+                "1:05pm",
+                "1:15pm",
+                "1:35pm",
+                "1:55pm",
+                "2:55pm",
+                "3:50pm",
+                "4:50pm",
+                "5:50pm",
+                "6:45pm",
+                "7:45pm",
+                "8:55pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            },
+            {
+              "day": "Tue Apr 7",
+              "times": [
+                "10:00am",
+                "10:10am",
+                "10:30am",
+                "11:00am",
+                "11:10am",
+                "11:55am",
+                "12:55pm",
+                "1:10pm",
+                "1:30pm",
+                "1:55pm",
+                "2:10pm",
+                "2:50pm",
+                "3:50pm",
+                "4:50pm",
+                "5:50pm",
+                "6:45pm",
+                "7:45pm",
+                "8:50pm",
+                "9:40pm",
+                "10:40pm"
+              ]
+            }
+          ]
+        },
         {
           "name": "AMC 19th St. East 6",
           "schedule": [
@@ -11014,3141 +14057,6 @@
                 "7:30pm",
                 "9:00pm",
                 "10:15pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "AI Doc: Or How I Became an Apocaloptimist, The",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "51",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNjkwMzE1NzYtODIwNS00ZjJkLTg1MWUtNGE1MTNiZTNlYzFjXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Documentary",
-        "runtime": "103 min",
-        "plot": "A father-to-be tries to figure out what is happening with all this AI insanity.",
-        "year": "2026",
-        "director": "N/A"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC 19th St. East 6",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "11:00am",
-                "1:40pm",
-                "4:20pm",
-                "7:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:00am",
-                "1:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:00am"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00am"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "4:20pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "12:20pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "12:10pm",
-                "1:10pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:45am"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:45am"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:45am"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:45am"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "11:15am",
-                "2:00pm",
-                "4:45pm",
-                "7:30pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "12:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:00am",
-                "1:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:30am",
-                "2:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:00am",
-                "1:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:00pm",
-                "2:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:00am",
-                "1:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "11:15am",
-                "2:00pm",
-                "4:40pm",
-                "7:20pm",
-                "10:05pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "11:40am"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:15am"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:15am"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:15am"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:45am"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:10am"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Lincoln Square 13",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "1:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "1:45pm",
-                "4:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "1:30pm",
-                "4:30pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "1:45pm",
-                "4:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:00am"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "12:30pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Orpheum 7",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "1:45pm",
-                "5:15pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Drama, The",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTJhNmNiNTgtNDQ3Zi00YjU4LTgyZTAtODhjMGRjNGQ1NjY0XkEyXkFqcGdeQXVyNTU0NTMzNjk@._V1_SX300.jpg",
-        "genre": "Comedy",
-        "runtime": "125 min",
-        "plot": "A workplace comedy about the stereo types in the workplace and the drama that follows them home. The office is in danger of closing its doors unless the employees come together with a plan to save the department. In the midst of t...",
-        "year": "2023",
-        "director": "Tamera Hill"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC 19th St. East 6",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "6:00pm",
-                "6:45pm",
-                "7:20pm",
-                "8:45pm",
-                "9:30pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:45am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:30pm",
-                "9:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:45am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:30pm",
-                "9:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:45am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:30pm",
-                "9:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:00am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "9:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "9:45am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:30pm",
-                "9:00pm",
-                "9:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "4:15pm",
-                "4:30pm",
-                "5:00pm",
-                "6:00pm",
-                "6:30pm",
-                "6:45pm",
-                "7:00pm",
-                "7:15pm",
-                "7:45pm",
-                "8:45pm",
-                "9:00pm",
-                "9:15pm",
-                "9:30pm",
-                "10:00pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:20am",
-                "11:00am",
-                "11:30am",
-                "12:45pm",
-                "1:15pm",
-                "2:15pm",
-                "3:15pm",
-                "4:00pm",
-                "5:00pm",
-                "5:30pm",
-                "6:00pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:30pm",
-                "10:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:20am",
-                "11:00am",
-                "11:30am",
-                "12:45pm",
-                "1:15pm",
-                "2:15pm",
-                "3:30pm",
-                "4:00pm",
-                "4:30pm",
-                "5:00pm",
-                "6:15pm",
-                "6:45pm",
-                "7:45pm",
-                "9:00pm",
-                "9:30pm",
-                "10:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:20am",
-                "11:00am",
-                "11:30am",
-                "12:45pm",
-                "1:15pm",
-                "2:15pm",
-                "3:15pm",
-                "4:00pm",
-                "5:00pm",
-                "5:30pm",
-                "6:00pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:30pm",
-                "10:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:45pm",
-                "1:15pm",
-                "2:15pm",
-                "3:30pm",
-                "4:15pm",
-                "5:00pm",
-                "6:15pm",
-                "6:45pm",
-                "7:45pm",
-                "9:00pm",
-                "9:45pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:20am",
-                "11:00am",
-                "11:30am",
-                "12:45pm",
-                "1:15pm",
-                "2:15pm",
-                "3:15pm",
-                "4:00pm",
-                "5:00pm",
-                "5:30pm",
-                "6:00pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:30pm",
-                "10:30pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC 84th Street 6",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:30pm",
-                "7:15pm",
-                "7:45pm",
-                "10:00pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:45am",
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "8:00pm",
-                "10:00pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:45am",
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "8:00pm",
-                "10:00pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:45am",
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "8:00pm",
-                "10:00pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "9:45am",
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "8:00pm",
-                "10:00pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "9:45am",
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "8:00pm",
-                "10:00pm",
-                "10:35pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Bay Plaza Cinema 13",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "6:45pm",
-                "9:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:30am",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:30am",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:30am",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:30am",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:30am",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:40pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "4:45pm",
-                "5:00pm",
-                "5:30pm",
-                "6:15pm",
-                "6:45pm",
-                "7:15pm",
-                "7:30pm",
-                "7:45pm",
-                "8:15pm",
-                "9:00pm",
-                "9:30pm",
-                "10:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:30am",
-                "11:00am",
-                "12:15pm",
-                "1:15pm",
-                "1:45pm",
-                "3:00pm",
-                "4:00pm",
-                "4:30pm",
-                "5:00pm",
-                "5:45pm",
-                "7:15pm",
-                "7:45pm",
-                "8:30pm",
-                "9:15pm",
-                "10:00pm",
-                "11:15pm",
-                "11:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:30am",
-                "11:00am",
-                "12:15pm",
-                "1:15pm",
-                "1:45pm",
-                "3:00pm",
-                "4:00pm",
-                "4:30pm",
-                "5:00pm",
-                "5:45pm",
-                "7:15pm",
-                "7:45pm",
-                "8:30pm",
-                "9:30pm",
-                "10:00pm",
-                "11:15pm",
-                "11:45pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:30am",
-                "11:00am",
-                "12:15pm",
-                "1:45pm",
-                "3:00pm",
-                "4:30pm",
-                "5:00pm",
-                "5:45pm",
-                "7:15pm",
-                "7:45pm",
-                "8:30pm",
-                "9:45pm",
-                "10:00pm",
-                "11:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:15am",
-                "11:15am",
-                "1:00pm",
-                "2:00pm",
-                "3:45pm",
-                "4:15pm",
-                "4:45pm",
-                "5:30pm",
-                "6:30pm",
-                "7:30pm",
-                "8:15pm",
-                "9:15pm",
-                "10:15pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:15am",
-                "11:15am",
-                "1:00pm",
-                "2:00pm",
-                "3:45pm",
-                "4:15pm",
-                "4:45pm",
-                "6:30pm",
-                "7:00pm",
-                "7:30pm",
-                "9:15pm",
-                "10:15pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "4:45pm",
-                "5:15pm",
-                "6:45pm",
-                "7:00pm",
-                "7:15pm",
-                "7:30pm",
-                "7:45pm",
-                "8:00pm",
-                "8:15pm",
-                "8:50pm",
-                "9:30pm",
-                "10:20pm",
-                "10:45pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:05am",
-                "10:45am",
-                "11:45am",
-                "12:30pm",
-                "1:30pm",
-                "2:30pm",
-                "3:15pm",
-                "4:15pm",
-                "5:15pm",
-                "6:05pm",
-                "7:00pm",
-                "8:00pm",
-                "8:50pm",
-                "9:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00am",
-                "9:45am",
-                "10:15am",
-                "10:45am",
-                "11:45am",
-                "12:30pm",
-                "1:00pm",
-                "1:30pm",
-                "2:30pm",
-                "3:15pm",
-                "3:45pm",
-                "4:15pm",
-                "5:15pm",
-                "6:30pm",
-                "7:00pm",
-                "8:00pm",
-                "9:15pm",
-                "9:45pm",
-                "10:30pm",
-                "11:05pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:00am",
-                "9:45am",
-                "10:45am",
-                "11:45am",
-                "12:30pm",
-                "1:30pm",
-                "2:30pm",
-                "3:15pm",
-                "4:15pm",
-                "5:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:00pm",
-                "8:50pm",
-                "9:15pm",
-                "9:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:15am",
-                "12:15pm",
-                "2:00pm",
-                "3:00pm",
-                "4:15pm",
-                "4:45pm",
-                "5:45pm",
-                "7:30pm",
-                "8:30pm",
-                "9:45pm",
-                "10:15pm",
-                "11:15pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:15am",
-                "12:15pm",
-                "1:00pm",
-                "2:00pm",
-                "3:00pm",
-                "3:45pm",
-                "4:45pm",
-                "5:45pm",
-                "6:30pm",
-                "7:05pm",
-                "7:30pm",
-                "8:30pm",
-                "9:15pm",
-                "9:45pm",
-                "10:15pm",
-                "11:15pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Lincoln Square 13",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "4:45pm",
-                "5:30pm",
-                "6:15pm",
-                "6:30pm",
-                "7:00pm",
-                "7:15pm",
-                "7:30pm",
-                "7:45pm",
-                "8:30pm",
-                "8:45pm",
-                "9:15pm",
-                "9:30pm",
-                "10:00pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:00am",
-                "10:30am",
-                "11:30am",
-                "12:45pm",
-                "1:45pm",
-                "2:30pm",
-                "3:30pm",
-                "4:00pm",
-                "4:30pm",
-                "5:30pm",
-                "6:30pm",
-                "7:00pm",
-                "7:30pm",
-                "8:30pm",
-                "9:30pm",
-                "10:00pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am",
-                "10:30am",
-                "11:30am",
-                "12:45pm",
-                "1:45pm",
-                "2:30pm",
-                "3:30pm",
-                "4:30pm",
-                "5:30pm",
-                "6:30pm",
-                "7:30pm",
-                "8:30pm",
-                "9:30pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00am",
-                "10:30am",
-                "11:30am",
-                "12:45pm",
-                "1:45pm",
-                "2:30pm",
-                "3:30pm",
-                "4:30pm",
-                "5:30pm",
-                "6:30pm",
-                "7:30pm",
-                "8:30pm",
-                "9:30pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:30am",
-                "11:30am",
-                "12:30pm",
-                "1:30pm",
-                "2:30pm",
-                "3:30pm",
-                "4:30pm",
-                "5:30pm",
-                "6:30pm",
-                "7:30pm",
-                "8:30pm",
-                "9:30pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:30am",
-                "12:30pm",
-                "1:30pm",
-                "3:30pm",
-                "4:30pm",
-                "6:30pm",
-                "7:30pm",
-                "8:45pm",
-                "9:30pm",
-                "10:30pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Magic Johnson Harlem 9",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "6:45pm",
-                "9:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:00am",
-                "1:45pm",
-                "4:30pm",
-                "7:15pm",
-                "10:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Orpheum 7",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "7:00pm",
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "12:45pm",
-                "3:45pm",
-                "6:45pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am",
-                "12:45pm",
-                "3:45pm",
-                "6:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00am",
-                "12:45pm",
-                "3:45pm",
-                "6:45pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:45pm",
-                "3:45pm",
-                "6:45pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:30am",
-                "2:20pm",
-                "5:15pm",
-                "6:45pm",
-                "9:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Staten Island 11",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "6:45pm",
-                "9:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:30am",
-                "12:15pm",
-                "3:00pm",
-                "5:45pm",
-                "7:15pm",
-                "8:30pm",
-                "9:45pm",
-                "11:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:30am",
-                "12:15pm",
-                "3:00pm",
-                "5:45pm",
-                "7:15pm",
-                "8:30pm",
-                "9:45pm",
-                "11:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:15am",
-                "12:00pm",
-                "2:45pm",
-                "5:30pm",
-                "8:15pm",
-                "9:30pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:00am",
-                "12:45pm",
-                "3:30pm",
-                "6:15pm",
-                "9:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "9:15am",
-                "12:00pm",
-                "2:45pm",
-                "5:30pm",
-                "8:15pm",
-                "10:15pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Village 7",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "6:00pm",
-                "7:00pm",
-                "7:30pm",
-                "8:45pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "3:20pm",
-                "4:15pm",
-                "6:00pm",
-                "7:00pm",
-                "8:35pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "7:00pm",
-                "8:00pm",
-                "9:45pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "2:00pm",
-                "4:15pm",
-                "7:00pm",
-                "8:35pm",
-                "9:45pm",
-                "11:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:45am",
-                "12:30pm",
-                "2:30pm",
-                "3:15pm",
-                "5:15pm",
-                "8:00pm",
-                "9:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:45am",
-                "2:15pm",
-                "2:30pm",
-                "5:15pm",
-                "8:00pm",
-                "9:15pm",
-                "10:45pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "AMC Scream Unseen: April 6",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC 19th St. East 6",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Bay Plaza Cinema 13",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Lincoln Square 13",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Magic Johnson Harlem 9",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Orpheum 7",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Staten Island 11",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Village 7",
-          "schedule": [
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Pandas 3D: An Original Film (2026)",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Yeti, The",
-      "ratings": {
-        "rt": null,
-        "imdb": "5.7",
-        "metacritic": "N/A",
-        "letterboxd": "2.9",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMzg1OGUxZGYtYjUwZi00Mzg1LTlkOGEtZDhiZjE0MWJiOTllXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Horror",
-        "runtime": "86 min",
-        "plot": "Fictional documentary on the deaths of students in the Russian mountains, attributed to the yeti.",
-        "year": "2014",
-        "director": "Leon Rawlski"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Food Truck: Stolen Love...and Moo Deng",
-      "ratings": {
-        "rt": null,
-        "imdb": "6.4",
-        "metacritic": "N/A",
-        "letterboxd": "3.2",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTg1ZGY4MzEtMmFhZi00OGQ0LWJlYTUtNjUxM2E4MjQ3ZDY1XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy, Romance",
-        "runtime": "105 min",
-        "plot": "Jake and Bobby, with the art director by the truck, don't know their vehicle will force Mamiew to face his past once more.",
-        "year": "2025",
-        "director": "N/A"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "10:15am",
-                "12:00pm",
-                "2:45pm",
-                "5:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:30am",
-                "1:15pm",
-                "4:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Alpha (dir. Ducournau)",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "4:00pm",
-                "7:15pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "1:00pm",
-                "4:00pm",
-                "7:15pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00am"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "4:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Lincoln Square 13",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:00am"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Jesus Revolution (FF26)",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "4:15pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Ben-Hur (2026 Event)",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Stand By Me 40th Anniversary",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:00am",
-                "11:30am",
-                "2:00pm",
-                "3:15pm",
-                "5:45pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "8:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "MILE END KICKS Q&A with director Chandler Levack & stars Barbie Ferreira and Devon Bostick",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "7:00pm",
-                "7:45pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "King's Warden, The",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:30am",
-                "12:15pm",
-                "3:15pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:45am",
-                "2:30pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:45am",
-                "2:30pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "2:30pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:45am",
-                "2:30pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:15am",
-                "11:45am",
-                "2:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Great Awakening, A",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGU1MjRlZDctNmEzNy00NGVhLWE3ZjAtOGRkNTdlN2VjNTY0XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, History",
-        "runtime": "N/A",
-        "plot": "Exploring the friendship between renowned preacher George Whitefield and Benjamin Franklin, and Whitefield's impact during the pivotal Great Awakening religious movement.",
-        "year": "2026",
-        "director": "N/A"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:00pm",
-                "7:10pm",
-                "10:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:30am",
-                "12:45pm",
-                "4:00pm",
-                "7:10pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:30am",
-                "12:45pm",
-                "4:00pm",
-                "7:10pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:30am",
-                "12:45pm",
-                "4:00pm",
-                "7:10pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:45pm",
-                "4:00pm",
-                "7:10pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "12:45pm",
-                "4:00pm",
-                "10:15pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Biker",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "N/A",
-        "genre": "N/A",
-        "runtime": "N/A",
-        "plot": "N/A",
-        "year": "2002",
-        "director": "Jakub Koh\u00e1k"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "9:30pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:30am",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:45am",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:30am",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:15am",
-                "4:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Secret Between Us, The",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNDQzNmY4MzQtYjc3MS00Zjg3LTkyYWItMDM1ZWE2ODNlYTUxXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "114 min",
-        "plot": "A man admired for his integrity watches his perfect life unravel when an unexpected visitor shows up at his front door and forces him to confront the painful consequences of his past betrayal.",
-        "year": "2025",
-        "director": "Tamera Hill"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "7:30pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "7:30pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "8:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:30pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "7:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Rabb Da Radio 3",
-      "ratings": {
-        "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BN2FiNDg3OTctMTUzOS00M2M3LWE1OTQtZTZmNDMyZDBmMTRjXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Romance",
-        "runtime": "122 min",
-        "plot": "N/A",
-        "year": "2024",
-        "director": "Sharan Art"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:00am",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:45pm",
-                "4:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "4:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Raakaasaa",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:15am",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:15am",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:15am",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:15am",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:15am",
-                "11:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Vaazha 2",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "3:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:30am"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "2:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "3:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Premarital",
-      "ratings": {
-        "rt": null,
-        "imdb": "9.0",
-        "metacritic": "N/A",
-        "letterboxd": "4.5",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BODhiZjM5NjUtNGI1Ni00YTA2LTk5MDEtMzZkZTgzZGRhYjFjXkEyXkFqcGdeQXVyNjAzMTQ5ODQ@._V1_SX300.jpg",
-        "genre": "Short",
-        "runtime": "8 min",
-        "plot": "What questions come to your mind when you are about to get married? This short-film is about one such premarital question, albeit something that most people don't even think of.",
-        "year": "2016",
-        "director": "Mayank Singh"
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Critics are united \u2014 this one earns its runtime.",
-        "vibe": "Essential"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "5:00pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "5:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "5:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "5:00pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "5:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Killer, The - Hong Kong Cinema Classics",
-      "ratings": {
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-        "vibe": "Unscored"
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "1:00pm",
-                "4:00pm",
-                "6:00pm",
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:00am",
-                "4:00pm",
-                "7:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "7:10pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "4:00pm",
-                "7:00pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Forbidden Fruits",
-      "ratings": {
-        "rt": "54%",
-        "imdb": "5.9",
-        "metacritic": "N/A",
-        "letterboxd": "3.0",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMjEyMDM2MzE4MV5BMl5BanBnXkFtZTcwNTU3OTM1MQ@@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "115 min",
-        "plot": "A love story between an African American/Christian girl and an Arabic Muslim man, and the racial division between the two different cultures.",
-        "year": "2006",
-        "director": "Marc Cayce"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "4:35pm",
-                "7:35pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "4:35pm",
-                "7:35pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "4:35pm",
-                "7:35pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "4:35pm",
-                "7:35pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "4:35pm",
-                "7:35pm",
-                "10:35pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "4:25pm",
-                "7:25pm",
-                "10:25pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC 34th Street 14",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "12:20pm",
-                "6:20pm",
-                "7:45pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "1:30pm",
-                "3:20pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:00am",
-                "8:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:00am",
-                "8:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "10:00am",
-                "8:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "12:15pm",
-                "8:00pm",
-                "10:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:00am",
-                "8:15pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Empire 25",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "9:30pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:45pm",
-                "10:30pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "7:00pm",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "12:00am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "7:00pm",
-                "11:00pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "12:00am",
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "7:00pm",
-                "9:30pm",
-                "11:30pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "6:00pm",
-                "9:30pm",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:45am",
-                "1:30pm",
-                "4:15pm",
-                "7:45pm",
-                "9:15pm",
-                "10:30pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "2:20pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:20pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:05pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "9:35pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "9:50pm"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMC Lincoln Square 13",
-          "schedule": [
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "1:05pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "10:45am",
-                "10:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "10:45am",
-                "9:45pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "1:45pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "3:15pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Funny Games",
-      "ratings": {
-        "rt": "53%",
-        "imdb": "6.5",
-        "metacritic": "44",
-        "letterboxd": "3.2",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTg4OTExNTYzMV5BMl5BanBnXkFtZTcwOTg1MDU1MQ@@._V1_SX300.jpg",
-        "genre": "Crime, Drama, Thriller",
-        "runtime": "111 min",
-        "plot": "Two psychopathic young men take a family hostage in their cabin.",
-        "year": "2007",
-        "director": "Michael Haneke"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Paris Theater",
-          "schedule": [
-            {
-              "day": "Tomorrow",
-              "times": [
-                "7:00pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "The Creatures",
-      "ratings": {
-        "rt": "50%",
-        "imdb": "6.4",
-        "metacritic": "N/A",
-        "letterboxd": "3.2",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGI2MTE3NDgtNmUxYy00OTNhLWJmYWYtMmRlZTE0ZDcxYmFiXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Fantasy",
-        "runtime": "92 min",
-        "plot": "A young mute woman, living in a small village, is expecting a baby. Her husband is at the same time writing a novel and using the villagers as his characters. In the creative process, reality and imagination are constantly intertw...",
-        "year": "1966",
-        "director": "Agn\u00e8s Varda"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "schedule": [
-            {
-              "day": "Tomorrow",
-              "times": [
-                "4:50pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Miami Vice",
-      "ratings": {
-        "rt": "47%",
-        "imdb": "6.1",
-        "metacritic": "66",
-        "letterboxd": "3.0",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMWRiNDhjYTItMWMwNy00Mzk3LWFjNjktNzk3OWMwNWFjY2RhXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Action, Crime, Drama",
-        "runtime": "132 min",
-        "plot": "Vice detectives Crockett and Tubbs see their respective personal and professional lives become dangerously intertwined.",
-        "year": "2006",
-        "director": "Michael Mann"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "schedule": [
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "3:30pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Yes!",
-      "ratings": {
-        "rt": "44%",
-        "imdb": "6.8",
-        "metacritic": "46",
-        "letterboxd": "3.4",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZWQ4YzBiMzgtM2ZhZC00ZDQ5LWFiZjgtNmFlNzZlMTBkZTJhXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy, Romance",
-        "runtime": "104 min",
-        "plot": "A man challenges himself to say \"yes\" to everything.",
-        "year": "2008",
-        "director": "Peyton Reed"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Angelika Film Center",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "9:55pm"
-              ]
-            },
-            {
-              "day": "Tomorrow",
-              "times": [
-                "12:10pm",
-                "3:25pm",
-                "6:40pm",
-                "9:55pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:15pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:15pm"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "The Super Mario Galaxy Movie",
-      "ratings": {
-        "rt": "43%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNDMyODQzZjAtNmYxYS00YjNiLWEzYTMtNzgyZWE5ODBkZDVhXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Adventure, Comedy",
-        "runtime": "98 min",
-        "plot": "Mario ventures into space, exploring cosmic worlds and tackling galactic challenges far from the familiar Mushroom Kingdom.",
-        "year": "2026",
-        "director": "Aaron Horvath, Michael Jelenic"
-      },
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "The scores don't lie \u2014 pass on this one.",
-        "vibe": "Mediocre"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "schedule": [
-            {
-              "day": "Wed Apr 1",
-              "times": [
-                "8:45pm",
-                "9:10pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Thu Apr 2",
-              "times": [
-                "9:00am",
-                "9:45am",
-                "9:55am",
-                "10:00am",
-                "10:10am",
-                "10:35am",
-                "11:00am",
-                "11:25am",
-                "12:00pm",
-                "12:20pm",
-                "12:55pm",
-                "1:05pm",
-                "1:35pm",
-                "1:55pm",
-                "2:20pm",
-                "2:55pm",
-                "3:10pm",
-                "3:20pm",
-                "3:50pm",
-                "4:50pm",
-                "5:00pm",
-                "5:50pm",
-                "6:15pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Fri Apr 3",
-              "times": [
-                "9:00am",
-                "10:00am",
-                "10:15am",
-                "10:35am",
-                "11:00am",
-                "11:40am",
-                "12:00pm",
-                "12:55pm",
-                "1:15pm",
-                "1:35pm",
-                "1:55pm",
-                "2:55pm",
-                "3:50pm",
-                "4:50pm",
-                "5:05pm",
-                "5:50pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Sat Apr 4",
-              "times": [
-                "9:00am",
-                "10:00am",
-                "10:15am",
-                "10:25am",
-                "10:40am",
-                "11:00am",
-                "11:30am",
-                "12:00pm",
-                "12:55pm",
-                "1:15pm",
-                "1:35pm",
-                "1:55pm",
-                "2:55pm",
-                "3:50pm",
-                "4:30pm",
-                "4:50pm",
-                "5:50pm",
-                "6:20pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Sun Apr 5",
-              "times": [
-                "9:00am",
-                "10:00am",
-                "10:20am",
-                "10:35am",
-                "11:00am",
-                "11:25am",
-                "12:00pm",
-                "12:55pm",
-                "1:05pm",
-                "1:15pm",
-                "1:35pm",
-                "1:55pm",
-                "2:20pm",
-                "2:55pm",
-                "3:50pm",
-                "4:50pm",
-                "5:50pm",
-                "6:45pm",
-                "7:45pm",
-                "8:45pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Mon Apr 6",
-              "times": [
-                "10:00am",
-                "10:20am",
-                "10:40am",
-                "11:00am",
-                "12:00pm",
-                "12:55pm",
-                "1:05pm",
-                "1:15pm",
-                "1:35pm",
-                "1:55pm",
-                "2:55pm",
-                "3:50pm",
-                "4:50pm",
-                "5:50pm",
-                "6:45pm",
-                "7:45pm",
-                "8:55pm",
-                "9:40pm",
-                "10:40pm"
-              ]
-            },
-            {
-              "day": "Tue Apr 7",
-              "times": [
-                "10:00am",
-                "10:10am",
-                "10:30am",
-                "11:00am",
-                "11:10am",
-                "11:55am",
-                "12:55pm",
-                "1:10pm",
-                "1:30pm",
-                "1:55pm",
-                "2:10pm",
-                "2:50pm",
-                "3:50pm",
-                "4:50pm",
-                "5:50pm",
-                "6:45pm",
-                "7:45pm",
-                "8:50pm",
-                "9:40pm",
-                "10:40pm"
               ]
             }
           ]

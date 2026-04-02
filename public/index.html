@@ -821,14 +821,13 @@
 
     .theater-film-times {
       margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 8px;
-      align-items: flex-start;
     }
 
     .theater-film-day-group {
-      min-width: 118px;
+      min-width: 0;
     }
 
     .theater-film-actions {
