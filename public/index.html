@@ -2818,7 +2818,7 @@ document.getElementById('date-picker')?.addEventListener('change', (e) => {
   render();
 });
 
-document.getElementById('search-input').addEventListener('input', e => {
+document.getElementById('search-input')?.addEventListener('input', e => {
   searchQuery = e.target.value.trim();
   render();
 });
