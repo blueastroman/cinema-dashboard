@@ -145,6 +145,7 @@ FORMAT_TAGS = re.compile(
 NON_ALNUM = re.compile(r"[^a-z0-9]+")
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
+CINEMASCORE_OVERRIDES_PATH = SCRIPT_DIR / "cinemascore_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
 OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
 LEGACY_FAKE_PLOTS = {
@@ -511,6 +512,7 @@ def save_json_file(path: Path, data: dict) -> None:
 
 
 RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
+CINEMASCORE_OVERRIDES = load_json_file(CINEMASCORE_OVERRIDES_PATH)
 RATING_CACHE = load_json_file(RATING_CACHE_PATH)
 
 
@@ -805,6 +807,10 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
     for key, value in override.items():
         if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
             ratings[key] = value
+
+    cinema_score_override = CINEMASCORE_OVERRIDES.get(normalize_title(title))
+    if cinema_score_override not in (None, "", "N/A"):
+        ratings["cinemaScore"] = str(cinema_score_override).strip().upper()
     return ratings
 
 
