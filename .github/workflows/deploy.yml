@@ -17,4 +17,4 @@ jobs:
 
       - name: Deploy to Vercel
         if: ${{ env.VERCEL_TOKEN != '' }}
-        run: npx vercel deploy public/ --prod --yes --token $VERCEL_TOKEN --name cinema-dashboard
+        run: npx vercel deploy public/ --prod --yes --token $VERCEL_TOKEN
