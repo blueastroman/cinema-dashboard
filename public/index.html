@@ -2661,31 +2661,11 @@ function getTheaterTicketPriceNote(name) {
   return priceMap[canonical] || '';
 }
 
-const LETTERBOXD_SLUG_OVERRIDES = {
-  'forbidden-fruits|2026': 'forbidden-fruits-2026',
-  'positions|2025': 'positions-2025',
-};
-
-function slugifyLetterboxdTitle(title) {
-  return String(title || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/['']/g, '')
-    .replace(/\.\.\./g, '')
-    .replace(/[.,:!?()&]/g, '')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-}
-
 function getLetterboxdUrl(movie) {
   const year = String(movie?.ratings?.year || '').trim();
-  const baseSlug = slugifyLetterboxdTitle(movie?.title || '');
-  const key = `${baseSlug}|${year}`;
-  const slug = LETTERBOXD_SLUG_OVERRIDES[key] || baseSlug;
-  return `https://letterboxd.com/film/${slug}/`;
+  const parts = [String(movie?.title || '').trim(), year].filter(Boolean);
+  const query = encodeURIComponent(parts.join(' '));
+  return `https://letterboxd.com/search/${query}/`;
 }
 
 function buildScheduleHTML(theaterData) {
