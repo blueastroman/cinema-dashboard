@@ -2650,14 +2650,14 @@ function getTheaterTicketPriceNote(name) {
   if (!canonical || /^AMC\b/i.test(canonical) || canonical === 'Alamo Drafthouse Lower Manhattan') return '';
 
   const priceMap = {
-    'Angelika Film Center': 'Gen $19 · Child $17 · Sr $17.50',
+    'Angelika Film Center': 'Adult $19',
     'Film Forum': 'Gen $18 · Members $12',
     'IFC Center': 'Gen $18 · Members $12',
     'Metrograph': 'Gen $18 · Members $11',
     'Film at Lincoln Center': 'Gen $19 · Members $14',
     'Museum of Modern Art': 'Adults $14 · Members free',
-    'Paris Theater': 'Adult $17 · Concessions $15',
-    'Village East by Angelika': 'Gen $19 · Child $17 · Sr $17.50',
+    'Paris Theater': 'Adult $17',
+    'Village East by Angelika': 'Adult $19',
   };
 
   return priceMap[canonical] || '';
