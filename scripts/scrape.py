@@ -129,6 +129,12 @@ SERPAPI_THEATERS = [
     if config.get("source_type") == "serpapi"
 ]
 
+STATIC_THEATERS = [
+    {"name": name, **config}
+    for name, config in THEATER_CONFIG.items()
+    if config.get("source_type") != "amc"
+]
+
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
@@ -1499,7 +1505,7 @@ def build_dataset() -> dict:
         for name in THEATER_CONFIG.keys()
     }
     amc_theaters = fetch_amc_theatres()
-    all_theaters = [*SERPAPI_THEATERS, *amc_theaters]
+    all_theaters = [*STATIC_THEATERS, *amc_theaters]
 
     for theater in all_theaters:
         print(f"\nFetching: {theater['name']}")
