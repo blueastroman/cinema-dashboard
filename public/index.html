@@ -2292,11 +2292,12 @@ function render() {
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────
 
-function getNextShowFromSchedule(schedule) {
+function getNextShowFromSchedule(schedule, scopeLabel = getActiveDayFilterLabel()) {
   const now = getNYNow();
   let best = null;
   for (const slot of (schedule || [])) {
     const day = slot?.day || '';
+    if (!dayMatchesActiveScope(day, scopeLabel)) continue;
     for (const time of (slot?.times || [])) {
       const at = parseShowtimeDate(day, time);
       if (!at || at < now) continue;
@@ -2339,7 +2340,7 @@ function renderTheaterView() {
     const filmEntries = movies.map(movie => {
       const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
       if (!theaterData) return null;
-      const nextShow = getNextShowFromSchedule(theaterData.schedule);
+      const nextShow = getNextShowFromSchedule(theaterData.schedule, getActiveDayFilterLabel());
       if (!nextShow) return null;
       return { movie, theaterData, nextShow };
     }).filter(Boolean).sort((a, b) => {
