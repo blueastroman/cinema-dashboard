@@ -2405,8 +2405,7 @@ function renderTheaterView() {
         metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
       }
 
-      const lbSlug = slugifyLetterboxdTitle(movie.title);
-      const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
+      const lbUrl = getLetterboxdUrl(movie);
 
       const scheduleHTML = theaterData
         ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
@@ -2521,8 +2520,7 @@ function buildCard(movie, idx) {
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
-  const lbSlug = slugifyLetterboxdTitle(movie.title);
-  const lbUrl = `https://letterboxd.com/film/${lbSlug}/`;
+  const lbUrl = getLetterboxdUrl(movie);
 
   card.innerHTML = `
     <div class="card-top">
@@ -2663,6 +2661,10 @@ function getTheaterTicketPriceNote(name) {
   return priceMap[canonical] || '';
 }
 
+const LETTERBOXD_SLUG_OVERRIDES = {
+  'forbidden-fruits|2026': 'forbidden-fruits-2026',
+};
+
 function slugifyLetterboxdTitle(title) {
   return String(title || '')
     .normalize('NFD')
@@ -2675,6 +2677,14 @@ function slugifyLetterboxdTitle(title) {
     .trim()
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
+}
+
+function getLetterboxdUrl(movie) {
+  const year = String(movie?.ratings?.year || '').trim();
+  const baseSlug = slugifyLetterboxdTitle(movie?.title || '');
+  const key = `${baseSlug}|${year}`;
+  const slug = LETTERBOXD_SLUG_OVERRIDES[key] || baseSlug;
+  return `https://letterboxd.com/film/${slug}/`;
 }
 
 function buildScheduleHTML(theaterData) {
