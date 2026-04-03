@@ -909,6 +909,18 @@
       align-items: center;
     }
 
+    .theater-ticket-price {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      opacity: 0.88;
+      white-space: nowrap;
+    }
+
     .theater-saved-chip {
       font-family: var(--font-sans);
       font-size: 0.62rem;
@@ -2401,6 +2413,7 @@ function renderTheaterView() {
         : '';
       const confidence = getConfidenceNote(movie);
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
+      const ticketPriceNote = getTheaterTicketPriceNote(theaterData?.name);
 
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
@@ -2439,6 +2452,7 @@ function renderTheaterView() {
           <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
           <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
+        ${ticketPriceNote ? `<div class="theater-ticket-price">${ticketPriceNote}</div>` : ''}
       `;
       filmList.appendChild(row);
     });
@@ -2629,6 +2643,21 @@ function getShowtimeTicketUrl(theaterData, scheduleItem, time) {
   const exactUrl = String(scheduleItem?.ticket_urls?.[time] || '').trim();
   if (exactUrl) return exactUrl;
   return getTicketUrl(theaterData);
+}
+
+function getTheaterTicketPriceNote(name) {
+  const canonical = getCanonicalTheaterName(name);
+  if (!canonical || /^AMC\b/i.test(canonical) || canonical === 'Alamo Drafthouse Lower Manhattan') return '';
+
+  const priceMap = {
+    'Film Forum': 'Gen $18 · Members $12',
+    'IFC Center': 'Gen $18 · Members $12',
+    'Metrograph': 'Gen $18 · Members $11',
+    'Film at Lincoln Center': 'Gen $19 · Members $14',
+    'Museum of Modern Art': 'Adults $14 · Members free',
+  };
+
+  return priceMap[canonical] || '';
 }
 
 function slugifyLetterboxdTitle(title) {
