@@ -1690,6 +1690,7 @@ const DEFAULT_THEATER_META = {
   'Film at Lincoln Center': { slug: 'flc', short_name: 'FLC', sort_name: 'FLC', official_url: 'https://www.filmlinc.org/now-playing/', source_type: 'serpapi', aliases: ['flc', 'film linc', 'lincoln center', 'film at lincoln center'] },
   'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo', sort_name: 'Alamo', official_url: 'https://drafthouse.com/nyc', source_type: 'alamo', aliases: ['alamo'] },
   'Alamo Drafthouse Downtown Brooklyn': { slug: 'alamo-brooklyn', short_name: 'Alamo Brooklyn', sort_name: 'Alamo Brooklyn', official_url: 'https://drafthouse.com/theater/downtown-brooklyn', source_type: 'alamo', aliases: ['alamo brooklyn', 'downtown brooklyn', 'brooklyn alamo'] },
+  'Alamo Drafthouse Staten Island': { slug: 'alamo-staten-island', short_name: 'Alamo Staten Island', sort_name: 'Alamo Staten Island', official_url: 'https://drafthouse.com/theater/staten-island', source_type: 'alamo', aliases: ['alamo staten island', 'staten island', 'staten island alamo'] },
   'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'serpapi', aliases: ['paris'] },
   'Museum of Modern Art': { slug: 'moma', short_name: 'MoMA', sort_name: 'MoMA', official_url: 'https://www.moma.org/calendar/film/', source_type: 'serpapi', aliases: ['moma', 'museum of modern art', 'moma film'] },
 };
@@ -2130,9 +2131,23 @@ function getAvailableMembershipTheaters(kind, data = null) {
   return names.sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 }
 
+function getMembershipDefaultOptionLabel(kind, name) {
+  const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
+  if (kind === 'alamo') {
+    const labels = {
+      'Alamo Drafthouse Lower Manhattan': 'Lower Manhattan',
+      'Alamo Drafthouse Downtown Brooklyn': 'Downtown Brooklyn',
+      'Alamo Drafthouse Staten Island': 'Staten Island',
+    };
+    return labels[canonical] || getDisplayTheaterName(canonical) || canonical;
+  }
+  return getDisplayTheaterName(canonical) || canonical;
+}
+
 function populateMembershipDefaultSelect(selectId, options, defaultValue, allLabel) {
   const select = document.getElementById(selectId);
   if (!select) return;
+  const kind = String(select.dataset.membershipKind || '').trim();
   select.innerHTML = '';
   const allOption = document.createElement('option');
   allOption.value = 'all';
@@ -2142,7 +2157,7 @@ function populateMembershipDefaultSelect(selectId, options, defaultValue, allLab
   options.forEach(name => {
     const option = document.createElement('option');
     option.value = name;
-    option.textContent = getDisplayTheaterName(name) || name;
+    option.textContent = getMembershipDefaultOptionLabel(kind, name);
     select.appendChild(option);
   });
 
