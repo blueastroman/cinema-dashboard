@@ -261,6 +261,52 @@
       color: var(--text-dim);
     }
 
+    .settings-subtitle {
+      margin-top: 2px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .settings-defaults {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--mid-gray);
+    }
+
+    .settings-default-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .settings-default-row[hidden],
+    .settings-defaults[hidden] {
+      display: none;
+    }
+
+    .settings-default-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .settings-default-select {
+      width: 100%;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--mid-gray);
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      appearance: none;
+    }
+
     .theme-switch {
       display: inline-flex;
       align-items: center;
@@ -1377,6 +1423,27 @@
               <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
               <label class="membership-item"><input type="checkbox" value="moma"> MoMA Member</label>
             </div>
+            <div class="settings-section settings-defaults" id="membership-defaults" hidden>
+              <div class="settings-subtitle">Default theaters</div>
+              <label class="settings-default-row" id="default-amc-row" hidden>
+                <span class="settings-default-label">Choose default AMC</span>
+                <select class="settings-default-select" id="default-amc-select" data-membership-kind="amc">
+                  <option value="all">All AMC</option>
+                </select>
+              </label>
+              <label class="settings-default-row" id="default-alamo-row" hidden>
+                <span class="settings-default-label">Choose default Alamo</span>
+                <select class="settings-default-select" id="default-alamo-select" data-membership-kind="alamo">
+                  <option value="all">All Alamo</option>
+                </select>
+              </label>
+              <label class="settings-default-row" id="default-regal-row" hidden>
+                <span class="settings-default-label">Choose default Regal</span>
+                <select class="settings-default-select" id="default-regal-select" data-membership-kind="regal">
+                  <option value="all">All Regal</option>
+                </select>
+              </label>
+            </div>
             <div class="membership-note">Memberships personalize the board, unlock theater-specific controls, and replace generic price notes.</div>
           </div>
         </div>
@@ -1467,6 +1534,7 @@ let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
 const AMC_STORAGE_KEY = 'cinema_amc_selection';
 const MEMBERSHIPS_STORAGE_KEY = 'cinema_memberships';
+const MEMBERSHIP_DEFAULTS_STORAGE_KEY = 'cinema_membership_defaults';
 let memberships = {
   amc: false,
   alamo: false,
@@ -1476,12 +1544,34 @@ let memberships = {
   flc: false,
   moma: false,
 };
+let membershipDefaults = {
+  amc: 'all',
+  alamo: 'all',
+  regal: 'all',
+};
+
+function getStoredMembershipDefaults() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(MEMBERSHIP_DEFAULTS_STORAGE_KEY) || '{}');
+    return { ...membershipDefaults, ...(parsed && typeof parsed === 'object' ? parsed : {}) };
+  } catch {
+    return { ...membershipDefaults };
+  }
+}
+
+function setStoredMembershipDefaults(next) {
+  membershipDefaults = { ...membershipDefaults, ...next };
+  try {
+    localStorage.setItem(MEMBERSHIP_DEFAULTS_STORAGE_KEY, JSON.stringify(membershipDefaults));
+  } catch {}
+}
 
 function getStoredAmcSelection() {
+  const fallback = getStoredMembershipDefaults().amc || 'all';
   try {
-    return localStorage.getItem(AMC_STORAGE_KEY) || 'all';
+    return localStorage.getItem(AMC_STORAGE_KEY) || fallback;
   } catch {
-    return 'all';
+    return fallback;
   }
 }
 
@@ -1533,6 +1623,18 @@ function syncMembershipDrivenControls() {
   if (amcGroup) {
     amcGroup.style.display = memberships.amc ? '' : 'none';
   }
+
+  const defaultsSection = document.getElementById('membership-defaults');
+  const defaultAmcRow = document.getElementById('default-amc-row');
+  const defaultAlamoRow = document.getElementById('default-alamo-row');
+  const defaultRegalRow = document.getElementById('default-regal-row');
+
+  if (defaultsSection) {
+    defaultsSection.hidden = !(memberships.amc || memberships.alamo || memberships.regal);
+  }
+  if (defaultAmcRow) defaultAmcRow.hidden = !memberships.amc;
+  if (defaultAlamoRow) defaultAlamoRow.hidden = !memberships.alamo;
+  if (defaultRegalRow) defaultRegalRow.hidden = !memberships.regal;
 }
 
 function syncSettingsButton(open) {
@@ -1597,6 +1699,9 @@ function readFiltersFromUrl() {
   const show = params.get('show');
   const saved = params.get('saved');
 
+  membershipDefaults = getStoredMembershipDefaults();
+  memberships = getStoredMemberships();
+
   if (scope === 'today' || scope === 'tomorrow' || scope === 'week') dateScope = scope;
   if (scope === 'custom' && customDate) {
     dateScope = 'custom';
@@ -1610,7 +1715,6 @@ function readFiltersFromUrl() {
   } else {
     activeAmc = getStoredAmcSelection();
   }
-  memberships = getStoredMemberships();
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
@@ -1971,6 +2075,46 @@ function getAvailableAmcTheaters(data = null) {
   return [...observed]
     .filter(name => /^AMC\b/i.test(name))
     .sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
+}
+
+function getAvailableMembershipTheaters(kind, data = null) {
+  const observed = new Set([
+    ...((data?.theaters || [])),
+    ...(((data?.movies || allMovies) || []).flatMap(m => (m?.theaters || []).map(t => t?.name))),
+  ].map(t => getCanonicalTheaterName(t)).filter(Boolean));
+
+  const names = [...observed].filter(name => {
+    const meta = getTheaterMeta(name);
+    if (kind === 'amc') return /^AMC\b/i.test(name);
+    if (kind === 'alamo') return meta?.source_type === 'alamo';
+    if (kind === 'regal') return /^Regal\b/i.test(name) || meta?.source_type === 'regal';
+    return false;
+  });
+
+  return names.sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
+}
+
+function populateMembershipDefaultSelect(selectId, options, defaultValue, allLabel) {
+  const select = document.getElementById(selectId);
+  if (!select) return;
+  select.innerHTML = '';
+  const allOption = document.createElement('option');
+  allOption.value = 'all';
+  allOption.textContent = allLabel;
+  select.appendChild(allOption);
+
+  options.forEach(name => {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = getDisplayTheaterName(name) || name;
+    select.appendChild(option);
+  });
+
+  const resolved = options.includes(defaultValue) ? defaultValue : 'all';
+  select.value = resolved;
+  if (resolved !== defaultValue) {
+    setStoredMembershipDefaults({ [select.dataset.membershipKind]: resolved });
+  }
 }
 
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
@@ -2340,6 +2484,10 @@ function initDashboard(data) {
   }));
   effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
   hasLoadedData = true;
+
+  populateMembershipDefaultSelect('default-amc-select', getAvailableMembershipTheaters('amc', data), membershipDefaults.amc, 'All AMC');
+  populateMembershipDefaultSelect('default-alamo-select', getAvailableMembershipTheaters('alamo', data), membershipDefaults.alamo, 'All Alamo');
+  populateMembershipDefaultSelect('default-regal-select', getAvailableMembershipTheaters('regal', data), membershipDefaults.regal, 'All Regal');
 
   // Theater dropdown
   const theaters = getAvailableTheaters(data);
@@ -3213,13 +3361,34 @@ document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(inp
     syncMembershipSignals();
     syncMembershipDrivenControls();
     if (!memberships.amc) {
-      activeAmc = 'all';
+      activeAmc = membershipDefaults.amc || 'all';
       hasExplicitAmcFilter = false;
-      setStoredAmcSelection('all');
+      setStoredAmcSelection(membershipDefaults.amc || 'all');
       if (activeTheater === 'AMC') activeTheater = 'all';
     }
     render();
   });
+});
+
+document.getElementById('default-amc-select')?.addEventListener('change', e => {
+  const target = e.target;
+  if (!(target instanceof HTMLSelectElement)) return;
+  setStoredMembershipDefaults({ amc: target.value || 'all' });
+  setStoredAmcSelection(target.value || 'all');
+  activeAmc = target.value || 'all';
+  render();
+});
+
+document.getElementById('default-alamo-select')?.addEventListener('change', e => {
+  const target = e.target;
+  if (!(target instanceof HTMLSelectElement)) return;
+  setStoredMembershipDefaults({ alamo: target.value || 'all' });
+});
+
+document.getElementById('default-regal-select')?.addEventListener('change', e => {
+  const target = e.target;
+  if (!(target instanceof HTMLSelectElement)) return;
+  setStoredMembershipDefaults({ regal: target.value || 'all' });
 });
 
 document.addEventListener('click', () => {
