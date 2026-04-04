@@ -1157,6 +1157,10 @@
       color: var(--muted);
       margin-top: 6px;
       line-height: 1.4;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
     }
 
     .confidence-note {
@@ -1515,6 +1519,12 @@
             <option value="all">All</option>
           </select>
         </div>
+        <div class="control-group">
+          <span class="control-label">Formats</span>
+          <select class="genre-select" id="format-select">
+            <option value="all">All</option>
+          </select>
+        </div>
         <div class="search-wrap">
           <span class="search-icon">⌕</span>
           <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
@@ -1563,6 +1573,7 @@ let activeTheater = 'all';
 let activeAmc = 'all';
 let hasExplicitAmcFilter = false;
 let activeGenre = 'all';
+let activeFormat = 'all';
 let searchQuery = '';
 let activeSort = 'day';
 let showMode = 'all';
@@ -1736,6 +1747,7 @@ function readFiltersFromUrl() {
   const theater = params.get('theater');
   const amc = params.get('amc');
   const genre = params.get('genre');
+  const format = params.get('format');
   const search = params.get('q');
   const sort = params.get('sort');
   const show = params.get('show');
@@ -1758,6 +1770,7 @@ function readFiltersFromUrl() {
     activeAmc = getStoredAmcSelection();
   }
   if (genre) activeGenre = genre;
+  if (format) activeFormat = format;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
   if (show === 'saved' || show === 'hidden' || show === 'all') showMode = show;
@@ -1771,6 +1784,7 @@ function updateUrlFromState() {
   if (activeTheater !== 'all') params.set('theater', getTheaterStateSlug(activeTheater));
   if (memberships.amc && activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
+  if (activeFormat !== 'all') params.set('format', slugify(activeFormat));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
   if (showMode !== 'all') params.set('show', showMode);
@@ -2145,6 +2159,16 @@ function resolveGenreValue(value, genres = []) {
   return genres.find(g => slugify(g) === slugify(raw)) || 'all';
 }
 
+function resolveFormatValue(value, formats = []) {
+  const raw = String(value || '').trim();
+  if (!raw || raw === 'all') return 'all';
+  return formats.find(format => slugify(format) === slugify(raw)) || 'all';
+}
+
+function getMovieFormats(movie) {
+  return [...new Set((movie?.special_formats || []).map(format => String(format || '').trim()).filter(Boolean))];
+}
+
 function getTheaterUrl(name) {
   const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
   return getTheaterMeta(canonical)?.official_url || '';
@@ -2502,6 +2526,7 @@ function getEmptyStateMessage() {
   if (showMode === 'saved') parts.push('saved');
   if (showMode === 'hidden') parts.push('hidden');
   if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
+  if (activeFormat !== 'all') parts.push(activeFormat.toLowerCase());
   if (activeTheater === 'AMC') {
     parts.push(resolvedAmc !== 'all' ? resolvedAmc : 'AMC');
   } else if (resolvedAmc === 'none') {
@@ -2516,6 +2541,7 @@ function getEmptyStateMessage() {
 function getEmptyStateHint() {
   if (showMode === 'saved') return 'Try switching Show back to All or broadening the date range.';
   if (showMode === 'hidden') return 'Try switching Show back to All or clearing one of the other filters.';
+  if (activeFormat !== 'all') return 'Try clearing the format filter or switching theaters.';
   if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
   if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
   return 'Try a wider date range or clear one of the filters.';
@@ -2711,6 +2737,32 @@ function initDashboard(data) {
     });
   }
 
+  const formatSet = new Set();
+  ['IMAX', '70mm', '35mm'].forEach(format => formatSet.add(format));
+  (data.movies || []).forEach(movie => {
+    getMovieFormats(movie).forEach(format => formatSet.add(format));
+  });
+  const formatSelect = document.getElementById('format-select');
+  if (formatSelect) {
+    formatSelect.innerHTML = '<option value="all">All</option>';
+    const formats = [...formatSet].sort((a, b) => {
+      const order = { IMAX: 0, '70mm': 1, '35mm': 2 };
+      return (order[a] ?? 99) - (order[b] ?? 99) || a.localeCompare(b);
+    });
+    formats.forEach(format => {
+      const opt = document.createElement('option');
+      opt.value = format;
+      opt.textContent = format;
+      formatSelect.appendChild(opt);
+    });
+    activeFormat = resolveFormatValue(activeFormat, formats);
+    formatSelect.value = activeFormat;
+    formatSelect.addEventListener('change', e => {
+      activeFormat = e.target.value;
+      render();
+    });
+  }
+
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.value = searchQuery;
@@ -2769,11 +2821,16 @@ function getFiltered() {
       const genres = (movie.ratings?.genre || '').split(',').map(g => g.trim().toLowerCase());
       if (!genres.includes(activeGenre.toLowerCase())) return false;
     }
+    if (activeFormat !== 'all') {
+      const formats = getMovieFormats(movie).map(format => format.toLowerCase());
+      if (!formats.includes(activeFormat.toLowerCase())) return false;
+    }
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       const title = (movie.title || '').toLowerCase();
       const genre = (movie.ratings?.genre || '').toLowerCase();
-      if (!title.includes(q) && !genre.includes(q)) return false;
+      const formats = getMovieFormats(movie).join(' ').toLowerCase();
+      if (!title.includes(q) && !genre.includes(q) && !formats.includes(q)) return false;
     }
     return true;
   });
@@ -3040,7 +3097,9 @@ function renderTheaterView() {
       const genreParts = genre && genre !== 'N/A'
         ? genre.split(',').map(part => part.trim()).filter(Boolean).slice(0, 2)
         : [];
+      const formatParts = getMovieFormats(movie);
       const metaParts = [...genreParts];
+      const formatTags = formatParts.map(format => `<span class="tag">${format}</span>`);
       if (runtime && runtime !== 'N/A') {
         const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
         metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
@@ -3082,7 +3141,7 @@ function renderTheaterView() {
             </div>
           </div>
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
-          ${metaParts.length ? `<div class="theater-film-meta">${metaParts.join(' · ')}</div>` : ''}
+          ${(metaParts.length || formatTags.length) ? `<div class="theater-film-meta">${metaParts.join(' · ')}${metaParts.length && formatTags.length ? ' · ' : ''}${formatTags.join('')}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
@@ -3131,7 +3190,10 @@ function buildCard(movie, idx) {
   const watched = hasStoredMovie(getWatched(), movie);
 
   // Genre tags
-  const tags = genre.split(',').map(g => g.trim()).filter(Boolean);
+  const tags = [...new Set([
+    ...getMovieFormats(movie),
+    ...genre.split(',').map(g => g.trim()).filter(Boolean),
+  ])];
   if (runtime) tags.push(runtime);
 
   // Theater rows

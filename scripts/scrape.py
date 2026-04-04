@@ -183,6 +183,11 @@ FORMAT_TAGS = re.compile(
     r'|\s*[\(\[]?(70mm|35mm|imax|4k|dcp)[\)\]]?',
     re.IGNORECASE
 )
+SPECIAL_FORMAT_PATTERNS = {
+    "IMAX": re.compile(r"\bimax\b", re.IGNORECASE),
+    "70mm": re.compile(r"\b(?:in\s+)?70\s*mm\b", re.IGNORECASE),
+    "35mm": re.compile(r"\b(?:in\s+)?35\s*mm\b", re.IGNORECASE),
+}
 
 NON_ALNUM = re.compile(r"[^a-z0-9]+")
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -213,6 +218,15 @@ def clean_title(raw: str) -> str:
     if article_match:
         cleaned = f"{article_match.group(2)} {article_match.group(1)}"
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def extract_special_formats(*values: object) -> list[str]:
+    found: list[str] = []
+    haystacks = [str(value or "") for value in values if value]
+    for label, pattern in SPECIAL_FORMAT_PATTERNS.items():
+        if any(pattern.search(haystack) for haystack in haystacks):
+            found.append(label)
+    return found
 
 
 def extract_year_int(value: Optional[str]) -> Optional[int]:
@@ -336,14 +350,16 @@ def fetch_showtimes(theater: dict) -> list[dict]:
                         hint_year = int(str(raw_year)[:4])
                     except (ValueError, TypeError):
                         pass
+                raw_title = movie.get("name", "Unknown")
                 movies.append({
-                    "title": clean_title(movie.get("name", "Unknown")),
+                    "title": clean_title(raw_title),
                     "hint_year": hint_year,
                     "theater": theater["name"],
                     "day": f"{day.get('day', '')} {day.get('date', '')}".strip(),
                     "times": times,
                     "ticket_url": ticket_url,
                     "ticket_urls": ticket_urls,
+                    "special_formats": extract_special_formats(raw_title),
                 })
         return movies
     except Exception as e:
@@ -369,14 +385,19 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
         blocks = re.findall(r'<div class="film-showtimes">(.*?)<!-- end film-showtimes -->', content, re.DOTALL | re.IGNORECASE)
 
     grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+    grouped_formats: dict[str, set[str]] = defaultdict(set)
 
     for block in blocks:
         title_match = re.search(r'<h3 class="film-title">\s*(.*?)\s*</h3>', block, re.DOTALL | re.IGNORECASE)
         if not title_match:
             continue
-        title = clean_title(html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).strip())
+        raw_title = html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).strip()
+        title = clean_title(raw_title)
         if not title:
             continue
+        title_formats = extract_special_formats(raw_title, block)
+        if title_formats:
+            grouped_formats[title].update(title_formats)
 
         session_blocks = re.findall(
             r'<div class="[^"]*\bsession\b[^"]*">(.*?)</div>\s*</div>',
@@ -424,6 +445,7 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
                 "times": unique_times,
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
+                "special_formats": sorted(grouped_formats.get(title, [])),
             })
 
     return flattened
@@ -465,6 +487,7 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
         return []
 
     grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+    grouped_formats: dict[str, set[str]] = defaultdict(set)
 
     day_blocks = re.findall(
         r'(<div class="daily-schedule\s+[^"]*">.*?)(?=<div class="daily-schedule\s+[^"]*"|$)',
@@ -484,9 +507,13 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
         )
 
         for raw_title, times_html in movie_blocks:
-            title = clean_title(html.unescape(raw_title).strip())
+            clean_raw_title = html.unescape(raw_title).strip()
+            title = clean_title(clean_raw_title)
             if not title:
                 continue
+            title_formats = extract_special_formats(clean_raw_title, times_html)
+            if title_formats:
+                grouped_formats[title].update(title_formats)
 
             links = re.findall(
                 r'<a href="([^"]*ticketsearchcriteria[^"]*)"[^>]*>([^<]+)</a>',
@@ -513,6 +540,7 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
                 "times": unique_times,
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
+                "special_formats": sorted(grouped_formats.get(title, [])),
             })
 
     return flattened
@@ -559,6 +587,7 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
 
     unique_slugs = sorted({str(hit.get("slug") or "").strip() for hit in presentation_hits if str(hit.get("slug") or "").strip()})
     grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+    grouped_formats: dict[str, set[str]] = defaultdict(set)
 
     for slug in unique_slugs:
         try:
@@ -607,6 +636,14 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
             title = clean_title(raw_title)
             if not title:
                 continue
+            title_formats = extract_special_formats(
+                raw_title,
+                session.get("experienceName"),
+                session.get("presentationName"),
+                session.get("format"),
+                show_data.get("title"),
+                event_data.get("title"),
+            )
 
             route = "event" if is_event else "show"
             route_slug = presentation_slug
@@ -616,7 +653,11 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
                 f"https://drafthouse.com/{market_slug}/{route}/{route_slug}"
                 f"?cinemaId={cinema_id}&sessionId={session_id}"
             )
-            grouped[title][day_label][time_label] = ticket_url
+            bucket = grouped[title][day_label]
+            bucket[time_label] = ticket_url
+
+        if title_formats:
+            grouped_formats[title].update(title_formats)
 
     flattened = []
     for title, days in grouped.items():
@@ -631,6 +672,7 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
                 "times": unique_times,
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
+                "special_formats": sorted(grouped_formats.get(title, [])),
             })
 
     return flattened
@@ -755,16 +797,24 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                 if showtime.get("isCanceled"):
                     continue
 
-                title = clean_title(
+                raw_title = (
                     showtime.get("sortableMovieName")
                     or showtime.get("movieName")
                     or showtime.get("sortableTitleName")
                     or showtime.get("title")
                     or ""
                 )
+                title = clean_title(raw_title)
                 local_dt_raw = showtime.get("showDateTimeLocal")
                 if not title or not local_dt_raw:
                     continue
+                title_formats = extract_special_formats(
+                    raw_title,
+                    showtime.get("premiumOfferingName"),
+                    showtime.get("format"),
+                    showtime.get("experienceName"),
+                    showtime.get("amenity"),
+                )
 
                 try:
                     local_dt = datetime.fromisoformat(str(local_dt_raw))
@@ -786,6 +836,8 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                 day_bucket["times"].append(time_label)
                 if ticket_url:
                     day_bucket["ticket_urls"].setdefault(time_label, ticket_url)
+                if title_formats:
+                    day_bucket.setdefault("special_formats", set()).update(title_formats)
 
             page_size = int(data.get("pageSize") or 0)
             page_number = int(data.get("pageNumber") or page)
@@ -811,6 +863,7 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
                 "times": unique_times,
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
+                "special_formats": sorted(payload.get("special_formats") or []),
             })
 
     return flattened
@@ -1614,6 +1667,10 @@ def build_dataset() -> dict:
                 for time, url in (entry.get("ticket_urls") or {}).items()
                 if str(time).strip() and str(url).strip()
             }
+            special_formats = [
+                fmt for fmt in (entry.get("special_formats") or [])
+                if str(fmt).strip()
+            ]
 
             if theater_name not in theater_meta:
                 theater_meta[theater_name] = build_theater_meta(
@@ -1645,7 +1702,11 @@ def build_dataset() -> dict:
                     "ratings": ratings,
                     "verdict": verdict,
                     "theaters": [],
+                    "special_formats": [],
                 }
+            if special_formats:
+                existing_formats = set(all_movies[provisional_key].get("special_formats") or [])
+                all_movies[provisional_key]["special_formats"] = sorted(existing_formats.union(special_formats))
 
     # Attach theater + showtime info to each movie
     for theater_name, movies in theater_schedule.items():
