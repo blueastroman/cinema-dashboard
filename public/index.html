@@ -1828,6 +1828,16 @@ function getShowtimeISO(dayLabel) {
   return parsed ? toISODate(parsed) : '';
 }
 
+function isWithinCurrentWeekScope(dayLabel) {
+  const parsed = parseShowtimeDate(dayLabel, '12:00PM');
+  if (!parsed) return false;
+  const now = getNYNow();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  return parsed >= start && parsed < end;
+}
+
 function getAvailableDateBounds(data = null) {
   const movies = (data?.movies || allMovies) || [];
   const todayISO = toISODate(getNYNow());
@@ -1871,6 +1881,9 @@ function getShowtimeDayLabel(dayLabel) {
 function dayMatchesActiveScope(dayLabel, activeDayLabel) {
   if (dateScope === 'custom' && selectedDateISO) {
     return getShowtimeISO(dayLabel) === selectedDateISO;
+  }
+  if (dateScope === 'week') {
+    return isWithinCurrentWeekScope(dayLabel);
   }
   if (!activeDayLabel) return true;
   const raw = String(dayLabel || '').trim();
@@ -1961,7 +1974,9 @@ function hasUpcomingShowtimes(movie) {
     (t.schedule || []).some(s =>
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
-        return !!showAt && showAt >= now;
+        if (!showAt || showAt < now) return false;
+        if (dateScope === 'week' && !isWithinCurrentWeekScope(s.day)) return false;
+        return true;
       })
     )
   );
