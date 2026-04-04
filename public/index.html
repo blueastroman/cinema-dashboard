@@ -6,6 +6,18 @@
   <title>NYC Cinema — This Week</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('cinema_theme');
+        var preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        var theme = (saved === 'light' || saved === 'dark') ? saved : preferred;
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 
   <style>
     /* ── RESET & BASE ──────────────────────────────────────── */
@@ -31,6 +43,58 @@
       --skip-bg: #2a0f0f;
       --safe-top: env(safe-area-inset-top, 0px);
       --font-sans: 'Manrope', sans-serif;
+      --accent-ink: #0a0a0a;
+      --header-bg: rgba(10,10,10,0.95);
+      --grain-opacity: 0.35;
+      --saved-card-bg: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
+      --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
+      --confidence-bg: rgba(200, 169, 110, 0.08);
+      --saved-chip-bg: rgba(16, 34, 24, 0.92);
+      --saved-chip-border: rgba(79, 190, 128, 0.35);
+      --action-surface: rgba(17, 17, 17, 0.96);
+      --star-soft-bg: rgba(212, 175, 55, 0.08);
+      --star-soft-border: rgba(212, 175, 55, 0.55);
+      --hide-soft-bg: rgba(200, 91, 91, 0.08);
+      --hide-soft-border: rgba(200, 91, 91, 0.55);
+      --hide-soft-bg-hover: rgba(200, 91, 91, 0.12);
+      --star-solid: #d4af37;
+      --star-ink: #101010;
+    }
+
+    html[data-theme="light"] {
+      --black: #f6f1e8;
+      --off-black: #fffdf8;
+      --charcoal: #f1eadf;
+      --dark-gray: #e2d8ca;
+      --mid-gray: #c7bcad;
+      --muted: #7b7266;
+      --text: #231d17;
+      --text-dim: #5f564b;
+      --cream: #17120d;
+      --accent: #b68b3c;
+      --accent-dim: #8a6a2b;
+      --watch: #2e7b4e;
+      --watch-bg: #e5f3e9;
+      --depends: #b68b3c;
+      --depends-bg: #f8eed7;
+      --skip: #b65252;
+      --skip-bg: #f9e4e4;
+      --accent-ink: #17120d;
+      --header-bg: rgba(246, 241, 232, 0.94);
+      --grain-opacity: 0.16;
+      --saved-card-bg: linear-gradient(180deg, rgba(76, 153, 99, 0.10), rgba(255, 253, 248, 0.92));
+      --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.12);
+      --confidence-bg: rgba(200, 169, 110, 0.12);
+      --saved-chip-bg: rgba(229, 243, 233, 0.96);
+      --saved-chip-border: rgba(46, 123, 78, 0.28);
+      --action-surface: rgba(255, 253, 248, 0.96);
+      --star-soft-bg: rgba(212, 175, 55, 0.12);
+      --star-soft-border: rgba(212, 175, 55, 0.62);
+      --hide-soft-bg: rgba(200, 91, 91, 0.10);
+      --hide-soft-border: rgba(200, 91, 91, 0.55);
+      --hide-soft-bg-hover: rgba(200, 91, 91, 0.18);
+      --star-solid: #d4af37;
+      --star-ink: #1a140b;
     }
 
     html {
@@ -57,7 +121,7 @@
       pointer-events: none;
       z-index: 9999;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.35;
+      opacity: var(--grain-opacity);
     }
 
     body::after {
@@ -67,7 +131,7 @@
       left: 0;
       right: 0;
       height: calc(var(--safe-top) + 76px);
-      background: var(--black);
+      background: var(--header-bg);
       pointer-events: none;
       z-index: 109;
     }
@@ -79,7 +143,7 @@
       position: sticky;
       top: 0;
       z-index: 110;
-      background: rgba(10,10,10,0.95);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -91,7 +155,7 @@
       right: 0;
       top: calc(-1 * var(--safe-top));
       height: var(--safe-top);
-      background: rgba(10,10,10,0.95);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       pointer-events: none;
@@ -105,6 +169,50 @@
       justify-content: space-between;
       height: 64px;
       gap: 32px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .theme-switch {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--mid-gray);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--off-black);
+    }
+
+    .theme-btn {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: none;
+      border-left: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .theme-btn:first-child {
+      border-left: none;
+    }
+
+    .theme-btn:hover {
+      color: var(--accent);
+    }
+
+    .theme-btn.active {
+      background: var(--accent);
+      color: var(--accent-ink);
     }
 
     .logo {
@@ -152,7 +260,7 @@
     .filter-btn.active {
       background: var(--accent);
       border-color: var(--accent);
-      color: var(--black);
+      color: var(--accent-ink);
     }
 
     /* ── HERO / STATS BAR ──────────────────────────────────── */
@@ -209,7 +317,7 @@
     .date-picker-wrap.active .filter-btn {
       background: var(--accent);
       border-color: var(--accent);
-      color: var(--black);
+      color: var(--accent-ink);
     }
 
     .search-wrap {
@@ -653,8 +761,8 @@
 
     /* Saved card overlay */
     .movie-card.is-watched {
-      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
-      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
+      background: var(--saved-card-bg);
+      box-shadow: var(--saved-card-shadow);
     }
     .movie-card.is-watched .movie-title::after {
       content: ' ✓';
@@ -817,8 +925,8 @@
     .theater-film-row.skip::before   { background: var(--skip); }
     .theater-film-row:hover { background: var(--charcoal); }
     .theater-film-row.is-watched {
-      background: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.94));
-      box-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
+      background: var(--saved-card-bg);
+      box-shadow: var(--saved-card-shadow);
     }
 
     .theater-film-info {
@@ -873,7 +981,7 @@
       margin-top: 10px;
       padding: 4px 8px;
       border: 1px solid rgba(200, 169, 110, 0.35);
-      background: rgba(200, 169, 110, 0.08);
+      background: var(--confidence-bg);
       color: var(--accent);
       font-size: 0.64rem;
       font-weight: 800;
@@ -931,8 +1039,8 @@
       opacity: 0.9;
       padding: 3px 7px;
       border-radius: 999px;
-      border: 1px solid rgba(79, 190, 128, 0.35);
-      background: rgba(16, 34, 24, 0.92);
+      border: 1px solid var(--saved-chip-border);
+      background: var(--saved-chip-bg);
     }
 
     .theater-action-btn {
@@ -940,7 +1048,7 @@
       height: 28px;
       border-radius: 999px;
       border: 1px solid var(--mid-gray);
-      background: rgba(17, 17, 17, 0.96);
+      background: var(--action-surface);
       color: var(--muted);
       display: inline-flex;
       align-items: center;
@@ -954,15 +1062,15 @@
     }
 
     .theater-action-btn.star {
-      border-color: rgba(212, 175, 55, 0.55);
+      border-color: var(--star-soft-border);
       color: #d4af37;
-      background: rgba(212, 175, 55, 0.08);
+      background: var(--star-soft-bg);
     }
 
     .theater-action-btn.hide {
-      border-color: rgba(200, 91, 91, 0.55);
+      border-color: var(--hide-soft-border);
       color: #c85b5b;
-      background: rgba(200, 91, 91, 0.08);
+      background: var(--hide-soft-bg);
     }
 
     .theater-action-btn:hover {
@@ -971,9 +1079,9 @@
 
     .theater-action-btn.star:hover,
     .theater-action-btn.star.active {
-      border-color: #d4af37;
-      color: #101010;
-      background: #d4af37;
+      border-color: var(--star-solid);
+      color: var(--star-ink);
+      background: var(--star-solid);
       box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2), 0 0 14px rgba(212, 175, 55, 0.18);
       transform: translateY(-1px) scale(1.04);
     }
@@ -981,7 +1089,7 @@
     .theater-action-btn.hide:hover {
       border-color: #c85b5b;
       color: #c85b5b;
-      background: rgba(200, 91, 91, 0.12);
+      background: var(--hide-soft-bg-hover);
     }
 
     .theater-film-scores {
@@ -1104,6 +1212,7 @@
       body::after { height: calc(var(--safe-top) + 76px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
+      .header-actions { width: 100%; margin-left: 0; justify-content: flex-start; }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; justify-content: flex-start; }
       .date-scope-inner { gap: 8px; }
@@ -1140,6 +1249,12 @@
     <div class="header-inner">
       <div>
         <div class="logo">NY<span>Cinema</span></div>
+      </div>
+      <div class="header-actions">
+        <div class="theme-switch" role="group" aria-label="Color mode">
+          <button class="theme-btn" id="theme-dark-btn" type="button" onclick="setTheme('dark')">Dark</button>
+          <button class="theme-btn" id="theme-light-btn" type="button" onclick="setTheme('light')">Light</button>
+        </div>
       </div>
     </div>
   </header>
@@ -1216,6 +1331,7 @@ let showMode = 'all';
 let viewMode = 'theaters';
 let hasLoadedData = false;
 let theaterMeta = {};
+let currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
 const CONFIDENCE_THRESHOLD = 60;
 let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
@@ -1237,6 +1353,25 @@ function slugify(value) {
     .trim()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function syncThemeButtons() {
+  const darkBtn = document.getElementById('theme-dark-btn');
+  const lightBtn = document.getElementById('theme-light-btn');
+  if (!darkBtn || !lightBtn) return;
+  darkBtn.classList.toggle('active', currentTheme === 'dark');
+  lightBtn.classList.toggle('active', currentTheme === 'light');
+  darkBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+  lightBtn.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+}
+
+function setTheme(theme) {
+  currentTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  try {
+    localStorage.setItem('cinema_theme', currentTheme);
+  } catch {}
+  syncThemeButtons();
 }
 
 // ── DATE HELPERS ───────────────────────────────────────────────────────────
@@ -2937,6 +3072,7 @@ function getMockData() {
 }
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
+syncThemeButtons();
 loadData();
 </script>
 </body>
