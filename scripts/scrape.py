@@ -10,6 +10,7 @@ import hashlib
 import requests
 import anthropic
 import html
+import subprocess
 from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
@@ -417,17 +418,39 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 
+def fetch_source_html(source_url: str, theater_name: str) -> str:
+    url = str(source_url or "").strip()
+    if not url:
+        return ""
+
+    try:
+        result = subprocess.run(
+            ["curl", "-L", "--max-time", "20", url],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        if result.stdout:
+            return result.stdout
+    except Exception:
+        pass
+
+    try:
+        response = requests.get(url, timeout=20)
+        response.raise_for_status()
+        return response.text
+    except Exception as e:
+        print(f"  [ERROR] Source fetch failed for {theater_name}: {e}")
+        return ""
+
+
 def fetch_ifc_showtimes(theater: dict) -> list[dict]:
     source_url = str(theater.get("source_url") or "").strip()
     if not source_url:
         return []
 
-    try:
-        response = requests.get(source_url, timeout=20)
-        response.raise_for_status()
-        content = response.text
-    except Exception as e:
-        print(f"  [ERROR] IFC fetch failed for {theater['name']}: {e}")
+    content = fetch_source_html(source_url, theater.get("name", "IFC Center"))
+    if not content:
         return []
 
     grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
