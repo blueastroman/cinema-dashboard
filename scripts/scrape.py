@@ -1251,6 +1251,31 @@ REPERTORY_THEATERS = {
     "Museum of Modern Art",
 }
 
+def normalize_current_release_year(movie: dict, dataset_year: int) -> None:
+    ratings = movie.get("ratings") or {}
+    current_year = extract_year_int(ratings.get("year"))
+    if current_year != dataset_year - 1:
+        return
+
+    title = str(movie.get("title") or "").strip()
+    if not title:
+        return
+
+    normalized = normalize_title(title)
+    override = RATING_OVERRIDES.get(normalized, {})
+    if isinstance(override, dict) and override.get("year") not in (None, "", "N/A"):
+        return
+
+    imdb_id = str(ratings.get("imdbID") or "").strip()
+    if not imdb_id:
+        return
+
+    theaters = {str(t.get("name") or "").strip() for t in (movie.get("theaters") or []) if str(t.get("name") or "").strip()}
+    if not theaters or any(theater in REPERTORY_THEATERS for theater in theaters):
+        return
+
+    ratings["year"] = str(dataset_year)
+
 
 def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> Optional[dict]:
     """
@@ -1647,6 +1672,10 @@ def build_dataset() -> dict:
             -(int((m["ratings"].get("rt") or "0%").replace("%", "")) if m["ratings"].get("rt") else 0)
         )
     )
+
+    dataset_year = datetime.now().year
+    for movie in movies_list:
+        normalize_current_release_year(movie, dataset_year)
 
     return {
         "generated_at": datetime.now().isoformat(),
