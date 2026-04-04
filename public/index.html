@@ -1982,19 +1982,45 @@ function hasUpcomingShowtimes(movie) {
   );
 }
 
+function getEffectiveMembershipDefault(kind, candidates = []) {
+  const fallback = membershipDefaults?.[kind] || 'all';
+  const raw =
+    kind === 'amc'
+      ? (hasExplicitAmcFilter ? activeAmc : (memberships.amc ? fallback : activeAmc || 'all'))
+      : ((memberships?.[kind] && fallback !== 'all') ? fallback : 'all');
+
+  const resolved = resolveTheaterValue(raw, candidates);
+  if (resolved) return resolved;
+  if (String(raw).toLowerCase() === 'none') return 'none';
+  return 'all';
+}
+
 function getVisibleTheaters(movie) {
   const theaters = movie?.theaters || [];
-  const effectiveAmc = memberships.amc ? activeAmc : 'all';
+  const observedTheaters = theaters.map(t => getCanonicalTheaterName(t?.name)).filter(Boolean);
+  const effectiveAmc = getEffectiveMembershipDefault('amc', observedTheaters);
+  const effectiveAlamo = getEffectiveMembershipDefault('alamo', observedTheaters);
   return theaters.filter(t => {
     const canonical = getCanonicalTheaterName(t?.name);
     const isAmc = /^AMC\b/i.test(canonical);
+    const isAlamo = getTheaterMeta(canonical)?.source_type === 'alamo';
 
     if (isAmc) {
       if (effectiveAmc === 'none') return false;
       if (activeTheater === 'AMC') {
         return effectiveAmc === 'all' ? true : canonical === effectiveAmc;
       }
+      if (activeTheater === 'all') {
+        return effectiveAmc === 'all' ? memberships.amc : canonical === effectiveAmc;
+      }
       return effectiveAmc !== 'all' && canonical === effectiveAmc;
+    }
+
+    if (isAlamo) {
+      if (activeTheater === 'all') {
+        return effectiveAlamo === 'all' ? true : canonical === effectiveAlamo;
+      }
+      return canonical === activeTheater;
     }
 
     if (activeTheater === 'all') return true;
@@ -2601,6 +2627,12 @@ function initDashboard(data) {
   syncMembershipSignals();
   syncMembershipCheckboxes();
   syncMembershipDrivenControls();
+  if (!hasExplicitAmcFilter) {
+    const preferredAmc = memberships.amc ? membershipDefaults.amc : 'all';
+    const resolvedPreferredAmc = resolveTheaterValue(preferredAmc, amcTheaters);
+    activeAmc = resolvedPreferredAmc || (String(preferredAmc).toLowerCase() === 'none' ? 'none' : 'all');
+    setStoredAmcSelection(activeAmc);
+  }
   if (amcSelect) {
     const resolvedAmc = resolveTheaterValue(activeAmc, amcTheaters);
     activeAmc = resolvedAmc || (String(activeAmc).toLowerCase() === 'none' ? 'none' : 'all');
@@ -3443,11 +3475,17 @@ document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(inp
     setStoredMemberships({ [target.value]: target.checked });
     syncMembershipSignals();
     syncMembershipDrivenControls();
-    if (!memberships.amc) {
-      activeAmc = membershipDefaults.amc || 'all';
-      hasExplicitAmcFilter = false;
-      setStoredAmcSelection(membershipDefaults.amc || 'all');
-      if (activeTheater === 'AMC') activeTheater = 'all';
+    if (target.value === 'amc') {
+      const amcTheaters = getAvailableAmcTheaters();
+      if (memberships.amc) {
+        activeAmc = resolveTheaterValue(membershipDefaults.amc || 'all', amcTheaters) || 'all';
+        setStoredAmcSelection(activeAmc);
+      } else {
+        activeAmc = 'all';
+        setStoredAmcSelection('all');
+        hasExplicitAmcFilter = false;
+        if (activeTheater === 'AMC') activeTheater = 'all';
+      }
     }
     render();
   });
@@ -3459,6 +3497,7 @@ document.getElementById('default-amc-select')?.addEventListener('change', e => {
   setStoredMembershipDefaults({ amc: target.value || 'all' });
   setStoredAmcSelection(target.value || 'all');
   activeAmc = target.value || 'all';
+  hasExplicitAmcFilter = false;
   render();
 });
 
@@ -3466,6 +3505,7 @@ document.getElementById('default-alamo-select')?.addEventListener('change', e =>
   const target = e.target;
   if (!(target instanceof HTMLSelectElement)) return;
   setStoredMembershipDefaults({ alamo: target.value || 'all' });
+  render();
 });
 
 document.getElementById('default-regal-select')?.addEventListener('change', e => {
