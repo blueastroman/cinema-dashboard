@@ -1996,6 +1996,12 @@ function getEffectiveMembershipDefault(kind, candidates = []) {
 
   const resolved = resolveTheaterValue(raw, candidates);
   if (resolved) return resolved;
+  const globalCandidates =
+    kind === 'amc'
+      ? getAvailableAmcTheaters()
+      : getAvailableMembershipTheaters(kind);
+  const resolvedGlobal = resolveTheaterValue(raw, globalCandidates);
+  if (resolvedGlobal) return resolvedGlobal;
   if (String(raw).toLowerCase() === 'none') return 'none';
   return 'all';
 }
