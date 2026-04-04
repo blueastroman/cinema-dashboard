@@ -1042,6 +1042,16 @@
       color: var(--muted);
     }
 
+    .theater-view-inline-status {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--watch);
+      white-space: nowrap;
+    }
+
     .theater-price-note {
       font-family: var(--font-sans);
       font-size: 0.72rem;
@@ -2913,11 +2923,10 @@ function renderTheaterView() {
     headerEl.innerHTML = `
       <div class="theater-view-header-main">
         <span class="theater-view-name">${nameHTML}</span>
-        <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
+        ${membershipLabel ? `<span class="theater-view-inline-status">${membershipLabel}</span>` : ''}
       </div>
       <div class="theater-view-header-side">
         ${priceNote ? `<span class="theater-price-note">${priceNote}</span>` : ''}
-        ${membershipLabel ? `<span class="membership-signal">${membershipLabel}</span>` : ''}
       </div>
     `;
     section.appendChild(headerEl);
