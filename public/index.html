@@ -1042,6 +1042,15 @@
       color: var(--muted);
     }
 
+    .theater-price-note {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
     .theater-view-grid {
       display: flex;
       flex-direction: column;
@@ -2894,6 +2903,7 @@ function renderTheaterView() {
 
     const theaterUrl = getTheaterUrl(theaterName);
     const membershipLabel = getTheaterMembershipLabel(theaterName);
+    const priceNote = getTheaterTicketPriceNote(theaterName);
     const nameHTML = theaterUrl
       ? `<a href="${theaterUrl}" target="_blank" rel="noopener">${theaterName}</a>`
       : theaterName;
@@ -2906,6 +2916,7 @@ function renderTheaterView() {
         <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
       </div>
       <div class="theater-view-header-side">
+        ${priceNote ? `<span class="theater-price-note">${priceNote}</span>` : ''}
         ${membershipLabel ? `<span class="membership-signal">${membershipLabel}</span>` : ''}
       </div>
     `;
