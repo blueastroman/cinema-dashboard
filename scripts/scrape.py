@@ -85,6 +85,17 @@ THEATER_CONFIG = {
         "official_url": "https://drafthouse.com/nyc",
         "aliases": ["alamo"],
     },
+    "Alamo Drafthouse Downtown Brooklyn": {
+        "slug": "alamo-brooklyn",
+        "short_name": "Alamo Brooklyn",
+        "sort_name": "Alamo Brooklyn",
+        "source_type": "alamo",
+        "market_slug": "nyc",
+        "cinema_id": "2101",
+        "serpapi_id": "alamo drafthouse downtown brooklyn new york",
+        "official_url": "https://drafthouse.com/theater/downtown-brooklyn",
+        "aliases": ["alamo brooklyn", "downtown brooklyn", "brooklyn alamo"],
+    },
     "Paris Theater": {
         "slug": "paris",
         "short_name": "Paris",
