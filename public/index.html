@@ -402,6 +402,13 @@
       max-width: 1400px;
       margin: 0 auto;
       display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .stats-row {
+      display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 16px;
@@ -988,10 +995,27 @@
     .theater-view-header {
       display: flex;
       align-items: baseline;
+      justify-content: space-between;
       gap: 14px;
       margin-bottom: 4px;
       padding-bottom: 14px;
       border-bottom: 2px solid var(--accent);
+    }
+
+    .theater-view-header-main {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .theater-view-header-side {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .theater-view-name {
@@ -1337,13 +1361,6 @@
       letter-spacing: 0;
     }
 
-    .membership-signals {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
     .membership-signal {
       display: inline-flex;
       align-items: center;
@@ -1373,7 +1390,8 @@
       .header-actions { width: 100%; margin-left: 0; justify-content: flex-start; }
       .settings-menu { right: auto; left: 0; width: min(320px, calc(100vw - 40px)); }
       .filters { gap: 6px; }
-      .stats-inner { gap: 10px; justify-content: flex-start; }
+      .stats-inner { gap: 10px; }
+      .stats-row { gap: 10px; justify-content: flex-start; }
       .date-scope-inner { gap: 8px; }
       .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
       .date-picker-wrap {
@@ -1396,6 +1414,8 @@
       .control-group { width: 100%; }
       .theater-select { width: 100%; }
       .search-wrap { max-width: 100%; width: 100%; }
+      .theater-view-header { align-items: flex-start; }
+      .theater-view-header-side { justify-content: flex-start; }
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
     }
@@ -1458,39 +1478,36 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="control-group">
-        <span class="control-label">Sort by</span>
-        <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
-        <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Best</button>
+      <div class="stats-row">
+        <div class="control-group">
+          <span class="control-label">Theater</span>
+          <select class="genre-select theater-select" id="theater-select">
+            <option value="all">All Theaters</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <span class="control-label">Genre</span>
+          <select class="genre-select" id="genre-select">
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
+        </div>
       </div>
-      <div class="control-group">
-        <span class="control-label">Genre</span>
-        <select class="genre-select" id="genre-select">
-          <option value="all">All</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <span class="control-label">Theater</span>
-        <select class="genre-select theater-select" id="theater-select">
-          <option value="all">All Theaters</option>
-        </select>
-      </div>
-      <div class="membership-signals" id="membership-signals"></div>
-      <div class="control-group" id="amc-control-group">
-        <span class="control-label">Choose AMC</span>
-        <select class="genre-select theater-select" id="amc-select">
-          <option value="all">All AMC</option>
-        </select>
-      </div>
-      <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
-      </div>
-      <div class="control-group tight">
-        <span class="control-label">Show</span>
-        <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
-        <button class="filter-btn saved-toggle" id="saved-btn" onclick="setShowMode('saved')">Saved</button>
-        <button class="filter-btn saved-toggle" id="hidden-btn" onclick="setShowMode('hidden')">Hidden</button>
+      <div class="stats-row">
+        <div class="control-group">
+          <span class="control-label">Sort by</span>
+          <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
+          <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Best</button>
+        </div>
+        <div class="control-group tight">
+          <span class="control-label">Show</span>
+          <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
+          <button class="filter-btn saved-toggle" id="saved-btn" onclick="setShowMode('saved')">Saved</button>
+          <button class="filter-btn saved-toggle" id="hidden-btn" onclick="setShowMode('hidden')">Hidden</button>
+        </div>
       </div>
     </div>
   </div>
@@ -2191,6 +2208,16 @@ function getTheaterSortLabel(name) {
     .trim();
 }
 
+function getTheaterMembershipLabel(name) {
+  const canonical = getCanonicalTheaterName(name);
+  const meta = getTheaterMeta(canonical);
+  if (!canonical) return '';
+  if (memberships.amc && /^AMC\b/i.test(canonical)) return 'AMC A-List';
+  if (memberships.alamo && meta?.source_type === 'alamo') return 'Alamo Season Pass';
+  if (memberships.regal && (/^Regal\b/i.test(canonical) || meta?.source_type === 'regal')) return 'Regal Unlimited';
+  return '';
+}
+
 function getRuntimeMinutes(runtime) {
   const match = String(runtime || '').match(/(\d+)/);
   if (!match) return null;
@@ -2866,6 +2893,7 @@ function renderTheaterView() {
     section.className = 'theater-view-section';
 
     const theaterUrl = getTheaterUrl(theaterName);
+    const membershipLabel = getTheaterMembershipLabel(theaterName);
     const nameHTML = theaterUrl
       ? `<a href="${theaterUrl}" target="_blank" rel="noopener">${theaterName}</a>`
       : theaterName;
@@ -2873,8 +2901,13 @@ function renderTheaterView() {
     const headerEl = document.createElement('div');
     headerEl.className = 'theater-view-header';
     headerEl.innerHTML = `
-      <span class="theater-view-name">${nameHTML}</span>
-      <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
+      <div class="theater-view-header-main">
+        <span class="theater-view-name">${nameHTML}</span>
+        <span class="theater-view-count">${filmEntries.length} film${filmEntries.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="theater-view-header-side">
+        ${membershipLabel ? `<span class="membership-signal">${membershipLabel}</span>` : ''}
+      </div>
     `;
     section.appendChild(headerEl);
 
