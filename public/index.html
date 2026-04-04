@@ -182,6 +182,85 @@
       margin-left: auto;
     }
 
+    .settings-wrap {
+      position: relative;
+    }
+
+    .settings-btn {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid var(--mid-gray);
+      border-radius: 999px;
+      background: var(--off-black);
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    }
+
+    .settings-btn:hover,
+    .settings-btn.active {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .settings-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 280px;
+      padding: 14px;
+      border: 1px solid var(--mid-gray);
+      border-radius: 12px;
+      background: var(--off-black);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+      display: none;
+      z-index: 220;
+    }
+
+    .settings-menu.open {
+      display: block;
+    }
+
+    .settings-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .settings-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .membership-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .membership-item input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }
+
+    .membership-note {
+      margin-top: 10px;
+      font-size: 0.76rem;
+      line-height: 1.45;
+      color: var(--text-dim);
+    }
+
     .theme-switch {
       display: inline-flex;
       align-items: center;
@@ -1212,6 +1291,28 @@
       letter-spacing: 0;
     }
 
+    .membership-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .membership-signal {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid rgba(79, 190, 128, 0.3);
+      border-radius: 999px;
+      background: rgba(79, 190, 128, 0.08);
+      color: var(--watch);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1224,6 +1325,7 @@
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
       .header-actions { width: 100%; margin-left: 0; justify-content: flex-start; }
+      .settings-menu { right: auto; left: 0; width: min(320px, calc(100vw - 40px)); }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; justify-content: flex-start; }
       .date-scope-inner { gap: 8px; }
@@ -1262,6 +1364,22 @@
         <div class="logo">NY<span>Cinema</span></div>
       </div>
       <div class="header-actions">
+        <div class="settings-wrap">
+          <button class="settings-btn" id="settings-btn" type="button" aria-expanded="false" aria-controls="settings-menu">Settings</button>
+          <div class="settings-menu" id="settings-menu">
+            <div class="settings-title">Memberships</div>
+            <div class="settings-section" id="membership-list">
+              <label class="membership-item"><input type="checkbox" value="amc"> AMC A-List</label>
+              <label class="membership-item"><input type="checkbox" value="alamo"> Alamo Season Pass</label>
+              <label class="membership-item"><input type="checkbox" value="regal"> Regal Unlimited</label>
+              <label class="membership-item"><input type="checkbox" value="filmforum"> Film Forum Member</label>
+              <label class="membership-item"><input type="checkbox" value="metrograph"> Metrograph Member</label>
+              <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
+              <label class="membership-item"><input type="checkbox" value="moma"> MoMA Member</label>
+            </div>
+            <div class="membership-note">Memberships personalize the board, unlock theater-specific controls, and replace generic price notes.</div>
+          </div>
+        </div>
         <div class="theme-switch" role="group" aria-label="Color mode">
           <button class="theme-btn" id="theme-dark-btn" type="button" onclick="setTheme('dark')">Dark</button>
           <button class="theme-btn" id="theme-light-btn" type="button" onclick="setTheme('light')">Light</button>
@@ -1290,7 +1408,8 @@
           <option value="all">All Theaters</option>
         </select>
       </div>
-      <div class="control-group">
+      <div class="membership-signals" id="membership-signals"></div>
+      <div class="control-group" id="amc-control-group">
         <span class="control-label">Choose AMC</span>
         <select class="genre-select theater-select" id="amc-select">
           <option value="all">All AMC</option>
@@ -1333,7 +1452,7 @@ let allMovies = [];
 let dateScope = 'today'; // week | today | tomorrow
 let selectedDateISO = '';
 let activeTheater = 'all';
-let activeAmc = 'AMC Lincoln Square 13';
+let activeAmc = 'all';
 let hasExplicitAmcFilter = false;
 let activeGenre = 'all';
 let searchQuery = '';
@@ -1347,6 +1466,16 @@ const CONFIDENCE_THRESHOLD = 60;
 let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
 const AMC_STORAGE_KEY = 'cinema_amc_selection';
+const MEMBERSHIPS_STORAGE_KEY = 'cinema_memberships';
+let memberships = {
+  amc: false,
+  alamo: false,
+  regal: false,
+  filmforum: false,
+  metrograph: false,
+  flc: false,
+  moma: false,
+};
 
 function getStoredAmcSelection() {
   try {
@@ -1360,6 +1489,59 @@ function setStoredAmcSelection(value) {
   try {
     localStorage.setItem(AMC_STORAGE_KEY, value || 'all');
   } catch {}
+}
+
+function getStoredMemberships() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(MEMBERSHIPS_STORAGE_KEY) || '{}');
+    return { ...memberships, ...(parsed && typeof parsed === 'object' ? parsed : {}) };
+  } catch {
+    return { ...memberships };
+  }
+}
+
+function setStoredMemberships(next) {
+  memberships = { ...memberships, ...next };
+  try {
+    localStorage.setItem(MEMBERSHIPS_STORAGE_KEY, JSON.stringify(memberships));
+  } catch {}
+}
+
+function getActiveMembershipLabels() {
+  const labels = [];
+  if (memberships.amc) labels.push('AMC A-List active');
+  if (memberships.alamo) labels.push('Alamo Season Pass');
+  if (memberships.regal) labels.push('Regal Unlimited');
+  return labels;
+}
+
+function syncMembershipSignals() {
+  const container = document.getElementById('membership-signals');
+  if (!container) return;
+  const labels = getActiveMembershipLabels();
+  container.innerHTML = labels.map(label => `<span class="membership-signal">${label}</span>`).join('');
+}
+
+function syncMembershipCheckboxes() {
+  document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(input => {
+    input.checked = !!memberships[input.value];
+  });
+}
+
+function syncMembershipDrivenControls() {
+  const amcGroup = document.getElementById('amc-control-group');
+  if (amcGroup) {
+    amcGroup.style.display = memberships.amc ? '' : 'none';
+  }
+}
+
+function syncSettingsButton(open) {
+  const btn = document.getElementById('settings-btn');
+  const menu = document.getElementById('settings-menu');
+  if (!btn || !menu) return;
+  btn.classList.toggle('active', !!open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  menu.classList.toggle('open', !!open);
 }
 const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'metrograph', aliases: ['metro'] },
@@ -1427,6 +1609,7 @@ function readFiltersFromUrl() {
   } else {
     activeAmc = getStoredAmcSelection();
   }
+  memberships = getStoredMemberships();
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
@@ -1439,7 +1622,7 @@ function updateUrlFromState() {
   params.set('date', dateScope);
   if (dateScope === 'custom' && selectedDateISO) params.set('on', selectedDateISO);
   if (activeTheater !== 'all') params.set('theater', getTheaterStateSlug(activeTheater));
-  if (activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
+  if (memberships.amc && activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
@@ -1644,16 +1827,17 @@ function hasUpcomingShowtimes(movie) {
 
 function getVisibleTheaters(movie) {
   const theaters = movie?.theaters || [];
+  const effectiveAmc = memberships.amc ? activeAmc : 'all';
   return theaters.filter(t => {
     const canonical = getCanonicalTheaterName(t?.name);
     const isAmc = /^AMC\b/i.test(canonical);
 
     if (isAmc) {
-      if (activeAmc === 'none') return false;
+      if (effectiveAmc === 'none') return false;
       if (activeTheater === 'AMC') {
-        return activeAmc === 'all' ? true : canonical === activeAmc;
+        return effectiveAmc === 'all' ? true : canonical === effectiveAmc;
       }
-      return activeAmc !== 'all' && canonical === activeAmc;
+      return effectiveAmc !== 'all' && canonical === effectiveAmc;
     }
 
     if (activeTheater === 'all') return true;
@@ -2189,6 +2373,9 @@ function initDashboard(data) {
 
   const amcTheaters = getAvailableAmcTheaters(data);
   const amcSelect = document.getElementById('amc-select');
+  syncMembershipSignals();
+  syncMembershipCheckboxes();
+  syncMembershipDrivenControls();
   if (amcSelect) {
     const resolvedAmc = resolveTheaterValue(activeAmc, amcTheaters);
     activeAmc = resolvedAmc || (String(activeAmc).toLowerCase() === 'none' ? 'none' : 'all');
@@ -2496,12 +2683,12 @@ function renderTheaterView() {
 
   const theaterOrder = (
     activeTheater === 'AMC'
-      ? (activeAmc !== 'all' ? [activeAmc] : getAvailableAmcTheaters())
-      : activeAmc === 'none'
+      ? ((memberships.amc && activeAmc !== 'all') ? [activeAmc] : getAvailableAmcTheaters())
+      : (memberships.amc && activeAmc === 'none')
         ? getAvailableTheaters()
       : [
           ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
-          ...(activeAmc !== 'all' && activeAmc !== 'none' ? [activeAmc] : []),
+          ...((memberships.amc && activeAmc !== 'all' && activeAmc !== 'none') ? [activeAmc] : []),
         ]
   ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
@@ -2573,7 +2760,6 @@ function renderTheaterView() {
         : '';
       const confidence = getConfidenceNote(movie);
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
-      const ticketPriceNote = getTheaterTicketPriceNote(theaterData?.name);
 
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
@@ -2612,7 +2798,6 @@ function renderTheaterView() {
           <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
           <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
         </div>
-        ${ticketPriceNote ? `<div class="theater-ticket-price">${ticketPriceNote}</div>` : ''}
       `;
       filmList.appendChild(row);
     });
@@ -3009,9 +3194,43 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   render();
 });
 
+document.getElementById('settings-btn')?.addEventListener('click', e => {
+  e.stopPropagation();
+  const menu = document.getElementById('settings-menu');
+  syncSettingsButton(!(menu && menu.classList.contains('open')));
+});
+
+document.getElementById('settings-menu')?.addEventListener('click', e => {
+  e.stopPropagation();
+});
+
+document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(input => {
+  input.addEventListener('change', e => {
+    const target = e.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    setStoredMemberships({ [target.value]: target.checked });
+    syncMembershipSignals();
+    syncMembershipDrivenControls();
+    if (!memberships.amc) {
+      activeAmc = 'all';
+      hasExplicitAmcFilter = false;
+      setStoredAmcSelection('all');
+      if (activeTheater === 'AMC') activeTheater = 'all';
+    }
+    render();
+  });
+});
+
+document.addEventListener('click', () => {
+  syncSettingsButton(false);
+});
+
 readFiltersFromUrl();
 initializeViewMode();
 syncDateScopeButtons();
+syncMembershipSignals();
+syncMembershipCheckboxes();
+syncMembershipDrivenControls();
 
 // ── MOCK DATA ────────────────────────────────────────────────────────────────
 
