@@ -1346,6 +1346,21 @@ let currentTheme = document.documentElement.getAttribute('data-theme') || 'dark'
 const CONFIDENCE_THRESHOLD = 60;
 let effectiveConfidenceThreshold = CONFIDENCE_THRESHOLD;
 const NYC_TIMEZONE = 'America/New_York';
+const AMC_STORAGE_KEY = 'cinema_amc_selection';
+
+function getStoredAmcSelection() {
+  try {
+    return localStorage.getItem(AMC_STORAGE_KEY) || 'all';
+  } catch {
+    return 'all';
+  }
+}
+
+function setStoredAmcSelection(value) {
+  try {
+    localStorage.setItem(AMC_STORAGE_KEY, value || 'all');
+  } catch {}
+}
 const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'metrograph', aliases: ['metro'] },
   'IFC Center': { slug: 'ifc', short_name: 'IFC', sort_name: 'IFC', official_url: 'https://www.ifccenter.com', source_type: 'ifc', aliases: ['ifc'] },
@@ -1406,7 +1421,12 @@ function readFiltersFromUrl() {
   }
   if (theater) activeTheater = theater;
   hasExplicitAmcFilter = params.has('amc');
-  if (amc) activeAmc = amc;
+  if (amc) {
+    activeAmc = amc;
+    setStoredAmcSelection(amc);
+  } else {
+    activeAmc = getStoredAmcSelection();
+  }
   if (genre) activeGenre = genre;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
@@ -2171,13 +2191,7 @@ function initDashboard(data) {
   const amcSelect = document.getElementById('amc-select');
   if (amcSelect) {
     const resolvedAmc = resolveTheaterValue(activeAmc, amcTheaters);
-    if (activeTheater === 'AMC' && !hasExplicitAmcFilter) {
-      activeAmc = 'all';
-    } else {
-      activeAmc = resolvedAmc || (String(activeAmc).toLowerCase() === 'none'
-        ? 'none'
-        : (amcTheaters.includes('AMC Lincoln Square 13') ? 'AMC Lincoln Square 13' : 'all'));
-    }
+    activeAmc = resolvedAmc || (String(activeAmc).toLowerCase() === 'none' ? 'none' : 'all');
     amcSelect.innerHTML = '<option value="all">All AMC</option>';
     amcSelect.innerHTML += '<option value="none">No AMC</option>';
 
@@ -2191,6 +2205,7 @@ function initDashboard(data) {
     amcSelect.value = activeAmc;
     amcSelect.onchange = (e) => {
       activeAmc = e.target.value || 'all';
+      setStoredAmcSelection(activeAmc);
       if (activeAmc === 'none' && activeTheater === 'AMC') {
         activeTheater = 'all';
       }
