@@ -2938,13 +2938,25 @@ function renderTheaterView() {
   const grid = document.createElement('div');
   grid.className = 'theater-view-grid';
 
+  const visibleAlamoTheaters = [...new Set(
+    movies.flatMap(movie => getVisibleTheaters(movie)
+      .map(t => getCanonicalTheaterName(t?.name))
+      .filter(name => getTheaterMeta(name)?.source_type === 'alamo'))
+  )];
+
   const theaterOrder = (
     activeTheater === 'AMC'
       ? ((memberships.amc && activeAmc !== 'all') ? [activeAmc] : getAvailableAmcTheaters())
       : (memberships.amc && activeAmc === 'none')
         ? getAvailableTheaters()
       : [
-          ...(activeTheater === 'all' ? getAvailableTheaters() : [activeTheater]),
+          ...(activeTheater === 'all'
+            ? getAvailableTheaters().filter(name => {
+                const meta = getTheaterMeta(name);
+                if (meta?.source_type !== 'alamo') return true;
+                return visibleAlamoTheaters.includes(name);
+              })
+            : [activeTheater]),
           ...((memberships.amc && activeAmc !== 'all' && activeAmc !== 'none') ? [activeAmc] : []),
         ]
   ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
@@ -2955,7 +2967,7 @@ function renderTheaterView() {
 
     // Films at this theater, ordered by active sort mode.
     const filmEntries = movies.map(movie => {
-      const theaterData = (movie.theaters || []).find(t => getCanonicalTheaterName(t.name) === theaterName);
+      const theaterData = getVisibleTheaters(movie).find(t => getCanonicalTheaterName(t.name) === theaterName);
       if (!theaterData) return null;
       const nextShow = getNextShowFromSchedule(theaterData.schedule, getActiveDayFilterLabel());
       if (!nextShow) return null;
