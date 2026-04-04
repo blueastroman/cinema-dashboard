@@ -2006,6 +2006,10 @@ function getEffectiveMembershipDefault(kind, candidates = []) {
   return 'all';
 }
 
+function getResolvedAmcSelection(data = null) {
+  return getEffectiveMembershipDefault('amc', getAvailableAmcTheaters(data));
+}
+
 function getVisibleTheaters(movie) {
   const theaters = movie?.theaters || [];
   const observedTheaters = theaters.map(t => getCanonicalTheaterName(t?.name)).filter(Boolean);
@@ -2494,12 +2498,13 @@ function describeActiveDateScope() {
 
 function getEmptyStateMessage() {
   const parts = [];
+  const resolvedAmc = getResolvedAmcSelection();
   if (showMode === 'saved') parts.push('saved');
   if (showMode === 'hidden') parts.push('hidden');
   if (activeGenre !== 'all') parts.push(activeGenre.toLowerCase());
   if (activeTheater === 'AMC') {
-    parts.push(activeAmc !== 'all' ? activeAmc : 'AMC');
-  } else if (activeAmc === 'none') {
+    parts.push(resolvedAmc !== 'all' ? resolvedAmc : 'AMC');
+  } else if (resolvedAmc === 'none') {
     parts.push('non-AMC');
   } else if (activeTheater !== 'all') {
     parts.push(getDisplayTheaterName(activeTheater));
@@ -2954,11 +2959,12 @@ function renderTheaterView() {
       .map(t => getCanonicalTheaterName(t?.name))
       .filter(name => getTheaterMeta(name)?.source_type === 'alamo'))
   )];
+  const resolvedAmc = getResolvedAmcSelection();
 
   const theaterOrder = (
     activeTheater === 'AMC'
-      ? ((memberships.amc && activeAmc !== 'all') ? [activeAmc] : getAvailableAmcTheaters())
-      : (memberships.amc && activeAmc === 'none')
+      ? ((memberships.amc && resolvedAmc !== 'all') ? [resolvedAmc] : getAvailableAmcTheaters())
+      : (memberships.amc && resolvedAmc === 'none')
         ? getAvailableTheaters()
       : [
           ...(activeTheater === 'all'
@@ -2968,7 +2974,7 @@ function renderTheaterView() {
                 return visibleAlamoTheaters.includes(name);
               })
             : [activeTheater]),
-          ...((memberships.amc && activeAmc !== 'all' && activeAmc !== 'none') ? [activeAmc] : []),
+          ...((memberships.amc && resolvedAmc !== 'all' && resolvedAmc !== 'none') ? [resolvedAmc] : []),
         ]
   ).sort((a, b) => getTheaterSortLabel(a).localeCompare(getTheaterSortLabel(b), undefined, { sensitivity: 'base' }));
 
