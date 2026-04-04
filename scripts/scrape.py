@@ -1197,9 +1197,17 @@ def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year:
 
 
 _CURRENT_YEAR = datetime.now().year
+REPERTORY_THEATERS = {
+    "Metrograph",
+    "IFC Center",
+    "Film Forum",
+    "Film at Lincoln Center",
+    "Paris Theater",
+    "Museum of Modern Art",
+}
 
 
-def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional[dict]:
+def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> Optional[dict]:
     """
     Look up a movie in OMDb, preferring year-specific matches to avoid
     confusing a new release with an older film that shares the same title.
@@ -1223,6 +1231,11 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
             query_year = int(override_year)
     if query_year is None and existing_year is not None:
         query_year = existing_year
+
+    repertory_mode = (
+        query_year is None
+        and str(theater_name or "").strip() in REPERTORY_THEATERS
+    )
 
     override_imdb = override.get("imdbID")
     if override_imdb:
@@ -1254,7 +1267,7 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
     years_to_try: list[int] = []
     if query_year:
         years_to_try = [query_year, query_year - 1, query_year + 1]
-    else:
+    elif not repertory_mode:
         years_to_try = [_CURRENT_YEAR, _CURRENT_YEAR - 1]
 
     for y in years_to_try:
@@ -1283,7 +1296,7 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
             return exact
 
     # Full-text search with year-biased ranking as last resort
-    effective_year = query_year or _CURRENT_YEAR
+    effective_year = query_year or existing_year
     search = omdb_request({"s": title, "type": "movie"})
     if not search:
         return None
@@ -1316,13 +1329,13 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None) -> Optional
         return best_data
     return None
 
-def fetch_ratings(title: str, hint_year: Optional[int] = None) -> dict:
+def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     if not OMDB_KEY:
         return mock_ratings(title)
 
     try:
-        data = resolve_omdb_record(title, hint_year=hint_year)
+        data = resolve_omdb_record(title, hint_year=hint_year, theater_name=theater_name)
         parsed = parse_omdb_ratings(data) if data else empty_ratings()
 
         # Fallbacks for new/edge releases where OMDb is lagging.
@@ -1552,7 +1565,7 @@ def build_dataset() -> dict:
             provisional_key = normalize_title(title)
             if provisional_key not in all_movies:
                 print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                ratings = fetch_ratings(title, hint_year=hint_year)
+                ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
                 movie_id = make_movie_id(title, ratings)
                 print(f"  Fetching verdict for: {title}")
                 verdict = fetch_verdict(title, ratings)
