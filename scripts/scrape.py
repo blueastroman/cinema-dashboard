@@ -10,7 +10,6 @@ import hashlib
 import requests
 import anthropic
 import html
-import subprocess
 from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
@@ -173,6 +172,10 @@ AMC_EXCLUDED_THEATRES = {
     "AMC BAY PLAZA CINEMA 13",
     "AMC MAGIC JOHNSON HARLEM 9",
     "AMC STATEN ISLAND 11",
+}
+DEFAULT_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; ShowtimesNYC/1.0; +https://showtimes.nyc)",
+    "Accept-Language": "en-US,en;q=0.9",
 }
 
 # ─── TITLE CLEANING ───────────────────────────────────────────────────────────
@@ -458,19 +461,7 @@ def fetch_source_html(source_url: str, theater_name: str) -> str:
         return ""
 
     try:
-        result = subprocess.run(
-            ["curl", "-L", "--max-time", "20", url],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        if result.stdout:
-            return result.stdout
-    except Exception:
-        pass
-
-    try:
-        response = requests.get(url, timeout=20)
+        response = requests.get(url, timeout=20, headers=DEFAULT_HEADERS)
         response.raise_for_status()
         return response.text
     except Exception as e:
@@ -1115,7 +1106,7 @@ def set_cached_match(title: str, data: dict, source: str) -> None:
 
 def omdb_request(params: dict) -> Optional[dict]:
     try:
-        r = requests.get("http://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10)
+        r = requests.get("https://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10, headers=DEFAULT_HEADERS)
         data = r.json()
         if data.get("Response") == "False":
             return None
@@ -1151,7 +1142,7 @@ def fetch_rt_fallback(title: str) -> Optional[str]:
             page = requests.get(
                 url,
                 timeout=12,
-                headers={"User-Agent": "Mozilla/5.0"},
+                headers=DEFAULT_HEADERS,
             ).text
         except Exception:
             continue
@@ -1170,7 +1161,7 @@ def fetch_letterboxd_fallback(title: str) -> Optional[str]:
         search_page = requests.get(
             search_url,
             timeout=15,
-            headers={"User-Agent": "Mozilla/5.0"},
+            headers=DEFAULT_HEADERS,
         ).text
     except Exception:
         return None
@@ -1184,7 +1175,7 @@ def fetch_letterboxd_fallback(title: str) -> Optional[str]:
         film_page = requests.get(
             film_url,
             timeout=15,
-            headers={"User-Agent": "Mozilla/5.0"},
+            headers=DEFAULT_HEADERS,
         ).text
     except Exception:
         return None
@@ -1856,7 +1847,7 @@ def build_dataset() -> dict:
                 theater_meta[theater_name] = build_theater_meta(
                     theater_name,
                     {
-                        "source_type": theater.get("source", "amc"),
+                        "source_type": theater.get("source_type") or theater.get("source") or "amc",
                         "official_url": theater.get("official_url") or "https://www.amctheatres.com/",
                     },
                 )

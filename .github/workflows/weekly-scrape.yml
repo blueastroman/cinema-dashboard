@@ -13,8 +13,6 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
     steps:
       - name: Run only at 8:00 AM New York time (skip gate for manual triggers)
@@ -23,7 +21,7 @@ jobs:
           hour=$(TZ=America/New_York date +%H)
           if [ "$hour" != "08" ]; then
             echo "Skipping run: local NY time is not 08:00."
-            exit 1
+            exit 0
           fi
 
       - name: Checkout repo
@@ -58,7 +56,3 @@ jobs:
             git pull --rebase origin main
             git push
           fi
-
-      - name: Deploy to Vercel
-        if: ${{ env.VERCEL_TOKEN != '' }}
-        run: npx vercel deploy public/ --prod --yes --token $VERCEL_TOKEN

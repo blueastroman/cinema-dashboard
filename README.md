@@ -1,75 +1,84 @@
-# NYC Cinema Dashboard
+# Showtimes NYC
 
-Weekly auto-refreshing dashboard for NYC indie cinema. Pulls showtimes, ratings, and Claude-generated verdicts every Wednesday morning.
+Static movie dashboard for New York repertory and selected commercial theaters. The scraper writes a single dataset to `public/data.json`, and the frontend in `public/index.html` renders from that file.
 
-Live production updates are deployed via the connected Vercel project.
+## What Is In This Repo
 
-## Theaters Tracked
+- `scripts/scrape.py`: showtime aggregation, metadata matching, verdict generation, and dataset assembly
+- `scripts/rating_overrides.json`: hard overrides for title identity edge cases
+- `scripts/cinemascore_overrides.json`: manual CinemaScore values for current releases
+- `scripts/rating_cache.json`: resolved OMDb matches cached for stability
+- `public/index.html`: production frontend
+- `public/data.json`: live dataset consumed by the frontend
+- `.github/workflows/weekly-scrape.yml`: scheduled scrape and commit
+- `.github/workflows/deploy.yml`: deploys production when `public/**` changes on `main`
+
+## Data Sources
+
+- Showtimes:
+  - SerpAPI for some theaters
+  - AMC API for AMC theaters
+  - direct theater scraping for Metrograph, IFC, Alamo, and MoMA
+- Metadata:
+  - OMDb as primary source
+  - Rotten Tomatoes and Letterboxd fallbacks where OMDb is incomplete
+  - manual overrides for ambiguous titles
+- Audience signal:
+  - manual `cinemascore_overrides.json` entries for supported new releases
+- Verdicts:
+  - Anthropic when configured
+  - deterministic local fallback when not configured
+
+## Current Theater Coverage
+
 - Metrograph
 - IFC Center
 - Angelika Film Center
-- Film Forum
 - Village East by Angelika
+- Film Forum
 - Film at Lincoln Center
-- Alamo Drafthouse Lower Manhattan
 - Paris Theater
-- Museum of Modern Art (MoMA)
+- Museum of Modern Art
+- Alamo Drafthouse Lower Manhattan
+- Alamo Drafthouse Downtown Brooklyn
+- Alamo Drafthouse Staten Island
+- AMC theaters returned by the configured AMC filters
 
-## Stack
-- **Showtimes**: SerpAPI (free tier — 100 searches/month, ~10/week)
-- **Ratings**: OMDb API (free — RT score, IMDB, Metacritic)
-- **Verdicts**: Claude API (claude-sonnet)
-- **Scheduler**: GitHub Actions (every Wednesday 8am America/New_York)
-- **Hosting**: Vercel (free static hosting)
+## Environment
 
-## Setup
+The scraper reads these environment variables:
 
-### 1. Fork & clone this repo
-
-### 2. Get API keys
-- **SerpAPI**: https://serpapi.com — free tier is enough
-- **OMDb**: https://www.omdbapi.com/apikey.aspx — free
-- **Anthropic**: https://console.anthropic.com — pay per use (~$0.50/month)
-
-### 3. Add GitHub Secrets
-In your repo → Settings → Secrets and variables → Actions:
-
-| Secret | Value |
-|--------|-------|
-| `SERPAPI_KEY` | Your SerpAPI key |
-| `OMDB_KEY` | Your OMDb key |
-| `ANTHROPIC_API_KEY` | Your Anthropic key |
-
-### 4. Deploy to Vercel
-```bash
-npm i -g vercel
-vercel --prod
-```
-Point Vercel to the `public/` folder as the output directory.
-
-### 5. Trigger first run
-Go to Actions → "Weekly Cinema Scrape" → Run workflow manually.
+- `SERPAPI_KEY`
+- `OMDB_KEY`
+- `ANTHROPIC_API_KEY`
+- `AMC_VENDOR_KEY`
+- `AMC_API_BASE` optional
+- `AMC_THEATRE_IDS` optional comma-separated override
 
 ## Local Development
+
+Create and use a virtualenv, then install the scraper dependencies:
+
 ```bash
-pip install -r requirements.txt
-python scripts/scrape.py  # runs with mock data if no API keys set
+python3 -m venv .venv
+source .venv/bin/activate
+pip install requests anthropic
+python scripts/scrape.py
 ```
-Open `public/index.html` in your browser.
 
-### Ratings Matching
-- `scripts/rating_overrides.json`: manual title → `imdbID` mapping for known edge cases.
-- `scripts/rating_cache.json`: auto-populated cache of resolved OMDb IDs to improve weekly stability.
-- If a title misses exact OMDb lookup, scraper now falls back to OMDb search (`s=`) and chooses the best candidate.
+Open `public/index.html` in a browser, or serve the `public/` directory with any static file server.
 
-## How It Works
-Every Wednesday at 8am New York time, GitHub Actions:
-1. Runs `scripts/scrape.py`
-2. Hits SerpAPI for showtimes at each theater
-3. Hits OMDb for RT/IMDB/Metacritic scores per film
-4. Asks Claude for a Watch/Skip/Depends verdict + one-line reason
-5. Writes `public/data.json`
-6. Commits and pushes
-7. Vercel auto-deploys the updated static site
+## Deployment Flow
 
-**Total cost: $0** (within free tiers)
+Production deploys should follow one path:
+
+1. `weekly-scrape.yml` runs on schedule or manually.
+2. The scraper updates `public/data.json` and `scripts/rating_cache.json`.
+3. The workflow commits and pushes to `main`.
+4. `deploy.yml` deploys production when `public/**` changes on `main`.
+
+## Maintenance Notes
+
+- If title matching drifts, fix the identity in `scripts/rating_overrides.json` instead of patching the frontend.
+- If a current release needs CinemaScore, add it to `scripts/cinemascore_overrides.json`.
+- `public/data.json` is generated output and should not be hand-edited unless debugging a one-off issue.
