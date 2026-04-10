@@ -41,11 +41,23 @@
     "title": "After Hours",
     "year": "2025"
   },
+  "after hours|1985": {
+    "imdbID": "tt0088680",
+    "source": "search",
+    "title": "After Hours",
+    "year": "1985"
+  },
   "agon|2012": {
     "imdbID": "tt2209102",
     "source": "exact",
     "title": "Agon",
     "year": "2012"
+  },
+  "alice|1990": {
+    "imdbID": "tt0099012",
+    "source": "exact",
+    "title": "Alice",
+    "year": "1990"
   },
   "alice|2025": {
     "imdbID": "tt34950022",
@@ -89,6 +101,12 @@
     "title": "Aranyer Din Ratri",
     "year": "1970"
   },
+  "aro berria|2025": {
+    "imdbID": "tt28623997",
+    "source": "exact_year",
+    "title": "Aro berria",
+    "year": "2025"
+  },
   "backrooms|2025": {
     "imdbID": "tt39070378",
     "source": "exact_year",
@@ -100,6 +118,12 @@
     "source": "exact",
     "title": "Bad Blood",
     "year": "2017\u20132018"
+  },
+  "bambi|1942": {
+    "imdbID": "tt0034492",
+    "source": "exact",
+    "title": "Bambi",
+    "year": "1942"
   },
   "bambi|2025": {
     "imdbID": "tt23621682",
@@ -149,6 +173,12 @@
     "title": "Billy Preston: That's the Way God Planned It",
     "year": "2024"
   },
+  "black girl|1966": {
+    "imdbID": "tt0060758",
+    "source": "exact",
+    "title": "Black Girl",
+    "year": "1966"
+  },
   "black girl|2025": {
     "imdbID": "tt37023836",
     "source": "exact_year",
@@ -184,6 +214,12 @@
     "source": "exact",
     "title": "Boys Go to Jupiter",
     "year": "2024"
+  },
+  "brand new landscape|2025": {
+    "imdbID": "tt36579933",
+    "source": "exact_year",
+    "title": "Brand New Landscape",
+    "year": "2025"
   },
   "bringing up baby|1938": {
     "imdbID": "tt0029947",
@@ -221,6 +257,12 @@
     "title": "Carrie",
     "year": "1976"
   },
+  "castle in the sky|1986": {
+    "imdbID": "tt0092067",
+    "source": "exact",
+    "title": "Castle in the Sky",
+    "year": "1986"
+  },
   "castle in the sky|2025": {
     "imdbID": "tt37016430",
     "source": "exact_year",
@@ -239,6 +281,12 @@
     "title": "ChaO",
     "year": "2025"
   },
+  "chinatown|1974": {
+    "imdbID": "tt0071315",
+    "source": "exact",
+    "title": "Chinatown",
+    "year": "1974"
+  },
   "chinatown|2025": {
     "imdbID": "tt34463310",
     "source": "exact_year",
@@ -250,6 +298,12 @@
     "source": "exact",
     "title": "Chronicle of the Years of Fire",
     "year": "1975"
+  },
+  "chronovisor|2026": {
+    "imdbID": "tt39196981",
+    "source": "exact_year",
+    "title": "Chronovisor",
+    "year": "2026"
   },
   "city wide fever|2025": {
     "imdbID": "tt35223935",
@@ -355,7 +409,7 @@
   },
   "erupcja|2025": {
     "imdbID": "tt33712666",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Erupcja",
     "year": "2025"
   },
@@ -427,7 +481,7 @@
   },
   "fiume o morte|2025": {
     "imdbID": "tt34383611",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Fiume o morte!",
     "year": "2025"
   },
@@ -607,7 +661,7 @@
   },
   "leviticus|2026": {
     "imdbID": "tt39143902",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Leviticus",
     "year": "2026"
   },
@@ -664,6 +718,12 @@
     "source": "exact",
     "title": "Melancholia",
     "year": "2011"
+  },
+  "memory|2024": {
+    "imdbID": "tt35075271",
+    "source": "exact_year",
+    "title": "Memory",
+    "year": "2024"
   },
   "miami vice": {
     "imdbID": "tt36731244",
@@ -779,6 +839,12 @@
     "title": "No Country for Old Men",
     "year": "2007"
   },
+  "no end|1985": {
+    "imdbID": "tt0086961",
+    "source": "exact",
+    "title": "No End",
+    "year": "1985"
+  },
   "no end|2025": {
     "imdbID": "tt37460103",
     "source": "exact_year",
@@ -789,6 +855,12 @@
     "imdbID": "tt1527793",
     "source": "exact",
     "title": "No Other Choice",
+    "year": "2025"
+  },
+  "normal|2025": {
+    "imdbID": "tt31195136",
+    "source": "exact_year",
+    "title": "Normal",
     "year": "2025"
   },
   "normal|2026": {
@@ -820,6 +892,12 @@
     "source": "exact_year",
     "title": "Out of Sight",
     "year": "2025"
+  },
+  "outcome|2023": {
+    "imdbID": "tt23724682",
+    "source": "exact_year",
+    "title": "Outcome",
+    "year": "2023"
   },
   "outcome|2024": {
     "imdbID": "tt37748425",
@@ -892,6 +970,12 @@
     "source": "exact",
     "title": "Possessions",
     "year": "2012"
+  },
+  "possession|1981": {
+    "imdbID": "tt0082933",
+    "source": "exact",
+    "title": "Possession",
+    "year": "1981"
   },
   "possession|2026": {
     "imdbID": "tt38985231",
@@ -1111,7 +1195,7 @@
   },
   "the christophers|2025": {
     "imdbID": "tt34966562",
-    "source": "exact_year",
+    "source": "search",
     "title": "The Christophers",
     "year": "2025"
   },
@@ -1174,6 +1258,12 @@
     "source": "exact",
     "title": "The Handmaiden",
     "year": "2016"
+  },
+  "the hand|1981": {
+    "imdbID": "tt0082497",
+    "source": "exact",
+    "title": "The Hand",
+    "year": "1981"
   },
   "the hand|2025": {
     "imdbID": "tt37510083",
@@ -1241,6 +1331,12 @@
     "title": "The Player",
     "year": "2025"
   },
+  "the prophet|1968": {
+    "imdbID": "tt0063464",
+    "source": "exact",
+    "title": "The Prophet",
+    "year": "1968"
+  },
   "the prophet|2025": {
     "imdbID": "tt36414940",
     "source": "exact_year",
@@ -1264,6 +1360,12 @@
     "source": "exact",
     "title": "The Root",
     "year": "2022"
+  },
+  "the scar|1976": {
+    "imdbID": "tt0074220",
+    "source": "exact",
+    "title": "The Scar",
+    "year": "1976"
   },
   "the scar|2025": {
     "imdbID": "tt35060097",
@@ -1408,6 +1510,12 @@
     "source": "exact",
     "title": "Tow",
     "year": "2022"
+  },
+  "travis|2008": {
+    "imdbID": "tt1332471",
+    "source": "exact_year",
+    "title": "199 Lives: The Travis Pastrana Story",
+    "year": "2008"
   },
   "travis|2009": {
     "imdbID": "tt0979953",

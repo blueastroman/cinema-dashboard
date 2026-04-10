@@ -121,9 +121,10 @@ THEATER_CONFIG = {
         "slug": "moma",
         "short_name": "MoMA",
         "sort_name": "MoMA",
-        "source_type": "serpapi",
+        "source_type": "moma",
         "serpapi_id": "museum of modern art new york film",
-        "official_url": "https://www.moma.org/calendar/film/",
+        "source_url": "https://www.moma.org/calendar/?happening_filter=Films&location=both",
+        "official_url": "https://www.moma.org/calendar/?happening_filter=Films&location=both",
         "aliases": ["moma", "museum of modern art", "moma film"],
     },
     "AMC Landmark 8": {
@@ -541,6 +542,141 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
                 "special_formats": sorted(grouped_formats.get(title, [])),
+            })
+
+    return flattened
+
+
+def fetch_moma_showtimes(theater: dict) -> list[dict]:
+    base_url = str(theater.get("source_url") or theater.get("official_url") or "").strip()
+    if not base_url:
+        return []
+
+    source_url = f"{base_url}{'&' if '?' in base_url else '?'}date={datetime.now().strftime('%Y-%m-%d')}"
+    content = fetch_source_html(source_url, theater.get("name", "Museum of Modern Art"))
+    if not content:
+        return []
+
+    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+    hint_years: dict[str, Optional[int]] = {}
+
+    day_blocks = re.findall(
+        r'<h2[^>]*>\s*([^<]+(?:&nbsp;[^<]+)?)\s*</h2>(.*?)(?=<h2[^>]*>|<div\s+data-pagination-mount=|</section>)',
+        content,
+        re.DOTALL | re.IGNORECASE,
+    )
+
+    now = datetime.now()
+    latest_date = now + timedelta(days=6)
+
+    for raw_day, day_html in day_blocks:
+        clean_day = html.unescape(raw_day).replace("\xa0", " ").replace(",", "").strip()
+        try:
+            parsed_day = datetime.strptime(clean_day, "%a %b %d").replace(year=now.year)
+        except ValueError:
+            continue
+
+        if parsed_day.date() < now.date() or parsed_day.date() > latest_date.date():
+            continue
+
+        day_label = format_day_label(parsed_day)
+        item_blocks = re.findall(
+            r'<a\s+class="\s*link/disable.*?"href="/calendar/events/\d+".*?</a>',
+            day_html,
+            re.DOTALL | re.IGNORECASE,
+        )
+
+        for item_html in item_blocks:
+            href_match = re.search(r'href="(/calendar/events/\d+)"', item_html, re.IGNORECASE)
+            title_match = re.search(
+                r"<span class='layout/block balance-text'>(.*?)</span></p>",
+                item_html,
+                re.DOTALL | re.IGNORECASE,
+            )
+            time_match = re.search(
+                r"<span class='layout/block '>(\d{1,2}:\d{2}&nbsp;[ap]\.m\.)</span>",
+                item_html,
+                re.DOTALL | re.IGNORECASE,
+            )
+            venue_matches = re.findall(
+                r"<p[^>]*><span class='layout/block(?:\s+balance-text)?\s*'>(.*?)</span></p>",
+                item_html,
+                re.DOTALL | re.IGNORECASE,
+            )
+            if not href_match or not title_match or not time_match:
+                continue
+
+            venue_texts = [
+                html.unescape(re.sub(r"<.*?>", "", value)).replace("\xa0", " ").strip()
+                for value in venue_matches
+            ]
+            venue_text = next(
+                (
+                    value for value in venue_texts
+                    if value and ("moma" in value.lower() or "walter reade" in value.lower() or "film at lincoln center" in value.lower())
+                ),
+                "",
+            )
+            if not venue_text or "moma" not in venue_text.lower():
+                continue
+
+            title_line = html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).replace("\xa0", " ").strip()
+            title_line = re.sub(r"\s+", " ", title_line)
+            title_year_match = re.match(
+                r"^(?P<title>.+?)\.\s*(?P<year>(18|19|20)\d{2})\.\s*(?:Directed by .*)?$",
+                title_line,
+                re.IGNORECASE,
+            )
+            if title_year_match:
+                title = clean_title(title_year_match.group("title"))
+                hint_year = int(title_year_match.group("year"))
+            else:
+                title = clean_title(title_line)
+                hint_year = extract_year_int(title_line)
+            if not title:
+                continue
+            if title not in hint_years:
+                hint_years[title] = hint_year
+
+            raw_time = html.unescape(time_match.group(1)).replace("\xa0", " ").strip().lower()
+            normalized_time = (
+                raw_time.replace("a.m.", "am")
+                .replace("p.m.", "pm")
+                .replace("a.m", "am")
+                .replace("p.m", "pm")
+                .replace(" ", "")
+            )
+            time_match_clean = re.match(r"(\d{1,2}):(\d{2})(am|pm)", normalized_time)
+            if not time_match_clean:
+                continue
+            hour = int(time_match_clean.group(1))
+            minute = int(time_match_clean.group(2))
+            meridiem = time_match_clean.group(3)
+            if meridiem == "pm" and hour != 12:
+                hour += 12
+            if meridiem == "am" and hour == 12:
+                hour = 0
+            time_label = format_time_label(parsed_day.replace(hour=hour, minute=minute))
+
+            ticket_url = f"https://www.moma.org{href_match.group(1)}"
+            bucket = grouped[title][day_label]
+            bucket[time_label] = ticket_url
+
+    flattened = []
+    for title, days in grouped.items():
+        hint_year = hint_years.get(title)
+        for day_label, time_map in days.items():
+            unique_times = sort_time_labels(list(time_map.keys()))
+            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "hint_year": hint_year,
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
             })
 
     return flattened
@@ -1126,6 +1262,27 @@ def title_match_score(query_title: str, result_title: str, query_year: Optional[
     return score
 
 
+SHORT_PROGRAM_HINTS = (
+    "short",
+    "shorts",
+    "program",
+    "anthology",
+    "compilation",
+    "collection",
+    "selections",
+)
+
+
+def runtime_minutes_from_value(value: Optional[object]) -> Optional[int]:
+    match = re.search(r"\b(\d{1,3})\s*min\b", str(value or ""), re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
+def title_explicitly_allows_short(query_title: str) -> bool:
+    normalized = normalize_title(query_title)
+    return any(hint in normalized for hint in SHORT_PROGRAM_HINTS)
+
+
 def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
     if not imdb_id:
         return None
@@ -1149,6 +1306,17 @@ def empty_ratings() -> dict:
     }
 
 
+def is_suspect_short_metadata(title: str, ratings: Optional[dict]) -> bool:
+    if not ratings:
+        return False
+    runtime_minutes = runtime_minutes_from_value(ratings.get("runtime"))
+    return (
+        runtime_minutes is not None
+        and runtime_minutes <= 45
+        and not title_explicitly_allows_short(title)
+    )
+
+
 def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
     if not ratings:
         return False
@@ -1164,6 +1332,8 @@ def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
 def merge_existing_metadata(title: str, ratings: dict) -> dict:
     existing = get_existing_metadata(title)
     if not existing:
+        return ratings
+    if is_suspect_short_metadata(title, existing):
         return ratings
 
     existing_year = extract_year_int(existing.get("year"))
@@ -1256,7 +1426,11 @@ def repair_dataset_metadata(dataset: dict) -> dict:
         title = str(movie.get("title") or "").strip()
         if not title:
             continue
-        ratings = fetch_ratings(title)
+        existing_ratings = movie.get("ratings") or {}
+        hint_year = extract_year_int(existing_ratings.get("year"))
+        theaters = movie.get("theaters") or []
+        theater_name = str(theaters[0].get("name") or "").strip() if theaters else None
+        ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
         if not ratings:
             continue
         movie["ratings"] = ratings
@@ -1272,6 +1446,9 @@ def is_acceptable_omdb_match(query_title: str, data: Optional[dict], query_year:
         return False
     media_type = str(data.get("Type") or "").strip().lower()
     if media_type and media_type != "movie":
+        return False
+    runtime_minutes = runtime_minutes_from_value(data.get("Runtime"))
+    if runtime_minutes is not None and runtime_minutes <= 45 and not title_explicitly_allows_short(query_title):
         return False
 
     result_year = extract_year_int(data.get("Year"))
@@ -1636,6 +1813,7 @@ def build_dataset() -> dict:
     print("Starting weekly NYC cinema scrape...")
     all_movies: dict[str, dict] = {}
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
+    theater_formats: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
     theater_meta: dict[str, dict] = {
         name: build_theater_meta(name)
         for name in THEATER_CONFIG.keys()
@@ -1651,6 +1829,8 @@ def build_dataset() -> dict:
             showtimes = fetch_metrograph_showtimes(theater)
         elif theater.get("source_type") == "ifc":
             showtimes = fetch_ifc_showtimes(theater)
+        elif theater.get("source_type") == "moma":
+            showtimes = fetch_moma_showtimes(theater)
         elif theater.get("source_type") == "alamo":
             showtimes = fetch_alamo_showtimes(theater)
         else:
@@ -1687,6 +1867,8 @@ def build_dataset() -> dict:
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
             })
+            if special_formats:
+                theater_formats[theater_name][title].update(special_formats)
 
             hint_year = entry.get("hint_year")
             provisional_key = normalize_title(title)
@@ -1724,6 +1906,7 @@ def build_dataset() -> dict:
                     "name": theater_name,
                     "ticket_url": ticket_url,
                     "schedule": clean_schedule,
+                    "special_formats": sorted(theater_formats[theater_name].get(title, set())),
                 })
 
     movies_list = sorted(
