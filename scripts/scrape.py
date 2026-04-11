@@ -15,148 +15,30 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
 from typing import Optional
+import re
 
-# ─── CONFIG ──────────────────────────────────────────────────────────────────
-
-THEATER_CONFIG = {
-    "Metrograph": {
-        "slug": "metrograph",
-        "short_name": "Metrograph",
-        "sort_name": "Metrograph",
-        "source_type": "metrograph",
-        "source_url": "https://t.metrograph.com/Browsing/Cinemas/Details/9999",
-        "official_url": "https://metrograph.com",
-        "aliases": ["metro"],
-    },
-    "IFC Center": {
-        "slug": "ifc",
-        "short_name": "IFC",
-        "sort_name": "IFC",
-        "source_type": "ifc",
-        "source_url": "https://www.ifccenter.com/now-playing/",
-        "serpapi_id": "ifc center new york",
-        "official_url": "https://www.ifccenter.com",
-        "aliases": ["ifc"],
-    },
-    "Angelika Film Center": {
-        "slug": "angelika",
-        "short_name": "Angelika",
-        "sort_name": "Angelika",
-        "source_type": "serpapi",
-        "serpapi_id": "angelika film center new york",
-        "official_url": "https://angelikafilmcenter.com/nyc",
-        "aliases": ["angelika"],
-    },
-    "Film Forum": {
-        "slug": "film-forum",
-        "short_name": "Film Forum",
-        "sort_name": "Film Forum",
-        "source_type": "serpapi",
-        "serpapi_id": "film forum new york",
-        "official_url": "https://www.filmforum.org/now-playing/",
-        "aliases": ["film", "film forum"],
-    },
-    "Village East by Angelika": {
-        "slug": "village-east",
-        "short_name": "Village East",
-        "sort_name": "Village East",
-        "source_type": "serpapi",
-        "serpapi_id": "village east cinema new york",
-        "official_url": "https://angelikafilmcenter.com/villageeast",
-        "aliases": ["village", "village east"],
-    },
-    "Film at Lincoln Center": {
-        "slug": "flc",
-        "short_name": "FLC",
-        "sort_name": "FLC",
-        "source_type": "serpapi",
-        "serpapi_id": "film at lincoln center new york",
-        "official_url": "https://www.filmlinc.org/now-playing/",
-        "aliases": ["flc", "film linc", "lincoln center", "film at lincoln center"],
-    },
-    "Alamo Drafthouse Lower Manhattan": {
-        "slug": "alamo",
-        "short_name": "Alamo",
-        "sort_name": "Alamo",
-        "source_type": "alamo",
-        "market_slug": "nyc",
-        "cinema_id": "2103",
-        "serpapi_id": "alamo drafthouse lower manhattan new york",
-        "official_url": "https://drafthouse.com/nyc",
-        "aliases": ["alamo"],
-    },
-    "Alamo Drafthouse Downtown Brooklyn": {
-        "slug": "alamo-brooklyn",
-        "short_name": "Alamo Brooklyn",
-        "sort_name": "Alamo Brooklyn",
-        "source_type": "alamo",
-        "market_slug": "nyc",
-        "cinema_id": "2101",
-        "serpapi_id": "alamo drafthouse downtown brooklyn new york",
-        "official_url": "https://drafthouse.com/theater/downtown-brooklyn",
-        "aliases": ["alamo brooklyn", "downtown brooklyn", "brooklyn alamo"],
-    },
-    "Alamo Drafthouse Staten Island": {
-        "slug": "alamo-staten-island",
-        "short_name": "Alamo Staten Island",
-        "sort_name": "Alamo Staten Island",
-        "source_type": "alamo",
-        "market_slug": "nyc",
-        "cinema_id": "2102",
-        "serpapi_id": "alamo drafthouse staten island new york",
-        "official_url": "https://drafthouse.com/theater/staten-island",
-        "aliases": ["alamo staten island", "staten island", "staten island alamo"],
-    },
-    "Paris Theater": {
-        "slug": "paris",
-        "short_name": "Paris",
-        "sort_name": "Paris",
-        "source_type": "serpapi",
-        "serpapi_id": "paris theater new york",
-        "official_url": "https://www.paristheaternyc.com/",
-        "aliases": ["paris"],
-    },
-    "Museum of Modern Art": {
-        "slug": "moma",
-        "short_name": "MoMA",
-        "sort_name": "MoMA",
-        "source_type": "moma",
-        "serpapi_id": "museum of modern art new york film",
-        "source_url": "https://www.moma.org/calendar/?happening_filter=Films&location=both",
-        "official_url": "https://www.moma.org/calendar/?happening_filter=Films&location=both",
-        "aliases": ["moma", "museum of modern art", "moma film"],
-    },
-    "AMC Landmark 8": {
-        "slug": "amc-landmark-8",
-        "short_name": "AMC Landmark 8",
-        "sort_name": "AMC Landmark 8",
-        "source_type": "amc",
-        "serpapi_id": "amc landmark 8 stamford ct",
-        "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-landmark-8",
-        "aliases": [],
-    },
-    "AMC Majestic 6": {
-        "slug": "amc-majestic-6",
-        "short_name": "AMC Majestic 6",
-        "sort_name": "AMC Majestic 6",
-        "source_type": "amc",
-        "serpapi_id": "amc majestic 6 stamford ct",
-        "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-majestic-6",
-        "aliases": [],
-    },
-}
-
-SERPAPI_THEATERS = [
-    {"name": name, **config}
-    for name, config in THEATER_CONFIG.items()
-    if config.get("source_type") == "serpapi"
-]
-
-STATIC_THEATERS = [
-    {"name": name, **config}
-    for name, config in THEATER_CONFIG.items()
-    if config.get("source_type") != "amc"
-]
+from cinema_backend.common import (
+    AMC_ALLOWED_CITIES_BY_STATE,
+    AMC_EXCLUDED_THEATRES,
+    SERPAPI_THEATERS,
+    STATIC_THEATERS,
+    THEATER_CONFIG,
+    build_theater_meta,
+    cache_key_for_title_year,
+    clean_title,
+    extract_special_formats,
+    extract_year_int,
+    format_day_label,
+    format_time_label,
+    get_source_ticket_url,
+    make_movie_id,
+    normalize_title,
+    runtime_minutes_from_value,
+    slugify,
+    sort_time_labels,
+    title_explicitly_allows_short,
+)
+from cinema_backend.http import DEFAULT_HEADERS, fetch_source_html
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
@@ -164,36 +46,6 @@ ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
-AMC_ALLOWED_CITIES_BY_STATE = {
-    "NY": {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"},
-    "CT": {"STAMFORD"},
-}
-AMC_EXCLUDED_THEATRES = {
-    "AMC BAY PLAZA CINEMA 13",
-    "AMC MAGIC JOHNSON HARLEM 9",
-    "AMC STATEN ISLAND 11",
-}
-DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; ShowtimesNYC/1.0; +https://showtimes.nyc)",
-    "Accept-Language": "en-US,en;q=0.9",
-}
-
-# ─── TITLE CLEANING ───────────────────────────────────────────────────────────
-
-import re
-
-FORMAT_TAGS = re.compile(
-    r'\b(70mm|35mm|imax|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
-    r'|\s*[\(\[]?(70mm|35mm|imax|4k|dcp)[\)\]]?',
-    re.IGNORECASE
-)
-SPECIAL_FORMAT_PATTERNS = {
-    "IMAX": re.compile(r"\bimax\b", re.IGNORECASE),
-    "70mm": re.compile(r"\b(?:in\s+)?70\s*mm\b", re.IGNORECASE),
-    "35mm": re.compile(r"\b(?:in\s+)?35\s*mm\b", re.IGNORECASE),
-}
-
-NON_ALNUM = re.compile(r"[^a-z0-9]+")
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
 CINEMASCORE_OVERRIDES_PATH = SCRIPT_DIR / "cinemascore_overrides.json"
@@ -206,103 +58,6 @@ LEGACY_FAKE_PLOTS = {
     "An epic meditation on the immigrant experience and the American Dream.",
     "Two brothers reckon with grief, distance, and what it means to belong.",
 }
-
-
-def normalize_title(title: str) -> str:
-    return NON_ALNUM.sub(" ", (title or "").lower()).strip()
-
-
-def slugify(value: str) -> str:
-    return NON_ALNUM.sub("-", (value or "").lower()).strip("-")
-
-def clean_title(raw: str) -> str:
-    """Strip projection format tags from a showtime title before lookup."""
-    cleaned = FORMAT_TAGS.sub('', raw).strip(' -–—·')
-    article_match = re.match(r"^(.*),\s+(The|A|An)$", cleaned, re.IGNORECASE)
-    if article_match:
-        cleaned = f"{article_match.group(2)} {article_match.group(1)}"
-    return re.sub(r"\s+", " ", cleaned).strip()
-
-
-def extract_special_formats(*values: object) -> list[str]:
-    found: list[str] = []
-    haystacks = [str(value or "") for value in values if value]
-    for label, pattern in SPECIAL_FORMAT_PATTERNS.items():
-        if any(pattern.search(haystack) for haystack in haystacks):
-            found.append(label)
-    return found
-
-
-def extract_year_int(value: Optional[str]) -> Optional[int]:
-    match = re.search(r"\b(18|19|20)\d{2}\b", str(value or ""))
-    return int(match.group(0)) if match else None
-
-
-def cache_key_for_title_year(title: str, year: Optional[object] = None) -> str:
-    base = normalize_title(title)
-    parsed_year = extract_year_int(year)
-    return f"{base}|{parsed_year}" if parsed_year else base
-
-
-def make_movie_id(title: str, ratings: dict) -> str:
-    imdb_id = str((ratings or {}).get("imdbID") or "").strip()
-    if imdb_id:
-        return imdb_id
-    year = extract_year_int((ratings or {}).get("year"))
-    base = slugify(title)
-    return f"{base}-{year}" if year else base
-
-
-def build_theater_meta(name: str, overrides: Optional[dict] = None) -> dict:
-    base = dict(THEATER_CONFIG.get(name, {}))
-    if overrides:
-        base.update(overrides)
-    official_url = str(base.get("official_url") or "https://www.amctheatres.com/").strip()
-    short_name = str(base.get("short_name") or name).strip()
-    sort_name = str(base.get("sort_name") or short_name).strip()
-    return {
-        "name": name,
-        "slug": str(base.get("slug") or slugify(name)).strip(),
-        "short_name": short_name,
-        "sort_name": sort_name,
-        "source_type": str(base.get("source_type") or "serpapi").strip(),
-        "official_url": official_url,
-        "aliases": [a for a in base.get("aliases", []) if a],
-    }
-
-
-def get_source_ticket_url(theater: dict, fallback_url: Optional[str] = None) -> str:
-    return str(
-        theater.get("ticket_url")
-        or theater.get("official_url")
-        or fallback_url
-        or ""
-    ).strip()
-
-
-def format_day_label(dt: datetime) -> str:
-    return dt.strftime("%a %b %d").replace(" 0", " ")
-
-
-def format_time_label(dt: datetime) -> str:
-    return dt.strftime("%I:%M%p").lstrip("0").lower()
-
-
-def sort_time_labels(times: list[str]) -> list[str]:
-    def parse_time(value: str) -> tuple[int, int]:
-        m = re.match(r"(\d{1,2}):(\d{2})(am|pm)", (value or "").strip().lower())
-        if not m:
-            return (99, 99)
-        hour = int(m.group(1))
-        minute = int(m.group(2))
-        meridiem = m.group(3)
-        if meridiem == "pm" and hour != 12:
-            hour += 12
-        if meridiem == "am" and hour == 12:
-            hour = 0
-        return (hour, minute)
-
-    return sorted(times, key=parse_time)
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
@@ -454,21 +209,6 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
 
     return flattened
 
-
-def fetch_source_html(source_url: str, theater_name: str) -> str:
-    url = str(source_url or "").strip()
-    if not url:
-        return ""
-
-    try:
-        response = requests.get(url, timeout=20, headers=DEFAULT_HEADERS)
-        response.raise_for_status()
-        return response.text
-    except Exception as e:
-        print(f"  [ERROR] Source fetch failed for {theater_name}: {e}")
-        return ""
-
-
 def fetch_ifc_showtimes(theater: dict) -> list[dict]:
     source_url = str(theater.get("source_url") or "").strip()
     if not source_url:
@@ -538,6 +278,209 @@ def fetch_ifc_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 
+FILM_FORUM_WEEKDAY_INDEX = {
+    "mon": 0,
+    "tue": 1,
+    "wed": 2,
+    "thu": 3,
+    "fri": 4,
+    "sat": 5,
+    "sun": 6,
+}
+
+
+def normalize_film_forum_title(raw_title: str) -> str:
+    cleaned = html.unescape(str(raw_title or "")).replace("\xa0", " ")
+    cleaned = cleaned.replace("<br />", " ").replace("<br/>", " ").replace("<br>", " ")
+    cleaned = re.sub(r"<.*?>", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    if not cleaned:
+        return ""
+
+    possessive_match = re.match(
+        r"^(?:[A-Z][\w.\-’']+\s+){1,4}[A-Z][\w.\-’']+[’']s\s+(.+)$",
+        cleaned,
+    )
+    if possessive_match:
+        cleaned = possessive_match.group(1).strip()
+
+    starring_match = re.match(
+        r"^(?:[A-Z][\w.\-’']+\s+){1,4}[A-Z][\w.\-’']+\s+in\s+(.+)$",
+        cleaned,
+    )
+    if starring_match:
+        cleaned = starring_match.group(1).strip()
+
+    return clean_title(cleaned)
+
+
+def infer_film_forum_tab_date(day_code: str, day_number: int, today: datetime) -> Optional[datetime]:
+    weekday_index = FILM_FORUM_WEEKDAY_INDEX.get(str(day_code or "").strip().lower())
+    if weekday_index is None:
+        return None
+
+    candidates: list[datetime] = []
+    for offset in range(-7, 21):
+        candidate = today + timedelta(days=offset)
+        if candidate.weekday() == weekday_index and candidate.day == day_number:
+            candidates.append(candidate)
+
+    if not candidates:
+        return None
+
+    candidates.sort(
+        key=lambda candidate: (
+            0 if candidate.date() >= today.date() else 1,
+            abs((candidate.date() - today.date()).days),
+        )
+    )
+    return candidates[0]
+
+
+def fetch_film_forum_detail_meta(detail_url: str) -> dict:
+    detail_content = fetch_source_html(detail_url, "Film Forum detail")
+    if not detail_content:
+        return {}
+
+    meta_match = re.search(
+        r'<div class="copy">\s*<p><strong>(.*?)</strong>',
+        detail_content,
+        re.DOTALL | re.IGNORECASE,
+    )
+    if not meta_match:
+        return {}
+
+    meta_text = html.unescape(meta_match.group(1)).replace("\xa0", " ")
+    meta_text = meta_text.replace("<br />", "\n").replace("<br/>", "\n").replace("<br>", "\n")
+    meta_text = re.sub(r"<.*?>", "", meta_text)
+    meta_text = re.sub(r"[ \t]+", " ", meta_text).strip()
+
+    hint_year = extract_year_int(meta_text)
+    special_formats = extract_special_formats(meta_text)
+    return {
+        "hint_year": hint_year,
+        "special_formats": special_formats,
+    }
+
+
+def fetch_film_forum_showtimes(theater: dict) -> list[dict]:
+    source_url = str(theater.get("source_url") or theater.get("official_url") or "").strip()
+    if not source_url:
+        return []
+
+    content = fetch_source_html(source_url, theater.get("name", "Film Forum"))
+    if not content:
+        return []
+
+    tab_pairs = re.findall(
+        r'<li class=([a-z]{3})><a href="#(tabs-\d+)">([A-Z]{3})</a></li>',
+        content,
+        re.IGNORECASE,
+    )
+    tab_sections = re.findall(
+        r'<div id="(tabs-\d+)">(.*?)(?=<div id="tabs-\d+">|</div>\s*</div>)',
+        content,
+        re.DOTALL | re.IGNORECASE,
+    )
+    if not tab_pairs or not tab_sections:
+        return []
+
+    today = datetime.now()
+    section_lookup = {tab_id: body for tab_id, body in tab_sections}
+    detail_meta_cache: dict[str, dict] = {}
+    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
+    grouped_formats: dict[str, set[str]] = defaultdict(set)
+    hint_years: dict[str, Optional[int]] = {}
+
+    for day_code, tab_id, _label in tab_pairs:
+        body = section_lookup.get(tab_id, "")
+        if not body:
+            continue
+
+        day_number_match = re.search(r"<!--\s*(\d{1,2})\s*-->", body)
+        if not day_number_match:
+            continue
+        target_date = infer_film_forum_tab_date(day_code, int(day_number_match.group(1)), today)
+        if not target_date:
+            continue
+        day_label = format_day_label(target_date)
+
+        for paragraph in re.findall(r"<p>(.*?)</p>", body, re.DOTALL | re.IGNORECASE):
+            title_match = re.search(
+                r'<strong><a href="([^"]+)">(.*?)</a></strong>',
+                paragraph,
+                re.DOTALL | re.IGNORECASE,
+            )
+            if not title_match:
+                continue
+
+            detail_href = html.unescape(title_match.group(1)).strip()
+            if detail_href.startswith("//"):
+                detail_url = f"https:{detail_href}"
+            elif detail_href.startswith("/"):
+                detail_url = f"https://filmforum.org{detail_href}"
+            else:
+                detail_url = detail_href
+
+            title = normalize_film_forum_title(title_match.group(2))
+            if not title:
+                continue
+
+            detail_meta = detail_meta_cache.get(detail_url)
+            if detail_meta is None:
+                detail_meta = fetch_film_forum_detail_meta(detail_url)
+                detail_meta_cache[detail_url] = detail_meta
+
+            hint_year = detail_meta.get("hint_year")
+            if hint_year is not None and title not in hint_years:
+                hint_years[title] = hint_year
+
+            combined_formats = set(extract_special_formats(title_match.group(2), paragraph))
+            combined_formats.update(detail_meta.get("special_formats") or [])
+            if combined_formats:
+                grouped_formats[title].update(combined_formats)
+
+            for raw_time in re.findall(r"<span>([^<]+)</span>", paragraph, re.DOTALL | re.IGNORECASE):
+                compact_time = html.unescape(raw_time).strip()
+                if not compact_time:
+                    continue
+                time_match = re.fullmatch(r"(\d{1,2}):(\d{2})", compact_time)
+                if not time_match:
+                    continue
+
+                hour = int(time_match.group(1))
+                minute = int(time_match.group(2))
+                meridiem = "pm" if hour < 10 or hour == 12 else "am"
+                hour_24 = hour
+                if meridiem == "pm" and hour != 12:
+                    hour_24 += 12
+                if meridiem == "am" and hour == 12:
+                    hour_24 = 0
+
+                local_dt = target_date.replace(hour=hour_24, minute=minute, second=0, microsecond=0)
+                time_label = format_time_label(local_dt)
+                grouped[title][day_label][time_label] = detail_url or get_source_ticket_url(theater)
+
+    flattened = []
+    for title, days in grouped.items():
+        for day_label, time_map in days.items():
+            unique_times = sort_time_labels(list(time_map.keys()))
+            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "hint_year": hint_years.get(title),
+                "theater": theater["name"],
+                "day": day_label,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+                "special_formats": sorted(grouped_formats.get(title, [])),
+            })
+
+    return flattened
+
+
 def fetch_moma_showtimes(theater: dict) -> list[dict]:
     base_url = str(theater.get("source_url") or theater.get("official_url") or "").strip()
     if not base_url:
@@ -548,8 +491,8 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
     if not content:
         return []
 
-    grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
-    hint_years: dict[str, Optional[int]] = {}
+    grouped: dict[str, dict[str, dict[str, dict[str, str]]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+    hint_years: dict[tuple[str, str], Optional[int]] = {}
 
     day_blocks = re.findall(
         r'<h2[^>]*>\s*([^<]+(?:&nbsp;[^<]+)?)\s*</h2>(.*?)(?=<h2[^>]*>|<div\s+data-pagination-mount=|</section>)',
@@ -608,7 +551,14 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
                 ),
                 "",
             )
-            if not venue_text or "moma" not in venue_text.lower():
+            if not venue_text:
+                continue
+            venue_lower = venue_text.lower()
+            if "walter reade" in venue_lower or "film at lincoln center" in venue_lower:
+                target_theater_name = "Film at Lincoln Center"
+            elif "moma" in venue_lower:
+                target_theater_name = "Museum of Modern Art"
+            else:
                 continue
 
             title_line = html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).replace("\xa0", " ").strip()
@@ -626,8 +576,9 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
                 hint_year = extract_year_int(title_line)
             if not title:
                 continue
-            if title not in hint_years:
-                hint_years[title] = hint_year
+            hint_key = (target_theater_name, title)
+            if hint_key not in hint_years:
+                hint_years[hint_key] = hint_year
 
             raw_time = html.unescape(time_match.group(1)).replace("\xa0", " ").strip().lower()
             normalized_time = (
@@ -650,25 +601,27 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
             time_label = format_time_label(parsed_day.replace(hour=hour, minute=minute))
 
             ticket_url = f"https://www.moma.org{href_match.group(1)}"
-            bucket = grouped[title][day_label]
+            bucket = grouped[target_theater_name][title][day_label]
             bucket[time_label] = ticket_url
 
     flattened = []
-    for title, days in grouped.items():
-        hint_year = hint_years.get(title)
-        for day_label, time_map in days.items():
-            unique_times = sort_time_labels(list(time_map.keys()))
-            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
-            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
-            flattened.append({
-                "title": title,
-                "hint_year": hint_year,
-                "theater": theater["name"],
-                "day": day_label,
-                "times": unique_times,
-                "ticket_url": ticket_url,
-                "ticket_urls": ticket_urls,
-            })
+    for grouped_theater_name, titles in grouped.items():
+        grouped_theater = {"name": grouped_theater_name, **THEATER_CONFIG.get(grouped_theater_name, {})}
+        for title, days in titles.items():
+            hint_year = hint_years.get((grouped_theater_name, title))
+            for day_label, time_map in days.items():
+                unique_times = sort_time_labels(list(time_map.keys()))
+                ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+                ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(grouped_theater))
+                flattened.append({
+                    "title": title,
+                    "hint_year": hint_year,
+                    "theater": grouped_theater_name,
+                    "day": day_label,
+                    "times": unique_times,
+                    "ticket_url": ticket_url,
+                    "ticket_urls": ticket_urls,
+                })
 
     return flattened
 
@@ -1253,27 +1206,6 @@ def title_match_score(query_title: str, result_title: str, query_year: Optional[
     return score
 
 
-SHORT_PROGRAM_HINTS = (
-    "short",
-    "shorts",
-    "program",
-    "anthology",
-    "compilation",
-    "collection",
-    "selections",
-)
-
-
-def runtime_minutes_from_value(value: Optional[object]) -> Optional[int]:
-    match = re.search(r"\b(\d{1,3})\s*min\b", str(value or ""), re.IGNORECASE)
-    return int(match.group(1)) if match else None
-
-
-def title_explicitly_allows_short(query_title: str) -> bool:
-    normalized = normalize_title(query_title)
-    return any(hint in normalized for hint in SHORT_PROGRAM_HINTS)
-
-
 def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
     if not imdb_id:
         return None
@@ -1820,6 +1752,8 @@ def build_dataset() -> dict:
             showtimes = fetch_metrograph_showtimes(theater)
         elif theater.get("source_type") == "ifc":
             showtimes = fetch_ifc_showtimes(theater)
+        elif theater.get("source_type") == "filmforum":
+            showtimes = fetch_film_forum_showtimes(theater)
         elif theater.get("source_type") == "moma":
             showtimes = fetch_moma_showtimes(theater)
         elif theater.get("source_type") == "alamo":

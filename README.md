@@ -62,7 +62,7 @@ Create and use a virtualenv, then install the scraper dependencies:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install requests anthropic
+pip install -r requirements.txt
 python scripts/scrape.py
 ```
 

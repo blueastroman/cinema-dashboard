@@ -436,6 +436,26 @@
       letter-spacing: 0.05em;
     }
 
+    .daypart-filter {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 8px;
+    }
+
+    .daypart-filter.is-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .daypart-filter .control-label {
+      margin: 0;
+    }
+
+    .daypart-select {
+      min-width: 164px;
+    }
+
     .date-picker-wrap {
       position: relative;
       display: inline-block;
@@ -1422,6 +1442,8 @@
       .stats-row { gap: 10px; justify-content: flex-start; }
       .date-scope-inner { gap: 8px; }
       .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
+      .daypart-filter { width: 100%; margin-left: 0; }
+      .daypart-select { width: 100%; }
       .date-picker-wrap {
         display: inline-block;
         position: relative;
@@ -1555,6 +1577,15 @@
         <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
         <input type="date" id="date-picker" />
       </div>
+      <div class="daypart-filter" id="daypart-filter-wrap">
+        <span class="control-label">Time</span>
+        <select class="genre-select daypart-select" id="daypart-select">
+          <option value="all">Anytime</option>
+          <option value="morning">Morning</option>
+          <option value="evening">Evening</option>
+          <option value="night">Night</option>
+        </select>
+      </div>
     </div>
   </div>
 
@@ -1574,6 +1605,7 @@ let activeAmc = 'all';
 let hasExplicitAmcFilter = false;
 let activeGenre = 'all';
 let activeFormat = 'all';
+let activeDaypart = 'all';
 let searchQuery = '';
 let activeSort = 'day';
 let showMode = 'all';
@@ -1701,7 +1733,7 @@ const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'metrograph', aliases: ['metro'] },
   'IFC Center': { slug: 'ifc', short_name: 'IFC', sort_name: 'IFC', official_url: 'https://www.ifccenter.com', source_type: 'ifc', aliases: ['ifc'] },
   'Angelika Film Center': { slug: 'angelika', short_name: 'Angelika', sort_name: 'Angelika', official_url: 'https://angelikafilmcenter.com/nyc', source_type: 'serpapi', aliases: ['angelika'] },
-  'Film Forum': { slug: 'film-forum', short_name: 'Film Forum', sort_name: 'Film Forum', official_url: 'https://www.filmforum.org/now-playing/', source_type: 'serpapi', aliases: ['film', 'film forum'] },
+  'Film Forum': { slug: 'film-forum', short_name: 'Film Forum', sort_name: 'Film Forum', official_url: 'https://www.filmforum.org/now-playing/', source_type: 'filmforum', aliases: ['film', 'film forum'] },
   'Village East by Angelika': { slug: 'village-east', short_name: 'Village East', sort_name: 'Village East', official_url: 'https://angelikafilmcenter.com/villageeast', source_type: 'serpapi', aliases: ['village', 'village east'] },
   'Film at Lincoln Center': { slug: 'flc', short_name: 'FLC', sort_name: 'FLC', official_url: 'https://www.filmlinc.org/now-playing/', source_type: 'serpapi', aliases: ['flc', 'film linc', 'lincoln center', 'film at lincoln center'] },
   'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo', sort_name: 'Alamo', official_url: 'https://drafthouse.com/nyc', source_type: 'alamo', aliases: ['alamo'] },
@@ -1748,6 +1780,7 @@ function readFiltersFromUrl() {
   const amc = params.get('amc');
   const genre = params.get('genre');
   const format = params.get('format');
+  const time = params.get('time');
   const search = params.get('q');
   const sort = params.get('sort');
   const show = params.get('show');
@@ -1771,6 +1804,7 @@ function readFiltersFromUrl() {
   }
   if (genre) activeGenre = genre;
   if (format) activeFormat = format;
+  if (time === 'all' || time === 'morning' || time === 'evening' || time === 'night') activeDaypart = time;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
   if (show === 'saved' || show === 'hidden' || show === 'all') showMode = show;
@@ -1785,6 +1819,7 @@ function updateUrlFromState() {
   if (memberships.amc && activeAmc !== 'all') params.set('amc', getTheaterStateSlug(activeAmc));
   if (activeGenre !== 'all') params.set('genre', slugify(activeGenre));
   if (activeFormat !== 'all') params.set('format', slugify(activeFormat));
+  if (activeDaypart !== 'all') params.set('time', activeDaypart);
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'day') params.set('sort', activeSort);
   if (showMode !== 'all') params.set('show', showMode);
@@ -1987,6 +2022,20 @@ function formatShowtimeLabel(timeLabel) {
   return `${hour}:${minute}${meridiem}`;
 }
 
+function isDayScopedView() {
+  return dateScope === 'today' || dateScope === 'tomorrow' || dateScope === 'custom' || dateScope === 'week';
+}
+
+function isTimeInActiveDaypart(showAt) {
+  if (!isDayScopedView() || activeDaypart === 'all') return true;
+  if (!(showAt instanceof Date) || Number.isNaN(showAt.getTime())) return false;
+  const minutes = (showAt.getHours() * 60) + showAt.getMinutes();
+  if (activeDaypart === 'morning') return minutes < (17 * 60);
+  if (activeDaypart === 'evening') return minutes >= (17 * 60) && minutes <= (21 * 60);
+  if (activeDaypart === 'night') return minutes > (21 * 60);
+  return true;
+}
+
 function hasUpcomingShowtimes(movie) {
   const now = getNYNow();
   return (movie.theaters || []).some(t =>
@@ -1995,7 +2044,7 @@ function hasUpcomingShowtimes(movie) {
         const showAt = parseShowtimeDate(s.day, time);
         if (!showAt || showAt < now) return false;
         if (dateScope === 'week' && !isWithinCurrentWeekScope(s.day)) return false;
-        return true;
+        return isTimeInActiveDaypart(showAt);
       })
     )
   );
@@ -2033,6 +2082,8 @@ function getVisibleTheaters(movie) {
     const canonical = getCanonicalTheaterName(t?.name);
     const isAmc = /^AMC\b/i.test(canonical);
     const isAlamo = getTheaterMeta(canonical)?.source_type === 'alamo';
+    const formatPinned = activeFormat !== 'all'
+      && getTheaterFormats(t, movie).map(format => String(format || '').toLowerCase()).includes(activeFormat.toLowerCase());
 
     if (isAmc) {
       if (effectiveAmc === 'none') return false;
@@ -2040,6 +2091,7 @@ function getVisibleTheaters(movie) {
         return effectiveAmc === 'all' ? true : canonical === effectiveAmc;
       }
       if (activeTheater === 'all') {
+        if (formatPinned) return true;
         return effectiveAmc === 'all' ? memberships.amc : canonical === effectiveAmc;
       }
       return effectiveAmc !== 'all' && canonical === effectiveAmc;
@@ -2047,6 +2099,7 @@ function getVisibleTheaters(movie) {
 
     if (isAlamo) {
       if (activeTheater === 'all') {
+        if (formatPinned) return true;
         return effectiveAlamo === 'all' ? true : canonical === effectiveAlamo;
       }
       return canonical === activeTheater;
@@ -2071,7 +2124,7 @@ function moviePlayingOn(movie, dateLabel) {
       getShowtimeISO(s.day) === targetISO &&
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
-        return !!showAt && showAt >= now;
+        return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       })
     )
   );
@@ -2084,7 +2137,7 @@ function moviePlayingOnISO(movie, dateISO) {
       getShowtimeISO(s.day) === dateISO &&
       (s.times || []).some(time => {
         const showAt = parseShowtimeDate(s.day, time);
-        return !!showAt && showAt >= now;
+        return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       })
     )
   );
@@ -2167,6 +2220,20 @@ function resolveFormatValue(value, formats = []) {
 
 function getMovieFormats(movie) {
   return [...new Set((movie?.special_formats || []).map(format => String(format || '').trim()).filter(Boolean))];
+}
+
+function getTheaterFormats(theaterData, movie = null) {
+  const directFormats = [...new Set(((theaterData?.special_formats) || []).map(format => String(format || '').trim()).filter(Boolean))];
+  if (directFormats.length) return directFormats;
+  if (movie && (movie?.theaters || []).length <= 2) return getMovieFormats(movie);
+  return [];
+}
+
+function getVisibleMovieFormats(movie) {
+  const visibleFormats = getVisibleTheaters(movie).flatMap(theaterData => getTheaterFormats(theaterData, movie));
+  const uniqueVisibleFormats = [...new Set(visibleFormats.map(format => String(format || '').trim()).filter(Boolean))];
+  if (uniqueVisibleFormats.length) return uniqueVisibleFormats;
+  return (movie?.theaters || []).length <= 1 ? getMovieFormats(movie) : [];
 }
 
 function getTheaterUrl(name) {
@@ -2796,6 +2863,7 @@ function getFiltered() {
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
+    const visibleFormats = getVisibleMovieFormats({ ...movie, theaters: visibleTheaters }).map(format => format.toLowerCase());
     const isHidden = hasStoredMovie(hidden, movie);
     const isSaved = hasStoredMovie(watched, movie);
     if (showMode === 'hidden') {
@@ -2805,7 +2873,6 @@ function getFiltered() {
       if (showMode === 'saved' && !isSaved) return false;
     }
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
-    if ((movie._confidence ?? getMovieConfidence(movie)) < effectiveConfidenceThreshold) return false;
     if (dateScope === 'today') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
     } else if (dateScope === 'tomorrow') {
@@ -2822,14 +2889,13 @@ function getFiltered() {
       if (!genres.includes(activeGenre.toLowerCase())) return false;
     }
     if (activeFormat !== 'all') {
-      const formats = getMovieFormats(movie).map(format => format.toLowerCase());
-      if (!formats.includes(activeFormat.toLowerCase())) return false;
+      if (!visibleFormats.includes(activeFormat.toLowerCase())) return false;
     }
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       const title = (movie.title || '').toLowerCase();
       const genre = (movie.ratings?.genre || '').toLowerCase();
-      const formats = getMovieFormats(movie).join(' ').toLowerCase();
+      const formats = visibleFormats.join(' ');
       if (!title.includes(q) && !genre.includes(q) && !formats.includes(q)) return false;
     }
     return true;
@@ -2932,7 +2998,7 @@ function render() {
             // Also verify the movie has at least one upcoming showtime on this day
             const hasFuture = (s.times || []).some(time => {
               const showAt = parseShowtimeDate(raw, time);
-              return !!showAt && showAt >= now;
+              return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
             });
             if (hasFuture) {
               earliestIdx = idx;
@@ -3097,7 +3163,7 @@ function renderTheaterView() {
       const genreParts = genre && genre !== 'N/A'
         ? genre.split(',').map(part => part.trim()).filter(Boolean).slice(0, 2)
         : [];
-      const formatParts = getMovieFormats(movie);
+      const formatParts = getTheaterFormats(theaterData, movie);
       const metaParts = [...genreParts];
       const formatTags = formatParts.map(format => `<span class="tag">${format}</span>`);
       if (runtime && runtime !== 'N/A') {
@@ -3191,7 +3257,7 @@ function buildCard(movie, idx) {
 
   // Genre tags
   const tags = [...new Set([
-    ...getMovieFormats(movie),
+    ...getVisibleMovieFormats(movie),
     ...genre.split(',').map(g => g.trim()).filter(Boolean),
   ])];
   if (runtime) tags.push(runtime);
@@ -3380,7 +3446,7 @@ function buildScheduleHTML(theaterData) {
     .map(s => {
       const times = (s.times || []).filter(time => {
         const showAt = parseShowtimeDate(s.day, time);
-        return !!showAt && showAt >= now;
+        return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       });
       return { ...s, times };
     })
@@ -3417,7 +3483,7 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
 
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t);
-      if (!showAt || showAt < now) continue;
+      if (!showAt || showAt < now || !isTimeInActiveDaypart(showAt)) continue;
       times.push({ at: showAt, label: formatShowtimeLabel(t), raw: t });
     }
 
@@ -3488,6 +3554,16 @@ function syncDateScopeButtons() {
   if (dateWrap) {
     dateWrap.classList.toggle('active', dateScope === 'custom');
   }
+  const daypartWrap = document.getElementById('daypart-filter-wrap');
+  const daypartSelect = document.getElementById('daypart-select');
+  const isDayScoped = isDayScopedView();
+  if (daypartWrap) {
+    daypartWrap.classList.toggle('is-disabled', !isDayScoped);
+  }
+  if (daypartSelect) {
+    daypartSelect.disabled = !isDayScoped;
+    daypartSelect.value = activeDaypart;
+  }
   if (dateInput && window.matchMedia('(max-width: 768px)').matches) {
     dateInput.setAttribute('aria-label', dateScope === 'custom' ? getCustomDateLabel() : 'Select Date');
   }
@@ -3541,6 +3617,11 @@ document.getElementById('date-picker')?.addEventListener('change', (e) => {
   if (!selectedDateISO) return;
   dateScope = 'custom';
   syncDateScopeButtons();
+  render();
+});
+
+document.getElementById('daypart-select')?.addEventListener('change', (e) => {
+  activeDaypart = e.target.value || 'all';
   render();
 });
 

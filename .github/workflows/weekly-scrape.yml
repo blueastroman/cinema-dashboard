@@ -33,7 +33,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests anthropic
+        run: pip install -r requirements.txt
 
       - name: Run scraper
         env:
@@ -42,6 +42,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
         run: python scripts/scrape.py
+
+      - name: Validate dataset
+        run: python scripts/validate_dataset.py
 
       - name: Commit updated data
         run: |
