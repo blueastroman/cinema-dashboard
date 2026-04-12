@@ -7081,20 +7081,20 @@
       "special_formats": []
     },
     {
-      "id": "tt35696157",
+      "id": "tt0091983",
       "title": "Something Wild",
       "ratings": {
-        "imdbID": "tt35696157",
+        "imdbID": "tt0091983",
         "rt": "92%",
-        "imdb": null,
-        "metacritic": null,
+        "imdb": "6.9",
+        "metacritic": "73",
         "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": "2026",
-        "director": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMzQxNGIwODAtNDRhYi00MGM0LWJjN2ItMmRlNjRkMjVmMTk2XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Crime, Romance",
+        "runtime": "114 min",
+        "plot": "A free-spirited woman \"kidnaps\" a yuppie for a weekend of adventure. But the fun quickly takes a dangerous turn when her ex-convict husband shows up.",
+        "year": "1986",
+        "director": "Jonathan Demme",
         "cinemaScore": null
       },
       "verdict": {

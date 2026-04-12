@@ -1057,6 +1057,20 @@ def set_cached_match(title: str, data: dict, source: str) -> None:
         RATING_CACHE[normalize_title(title)] = entry
 
 
+def purge_cached_match(title: str, imdb_id: str) -> None:
+    normalized = normalize_title(title)
+    keys_to_delete = [
+        key for key, value in RATING_CACHE.items()
+        if (
+            isinstance(value, dict)
+            and value.get("imdbID") == imdb_id
+            and (key == normalized or key.startswith(f"{normalized}|"))
+        )
+    ]
+    for key in keys_to_delete:
+        del RATING_CACHE[key]
+
+
 def omdb_request(params: dict) -> Optional[dict]:
     try:
         r = requests.get("https://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10, headers=DEFAULT_HEADERS)
@@ -1313,13 +1327,19 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
 def enrich_from_rating_cache(title: str, ratings: dict, hint_year: Optional[int] = None) -> dict:
     cached = get_best_cached_match(title, query_year=hint_year or extract_year_int(ratings.get("year")))
     cached_imdb = cached.get("imdbID")
-    cached_year = cached.get("year")
-    if cached_imdb and not ratings.get("imdbID"):
-        ratings["imdbID"] = cached_imdb
-    if cached_year not in (None, "", "N/A"):
-        current_year = ratings.get("year")
-        if current_year in (None, "", "N/A", "2024") or str(current_year).strip() == "2024":
-            ratings["year"] = cached_year
+    if not cached_imdb:
+        return ratings
+
+    query_year = hint_year or extract_year_int(ratings.get("year"))
+    cached_data = fetch_omdb_by_imdb_id(cached_imdb)
+    if not is_acceptable_omdb_match(title, cached_data, query_year=query_year, minimum_score=0.70):
+        purge_cached_match(title, cached_imdb)
+        return ratings
+
+    cached_ratings = parse_omdb_ratings(cached_data)
+    for key, value in cached_ratings.items():
+        if ratings.get(key) in (None, "", "N/A") and value not in (None, "", "N/A"):
+            ratings[key] = value
     return ratings
 
 
@@ -1483,6 +1503,7 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
             data = fetch_omdb_by_imdb_id(cached_imdb)
             if is_acceptable_omdb_match(title, data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
                 return data
+            purge_cached_match(title, cached_imdb)
 
     # Try year-specific exact lookups before the open search.
     # This catches new releases that share a title with a classic — OMDb's

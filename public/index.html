@@ -2563,7 +2563,7 @@ function getConfidenceNote(movie) {
   const hasCoreMeta = Boolean(ratings.genre && ratings.runtime && ratings.director && ratings.year);
   if (score >= CONFIDENCE_THRESHOLD + 10 && hasReviews && hasCoreMeta) return '';
   if (effectiveConfidenceThreshold === 0 && hasReviews) return '';
-  if (!hasReviews) return 'Showtimes only';
+  if (!hasReviews) return '';
   if (!hasCoreMeta) return 'Partial metadata';
   if (score < CONFIDENCE_THRESHOLD + 10) return 'Low confidence';
   return '';

@@ -96,6 +96,12 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
             errors.append(f"{title}: suspicious future year ({year}).")
         if year is not None and year < 1888:
             errors.append(f"{title}: impossible year ({year}).")
+        has_imdb_identity = bool(str(ratings.get("imdbID") or "").strip())
+        has_core_metadata = any(ratings.get(key) for key in ("genre", "runtime", "director", "plot"))
+        if has_imdb_identity and year is not None and year >= CURRENT_YEAR - 1 and not has_core_metadata:
+            errors.append(
+                f"{title}: suspicious recent IMDb match ({ratings.get('imdbID')}, {year}) with no core metadata."
+            )
 
         if not ratings.get("genre"):
             warning_counts["missing_genre"] += 1
