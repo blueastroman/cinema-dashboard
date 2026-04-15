@@ -30,13 +30,8 @@ jobs:
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
         run: python scripts/scrape.py
-      - name: Generate editorial verdicts
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/generate_verdicts.py
       - name: Validate dataset
         run: python scripts/validate_dataset.py
       - name: Commit updated data
@@ -45,7 +40,7 @@ jobs:
           set -euo pipefail
           git config --local user.email "daniel@dannymora.com"
           git config --local user.name "Daniel Mora"
-          git add public/data.json scripts/rating_cache.json scripts/verdicts_cache.json
+          git add public/data.json scripts/rating_cache.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

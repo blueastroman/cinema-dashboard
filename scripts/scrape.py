@@ -1,14 +1,13 @@
 """
 NYC Cinema Dashboard - Weekly Scraper
 Runs every Wednesday via GitHub Actions
-Pulls showtimes via SerpAPI/AMC API, ratings via OMDb, verdicts via Claude API
+Pulls showtimes via SerpAPI/AMC API and ratings via OMDb.
 """
 
 import os
 import json
 import hashlib
 import requests
-import anthropic
 import html
 from datetime import datetime, timedelta
 from collections import defaultdict
@@ -46,7 +45,6 @@ from cinema_backend.http import DEFAULT_HEADERS, fetch_source_html
 
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OMDB_KEY = os.environ.get("OMDB_KEY", "")
-ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
@@ -1593,17 +1591,6 @@ def ratings_request_key(title: str, hint_year: Optional[int] = None, source_meta
     return f"{normalized}|{year}" if year else normalized
 
 
-def verdict_request_key(title: str, ratings: Optional[dict]) -> str:
-    base_title, _ = split_trailing_title_year(title)
-    normalized = normalize_title(base_title)
-    imdb_id = str((ratings or {}).get("imdbID") or "").strip()
-    year = extract_year_int((ratings or {}).get("year"))
-    completeness = metadata_completeness(ratings)
-    if imdb_id:
-        return f"{normalized}|imdb:{imdb_id}|c:{completeness}"
-    return f"{normalized}|{year}|c:{completeness}" if year else f"{normalized}|c:{completeness}"
-
-
 def metadata_completeness(ratings: Optional[dict]) -> int:
     if not isinstance(ratings, dict):
         return 0
@@ -1999,143 +1986,6 @@ def mock_ratings(title: str) -> dict:
     }
 
 
-# ─── VERDICTS ─────────────────────────────────────────────────────────────────
-
-def fetch_verdict(title: str, ratings: dict) -> dict:
-    """Ask Claude for a Watch/Skip verdict + one-line reason."""
-    client = anthropic.Anthropic(api_key=ANTHROPIC_KEY) if ANTHROPIC_KEY else None
-
-    rt = ratings.get("rt", "N/A")
-    cinema_score = ratings.get("cinemaScore", "N/A")
-    letterboxd = ratings.get("letterboxd", "N/A")
-    imdb = ratings.get("imdb", "N/A")
-    plot = ratings.get("plot", "")
-    genre = ratings.get("genre", "")
-    director = ratings.get("director", "")
-
-    prompt = f"""You are a sharp, taste-driven film critic helping a cinephile decide what to watch at NYC indie theaters this week.
-
-Movie: {title}
-Director: {director}
-Genre: {genre}
-Plot: {plot}
-Rotten Tomatoes: {rt}
-CinemaScore: {cinema_score}
-Letterboxd: {letterboxd}
-IMDB: {imdb}
-
-Return ONLY a JSON object with exactly these fields:
-{{
-  "verdict": "WATCH" | "SKIP",
-  "reason": "One sharp sentence (max 15 words) explaining why.",
-  "vibe": "One or two words describing the feeling/mood of the film",
-  "consensus": "One concise sentence summarizing the critical/API consensus, if available."
-}}
-
-Be direct. No hedging. Use SKIP only for clear duds; otherwise choose WATCH."""
-
-    if not client:
-        if ALLOW_MOCK_DATA:
-            return mock_verdict(title, ratings)
-        raise RuntimeError("ANTHROPIC_API_KEY is required for verdict generation")
-
-    try:
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=200,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = response.content[0].text.strip()
-        # Strip markdown fences if present
-        text = text.replace("```json", "").replace("```", "").strip()
-        return normalize_verdict(json.loads(text), title, ratings)
-    except Exception as e:
-        print(f"  [ERROR] Claude verdict failed for '{title}': {e}")
-        if ALLOW_MOCK_DATA:
-            return mock_verdict(title, ratings)
-        raise
-
-
-def first_text(*values: object) -> str:
-    for value in values:
-        text = str(value or "").strip()
-        if text and text.upper() != "N/A":
-            return text
-    return ""
-
-
-def normalize_verdict(value: object, title: str, ratings: dict) -> dict:
-    if not isinstance(value, dict):
-        return mock_verdict(title, ratings)
-    verdict = str(value.get("verdict") or "").strip().upper()
-    if verdict not in {"WATCH", "SKIP"}:
-        return mock_verdict(title, ratings)
-    reason = str(value.get("reason") or "").strip()
-    vibe = str(value.get("vibe") or "").strip()
-    consensus = first_text(
-        value.get("consensus"),
-        value.get("apiConsensus"),
-        value.get("api_consensus"),
-        value.get("criticConsensus"),
-        value.get("criticalConsensus"),
-    )
-    if not reason or not vibe:
-        fallback = mock_verdict(title, ratings)
-        reason = reason or fallback["reason"]
-        vibe = vibe or fallback["vibe"]
-    normalized = {
-        "verdict": verdict,
-        "reason": reason,
-        "vibe": vibe,
-    }
-    if consensus:
-        normalized["consensus"] = consensus
-    return normalized
-
-
-def mock_verdict(title: str, ratings: dict) -> dict:
-    cinema_score = str(ratings.get("cinemaScore") or "").strip().upper()
-    rt_str = ratings.get("rt")
-    letterboxd_str = ratings.get("letterboxd")
-    imdb_str = ratings.get("imdb")
-
-    cinema_weight = {
-        "A+": 130, "A": 120, "A-": 115,
-        "B+": 105, "B": 100, "B-": 95,
-        "C+": 85, "C": 80, "C-": 75,
-        "D+": 65, "D": 60, "D-": 55,
-        "F": 30,
-    }.get(cinema_score)
-
-    has_rt = isinstance(rt_str, str) and "%" in rt_str
-    has_letterboxd = letterboxd_str not in (None, "N/A")
-    has_imdb = imdb_str not in (None, "N/A")
-
-    # If there is no critic/audience signal yet, avoid manufacturing a harsh skip.
-    if cinema_weight is None and not has_rt and not has_letterboxd and not has_imdb:
-        return {
-            "verdict": "WATCH",
-            "reason": "No clear consensus yet, but nothing suggests it's a dud.",
-            "vibe": "Unscored",
-        }
-
-    if cinema_weight is not None:
-        score = cinema_weight
-    elif has_rt:
-        score = int(rt_str.replace("%", ""))
-    elif has_letterboxd:
-        score = int(float(letterboxd_str) * 20)
-    elif has_imdb:
-        score = int(float(imdb_str) * 10)
-    else:
-        score = 0
-
-    if score >= 55:
-        return {"verdict": "WATCH", "reason": "Critics are united — this one earns its runtime.", "vibe": "Essential"}
-    else:
-        return {"verdict": "SKIP", "reason": "The scores don't lie — pass on this one.", "vibe": "Mediocre"}
-
-
 # ─── ASSEMBLE ─────────────────────────────────────────────────────────────────
 
 def validate_runtime_configuration() -> None:
@@ -2146,8 +1996,6 @@ def validate_runtime_configuration() -> None:
         missing.append("SERPAPI_KEY")
     if not OMDB_KEY:
         missing.append("OMDB_KEY")
-    if not ANTHROPIC_KEY:
-        missing.append("ANTHROPIC_API_KEY")
     if missing:
         joined = ", ".join(missing)
         raise RuntimeError(f"Missing required scraper environment variable(s): {joined}. Set ALLOW_MOCK_DATA=1 for local mock runs.")
@@ -2176,7 +2024,6 @@ def build_dataset() -> dict:
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
     theater_formats: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
     ratings_cache: dict[str, dict] = {}
-    verdict_cache: dict[str, dict] = {}
     scrape_errors: list[str] = []
     theater_meta: dict[str, dict] = {
         name: build_theater_meta(name)
@@ -2263,36 +2110,23 @@ def build_dataset() -> dict:
                 else:
                     movie = all_movies.get(movie_key)
                 if movie is not None:
-                    before = metadata_completeness(movie.get("ratings") or {})
                     merged = merge_prior_ratings(movie.get("ratings") or {}, ratings)
                     merged = merge_source_metadata(merged, source_metadata)
                     movie["ratings"] = strip_placeholder_metadata(merged)
-                    if metadata_completeness(movie["ratings"]) > before:
-                        verdict_key = verdict_request_key(movie.get("title") or title, movie["ratings"])
-                        if verdict_key not in verdict_cache:
-                            verdict_cache[verdict_key] = fetch_verdict(movie.get("title") or title, movie["ratings"])
-                        movie["verdict"] = verdict_cache[verdict_key]
                     if special_formats:
                         existing_formats = set(movie.get("special_formats") or [])
                         movie["special_formats"] = sorted(existing_formats.union(special_formats))
                 else:
                     movie_id = make_movie_id(title, ratings)
-                    print(f"  Fetching verdict for: {title}")
-                    verdict_key = verdict_request_key(title, ratings)
-                    if verdict_key not in verdict_cache:
-                        verdict_cache[verdict_key] = fetch_verdict(title, ratings)
-                    verdict = verdict_cache[verdict_key]
                     movie = {
                         "id": movie_id,
                         "title": title,
                         "ratings": ratings,
-                        "verdict": verdict,
                         "theaters": [],
                         "special_formats": [],
                     }
                     all_movies[movie_key] = movie
             else:
-                before = metadata_completeness(movie.get("ratings") or {})
                 current_ratings = movie.get("ratings") or {}
                 current_year = extract_year_int(current_ratings.get("year"))
                 should_refetch = (
@@ -2317,12 +2151,6 @@ def build_dataset() -> dict:
                 if resolved_key != movie_key:
                     movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, movie_key, resolved_key) or movie
                     movie_key = resolved_key
-                after = metadata_completeness(movie.get("ratings") or {})
-                if after > before or should_refetch:
-                    verdict_key = verdict_request_key(movie.get("title") or title, movie["ratings"])
-                    if verdict_key not in verdict_cache:
-                        verdict_cache[verdict_key] = fetch_verdict(movie.get("title") or title, movie["ratings"])
-                    movie["verdict"] = verdict_cache[verdict_key]
 
             theater_schedule[theater_name][movie_key].append({
                 "day": day,
