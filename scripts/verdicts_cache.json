@@ -1492,5 +1492,539 @@
     "reason": "A glossy rom-com with enough warmth to keep it in play.",
     "generated_at": "2026-04-15T22:32:38.760508",
     "vibe": "Tuscan Rom-Com"
+  },
+  "la-belle-noiseuse": {
+    "verdict": "WATCH",
+    "reason": "Four-hour Rivette masterpiece about an artist painting his model - sounds boring, plays like a thriller.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "100% RT Critics"
+  },
+  "utamaro-and-his-five-women": {
+    "verdict": "WATCH",
+    "reason": "Mizoguchi's gorgeous final film about the great woodblock artist and his complicated relationships with women.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "100% RT Critics"
+  },
+  "hamlet": {
+    "verdict": "WATCH",
+    "reason": "Branagh's uncut four-hour version is the definitive Shakespeare adaptation - every subplot, every soliloquy, every moment.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "100% RT Critics"
+  },
+  "louie-bluie": {
+    "verdict": "WATCH",
+    "reason": "Terry Zwigoff's documentary about eccentric blues musician Howard Armstrong is pure joy.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "100% RT Critics"
+  },
+  "the-shop-around-the-corner": {
+    "verdict": "WATCH",
+    "reason": "Lubitsch's perfect romantic comedy that inspired You've Got Mail but is infinitely better.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "99% RT Critics"
+  },
+  "the-third-man-1949": {
+    "verdict": "WATCH",
+    "reason": "Post-war Vienna, Orson Welles in the sewers, and that zither score - noir perfection.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "99% RT Critics"
+  },
+  "kiss-me-deadly-1955": {
+    "verdict": "WATCH",
+    "reason": "Aldrich turns Mickey Spillane into atomic age paranoia with the most apocalyptic ending in noir.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "98% RT Critics"
+  },
+  "sweet-smell-of-success-1957": {
+    "verdict": "WATCH",
+    "reason": "Burt Lancaster as a vicious columnist and Tony Curtis as his weasel publicist - New York cynicism at its sharpest.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "98% RT Critics"
+  },
+  "no-other-choice": {
+    "verdict": "WATCH",
+    "reason": "97% is stellar but I don't know this one - that score suggests it's worth the gamble.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "97% RT Critics"
+  },
+  "three-colors-blue": {
+    "verdict": "WATCH",
+    "reason": "Kieslowski's meditation on grief through Binoche's devastating performance - the trilogy's emotional peak.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "96% RT Critics"
+  },
+  "hokum-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Adam Scott horror from the ODDITY director sounds promising but it's not out yet and could go either way.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "96% RT Critics"
+  },
+  "tt0042593": {
+    "verdict": "WATCH",
+    "reason": "Bogart's most vulnerable performance as a volatile screenwriter suspected of murder - Nicholas Ray's masterpiece.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "96% RT Critics"
+  },
+  "the-iron-giant": {
+    "verdict": "WATCH",
+    "reason": "Brad Bird's animated masterpiece about a boy and his robot is Spielberg-level heart with actual brains.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "96% RT Critics"
+  },
+  "wall-e": {
+    "verdict": "WATCH",
+    "reason": "Pixar's environmental love story told mostly without dialogue is their most ambitious and successful film.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "95% RT Critics"
+  },
+  "crumb": {
+    "verdict": "WATCH",
+    "reason": "Terry Zwigoff's portrait of underground cartoonist Robert Crumb and his deeply disturbed family is unforgettable.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "95% RT Critics"
+  },
+  "the-breadwinner-2026-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Nate Bargatze's standup is great but stay-at-home dad comedies are usually terrible - proceed with caution.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "95% RT Critics"
+  },
+  "monty-python-and-the-holy-grail": {
+    "verdict": "WATCH",
+    "reason": "The coconut horses, the Black Knight, the killer rabbit - comedy doesn't get more quotable.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "92% RT Critics"
+  },
+  "mile-end-kicks-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Indie music love triangle with Barbie Ferreira sounds like it could be charming or insufferable.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "92% RT Critics"
+  },
+  "steal-this-story-please-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Amy Goodman documentary from solid filmmakers but journalism docs need more than good intentions.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "92% RT Critics"
+  },
+  "fantastic-planet": {
+    "verdict": "WATCH",
+    "reason": "Surreal Czech animation about tiny humans and giant blue aliens - trippy sci-fi unlike anything else.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "91% RT Critics"
+  },
+  "suzhou-river": {
+    "verdict": "WATCH",
+    "reason": "Jia Zhangke's dreamy Shanghai noir about obsession and identity is hypnotic and beautiful.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "91% RT Critics"
+  },
+  "three-colors-white": {
+    "verdict": "WATCH",
+    "reason": "The trilogy's comedy entry about a Polish hairdresser's revenge is darker and funnier than expected.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "91% RT Critics"
+  },
+  "rocco-and-his-brothers": {
+    "verdict": "WATCH",
+    "reason": "Visconti's epic about a family moving from Sicily to Milan is Italian neorealism at its most operatic.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "91% RT Critics"
+  },
+  "camera-buff": {
+    "verdict": "WATCH",
+    "reason": "Kieslowski's early film about amateur filmmaker vs. authority is both personal and political.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "90% RT Critics"
+  },
+  "tt0443706": {
+    "verdict": "WATCH",
+    "reason": "Fincher turns the unsolved case into a procedural masterpiece about obsession destroying lives.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "90% RT Critics"
+  },
+  "barton-fink": {
+    "verdict": "WATCH",
+    "reason": "Coen Brothers' Hollywood nightmare with John Turturro as a playwright in writer's hell.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "90% RT Critics"
+  },
+  "nostalghia": {
+    "verdict": "DEPENDS",
+    "reason": "Tarkovsky's meditation on exile and memory is gorgeous but glacially paced - know what you're signing up for.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "88% RT Critics"
+  },
+  "let-the-sunshine-in": {
+    "verdict": "DEPENDS",
+    "reason": "Binoche navigates Parisian dating in Denis's relationship comedy - witty but slight.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "87% RT Critics"
+  },
+  "john-wick": {
+    "verdict": "WATCH",
+    "reason": "Keanu avenges his puppy with ballet-like violence and world-building that spawned a franchise.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "86% RT Critics"
+  },
+  "peppermint-candy": {
+    "verdict": "WATCH",
+    "reason": "Lee Chang-dong's backwards journey through one man's life in modern Korea is devastating.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "86% RT Critics"
+  },
+  "the-rocky-horror-picture-show": {
+    "verdict": "WATCH",
+    "reason": "The midnight movie experience that invented audience participation. You go for the sing-alongs and fishnet stockings, not the plot.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Cult classic with 81% RT score"
+  },
+  "inland-empire": {
+    "verdict": "DEPENDS",
+    "reason": "Three hours of Lynch's most inscrutable nightmare logic shot on digital video. Only if you're already deep in the David Lynch hole.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "72% RT, polarizing experimental work"
+  },
+  "godzilla-vs-hedorah-1971": {
+    "verdict": "WATCH",
+    "reason": "The trippiest Godzilla movie ever made, complete with psychedelic musical numbers and an environmental message. Pure 70s kaiju weirdness.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "71% RT, unique entry in series"
+  },
+  "over-your-dead-body-2026-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Toxic couple tries to murder each other at a cabin retreat until worse people show up. Sounds like a solid B-movie if executed right.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "60% RT, premise has potential"
+  },
+  "kika": {
+    "verdict": "DEPENDS",
+    "reason": "Almodóvar's most divisive film is a candy-colored assault on good taste. You'll either love the chaos or walk out.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "59% RT, polarizing Almodóvar"
+  },
+  "by-design-2026": {
+    "verdict": "SKIP",
+    "reason": "Woman becomes furniture to feel loved while Juliette Lewis narrates this body-swap fever dream. The premise is more interesting than the execution sounds.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "57% RT, experimental misfire"
+  },
+  "hello-mary-lou-prom-night-ii-1987": {
+    "verdict": "WATCH",
+    "reason": "Death by computer and exploding Bibles make this the perfect 80s horror sequel. Michael Ironside seals the deal.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "56% RT, cult horror gem"
+  },
+  "art-school-confidential": {
+    "verdict": "SKIP",
+    "reason": "Zwigoff's follow-up to Ghost World mistakes cynicism for insight. Even art school burnouts deserve better.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "35% RT, disappointing satire"
+  },
+  "invention-for-destruction": {
+    "verdict": "WATCH",
+    "reason": "Zeman's steampunk masterpiece combines live action with incredible hand-drawn animation. Jules Verne brought to life like never before.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Classic Czech animation"
+  },
+  "the-player": {
+    "verdict": "WATCH",
+    "reason": "Altman's razor-sharp takedown of Hollywood still cuts deep 30 years later. Tim Robbins has never been better.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "RT 98%, industry satire masterpiece"
+  },
+  "chronicle-of-the-years-of-fire": {
+    "verdict": "WATCH",
+    "reason": "Lakhdar-Hamina's Palme d'Or winner about Algerian independence is an epic you've probably never heard of. Time to fix that.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Palme d'Or winner, historical epic"
+  },
+  "goodbye-dragon-inn": {
+    "verdict": "WATCH",
+    "reason": "Tsai Ming-liang turns a closing movie theater into a meditation on loneliness and cinema itself. Glacially paced poetry.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Arthouse masterpiece"
+  },
+  "tt0079944": {
+    "verdict": "WATCH",
+    "reason": "Tarkovsky's philosophical sci-fi about desire and faith in a mysterious Zone. Essential cinema that will haunt you for weeks.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Tarkovsky masterpiece, Criterion classic"
+  },
+  "the-headless-woman": {
+    "verdict": "WATCH",
+    "reason": "Martel's enigmatic thriller about guilt and class in Argentina unfolds like a fever dream. Every frame is perfectly composed.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Lucrecia Martel acclaimed work"
+  },
+  "vive-l-amour": {
+    "verdict": "WATCH",
+    "reason": "Tsai Ming-liang's lonely souls wander through modern Taipei in this quietly devastating portrait of urban alienation.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Golden Lion winner"
+  },
+  "mad-bills-to-pay": {
+    "verdict": "DEPENDS",
+    "reason": "Don't know this one well enough to call it, but if it's screening at an art house it probably earned the spot.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "no-picnic": {
+    "verdict": "DEPENDS",
+    "reason": "Another title I'm not familiar with. Check the venue and your tolerance for experimental work.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "bridesmaids-15th-anniversary-2026": {
+    "verdict": "WATCH",
+    "reason": "Wiig and McCarthy's breakout comedy still holds up as the gold standard for R-rated female ensemble laughs.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Comedy classic, cultural milestone"
+  },
+  "donkey-days": {
+    "verdict": "DEPENDS",
+    "reason": "Not familiar with this one. Could be a hidden gem or festival filler.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "variations-on-a-theme": {
+    "verdict": "DEPENDS",
+    "reason": "Title suggests experimental work but I can't make a solid call without more info.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "two-mountains-weighing-down-my-chest": {
+    "verdict": "DEPENDS",
+    "reason": "The poetic title screams arthouse but I need more details to recommend a theater trip.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "momma-s-man": {
+    "verdict": "DEPENDS",
+    "reason": "Jacobs' semi-autobiographical indie about a guy who can't leave his childhood home. Niche but potentially rewarding.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Personal indie drama"
+  },
+  "la-maison-des-bois": {
+    "verdict": "DEPENDS",
+    "reason": "French arthouse title I'm not familiar with. Check reviews if you're curious.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Limited information available"
+  },
+  "naked-childhood": {
+    "verdict": "WATCH",
+    "reason": "Pialat's brutal debut about a troubled kid in foster care launched the French New Wave's grittiest voice.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "French New Wave essential"
+  },
+  "to-our-loves": {
+    "verdict": "WATCH",
+    "reason": "Pialat's raw family drama featuring his own daughter is uncomfortable and brilliant. Not easy viewing but unforgettable.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Pialat masterwork"
+  },
+  "advance-screening-hokum-2026": {
+    "verdict": "DEPENDS",
+    "reason": "The Oddity director does witch horror with Adam Scott. Could be genuinely scary or just another cabin-in-the-woods retread.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "60% early buzz, horror potential"
+  },
+  "michael-2026-2026": {
+    "verdict": "SKIP",
+    "reason": "Another sanitized music biopic that will probably skip the interesting parts of Jackson's story. Wait for streaming.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Anticipated but formulaic biopic"
+  },
+  "advance-screening-over-your-dead-body-2026-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Same as the regular screening - toxic couple murder plot has potential if the execution delivers.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "60% RT, premise has potential"
+  },
+  "attack-on-titan-the-last-attack-subtitled-2025": {
+    "verdict": "WATCH",
+    "reason": "The finale of anime's biggest series deserves the theater experience.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Popular anime series conclusion"
+  },
+  "bridesmaids-15th-anniversary-movie-party-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Kristen Wiig's comedy holds up but anniversary screenings are for fans.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Beloved R-rated comedy"
+  },
+  "the-devil-wears-prada-2-costume-screening-2026": {
+    "verdict": "SKIP",
+    "reason": "Twenty years too late and probably soulless without the original's bite.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Sequel to beloved 2006 film"
+  },
+  "ferris-bueller-s-day-off-1986": {
+    "verdict": "WATCH",
+    "reason": "John Hughes perfection on the big screen never gets old.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Classic 80s comedy"
+  },
+  "fight-club-remaster-2026": {
+    "verdict": "WATCH",
+    "reason": "Fincher's masterpiece in 4K is exactly how toxic masculinity should be seen.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Cult classic dark satire"
+  },
+  "dance-freak-with-live-q-a-2025": {
+    "verdict": "DEPENDS",
+    "reason": "Micro-budget weirdness that sounds more fun than good.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Low-budget experimental film"
+  },
+  "strange-journey-the-story-of-rocky-horror-with-live-q-a-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Doc about Rocky Horror could be great or just fan service.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Documentary about cult musical"
+  },
+  "mamma-mia-movie-party-2008": {
+    "verdict": "DEPENDS",
+    "reason": "Pierce Brosnan's singing is painful but the joy is infectious.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Feel-good ABBA musical"
+  },
+  "miss-congeniality-movie-party-2000": {
+    "verdict": "DEPENDS",
+    "reason": "Bullock's charm carries this formulaic but quotable crowd-pleaser.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Sandra Bullock comedy"
+  },
+  "shrek-25th-anniversary-movie-party-2026": {
+    "verdict": "WATCH",
+    "reason": "The animation revolution that killed Disney's stranglehold deserves respect.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Oscar-winning animated film"
+  },
+  "shrek-25th-anniversary-2026": {
+    "verdict": "WATCH",
+    "reason": "The animation revolution that killed Disney's stranglehold deserves respect.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Oscar-winning animated film"
+  },
+  "the-big-lebowski-movie-party-1999": {
+    "verdict": "WATCH",
+    "reason": "The Coens' stoner noir is endlessly rewatchable cult perfection.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Cult classic comedy"
+  },
+  "mystery-machine-5-11-2026-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Secret screening could be anything from trash to treasure.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Mystery programming"
+  },
+  "power-to-the-people-john-yoko-live-in-nyc-2026": {
+    "verdict": "WATCH",
+    "reason": "Lennon's only post-Beatles concerts, restored and legendary.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Historic concert film"
+  },
+  "f-k-my-son-dance-freak-double-feature-2026": {
+    "verdict": "SKIP",
+    "reason": "Underground comic adaptations that sound more shocking than good.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Exploitation double feature"
+  },
+  "that-time-i-got-reincarnated-as-a-slime-the-movie-scarlet-bond-subtitled-2023": {
+    "verdict": "DEPENDS",
+    "reason": "Anime movie that's only worth it if you're already deep in the series.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Anime film continuation"
+  },
+  "the-sheep-detectives-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Hugh Jackman talking to detective sheep could be charming or insufferable.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Mystery comedy with Hugh Jackman"
+  },
+  "michael-2026-hdr-by-barco-early-access-2026": {
+    "verdict": "SKIP",
+    "reason": "Jackson biopics are cursed and this feels like sanitized estate-approved fluff.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Michael Jackson biographical film"
+  },
+  "michael-2026-hdr-by-barco-2026": {
+    "verdict": "SKIP",
+    "reason": "Jackson biopics are cursed and this feels like sanitized estate-approved fluff.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Michael Jackson biographical film"
+  },
+  "over-your-dead-body-2026-with-live-q-a-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Murderous couple comedy could work but sounds like every other cabin thriller.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Dark comedy thriller"
+  },
+  "the-devil-wears-prada-2-hdr-by-barco-2026": {
+    "verdict": "SKIP",
+    "reason": "Twenty years too late and probably soulless without the original's bite.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Sequel to beloved 2006 film"
+  },
+  "everyone-is-lying-to-you-for-money-with-live-q-a-2026": {
+    "verdict": "WATCH",
+    "reason": "Ben McKenzie exposing crypto scams sounds smarter than most documentaries.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Cryptocurrency exposé documentary"
+  },
+  "wayne-s-world-free-victory-screening-1992": {
+    "verdict": "WATCH",
+    "reason": "Spheeris knew the rock world and this SNL spin-off actually rocks.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Classic SNL-based comedy"
+  },
+  "lee-cronin-s-the-mummy-hdr-by-barco-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Evil Dead Rise director tackling Universal monsters could be great or generic.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Horror reboot by Lee Cronin"
+  },
+  "mortal-kombat-ii-hdr-by-barco-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Video game movies are getting better but Johnny Cage can't save everything.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Video game sequel"
+  },
+  "m-rama-with-live-q-a-2026": {
+    "verdict": "WATCH",
+    "reason": "Colonial revenge thriller with real cultural stakes sounds urgent.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Māori cultural revenge thriller"
+  },
+  "m-rama-2026": {
+    "verdict": "WATCH",
+    "reason": "Colonial revenge thriller with real cultural stakes sounds urgent.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Māori cultural revenge thriller"
+  },
+  "the-school-duel-with-live-q-a-2024": {
+    "verdict": "WATCH",
+    "reason": "Dystopian satire about school shootings as reality TV sounds absolutely brutal.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Provocative dystopian thriller"
+  },
+  "the-super-mario-galaxy-movie-hdr-by-barco-2026": {
+    "verdict": "DEPENDS",
+    "reason": "Illumination's first Mario was fine but this feels like inevitable franchise padding.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Animated Super Mario sequel"
+  },
+  "mystery-transmission-035-1900": {
+    "verdict": "WATCH",
+    "reason": "Curated weird cinema is always worth the gamble.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "Underground film series"
+  },
+  "iron-maiden-burning-ambition-2026": {
+    "verdict": "DEPENDS",
+    "reason": "If you're a metalhead, you're already buying tickets, but music docs live or die on new insights and this sounds pretty standard.",
+    "generated_at": "2026-04-15T22:54:17.398641",
+    "consensus": "No critical consensus available for 2026 release."
   }
 }
