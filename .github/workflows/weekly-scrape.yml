@@ -46,4 +46,9 @@ jobs:
           git config --local user.email "daniel@dannymora.com"
           git config --local user.name "Daniel Mora"
           git add public/data.json scripts/rating_cache.json scripts/verdicts_cache.json
-          if git d
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Update weekly cinema data"
+            git push
+          fi

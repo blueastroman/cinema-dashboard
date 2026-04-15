@@ -1,0 +1,54 @@
+name: Review Movies with Claude
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Regenerate reviews even when a cached review exists"
+        required: false
+        default: false
+        type: boolean
+      refresh_days:
+        description: "Refresh cached current-release reviews after this many days"
+        required: false
+        default: "30"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate Claude movie reviews
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VERDICT_FORCE_REFRESH: ${{ inputs.force_refresh }}
+          VERDICT_REFRESH_DAYS: ${{ inputs.refresh_days }}
+        run: python scripts/generate_verdicts.py
+
+      - name: Validate dataset
+        run: python scripts/validate_dataset.py
+
+      - name: Commit updated reviews
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --local user.email "daniel@dannymora.com"
+          git config --local user.name "Daniel Mora"
+          git add public/data.json scripts/verdicts_cache.json
+          if git diff --cached --quiet; then
+            echo "No review changes to commit."
+          else
+            git commit -m "Update Claude movie reviews"
+            git push
+          fi

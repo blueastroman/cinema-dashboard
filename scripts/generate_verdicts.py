@@ -24,8 +24,13 @@ from datetime import datetime, timedelta
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 DATA_FILE = "public/data.json"
 CACHE_FILE = "scripts/verdicts_cache.json"
-BATCH_SIZE = 30
-REFRESH_DAYS = 30
+BATCH_SIZE = int(os.environ.get("VERDICT_BATCH_SIZE", "30"))
+REFRESH_DAYS = int(os.environ.get("VERDICT_REFRESH_DAYS", "30"))
+FORCE_REFRESH = os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+}
 
 SYSTEM_PROMPT = """You are the editorial voice of a curated NYC cinema showtimes board. Your job: for each film, give a verdict (WATCH, DEPENDS, or SKIP) and a one-liner.
 
@@ -160,6 +165,9 @@ def needs_verdict(movie, cache, now=None):
     """Determine if a film needs a new API call."""
     movie_id = movie.get("id")
     if not movie_id:
+        return True
+
+    if FORCE_REFRESH:
         return True
 
     entry = cache.get(movie_id)
