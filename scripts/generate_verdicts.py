@@ -24,13 +24,32 @@ from datetime import datetime, timedelta
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 DATA_FILE = "public/data.json"
 CACHE_FILE = "scripts/verdicts_cache.json"
-BATCH_SIZE = int(os.environ.get("VERDICT_BATCH_SIZE", "30"))
-REFRESH_DAYS = int(os.environ.get("VERDICT_REFRESH_DAYS", "30"))
 FORCE_REFRESH = os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {
     "1",
     "true",
     "yes",
 }
+NEVER_REFRESH_VALUES = {"", "0", "never", "none", "false", "no"}
+
+
+def parse_positive_int_env(name, default=None):
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    value = raw.strip().lower()
+    if value in NEVER_REFRESH_VALUES:
+        return None
+    try:
+        parsed = int(value)
+    except ValueError as exc:
+        raise ValueError(f"{name} must be a positive integer, 0, blank, or 'never'.") from exc
+    if parsed <= 0:
+        return None
+    return parsed
+
+
+BATCH_SIZE = parse_positive_int_env("VERDICT_BATCH_SIZE", 30) or 30
+REFRESH_DAYS = parse_positive_int_env("VERDICT_REFRESH_DAYS", None)
 
 SYSTEM_PROMPT = """You are the editorial voice of a curated NYC cinema showtimes board. Your job: for each film, give a verdict (WATCH, DEPENDS, or SKIP) and a one-liner.
 
@@ -115,6 +134,8 @@ def parse_generated_at(entry):
 
 
 def is_cache_stale(entry, now=None):
+    if REFRESH_DAYS is None:
+        return False
     if now is None:
         now = datetime.now()
     generated_at = parse_generated_at(entry)
@@ -174,9 +195,7 @@ def needs_verdict(movie, cache, now=None):
     if not entry:
         return True
 
-    # Recent releases can move as reviews arrive, but refresh them on a cadence
-    # instead of spending an Anthropic call every scrape.
-    if is_recent_release(movie, now) and is_cache_stale(entry, now):
+    if REFRESH_DAYS is not None and is_recent_release(movie, now) and is_cache_stale(entry, now):
         return True
 
     return False
