@@ -622,7 +622,6 @@
     }
 
     body.compact-mode .card-tags,
-    body.compact-mode .card-consensus,
     body.compact-mode .card-reason,
     body.compact-mode .card-plot,
     body.compact-mode .card-actions,
@@ -2433,7 +2432,7 @@ function getApiConsensus(movie) {
   if (!hasReviewSignals(movie)) return '';
   const verdict = movie?.verdict || {};
   const ratings = movie?.ratings || {};
-  return firstDisplayText(
+  const explicitConsensus = firstDisplayText(
     movie?.apiConsensus,
     movie?.api_consensus,
     movie?.consensus,
@@ -2452,6 +2451,11 @@ function getApiConsensus(movie) {
     verdict.criticConsensus,
     verdict.criticalConsensus
   );
+  if (explicitConsensus) return explicitConsensus;
+
+  const reason = cleanDisplayText(verdict.reason);
+  if (reason && !MOCK_REASONS.includes(reason)) return reason;
+  return '';
 }
 
 function getDisplayTheaterName(name) {
@@ -3326,8 +3330,8 @@ function buildCard(movie, idx) {
   const ratings = movie.ratings || {};
   const scoreHierarchy = getScoreHierarchy(movie);
   const rawReason = getDisplayReason(movie);
-  const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
   const consensus = getApiConsensus(movie);
+  const reason = MOCK_REASONS.includes(rawReason) || rawReason === consensus ? '' : rawReason;
   const plot = ratings.plot || '';
   const genre = ratings.genre || '';
   const runtime = ratings.runtime || '';
