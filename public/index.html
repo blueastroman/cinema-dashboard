@@ -622,6 +622,7 @@
     }
 
     body.compact-mode .card-tags,
+    body.compact-mode .card-consensus,
     body.compact-mode .card-reason,
     body.compact-mode .card-plot,
     body.compact-mode .card-actions,
@@ -790,6 +791,26 @@
       line-height: 1.5;
       border-left: 2px solid var(--mid-gray);
       padding-left: 12px;
+    }
+
+    .card-consensus {
+      font-size: 0.84rem;
+      color: var(--text);
+      line-height: 1.5;
+      border: 1px solid rgba(200, 169, 110, 0.28);
+      background: var(--confidence-bg);
+      padding: 9px 11px;
+    }
+
+    .card-consensus-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
     }
 
     /* Plot */
@@ -1196,6 +1217,13 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       width: fit-content;
+    }
+
+    .theater-film-consensus {
+      margin-top: 8px;
+      color: var(--text-dim);
+      font-size: 0.76rem;
+      line-height: 1.45;
     }
 
     .theater-film-runtime.long {
@@ -2372,9 +2400,58 @@ function getCardTone(movie) {
   return getDisplayVerdict(movie).toLowerCase();
 }
 
+function cleanDisplayText(value) {
+  const text = String(value || '').trim();
+  if (!text || text.toUpperCase() === 'N/A') return '';
+  return text;
+}
+
+function escapeHTML(value) {
+  return cleanDisplayText(value).replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[char]));
+}
+
+function firstDisplayText(...values) {
+  for (const value of values) {
+    const text = cleanDisplayText(value);
+    if (text) return text;
+  }
+  return '';
+}
+
 function getDisplayReason(movie) {
   if (!hasReviewSignals(movie)) return '';
   return movie?.verdict?.reason || '';
+}
+
+function getApiConsensus(movie) {
+  if (!hasReviewSignals(movie)) return '';
+  const verdict = movie?.verdict || {};
+  const ratings = movie?.ratings || {};
+  return firstDisplayText(
+    movie?.apiConsensus,
+    movie?.api_consensus,
+    movie?.consensus,
+    movie?.criticConsensus,
+    movie?.criticalConsensus,
+    ratings.apiConsensus,
+    ratings.api_consensus,
+    ratings.consensus,
+    ratings.criticConsensus,
+    ratings.criticalConsensus,
+    ratings.rtConsensus,
+    ratings.rottenTomatoesConsensus,
+    verdict.consensus,
+    verdict.apiConsensus,
+    verdict.api_consensus,
+    verdict.criticConsensus,
+    verdict.criticalConsensus
+  );
 }
 
 function getDisplayTheaterName(name) {
@@ -3177,6 +3254,7 @@ function renderTheaterView() {
         ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
         : '';
       const confidence = getConfidenceNote(movie);
+      const consensus = getApiConsensus(movie);
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
       const row = document.createElement('div');
@@ -3209,6 +3287,7 @@ function renderTheaterView() {
           <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
           ${(metaParts.length || formatTags.length) ? `<div class="theater-film-meta">${metaParts.join(' · ')}${metaParts.length && formatTags.length ? ' · ' : ''}${formatTags.join('')}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
+          ${consensus ? `<div class="theater-film-consensus">${escapeHTML(consensus)}</div>` : ''}
           <div class="theater-film-times">${scheduleHTML}</div>
         </div>
         <div class="theater-film-actions">
@@ -3248,6 +3327,7 @@ function buildCard(movie, idx) {
   const scoreHierarchy = getScoreHierarchy(movie);
   const rawReason = getDisplayReason(movie);
   const reason = MOCK_REASONS.includes(rawReason) ? '' : rawReason;
+  const consensus = getApiConsensus(movie);
   const plot = ratings.plot || '';
   const genre = ratings.genre || '';
   const runtime = ratings.runtime || '';
@@ -3319,9 +3399,11 @@ function buildCard(movie, idx) {
 
     ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
 
-    ${reason ? `<div class="card-reason">"${reason}"</div>` : ''}
+    ${consensus ? `<div class="card-consensus"><span class="card-consensus-label">Consensus</span>${escapeHTML(consensus)}</div>` : ''}
 
-    ${plot ? `<div class="card-plot">${plot}</div>` : ''}
+    ${reason ? `<div class="card-reason">"${escapeHTML(reason)}"</div>` : ''}
+
+    ${plot ? `<div class="card-plot">${escapeHTML(plot)}</div>` : ''}
 
     <div class="card-theaters">
       ${firstTheaterHTML}

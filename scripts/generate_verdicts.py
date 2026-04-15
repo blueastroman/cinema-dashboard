@@ -50,7 +50,7 @@ VOICE RULES:
 
 RESPOND IN THIS EXACT JSON FORMAT (array of objects):
 [
-  {"title": "Film Title", "verdict": "WATCH", "reason": "Your one-liner here."},
+  {"title": "Film Title", "verdict": "WATCH", "reason": "Your one-liner here.", "consensus": "Concise critical/API consensus, if available."},
   ...
 ]
 
@@ -99,17 +99,76 @@ def is_recent_release(movie, now=None):
     return False
 
 
+def parse_generated_at(entry):
+    generated_at = entry.get("generated_at") if isinstance(entry, dict) else None
+    if not generated_at:
+        return None
+    try:
+        return datetime.fromisoformat(generated_at)
+    except (TypeError, ValueError):
+        return None
+
+
+def is_cache_stale(entry, now=None):
+    if now is None:
+        now = datetime.now()
+    generated_at = parse_generated_at(entry)
+    if generated_at is None:
+        return True
+    return now - generated_at >= timedelta(days=REFRESH_DAYS)
+
+
+def existing_verdict_entry(movie, now=None):
+    verdict = movie.get("verdict") or {}
+    if not isinstance(verdict, dict):
+        return None
+    reason = str(verdict.get("reason") or "").strip()
+    raw_verdict = str(verdict.get("verdict") or "").strip().upper()
+    if raw_verdict not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
+        return None
+    if now is None:
+        now = datetime.now()
+    entry = {
+        "verdict": raw_verdict,
+        "reason": reason,
+        "generated_at": now.isoformat(),
+    }
+    vibe = str(verdict.get("vibe") or "").strip()
+    consensus = first_text(
+        verdict.get("consensus"),
+        verdict.get("apiConsensus"),
+        verdict.get("api_consensus"),
+        verdict.get("criticConsensus"),
+        verdict.get("criticalConsensus"),
+    )
+    if vibe:
+        entry["vibe"] = vibe
+    if consensus:
+        entry["consensus"] = consensus
+    return entry
+
+
+def first_text(*values):
+    for value in values:
+        text = str(value or "").strip()
+        if text and text.upper() != "N/A":
+            return text
+    return ""
+
+
 def needs_verdict(movie, cache, now=None):
     """Determine if a film needs a new API call."""
     movie_id = movie.get("id")
     if not movie_id:
         return True
 
-    if movie_id not in cache:
+    entry = cache.get(movie_id)
+    if not entry:
         return True
 
-    # Cached, but check if it's a recent release that should be refreshed
-    if is_recent_release(movie, now):
+    # Recent releases can move as reviews arrive, but refresh them on a cadence
+    # instead of spending an Anthropic call every scrape.
+    if is_recent_release(movie, now) and is_cache_stale(entry, now):
         return True
 
     return False
@@ -194,6 +253,12 @@ def main():
     cached_count = 0
 
     for movie in movies:
+        movie_id = movie.get("id")
+        if movie_id and movie_id not in cache:
+            seeded = existing_verdict_entry(movie, now)
+            if seeded:
+                cache[movie_id] = seeded
+
         if needs_verdict(movie, cache, now):
             to_process.append(movie)
         else:
@@ -233,6 +298,18 @@ def main():
                             "reason": v["reason"],
                             "generated_at": now.isoformat(),
                         }
+                        consensus = first_text(
+                            v.get("consensus"),
+                            v.get("apiConsensus"),
+                            v.get("api_consensus"),
+                            v.get("criticConsensus"),
+                            v.get("criticalConsensus"),
+                        )
+                        vibe = first_text(v.get("vibe"))
+                        if consensus:
+                            cache_entry["consensus"] = consensus
+                        if vibe:
+                            cache_entry["vibe"] = vibe
 
                         # Store in cache by IMDB ID
                         if movie_id:
@@ -256,8 +333,18 @@ def main():
             movie["verdict"] = {
                 "verdict": entry["verdict"],
                 "reason": entry["reason"],
-                "vibe": movie.get("verdict", {}).get("vibe", ""),
+                "vibe": entry.get("vibe") or movie.get("verdict", {}).get("vibe", ""),
             }
+            consensus = first_text(
+                entry.get("consensus"),
+                movie.get("verdict", {}).get("consensus"),
+                movie.get("verdict", {}).get("apiConsensus"),
+                movie.get("verdict", {}).get("api_consensus"),
+                movie.get("verdict", {}).get("criticConsensus"),
+                movie.get("verdict", {}).get("criticalConsensus"),
+            )
+            if consensus:
+                movie["verdict"]["consensus"] = consensus
             updated += 1
 
     print(f"\nUpdated {updated}/{len(movies)} films in data.json")

@@ -2028,7 +2028,8 @@ Return ONLY a JSON object with exactly these fields:
 {{
   "verdict": "WATCH" | "SKIP",
   "reason": "One sharp sentence (max 15 words) explaining why.",
-  "vibe": "One or two words describing the feeling/mood of the film"
+  "vibe": "One or two words describing the feeling/mood of the film",
+  "consensus": "One concise sentence summarizing the critical/API consensus, if available."
 }}
 
 Be direct. No hedging. Use SKIP only for clear duds; otherwise choose WATCH."""
@@ -2055,6 +2056,14 @@ Be direct. No hedging. Use SKIP only for clear duds; otherwise choose WATCH."""
         raise
 
 
+def first_text(*values: object) -> str:
+    for value in values:
+        text = str(value or "").strip()
+        if text and text.upper() != "N/A":
+            return text
+    return ""
+
+
 def normalize_verdict(value: object, title: str, ratings: dict) -> dict:
     if not isinstance(value, dict):
         return mock_verdict(title, ratings)
@@ -2063,15 +2072,25 @@ def normalize_verdict(value: object, title: str, ratings: dict) -> dict:
         return mock_verdict(title, ratings)
     reason = str(value.get("reason") or "").strip()
     vibe = str(value.get("vibe") or "").strip()
+    consensus = first_text(
+        value.get("consensus"),
+        value.get("apiConsensus"),
+        value.get("api_consensus"),
+        value.get("criticConsensus"),
+        value.get("criticalConsensus"),
+    )
     if not reason or not vibe:
         fallback = mock_verdict(title, ratings)
         reason = reason or fallback["reason"]
         vibe = vibe or fallback["vibe"]
-    return {
+    normalized = {
         "verdict": verdict,
         "reason": reason,
         "vibe": vibe,
     }
+    if consensus:
+        normalized["consensus"] = consensus
+    return normalized
 
 
 def mock_verdict(title: str, ratings: dict) -> dict:
