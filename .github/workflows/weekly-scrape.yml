@@ -45,5 +45,14 @@ jobs:
             echo "No data changes to commit."
           else
             git commit -m "Update weekly cinema data"
-            git push
+            for attempt in 1 2 3; do
+              git pull --rebase origin main
+              if git push origin main; then
+                exit 0
+              fi
+              echo "Push failed on attempt ${attempt}; retrying after remote update."
+              sleep 5
+            done
+            echo "Failed to push weekly data after 3 attempts."
+            exit 1
           fi
