@@ -30,6 +30,12 @@ FORCE_REFRESH = os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {
     "yes",
 }
 NEVER_REFRESH_VALUES = {"", "0", "never", "none", "false", "no"}
+LEGACY_MOCK_REASONS = {
+    "Critics are united — this one earns its runtime.",
+    "Strong but divisive — know what you're signing up for.",
+    "The scores don't lie — pass on this one.",
+    "No clear consensus yet, but nothing suggests it's a dud.",
+}
 
 
 def parse_positive_int_env(name, default=None):
@@ -133,6 +139,16 @@ def parse_generated_at(entry):
         return None
 
 
+def is_usable_cache_entry(entry):
+    if not isinstance(entry, dict):
+        return False
+    verdict = str(entry.get("verdict") or "").strip().upper()
+    reason = str(entry.get("reason") or "").strip()
+    if verdict not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
+        return False
+    return reason not in LEGACY_MOCK_REASONS
+
+
 def is_cache_stale(entry, now=None):
     if REFRESH_DAYS is None:
         return False
@@ -192,7 +208,7 @@ def needs_verdict(movie, cache, now=None):
         return True
 
     entry = cache.get(movie_id)
-    if not entry:
+    if not is_usable_cache_entry(entry):
         return True
 
     if REFRESH_DAYS is not None and is_recent_release(movie, now) and is_cache_stale(entry, now):
@@ -281,9 +297,9 @@ def main():
 
     for movie in movies:
         movie_id = movie.get("id")
-        if movie_id and movie_id not in cache:
+        if movie_id and not is_usable_cache_entry(cache.get(movie_id)):
             seeded = existing_verdict_entry(movie, now)
-            if seeded:
+            if seeded and is_usable_cache_entry(seeded):
                 cache[movie_id] = seeded
 
         if needs_verdict(movie, cache, now):
@@ -355,7 +371,7 @@ def main():
     updated = 0
     for movie in movies:
         movie_id = movie.get("id")
-        if movie_id and movie_id in cache:
+        if movie_id and is_usable_cache_entry(cache.get(movie_id)):
             entry = cache[movie_id]
             movie["verdict"] = {
                 "verdict": entry["verdict"],
