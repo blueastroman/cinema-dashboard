@@ -1583,6 +1583,27 @@ def movie_group_key(title: str, hint_year: Optional[int] = None, ratings: Option
     return title_identity_key(title, year)
 
 
+def ratings_request_key(title: str, hint_year: Optional[int] = None, source_metadata: Optional[dict] = None) -> str:
+    base_title, title_year = split_trailing_title_year(title)
+    normalized = normalize_title(base_title)
+    year = hint_year or title_year or extract_year_int((source_metadata or {}).get("year"))
+    imdb_id = str((source_metadata or {}).get("imdbID") or "").strip()
+    if imdb_id:
+        return f"{normalized}|imdb:{imdb_id}"
+    return f"{normalized}|{year}" if year else normalized
+
+
+def verdict_request_key(title: str, ratings: Optional[dict]) -> str:
+    base_title, _ = split_trailing_title_year(title)
+    normalized = normalize_title(base_title)
+    imdb_id = str((ratings or {}).get("imdbID") or "").strip()
+    year = extract_year_int((ratings or {}).get("year"))
+    completeness = metadata_completeness(ratings)
+    if imdb_id:
+        return f"{normalized}|imdb:{imdb_id}|c:{completeness}"
+    return f"{normalized}|{year}|c:{completeness}" if year else f"{normalized}|c:{completeness}"
+
+
 def metadata_completeness(ratings: Optional[dict]) -> int:
     if not isinstance(ratings, dict):
         return 0
@@ -2135,6 +2156,8 @@ def build_dataset() -> dict:
     all_movies: dict[str, dict] = {}
     theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
     theater_formats: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    ratings_cache: dict[str, dict] = {}
+    verdict_cache: dict[str, dict] = {}
     scrape_errors: list[str] = []
     theater_meta: dict[str, dict] = {
         name: build_theater_meta(name)
@@ -2173,6 +2196,7 @@ def build_dataset() -> dict:
             source_metadata = entry.get("source_metadata") or {}
             hint_year = entry.get("hint_year") or title_year or extract_year_int(source_metadata.get("year"))
             movie_key = movie_group_key(title, hint_year=hint_year, source_metadata=source_metadata)
+            rating_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
 
             if theater_name not in theater_meta:
                 theater_meta[theater_name] = build_theater_meta(
@@ -2185,11 +2209,16 @@ def build_dataset() -> dict:
 
             movie = all_movies.get(movie_key)
             if movie is None:
-                print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
+                if rating_key in ratings_cache:
+                    ratings = dict(ratings_cache[rating_key])
+                else:
+                    print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
+                    ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
+                    ratings_cache[rating_key] = dict(ratings)
                 ratings = merge_source_metadata(ratings, source_metadata)
                 ratings = strip_placeholder_metadata(ratings)
                 resolved_key = movie_group_key(title, hint_year=hint_year, ratings=ratings, source_metadata=source_metadata)
+                ratings_cache.setdefault(resolved_key, dict(ratings))
                 movie_key = resolved_key
                 candidate_years = [
                     hint_year,
@@ -2220,14 +2249,20 @@ def build_dataset() -> dict:
                     merged = merge_source_metadata(merged, source_metadata)
                     movie["ratings"] = strip_placeholder_metadata(merged)
                     if metadata_completeness(movie["ratings"]) > before:
-                        movie["verdict"] = fetch_verdict(movie.get("title") or title, movie["ratings"])
+                        verdict_key = verdict_request_key(movie.get("title") or title, movie["ratings"])
+                        if verdict_key not in verdict_cache:
+                            verdict_cache[verdict_key] = fetch_verdict(movie.get("title") or title, movie["ratings"])
+                        movie["verdict"] = verdict_cache[verdict_key]
                     if special_formats:
                         existing_formats = set(movie.get("special_formats") or [])
                         movie["special_formats"] = sorted(existing_formats.union(special_formats))
                 else:
                     movie_id = make_movie_id(title, ratings)
                     print(f"  Fetching verdict for: {title}")
-                    verdict = fetch_verdict(title, ratings)
+                    verdict_key = verdict_request_key(title, ratings)
+                    if verdict_key not in verdict_cache:
+                        verdict_cache[verdict_key] = fetch_verdict(title, ratings)
+                    verdict = verdict_cache[verdict_key]
                     movie = {
                         "id": movie_id,
                         "title": title,
@@ -2250,7 +2285,13 @@ def build_dataset() -> dict:
                     )
                 )
                 if should_refetch:
-                    refreshed = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
+                    refetch_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
+                    if refetch_key in ratings_cache:
+                        refreshed = dict(ratings_cache[refetch_key])
+                    else:
+                        print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
+                        refreshed = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
+                        ratings_cache[refetch_key] = dict(refreshed)
                     current_ratings = merge_prior_ratings(refreshed, current_ratings)
                 movie["ratings"] = strip_placeholder_metadata(merge_source_metadata(current_ratings, source_metadata))
                 resolved_key = movie_group_key(title, hint_year=hint_year, ratings=movie["ratings"], source_metadata=source_metadata)
@@ -2259,7 +2300,10 @@ def build_dataset() -> dict:
                     movie_key = resolved_key
                 after = metadata_completeness(movie.get("ratings") or {})
                 if after > before or should_refetch:
-                    movie["verdict"] = fetch_verdict(movie.get("title") or title, movie["ratings"])
+                    verdict_key = verdict_request_key(movie.get("title") or title, movie["ratings"])
+                    if verdict_key not in verdict_cache:
+                        verdict_cache[verdict_key] = fetch_verdict(movie.get("title") or title, movie["ratings"])
+                    movie["verdict"] = verdict_cache[verdict_key]
 
             theater_schedule[theater_name][movie_key].append({
                 "day": day,
