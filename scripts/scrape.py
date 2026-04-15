@@ -50,6 +50,7 @@ ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
+AMC_THEATRE_PAGE_SIZE = 100
 ALLOW_MOCK_DATA = os.environ.get("ALLOW_MOCK_DATA", "").strip().lower() in {"1", "true", "yes"}
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
@@ -563,6 +564,9 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
     source_url = f"{base_url}{'&' if '?' in base_url else '?'}date={now.strftime('%Y-%m-%d')}"
     content = fetch_source_html(source_url, theater.get("name", "Museum of Modern Art"))
     if not content:
+        if theater.get("serpapi_id"):
+            print(f"  [WARN] MoMA official calendar unavailable; falling back to SerpAPI")
+            return fetch_showtimes(theater)
         return []
 
     grouped: dict[str, dict[str, dict[str, dict[str, str]]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
@@ -904,10 +908,11 @@ def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
     if not AMC_VENDOR_KEY:
         return None
 
+    request_params = params or {}
     try:
         r = requests.get(
             f"{AMC_API_BASE}{path}",
-            params=params or {},
+            params=request_params,
             headers={
                 "X-AMC-Vendor-Key": AMC_VENDOR_KEY,
                 "Accept": "application/json",
@@ -917,7 +922,8 @@ def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
         r.raise_for_status()
         return r.json()
     except Exception as e:
-        print(f"  [ERROR] AMC API request failed for {path}: {e}")
+        url = getattr(getattr(e, "response", None), "url", None) or f"{AMC_API_BASE}{path}"
+        print(f"  [ERROR] AMC API request failed for {path}: {e} ({url})")
         return None
 
 
@@ -935,7 +941,7 @@ def fetch_amc_theatres() -> list[dict]:
     theatres_by_id: dict[str, dict] = {}
 
     if AMC_THEATRE_IDS:
-        data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": 100})
+        data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": AMC_THEATRE_PAGE_SIZE})
         for theatre in ((data or {}).get("_embedded", {}) or {}).get("theatres", []):
             theatre_id = str(theatre.get("id") or "").strip()
             if theatre_id and not theatre.get("isClosed"):
@@ -946,8 +952,7 @@ def fetch_amc_theatres() -> list[dict]:
             data = amc_request(
                 "/v2/theatres",
                 {
-                    "brand": "AMC",
-                    "page-size": 500,
+                    "page-size": AMC_THEATRE_PAGE_SIZE,
                     "page-number": page,
                 },
             )

@@ -40,7 +40,9 @@ jobs:
       - name: Validate dataset
         run: python scripts/validate_dataset.py
       - name: Commit updated data
+        shell: bash
         run: |
+          set -euo pipefail
           git config --local user.email "daniel@dannymora.com"
           git config --local user.name "Daniel Mora"
           git add public/data.json scripts/rating_cache.json scripts/verdicts_cache.json
