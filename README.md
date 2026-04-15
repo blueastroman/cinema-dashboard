@@ -54,6 +54,7 @@ The scraper reads these environment variables:
 - `AMC_VENDOR_KEY`
 - `AMC_API_BASE` optional
 - `AMC_THEATRE_IDS` optional comma-separated override
+- `ALLOW_MOCK_DATA=1` optional local-only escape hatch for mock scraper runs
 
 ## Local Development
 
@@ -65,6 +66,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/scrape.py
 ```
+
+Production scrapes fail loudly when `SERPAPI_KEY`, `OMDB_KEY`, or `ANTHROPIC_API_KEY` is missing. For local layout work without API keys, run `ALLOW_MOCK_DATA=1 python scripts/scrape.py` and do not commit the generated mock dataset.
 
 Open `public/index.html` in a browser, or serve the `public/` directory with any static file server.
 

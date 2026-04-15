@@ -1877,13 +1877,13 @@ function getCustomDateLabel() {
   return parsed.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', '');
 }
 
-function getShowtimeISO(dayLabel) {
-  const parsed = parseShowtimeDate(dayLabel, '12:00PM');
+function getShowtimeISO(dayLabel, dateISO = '') {
+  const parsed = parseShowtimeDate(dayLabel, '12:00PM', dateISO);
   return parsed ? toISODate(parsed) : '';
 }
 
-function isWithinCurrentWeekScope(dayLabel) {
-  const parsed = parseShowtimeDate(dayLabel, '12:00PM');
+function isWithinCurrentWeekScope(dayLabel, dateISO = '') {
+  const parsed = parseShowtimeDate(dayLabel, '12:00PM', dateISO);
   if (!parsed) return false;
   const now = getNYNow();
   const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -1900,7 +1900,7 @@ function getAvailableDateBounds(data = null) {
   for (const movie of movies) {
     for (const theater of (movie?.theaters || [])) {
       for (const slot of (theater?.schedule || [])) {
-        const iso = getShowtimeISO(slot?.day || '');
+        const iso = getShowtimeISO(slot?.day || '', slot?.date || '');
         if (!iso) continue;
         if (iso >= todayISO && iso > maxISO) maxISO = iso;
       }
@@ -1932,12 +1932,12 @@ function getShowtimeDayLabel(dayLabel) {
   return raw;
 }
 
-function dayMatchesActiveScope(dayLabel, activeDayLabel) {
+function dayMatchesActiveScope(dayLabel, activeDayLabel, dateISO = '') {
   if (dateScope === 'custom' && selectedDateISO) {
-    return getShowtimeISO(dayLabel) === selectedDateISO;
+    return getShowtimeISO(dayLabel, dateISO) === selectedDateISO;
   }
   if (dateScope === 'week') {
-    return isWithinCurrentWeekScope(dayLabel);
+    return isWithinCurrentWeekScope(dayLabel, dateISO);
   }
   if (!activeDayLabel) return true;
   const raw = String(dayLabel || '').trim();
@@ -1947,7 +1947,7 @@ function dayMatchesActiveScope(dayLabel, activeDayLabel) {
     : (activeDayLabel === getTomorrowLabel()
       ? toISODate(new Date(getNYNow().getFullYear(), getNYNow().getMonth(), getNYNow().getDate() + 1))
       : '');
-  const rawISO = getShowtimeISO(raw);
+  const rawISO = getShowtimeISO(raw, dateISO);
   if (activeISO && rawISO && activeISO === rawISO) return true;
   if (raw.includes(activeDayLabel)) return true;
   if (/^today$/i.test(raw)) return activeDayLabel === getTodayLabel();
@@ -1955,7 +1955,7 @@ function dayMatchesActiveScope(dayLabel, activeDayLabel) {
   return false;
 }
 
-function parseShowtimeDate(dayLabel, timeLabel) {
+function parseShowtimeDate(dayLabel, timeLabel, dateISO = '') {
   const timeStr = String(timeLabel || '').trim().toUpperCase().replace(/\s+/g, ' ');
   if (!timeStr) return null;
 
@@ -1978,7 +1978,7 @@ function parseShowtimeDate(dayLabel, timeLabel) {
 
   const now = getNYNow();
   const dayText = String(dayLabel || '').trim();
-  let baseDate = null;
+  let baseDate = parseISODate(dateISO);
 
   if (/^today$/i.test(dayText)) {
     baseDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -2041,9 +2041,9 @@ function hasUpcomingShowtimes(movie) {
   return (movie.theaters || []).some(t =>
     (t.schedule || []).some(s =>
       (s.times || []).some(time => {
-        const showAt = parseShowtimeDate(s.day, time);
+        const showAt = parseShowtimeDate(s.day, time, s.date || '');
         if (!showAt || showAt < now) return false;
-        if (dateScope === 'week' && !isWithinCurrentWeekScope(s.day)) return false;
+        if (dateScope === 'week' && !isWithinCurrentWeekScope(s.day, s.date || '')) return false;
         return isTimeInActiveDaypart(showAt);
       })
     )
@@ -2121,9 +2121,9 @@ function moviePlayingOn(movie, dateLabel) {
   if (!targetISO) return false;
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
-      getShowtimeISO(s.day) === targetISO &&
+      getShowtimeISO(s.day, s.date || '') === targetISO &&
       (s.times || []).some(time => {
-        const showAt = parseShowtimeDate(s.day, time);
+        const showAt = parseShowtimeDate(s.day, time, s.date || '');
         return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       })
     )
@@ -2134,9 +2134,9 @@ function moviePlayingOnISO(movie, dateISO) {
   const now = getNYNow();
   return getVisibleTheaters(movie).some(t =>
     (t.schedule || []).some(s =>
-      getShowtimeISO(s.day) === dateISO &&
+      getShowtimeISO(s.day, s.date || '') === dateISO &&
       (s.times || []).some(time => {
-        const showAt = parseShowtimeDate(s.day, time);
+        const showAt = parseShowtimeDate(s.day, time, s.date || '');
         return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       })
     )
@@ -2997,7 +2997,7 @@ function render() {
           if (idx !== -1 && idx < earliestIdx) {
             // Also verify the movie has at least one upcoming showtime on this day
             const hasFuture = (s.times || []).some(time => {
-              const showAt = parseShowtimeDate(raw, time);
+              const showAt = parseShowtimeDate(raw, time, s.date || '');
               return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
             });
             if (hasFuture) {
@@ -3053,9 +3053,9 @@ function getNextShowFromSchedule(schedule, scopeLabel = getActiveDayFilterLabel(
   let best = null;
   for (const slot of (schedule || [])) {
     const day = slot?.day || '';
-    if (!dayMatchesActiveScope(day, scopeLabel)) continue;
+    if (!dayMatchesActiveScope(day, scopeLabel, slot?.date || '')) continue;
     for (const time of (slot?.times || [])) {
-      const at = parseShowtimeDate(day, time);
+      const at = parseShowtimeDate(day, time, slot?.date || '');
       if (!at || at < now) continue;
       if (!best || at < best.at) best = { at, day, time };
     }
@@ -3442,10 +3442,10 @@ function buildScheduleHTML(theaterData) {
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
   const upcoming = schedule
-    .filter(s => dayMatchesActiveScope(s.day, activeDayLabel))
+    .filter(s => dayMatchesActiveScope(s.day, activeDayLabel, s.date || ''))
     .map(s => {
       const times = (s.times || []).filter(time => {
-        const showAt = parseShowtimeDate(s.day, time);
+        const showAt = parseShowtimeDate(s.day, time, s.date || '');
         return !!showAt && showAt >= now && isTimeInActiveDaypart(showAt);
       });
       return { ...s, times };
@@ -3477,12 +3477,12 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
   let count = 0;
 
   for (const s of schedule) {
-    if (!dayMatchesActiveScope(s.day, activeDayLabel)) continue;
+    if (!dayMatchesActiveScope(s.day, activeDayLabel, s.date || '')) continue;
     const dayRaw = String(s.day || '').trim();
     const times = [];
 
     for (const t of (s.times || [])) {
-      const showAt = parseShowtimeDate(dayRaw, t);
+      const showAt = parseShowtimeDate(dayRaw, t, s.date || '');
       if (!showAt || showAt < now || !isTimeInActiveDaypart(showAt)) continue;
       times.push({ at: showAt, label: formatShowtimeLabel(t), raw: t });
     }

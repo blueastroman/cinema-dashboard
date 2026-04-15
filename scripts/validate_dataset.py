@@ -1,19 +1,21 @@
 import json
+import re
 import sys
 from collections import Counter
-from datetime import datetime
 from pathlib import Path
 from cinema_backend.common import (
     extract_year_int,
     normalize_title,
+    ny_now,
     runtime_minutes_from_value,
+    split_trailing_title_year,
     title_explicitly_allows_short,
 )
 
 
 ROOT = Path(__file__).resolve().parent.parent
 DATASET_PATH = ROOT / "public" / "data.json"
-CURRENT_YEAR = datetime.now().year
+CURRENT_YEAR = ny_now().year
 MAX_REASONABLE_FUTURE_YEAR = CURRENT_YEAR + 2
 
 
@@ -68,7 +70,9 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
             errors.append(f"{title}: missing id.")
         else:
             seen_ids[movie_id] += 1
-        seen_title_keys[title.lower()] += 1
+        base_title, title_year = split_trailing_title_year(title)
+        year = title_year or extract_year_int(ratings.get("year"))
+        seen_title_keys[f"{normalize_title(base_title)}|{year}" if year else normalize_title(base_title)] += 1
 
         if not isinstance(ratings, dict):
             errors.append(f"{title}: ratings is not an object.")
@@ -97,10 +101,11 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
         if year is not None and year < 1888:
             errors.append(f"{title}: impossible year ({year}).")
         has_imdb_identity = bool(str(ratings.get("imdbID") or "").strip())
-        has_core_metadata = any(ratings.get(key) for key in ("genre", "runtime", "director", "plot"))
+        core_metadata_count = sum(1 for key in ("genre", "runtime", "director", "plot") if ratings.get(key))
+        has_core_metadata = core_metadata_count >= 2
         if has_imdb_identity and year is not None and year >= CURRENT_YEAR - 1 and not has_core_metadata:
-            errors.append(
-                f"{title}: suspicious recent IMDb match ({ratings.get('imdbID')}, {year}) with no core metadata."
+            warnings.append(
+                f"{title}: weak recent IMDb match ({ratings.get('imdbID')}, {year}) with only {core_metadata_count} core metadata field(s)."
             )
 
         if not ratings.get("genre"):
@@ -132,9 +137,12 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
 
             for slot in schedule:
                 day = str(slot.get("day") or "").strip()
+                schedule_date = str(slot.get("date") or "").strip()
                 times = slot.get("times") or []
                 if not day:
                     errors.append(f"{title}: {theater_name} schedule entry missing day.")
+                if schedule_date and not re.fullmatch(r"(?:18|19|20)\d{2}-\d{2}-\d{2}", schedule_date):
+                    errors.append(f"{title}: {theater_name} {day or '[missing day]'} has invalid date ({schedule_date}).")
                 if not isinstance(times, list) or not times:
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has no times.")
 

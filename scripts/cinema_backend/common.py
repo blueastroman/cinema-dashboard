@@ -1,6 +1,7 @@
 import re
 from datetime import datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 
 THEATER_CONFIG = {
@@ -167,6 +168,7 @@ SPECIAL_FORMAT_PATTERNS = {
 }
 
 NON_ALNUM = re.compile(r"[^a-z0-9]+")
+NY_TZ = ZoneInfo("America/New_York")
 
 SHORT_PROGRAM_HINTS = (
     "short",
@@ -193,6 +195,30 @@ def clean_title(raw: str) -> str:
     if article_match:
         cleaned = f"{article_match.group(2)} {article_match.group(1)}"
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def split_trailing_title_year(title: str) -> tuple[str, Optional[int]]:
+    cleaned = str(title or "").strip()
+    match = re.search(r"\s*[\(\[]((?:18|19|20)\d{2})[\)\]]\s*$", cleaned)
+    if not match:
+        return cleaned, None
+    base = cleaned[:match.start()].strip(" -–—·")
+    return re.sub(r"\s+", " ", base).strip() or cleaned, int(match.group(1))
+
+
+def ny_now() -> datetime:
+    return datetime.now(NY_TZ)
+
+
+def date_iso(dt: datetime) -> str:
+    return dt.date().isoformat()
+
+
+def title_identity_key(title: str, year: Optional[object] = None) -> str:
+    base_title, title_year = split_trailing_title_year(title)
+    parsed_year = extract_year_int(year) or title_year
+    normalized = normalize_title(base_title)
+    return f"{normalized}|{parsed_year}" if parsed_year else normalized
 
 
 def extract_special_formats(*values: object) -> list[str]:
@@ -261,7 +287,7 @@ def format_time_label(dt: datetime) -> str:
 
 def sort_time_labels(times: list[str]) -> list[str]:
     def parse_time(value: str) -> tuple[int, int]:
-        m = re.match(r"(\d{1,2}):(\d{2})(am|pm)", (value or "").strip().lower())
+        m = re.match(r"(\d{1,2}):(\d{2})\s*(am|pm)", (value or "").strip().lower())
         if not m:
             return (99, 99)
         hour = int(m.group(1))
