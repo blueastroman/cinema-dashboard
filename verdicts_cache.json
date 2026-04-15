@@ -22,8 +22,8 @@ import urllib.request
 from datetime import datetime, timedelta
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-DATA_FILE = "data.json"
-CACHE_FILE = "verdicts_cache.json"
+DATA_FILE = "public/data.json"
+CACHE_FILE = "scripts/verdicts_cache.json"
 BATCH_SIZE = 30
 REFRESH_DAYS = 30
 
