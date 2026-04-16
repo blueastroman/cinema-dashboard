@@ -933,8 +933,22 @@ def is_supported_amc_theatre(theatre: dict) -> bool:
 
 
 def fetch_amc_theatres() -> list[dict]:
+    def serpapi_fallback() -> list[dict]:
+        fallback = []
+        for name, config in THEATER_CONFIG.items():
+            if config.get("source_type") != "amc":
+                continue
+            fallback.append({
+                "name": name,
+                "source_type": "serpapi",
+                "serpapi_id": config.get("serpapi_id") or f"{name} showtimes",
+                "official_url": config.get("official_url") or "https://www.amctheatres.com/",
+            })
+        return sorted(fallback, key=lambda t: t["name"])
+
     if not AMC_VENDOR_KEY:
-        return []
+        print("  [WARN] AMC_VENDOR_KEY missing; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback()
 
     theatres_by_id: dict[str, dict] = {}
 
@@ -990,6 +1004,10 @@ def fetch_amc_theatres() -> list[dict]:
                 or "https://www.amctheatres.com/"
             ).strip(),
         })
+
+    if not results:
+        print("  [WARN] AMC API returned no supported theaters; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback()
 
     return sorted(results, key=lambda t: t["name"])
 
