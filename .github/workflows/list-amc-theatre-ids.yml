@@ -1,0 +1,24 @@
+name: List AMC Theater IDs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: List AMC theater IDs
+        env:
+          AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+        run: python scripts/list_amc_theatre_ids.py
