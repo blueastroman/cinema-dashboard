@@ -11,12 +11,6 @@
     "title": "A Clockwork Orange",
     "year": "1971"
   },
-  "a great awakening": {
-    "imdbID": "tt33305882",
-    "source": "exact_year",
-    "title": "A Great Awakening",
-    "year": "2026"
-  },
   "a magnificent life": {
     "imdbID": "tt13968662",
     "source": "exact",
@@ -251,12 +245,6 @@
     "title": "Dead Lover",
     "year": "2025"
   },
-  "dhurandhar the revenge": {
-    "imdbID": "tt39139925",
-    "source": "exact_year",
-    "title": "Dhurandhar: The Revenge",
-    "year": "2026"
-  },
   "dj ahmet": {
     "imdbID": "tt34964187",
     "source": "exact",
@@ -328,12 +316,6 @@
     "source": "exact",
     "title": "Fight Club",
     "year": "1999"
-  },
-  "forbidden fruits": {
-    "imdbID": "tt30691214",
-    "source": "exact_year",
-    "title": "Forbidden Fruits",
-    "year": "2026"
   },
   "funny games": {
     "imdbID": "tt0808279",
@@ -599,23 +581,11 @@
     "title": "Rabb Da Radio 3",
     "year": "2024"
   },
-  "ready or not 2 here i come": {
-    "imdbID": "tt33978029",
-    "source": "exact",
-    "title": "Ready or Not 2: Here I Come",
-    "year": "2026"
-  },
   "red sorghum": {
     "imdbID": "tt0093206",
     "source": "exact",
     "title": "Red Sorghum",
     "year": "1988"
-  },
-  "reminders of him": {
-    "imdbID": "tt33714084",
-    "source": "exact_year",
-    "title": "Reminders of Him",
-    "year": "2026"
   },
   "richard iii": {
     "imdbID": "tt0114279",
