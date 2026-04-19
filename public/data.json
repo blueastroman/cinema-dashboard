@@ -18005,7 +18005,13 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "Peak Sandler stupidity that's either nostalgic comfort food or dated cringe depending on your tolerance.",
+        "vibe": "",
+        "consensus": "Cult comedy classic for some, juvenile for others."
+      }
     },
     {
       "id": "art-cinema-for-tots-journeys",
@@ -18043,7 +18049,13 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "If you've got kids and want to start them on actual cinema instead of Disney, this is your shot.",
+        "vibe": "",
+        "consensus": "Curated program introducing children to art house filmmaking."
+      }
     },
     {
       "id": "daria-kashcheeva-shorts-program",
@@ -18081,7 +18093,13 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Czech animation master whose stop-motion work hits harder than most features.",
+        "vibe": "",
+        "consensus": "Acclaimed animator known for emotionally powerful short films."
+      }
     },
     {
       "id": "documentary-shorts-by-krzysztof-kieslowski",
@@ -18119,7 +18137,13 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Early docs from the guy who made Dekalog - essential viewing for anyone serious about cinema.",
+        "vibe": "",
+        "consensus": "Foundational works from one of cinema's greatest moral philosophers."
+      }
     },
     {
       "id": "invention-for-destruction",
@@ -18205,7 +18229,13 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Djibril Diop Mambéty's African New Wave masterpiece deserves the big screen treatment.",
+        "vibe": "",
+        "consensus": "Groundbreaking 1973 Senegalese film, widely considered essential world cinema."
+      }
     },
     {
       "id": "tt0095565",
@@ -18301,7 +18331,13 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Jean-Pierre Dikongué-Pipa's Cameroonian classic that helped define African cinema.",
+        "vibe": "",
+        "consensus": "Important 1975 African film exploring tradition versus modernity."
+      }
     },
     {
       "id": "tt0073437",
