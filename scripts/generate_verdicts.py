@@ -60,9 +60,10 @@ VERDICT RULES:
 
 VOICE RULES:
 - Talk like you're texting a friend who asked "should I see this?"
-- One to two sentences max. Period.
+- Exactly two sentences.
+- Sentence 1 must start with "A " or "An " and state the premise/setup in concrete terms.
+- Sentence 2 must start with "Best for " or "For " and state the audience or mood fit.
 - Be specific to THIS film. Explain what it is about and what kind of movie it is.
-- Keep the structure consistent: sentence 1 = premise or setup. Sentence 2 = the kind of viewer or mood it fits, without using the phrase "watch if you want" or "if you want".
 - Have a real opinion. Don't hedge.
 - No adjective stacking. No "masterful," "riveting," "poignant," "tour de force," "compelling," "gripping."
 - No film critic language. No "exploration of," "meditation on," "unflinching look at."
@@ -72,6 +73,7 @@ VOICE RULES:
 - If you don't know the film well, describe the setup and the likely audience instead of summary-score language.
 - Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.
 - Avoid vague review-summary language like "critically acclaimed" or "reviews are great." Say what the movie is and who the natural audience is.
+- Do not use hedges like "could be," "might be," "sounds like," "seems," "depends," "wild card," or "easy yes."
 
 RESPOND IN THIS EXACT JSON FORMAT (array of objects):
 [
@@ -178,6 +180,14 @@ FORBIDDEN_REASON_PATTERNS = [
     r"\bperfect\b",
     r"\bpercent(ages?)?\b",
     r"\b\d{1,3}%\b",
+    r"\bcould be\b",
+    r"\bmight be\b",
+    r"\bsounds like\b",
+    r"\bseems\b",
+    r"\bdepends\b",
+    r"\bwild card\b",
+    r"\beasy yes\b",
+    r"\bfor fans\b",
 ]
 
 
@@ -189,12 +199,16 @@ def validate_reason(reason):
     if len(words) < 6:
         return False, "too short"
     sentence_count = sum(1 for part in text.replace("!", ".").replace("?", ".").split(".") if part.strip())
-    if sentence_count > 2:
-        return False, "more than two sentences"
+    if sentence_count != 2:
+        return False, "must be exactly two sentences"
     lower = text.lower()
     for pattern in FORBIDDEN_REASON_PATTERNS:
         if re.search(pattern, lower, re.IGNORECASE):
             return False, f"forbidden language matched: {pattern}"
+    if not lower.startswith(("a ", "an ")):
+        return False, "first sentence must start with A or An"
+    if not re.search(r"\.\s*(best for |for )", text, re.IGNORECASE):
+        return False, "second sentence must start with Best for or For"
     if lower.startswith(("critics ", "reviews ", "score ", "scores ", "rt ", "100% rt", "high rt", "low rt", "mixed reception", "poor critical", "moderate reception", "critical reception")):
         return False, "starts like a score summary"
     return True, ""
@@ -242,8 +256,9 @@ def call_claude(films_block):
                 "role": "user",
                 "content": (
                     "For each film, return a verdict and a recommendation blurb.\n"
-                    "The blurb must be 1-2 sentences: sentence 1 is the premise, sentence 2 is the mood or audience fit.\n"
-                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.\n"
+                    'Use this exact shape: "A [premise]. Best for [audience or mood]."\n'
+                    "The blurb must be exactly 2 sentences: sentence 1 is the premise, sentence 2 is the audience or mood fit.\n"
+                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
                     "Return only the JSON array.\n\n"
                     f"{films_block}"
                 ),
@@ -287,8 +302,9 @@ def call_claude_strict(films_block, titles):
                     "Your previous response failed validation and is being rejected.\n"
                     f"Problem: {message}\n\n"
                     "Rewrite only the same titles. Return a JSON array with the exact titles below.\n"
-                    "Each reason must be 1-2 sentences, premise first and mood/audience second.\n"
-                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.\n"
+                    'Each reason must follow this exact shape: "A [premise]. Best for [audience or mood]."\n'
+                    "Each reason must be exactly 2 sentences, premise first and audience/mood second.\n"
+                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
                     "Return only the JSON array.\n\n"
                     f"Titles: {', '.join(titles)}\n\n"
                     f"Films:\n{films_block}"
@@ -331,6 +347,10 @@ def main():
     movies = data.get("movies", [])
     now = datetime.now()
 
+    if FORCE_REFRESH:
+        for movie in movies:
+            movie.pop("verdict", None)
+
     print(f"Total films: {len(movies)}")
     print(f"Cached verdicts: {len(cache)}")
 
@@ -340,7 +360,9 @@ def main():
 
     for movie in movies:
         movie_id = movie.get("id")
-        if movie_id and not is_usable_cache_entry(cache.get(movie_id)):
+        if FORCE_REFRESH and movie_id:
+            cache.pop(movie_id, None)
+        if movie_id and not FORCE_REFRESH and not is_usable_cache_entry(cache.get(movie_id)):
             seeded = existing_verdict_entry(movie, now)
             if seeded and is_usable_cache_entry(seeded):
                 cache[movie_id] = seeded

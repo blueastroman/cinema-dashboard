@@ -23,7 +23,6 @@ from cinema_backend.common import (
     STATIC_THEATERS,
     THEATER_CONFIG,
     build_theater_meta,
-    cache_key_for_title_year,
     clean_title,
     date_iso,
     extract_special_formats,
@@ -31,6 +30,7 @@ from cinema_backend.common import (
     format_day_label,
     format_time_label,
     get_source_ticket_url,
+    exact_title_identity_key,
     make_movie_id,
     normalize_title,
     runtime_minutes_from_value,
@@ -1179,7 +1179,7 @@ def load_existing_movie_metadata(path: Path) -> dict:
         title = str(movie.get("title") or "").strip()
         ratings = movie.get("ratings") or {}
         if title and isinstance(ratings, dict):
-            existing[normalize_title(title)] = ratings
+            existing[exact_title_identity_key(title)] = ratings
     return existing
 
 
@@ -1189,8 +1189,8 @@ EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
 def get_existing_metadata(title: str) -> dict:
     base_title, _ = split_trailing_title_year(title)
     return (
-        EXISTING_MOVIE_METADATA.get(normalize_title(title))
-        or EXISTING_MOVIE_METADATA.get(normalize_title(base_title))
+        EXISTING_MOVIE_METADATA.get(exact_title_identity_key(title))
+        or EXISTING_MOVIE_METADATA.get(exact_title_identity_key(base_title))
         or {}
     )
 
@@ -1198,15 +1198,14 @@ def get_existing_metadata(title: str) -> dict:
 def get_best_cached_match(title: str, query_year: Optional[int] = None) -> dict:
     lookup_title, title_year = split_trailing_title_year(title)
     query_year = query_year or title_year
-    normalized = normalize_title(lookup_title)
     candidate_keys = []
     if query_year is not None:
         candidate_keys.extend([
-            cache_key_for_title_year(lookup_title, query_year),
-            cache_key_for_title_year(lookup_title, query_year - 1),
-            cache_key_for_title_year(lookup_title, query_year + 1),
+            exact_title_identity_key(lookup_title, query_year),
+            exact_title_identity_key(lookup_title, query_year - 1),
+            exact_title_identity_key(lookup_title, query_year + 1),
         ])
-    candidate_keys.append(normalized)
+    candidate_keys.append(exact_title_identity_key(lookup_title))
 
     for key in candidate_keys:
         cached = RATING_CACHE.get(key)
@@ -1225,20 +1224,20 @@ def set_cached_match(title: str, data: dict, source: str) -> None:
     }
     result_year = extract_year_int(data.get("Year"))
     if result_year is not None:
-        RATING_CACHE[cache_key_for_title_year(lookup_title, result_year)] = entry
+        RATING_CACHE[exact_title_identity_key(lookup_title, result_year)] = entry
     else:
-        RATING_CACHE[normalize_title(lookup_title)] = entry
+        RATING_CACHE[exact_title_identity_key(lookup_title)] = entry
 
 
 def purge_cached_match(title: str, imdb_id: str) -> None:
     lookup_title, _ = split_trailing_title_year(title)
-    normalized = normalize_title(lookup_title)
+    exact = exact_title_identity_key(lookup_title)
     keys_to_delete = [
         key for key, value in RATING_CACHE.items()
         if (
             isinstance(value, dict)
             and value.get("imdbID") == imdb_id
-            and (key == normalized or key.startswith(f"{normalized}|"))
+            and (key == exact or key.startswith(f"{exact}|"))
         )
     ]
     for key in keys_to_delete:
@@ -1558,7 +1557,9 @@ def merge_existing_metadata(title: str, ratings: dict) -> dict:
 
 def apply_rating_overrides(title: str, ratings: dict) -> dict:
     lookup_title, _ = split_trailing_title_year(title)
-    override = RATING_OVERRIDES.get(normalize_title(lookup_title), {})
+    override = RATING_OVERRIDES.get(exact_title_identity_key(lookup_title), {})
+    if not override:
+        override = RATING_OVERRIDES.get(normalize_title(lookup_title), {})
     if isinstance(override, str):
         override = {"imdbID": override}
     if not isinstance(override, dict):
@@ -1568,7 +1569,9 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
         if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
             ratings[key] = value
 
-    cinema_score_override = CINEMASCORE_OVERRIDES.get(normalize_title(lookup_title))
+    cinema_score_override = CINEMASCORE_OVERRIDES.get(exact_title_identity_key(lookup_title))
+    if cinema_score_override in (None, "", "N/A"):
+        cinema_score_override = CINEMASCORE_OVERRIDES.get(normalize_title(lookup_title))
     if cinema_score_override not in (None, "", "N/A"):
         ratings["cinemaScore"] = str(cinema_score_override).strip().upper()
     return ratings
@@ -1601,12 +1604,12 @@ def movie_group_key(title: str, hint_year: Optional[int] = None, ratings: Option
 
 def ratings_request_key(title: str, hint_year: Optional[int] = None, source_metadata: Optional[dict] = None) -> str:
     base_title, title_year = split_trailing_title_year(title)
-    normalized = normalize_title(base_title)
+    exact = exact_title_identity_key(base_title)
     year = hint_year or title_year or extract_year_int((source_metadata or {}).get("year"))
     imdb_id = str((source_metadata or {}).get("imdbID") or "").strip()
     if imdb_id:
-        return f"{normalized}|imdb:{imdb_id}"
-    return f"{normalized}|{year}" if year else normalized
+        return f"{exact}|imdb:{imdb_id}"
+    return f"{exact}|{year}" if year else exact
 
 
 def metadata_completeness(ratings: Optional[dict]) -> int:

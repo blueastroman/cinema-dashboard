@@ -293,6 +293,13 @@ def title_identity_key(title: str, year: Optional[object] = None) -> str:
     return f"{normalized}|{parsed_year}" if parsed_year else normalized
 
 
+def exact_title_identity_key(title: str, year: Optional[object] = None) -> str:
+    base_title, title_year = split_trailing_title_year(title)
+    parsed_year = extract_year_int(year) or title_year
+    exact = re.sub(r"\s+", " ", str(base_title or "").strip()).lower()
+    return f"{exact}|{parsed_year}" if parsed_year else exact
+
+
 def extract_special_formats(*values: object) -> list[str]:
     found: list[str] = []
     haystacks = [str(value or "") for value in values if value]
