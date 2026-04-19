@@ -8,11 +8,6 @@ on:
         required: false
         default: false
         type: boolean
-      refresh_days:
-        description: "Refresh cached current-release reviews after this many days; blank/0/never means never"
-        required: false
-        default: ""
-        type: string
 
 permissions:
   contents: write
@@ -33,7 +28,6 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           VERDICT_FORCE_REFRESH: ${{ inputs.force_refresh }}
-          VERDICT_REFRESH_DAYS: ${{ inputs.refresh_days }}
         run: python scripts/generate_verdicts.py
 
       - name: Validate dataset

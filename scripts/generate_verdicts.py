@@ -3,7 +3,6 @@ generate_verdicts.py
 
 Run after scrape in GitHub Actions to generate editorial one-liners for each film.
 Uses a cache to avoid re-running API calls for films already processed.
-Films released within the last 30 days get refreshed to account for score changes.
 
 Usage:
   python generate_verdicts.py
@@ -18,8 +17,9 @@ Files:
 
 import json
 import os
+import re
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import datetime
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 DATA_FILE = "public/data.json"
@@ -30,12 +30,6 @@ FORCE_REFRESH = os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {
     "yes",
 }
 NEVER_REFRESH_VALUES = {"", "0", "never", "none", "false", "no"}
-LEGACY_MOCK_REASONS = {
-    "Critics are united — this one earns its runtime.",
-    "Strong but divisive — know what you're signing up for.",
-    "The scores don't lie — pass on this one.",
-    "No clear consensus yet, but nothing suggests it's a dud.",
-}
 
 
 def parse_positive_int_env(name, default=None):
@@ -55,32 +49,33 @@ def parse_positive_int_env(name, default=None):
 
 
 BATCH_SIZE = parse_positive_int_env("VERDICT_BATCH_SIZE", 30) or 30
-REFRESH_DAYS = parse_positive_int_env("VERDICT_REFRESH_DAYS", None)
 
-SYSTEM_PROMPT = """You are the editorial voice of a curated NYC cinema showtimes board. Your job: for each film, give a verdict (WATCH, DEPENDS, or SKIP) and a one-liner.
+SYSTEM_PROMPT = """You are the editorial voice of a curated NYC cinema showtimes board. Your job: for each film, give a verdict (WATCH, DEPENDS, or SKIP) and a short recommendation blurb.
 
 VERDICT RULES:
-- Use all available scores (RT, IMDB, Metacritic, Letterboxd) plus your knowledge of the film and director.
-- WATCH = genuinely worth going to a theater for. Strong scores, strong filmmaker, or a must-see experience.
-- DEPENDS = decent but not essential. Mixed scores, niche appeal, or "good not great."
-- SKIP = not worth the trip. Weak scores, lazy franchise, or actively bad.
+- WATCH = genuinely worth going to a theater for. Strong filmmaker, compelling premise, or a must-see experience.
+- DEPENDS = decent but not essential. Niche appeal or "good not great."
+- SKIP = not worth the trip. Lazy franchise, weak premise, or actively bad.
 - Classic repertory films screening at art house theaters (older acclaimed films) should almost always be WATCH. If it survived 30+ years and is screening at a place like Metrograph or Film Forum, it earned that.
 
 VOICE RULES:
 - Talk like you're texting a friend who asked "should I see this?"
 - One to two sentences max. Period.
-- Be specific to THIS film. Reference the actual plot, director, cast, or what makes it tick.
+- Be specific to THIS film. Explain what it is about and what kind of movie it is.
+- Keep the structure consistent: sentence 1 = premise or setup. Sentence 2 = the kind of viewer or mood it fits, without using the phrase "watch if you want" or "if you want".
 - Have a real opinion. Don't hedge.
 - No adjective stacking. No "masterful," "riveting," "poignant," "tour de force," "compelling," "gripping."
 - No film critic language. No "exploration of," "meditation on," "unflinching look at."
 - No em dashes.
 - Funny is good when it fits. Blunt is always good.
 - For SKIP, be honest about why. Don't be mean for sport but don't sugarcoat it.
-- If you don't know the film well, lean on the data and be upfront about it.
+- If you don't know the film well, describe the setup and the likely audience instead of summary-score language.
+- Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.
+- Avoid vague review-summary language like "critically acclaimed" or "reviews are great." Say what the movie is and who the natural audience is.
 
 RESPOND IN THIS EXACT JSON FORMAT (array of objects):
 [
-  {"title": "Film Title", "verdict": "WATCH", "reason": "Your one-liner here.", "consensus": "Concise critical/API consensus, if available."},
+  {"title": "Film Title", "verdict": "WATCH", "reason": "Your recommendation blurb here."},
   ...
 ]
 
@@ -99,46 +94,6 @@ def save_json(path, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def parse_release_year(movie):
-    """Extract release year from movie data. Returns int or None."""
-    year_str = movie.get("ratings", {}).get("year")
-    if year_str:
-        try:
-            return int(str(year_str).strip()[:4])
-        except (ValueError, TypeError):
-            pass
-    return None
-
-
-def is_recent_release(movie, now=None):
-    """Check if a film was released within the last REFRESH_DAYS days."""
-    if now is None:
-        now = datetime.now()
-
-    year = parse_release_year(movie)
-    if year is None:
-        return True  # no year data, assume recent to be safe
-
-    current_year = now.year
-    cutoff_year = (now - timedelta(days=REFRESH_DAYS)).year
-
-    # If the film's year is the current year or within the cutoff window, treat as recent
-    if year >= cutoff_year:
-        return True
-
-    return False
-
-
-def parse_generated_at(entry):
-    generated_at = entry.get("generated_at") if isinstance(entry, dict) else None
-    if not generated_at:
-        return None
-    try:
-        return datetime.fromisoformat(generated_at)
-    except (TypeError, ValueError):
-        return None
-
-
 def is_usable_cache_entry(entry):
     if not isinstance(entry, dict):
         return False
@@ -146,18 +101,7 @@ def is_usable_cache_entry(entry):
     reason = str(entry.get("reason") or "").strip()
     if verdict not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
         return False
-    return reason not in LEGACY_MOCK_REASONS
-
-
-def is_cache_stale(entry, now=None):
-    if REFRESH_DAYS is None:
-        return False
-    if now is None:
-        now = datetime.now()
-    generated_at = parse_generated_at(entry)
-    if generated_at is None:
-        return True
-    return now - generated_at >= timedelta(days=REFRESH_DAYS)
+    return True
 
 
 def existing_verdict_entry(movie, now=None):
@@ -175,27 +119,7 @@ def existing_verdict_entry(movie, now=None):
         "reason": reason,
         "generated_at": now.isoformat(),
     }
-    vibe = str(verdict.get("vibe") or "").strip()
-    consensus = first_text(
-        verdict.get("consensus"),
-        verdict.get("apiConsensus"),
-        verdict.get("api_consensus"),
-        verdict.get("criticConsensus"),
-        verdict.get("criticalConsensus"),
-    )
-    if vibe:
-        entry["vibe"] = vibe
-    if consensus:
-        entry["consensus"] = consensus
     return entry
-
-
-def first_text(*values):
-    for value in values:
-        text = str(value or "").strip()
-        if text and text.upper() != "N/A":
-            return text
-    return ""
 
 
 def needs_verdict(movie, cache, now=None):
@@ -209,9 +133,6 @@ def needs_verdict(movie, cache, now=None):
 
     entry = cache.get(movie_id)
     if not is_usable_cache_entry(entry):
-        return True
-
-    if REFRESH_DAYS is not None and is_recent_release(movie, now) and is_cache_stale(entry, now):
         return True
 
     return False
@@ -230,18 +151,84 @@ def build_film_block(movie):
         lines.append(f"Genre: {r['genre']}")
     if r.get("runtime"):
         lines.append(f"Runtime: {r['runtime']}")
-    if r.get("rt"):
-        lines.append(f"RT Critics: {r['rt']}")
-    if r.get("imdb"):
-        lines.append(f"IMDB: {r['imdb']}")
-    if r.get("metacritic"):
-        lines.append(f"Metacritic: {r['metacritic']}")
-    if r.get("letterboxd"):
-        lines.append(f"Letterboxd: {r['letterboxd']}")
     if r.get("plot"):
         lines.append(f"Plot: {r['plot']}")
 
     return "\n".join(lines)
+
+
+FORBIDDEN_REASON_PATTERNS = [
+    r"\brt\b",
+    r"rotten tomatoes",
+    r"\bmetacritic\b",
+    r"\bletterboxd\b",
+    r"\bcritics?\b",
+    r"\bcritical\b",
+    r"\breviews?\b",
+    r"\bscore[s]?\b",
+    r"\breception\b",
+    r"\bmetrics?\b",
+    r"\baudience\b",
+    r"\bpraise[d]?\b",
+    r"\bacclaim[ed]?\b",
+    r"\bmixed\b",
+    r"\bpoor\b",
+    r"\bstrong\b",
+    r"\bweak\b",
+    r"\bperfect\b",
+    r"\bpercent(ages?)?\b",
+    r"\b\d{1,3}%\b",
+]
+
+
+def validate_reason(reason):
+    text = str(reason or "").strip()
+    if not text:
+        return False, "empty reason"
+    words = text.split()
+    if len(words) < 6:
+        return False, "too short"
+    sentence_count = sum(1 for part in text.replace("!", ".").replace("?", ".").split(".") if part.strip())
+    if sentence_count > 2:
+        return False, "more than two sentences"
+    lower = text.lower()
+    for pattern in FORBIDDEN_REASON_PATTERNS:
+        if re.search(pattern, lower, re.IGNORECASE):
+            return False, f"forbidden language matched: {pattern}"
+    if lower.startswith(("critics ", "reviews ", "score ", "scores ", "rt ", "100% rt", "high rt", "low rt", "mixed reception", "poor critical", "moderate reception", "critical reception")):
+        return False, "starts like a score summary"
+    return True, ""
+
+
+def validate_verdict_payload(verdicts, expected_titles):
+    if not isinstance(verdicts, list):
+        return False, "Claude did not return a JSON array"
+    if len(verdicts) != len(expected_titles):
+        return False, f"Expected {len(expected_titles)} results, got {len(verdicts)}"
+
+    seen_titles = set()
+    expected_set = set(expected_titles)
+    for idx, item in enumerate(verdicts):
+        if not isinstance(item, dict):
+            return False, f"Item {idx + 1} is not an object"
+        title = str(item.get("title") or "").strip()
+        verdict = str(item.get("verdict") or "").strip().upper()
+        reason = str(item.get("reason") or "").strip()
+        if title not in expected_set:
+            return False, f"Unexpected title: {title or '(blank)'}"
+        if title in seen_titles:
+            return False, f"Duplicate title: {title}"
+        seen_titles.add(title)
+        if verdict not in {"WATCH", "DEPENDS", "SKIP"}:
+            return False, f"Invalid verdict for {title}: {verdict or '(blank)'}"
+        ok, why = validate_reason(reason)
+        if not ok:
+            return False, f"Invalid reason for {title}: {why}"
+
+    missing = expected_set - seen_titles
+    if missing:
+        return False, f"Missing titles: {', '.join(sorted(missing)[:5])}"
+    return True, ""
 
 
 def call_claude(films_block):
@@ -253,7 +240,13 @@ def call_claude(films_block):
         "messages": [
             {
                 "role": "user",
-                "content": f"Here are the films. Give me verdict + one-liner for each:\n\n{films_block}",
+                "content": (
+                    "For each film, return a verdict and a recommendation blurb.\n"
+                    "The blurb must be 1-2 sentences: sentence 1 is the premise, sentence 2 is the mood or audience fit.\n"
+                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.\n"
+                    "Return only the JSON array.\n\n"
+                    f"{films_block}"
+                ),
             }
         ],
     }
@@ -275,6 +268,56 @@ def call_claude(films_block):
     text = result["content"][0]["text"]
     clean = text.replace("```json", "").replace("```", "").strip()
     return json.loads(clean)
+
+
+def call_claude_strict(films_block, titles):
+    verdicts = call_claude(films_block)
+    ok, message = validate_verdict_payload(verdicts, titles)
+    if ok:
+        return verdicts
+
+    retry_payload = {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": 4000,
+        "system": SYSTEM_PROMPT,
+        "messages": [
+            {
+                "role": "user",
+                "content": (
+                    "Your previous response failed validation and is being rejected.\n"
+                    f"Problem: {message}\n\n"
+                    "Rewrite only the same titles. Return a JSON array with the exact titles below.\n"
+                    "Each reason must be 1-2 sentences, premise first and mood/audience second.\n"
+                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, or percentages.\n"
+                    "Return only the JSON array.\n\n"
+                    f"Titles: {', '.join(titles)}\n\n"
+                    f"Films:\n{films_block}"
+                ),
+            }
+        ],
+    }
+
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=json.dumps(retry_payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+        },
+        method="POST",
+    )
+
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+
+    text = result["content"][0]["text"]
+    clean = text.replace("```json", "").replace("```", "").strip()
+    verdicts = json.loads(clean)
+    ok, message = validate_verdict_payload(verdicts, titles)
+    if not ok:
+        raise RuntimeError(f"Claude output rejected after retry: {message}")
+    return verdicts
 
 
 def main():
@@ -323,9 +366,10 @@ def main():
             )
 
             films_block = "\n---\n".join(build_film_block(m) for m in batch)
+            batch_titles = [m["title"] for m in batch]
 
             try:
-                verdicts = call_claude(films_block)
+                verdicts = call_claude_strict(films_block, batch_titles)
 
                 # Map results by title for matching
                 verdict_map = {v["title"]: v for v in verdicts}
@@ -341,19 +385,6 @@ def main():
                             "reason": v["reason"],
                             "generated_at": now.isoformat(),
                         }
-                        consensus = first_text(
-                            v.get("consensus"),
-                            v.get("apiConsensus"),
-                            v.get("api_consensus"),
-                            v.get("criticConsensus"),
-                            v.get("criticalConsensus"),
-                        )
-                        vibe = first_text(v.get("vibe"))
-                        if consensus:
-                            cache_entry["consensus"] = consensus
-                        if vibe:
-                            cache_entry["vibe"] = vibe
-
                         # Store in cache by IMDB ID
                         if movie_id:
                             cache[movie_id] = cache_entry
@@ -376,18 +407,7 @@ def main():
             movie["verdict"] = {
                 "verdict": entry["verdict"],
                 "reason": entry["reason"],
-                "vibe": entry.get("vibe") or movie.get("verdict", {}).get("vibe", ""),
             }
-            consensus = first_text(
-                entry.get("consensus"),
-                movie.get("verdict", {}).get("consensus"),
-                movie.get("verdict", {}).get("apiConsensus"),
-                movie.get("verdict", {}).get("api_consensus"),
-                movie.get("verdict", {}).get("criticConsensus"),
-                movie.get("verdict", {}).get("criticalConsensus"),
-            )
-            if consensus:
-                movie["verdict"]["consensus"] = consensus
             updated += 1
 
     print(f"\nUpdated {updated}/{len(movies)} films in data.json")
