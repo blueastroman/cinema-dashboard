@@ -337,11 +337,6 @@ def call_claude_strict(films_block, titles):
 
 
 def main():
-    if not ANTHROPIC_API_KEY:
-        print("ERROR: ANTHROPIC_API_KEY not set")
-        return
-
-    # Load data
     data = load_json(DATA_FILE)
     cache = load_json(CACHE_FILE, default={})
     movies = data.get("movies", [])
@@ -374,6 +369,11 @@ def main():
 
     print(f"Using cache: {cached_count}")
     print(f"Need API calls: {len(to_process)}")
+
+    if to_process and not ANTHROPIC_API_KEY:
+        print("ERROR: ANTHROPIC_API_KEY not set")
+        print("Applying cached verdicts only; unresolved films will remain without reviews.")
+        to_process = []
 
     # Process in batches
     if to_process:

@@ -1186,6 +1186,27 @@ def load_existing_movie_metadata(path: Path) -> dict:
 EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
 
 
+def load_existing_movie_records(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  [WARN] Failed to load existing dashboard records: {e}")
+        return {}
+
+    movies = data.get("movies", [])
+    existing = {}
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        if title and isinstance(movie, dict):
+            existing[exact_title_identity_key(title)] = dict(movie)
+    return existing
+
+
+EXISTING_MOVIE_RECORDS = load_existing_movie_records(OUTPUT_DATA_PATH)
+
+
 def get_existing_metadata(title: str) -> dict:
     base_title, _ = split_trailing_title_year(title)
     return (
@@ -1193,6 +1214,28 @@ def get_existing_metadata(title: str) -> dict:
         or EXISTING_MOVIE_METADATA.get(exact_title_identity_key(base_title))
         or {}
     )
+
+
+def get_existing_movie_record(title: str) -> dict:
+    base_title, _ = split_trailing_title_year(title)
+    return (
+        EXISTING_MOVIE_RECORDS.get(exact_title_identity_key(title))
+        or EXISTING_MOVIE_RECORDS.get(exact_title_identity_key(base_title))
+        or {}
+    )
+
+
+def existing_verdict(movie: Optional[dict]) -> Optional[dict]:
+    if not isinstance(movie, dict):
+        return None
+    verdict = movie.get("verdict") or {}
+    if not isinstance(verdict, dict):
+        return None
+    label = str(verdict.get("verdict") or "").strip().upper()
+    reason = str(verdict.get("reason") or "").strip()
+    if label not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
+        return None
+    return {"verdict": label, "reason": reason}
 
 
 def get_best_cached_match(title: str, query_year: Optional[int] = None) -> dict:
@@ -1659,6 +1702,10 @@ def migrate_movie_key(all_movies: dict[str, dict], theater_schedule: dict, theat
     target_movie["ratings"] = strip_placeholder_metadata(
         merge_prior_ratings(target_movie.get("ratings") or {}, old_movie.get("ratings") or {})
     )
+    if existing_verdict(target_movie) is None:
+        preserved_verdict = existing_verdict(old_movie)
+        if preserved_verdict is not None:
+            target_movie["verdict"] = preserved_verdict
     target_formats = set(target_movie.get("special_formats") or [])
     old_formats = set(old_movie.get("special_formats") or [])
     target_movie["special_formats"] = sorted(target_formats.union(old_formats))
@@ -2139,6 +2186,7 @@ def build_dataset() -> dict:
                         movie["special_formats"] = sorted(existing_formats.union(special_formats))
                 else:
                     movie_id = make_movie_id(title, ratings)
+                    prior_movie = get_existing_movie_record(title)
                     movie = {
                         "id": movie_id,
                         "title": title,
@@ -2146,6 +2194,9 @@ def build_dataset() -> dict:
                         "theaters": [],
                         "special_formats": [],
                     }
+                    preserved_verdict = existing_verdict(prior_movie)
+                    if preserved_verdict is not None:
+                        movie["verdict"] = preserved_verdict
                     all_movies[movie_key] = movie
             else:
                 current_ratings = movie.get("ratings") or {}
