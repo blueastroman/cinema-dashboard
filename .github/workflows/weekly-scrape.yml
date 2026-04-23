@@ -26,14 +26,26 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run scraper
+      - name: Run scraper and validate dataset with retry
+        shell: bash
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
-        run: python scripts/scrape.py
-      - name: Validate dataset
-        run: python scripts/validate_dataset.py
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "Scrape attempt ${attempt}/3"
+            if python scripts/scrape.py && python scripts/validate_dataset.py; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Scrape/validation failed on attempt ${attempt}; retrying in 60 seconds."
+              sleep 60
+            fi
+          done
+          echo "Scrape/validation failed after 3 attempts."
+          exit 1
       - name: Commit updated data
         shell: bash
         run: |
