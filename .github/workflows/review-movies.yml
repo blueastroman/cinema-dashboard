@@ -1,6 +1,10 @@
 name: Review Movies with Claude
 
 on:
+  workflow_run:
+    workflows: ["Weekly Cinema Scrape"]
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       force_refresh:
@@ -14,10 +18,13 @@ permissions:
 
 jobs:
   review:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
