@@ -1680,6 +1680,30 @@ def rt_sort_value(ratings: Optional[dict]) -> int:
     return int(match.group(1)) if match else 0
 
 
+def ensure_unique_movie_ids(movies: list[dict]) -> None:
+    used: set[str] = set()
+    for movie in movies:
+        title = str(movie.get("title") or "").strip()
+        ratings = movie.get("ratings") or {}
+        movie_id = str(movie.get("id") or make_movie_id(title, ratings) or slugify(title) or "movie").strip()
+
+        if movie_id in used:
+            base_title, title_year = split_trailing_title_year(title)
+            year = extract_year_int(ratings.get("year")) or title_year
+            title_slug = slugify(base_title or title) or "movie"
+            suffix = f"{title_slug}-{year}" if year else title_slug
+            candidate = f"{movie_id}-{suffix}" if suffix and suffix != movie_id else f"{movie_id}-2"
+            counter = 2
+            while candidate in used:
+                counter += 1
+                candidate = f"{movie_id}-{counter}"
+            print(f"  [WARN] Duplicate movie id '{movie_id}' for '{title}'; using '{candidate}'.")
+            movie_id = candidate
+
+        movie["id"] = movie_id
+        used.add(movie_id)
+
+
 def migrate_movie_key(all_movies: dict[str, dict], theater_schedule: dict, theater_formats: dict, old_key: str, new_key: str) -> Optional[dict]:
     if old_key == new_key:
         return all_movies.get(new_key)
@@ -2266,6 +2290,8 @@ def build_dataset() -> dict:
 
     if not movies_list:
         raise RuntimeError("No movies scraped from any source")
+
+    ensure_unique_movie_ids(movies_list)
 
     dataset = {
         "generated_at": ny_now().isoformat(),
