@@ -1675,7 +1675,7 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
         return ratings
 
     for key, value in override.items():
-        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
+        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "rtUrl", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
             ratings[key] = value
 
     cinema_score_override = CINEMASCORE_OVERRIDES.get(exact_title_identity_key(lookup_title))
