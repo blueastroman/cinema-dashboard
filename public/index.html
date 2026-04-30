@@ -750,6 +750,20 @@
     .meta-value.rt-mid { color: var(--depends); }
     .meta-value.rt-low { color: var(--skip); }
     .meta-value.cs-score { color: var(--accent); }
+    .meta-value a,
+    .t-score a,
+    .ranking-rt a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .meta-value a:hover,
+    .t-score a:hover,
+    .ranking-rt a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
 
     .meta-label {
       font-family: var(--font-sans);
@@ -2832,6 +2846,15 @@ function getScoreHierarchy(movie) {
   };
 }
 
+function renderScoreValue(score, movie) {
+  const value = escapeHTML(score?.value || '');
+  if (!value) return '';
+  if (score?.key !== 'rt') return value;
+  const url = getRottenTomatoesUrl(movie);
+  if (!url) return value;
+  return `<a href="${escapeHTML(url)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${value}</a>`;
+}
+
 function getPriorityScore(movie) {
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
   if (cinemaWeight !== null) return cinemaWeight;
@@ -3585,6 +3608,7 @@ function buildRankingRow(movie, idx) {
   const watched = hasStoredMovie(getWatched(), movie);
   const isHiddenRow = hasStoredMovie(getHidden(), movie);
   const lbUrl = getLetterboxdUrl(movie);
+  const rtUrl = getRottenTomatoesUrl(movie);
   const posterUrl = getPosterUrl(movie);
   const genre = cleanDisplayText(ratings.genre);
   const runtime = cleanDisplayText(ratings.runtime);
@@ -3605,7 +3629,11 @@ function buildRankingRow(movie, idx) {
         : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
     </div>
     <div class="ranking-score">
-      <div class="ranking-rt ${getRTClass(rtScore)}">${rtScore === null ? 'NR' : `${rtScore}%`}</div>
+      <div class="ranking-rt ${getRTClass(rtScore)}">${
+        rtScore === null
+          ? 'NR'
+          : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
+      }</div>
       <div class="ranking-score-label">Critics</div>
       ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
     </div>
@@ -3790,7 +3818,7 @@ function renderTheaterView() {
             <div class="theater-film-scores">
               ${scoreHierarchy.primary ? `
                 <div class="score-primary">
-                  <div class="t-score ${scoreHierarchy.primary.className}">${scoreHierarchy.primary.value}</div>
+                  <div class="t-score ${scoreHierarchy.primary.className}">${renderScoreValue(scoreHierarchy.primary, movie)}</div>
                   <div class="t-score-label">${scoreHierarchy.primary.label}</div>
                 </div>
               ` : ''}
@@ -3798,7 +3826,7 @@ function renderTheaterView() {
                 <div class="score-secondary-list">
                   ${scoreHierarchy.secondary.map(score => `
                     <div class="score-secondary-item">
-                      <div class="t-score ${score.className}">${score.value}</div>
+                      <div class="t-score ${score.className}">${renderScoreValue(score, movie)}</div>
                       <div class="t-score-label">${score.shortLabel}</div>
                     </div>
                   `).join('')}
@@ -3900,7 +3928,7 @@ function buildCard(movie, idx) {
     ${scoreHierarchy.primary ? `
       <div class="card-meta">
         <div class="meta-item">
-          <span class="meta-value ${scoreHierarchy.primary.className}">${scoreHierarchy.primary.value}</span>
+          <span class="meta-value ${scoreHierarchy.primary.className}">${renderScoreValue(scoreHierarchy.primary, movie)}</span>
           <span class="meta-label">${scoreHierarchy.primary.label}</span>
         </div>
       </div>
@@ -3910,7 +3938,7 @@ function buildCard(movie, idx) {
         ${scoreHierarchy.secondary.map((score, index) => `
           ${index ? '<div class="meta-sep"></div>' : ''}
           <div class="meta-item">
-            <span class="meta-value ${score.className}">${score.value}</span>
+            <span class="meta-value ${score.className}">${renderScoreValue(score, movie)}</span>
             <span class="meta-label">${score.shortLabel}</span>
           </div>
         `).join('')}
@@ -4024,6 +4052,35 @@ function makeSlug(title) {
     .trim()
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
+}
+
+function titleWithoutTrailingYear(title) {
+  return String(title || '').replace(/\s*\((?:18|19|20)\d{2}\)\s*$/, '').trim();
+}
+
+function slugifyForUrl(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
+
+function makeRottenTomatoesSlug(title) {
+  return slugifyForUrl(titleWithoutTrailingYear(title)).replace(/-/g, '_');
+}
+
+function getRottenTomatoesUrl(movie) {
+  const ratings = movie?.ratings || {};
+  const explicitUrl = String(ratings.rtUrl || ratings.rt_url || ratings.rottenTomatoesUrl || ratings.rotten_tomatoes_url || '').trim();
+  if (explicitUrl) return explicitUrl;
+
+  const slug = makeRottenTomatoesSlug(movie?.title || '');
+  return slug ? `https://www.rottentomatoes.com/m/${slug}` : '';
 }
 
 function getTicketUrl(theaterData) {
