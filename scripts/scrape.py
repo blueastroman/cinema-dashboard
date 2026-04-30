@@ -1405,6 +1405,72 @@ def fetch_letterboxd_fallback(title: str, query_year: Optional[int] = None) -> O
     return None
 
 
+def extract_tmdb_poster(page: str) -> Optional[str]:
+    for pattern in (
+        r'https://image\.tmdb\.org/t/p/(?:w\d+|original)/[^"\s<>]+',
+        r'https://media\.themoviedb\.org/t/p/(?:w\d+|original)/[^"\s<>]+',
+    ):
+        match = re.search(pattern, page or "")
+        if not match:
+            continue
+        poster_url = html.unescape(match.group(0)).replace("\\/", "/")
+        poster_url = poster_url.replace("https://media.themoviedb.org/t/p/", "https://image.tmdb.org/t/p/")
+        return poster_url
+    return None
+
+
+def tmdb_movie_candidates(search_page: str) -> list[str]:
+    candidates = []
+    seen = set()
+    for match in re.finditer(r'href=["\'](/movie/\d+[^"\'#?]*)["\']', search_page or ""):
+        path = html.unescape(match.group(1)).split("?")[0].rstrip("/")
+        if path not in seen:
+            candidates.append(path)
+            seen.add(path)
+    return candidates
+
+
+def fetch_tmdb_poster_fallback(title: str, query_year: Optional[int] = None) -> Optional[str]:
+    for alias in title_lookup_aliases(title):
+        try:
+            search_page = requests.get(
+                f"https://www.themoviedb.org/search?query={quote(alias)}",
+                timeout=15,
+                headers=DEFAULT_HEADERS,
+            ).text
+        except Exception:
+            continue
+
+        for path in tmdb_movie_candidates(search_page)[:6]:
+            try:
+                movie_page = requests.get(
+                    f"https://www.themoviedb.org{path}",
+                    timeout=15,
+                    headers=DEFAULT_HEADERS,
+                ).text
+            except Exception:
+                continue
+
+            page_title, page_year = extract_page_title(movie_page)
+            if page_title and not title_result_is_compatible(title, page_title, query_year=query_year, result_year=page_year):
+                continue
+
+            poster = extract_tmdb_poster(movie_page)
+            if poster:
+                return poster
+
+    return None
+
+
+def ensure_poster_fallback(title: str, ratings: dict, query_year: Optional[int] = None) -> dict:
+    if ratings.get("poster") not in (None, "", "N/A"):
+        return ratings
+    poster = fetch_tmdb_poster_fallback(title, query_year=query_year)
+    if poster:
+        ratings["poster"] = poster
+    return ratings
+
+
 def parse_omdb_ratings(data: dict) -> dict:
     rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
     cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
@@ -1503,7 +1569,7 @@ def extract_page_title(page: str) -> tuple[str, Optional[int]]:
             continue
         raw = html.unescape(re.sub(r"<[^>]+>", " ", match.group(1)))
         raw = re.sub(r"\s+", " ", raw).strip()
-        raw = re.sub(r"\s*(?:\||-)\s*(?:Rotten Tomatoes|Letterboxd).*$", "", raw, flags=re.IGNORECASE).strip()
+        raw = re.sub(r"\s*(?:\||-|[\u2013\u2014])\s*(?:Rotten Tomatoes|Letterboxd|The Movie Database.*|TMDB).*$", "", raw, flags=re.IGNORECASE).strip()
         year = extract_year_int(raw)
         raw = re.sub(r"\s*[\(\[]?(?:18|19|20)\d{2}[\)\]]?\s*$", "", raw).strip()
         if raw:
@@ -1653,6 +1719,12 @@ def ratings_request_key(title: str, hint_year: Optional[int] = None, source_meta
     if imdb_id:
         return f"{exact}|imdb:{imdb_id}"
     return f"{exact}|{year}" if year else exact
+
+
+def letterboxd_query_year(year: Optional[int]) -> Optional[int]:
+    if year is None:
+        return None
+    return year if year < (_CURRENT_YEAR - 1) else None
 
 
 def metadata_completeness(ratings: Optional[dict]) -> int:
@@ -1990,14 +2062,16 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Opt
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     lookup_title, title_year = split_trailing_title_year(title)
     effective_hint_year = hint_year or title_year
+    lb_query_year = letterboxd_query_year(effective_hint_year)
     if not OMDB_KEY:
         if ALLOW_MOCK_DATA:
             return mock_ratings(title)
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
-        parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=effective_hint_year)
+        parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
         parsed = merge_existing_metadata(title, parsed)
         parsed = apply_rating_overrides(title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
         return strip_placeholder_metadata(parsed)
 
     try:
@@ -2008,21 +2082,23 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Opt
         if not parsed.get("rt"):
             parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         if not parsed.get("letterboxd"):
-            parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=effective_hint_year)
+            parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
 
         parsed = merge_existing_metadata(title, parsed)
         parsed = enrich_from_rating_cache(title, parsed, hint_year=effective_hint_year)
         parsed = apply_rating_overrides(title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
     except Exception as e:
         print(f"  [ERROR] OMDb failed for '{title}': {e}")
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
-        parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=effective_hint_year)
+        parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
         parsed = merge_existing_metadata(title, parsed)
         parsed = enrich_from_rating_cache(title, parsed, hint_year=effective_hint_year)
         parsed = apply_rating_overrides(title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
 
