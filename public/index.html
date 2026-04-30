@@ -1434,9 +1434,203 @@
       white-space: nowrap;
     }
 
+    /* ── RANKINGS VIEW ─────────────────────────────────────── */
+    .rankings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ranking-row {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) minmax(150px, 190px) auto;
+      gap: 18px;
+      align-items: start;
+      padding: 18px 18px 18px 16px;
+      border: 1px solid var(--movie-box-border);
+      border-radius: 2px;
+      background: var(--off-black);
+      box-shadow: var(--movie-box-shadow);
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.3s ease both;
+    }
+
+    .ranking-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: transparent;
+    }
+
+    .ranking-row.watch::before { background: var(--watch); }
+    .ranking-row.depends::before { background: var(--depends); }
+    .ranking-row.skip::before { background: var(--skip); }
+    .ranking-row:hover {
+      background: var(--charcoal);
+      border-color: var(--mid-gray);
+    }
+    .ranking-row.is-watched {
+      background: var(--saved-card-bg);
+      box-shadow: var(--saved-card-shadow);
+    }
+
+    .ranking-score {
+      min-width: 0;
+      padding-top: 2px;
+    }
+
+    .ranking-rt {
+      font-family: var(--font-sans);
+      font-size: 2.15rem;
+      font-weight: 900;
+      line-height: 0.95;
+      white-space: nowrap;
+    }
+
+    .ranking-rt.rt-high { color: var(--watch); }
+    .ranking-rt.rt-mid { color: var(--depends); }
+    .ranking-rt.rt-low { color: var(--skip); }
+    .ranking-rt.rt-none { color: var(--muted); }
+
+    .ranking-score-label,
+    .ranking-lb {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .ranking-lb {
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .ranking-main {
+      min-width: 0;
+    }
+
+    .ranking-title {
+      font-family: var(--font-sans);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--cream);
+      overflow-wrap: anywhere;
+    }
+
+    .ranking-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .ranking-title a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ranking-meta {
+      margin-top: 5px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .ranking-blurb {
+      margin-top: 12px;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.58;
+      font-style: italic;
+      border-left: 2px solid var(--mid-gray);
+      padding-left: 12px;
+    }
+
+    .ranking-next {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .next-showtime-pill {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 999px;
+      padding: 7px 11px;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+
+    .ranking-times-toggle {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: transparent;
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .ranking-times-toggle:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .ranking-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .ranking-times-panel {
+      grid-column: 2 / -1;
+      display: none;
+      padding-top: 2px;
+    }
+
+    .ranking-row.open .ranking-times-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .ranking-theater-group {
+      min-width: 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--dark-gray);
+    }
+
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ranking-row {
+        grid-template-columns: 82px minmax(0, 1fr) auto;
+      }
+      .ranking-next,
+      .ranking-times-panel {
+        grid-column: 2 / -1;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1486,6 +1680,21 @@
         bottom: 10px;
       }
       .theater-film-review { font-size: 0.88rem; }
+      .ranking-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px 14px 16px 14px;
+      }
+      .ranking-rt { font-size: 1.75rem; }
+      .ranking-title { font-size: 1.15rem; }
+      .ranking-next,
+      .ranking-actions,
+      .ranking-times-panel {
+        grid-column: 1 / -1;
+      }
+      .ranking-actions {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -1576,6 +1785,11 @@
           <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
           <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Best</button>
         </div>
+        <div class="control-group">
+          <span class="control-label">View</span>
+          <button class="filter-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
+          <button class="filter-btn" id="view-grid" onclick="setView('grid')">Grid</button>
+        </div>
         <div class="control-group tight">
           <span class="control-label">Show</span>
           <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
@@ -1625,9 +1839,9 @@ let activeGenre = 'all';
 let activeFormat = 'all';
 let activeDaypart = 'all';
 let searchQuery = '';
-let activeSort = 'day';
+let activeSort = 'rating';
 let showMode = 'all';
-let viewMode = 'theaters';
+let viewMode = 'rankings';
 let hasLoadedData = false;
 let theaterMeta = {};
 let currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -1757,7 +1971,7 @@ const DEFAULT_THEATER_META = {
   'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo', sort_name: 'Alamo', official_url: 'https://drafthouse.com/nyc', source_type: 'alamo', aliases: ['alamo'] },
   'Alamo Drafthouse Downtown Brooklyn': { slug: 'alamo-brooklyn', short_name: 'Alamo Brooklyn', sort_name: 'Alamo Brooklyn', official_url: 'https://drafthouse.com/theater/downtown-brooklyn', source_type: 'alamo', aliases: ['alamo brooklyn', 'downtown brooklyn', 'brooklyn alamo'] },
   'Alamo Drafthouse Staten Island': { slug: 'alamo-staten-island', short_name: 'Alamo Staten Island', sort_name: 'Alamo Staten Island', official_url: 'https://drafthouse.com/theater/staten-island', source_type: 'alamo', aliases: ['alamo staten island', 'staten island', 'staten island alamo'] },
-  'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'serpapi', aliases: ['paris'] },
+  'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'paris', aliases: ['paris'] },
   'Museum of Modern Art': { slug: 'moma', short_name: 'MoMA', sort_name: 'MoMA', official_url: 'https://www.moma.org/calendar/film/', source_type: 'serpapi', aliases: ['moma', 'museum of modern art', 'moma film'] },
 };
 
@@ -1839,7 +2053,7 @@ function updateUrlFromState() {
   if (activeFormat !== 'all') params.set('format', slugify(activeFormat));
   if (activeDaypart !== 'all') params.set('time', activeDaypart);
   if (searchQuery) params.set('q', searchQuery);
-  if (activeSort !== 'day') params.set('sort', activeSort);
+  if (activeSort !== 'rating') params.set('sort', activeSort);
   if (showMode !== 'all') params.set('show', showMode);
 
   const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
@@ -2096,12 +2310,12 @@ function getVisibleTheaters(movie) {
   const observedTheaters = theaters.map(t => getCanonicalTheaterName(t?.name)).filter(Boolean);
   const effectiveAmc = getEffectiveMembershipDefault('amc', observedTheaters);
   const effectiveAlamo = getEffectiveMembershipDefault('alamo', observedTheaters);
-  return theaters.filter(t => {
+  const visible = theaters.filter(t => {
     const canonical = getCanonicalTheaterName(t?.name);
     const isAmc = /^AMC\b/i.test(canonical);
     const isAlamo = getTheaterMeta(canonical)?.source_type === 'alamo';
     const formatPinned = activeFormat !== 'all'
-      && getTheaterFormats(t, movie).map(format => String(format || '').toLowerCase()).includes(activeFormat.toLowerCase());
+      && theaterMatchesFormat(t, movie);
 
     if (isAmc) {
       if (effectiveAmc === 'none') return false;
@@ -2126,6 +2340,9 @@ function getVisibleTheaters(movie) {
     if (activeTheater === 'all') return true;
     return canonical === activeTheater;
   });
+  return activeFormat === 'all'
+    ? visible
+    : visible.filter(t => theaterMatchesFormat(t, movie));
 }
 
 function moviePlayingOn(movie, dateLabel) {
@@ -2236,20 +2453,53 @@ function resolveFormatValue(value, formats = []) {
   return formats.find(format => slugify(format) === slugify(raw)) || 'all';
 }
 
+function normalizeFormat(format) {
+  const raw = String(format || '').trim();
+  if (!raw) return '';
+  const slug = slugify(raw);
+  if (slug === 'imax') return 'IMAX';
+  if (slug === '70mm' || slug === '70-mm') return '70mm';
+  if (slug === '35mm' || slug === '35-mm') return '35mm';
+  return raw;
+}
+
+function formatEquals(a, b) {
+  return slugify(normalizeFormat(a)) === slugify(normalizeFormat(b));
+}
+
+function uniqueFormats(formats) {
+  const seen = new Set();
+  const values = [];
+  (formats || []).forEach(format => {
+    const value = normalizeFormat(format);
+    if (!value) return;
+    const key = slugify(value);
+    if (seen.has(key)) return;
+    seen.add(key);
+    values.push(value);
+  });
+  return values;
+}
+
 function getMovieFormats(movie) {
-  return [...new Set((movie?.special_formats || []).map(format => String(format || '').trim()).filter(Boolean))];
+  return uniqueFormats(movie?.special_formats || []);
 }
 
 function getTheaterFormats(theaterData, movie = null) {
-  const directFormats = [...new Set(((theaterData?.special_formats) || []).map(format => String(format || '').trim()).filter(Boolean))];
+  const directFormats = uniqueFormats(theaterData?.special_formats || []);
   if (directFormats.length) return directFormats;
-  if (movie && (movie?.theaters || []).length <= 2) return getMovieFormats(movie);
+  if (movie && (movie?.theaters || []).length <= 1) return getMovieFormats(movie);
   return [];
+}
+
+function theaterMatchesFormat(theaterData, movie, format = activeFormat) {
+  if (!format || format === 'all') return true;
+  return getTheaterFormats(theaterData, movie).some(candidate => formatEquals(candidate, format));
 }
 
 function getVisibleMovieFormats(movie) {
   const visibleFormats = getVisibleTheaters(movie).flatMap(theaterData => getTheaterFormats(theaterData, movie));
-  const uniqueVisibleFormats = [...new Set(visibleFormats.map(format => String(format || '').trim()).filter(Boolean))];
+  const uniqueVisibleFormats = uniqueFormats(visibleFormats);
   if (uniqueVisibleFormats.length) return uniqueVisibleFormats;
   return (movie?.theaters || []).length <= 1 ? getMovieFormats(movie) : [];
 }
@@ -2905,7 +3155,7 @@ function getFiltered() {
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
     const visibleTheaters = getVisibleTheaters(movie);
-    const visibleFormats = getVisibleMovieFormats({ ...movie, theaters: visibleTheaters }).map(format => format.toLowerCase());
+    const visibleFormats = getVisibleMovieFormats({ ...movie, theaters: visibleTheaters });
     const isHidden = hasStoredMovie(hidden, movie);
     const isSaved = hasStoredMovie(watched, movie);
     if (showMode === 'hidden') {
@@ -2931,13 +3181,13 @@ function getFiltered() {
       if (!genres.includes(activeGenre.toLowerCase())) return false;
     }
     if (activeFormat !== 'all') {
-      if (!visibleFormats.includes(activeFormat.toLowerCase())) return false;
+      if (!visibleFormats.some(format => formatEquals(format, activeFormat))) return false;
     }
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       const title = (movie.title || '').toLowerCase();
       const genre = (movie.ratings?.genre || '').toLowerCase();
-      const formats = visibleFormats.join(' ');
+      const formats = visibleFormats.join(' ').toLowerCase();
       if (!title.includes(q) && !genre.includes(q) && !formats.includes(q)) return false;
     }
     return true;
@@ -2964,18 +3214,21 @@ function syncShowButtons() {
   document.getElementById('hidden-btn')?.classList.toggle('active', showMode === 'hidden');
 }
 
+function syncViewButtons() {
+  document.getElementById('view-rankings')?.classList.toggle('active', viewMode === 'rankings');
+  document.getElementById('view-grid')?.classList.toggle('active', viewMode === 'grid');
+}
+
 function setView(mode) {
-  const prevMode = viewMode;
-  viewMode = mode;
-  document.body.classList.toggle('compact-mode', mode === 'list');
-  document.getElementById('view-cards')?.classList.toggle('active', mode === 'cards');
-  document.getElementById('view-list')?.classList.toggle('active', mode === 'list');
-  document.getElementById('view-theaters')?.classList.toggle('active', mode === 'theaters');
-  if (mode === 'theaters' || prevMode === 'theaters') render();
+  viewMode = mode === 'grid' ? 'grid' : 'rankings';
+  document.body.classList.remove('compact-mode');
+  syncViewButtons();
+  render();
 }
 
 function initializeViewMode() {
-  setView('theaters');
+  viewMode = 'rankings';
+  syncViewButtons();
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -2997,7 +3250,8 @@ function renderSection(label, labelClass, list, main) {
 
 function render() {
   if (hasLoadedData) updateUrlFromState();
-  if (viewMode === 'theaters') { renderTheaterView(); return; }
+  if (viewMode === 'grid') { renderTheaterView(); return; }
+  if (viewMode === 'rankings') { renderRankingsView(); return; }
 
   const movies = getFiltered();
   const main = document.getElementById('main-content');
@@ -3086,6 +3340,231 @@ function render() {
   sorted.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
   section.appendChild(grid);
   main.appendChild(section);
+}
+
+// ── RANKINGS VIEW ──────────────────────────────────────────────────────────
+
+function getRTScore(movie) {
+  const raw = String(movie?.ratings?.rt || '').trim();
+  const score = parseInt(raw, 10);
+  if (!Number.isFinite(score)) return null;
+  return Math.max(0, Math.min(100, score));
+}
+
+function getRTClass(score) {
+  if (score === null) return 'rt-none';
+  if (score >= 80) return 'rt-high';
+  if (score >= 60) return 'rt-mid';
+  return 'rt-low';
+}
+
+function getRankingKey(movie) {
+  return slugify(`${movie?.title || ''}-${movie?.ratings?.year || ''}`);
+}
+
+function mergeScheduleItems(existing = [], incoming = []) {
+  const byDay = new Map();
+  [...existing, ...incoming].forEach(slot => {
+    const key = `${String(slot?.day || '').trim()}|${String(slot?.date || '').trim()}`;
+    if (!key.trim()) return;
+    if (!byDay.has(key)) {
+      byDay.set(key, { ...slot, times: [], ticket_urls: { ...(slot?.ticket_urls || {}) } });
+    }
+    const merged = byDay.get(key);
+    merged.ticket_urls = { ...(merged.ticket_urls || {}), ...(slot?.ticket_urls || {}) };
+    (slot?.times || []).forEach(time => {
+      if (!merged.times.includes(time)) merged.times.push(time);
+    });
+  });
+  return [...byDay.values()].map(slot => ({
+    ...slot,
+    times: (slot.times || []).sort((a, b) => {
+      const aAt = parseShowtimeDate(slot.day, a, slot.date || '');
+      const bAt = parseShowtimeDate(slot.day, b, slot.date || '');
+      if (aAt && bAt) return aAt - bAt;
+      return String(a).localeCompare(String(b));
+    }),
+  }));
+}
+
+function mergeTheaterEntries(theaters = []) {
+  const byTheater = new Map();
+  theaters.forEach(theater => {
+    const canonical = getCanonicalTheaterName(theater?.name);
+    if (!canonical) return;
+    if (!byTheater.has(canonical)) {
+      byTheater.set(canonical, { ...theater, name: canonical, schedule: [] });
+    }
+    const merged = byTheater.get(canonical);
+    merged.schedule = mergeScheduleItems(merged.schedule, theater?.schedule || []);
+    merged.special_formats = uniqueFormats([...(merged.special_formats || []), ...(theater?.special_formats || [])]);
+    if (!merged.ticket_url && theater?.ticket_url) merged.ticket_url = theater.ticket_url;
+  });
+  return [...byTheater.values()]
+    .filter(theater => buildInlineShowtimeHTML(theater.schedule, theater, Number.POSITIVE_INFINITY))
+    .sort((a, b) => getTheaterSortLabel(a.name).localeCompare(getTheaterSortLabel(b.name), undefined, { sensitivity: 'base' }));
+}
+
+function getRankingEntries() {
+  const byMovie = new Map();
+  getFiltered().forEach(movie => {
+    const key = getRankingKey(movie);
+    const visibleTheaters = getVisibleTheaters(movie);
+    if (!visibleTheaters.length) return;
+    if (!byMovie.has(key)) {
+      byMovie.set(key, { ...movie, theaters: [], _sourceMovies: [] });
+    }
+    const merged = byMovie.get(key);
+    merged._sourceMovies.push(movie);
+    merged.theaters.push(...visibleTheaters);
+    if ((movie?._confidence || 0) > (merged?._confidence || 0)) {
+      Object.assign(merged, { ...movie, theaters: merged.theaters, _sourceMovies: merged._sourceMovies });
+    }
+  });
+
+  return [...byMovie.values()]
+    .map(movie => ({ ...movie, theaters: mergeTheaterEntries(movie.theaters) }))
+    .filter(movie => movie.theaters.length);
+}
+
+function getNextRankingShow(movie) {
+  let best = null;
+  getVisibleTheaters(movie).forEach(theater => {
+    const next = getNextShowFromSchedule(theater.schedule, getActiveDayFilterLabel());
+    if (!next) return;
+    const entry = { ...next, theater };
+    if (!best || entry.at < best.at) best = entry;
+  });
+  return best;
+}
+
+function compareRankingsByScore(a, b) {
+  const aRT = getRTScore(a);
+  const bRT = getRTScore(b);
+  if (aRT !== null || bRT !== null) {
+    if (aRT === null) return 1;
+    if (bRT === null) return -1;
+    if (bRT !== aRT) return bRT - aRT;
+  }
+  const priorityDelta = getPriorityScore(b) - getPriorityScore(a);
+  if (priorityDelta !== 0) return priorityDelta;
+  const aNext = getNextRankingShow(a);
+  const bNext = getNextRankingShow(b);
+  if (aNext && bNext && aNext.at.getTime() !== bNext.at.getTime()) return aNext.at - bNext.at;
+  if (aNext && !bNext) return -1;
+  if (!aNext && bNext) return 1;
+  return (a.title || '').localeCompare(b.title || '');
+}
+
+function compareRankingsBySoonest(a, b) {
+  const aNext = getNextRankingShow(a);
+  const bNext = getNextRankingShow(b);
+  if (aNext && bNext && aNext.at.getTime() !== bNext.at.getTime()) return aNext.at - bNext.at;
+  if (aNext && !bNext) return -1;
+  if (!aNext && bNext) return 1;
+  return compareRankingsByScore(a, b);
+}
+
+function getNextShowtimeLabel(nextShow) {
+  if (!nextShow) return 'No upcoming time';
+  const day = dateScope === 'today' ? '' : getShowtimeDayLabel(nextShow.day);
+  const time = formatShowtimeLabel(nextShow.time);
+  const theater = getDisplayTheaterName(nextShow.theater?.name);
+  return [day, time, theater].filter(Boolean).join(' · ');
+}
+
+function buildRankingShowtimesHTML(movie) {
+  return getVisibleTheaters(movie).map(theater => {
+    const scheduleHTML = buildInlineShowtimeHTML(theater.schedule, theater, Number.POSITIVE_INFINITY);
+    if (!scheduleHTML) return '';
+    return `
+      <div class="ranking-theater-group">
+        <div class="theater-name">${theaterLink(theater.name)}</div>
+        <div class="theater-film-times">${scheduleHTML}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderRankingsView() {
+  const movies = getRankingEntries();
+  const main = document.getElementById('main-content');
+  main.innerHTML = '';
+
+  if (!movies.length) {
+    renderEmptyState(main);
+    return;
+  }
+
+  const sorted = [...movies].sort(activeSort === 'day' ? compareRankingsBySoonest : compareRankingsByScore);
+  const list = document.createElement('div');
+  list.className = 'rankings-list';
+  sorted.forEach((movie, idx) => list.appendChild(buildRankingRow(movie, idx)));
+  main.appendChild(list);
+}
+
+function buildRankingRow(movie, idx) {
+  const verdict = getCardTone(movie);
+  const ratings = movie.ratings || {};
+  const rtScore = getRTScore(movie);
+  const lbScore = cleanDisplayText(ratings.letterboxd);
+  const nextShow = getNextRankingShow(movie);
+  const review = getDisplayReason(movie);
+  const watched = hasStoredMovie(getWatched(), movie);
+  const isHiddenRow = hasStoredMovie(getHidden(), movie);
+  const lbUrl = getLetterboxdUrl(movie);
+  const genre = cleanDisplayText(ratings.genre);
+  const runtime = cleanDisplayText(ratings.runtime);
+  const year = cleanDisplayText(ratings.year);
+  const director = cleanDisplayText(ratings.director);
+  const meta = [year, director, genre, runtime].filter(Boolean).join(' · ');
+  const safeId = String(movie.id).replace(/'/g, "\\'");
+  const safeTitle = String(movie.title || '').replace(/'/g, "\\'");
+
+  const row = document.createElement('div');
+  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}`;
+  row.style.animationDelay = `${idx * 30}ms`;
+  row.dataset.title = movie.title || '';
+  row.innerHTML = `
+    <div class="ranking-score">
+      <div class="ranking-rt ${getRTClass(rtScore)}">${rtScore === null ? 'NR' : `${rtScore}%`}</div>
+      <div class="ranking-score-label">Critics</div>
+      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+    </div>
+    <div class="ranking-main">
+      <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
+      ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
+      ${review ? `<div class="ranking-blurb">${escapeHTML(review)}</div>` : ''}
+    </div>
+    <div class="ranking-next">
+      <div class="next-showtime-pill">${escapeHTML(getNextShowtimeLabel(nextShow))}</div>
+      <button class="ranking-times-toggle" type="button">See times</button>
+    </div>
+    <div class="ranking-actions">
+      ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
+      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, '${safeId}', '${safeTitle}')">★</button>
+      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, '${safeId}', '${safeTitle}')">×</button>
+    </div>
+    <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
+  `;
+
+  row.addEventListener('click', event => {
+    if (event.target.closest('a, button')) return;
+    toggleRankingRow(row);
+  });
+  row.querySelector('.ranking-times-toggle')?.addEventListener('click', event => {
+    event.stopPropagation();
+    toggleRankingRow(row);
+  });
+
+  return row;
+}
+
+function toggleRankingRow(row) {
+  const open = !row.classList.contains('open');
+  row.classList.toggle('open', open);
+  const toggle = row.querySelector('.ranking-times-toggle');
+  if (toggle) toggle.textContent = open ? 'Hide times' : 'See times';
 }
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────
@@ -3428,6 +3907,32 @@ function onTheaterHide(btn, movieId, title) {
     row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
     row.style.opacity = '0';
     row.style.transform = 'scale(0.98)';
+  }
+  setTimeout(() => render(), 220);
+}
+
+function onRankingWatched(btn, movieId, title) {
+  toggleWatched(movieId, title);
+  const row = btn.closest('.ranking-row');
+  const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
+  row?.classList.toggle('is-watched', isNowWatched);
+  btn.classList.toggle('active', isNowWatched);
+  btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
+  btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
+  setTimeout(() => render(), 80);
+}
+
+function onRankingHide(btn, movieId, title) {
+  toggleHidden(movieId, title);
+  const isStillHidden = hasStoredMovie(getHidden(), movieId, title);
+  btn.classList.toggle('active', isStillHidden);
+  btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
+  btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
+  const row = btn.closest('.ranking-row');
+  if (row) {
+    row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+    row.style.opacity = '0';
+    row.style.transform = 'scale(0.985)';
   }
   setTimeout(() => render(), 220);
 }
