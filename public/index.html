@@ -4055,6 +4055,18 @@ function getTheaterTicketPriceNote(name) {
 }
 
 function getLetterboxdUrl(movie) {
+  const ratings = movie?.ratings || {};
+  const explicitUrl = String(ratings.letterboxdUrl || ratings.letterboxd_url || '').trim();
+  if (explicitUrl) return explicitUrl;
+
+  const imdbId = String(ratings.imdbID || ratings.imdbId || '').trim();
+  if (/^tt\d+$/i.test(imdbId)) {
+    return `https://letterboxd.com/imdb/${encodeURIComponent(imdbId)}/`;
+  }
+
+  const slug = slugifyForUrl(movie?.title || '');
+  if (slug) return `https://letterboxd.com/film/${slug}/`;
+
   const query = encodeURIComponent(String(movie?.title || '').trim());
   return `https://letterboxd.com/search/${query}/`;
 }
