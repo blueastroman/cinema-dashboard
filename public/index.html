@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Showtimes NYC</title>
+  <link rel="icon" href="./favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script>
@@ -1443,7 +1446,7 @@
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 90px minmax(0, 1fr) minmax(150px, 190px) auto;
+      grid-template-columns: 86px 82px minmax(0, 1fr) minmax(150px, 190px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1478,6 +1481,41 @@
     .ranking-row.is-watched {
       background: var(--saved-card-bg);
       box-shadow: var(--saved-card-shadow);
+    }
+
+    .ranking-poster-wrap {
+      width: 86px;
+      aspect-ratio: 2 / 3;
+      border: 1px solid var(--movie-box-border);
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--dark-gray);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+      position: relative;
+    }
+
+    .ranking-poster {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: var(--dark-gray);
+    }
+
+    .ranking-poster-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      background:
+        linear-gradient(145deg, rgba(200, 169, 110, 0.18), rgba(10, 10, 10, 0.05)),
+        var(--charcoal);
+      font-family: var(--font-sans);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
     }
 
     .ranking-score {
@@ -1604,7 +1642,7 @@
     }
 
     .ranking-times-panel {
-      grid-column: 2 / -1;
+      grid-column: 3 / -1;
       display: none;
       padding-top: 2px;
     }
@@ -1625,11 +1663,14 @@
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .ranking-row {
-        grid-template-columns: 82px minmax(0, 1fr) auto;
+        grid-template-columns: 76px 78px minmax(0, 1fr) auto;
       }
       .ranking-next,
       .ranking-times-panel {
-        grid-column: 2 / -1;
+        grid-column: 3 / -1;
+      }
+      .ranking-poster-wrap {
+        width: 76px;
       }
     }
 
@@ -1681,11 +1722,25 @@
       }
       .theater-film-review { font-size: 0.88rem; }
       .ranking-row {
-        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-columns: 64px minmax(0, 1fr);
         gap: 14px;
         padding: 16px 14px 16px 14px;
       }
+      .ranking-poster-wrap {
+        width: 64px;
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .ranking-score {
+        grid-column: 1;
+        grid-row: 2;
+        padding-top: 0;
+      }
       .ranking-rt { font-size: 1.75rem; }
+      .ranking-main {
+        grid-column: 2 / -1;
+        grid-row: 1 / span 2;
+      }
       .ranking-title { font-size: 1.15rem; }
       .ranking-next,
       .ranking-actions,
@@ -2605,6 +2660,10 @@ function hasReviewSignals(movie) {
   return Boolean(hasRT || hasCinemaScore || hasImdb || hasLetterboxd);
 }
 
+function hasCriticRating(movie) {
+  return getRTScore(movie) !== null;
+}
+
 function getDisplayVerdict(movie) {
   const rawVerdict = movie?.verdict?.verdict || 'SKIP';
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
@@ -3408,6 +3467,7 @@ function mergeTheaterEntries(theaters = []) {
 function getRankingEntries() {
   const byMovie = new Map();
   getFiltered().forEach(movie => {
+    if (!hasCriticRating(movie)) return;
     const key = getRankingKey(movie);
     const visibleTheaters = getVisibleTheaters(movie);
     if (!visibleTheaters.length) return;
@@ -3473,6 +3533,18 @@ function getNextShowtimeLabel(nextShow) {
   return [day, time, theater].filter(Boolean).join(' · ');
 }
 
+function getPosterUrl(movie) {
+  const poster = cleanDisplayText(movie?.ratings?.poster);
+  if (!poster || poster === 'N/A') return '';
+  return poster;
+}
+
+function getPosterFallbackInitial(movie) {
+  const title = cleanDisplayText(movie?.title);
+  const match = title.match(/[A-Za-z0-9]/);
+  return match ? match[0].toUpperCase() : 'S';
+}
+
 function buildRankingShowtimesHTML(movie) {
   return getVisibleTheaters(movie).map(theater => {
     const scheduleHTML = buildInlineShowtimeHTML(theater.schedule, theater, Number.POSITIVE_INFINITY);
@@ -3513,6 +3585,7 @@ function buildRankingRow(movie, idx) {
   const watched = hasStoredMovie(getWatched(), movie);
   const isHiddenRow = hasStoredMovie(getHidden(), movie);
   const lbUrl = getLetterboxdUrl(movie);
+  const posterUrl = getPosterUrl(movie);
   const genre = cleanDisplayText(ratings.genre);
   const runtime = cleanDisplayText(ratings.runtime);
   const year = cleanDisplayText(ratings.year);
@@ -3526,6 +3599,11 @@ function buildRankingRow(movie, idx) {
   row.style.animationDelay = `${idx * 30}ms`;
   row.dataset.title = movie.title || '';
   row.innerHTML = `
+    <div class="ranking-poster-wrap">
+      ${posterUrl
+        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
+        : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
+    </div>
     <div class="ranking-score">
       <div class="ranking-rt ${getRTClass(rtScore)}">${rtScore === null ? 'NR' : `${rtScore}%`}</div>
       <div class="ranking-score-label">Critics</div>
@@ -3977,9 +4055,7 @@ function getTheaterTicketPriceNote(name) {
 }
 
 function getLetterboxdUrl(movie) {
-  const year = String(movie?.ratings?.year || '').trim();
-  const parts = [String(movie?.title || '').trim(), year].filter(Boolean);
-  const query = encodeURIComponent(parts.join(' '));
+  const query = encodeURIComponent(String(movie?.title || '').trim());
   return `https://letterboxd.com/search/${query}/`;
 }
 
