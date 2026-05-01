@@ -3308,10 +3308,7 @@ function applyStoredPosterTint(movie, row) {
   const entry = posterTintCache[key];
   const color = parsePosterTintColor(entry?.color);
   if (!color) return false;
-  const tuned = tunePosterTint(color) || color;
-  const css = rgbArrayToCss(tuned);
-  row.style.setProperty('--poster-bg', css);
-  row.style.setProperty('--poster-bg-hover', css);
+  setRankingRowPosterTint(row, color);
   if (entry?.version !== POSTER_TINT_CACHE_VERSION) {
     storePosterTint(key, color);
   }
@@ -3325,10 +3322,7 @@ function handleRankingPosterLoad(img) {
   const key = row.dataset.posterKey || '';
   const cached = parsePosterTintColor(posterTintCache[key]?.color);
   if (cached) {
-    const tunedCached = tunePosterTint(cached) || cached;
-    const css = rgbArrayToCss(tunedCached);
-    row.style.setProperty('--poster-bg', css);
-    row.style.setProperty('--poster-bg-hover', css);
+    setRankingRowPosterTint(row, cached);
     if (posterTintCache[key]?.version !== POSTER_TINT_CACHE_VERSION) {
       storePosterTint(key, cached);
     }
@@ -3336,10 +3330,8 @@ function handleRankingPosterLoad(img) {
   }
   const tint = samplePosterTintFromImage(img);
   if (!tint) return;
-  const color = rgbArrayToCss(tint);
-  row.style.setProperty('--poster-bg', color);
-  row.style.setProperty('--poster-bg-hover', color);
   storePosterTint(row.dataset.posterKey || { title: row.dataset.title || '', ratings: { year: row.dataset.year || '', poster: row.dataset.posterUrl || '' } }, tint);
+  setRankingRowPosterTint(row, tint);
 }
 
 function getDisplayTheaterName(name) {
@@ -4279,6 +4271,10 @@ function buildRankingRow(movie, idx) {
   const blurbSlot = row.querySelector('.movie-blurb');
   registerMovieBlurbSlot(movie, blurbSlot);
   applyStoredPosterTint(movie, row);
+  const posterImg = row.querySelector('.ranking-poster');
+  if (posterImg && posterImg.complete && posterImg.naturalWidth) {
+    handleRankingPosterLoad(posterImg);
+  }
   if (blurbState.loading) {
     scheduleMovieBlurbGeneration(movie);
   }
