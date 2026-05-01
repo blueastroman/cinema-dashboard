@@ -4,16 +4,16 @@ Runs every Wednesday via GitHub Actions
 Pulls showtimes via SerpAPI/AMC API and ratings via OMDb.
 """
 
-import os
 import json
 import hashlib
 import requests
 import html
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
-from typing import Optional
+from typing import Any, Optional
 import re
 
 from cinema_backend.common import (
@@ -42,19 +42,33 @@ from cinema_backend.common import (
     title_explicitly_allows_short,
 )
 from cinema_backend.http import DEFAULT_HEADERS, fetch_source_html
+from cinema_backend.providers.alamo import (
+    ALAMO_ALGOLIA_HEADERS,
+    ALAMO_ALGOLIA_QUERY_URL,
+    alamo_presentation_url,
+)
+from cinema_backend.runtime import (
+    ScrapeContext,
+    build_scrape_context,
+    save_json_dict,
+)
 
-SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
-OMDB_KEY = os.environ.get("OMDB_KEY", "")
-AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
-AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
-AMC_THEATRE_IDS = [t.strip() for t in os.environ.get("AMC_THEATRE_IDS", "").split(",") if t.strip()]
-AMC_THEATRE_PAGE_SIZE = 100
-ALLOW_MOCK_DATA = os.environ.get("ALLOW_MOCK_DATA", "").strip().lower() in {"1", "true", "yes"}
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
 CINEMASCORE_OVERRIDES_PATH = SCRIPT_DIR / "cinemascore_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
 OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
+AMC_THEATRE_PAGE_SIZE = 100
+PARIS_SITE_ID = "2001"
+PARIS_AUTH_URL = "https://auth.moviexchange.com/connect/token"
+PARIS_API_BASE = "https://digital-api.paristheaternyc.com/ocapi/v1"
+PARIS_TICKET_BASE = "https://tickets.paristheaternyc.com/order/showtimes"
+PARIS_AUTH_DATA = {
+    "grant_type": "password",
+    "username": "webhost-browsing-parisnyc",
+    "password": "HzaJe65EAPNto7sR5",
+    "client_id": "webhost-browsing-parisnyc",
+}
 LEGACY_FAKE_PLOTS = {
     "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
     "Two cousins reunite in Poland and confront the weight of their family history.",
@@ -66,6 +80,20 @@ MONTH_INDEX = {
     month.lower(): index
     for index, month in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], start=1)
 }
+
+
+@dataclass
+class ScrapeIssue:
+    stage: str
+    source: str
+    theater: str
+    message: str
+
+
+@dataclass
+class CollectedEntry:
+    theater: dict[str, Any]
+    entry: dict[str, Any]
 
 
 def infer_date_iso_from_label(day_label: object, now: Optional[datetime] = None) -> str:
@@ -103,10 +131,10 @@ def infer_date_iso_from_label(day_label: object, now: Optional[datetime] = None)
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
-def fetch_showtimes(theater: dict) -> list[dict]:
+def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     """Pull showtimes from Google via SerpAPI for a given theater."""
-    if not SERPAPI_KEY:
-        if ALLOW_MOCK_DATA:
+    if not ctx.config.serpapi_key:
+        if ctx.config.allow_mock_data:
             print(f"  [MOCK] No SerpAPI key - using mock data for {theater['name']}")
             return mock_showtimes(theater["name"])
         raise RuntimeError(f"SERPAPI_KEY is required for {theater['name']}")
@@ -114,7 +142,7 @@ def fetch_showtimes(theater: dict) -> list[dict]:
     params = {
         "engine": "google",
         "q": f"showtimes {theater['serpapi_id']}",
-        "api_key": SERPAPI_KEY,
+        "api_key": ctx.config.serpapi_key,
     }
     try:
         r = requests.get("https://serpapi.com/search", params=params, timeout=15)
@@ -167,7 +195,7 @@ def fetch_showtimes(theater: dict) -> list[dict]:
         return movies
     except Exception as e:
         print(f"  [ERROR] SerpAPI failed for {theater['name']}: {e}")
-        if ALLOW_MOCK_DATA:
+        if ctx.config.allow_mock_data:
             return mock_showtimes(theater["name"])
         raise
 
@@ -727,16 +755,24 @@ def extract_name_list(values: object) -> str:
 
 
 def extract_alamo_metadata(show_data: dict, event_data: dict) -> dict:
-    source = show_data if show_data else event_data
-    if not isinstance(source, dict):
+    sources = [source for source in (show_data, event_data) if isinstance(source, dict)]
+    if not sources:
         return {}
 
+    def first_value(*keys: str) -> object:
+        for source in sources:
+            for key in keys:
+                value = source.get(key)
+                if value not in (None, "", [], {}):
+                    return value
+        return None
+
     metadata = {}
-    imdb_id = str(source.get("imdbId") or source.get("imdbID") or "").strip()
+    imdb_id = str(first_value("imdbId", "imdbID") or "").strip()
     if imdb_id:
         metadata["imdbID"] = imdb_id
 
-    runtime = source.get("runtimeMinutes") or source.get("runtime")
+    runtime = first_value("runtimeMinutes", "runtime")
     try:
         runtime_minutes = int(runtime)
     except (TypeError, ValueError):
@@ -744,20 +780,20 @@ def extract_alamo_metadata(show_data: dict, event_data: dict) -> dict:
     if runtime_minutes:
         metadata["runtime"] = f"{runtime_minutes} min"
 
-    release_date = str(source.get("nationalReleaseDateUtc") or source.get("releaseDate") or source.get("openingDateClt") or "").strip()
+    release_date = str(first_value("nationalReleaseDateUtc", "releaseDate", "openingDateClt") or "").strip()
     release_year = extract_year_int(release_date)
     if release_year:
         metadata["year"] = str(release_year)
 
-    description = html_to_plain_text(source.get("description") or source.get("shortDescription") or source.get("headline"))
+    description = html_to_plain_text(first_value("description", "shortDescription", "headline"))
     if description:
         metadata["plot"] = description
 
-    director = extract_name_list(source.get("directors"))
+    director = extract_name_list(first_value("directors"))
     if director:
         metadata["director"] = director
 
-    genre = extract_name_list(source.get("genres"))
+    genre = extract_name_list(first_value("genres"))
     if genre:
         metadata["genre"] = genre
 
@@ -770,12 +806,6 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
     if not market_slug or not cinema_id:
         return []
 
-    algolia_headers = {
-        "X-Algolia-Application-Id": "J21VYKWY3K",
-        "X-Algolia-API-Key": "b475e661e58e2a407860db2f4f8f7cff",
-        "Content-Type": "application/json",
-    }
-
     presentation_hits = []
     page = 0
     while True:
@@ -784,8 +814,8 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
         }
         try:
             response = requests.post(
-                "https://J21VYKWY3K-dsn.algolia.net/1/indexes/prod_on-sale-presentation/query",
-                headers=algolia_headers,
+                ALAMO_ALGOLIA_QUERY_URL,
+                headers=ALAMO_ALGOLIA_HEADERS,
                 json=payload,
                 timeout=20,
             )
@@ -812,7 +842,7 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
     for slug in unique_slugs:
         try:
             response = requests.get(
-                f"https://drafthouse.com/s/mother/v2/schedule/presentation/{market_slug}/{slug}",
+                alamo_presentation_url(market_slug, slug),
                 timeout=20,
             )
             response.raise_for_status()
@@ -902,17 +932,17 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 
-def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
-    if not AMC_VENDOR_KEY:
+def amc_request(ctx: ScrapeContext, path: str, params: Optional[dict] = None) -> Optional[dict]:
+    if not ctx.config.amc_vendor_key:
         return None
 
     request_params = params or {}
     try:
         r = requests.get(
-            f"{AMC_API_BASE}{path}",
+            f"{ctx.config.amc_api_base}{path}",
             params=request_params,
             headers={
-                "X-AMC-Vendor-Key": AMC_VENDOR_KEY,
+                "X-AMC-Vendor-Key": ctx.config.amc_vendor_key,
                 "Accept": "application/json",
             },
             timeout=20,
@@ -920,7 +950,7 @@ def amc_request(path: str, params: Optional[dict] = None) -> Optional[dict]:
         r.raise_for_status()
         return r.json()
     except Exception as e:
-        url = getattr(getattr(e, "response", None), "url", None) or f"{AMC_API_BASE}{path}"
+        url = getattr(getattr(e, "response", None), "url", None) or f"{ctx.config.amc_api_base}{path}"
         print(f"  [ERROR] AMC API request failed for {path}: {e} ({url})")
         return None
 
@@ -932,7 +962,7 @@ def is_supported_amc_theatre(theatre: dict) -> bool:
     return city in AMC_ALLOWED_CITIES_BY_STATE.get(state, set())
 
 
-def fetch_amc_theatres() -> list[dict]:
+def fetch_amc_theatres(ctx: ScrapeContext) -> list[dict]:
     def serpapi_fallback() -> list[dict]:
         fallback = []
         for name, config in THEATER_CONFIG.items():
@@ -946,14 +976,14 @@ def fetch_amc_theatres() -> list[dict]:
             })
         return sorted(fallback, key=lambda t: t["name"])
 
-    if not AMC_VENDOR_KEY:
+    if not ctx.config.amc_vendor_key:
         print("  [WARN] AMC_VENDOR_KEY missing; using SerpAPI fallback for AMC theaters.")
         return serpapi_fallback()
 
     theatres_by_id: dict[str, dict] = {}
 
-    if AMC_THEATRE_IDS:
-        data = amc_request("/v2/theatres", {"ids": ",".join(AMC_THEATRE_IDS), "page-size": AMC_THEATRE_PAGE_SIZE})
+    if ctx.config.amc_theatre_ids:
+        data = amc_request(ctx, "/v2/theatres", {"ids": ",".join(ctx.config.amc_theatre_ids), "page-size": ctx.config.amc_theatre_page_size})
         for theatre in ((data or {}).get("_embedded", {}) or {}).get("theatres", []):
             theatre_id = str(theatre.get("id") or "").strip()
             if theatre_id and not theatre.get("isClosed"):
@@ -962,9 +992,10 @@ def fetch_amc_theatres() -> list[dict]:
         page = 1
         while True:
             data = amc_request(
+                ctx,
                 "/v2/theatres",
                 {
-                    "page-size": AMC_THEATRE_PAGE_SIZE,
+                    "page-size": ctx.config.amc_theatre_page_size,
                     "page-number": page,
                 },
             )
@@ -1012,7 +1043,7 @@ def fetch_amc_theatres() -> list[dict]:
     return sorted(results, key=lambda t: t["name"])
 
 
-def fetch_amc_showtimes(theater: dict) -> list[dict]:
+def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     theatre_id = theater.get("id")
     if not theatre_id:
         return []
@@ -1029,6 +1060,7 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
 
         while True:
             data = amc_request(
+                ctx,
                 f"/v2/theatres/{theatre_id}/showtimes/{api_date}",
                 {"page-size": 100, "page-number": page},
             )
@@ -1114,6 +1146,204 @@ def fetch_amc_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 
+def paris_text(value: object) -> str:
+    if isinstance(value, dict):
+        name_parts = [
+            str(value.get("givenName") or "").strip(),
+            str(value.get("middleName") or "").strip(),
+            str(value.get("familyName") or "").strip(),
+        ]
+        if any(name_parts):
+            return " ".join(part for part in name_parts if part)
+        return str(value.get("text") or "").strip()
+    return str(value or "").strip()
+
+
+def paris_token() -> str:
+    response = requests.post(
+        PARIS_AUTH_URL,
+        data=PARIS_AUTH_DATA,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        timeout=20,
+    )
+    response.raise_for_status()
+    token = str((response.json() or {}).get("access_token") or "").strip()
+    if not token:
+        raise RuntimeError("Paris API did not return an access token")
+    return token
+
+
+def paris_api_get(token: str, path: str, params: Optional[dict[str, object]] = None) -> dict:
+    response = requests.get(
+        f"{PARIS_API_BASE}{path}",
+        params=params or {},
+        headers={
+            "Accept": "application/json",
+            "Authorization": f"Bearer {token}",
+        },
+        timeout=20,
+    )
+    response.raise_for_status()
+    return response.json() or {}
+
+
+def extract_paris_metadata(film: dict, related_data: dict) -> dict:
+    metadata: dict[str, str] = {}
+    release_year = extract_year_int(film.get("releaseDate"))
+    if release_year:
+        metadata["year"] = str(release_year)
+
+    runtime = film.get("runtimeInMinutes")
+    try:
+        runtime_minutes = int(runtime)
+    except (TypeError, ValueError):
+        runtime_minutes = 0
+    if runtime_minutes:
+        metadata["runtime"] = f"{runtime_minutes} min"
+
+    plot = paris_text(film.get("synopsis")) or paris_text(film.get("shortSynopsis"))
+    if plot:
+        metadata["plot"] = plot
+
+    cast_lookup = {
+        str(item.get("id") or item.get("castAndCrewMemberId") or "").strip(): paris_text(item.get("name"))
+        for item in related_data.get("castAndCrew") or []
+        if isinstance(item, dict)
+    }
+    director_names = []
+    for director in film.get("directors") or []:
+        if not isinstance(director, dict):
+            continue
+        name = cast_lookup.get(str(director.get("castAndCrewMemberId") or "").strip())
+        if name:
+            director_names.append(name)
+    if director_names:
+        metadata["director"] = ", ".join(dict.fromkeys(director_names))
+
+    genre_lookup = {
+        str(item.get("id") or "").strip(): paris_text(item.get("name"))
+        for item in related_data.get("genres") or []
+        if isinstance(item, dict)
+    }
+    genres = [
+        genre_lookup.get(str(genre_id or "").strip())
+        for genre_id in film.get("genreIds") or []
+    ]
+    genres = [genre for genre in genres if genre]
+    if genres:
+        metadata["genre"] = ", ".join(dict.fromkeys(genres))
+
+    return metadata
+
+
+def fetch_paris_showtimes(theater: dict) -> list[dict]:
+    try:
+        token = paris_token()
+        screening_dates = paris_api_get(token, "/film-screening-dates", {"siteIds": PARIS_SITE_ID})
+    except Exception as e:
+        print(f"  [ERROR] Paris API date fetch failed for {theater['name']}: {e}")
+        return []
+
+    today = ny_now().date().isoformat()
+    available_dates = sorted({
+        str(item.get("businessDate") or "").strip()
+        for item in screening_dates.get("filmScreeningDates") or []
+        if str(item.get("businessDate") or "").strip() >= today
+    })
+    if not available_dates:
+        start = ny_now().replace(tzinfo=None)
+        available_dates = [date_iso(start + timedelta(days=offset)) for offset in range(7)]
+
+    grouped: dict[str, dict[str, dict[str, object]]] = defaultdict(
+        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}, "special_formats": set()})
+    )
+    grouped_metadata: dict[str, dict[str, str]] = {}
+
+    for business_date in available_dates:
+        try:
+            payload = paris_api_get(
+                token,
+                f"/showtimes/by-business-date/{business_date}",
+                {"siteIds": PARIS_SITE_ID},
+            )
+        except Exception as e:
+            print(f"  [WARN] Paris API showtime fetch failed for {business_date}: {e}")
+            continue
+
+        related_data = payload.get("relatedData") or {}
+        film_lookup = {
+            str(film.get("id") or "").strip(): film
+            for film in related_data.get("films") or []
+            if isinstance(film, dict)
+        }
+        attribute_lookup = {
+            str(attribute.get("id") or "").strip(): attribute
+            for attribute in related_data.get("attributes") or []
+            if isinstance(attribute, dict)
+        }
+
+        for showtime in payload.get("showtimes") or []:
+            if not isinstance(showtime, dict):
+                continue
+            film_id = str(showtime.get("filmId") or "").strip()
+            film = film_lookup.get(film_id) or {}
+            title = clean_title(paris_text(film.get("title")))
+            starts_at = str((showtime.get("schedule") or {}).get("startsAt") or "").strip()
+            showtime_id = str(showtime.get("id") or "").strip()
+            if not title or not starts_at or not showtime_id:
+                continue
+
+            try:
+                local_dt = datetime.fromisoformat(starts_at)
+            except Exception:
+                continue
+
+            labels = []
+            for attribute_id in showtime.get("attributeIds") or []:
+                attribute = attribute_lookup.get(str(attribute_id or "").strip()) or {}
+                labels.extend([paris_text(attribute.get("shortName")), paris_text(attribute.get("name"))])
+            title_formats = extract_special_formats(title, *labels)
+            day_label = format_day_label(local_dt)
+            time_label = format_time_label(local_dt)
+            ticket_url = f"{PARIS_TICKET_BASE}/{showtime_id}/seats"
+
+            day_bucket = grouped[title][day_label]
+            day_bucket["date"] = date_iso(local_dt)
+            day_bucket["times"].append(time_label)
+            day_bucket["ticket_urls"].setdefault(time_label, ticket_url)
+            if title_formats:
+                day_bucket["special_formats"].update(title_formats)
+            if title not in grouped_metadata and film:
+                grouped_metadata[title] = extract_paris_metadata(film, related_data)
+
+    flattened = []
+    for title, days in grouped.items():
+        metadata = grouped_metadata.get(title, {})
+        hint_year = extract_year_int(metadata.get("year"))
+        for day_label, payload in days.items():
+            unique_times = sort_time_labels(sorted(set(payload.get("times", []))))
+            ticket_urls = {
+                time_label: str(url).strip()
+                for time_label, url in (payload.get("ticket_urls") or {}).items()
+                if time_label in unique_times and str(url).strip()
+            }
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            flattened.append({
+                "title": title,
+                "hint_year": hint_year,
+                "theater": theater["name"],
+                "day": day_label,
+                "date": payload.get("date"),
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+                "special_formats": sorted(payload.get("special_formats") or []),
+                "source_metadata": metadata,
+            })
+
+    return flattened
+
+
 def mock_showtimes(theater_name: str) -> list[dict]:
     """Fallback mock data for development without API keys."""
     days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
@@ -1139,88 +1369,20 @@ def mock_showtimes(theater_name: str) -> list[dict]:
 
 # ─── RATINGS ─────────────────────────────────────────────────────────────────
 
-def load_json_file(path: Path) -> dict:
-    try:
-        if path.exists():
-            with path.open("r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict):
-                    return data
-    except Exception as e:
-        print(f"  [WARN] Failed to load {path.name}: {e}")
-    return {}
-
-
-def save_json_file(path: Path, data: dict) -> None:
-    try:
-        with path.open("w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, sort_keys=True)
-    except Exception as e:
-        print(f"  [WARN] Failed to save {path.name}: {e}")
-
-
-RATING_OVERRIDES = load_json_file(RATING_OVERRIDES_PATH)
-CINEMASCORE_OVERRIDES = load_json_file(CINEMASCORE_OVERRIDES_PATH)
-RATING_CACHE = load_json_file(RATING_CACHE_PATH)
-
-
-def load_existing_movie_metadata(path: Path) -> dict:
-    if not path.exists():
-        return {}
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as e:
-        print(f"  [WARN] Failed to load existing dashboard data: {e}")
-        return {}
-
-    movies = data.get("movies", [])
-    existing = {}
-    for movie in movies:
-        title = str(movie.get("title") or "").strip()
-        ratings = movie.get("ratings") or {}
-        if title and isinstance(ratings, dict):
-            existing[exact_title_identity_key(title)] = ratings
-    return existing
-
-
-EXISTING_MOVIE_METADATA = load_existing_movie_metadata(OUTPUT_DATA_PATH)
-
-
-def load_existing_movie_records(path: Path) -> dict:
-    if not path.exists():
-        return {}
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as e:
-        print(f"  [WARN] Failed to load existing dashboard records: {e}")
-        return {}
-
-    movies = data.get("movies", [])
-    existing = {}
-    for movie in movies:
-        title = str(movie.get("title") or "").strip()
-        if title and isinstance(movie, dict):
-            existing[exact_title_identity_key(title)] = dict(movie)
-    return existing
-
-
-EXISTING_MOVIE_RECORDS = load_existing_movie_records(OUTPUT_DATA_PATH)
-
-
-def get_existing_metadata(title: str) -> dict:
+def get_existing_metadata(ctx: ScrapeContext, title: str) -> dict:
     base_title, _ = split_trailing_title_year(title)
     return (
-        EXISTING_MOVIE_METADATA.get(exact_title_identity_key(title))
-        or EXISTING_MOVIE_METADATA.get(exact_title_identity_key(base_title))
+        ctx.state.existing_movie_metadata.get(exact_title_identity_key(title))
+        or ctx.state.existing_movie_metadata.get(exact_title_identity_key(base_title))
         or {}
     )
 
 
-def get_existing_movie_record(title: str) -> dict:
+def get_existing_movie_record(ctx: ScrapeContext, title: str) -> dict:
     base_title, _ = split_trailing_title_year(title)
     return (
-        EXISTING_MOVIE_RECORDS.get(exact_title_identity_key(title))
-        or EXISTING_MOVIE_RECORDS.get(exact_title_identity_key(base_title))
+        ctx.state.existing_movie_records.get(exact_title_identity_key(title))
+        or ctx.state.existing_movie_records.get(exact_title_identity_key(base_title))
         or {}
     )
 
@@ -1238,7 +1400,7 @@ def existing_verdict(movie: Optional[dict]) -> Optional[dict]:
     return {"verdict": label, "reason": reason}
 
 
-def get_best_cached_match(title: str, query_year: Optional[int] = None) -> dict:
+def get_best_cached_match(ctx: ScrapeContext, title: str, query_year: Optional[int] = None) -> dict:
     lookup_title, title_year = split_trailing_title_year(title)
     query_year = query_year or title_year
     candidate_keys = []
@@ -1251,13 +1413,13 @@ def get_best_cached_match(title: str, query_year: Optional[int] = None) -> dict:
     candidate_keys.append(exact_title_identity_key(lookup_title))
 
     for key in candidate_keys:
-        cached = RATING_CACHE.get(key)
+        cached = ctx.state.rating_cache.get(key)
         if isinstance(cached, dict) and cached.get("imdbID"):
             return cached
     return {}
 
 
-def set_cached_match(title: str, data: dict, source: str) -> None:
+def set_cached_match(ctx: ScrapeContext, title: str, data: dict, source: str) -> None:
     lookup_title, _ = split_trailing_title_year(title)
     entry = {
         "imdbID": data.get("imdbID"),
@@ -1267,16 +1429,16 @@ def set_cached_match(title: str, data: dict, source: str) -> None:
     }
     result_year = extract_year_int(data.get("Year"))
     if result_year is not None:
-        RATING_CACHE[exact_title_identity_key(lookup_title, result_year)] = entry
+        ctx.state.rating_cache[exact_title_identity_key(lookup_title, result_year)] = entry
     else:
-        RATING_CACHE[exact_title_identity_key(lookup_title)] = entry
+        ctx.state.rating_cache[exact_title_identity_key(lookup_title)] = entry
 
 
-def purge_cached_match(title: str, imdb_id: str) -> None:
+def purge_cached_match(ctx: ScrapeContext, title: str, imdb_id: str) -> None:
     lookup_title, _ = split_trailing_title_year(title)
     exact = exact_title_identity_key(lookup_title)
     keys_to_delete = [
-        key for key, value in RATING_CACHE.items()
+        key for key, value in ctx.state.rating_cache.items()
         if (
             isinstance(value, dict)
             and value.get("imdbID") == imdb_id
@@ -1284,12 +1446,12 @@ def purge_cached_match(title: str, imdb_id: str) -> None:
         )
     ]
     for key in keys_to_delete:
-        del RATING_CACHE[key]
+        del ctx.state.rating_cache[key]
 
 
-def omdb_request(params: dict) -> Optional[dict]:
+def omdb_request(ctx: ScrapeContext, params: dict) -> Optional[dict]:
     try:
-        r = requests.get("https://www.omdbapi.com/", params={"apikey": OMDB_KEY, **params}, timeout=10, headers=DEFAULT_HEADERS)
+        r = requests.get("https://www.omdbapi.com/", params={"apikey": ctx.config.omdb_key, **params}, timeout=10, headers=DEFAULT_HEADERS)
         data = r.json()
         if data.get("Response") == "False":
             return None
@@ -1471,23 +1633,6 @@ def ensure_poster_fallback(title: str, ratings: dict, query_year: Optional[int] 
     return ratings
 
 
-def backfill_missing_posters(movies: list[dict]) -> int:
-    updated = 0
-    for movie in movies:
-        ratings = movie.get("ratings") or {}
-        if ratings.get("poster") not in (None, "", "N/A"):
-            continue
-        if not str(ratings.get("rt") or "").strip().endswith("%"):
-            continue
-        lookup_title, title_year = split_trailing_title_year(movie.get("title") or "")
-        query_year = letterboxd_query_year(extract_year_int(ratings.get("year")) or title_year)
-        before = ratings.get("poster")
-        ensure_poster_fallback(lookup_title, ratings, query_year=query_year)
-        if ratings.get("poster") not in (None, "", "N/A", before):
-            updated += 1
-    return updated
-
-
 def parse_omdb_ratings(data: dict) -> dict:
     rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
     cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
@@ -1594,10 +1739,10 @@ def extract_page_title(page: str) -> tuple[str, Optional[int]]:
     return "", None
 
 
-def fetch_omdb_by_imdb_id(imdb_id: str) -> Optional[dict]:
+def fetch_omdb_by_imdb_id(ctx: ScrapeContext, imdb_id: str) -> Optional[dict]:
     if not imdb_id:
         return None
-    return omdb_request({"i": imdb_id, "tomatoes": "true"})
+    return omdb_request(ctx, {"i": imdb_id, "tomatoes": "true"})
 
 
 def empty_ratings() -> dict:
@@ -1640,8 +1785,8 @@ def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
     )
 
 
-def merge_existing_metadata(title: str, ratings: dict) -> dict:
-    existing = get_existing_metadata(title)
+def merge_existing_metadata(ctx: ScrapeContext, title: str, ratings: dict) -> dict:
+    existing = get_existing_metadata(ctx, title)
     if not existing:
         return ratings
     if is_suspect_short_metadata(title, existing):
@@ -1681,23 +1826,23 @@ def merge_existing_metadata(title: str, ratings: dict) -> dict:
     return ratings
 
 
-def apply_rating_overrides(title: str, ratings: dict) -> dict:
+def apply_rating_overrides(ctx: ScrapeContext, title: str, ratings: dict) -> dict:
     lookup_title, _ = split_trailing_title_year(title)
-    override = RATING_OVERRIDES.get(exact_title_identity_key(lookup_title), {})
+    override = ctx.state.rating_overrides.get(exact_title_identity_key(lookup_title), {})
     if not override:
-        override = RATING_OVERRIDES.get(normalize_title(lookup_title), {})
+        override = ctx.state.rating_overrides.get(normalize_title(lookup_title), {})
     if isinstance(override, str):
         override = {"imdbID": override}
     if not isinstance(override, dict):
         return ratings
 
     for key, value in override.items():
-        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "rtUrl", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
+        if key in {"imdbID", "year", "genre", "runtime", "plot", "director", "rt", "imdb", "metacritic", "letterboxd", "poster", "cinemaScore"}:
             ratings[key] = value
 
-    cinema_score_override = CINEMASCORE_OVERRIDES.get(exact_title_identity_key(lookup_title))
+    cinema_score_override = ctx.state.cinemascore_overrides.get(exact_title_identity_key(lookup_title))
     if cinema_score_override in (None, "", "N/A"):
-        cinema_score_override = CINEMASCORE_OVERRIDES.get(normalize_title(lookup_title))
+        cinema_score_override = ctx.state.cinemascore_overrides.get(normalize_title(lookup_title))
     if cinema_score_override not in (None, "", "N/A"):
         ratings["cinemaScore"] = str(cinema_score_override).strip().upper()
     return ratings
@@ -1706,7 +1851,11 @@ def apply_rating_overrides(title: str, ratings: dict) -> dict:
 def merge_source_metadata(ratings: dict, source_metadata: Optional[dict]) -> dict:
     if not isinstance(source_metadata, dict):
         return ratings
+    has_source_identity = bool(str(source_metadata.get("imdbID") or "").strip())
+    has_rating_identity = bool(str(ratings.get("imdbID") or "").strip())
     for key in ("imdbID", "poster", "genre", "runtime", "plot", "year", "director"):
+        if key == "year" and not (has_source_identity or has_rating_identity):
+            continue
         value = source_metadata.get(key)
         if value not in (None, "", "N/A") and ratings.get(key) in (None, "", "N/A"):
             ratings[key] = value
@@ -1825,16 +1974,80 @@ def migrate_movie_key(all_movies: dict[str, dict], theater_schedule: dict, theat
     return target_movie
 
 
-def enrich_from_rating_cache(title: str, ratings: dict, hint_year: Optional[int] = None) -> dict:
-    cached = get_best_cached_match(title, query_year=hint_year or extract_year_int(ratings.get("year")))
+def year_from_movie_key(key: str) -> Optional[int]:
+    parts = str(key or "").split("|", 1)
+    if len(parts) != 2:
+        return None
+    return int(parts[1]) if parts[1].isdigit() else None
+
+
+def find_compatible_existing_movie_key(
+    all_movies: dict[str, dict],
+    title: str,
+    new_key: str,
+    hint_year: Optional[int] = None,
+    ratings: Optional[dict] = None,
+    source_metadata: Optional[dict] = None,
+) -> Optional[str]:
+    base_title, title_year = split_trailing_title_year(title)
+    normalized = normalize_title(base_title)
+    if not normalized:
+        return None
+
+    target_year = (
+        hint_year
+        or title_year
+        or extract_year_int((source_metadata or {}).get("year"))
+        or extract_year_int((ratings or {}).get("year"))
+    )
+    target_imdb = str((ratings or {}).get("imdbID") or (source_metadata or {}).get("imdbID") or "").strip()
+
+    matches: list[tuple[int, str]] = []
+    for candidate_key, movie in all_movies.items():
+        if candidate_key == new_key:
+            continue
+        candidate_title, candidate_title_year = split_trailing_title_year(str(movie.get("title") or ""))
+        candidate_key_base = str(candidate_key or "").split("|", 1)[0]
+        if normalize_title(candidate_title) != normalized and candidate_key_base != normalized:
+            continue
+
+        candidate_ratings = movie.get("ratings") or {}
+        candidate_imdb = str(candidate_ratings.get("imdbID") or "").strip()
+        if target_imdb and candidate_imdb and target_imdb != candidate_imdb:
+            continue
+
+        candidate_year = (
+            extract_year_int(candidate_ratings.get("year"))
+            or candidate_title_year
+            or year_from_movie_key(candidate_key)
+        )
+        if target_year and candidate_year and abs(target_year - candidate_year) > 2:
+            continue
+
+        specificity = 1 if "|" in candidate_key else 0
+        completeness = metadata_completeness(candidate_ratings)
+        matches.append((specificity + completeness, candidate_key))
+
+    if not matches:
+        return None
+    matches.sort(reverse=True)
+    return matches[0][1]
+
+
+def should_promote_movie_key(new_key: str, existing_key: str) -> bool:
+    return "|" in str(new_key or "") and "|" not in str(existing_key or "")
+
+
+def enrich_from_rating_cache(ctx: ScrapeContext, title: str, ratings: dict, hint_year: Optional[int] = None) -> dict:
+    cached = get_best_cached_match(ctx, title, query_year=hint_year or extract_year_int(ratings.get("year")))
     cached_imdb = cached.get("imdbID")
     if not cached_imdb:
         return ratings
 
     query_year = hint_year or extract_year_int(ratings.get("year"))
-    cached_data = fetch_omdb_by_imdb_id(cached_imdb)
+    cached_data = fetch_omdb_by_imdb_id(ctx, cached_imdb)
     if not is_acceptable_omdb_match(title, cached_data, query_year=query_year, minimum_score=0.70):
-        purge_cached_match(title, cached_imdb)
+        purge_cached_match(ctx, title, cached_imdb)
         return ratings
 
     cached_ratings = parse_omdb_ratings(cached_data)
@@ -1863,7 +2076,7 @@ def strip_placeholder_metadata(ratings: dict) -> dict:
     return ratings
 
 
-def repair_dataset_metadata(dataset: dict) -> dict:
+def repair_dataset_metadata(ctx: ScrapeContext, dataset: dict) -> dict:
     movies = dataset.get("movies", [])
     repaired = 0
     for movie in movies:
@@ -1874,7 +2087,7 @@ def repair_dataset_metadata(dataset: dict) -> dict:
         hint_year = extract_year_int(existing_ratings.get("year"))
         theaters = movie.get("theaters") or []
         theater_name = str(theaters[0].get("name") or "").strip() if theaters else None
-        ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
+        ratings = fetch_ratings(ctx, title, hint_year=hint_year, theater_name=theater_name)
         if not ratings:
             continue
         movie["ratings"] = ratings
@@ -1944,7 +2157,7 @@ REPERTORY_THEATERS = {
     "Museum of Modern Art",
 }
 
-def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> Optional[dict]:
+def resolve_omdb_record(ctx: ScrapeContext, title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> Optional[dict]:
     """
     Look up a movie in OMDb, preferring year-specific matches to avoid
     confusing a new release with an older film that shares the same title.
@@ -1953,10 +2166,10 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
     """
     lookup_title, title_year = split_trailing_title_year(title)
     normalized = normalize_title(lookup_title)
-    override = RATING_OVERRIDES.get(normalized, {})
+    override = ctx.state.rating_overrides.get(normalized, {})
     if isinstance(override, str):
         override = {"imdbID": override}
-    existing = get_existing_metadata(title)
+    existing = get_existing_metadata(ctx, title)
     existing_year = extract_year_int(existing.get("year"))
 
     # Build query_year: prefer explicit hint, then override file
@@ -1977,14 +2190,14 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
 
     override_imdb = override.get("imdbID")
     if override_imdb:
-        data = fetch_omdb_by_imdb_id(override_imdb)
+        data = fetch_omdb_by_imdb_id(ctx, override_imdb)
         if data:
-            set_cached_match(title, data, "override")
+            set_cached_match(ctx, title, data, "override")
             return data
         print(f"  [WARN] Override imdbID failed for '{title}': {override_imdb}")
 
     # Cache — skip if year expectation strongly mismatches cached result
-    cached = get_best_cached_match(title, query_year=query_year)
+    cached = get_best_cached_match(ctx, title, query_year=query_year)
     cached_imdb = cached.get("imdbID")
     if cached_imdb:
         cached_year_str = str(cached.get("year") or "")
@@ -1995,10 +2208,10 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
             and abs(query_year - cached_year) > 2
         )
         if not year_mismatch:
-            data = fetch_omdb_by_imdb_id(cached_imdb)
+            data = fetch_omdb_by_imdb_id(ctx, cached_imdb)
             if is_acceptable_omdb_match(lookup_title, data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
                 return data
-            purge_cached_match(title, cached_imdb)
+            purge_cached_match(ctx, title, cached_imdb)
 
     # Try year-specific exact lookups before the open search.
     # This catches new releases that share a title with a classic — OMDb's
@@ -2011,19 +2224,19 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
 
     for y in years_to_try:
         for alias in title_lookup_aliases(lookup_title):
-            data = omdb_request({"t": alias, "y": y, "tomatoes": "true"})
+            data = omdb_request(ctx, {"t": alias, "y": y, "tomatoes": "true"})
             if not data:
                 continue
             result_year_str = str(data.get("Year") or "")
             result_year = int(result_year_str[:4]) if result_year_str[:4].isdigit() else None
             if (result_year is None or abs(y - result_year) <= 2) and is_acceptable_omdb_match(lookup_title, data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
-                set_cached_match(title, data, "exact_year")
+                set_cached_match(ctx, title, data, "exact_year")
                 return data
 
     # Unqualified exact search — OMDb picks the most popular result.
     # Guard: if we expect a recent film and got something old, fall through.
     for alias in title_lookup_aliases(lookup_title):
-        exact = omdb_request({"t": alias, "tomatoes": "true"})
+        exact = omdb_request(ctx, {"t": alias, "tomatoes": "true"})
         if not exact:
             continue
         result_year_str = str(exact.get("Year") or "")
@@ -2034,14 +2247,14 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
             and (query_year - result_year) > 5
         )
         if not too_old and is_acceptable_omdb_match(lookup_title, exact, query_year=query_year, minimum_score=0.90, existing_year=existing_year):
-            set_cached_match(title, exact, "exact")
+            set_cached_match(ctx, title, exact, "exact")
             return exact
 
     # Full-text search with year-biased ranking as last resort
     effective_year = query_year or existing_year
     search = None
     for alias in title_lookup_aliases(lookup_title):
-        search = omdb_request({"s": alias, "type": "movie"})
+        search = omdb_request(ctx, {"s": alias, "type": "movie"})
         if search:
             break
     if not search:
@@ -2069,30 +2282,31 @@ def resolve_omdb_record(title: str, hint_year: Optional[int] = None, theater_nam
     if best_score < 0.70:
         return None
 
-    best_data = fetch_omdb_by_imdb_id(best.get("imdbID"))
+    best_data = fetch_omdb_by_imdb_id(ctx, best.get("imdbID"))
     if best_data and is_acceptable_omdb_match(lookup_title, best_data, query_year=query_year, minimum_score=0.70, existing_year=existing_year):
-        set_cached_match(title, best_data, "search")
+        set_cached_match(ctx, title, best_data, "search")
         return best_data
     return None
 
-def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> dict:
+def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     lookup_title, title_year = split_trailing_title_year(title)
     effective_hint_year = hint_year or title_year
-    lb_query_year = letterboxd_query_year(effective_hint_year)
-    if not OMDB_KEY:
-        if ALLOW_MOCK_DATA:
+    lb_query_year = letterboxd_query_year(title_year)
+    poster_query_year = letterboxd_query_year(effective_hint_year)
+    if not ctx.config.omdb_key:
+        if ctx.config.allow_mock_data:
             return mock_ratings(title)
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
-        parsed = merge_existing_metadata(title, parsed)
-        parsed = apply_rating_overrides(title, parsed)
-        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
+        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = apply_rating_overrides(ctx, title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)
         return strip_placeholder_metadata(parsed)
 
     try:
-        data = resolve_omdb_record(title, hint_year=effective_hint_year, theater_name=theater_name)
+        data = resolve_omdb_record(ctx, title, hint_year=effective_hint_year, theater_name=theater_name)
         parsed = parse_omdb_ratings(data) if data else empty_ratings()
 
         # Fallbacks for new/edge releases where OMDb is lagging.
@@ -2101,10 +2315,10 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Opt
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
 
-        parsed = merge_existing_metadata(title, parsed)
-        parsed = enrich_from_rating_cache(title, parsed, hint_year=effective_hint_year)
-        parsed = apply_rating_overrides(title, parsed)
-        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
+        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = enrich_from_rating_cache(ctx, title, parsed, hint_year=effective_hint_year)
+        parsed = apply_rating_overrides(ctx, title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
     except Exception as e:
@@ -2112,10 +2326,10 @@ def fetch_ratings(title: str, hint_year: Optional[int] = None, theater_name: Opt
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
-        parsed = merge_existing_metadata(title, parsed)
-        parsed = enrich_from_rating_cache(title, parsed, hint_year=effective_hint_year)
-        parsed = apply_rating_overrides(title, parsed)
-        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=lb_query_year)
+        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = enrich_from_rating_cache(ctx, title, parsed, hint_year=effective_hint_year)
+        parsed = apply_rating_overrides(ctx, title, parsed)
+        parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)
         parsed = strip_placeholder_metadata(parsed)
         return parsed
 
@@ -2173,22 +2387,22 @@ def mock_ratings(title: str) -> dict:
 
 # ─── ASSEMBLE ─────────────────────────────────────────────────────────────────
 
-def validate_runtime_configuration() -> None:
-    if ALLOW_MOCK_DATA:
+def validate_runtime_configuration(ctx: ScrapeContext) -> None:
+    if ctx.config.allow_mock_data:
         return
     missing = []
-    if SERPAPI_THEATERS and not SERPAPI_KEY:
+    if SERPAPI_THEATERS and not ctx.config.serpapi_key:
         missing.append("SERPAPI_KEY")
-    if not OMDB_KEY:
+    if not ctx.config.omdb_key:
         missing.append("OMDB_KEY")
     if missing:
         joined = ", ".join(missing)
         raise RuntimeError(f"Missing required scraper environment variable(s): {joined}. Set ALLOW_MOCK_DATA=1 for local mock runs.")
 
 
-def fetch_theater_showtimes(theater: dict) -> list[dict]:
+def fetch_theater_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     if theater.get("source") == "amc":
-        return fetch_amc_showtimes(theater)
+        return fetch_amc_showtimes(theater, ctx)
     if theater.get("source_type") == "metrograph":
         return fetch_metrograph_showtimes(theater)
     if theater.get("source_type") == "ifc":
@@ -2199,197 +2413,246 @@ def fetch_theater_showtimes(theater: dict) -> list[dict]:
         return fetch_moma_showtimes(theater)
     if theater.get("source_type") == "alamo":
         return fetch_alamo_showtimes(theater)
-    return fetch_showtimes(theater)
+    if theater.get("source_type") == "paris":
+        return fetch_paris_showtimes(theater)
+    return fetch_showtimes(theater, ctx)
 
 
-def build_dataset() -> dict:
-    validate_runtime_configuration()
-    print("Starting weekly NYC cinema scrape...")
-    all_movies: dict[str, dict] = {}
-    theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
-    theater_formats: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
-    ratings_cache: dict[str, dict] = {}
-    scrape_errors: list[str] = []
+def collect_showtime_entries(ctx: ScrapeContext) -> tuple[list[CollectedEntry], dict[str, dict], list[ScrapeIssue]]:
     theater_meta: dict[str, dict] = {
         name: build_theater_meta(name)
         for name in THEATER_CONFIG.keys()
     }
-    amc_theaters = fetch_amc_theatres()
-    all_theaters = [*STATIC_THEATERS, *amc_theaters]
+    collected: list[CollectedEntry] = []
+    issues: list[ScrapeIssue] = []
+    all_theaters = [*STATIC_THEATERS, *fetch_amc_theatres(ctx)]
 
     for theater in all_theaters:
         print(f"\nFetching: {theater['name']}")
         try:
-            showtimes = fetch_theater_showtimes(theater)
-        except Exception as e:
-            message = f"{theater['name']}: {e}"
-            print(f"  [ERROR] Theater scrape failed: {message}")
-            scrape_errors.append(message)
+            showtimes = fetch_theater_showtimes(theater, ctx)
+        except Exception as exc:
+            issue = ScrapeIssue(
+                stage="fetch_showtimes",
+                source=str(theater.get("source_type") or theater.get("source") or "unknown"),
+                theater=str(theater["name"]),
+                message=str(exc),
+            )
+            print(f"  [ERROR] Theater scrape failed: {issue.theater}: {issue.message}")
+            issues.append(issue)
             continue
 
+        theater_name = str(theater["name"])
+        if theater_name not in theater_meta:
+            theater_meta[theater_name] = build_theater_meta(
+                theater_name,
+                {
+                    "source_type": theater.get("source_type") or theater.get("source") or "amc",
+                    "official_url": theater.get("official_url") or "https://www.amctheatres.com/",
+                },
+            )
         for entry in showtimes:
-            title = entry["title"]
-            _lookup_title, title_year = split_trailing_title_year(title)
-            theater_name = entry["theater"]
-            day = entry["day"]
-            times = entry["times"]
-            schedule_date = str(entry.get("date") or infer_date_iso_from_label(day)).strip()
-            ticket_url = str(entry.get("ticket_url") or get_source_ticket_url(theater)).strip()
-            ticket_urls = {
-                str(time): str(url).strip()
-                for time, url in (entry.get("ticket_urls") or {}).items()
-                if str(time).strip() and str(url).strip()
-            }
-            special_formats = [
-                fmt for fmt in (entry.get("special_formats") or [])
-                if str(fmt).strip()
+            collected.append(CollectedEntry(theater=theater, entry=entry))
+
+    return collected, theater_meta, issues
+
+
+def resolve_movie_records(
+    ctx: ScrapeContext,
+    collected_entries: list[CollectedEntry],
+    theater_meta: dict[str, dict],
+) -> tuple[dict[str, dict], dict[str, dict], dict[str, dict[str, set[str]]]]:
+    all_movies: dict[str, dict] = {}
+    theater_schedule: dict[str, dict] = defaultdict(lambda: defaultdict(list))
+    theater_formats: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    request_cache: dict[str, dict] = {}
+
+    for collected in collected_entries:
+        theater = collected.theater
+        entry = collected.entry
+        title = entry["title"]
+        _lookup_title, title_year = split_trailing_title_year(title)
+        theater_name = entry["theater"]
+        day = entry["day"]
+        times = entry["times"]
+        schedule_date = str(entry.get("date") or infer_date_iso_from_label(day)).strip()
+        ticket_url = str(entry.get("ticket_url") or get_source_ticket_url(theater)).strip()
+        ticket_urls = {
+            str(time): str(url).strip()
+            for time, url in (entry.get("ticket_urls") or {}).items()
+            if str(time).strip() and str(url).strip()
+        }
+        special_formats = [fmt for fmt in (entry.get("special_formats") or []) if str(fmt).strip()]
+        source_metadata = entry.get("source_metadata") or {}
+        hint_year = entry.get("hint_year") or title_year or extract_year_int(source_metadata.get("year"))
+        movie_key = movie_group_key(title, hint_year=hint_year, source_metadata=source_metadata)
+        rating_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
+
+        movie = all_movies.get(movie_key)
+        if movie is None:
+            if rating_key in request_cache:
+                ratings = dict(request_cache[rating_key])
+            else:
+                print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
+                ratings = fetch_ratings(ctx, title, hint_year=hint_year, theater_name=theater_name)
+                request_cache[rating_key] = dict(ratings)
+            ratings = merge_source_metadata(ratings, source_metadata)
+            ratings = strip_placeholder_metadata(ratings)
+            resolved_key = movie_group_key(title, hint_year=hint_year, ratings=ratings, source_metadata=source_metadata)
+            request_cache.setdefault(resolved_key, dict(ratings))
+            movie_key = resolved_key
+            base_title, _ = split_trailing_title_year(title)
+            candidate_years = [
+                hint_year,
+                extract_year_int(source_metadata.get("year")),
+                extract_year_int(ratings.get("year")),
+                None,
             ]
-            source_metadata = entry.get("source_metadata") or {}
-            hint_year = entry.get("hint_year") or title_year or extract_year_int(source_metadata.get("year"))
-            movie_key = movie_group_key(title, hint_year=hint_year, source_metadata=source_metadata)
-            rating_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
-
-            if theater_name not in theater_meta:
-                theater_meta[theater_name] = build_theater_meta(
-                    theater_name,
-                    {
-                        "source_type": theater.get("source_type") or theater.get("source") or "amc",
-                        "official_url": theater.get("official_url") or "https://www.amctheatres.com/",
-                    },
+            candidate_old_keys: list[str] = []
+            for candidate_year in candidate_years:
+                candidate_old_keys.extend([
+                    title_identity_key(title, candidate_year),
+                    title_identity_key(base_title, candidate_year),
+                ])
+            for old_key in dict.fromkeys(candidate_old_keys):
+                old_movie = all_movies.get(old_key)
+                if not old_movie or old_key == movie_key:
+                    continue
+                old_ratings = old_movie.get("ratings") or {}
+                old_year = extract_year_int(old_ratings.get("year"))
+                year_compatible = (
+                    hint_year is None
+                    or old_year is None
+                    or abs(old_year - hint_year) <= 2
                 )
-
-            movie = all_movies.get(movie_key)
+                if not old_ratings.get("imdbID") and year_compatible:
+                    movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, old_key, movie_key)
+                    break
+            else:
+                movie = all_movies.get(movie_key)
             if movie is None:
-                if rating_key in ratings_cache:
-                    ratings = dict(ratings_cache[rating_key])
+                existing_key = find_compatible_existing_movie_key(
+                    all_movies,
+                    title,
+                    movie_key,
+                    hint_year=hint_year,
+                    ratings=ratings,
+                    source_metadata=source_metadata,
+                )
+                if existing_key:
+                    if should_promote_movie_key(movie_key, existing_key):
+                        movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, existing_key, movie_key)
+                    else:
+                        movie_key = existing_key
+                        movie = all_movies.get(movie_key)
+            if movie is not None:
+                merged = merge_prior_ratings(movie.get("ratings") or {}, ratings)
+                merged = merge_source_metadata(merged, source_metadata)
+                movie["ratings"] = strip_placeholder_metadata(merged)
+                if special_formats:
+                    existing_formats = set(movie.get("special_formats") or [])
+                    movie["special_formats"] = sorted(existing_formats.union(special_formats))
+            else:
+                movie_id = make_movie_id(title, ratings)
+                prior_movie = get_existing_movie_record(ctx, title)
+                movie = {
+                    "id": movie_id,
+                    "title": title,
+                    "ratings": ratings,
+                    "theaters": [],
+                    "special_formats": [],
+                }
+                preserved_verdict = existing_verdict(prior_movie)
+                if preserved_verdict is not None:
+                    movie["verdict"] = preserved_verdict
+                all_movies[movie_key] = movie
+        else:
+            current_ratings = movie.get("ratings") or {}
+            current_year = extract_year_int(current_ratings.get("year"))
+            should_refetch = (
+                hint_year is not None
+                and (
+                    not current_ratings.get("imdbID")
+                    or current_year is None
+                    or abs(current_year - hint_year) > 2
+                )
+            )
+            if should_refetch:
+                refetch_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
+                if refetch_key in request_cache:
+                    refreshed = dict(request_cache[refetch_key])
                 else:
                     print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                    ratings = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
-                    ratings_cache[rating_key] = dict(ratings)
-                ratings = merge_source_metadata(ratings, source_metadata)
-                ratings = strip_placeholder_metadata(ratings)
-                resolved_key = movie_group_key(title, hint_year=hint_year, ratings=ratings, source_metadata=source_metadata)
-                ratings_cache.setdefault(resolved_key, dict(ratings))
+                    refreshed = fetch_ratings(ctx, title, hint_year=hint_year, theater_name=theater_name)
+                    request_cache[refetch_key] = dict(refreshed)
+                current_ratings = merge_prior_ratings(refreshed, current_ratings)
+            movie["ratings"] = strip_placeholder_metadata(merge_source_metadata(current_ratings, source_metadata))
+            resolved_key = movie_group_key(title, hint_year=hint_year, ratings=movie["ratings"], source_metadata=source_metadata)
+            if resolved_key != movie_key:
+                movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, movie_key, resolved_key) or movie
                 movie_key = resolved_key
-                candidate_years = [
-                    hint_year,
-                    extract_year_int(source_metadata.get("year")),
-                    extract_year_int(ratings.get("year")),
-                    None,
-                ]
-                for candidate_year in candidate_years:
-                    old_key = title_identity_key(title, candidate_year)
-                    old_movie = all_movies.get(old_key)
-                    if not old_movie or old_key == movie_key:
-                        continue
-                    old_ratings = old_movie.get("ratings") or {}
-                    old_year = extract_year_int(old_ratings.get("year"))
-                    year_compatible = (
-                        hint_year is None
-                        or old_year is None
-                        or abs(old_year - hint_year) <= 2
-                    )
-                    if not old_ratings.get("imdbID") and year_compatible:
-                        movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, old_key, movie_key)
-                        break
-                else:
-                    movie = all_movies.get(movie_key)
-                if movie is not None:
-                    merged = merge_prior_ratings(movie.get("ratings") or {}, ratings)
-                    merged = merge_source_metadata(merged, source_metadata)
-                    movie["ratings"] = strip_placeholder_metadata(merged)
-                    if special_formats:
-                        existing_formats = set(movie.get("special_formats") or [])
-                        movie["special_formats"] = sorted(existing_formats.union(special_formats))
-                else:
-                    movie_id = make_movie_id(title, ratings)
-                    prior_movie = get_existing_movie_record(title)
-                    movie = {
-                        "id": movie_id,
-                        "title": title,
-                        "ratings": ratings,
-                        "theaters": [],
-                        "special_formats": [],
-                    }
-                    preserved_verdict = existing_verdict(prior_movie)
-                    if preserved_verdict is not None:
-                        movie["verdict"] = preserved_verdict
-                    all_movies[movie_key] = movie
-            else:
-                current_ratings = movie.get("ratings") or {}
-                current_year = extract_year_int(current_ratings.get("year"))
-                should_refetch = (
-                    hint_year is not None
-                    and (
-                        not current_ratings.get("imdbID")
-                        or current_year is None
-                        or abs(current_year - hint_year) > 2
-                    )
-                )
-                if should_refetch:
-                    refetch_key = ratings_request_key(title, hint_year=hint_year, source_metadata=source_metadata)
-                    if refetch_key in ratings_cache:
-                        refreshed = dict(ratings_cache[refetch_key])
-                    else:
-                        print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                        refreshed = fetch_ratings(title, hint_year=hint_year, theater_name=theater_name)
-                        ratings_cache[refetch_key] = dict(refreshed)
-                    current_ratings = merge_prior_ratings(refreshed, current_ratings)
-                movie["ratings"] = strip_placeholder_metadata(merge_source_metadata(current_ratings, source_metadata))
-                resolved_key = movie_group_key(title, hint_year=hint_year, ratings=movie["ratings"], source_metadata=source_metadata)
-                if resolved_key != movie_key:
-                    movie = migrate_movie_key(all_movies, theater_schedule, theater_formats, movie_key, resolved_key) or movie
-                    movie_key = resolved_key
 
-            theater_schedule[theater_name][movie_key].append({
-                "day": day,
-                "date": schedule_date,
-                "times": times,
-                "ticket_url": ticket_url,
-                "ticket_urls": ticket_urls,
-            })
-            if special_formats:
-                theater_formats[theater_name][movie_key].update(special_formats)
-                existing_formats = set(movie.get("special_formats") or [])
-                movie["special_formats"] = sorted(existing_formats.union(special_formats))
+        theater_schedule[theater_name][movie_key].append({
+            "day": day,
+            "date": schedule_date,
+            "times": times,
+            "ticket_url": ticket_url,
+            "ticket_urls": ticket_urls,
+        })
+        if special_formats:
+            theater_formats[theater_name][movie_key].update(special_formats)
+            existing_formats = set(movie.get("special_formats") or [])
+            movie["special_formats"] = sorted(existing_formats.union(special_formats))
 
-    # Attach theater + showtime info to each movie
+    return all_movies, theater_schedule, theater_formats
+
+
+def attach_schedules_to_movies(
+    all_movies: dict[str, dict],
+    theater_schedule: dict[str, dict],
+    theater_formats: dict[str, dict[str, set[str]]],
+    theater_meta: dict[str, dict],
+) -> list[dict]:
     for theater_name, movies in theater_schedule.items():
         for key, schedule in movies.items():
-            if key in all_movies:
-                ticket_url = next((slot.get("ticket_url") for slot in schedule if slot.get("ticket_url")), "") or theater_meta.get(theater_name, {}).get("official_url", "")
-                clean_schedule = []
-                for slot in schedule:
-                    clean_slot = {"day": slot["day"], "times": slot["times"]}
-                    if slot.get("date"):
-                        clean_slot["date"] = slot["date"]
-                    if slot.get("ticket_urls"):
-                        clean_slot["ticket_urls"] = slot["ticket_urls"]
-                    clean_schedule.append(clean_slot)
-                all_movies[key]["theaters"].append({
-                    "name": theater_name,
-                    "ticket_url": ticket_url,
-                    "schedule": clean_schedule,
-                    "special_formats": sorted(theater_formats[theater_name].get(key, set())),
-                })
+            if key not in all_movies:
+                continue
+            ticket_url = next((slot.get("ticket_url") for slot in schedule if slot.get("ticket_url")), "") or theater_meta.get(theater_name, {}).get("official_url", "")
+            clean_schedule = []
+            for slot in schedule:
+                clean_slot = {"day": slot["day"], "times": slot["times"]}
+                if slot.get("date"):
+                    clean_slot["date"] = slot["date"]
+                if slot.get("ticket_urls"):
+                    clean_slot["ticket_urls"] = slot["ticket_urls"]
+                clean_schedule.append(clean_slot)
+            all_movies[key]["theaters"].append({
+                "name": theater_name,
+                "ticket_url": ticket_url,
+                "schedule": clean_schedule,
+                "special_formats": sorted(theater_formats[theater_name].get(key, set())),
+            })
 
     movies_list = sorted(
         all_movies.values(),
-        key=lambda m: (
-            {"WATCH": 0, "SKIP": 1}.get((m.get("verdict") or {}).get("verdict"), 2),
-            -rt_sort_value(m.get("ratings") or {})
-        )
+        key=lambda movie: (
+            {"WATCH": 0, "SKIP": 1}.get((movie.get("verdict") or {}).get("verdict"), 2),
+            -rt_sort_value(movie.get("ratings") or {}),
+        ),
     )
-
     if not movies_list:
         raise RuntimeError("No movies scraped from any source")
-
-    poster_count = backfill_missing_posters(movies_list)
-    if poster_count:
-        print(f"  Backfilled posters for {poster_count} movies")
-
     ensure_unique_movie_ids(movies_list)
+    return movies_list
 
+
+def finalize_dataset(
+    ctx: ScrapeContext,
+    movies_list: list[dict],
+    theater_schedule: dict[str, dict],
+    theater_meta: dict[str, dict],
+    issues: list[ScrapeIssue],
+) -> dict:
     dataset = {
         "generated_at": ny_now().isoformat(),
         "week_of": (ny_now() + timedelta(days=(4 - ny_now().weekday()) % 7)).strftime("%B %d, %Y"),
@@ -2397,17 +2660,39 @@ def build_dataset() -> dict:
         "theater_meta": theater_meta,
         "movies": movies_list,
     }
-    if scrape_errors:
-        dataset["scrape_errors"] = scrape_errors
+    if issues:
+        dataset["scrape_errors"] = [f"{issue.theater}: {issue.message}" for issue in issues]
+        ctx.state.collected_issues.extend(
+            {
+                "stage": issue.stage,
+                "source": issue.source,
+                "theater": issue.theater,
+                "message": issue.message,
+            }
+            for issue in issues
+        )
     return dataset
 
 
+def build_dataset(ctx: ScrapeContext) -> dict:
+    validate_runtime_configuration(ctx)
+    print("Starting weekly NYC cinema scrape...")
+    collected_entries, theater_meta, issues = collect_showtime_entries(ctx)
+    all_movies, theater_schedule, theater_formats = resolve_movie_records(ctx, collected_entries, theater_meta)
+    movies_list = attach_schedules_to_movies(all_movies, theater_schedule, theater_formats, theater_meta)
+    return finalize_dataset(ctx, movies_list, theater_schedule, theater_meta, issues)
+
+
 if __name__ == "__main__":
-    dataset = build_dataset()
-    save_json_file(RATING_CACHE_PATH, RATING_CACHE)
-
-    output_path = os.path.join(os.path.dirname(__file__), "../public/data.json")
-    with open(output_path, "w") as f:
-        json.dump(dataset, f, indent=2)
-
+    scrape_ctx = build_scrape_context(
+        script_dir=SCRIPT_DIR,
+        output_data_path=OUTPUT_DATA_PATH,
+        rating_overrides_path=RATING_OVERRIDES_PATH,
+        cinemascore_overrides_path=CINEMASCORE_OVERRIDES_PATH,
+        rating_cache_path=RATING_CACHE_PATH,
+    )
+    dataset = build_dataset(scrape_ctx)
+    save_json_dict(scrape_ctx.rating_cache_path, scrape_ctx.state.rating_cache, sort_keys=True)
+    with OUTPUT_DATA_PATH.open("w", encoding="utf-8") as handle:
+        json.dump(dataset, handle, indent=2, ensure_ascii=False)
     print(f"\nDone. {len(dataset['movies'])} unique films written to public/data.json")

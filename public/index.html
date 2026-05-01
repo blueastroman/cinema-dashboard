@@ -1999,6 +1999,7 @@ const movieBlurbRequestTokens = new Map();
 const movieBlurbPendingKeys = new Set();
 let movieBlurbActiveRequests = 0;
 const movieBlurbRequestQueue = [];
+const POSTER_TINT_CACHE_VERSION = 2;
 
 function getStoredMembershipDefaults() {
   try {
@@ -3146,6 +3147,16 @@ function hexToRgb(hex) {
   ];
 }
 
+function rgbStringToRgb(value) {
+  const match = String(value || '').trim().match(/^rgb\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)\s*\)$/i);
+  if (!match) return null;
+  return [Number(match[1]), Number(match[2]), Number(match[3])];
+}
+
+function parsePosterTintColor(value) {
+  return hexToRgb(value) || rgbStringToRgb(value);
+}
+
 function rgbArrayToCss(rgb) {
   return `rgb(${rgb.map(value => Math.max(0, Math.min(255, Math.round(value)))).join(' ')})`;
 }
@@ -3157,6 +3168,69 @@ function blendRgb(a, b, ratio) {
     a[1] * (1 - r) + b[1] * r,
     a[2] * (1 - r) + b[2] * r,
   ];
+}
+
+function rgbToHsl(rgb) {
+  const r = Math.max(0, Math.min(255, rgb[0])) / 255;
+  const g = Math.max(0, Math.min(255, rgb[1])) / 255;
+  const b = Math.max(0, Math.min(255, rgb[2])) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  if (max === min) return [0, 0, l];
+
+  const d = max - min;
+  const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+  let h;
+  switch (max) {
+    case r:
+      h = (g - b) / d + (g < b ? 6 : 0);
+      break;
+    case g:
+      h = (b - r) / d + 2;
+      break;
+    default:
+      h = (r - g) / d + 4;
+      break;
+  }
+  return [h / 6, s, l];
+}
+
+function hslToRgb(hsl) {
+  const h = ((hsl[0] % 1) + 1) % 1;
+  const s = Math.max(0, Math.min(1, hsl[1]));
+  const l = Math.max(0, Math.min(1, hsl[2]));
+  if (s === 0) {
+    const value = l * 255;
+    return [value, value, value];
+  }
+  const hue2rgb = (p, q, t) => {
+    let next = t;
+    if (next < 0) next += 1;
+    if (next > 1) next -= 1;
+    if (next < 1 / 6) return p + (q - p) * 6 * next;
+    if (next < 1 / 2) return q;
+    if (next < 2 / 3) return p + (q - p) * (2 / 3 - next) * 6;
+    return p;
+  };
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+  return [
+    hue2rgb(p, q, h + 1 / 3) * 255,
+    hue2rgb(p, q, h) * 255,
+    hue2rgb(p, q, h - 1 / 3) * 255,
+  ];
+}
+
+function tunePosterTint(rgb) {
+  if (!Array.isArray(rgb)) return null;
+  const [h, s, l] = rgbToHsl(rgb);
+  const boosted = hslToRgb([
+    h,
+    Math.min(1, s * 1.18 + 0.04),
+    Math.min(1, l + 0.08),
+  ]);
+  return boosted;
 }
 
 function getPosterTintBaseColor() {
@@ -3173,8 +3247,9 @@ function setRankingRowPosterTint(row, posterRgb) {
   if (!row || !Array.isArray(posterRgb)) return;
   const base = getPosterTintBaseColor();
   const hoverBase = getPosterTintHoverBaseColor();
-  const body = blendRgb(base, posterRgb, 0.28);
-  const hover = blendRgb(hoverBase, posterRgb, 0.24);
+  const tunedPoster = tunePosterTint(posterRgb) || posterRgb;
+  const body = blendRgb(base, tunedPoster, 0.36);
+  const hover = blendRgb(hoverBase, tunedPoster, 0.31);
   row.style.setProperty('--poster-bg', rgbArrayToCss(body));
   row.style.setProperty('--poster-bg-hover', rgbArrayToCss(hover));
 }
@@ -3207,8 +3282,7 @@ function samplePosterTintFromImage(img) {
 
     if (!count) return null;
     const posterRgb = [red / count, green / count, blue / count];
-    const base = getPosterTintBaseColor();
-    return blendRgb(base, posterRgb, 0.34);
+    return posterRgb;
   } catch {
     return null;
   }
@@ -3221,6 +3295,7 @@ function storePosterTint(movieOrKey, tintRgb) {
     ...posterTintCache,
     [key]: {
       color: rgbArrayToCss(tintRgb),
+      version: POSTER_TINT_CACHE_VERSION,
       updated_at: new Date().toISOString(),
     },
   };
@@ -3231,10 +3306,15 @@ function applyStoredPosterTint(movie, row) {
   if (!movie || !row) return false;
   const key = getMoviePosterTintKey(movie);
   const entry = posterTintCache[key];
-  const color = cleanDisplayText(entry?.color);
+  const color = parsePosterTintColor(entry?.color);
   if (!color) return false;
-  row.style.setProperty('--poster-bg', color);
-  row.style.setProperty('--poster-bg-hover', color);
+  const tuned = tunePosterTint(color) || color;
+  const css = rgbArrayToCss(tuned);
+  row.style.setProperty('--poster-bg', css);
+  row.style.setProperty('--poster-bg-hover', css);
+  if (entry?.version !== POSTER_TINT_CACHE_VERSION) {
+    storePosterTint(key, color);
+  }
   return true;
 }
 
@@ -3243,10 +3323,15 @@ function handleRankingPosterLoad(img) {
   const row = img.closest('.ranking-row');
   if (!row) return;
   const key = row.dataset.posterKey || '';
-  const cached = cleanDisplayText(posterTintCache[key]?.color);
+  const cached = parsePosterTintColor(posterTintCache[key]?.color);
   if (cached) {
-    row.style.setProperty('--poster-bg', cached);
-    row.style.setProperty('--poster-bg-hover', cached);
+    const tunedCached = tunePosterTint(cached) || cached;
+    const css = rgbArrayToCss(tunedCached);
+    row.style.setProperty('--poster-bg', css);
+    row.style.setProperty('--poster-bg-hover', css);
+    if (posterTintCache[key]?.version !== POSTER_TINT_CACHE_VERSION) {
+      storePosterTint(key, cached);
+    }
     return;
   }
   const tint = samplePosterTintFromImage(img);
