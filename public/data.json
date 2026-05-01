@@ -1349,7 +1349,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A collection of early documentary works by the Polish master who made The Three Colors trilogy. Best for film students and anyone who wants to see how a great filmmaker learned his craft."
+      }
     },
     {
       "id": "prismatic-ground-closing-night-gangsterism",
@@ -1387,7 +1391,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A curated program of experimental films exploring crime themes through an avant-garde lens. Best for adventurous viewers who like their cinema challenging and abstract."
+      }
     },
     {
       "id": "the-hour-of-liberation-has-arrived",
@@ -1425,7 +1433,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A documentary about political liberation movements that I'm not familiar with the specifics of. Best for viewers interested in political history and social justice documentaries."
+      }
     },
     {
       "id": "tt32612507",
@@ -2940,7 +2952,11 @@
       ],
       "special_formats": [
         "IMAX"
-      ]
+      ],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A remake or sequel to the Wachowskis' 2008 flop about a cartoon race car driver. Best for absolutely no one unless you have a specific nostalgia for that original mess."
+      }
     },
     {
       "id": "dhurandhar-the-revenge",
@@ -2975,7 +2991,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A Bollywood action film that sounds like direct-to-streaming revenge fare. Best for people who will watch literally any action movie regardless of quality."
+      }
     },
     {
       "id": "private-event-today-in-theater-commissary",
@@ -3013,7 +3033,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A private event that you literally cannot attend. Best for people who enjoy being locked out of things."
+      }
     },
     {
       "id": "tt0073589",
@@ -3970,7 +3994,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A 1959 courtroom drama from Otto Preminger starring James Stewart as a lawyer defending a murder case. Best for anyone who likes smart legal thrillers and classic Hollywood at its peak."
+      }
     },
     {
       "id": "kes",
@@ -4012,7 +4040,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A 1969 British film about a working-class boy who trains a kestrel hawk as his escape from a grim life. Best for people who want their coming-of-age stories raw and unsentimental."
+      }
     },
     {
       "id": "blue-heron",
@@ -4095,7 +4127,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "An independent film that I'm not familiar with the specifics of. Best for viewers who like discovering new indie filmmakers and character-driven stories."
+      }
     },
     {
       "id": "tt0071315",
@@ -4702,7 +4738,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A young rodeo cowboy faces an existential crisis after a head injury threatens to end his career. Best for those who appreciate quiet character studies and authentic American stories."
+        "reason": "A drama about a rodeo cowboy recovering from a head injury, starring real cowboys including the actual person the story is based on. Best for anyone who wants authentic American storytelling without Hollywood polish."
       }
     },
     {
@@ -4977,7 +5013,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A Polish art film following a donkey's journey through modern Europe, told entirely from the animal's perspective. Best for adventurous viewers who want cinema that's completely unlike anything else playing."
+        "reason": "A Polish film that follows a donkey's journey through modern Europe, told from the animal's perspective. Best for art house fans who don't mind experimental narratives and want something genuinely unique."
       }
     },
     {
@@ -5016,7 +5052,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A boy befriends a massive robot from space during the Cold War in this hand-drawn animated masterpiece. Best for anyone who believes animation can be profound and wants to cry happy tears."
+        "reason": "A 1999 animated film about a boy who befriends a giant robot during the Cold War. Best for anyone who wants to see one of the best animated films ever made on a big screen."
       }
     },
     {
@@ -5344,7 +5380,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A teenage girl discovers her creative passion while navigating first love in this gentle Studio Ghibli coming-of-age story. Best for anyone who remembers being young and feeling like the whole world was waiting for them."
+        "reason": "A Studio Ghibli film about a teenage girl who discovers her passion for writing. Best for people who want gentle coming-of-age magic without the fantasy elements of other Ghibli films."
       }
     },
     {
@@ -5384,7 +5420,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A woman reconnects with her childhood sweetheart from Korea years after immigrating to America. Best for adults who understand that love stories can be devastating even when nobody does anything wrong."
+        "reason": "A drama about childhood friends from Korea who reconnect as adults in New York decades later. Best for anyone who wants to feel things deeply and thinks about paths not taken."
       }
     },
     {
@@ -5436,7 +5472,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A film exploring connections between two people across different seasons and circumstances. Best for viewers drawn to contemplative relationship studies and non-linear storytelling."
+        "reason": "An independent film that appears to be about encounters between strangers across different time periods. Best for viewers who like quiet character studies and non-linear storytelling."
       }
     },
     {
@@ -6633,7 +6669,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A Hong Kong thriller about an undercover cop in the mob and a mob infiltrator in the police, each trying to expose the other. Best for action movie lovers who want their shootouts served with actual psychological complexity."
+        "reason": "A Hong Kong thriller about an undercover cop infiltrating the mob while a mob informant infiltrates the police. Best for people who want to see the brilliant original that Scorsese remade as The Departed."
       }
     },
     {
@@ -6672,7 +6708,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A nameless warrior tells three different versions of how he defeated the king's enemies in this visually stunning wuxia epic. Best for martial arts enthusiasts and anyone who believes fight scenes can be pure poetry."
+        "reason": "A Zhang Yimou martial arts epic about assassins plotting to kill China's first emperor, told in multiple color-coded versions. Best for people who want their action movies to look like moving paintings."
       }
     },
     {
@@ -6947,7 +6983,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A farm boy joins a rebellion against an evil empire in the space opera that changed movies forever. Best for literally everyone who has somehow avoided this cultural touchstone and wants to understand what all the fuss is about."
+        "reason": "A 1977 space opera about a farm boy who joins a rebellion against an evil empire. Best for experiencing the most influential blockbuster ever made on a big screen where it belongs."
       }
     },
     {
@@ -6993,7 +7029,7 @@
       ],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A shaved-head Ripley crash-lands on a prison planet where a new alien stalks the inmates. Best for Alien franchise completists and viewers curious about ambitious failures from major directors."
+        "reason": "A dark sequel where Ripley crashes on a prison planet full of religious fanatics and faces another xenomorph. Best for Alien completists and people who like their sci-fi horror nihilistic and weird."
       }
     },
     {
@@ -7035,7 +7071,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A hunter finds drug money in the desert and gets pursued by an unstoppable killer with a cattle gun. Best for anyone who can handle Cormac McCarthy's bleak worldview and the Coen brothers at their most merciless."
+        "reason": "A Coen Brothers thriller about a drug deal gone wrong and the psychopathic killer hunting everyone involved. Best for people who like their Westerns existential and their villains unforgettable."
       }
     },
     {
@@ -7081,7 +7117,7 @@
       ],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A suburban housewife's life falls apart in John Waters' satirical melodrama complete with Odorama scratch-and-sniff cards. Best for trash cinema devotees and anyone ready for the most demented movie theater gimmick ever attempted."
+        "reason": "A John Waters comedy about a suburban housewife whose life falls apart, originally released with scratch-and-sniff Odorama cards. Best for people who like their satire trashy and their filmmakers genuinely subversive."
       }
     },
     {
@@ -7198,7 +7234,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A languid portrait of 19th-century courtesans and their clients in Shanghai's floating world. Best for patient viewers who want to be transported to another era entirely and don't mind static camera work."
+        "reason": "A Hou Hsiao-hsien film set entirely in 1880s Shanghai brothels, shot in long static takes with natural lighting. Best for patient viewers who want cinema as meditation and atmosphere over plot."
       }
     },
     {
@@ -7348,7 +7384,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A laundromat owner gets pulled into a multiverse-spanning adventure to save reality itself. Best for anyone who wants to laugh, cry, and have their brain completely scrambled by the most ambitious movie ever made about doing taxes."
+        "reason": "A multiverse action comedy about a Chinese-American laundromat owner who must save reality from her daughter. Best for people who want their existential crises served with googly eyes and hot dog fingers."
       }
     },
     {
@@ -7440,7 +7476,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A hard-nosed cop and an undercover agent team up to take down gun smugglers in this explosive John Woo action masterpiece. Best for action junkies who want to see gunfights elevated to the level of ballet and don't mind subtitles."
+        "reason": "A John Woo action film about a cop and an undercover agent teaming up to take down arms dealers in Hong Kong. Best for people who want to see the pinnacle of stylized gun violence choreography."
       }
     },
     {
@@ -7796,7 +7832,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A psychological thriller starring Ben Affleck and Ana de Armas as a married couple playing dangerous games. Best for people who miss boring erotic thrillers from the 90s but with worse acting."
+      }
     },
     {
       "id": "tt0070544",
@@ -7912,7 +7952,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A musical about an aspiring actress and jazz musician falling in love in Los Angeles. Best for people who want their musicals pretty and melancholy rather than energetic and fun."
+      }
     },
     {
       "id": "holy-motors-2012",
@@ -8825,7 +8869,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A 1972 thriller about four city men whose canoe trip in rural Georgia turns into a nightmare of violence and survival. Best for people who want their masculinity examined through genuine terror."
+      }
     },
     {
       "id": "vanya-on-42nd-street",
@@ -8867,7 +8915,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Louis Malle film that documents a theater company rehearsing Chekhov's Uncle Vanya in a crumbling Broadway theater. Best for theater lovers and anyone who wants to see great acting in its purest form."
+      }
     },
     {
       "id": "chungking-express",
@@ -8902,7 +8954,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Wong Kar-wai film about two Hong Kong cops dealing with love and loneliness in their own separate stories. Best for people who like their romance stylish, melancholy, and told through pop music and neon lights."
+      }
     },
     {
       "id": "red-cliff",
@@ -8944,7 +9000,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A John Woo epic about the famous Three Kingdoms battle in ancient China, featuring massive naval warfare and political intrigue. Best for people who want their historical epics grand in scale and beautiful to look at."
+      }
     },
     {
       "id": "the-smiling-lieutenant",
@@ -8988,7 +9048,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Lubitsch musical about a Viennese officer caught between two women. Best for anyone who wants to see why they called it the Lubitsch touch."
+      }
     },
     {
       "id": "blow-out-1981",
@@ -9147,7 +9211,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A FedEx exec stranded alone on an island for years with only a volleyball for company. Best for when you want existential drama wrapped in accessible Hollywood packaging."
+      }
     },
     {
       "id": "harry-and-tonto",
@@ -9189,7 +9257,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "An elderly widower drives cross-country with his cat after being evicted from his apartment. Best for viewers who connect with quiet character studies about aging and displacement."
+      }
     },
     {
       "id": "clockwatchers",
@@ -9231,7 +9303,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A comedy-drama about four temp workers navigating office politics and workplace paranoia. Best for anyone who has suffered through soul-crushing administrative jobs."
+      }
     },
     {
       "id": "tt1615147",
@@ -9321,7 +9397,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A writer in 1960s Hong Kong reflects on his relationships while crafting a sci-fi story. Best for Wong Kar-wai fans who want lush visuals and romantic melancholy."
+      }
     },
     {
       "id": "blade-1998",
@@ -9483,7 +9563,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A Japanese man searches for his ex-girlfriend in Seoul through fragmented narrative episodes. Best for Hong Sang-soo devotees who enjoy his specific brand of rambling relationship comedy."
+      }
     },
     {
       "id": "tt0074220",
@@ -9842,7 +9926,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A woman and her dog get stranded in Oregon while driving to Alaska for work. Best for viewers who appreciate minimal storytelling about economic precarity."
+      }
     },
     {
       "id": "dressed-to-kill-1980-1980",
@@ -9952,7 +10040,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Beverly Hills teen plays matchmaker while navigating high school social politics. Best for anyone who wants smart comedy that actually understands teenage life."
+      }
     },
     {
       "id": "cyclo",
@@ -9994,7 +10086,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A young cyclo driver in Saigon gets pulled into the criminal underworld to survive. Best for viewers ready for Tran Anh Hung's intense urban poetry."
+      }
     },
     {
       "id": "tt0377556",
@@ -10074,7 +10170,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "An epic about China's first emperor and the woman who tries to kill him. Best for fans of sweeping historical dramas who have three hours to spare."
+      }
     },
     {
       "id": "the-rocky-horror-picture-show",
@@ -10109,7 +10209,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A newlywed couple stumbles into a transvestite scientist's castle on their wedding night. Best for midnight screenings with audience participation and toast throwing."
+      }
     },
     {
       "id": "the-grandmaster",
@@ -10144,7 +10248,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A biographical martial arts film about Ip Man and the kung fu masters of 1930s China. Best for Wong Kar-wai fans who want his style applied to action filmmaking."
+      }
     },
     {
       "id": "mishima-a-life-in-four-chapters-1985",
@@ -10378,7 +10486,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A three-part anthology from Scorsese, Coppola, and Woody Allen set in New York. Best for completists who want to see three different directors tackle the same city."
+      }
     },
     {
       "id": "tt33071426",
@@ -11305,7 +11417,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A transgender woman reflects on her life during her final days in Frankfurt. Best for viewers ready for Fassbinder's brutal examination of identity and loneliness."
+      }
     },
     {
       "id": "tt0258000",
@@ -11382,7 +11498,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A documentary about the making of a Chinese propaganda film. Best for viewers interested in the intersection of cinema and political messaging."
+      }
     },
     {
       "id": "tt33612209",
@@ -13627,7 +13747,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A boy's horse gets sold to the cavalry and experiences World War I from multiple perspectives. Best for Spielberg fans who don't mind heavy-handed sentiment about war's toll."
+      }
     },
     {
       "id": "lust-caution",
@@ -13662,7 +13786,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Chinese student becomes a spy and seduces a collaborator during Japanese occupation. Best for viewers who want Ang Lee's take on erotic psychological thriller territory."
+      }
     },
     {
       "id": "fuze",
@@ -13758,7 +13886,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A thriller about a bomb disposal expert dealing with a terrorist threat. Best for action fans looking for tense procedural elements over big explosions."
+      }
     },
     {
       "id": "hahaha",
@@ -13796,7 +13928,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A comedy about two men who discover they vacationed in the same seaside town and loved the same woman. Best for Hong Sang-soo fans who enjoy his circular relationship comedies."
+      }
     },
     {
       "id": "painters-painting",
@@ -13834,7 +13970,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A documentary about the New York art scene and Abstract Expressionist movement from the 1940s-70s. Best for anyone interested in how American art found its voice after World War II."
+      }
     },
     {
       "id": "tt36671015",
@@ -14449,7 +14589,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A comedy about three office workers who kidnap their sexist boss and run the company themselves. Best for workplace comedy fans who want actual teeth with their laughs."
+      }
     },
     {
       "id": "the-funhouse-1981-1981",
@@ -14790,7 +14934,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "An animated adaptation of Orwell's allegory about farm animals overthrowing their human owner. Best for viewers who want political satire in animated form."
+      }
     },
     {
       "id": "tt0117060",
@@ -14939,7 +15087,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A family rafting trip turns deadly when they encounter armed fugitives on the water. Best for fans of 90s thriller formulas with outdoor adventure settings."
+      }
     },
     {
       "id": "serial-mom-1994",
@@ -15054,7 +15206,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A French film about a baby who grows wings and can fly. Best for viewers who want surreal family drama that doesn't quite work as either."
+      }
     },
     {
       "id": "over-your-dead-body-2026-2026",
@@ -15449,7 +15605,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A Japanese horror film about actors rehearsing a ghost story who begin living out the supernatural tale. Best for Takashi Miike fans prepared for his blend of theater and horror."
+      }
     },
     {
       "id": "tt0120347",
@@ -15719,7 +15879,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A live-action adaptation of the classic story about the boy who never grows up. Best for families wanting a traditional telling without Disney's animation."
+      }
     },
     {
       "id": "tt36731244",
@@ -15821,7 +15985,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A period drama about a young man traveling with a doctor who performs lobotomies. Best for viewers drawn to cold, clinical examinations of medical history."
+      }
     },
     {
       "id": "tt0096787",
@@ -16990,7 +17158,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A dystopian satire about celebrity culture and politics starring The Rock and Sarah Michelle Gellar. Best for viewers who think Richard Kelly's ambitious mess deserves three hours of their time."
+      }
     },
     {
       "id": "tt11378946",
@@ -18661,7 +18833,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A neon-soaked crime film about hitmen, mute ex-cons, and late-night encounters in Hong Kong. Best for Wong Kar-wai fans who want his style applied to pulp fiction."
+      }
     },
     {
       "id": "nesting-2026",
@@ -18812,7 +18988,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "An action film about tribal warfare in ancient Arabia. Best for viewers with very low expectations for historical action movies."
+      }
     },
     {
       "id": "apex",
@@ -18847,7 +19027,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "A generic action thriller about survival games or corporate conspiracy. For people who think Die Hard needed less personality and more CGI."
+      }
     },
     {
       "id": "boulevard",
@@ -18922,7 +19106,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A drama about a married man questioning his sexuality late in life. For viewers who want intimate character studies over plot-driven entertainment."
+      }
     },
     {
       "id": "touki-bouki",
@@ -18960,7 +19148,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A 1973 Senegalese masterpiece about young lovers dreaming of escape to Paris. For anyone interested in African cinema or visually stunning art films that broke new ground."
+      }
     },
     {
       "id": "bill-plympton-grilled-by-signe-baumane",
@@ -18998,7 +19190,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A documentary where animator Signe Baumane interviews cult animation legend Bill Plympton about his career. For animation fans and anyone curious about underground art-making."
+      }
     },
     {
       "id": "nausica-of-the-valley-of-the-wind",
@@ -19036,7 +19232,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A Miyazaki epic about a princess fighting to save her world from environmental collapse and giant insects. For Studio Ghibli fans and anyone who wants spectacular hand-drawn animation with real themes."
+      }
     },
     {
       "id": "tt0115715",
@@ -19116,7 +19316,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A double bill of art documentaries showing master painters at work. For art lovers who want to see creative genius captured on film."
+      }
     },
     {
       "id": "a-bigger-splash-mark-turbyfill-by-markopoulos",
@@ -19154,7 +19358,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A David Hockney documentary paired with experimental filmmaker Gregory Markopoulos. For art house devotees who appreciate avant-garde cinema and visual artists."
+      }
     },
     {
       "id": "tt34950022",
@@ -19242,8 +19450,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "WATCH",
-        "reason": "A rare French double feature exploring the life and art of outsider artist Aloïse Corbaz through intimate documentary storytelling. Best for art house devotees who love deep dives into creative minds."
+        "verdict": "DEPENDS",
+        "reason": "A Swiss film about outsider artist Aloïse Corbaz preceded by a short. For fans of European arthouse cinema about troubled artists."
       }
     },
     {
@@ -19285,7 +19493,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A documentary examining Jean-Michel Basquiat's work through a monochrome lens that strips away color to focus on form and meaning. Best for art lovers who want a fresh perspective on an icon."
+        "reason": "A documentary about Jean-Michel Basquiat presented in black and white. For art fans who want to understand one of the most important painters of the 80s."
       }
     },
     {
@@ -19327,7 +19535,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A renowned photographer's take on the Coen Brothers' bleak western thriller about a drug deal gone wrong in Texas. Best for cinephiles curious how different artists read the same film."
+        "reason": "A Coen Brothers masterpiece chosen by photographer Carrie Mae Weems as part of an artist selection series. For anyone who appreciates when great artists recommend great films."
       }
     },
     {
@@ -19368,8 +19576,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "WATCH",
-        "reason": "A classic melodrama about sacrifice and motherhood that defined its era of cinema. Best for those who appreciate golden age Hollywood storytelling."
+        "verdict": "DEPENDS",
+        "reason": "A drama about gender identity and personal transformation. For viewers interested in LGBTQ+ stories and character-driven narratives."
       }
     },
     {
@@ -19415,7 +19623,7 @@
       ],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A master photographer presents Teshigahara's surreal 1966 film about identity and masks in post-war Japan. Best for adventurous viewers who like psychological sci-fi with artistic depth."
+        "reason": "A 1966 Teshigahara psychological thriller about identity chosen by renowned photographer Hiroshi Sugimoto. For fans of Japanese New Wave and conceptual photography crossover."
       }
     },
     {
@@ -19457,7 +19665,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A coming-of-age story following young adults navigating life after school in contemporary settings. Best for those in similar life transitions or nostalgic for that uncertain post-graduation period."
+        "reason": "A coming-of-age story about post-graduation uncertainty. For recent graduates or anyone feeling lost about their next life chapter."
       }
     },
     {
@@ -19499,7 +19707,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A legendary street photographer introduces Hitchcock's masterpiece about mistaken identity and cross-country pursuit. Best for anyone who hasn't seen this on the big screen or wants to hear an artist's perspective."
+        "reason": "A Hitchcock classic chosen by legendary street photographer Lee Friedlander. For anyone who wants to see a master thriller through the eyes of a visual artist."
       }
     },
     {
@@ -19544,8 +19752,8 @@
         "35mm"
       ],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A dark comedy adaptation about a bitter married couple's toxic relationship over one day in New York. Best for those who enjoy uncomfortable relationship humor and don't mind depressing characters."
+        "verdict": "SKIP",
+        "reason": "A stage adaptation about a toxic marriage starring Matthew Broderick and Parker Posey. For masochists who enjoy watching people be awful to each other for 90 minutes."
       }
     },
     {
@@ -19587,7 +19795,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A contemporary artist presents Miyazaki's environmental epic in original Japanese about spirits, industry, and nature's revenge. Best for Studio Ghibli newcomers or anyone wanting the authentic experience with subtitles."
+        "reason": "A Miyazaki environmental epic in its original Japanese chosen by interdisciplinary artist Martine Gutierrez. For Studio Ghibli purists and anyone who wants the film as the director intended."
       }
     },
     {
@@ -19629,7 +19837,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A French New Wave classic about memory and guilt in post-war France that experiments with narrative structure. Best for serious film students and those who appreciate challenging European cinema."
+        "reason": "A 1963 Alain Resnais film about memory and the Algerian War starring Delphine Seyrig. For French New Wave enthusiasts and viewers who like complex narrative structures."
       }
     },
     {
@@ -19671,7 +19879,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "SKIP",
-        "reason": "A dated exploitation film based on the hoax novel designed to prove people would buy anything with sex. Best for nobody unless you're researching 1970s trash cinema."
+        "reason": "A 1970s adaptation of a deliberately trashy novel written as a publishing experiment. For people with very specific tastes in exploitation cinema history."
       }
     },
     {
@@ -19717,7 +19925,7 @@
       ],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A renowned photographer introduces Sam Fuller's provocative 1964 noir about a reformed sex worker trying to start over. Best for those who like gritty independent filmmaking with social bite."
+        "reason": "A 1964 Sam Fuller crime film about a reformed prostitute chosen by photographer Nan Goldin. For fans of pulp noir and seeing how contemporary artists view classic American cinema."
       }
     },
     {
@@ -19759,7 +19967,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A showcase of contemporary artist Kim Torres's work exploring gender and identity through visual art. Best for gallery-goers and those interested in current feminist art practices."
+        "reason": "A showcase of experimental filmmaker Kim Torres' work. For fans of underground cinema and feminist experimental film."
       }
     },
     {
@@ -19805,7 +20013,7 @@
       ],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A theatrical adaptation about intellectuals facing political oppression that maintains its stage origins. Best for literature lovers and those who don't mind talky, philosophical drama."
+        "reason": "A Wallace Shawn play adaptation about intellectuals during political upheaval. For theater lovers and people who enjoy dense philosophical conversations."
       }
     },
     {
@@ -19847,7 +20055,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A visual artist introduces Ari Aster's family horror nightmare about grief, cults, and supernatural inheritance. Best for horror lovers who haven't seen this modern classic or want an artist's reading."
+        "reason": "A modern horror masterpiece about family trauma chosen by visual artist Wardell Milan. For horror fans and anyone who wants to see the genre taken seriously as art."
       }
     },
     {
@@ -19889,7 +20097,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A simple Iranian film about a boy trying to return his friend's notebook that finds profound meaning in childhood duty. Best for those who appreciate quiet, humanistic storytelling."
+        "reason": "A 1987 Abbas Kiarostami film about a boy trying to return his friend's notebook. For anyone who wants to see Iranian cinema at its most humanistic and beautiful."
       }
     },
     {
@@ -20131,7 +20339,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A low-budget independent film about financial stress and urban survival in contemporary settings. Best for those drawn to gritty realism and stories about economic struggle."
+        "reason": "An independent film about financial stress and working-class struggles. For viewers interested in low-budget American independent cinema about real economic anxiety."
       }
     },
     {
@@ -20387,7 +20595,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A Visconti classic about a working-class mother pushing her daughter toward film stardom in post-war Italy. Best for those who love Italian neorealism and stories about dreams versus reality."
+        "reason": "A 1951 Luchino Visconti film about a mother pushing her daughter into show business. For Italian cinema fans and anyone who wants to see Anna Magnani at her most powerful."
       }
     },
     {
@@ -20429,7 +20637,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "SKIP",
-        "reason": "A franchise reboot that prioritizes action sequences over the character charm that made the turtles work. Best for very young kids or nostalgic adults with low expectations."
+        "reason": "A franchise reboot about pizza-loving reptile warriors fighting crime in New York. For nostalgic parents and kids who have never seen good action movies."
       }
     },
     {
@@ -20468,7 +20676,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A music documentary exploring sound recording techniques and the artists who master them. Best for audio enthusiasts and musicians curious about production processes."
+        "reason": "A documentary about music production and sound design in film. For audio enthusiasts and film students interested in the technical side of moviemaking."
       }
     },
     {
@@ -20508,7 +20716,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A Kubrick masterpiece about isolation and madness in a haunted hotel that defines cinematic horror. Best for anyone who wants to experience this classic properly on a big screen."
+        "reason": "A Kubrick horror masterpiece about isolation and madness in a haunted hotel. For anyone who wants to see one of the greatest horror films ever made on the big screen."
       }
     },
     {
@@ -20547,7 +20755,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A documentary about migration and border crossing that examines contemporary political issues through personal stories. Best for those engaged with current immigration debates and social justice topics."
+        "reason": "A documentary about migration and border crossing in contemporary Africa. For viewers interested in current global politics and African perspectives on migration."
       }
     },
     {
@@ -20593,7 +20801,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A Wong Kar-wai romance about a volatile gay couple stranded in Buenos Aires that captures love's beautiful toxicity. Best for those who appreciate mood-driven foreign films and gorgeous cinematography."
+        "reason": "A Wong Kar-wai masterpiece about a toxic gay relationship in Buenos Aires starring Tony Leung and Leslie Cheung. For anyone who wants gorgeous cinematography and devastating emotional storytelling."
       }
     },
     {
@@ -20632,7 +20840,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A John Woo war epic about friendship destroyed by Vietnam conflict that delivers his signature action with emotional weight. Best for action lovers who want substance with their shootouts."
+        "reason": "A John Woo action epic about three friends who flee Hong Kong for Vietnam during the war and get caught in chaos. Best for fans of operatic gunplay and brotherhood sagas who want peak Hong Kong cinema."
       }
     },
     {
@@ -20678,7 +20886,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A filmed stage production of Pushkin's classic tale about love, rejection, and regret in Russian high society. Best for opera lovers and those who enjoy theatrical adaptations."
+        "reason": "A filmed stage production of Pushkin's classic opera about unrequited love and regret in 19th century Russia. Best for opera lovers who prefer theater recordings to live performances."
       }
     },
     {
@@ -24335,7 +24543,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A group of pioneers gets lost in the Oregon desert while following a mysterious guide in Kelly Reichardt's slow-burn western that unfolds in real time. Best for patient viewers who appreciate minimalist storytelling and Michelle Williams being excellent."
+        "reason": "A slow-burn western following Oregon Trail pioneers lost in the desert with an unreliable guide. Best for patient viewers who like atmospheric filmmaking and feminist takes on frontier stories."
       }
     },
     {
@@ -24381,7 +24589,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A primatologist moves to Rwanda to study mountain gorillas and becomes their fierce protector in this biographical drama starring Sigourney Weaver. Best for nature lovers and anyone who wants to see Weaver in one of her most committed performances."
+        "reason": "A biographical drama about the primatologist who studied mountain gorillas in Rwanda until her murder. Best for nature lovers and fans of Sigourney Weaver's powerhouse performance."
       }
     },
     {
@@ -24426,8 +24634,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A body-swap story that likely involves comedic misunderstandings and life lessons learned through walking in someone else's shoes. Best for people who enjoy high-concept comedies with heart."
+        "verdict": "SKIP",
+        "reason": "An anime about two students who switch bodies and navigate high school drama. Best for completionist anime fans who have already seen every other body-swap story."
       }
     },
     {
@@ -24466,7 +24674,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "A boy and a wild horse survive a shipwreck and form an unbreakable bond in this 1979 family adventure that treats both human and animal characters with genuine respect. Best for anyone who wants to remember when family films had patience and poetry."
+        "reason": "A boy and wild horse survive a shipwreck and form a deep bond on a desert island before racing glory. Best for anyone who loves pure cinema magic and stories about trust between species."
       }
     },
     {
@@ -24575,7 +24783,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A documentary capturing John Lennon and Yoko Ono's activist period in New York City through live performances and archival footage. Best for Beatles completists and people interested in 1970s counterculture history."
+        "reason": "A documentary about John Lennon and Yoko Ono's political activism during their New York years. Best for Beatles fanatics and those interested in 1970s counterculture history."
       }
     },
     {
@@ -24642,7 +24850,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A 3D concert film capturing Billie Eilish's latest tour with immersive sound and visuals for the big screen experience. Best for Eilish devotees who want the closest thing to front-row seats without the ticket prices."
+        "reason": "A 3D concert film capturing Billie Eilish's latest tour with immersive audio and visuals. Best for devoted fans who want the big screen concert experience without the crowds."
       }
     },
     {
@@ -24851,8 +25059,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "An anime film based on the popular series about a person reincarnated as a slime creature in a fantasy world. Best for existing anime enthusiasts who are already following this particular franchise."
+        "verdict": "SKIP",
+        "reason": "An anime film about a corporate worker reborn as a slime monster building his own kingdom. Best for fans of the series who need every piece of content regardless of quality."
       }
     },
     {
@@ -24906,7 +25114,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "WATCH",
-        "reason": "An FBI trainee seeks help from imprisoned cannibal Hannibal Lecter to catch another serial killer in this psychological thriller that redefined horror cinema. Best for anyone who wants to experience peak Anthony Hopkins and Jodie Foster on the big screen."
+        "reason": "A FBI trainee consults imprisoned cannibal Hannibal Lecter to catch another serial killer. Best for horror fans and anyone who wants to see a perfect thriller on the big screen."
       }
     },
     {
@@ -24953,7 +25161,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A documentary or concert film about the influential Filipino rock band Eraserheads and their cultural impact. Best for Filipino music enthusiasts and people interested in Southeast Asian pop culture history."
+        "reason": "A documentary about the Filipino rock band that defined 1990s Philippine alternative music. Best for fans of Philippine rock history and Southeast Asian music culture."
       }
     },
     {
@@ -25034,8 +25242,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A film that likely explores themes around food, family, or cultural identity through the lens of chocolate or cooking. Best for people who enjoy food-centered storytelling with emotional depth."
+        "verdict": "SKIP",
+        "reason": "A feel-good drama about family recipes and healing through cooking. Best for viewers who find comfort in predictable food-centric stories."
       }
     },
     {
@@ -25101,8 +25309,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A documentary that attempts to explain the universe, life, or human existence through scientific or philosophical inquiry. Best for people who enjoy ambitious educational documentaries that tackle big questions."
+        "verdict": "SKIP",
+        "reason": "A documentary attempting to explain the universe from Big Bang to present day in feature length. Best for viewers who prefer surface-level science over actual depth."
       }
     },
     {
@@ -25180,8 +25388,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A film featuring or about martial arts star Jet Li, likely showcasing his fighting skills and screen presence. Best for action movie enthusiasts and martial arts cinema devotees."
+        "verdict": "SKIP",
+        "reason": "An action film about martial arts and revenge with unknown production quality. Best for viewers desperate for any martial arts content regardless of execution."
       }
     },
     {
@@ -25234,7 +25442,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A concert film capturing the Japanese rock band ONE OK ROCK's stadium performance with cinema-quality sound and visuals. Best for J-rock enthusiasts and people who want the stadium concert experience in a theater setting."
+        "reason": "A concert film of the Japanese rock band's stadium performance with full production value. Best for fans of the band who want the arena experience in theaters."
       }
     },
     {
@@ -25306,7 +25514,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A historical film about the Maratha warrior king Shivaji, likely focusing on his battles and empire-building in 17th century India. Best for people interested in Indian history and epic period dramas with battle sequences."
+        "reason": "A historical drama about the 17th century Maratha warrior king who fought Mughal expansion. Best for fans of Indian historical epics and Shivaji devotees."
       }
     },
     {
@@ -25372,8 +25580,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A Hindi film that translates to 'One Day' and likely follows characters through a significant 24-hour period or life-changing moment. Best for Indian cinema enthusiasts and people who enjoy intimate character studies."
+        "verdict": "SKIP",
+        "reason": "A Bengali drama about family relationships and daily struggles in contemporary life. Best for viewers specifically seeking regional Indian cinema content."
       }
     },
     {
@@ -25426,7 +25634,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "SKIP",
-        "reason": "A re-release of Eli Roth's 2002 flesh-eating virus horror film with additional footage that probably makes an already unpleasant experience longer. Best for people who think the original Cabin Fever needed more gross-out moments."
+        "reason": "An extended version of Eli Roth's flesh-eating virus horror film with additional gore and scenes. Best for horror completists who need every version of mediocre movies."
       }
     },
     {
@@ -25487,8 +25695,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A Punjabi comedy film dealing with romantic complications or family chaos, as suggested by the 'siyapa' (trouble) in the title. Best for Punjabi cinema enthusiasts and people who enjoy regional Indian comedies."
+        "verdict": "SKIP",
+        "reason": "A Punjabi comedy about misunderstandings and family chaos with predictable setups. Best for viewers who enjoy regional humor regardless of script quality."
       }
     },
     {
@@ -25541,7 +25749,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "A documentary or dramatic film about Formula 1 racing, likely focusing on the sport's intensity, technology, or driver personalities. Best for racing enthusiasts and people fascinated by high-speed competition and engineering."
+        "reason": "A racing drama following Formula 1 drivers through the pressures and dangers of professional motorsport. Best for racing fans who want big screen speed and Brad Pitt star power."
       }
     }
   ]
