@@ -81,6 +81,36 @@ def only_review_placeholder_premises() -> bool:
     return os.environ.get("VERDICT_ONLY_PREMISE_UNAVAILABLE", "").strip().lower() in {"1", "true", "yes"}
 
 
+def get_movie_consensus_text(movie):
+    ratings = movie.get("ratings") or {}
+    return next(
+        (
+            str(value).strip()
+            for value in (
+                ratings.get("consensus"),
+                ratings.get("rtConsensus"),
+                ratings.get("criticConsensus"),
+                ratings.get("rottenTomatoesConsensus"),
+                movie.get("consensus"),
+            )
+            if str(value or "").strip()
+        ),
+        "",
+    )
+
+
+def get_movie_premise_text(movie):
+    ratings = movie.get("ratings") or {}
+    return next(
+        (
+            str(value).strip()
+            for value in (ratings.get("plot"), movie.get("plot"))
+            if str(value or "").strip()
+        ),
+        "",
+    )
+
+
 def is_usable_cache_entry(entry):
     if not isinstance(entry, dict):
         return False
@@ -138,7 +168,9 @@ def should_review_movie(movie, cache, force_refresh=False, only_placeholder=Fals
         movie_verdict = movie.get("verdict") or {}
         movie_reason = movie_verdict.get("reason")
         cache_reason = (cache.get(movie_id) or {}).get("reason")
-        return has_placeholder_premise(movie_reason) or has_placeholder_premise(cache_reason)
+        if has_placeholder_premise(movie_reason) or has_placeholder_premise(cache_reason):
+            return True
+        return not get_movie_consensus_text(movie) and not get_movie_premise_text(movie)
 
     return needs_verdict(movie, cache, force_refresh)
 
