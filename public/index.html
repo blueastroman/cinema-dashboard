@@ -4269,12 +4269,10 @@ function buildRankingRow(movie, idx) {
   row.style.animationDelay = `${idx * 30}ms`;
   row.dataset.title = movie.title || '';
   row.dataset.year = year || '';
-  row.dataset.posterUrl = posterUrl || '';
-  row.dataset.posterKey = getMoviePosterTintKey(movie);
   row.innerHTML = `
     <div class="ranking-poster-wrap">
       ${posterUrl
-        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onload="handleRankingPosterLoad(this)" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
+        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
         : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
     </div>
     <div class="ranking-score">
@@ -4303,11 +4301,6 @@ function buildRankingRow(movie, idx) {
   `;
   const blurbSlot = row.querySelector('.movie-blurb');
   registerMovieBlurbSlot(movie, blurbSlot);
-  applyStoredPosterTint(movie, row);
-  const posterImg = row.querySelector('.ranking-poster');
-  if (posterImg && posterImg.complete && posterImg.naturalWidth) {
-    handleRankingPosterLoad(posterImg);
-  }
   if (blurbState.loading) {
     scheduleMovieBlurbGeneration(movie);
   }
