@@ -1652,6 +1652,9 @@
     }
 
     .next-showtime-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-family: var(--font-sans);
       font-size: 0.72rem;
       font-weight: 800;
@@ -1663,26 +1666,37 @@
       padding: 7px 11px;
       line-height: 1.2;
       max-width: 100%;
-    }
-
-    .ranking-times-toggle {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      background: transparent;
-      border: 1px solid var(--mid-gray);
-      border-radius: 2px;
-      padding: 5px 10px;
       cursor: pointer;
-      transition: border-color 0.15s ease, color 0.15s ease;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.12s ease;
     }
 
-    .ranking-times-toggle:hover {
+    .next-showtime-pill::after {
+      content: '▾';
+      font-size: 0.7rem;
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    .next-showtime-pill:hover {
       border-color: var(--accent-dim);
       color: var(--accent);
+      background: rgba(200, 169, 110, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .ranking-row.open .next-showtime-pill::after {
+      content: '▴';
+    }
+
+    .filter-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      filter: grayscale(0.25);
+    }
+
+    .filter-btn:disabled:hover {
+      transform: none;
+      background: transparent;
     }
 
     .ranking-actions {
@@ -1977,6 +1991,7 @@ const POSTER_TINT_STORAGE_KEY = 'cinema_poster_tints';
 const BLURB_MODEL = 'claude-sonnet-4-20250514';
 const BLURB_SYSTEM_PROMPT = `You write brutally honest, specific one-liners about whether a movie is worth seeing in a NYC theater tonight. You have strong opinions. You are not promotional. You consider: critical score, director track record, genre, premise, and whether seeing it on a big screen adds anything. Your tone is that of a smart, opinionated film friend — not a critic, not a marketer. Never use the phrases "cinematic experience," "must-see," or "worth your time." Never hedge with "it depends." Take a stance. Max 2 sentences.`;
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
+const BLURB_MAX_VISIBLE_CHARS = 220;
 let movieBlurbCache = {};
 let posterTintCache = {};
 const movieBlurbSlotRegistry = new Map();
@@ -2815,14 +2830,14 @@ function saveStoredMovieBlurbs() {
 function getStoredMovieBlurb(movie) {
   const entry = movieBlurbCache[getMovieBlurbKey(movie)];
   if (!entry || typeof entry !== 'object') return null;
-  const text = cleanDisplayText(entry.text);
+  const text = formatMovieBlurbText(entry.text);
   if (!text) return null;
   return { ...entry, text };
 }
 
 function setStoredMovieBlurb(movie, text, source = 'ai') {
   const key = getMovieBlurbKey(movie);
-  const clean = cleanDisplayText(text);
+  const clean = formatMovieBlurbText(text);
   if (!key || !clean) return null;
   movieBlurbCache = {
     ...movieBlurbCache,
@@ -2852,6 +2867,16 @@ function getMovieBlurbPremiseText(movie) {
 
 function getMovieBlurbFallbackText(movie) {
   return firstDisplayText(getMovieBlurbConsensusText(movie), getMovieBlurbPremiseText(movie), 'Premise unavailable.');
+}
+
+function formatMovieBlurbText(text, maxChars = BLURB_MAX_VISIBLE_CHARS) {
+  const clean = cleanDisplayText(String(text || '').replace(/\s+/g, ' '));
+  if (!clean) return '';
+  if (clean.length <= maxChars) return clean;
+  const softCut = clean.lastIndexOf(' ', maxChars - 1);
+  const cut = softCut >= Math.floor(maxChars * 0.6) ? softCut : maxChars;
+  const trimmed = clean.slice(0, cut).replace(/[\s,;:.-]+$/g, '').trim();
+  return trimmed ? `${trimmed}...` : `${clean.slice(0, maxChars).trimEnd()}...`;
 }
 
 function hasAnthropicApiKey() {
@@ -2891,8 +2916,8 @@ function normalizeGeneratedBlurb(text) {
   const sentences = (clean.match(/[^.!?]+[.!?]*/g) || [])
     .map(part => part.trim())
     .filter(Boolean);
-  if (sentences.length <= 2) return sentences.join(' ');
-  return `${sentences[0]} ${sentences[1]}`.trim();
+  const capped = sentences.length <= 2 ? sentences.join(' ') : `${sentences[0]} ${sentences[1]}`.trim();
+  return formatMovieBlurbText(capped);
 }
 
 function registerMovieBlurbSlot(movie, slot) {
@@ -2923,7 +2948,7 @@ function updateMovieBlurbSlots(key, updater) {
 
 function renderMovieBlurbText(slot, text) {
   if (!slot) return;
-  const clean = cleanDisplayText(text);
+  const clean = formatMovieBlurbText(text);
   if (!clean) return;
   slot.classList.remove('is-loading');
   slot.removeAttribute('aria-busy');
@@ -2942,7 +2967,7 @@ function getMovieBlurbState(movie, { forceRefresh = false } = {}) {
   if (!forceRefresh) {
     const stored = getStoredMovieBlurb(movie);
     if (stored?.text) {
-      return { key, text: stored.text, loading: false, source: stored.source || 'cache' };
+      return { key, text: formatMovieBlurbText(stored.text), loading: false, source: stored.source || 'cache' };
     }
 
     const existing = cleanDisplayText(movie?.verdict?.reason);
@@ -2954,16 +2979,16 @@ function getMovieBlurbState(movie, { forceRefresh = false } = {}) {
 
   const fallback = getMovieBlurbFallbackText(movie);
   if (hasAnthropicApiKey()) {
-    return { key, text: fallback, loading: true, source: 'pending' };
+    return { key, text: formatMovieBlurbText(fallback), loading: true, source: 'pending' };
   }
 
   setStoredMovieBlurb(movie, fallback, 'fallback');
-  return { key, text: fallback, loading: false, source: 'fallback' };
+  return { key, text: formatMovieBlurbText(fallback), loading: false, source: 'fallback' };
 }
 
 function updateMovieBlurbStateForSlots(movie, text, { source = 'ai' } = {}) {
   const key = getMovieBlurbKey(movie);
-  const clean = cleanDisplayText(text);
+  const clean = formatMovieBlurbText(text);
   if (!key || !clean) return;
   setStoredMovieBlurb(movie, clean, source);
   updateMovieBlurbSlots(key, slot => renderMovieBlurbText(slot, clean));
@@ -3065,7 +3090,7 @@ function renderMovieBlurbMarkup(movie, className, { forceRefresh = false } = {})
   if (state.loading) {
     return `<div class="${className} movie-blurb is-loading"${keyAttr}><span class="blurb-loading-line" aria-hidden="true"></span></div>`;
   }
-  return `<div class="${className} movie-blurb"${keyAttr}>${escapeHTML(state.text)}</div>`;
+  return `<div class="${className} movie-blurb"${keyAttr}>${escapeHTML(formatMovieBlurbText(state.text))}</div>`;
 }
 
 function primeMovieBlurbCache(movies) {
@@ -3772,6 +3797,12 @@ function getFiltered() {
 // ── SORT ────────────────────────────────────────────────────────────────────
 
 function setSort(mode) {
+  if (viewMode === 'rankings') {
+    activeSort = 'rating';
+    syncSortButtons();
+    render();
+    return;
+  }
   activeSort = mode;
   syncSortButtons();
   render();
@@ -3779,7 +3810,12 @@ function setSort(mode) {
 
 function syncSortButtons() {
   ['rating', 'day'].forEach(m => {
-    document.getElementById('sort-' + m)?.classList.toggle('active', m === activeSort);
+    const btn = document.getElementById('sort-' + m);
+    if (!btn) return;
+    const locked = viewMode === 'rankings';
+    btn.disabled = locked && m === 'day';
+    btn.setAttribute('aria-disabled', locked && m === 'day' ? 'true' : 'false');
+    btn.classList.toggle('active', m === 'rating' ? (viewMode === 'rankings' || activeSort === 'rating') : m === activeSort);
   });
 }
 
@@ -3797,13 +3833,17 @@ function syncViewButtons() {
 function setView(mode) {
   viewMode = mode === 'grid' ? 'grid' : 'rankings';
   document.body.classList.remove('compact-mode');
+  if (viewMode === 'rankings') activeSort = 'rating';
   syncViewButtons();
+  syncSortButtons();
   render();
 }
 
 function initializeViewMode() {
   viewMode = 'rankings';
   syncViewButtons();
+  activeSort = 'rating';
+  syncSortButtons();
 }
 
 function renderSection(label, labelClass, list, main) {
@@ -4084,7 +4124,9 @@ function renderRankingsView() {
     return;
   }
 
-  const sorted = [...movies].sort(activeSort === 'day' ? compareRankingsBySoonest : compareRankingsByScore);
+  activeSort = 'rating';
+  syncSortButtons();
+  const sorted = [...movies].sort(compareRankingsByScore);
   const list = document.createElement('div');
   list.className = 'rankings-list';
   sorted.forEach((movie, idx) => list.appendChild(buildRankingRow(movie, idx)));
@@ -4121,7 +4163,7 @@ function buildRankingRow(movie, idx) {
   row.innerHTML = `
     <div class="ranking-poster-wrap">
       ${posterUrl
-        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" crossorigin="anonymous" onload="handleRankingPosterLoad(this)" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
+        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onload="handleRankingPosterLoad(this)" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
         : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
     </div>
     <div class="ranking-score">
@@ -4139,8 +4181,7 @@ function buildRankingRow(movie, idx) {
       ${renderMovieBlurbMarkup(movie, 'ranking-blurb', { forceRefresh: false })}
     </div>
     <div class="ranking-next">
-      <div class="next-showtime-pill">${escapeHTML(getNextShowtimeLabel(nextShow))}</div>
-      <button class="ranking-times-toggle" type="button">See times</button>
+      <button class="next-showtime-pill" type="button" aria-expanded="false">${escapeHTML(getNextShowtimeLabel(nextShow))}</button>
     </div>
     <div class="ranking-actions">
       ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
@@ -4161,7 +4202,7 @@ function buildRankingRow(movie, idx) {
     if (event.target.closest('a, button')) return;
     toggleRankingRow(row);
   });
-  row.querySelector('.ranking-times-toggle')?.addEventListener('click', event => {
+  row.querySelector('.next-showtime-pill')?.addEventListener('click', event => {
     event.stopPropagation();
     toggleRankingRow(row);
   });
@@ -4172,8 +4213,8 @@ function buildRankingRow(movie, idx) {
 function toggleRankingRow(row) {
   const open = !row.classList.contains('open');
   row.classList.toggle('open', open);
-  const toggle = row.querySelector('.ranking-times-toggle');
-  if (toggle) toggle.textContent = open ? 'Hide times' : 'See times';
+  const toggle = row.querySelector('.next-showtime-pill');
+  if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────

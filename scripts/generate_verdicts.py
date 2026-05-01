@@ -15,40 +15,14 @@ Files:
   verdicts_cache.json - persistent cache of generated verdicts (commit this to repo)
 """
 
+from __future__ import annotations
+
 import json
-import os
 import re
-import urllib.request
-from datetime import datetime
+from pathlib import Path
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-DATA_FILE = "public/data.json"
-CACHE_FILE = "scripts/verdicts_cache.json"
-FORCE_REFRESH = os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {
-    "1",
-    "true",
-    "yes",
-}
-NEVER_REFRESH_VALUES = {"", "0", "never", "none", "false", "no"}
-
-
-def parse_positive_int_env(name, default=None):
-    raw = os.environ.get(name)
-    if raw is None:
-        return default
-    value = raw.strip().lower()
-    if value in NEVER_REFRESH_VALUES:
-        return None
-    try:
-        parsed = int(value)
-    except ValueError as exc:
-        raise ValueError(f"{name} must be a positive integer, 0, blank, or 'never'.") from exc
-    if parsed <= 0:
-        return None
-    return parsed
-
-
-BATCH_SIZE = parse_positive_int_env("VERDICT_BATCH_SIZE", 30) or 30
+from cinema_backend.review_client import AnthropicReviewClient
+from cinema_backend.runtime import ReviewContext, build_review_context
 
 SYSTEM_PROMPT = """You are the editorial voice of a curated NYC cinema showtimes board. Your job: for each film, give a verdict (WATCH, DEPENDS, or SKIP) and a short recommendation blurb.
 
@@ -85,15 +59,20 @@ No markdown. No backticks. Just the JSON array."""
 
 
 def load_json(path, default=None):
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
+    file_path = Path(path)
+    if file_path.exists():
+        with file_path.open("r", encoding="utf-8") as f:
             return json.load(f)
     return default if default is not None else {}
 
 
 def save_json(path, data):
-    with open(path, "w", encoding="utf-8") as f:
+    with Path(path).open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def has_placeholder_premise(reason):
+    return "premise unavailable" in str(reason or "").lower()
 
 
 def is_usable_cache_entry(entry):
@@ -102,6 +81,8 @@ def is_usable_cache_entry(entry):
     verdict = str(entry.get("verdict") or "").strip().upper()
     reason = str(entry.get("reason") or "").strip()
     if verdict not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
+        return False
+    if has_placeholder_premise(reason):
         return False
     return True
 
@@ -114,6 +95,8 @@ def existing_verdict_entry(movie, now=None):
     raw_verdict = str(verdict.get("verdict") or "").strip().upper()
     if raw_verdict not in {"WATCH", "DEPENDS", "SKIP"} or not reason:
         return None
+    if has_placeholder_premise(reason):
+        return None
     if now is None:
         now = datetime.now()
     entry = {
@@ -124,13 +107,13 @@ def existing_verdict_entry(movie, now=None):
     return entry
 
 
-def needs_verdict(movie, cache, now=None):
+def needs_verdict(movie, cache, force_refresh=False):
     """Determine if a film needs a new API call."""
     movie_id = movie.get("id")
     if not movie_id:
         return True
 
-    if FORCE_REFRESH:
+    if force_refresh:
         return True
 
     entry = cache.get(movie_id)
@@ -245,104 +228,57 @@ def validate_verdict_payload(verdicts, expected_titles):
     return True, ""
 
 
-def call_claude(films_block):
-    """Send a batch of films to the Claude API and return parsed verdicts."""
-    payload = {
-        "model": "claude-sonnet-4-20250514",
-        "max_tokens": 4000,
-        "system": SYSTEM_PROMPT,
-        "messages": [
-            {
-                "role": "user",
-                "content": (
-                    "For each film, return a verdict and a recommendation blurb.\n"
-                    'Use this exact shape: "A [premise]. Best for [audience or mood]."\n'
-                    "The blurb must be exactly 2 sentences: sentence 1 is the premise, sentence 2 is the audience or mood fit.\n"
-                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
-                    "Return only the JSON array.\n\n"
-                    f"{films_block}"
-                ),
-            }
-        ],
-    }
-
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Content-Type": "application/json",
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-        },
-        method="POST",
+def review_prompt(films_block, message=None):
+    if message:
+        return f"{message}\n\n{films_block}"
+    return (
+        "For each film, return a verdict and a recommendation blurb.\n"
+        'Use this exact shape: "A [premise]. Best for [audience or mood]."\n'
+        "The blurb must be exactly 2 sentences: sentence 1 is the premise, sentence 2 is the audience or mood fit.\n"
+        "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
+        "Return only the JSON array.\n\n"
+        f"{films_block}"
     )
 
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        result = json.loads(resp.read().decode("utf-8"))
 
-    text = result["content"][0]["text"]
-    clean = text.replace("```json", "").replace("```", "").strip()
-    return json.loads(clean)
-
-
-def call_claude_strict(films_block, titles):
-    verdicts = call_claude(films_block)
+def call_claude_strict(client, films_block, titles):
+    verdicts = client.send(system_prompt=SYSTEM_PROMPT, content=review_prompt(films_block))
     ok, message = validate_verdict_payload(verdicts, titles)
     if ok:
         return verdicts
 
-    retry_payload = {
-        "model": "claude-sonnet-4-20250514",
-        "max_tokens": 4000,
-        "system": SYSTEM_PROMPT,
-        "messages": [
-            {
-                "role": "user",
-                "content": (
-                    "Your previous response failed validation and is being rejected.\n"
-                    f"Problem: {message}\n\n"
-                    "Rewrite only the same titles. Return a JSON array with the exact titles below.\n"
-                    'Each reason must follow this exact shape: "A [premise]. Best for [audience or mood]."\n'
-                    "Each reason must be exactly 2 sentences, premise first and audience/mood second.\n"
-                    "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
-                    "Return only the JSON array.\n\n"
-                    f"Titles: {', '.join(titles)}\n\n"
-                    f"Films:\n{films_block}"
-                ),
-            }
-        ],
-    }
-
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=json.dumps(retry_payload).encode("utf-8"),
-        headers={
-            "Content-Type": "application/json",
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-        },
-        method="POST",
+    retry_message = (
+        "Your previous response failed validation and is being rejected.\n"
+        f"Problem: {message}\n\n"
+        "Rewrite only the same titles. Return a JSON array with the exact titles below.\n"
+        'Each reason must follow this exact shape: "A [premise]. Best for [audience or mood]."\n'
+        "Each reason must be exactly 2 sentences, premise first and audience/mood second.\n"
+        "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
+        "Return only the JSON array.\n\n"
+        f"Titles: {', '.join(titles)}"
     )
-
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        result = json.loads(resp.read().decode("utf-8"))
-
-    text = result["content"][0]["text"]
-    clean = text.replace("```json", "").replace("```", "").strip()
-    verdicts = json.loads(clean)
+    verdicts = client.send(system_prompt=SYSTEM_PROMPT, content=review_prompt(f"Films:\n{films_block}", retry_message))
     ok, message = validate_verdict_payload(verdicts, titles)
     if not ok:
         raise RuntimeError(f"Claude output rejected after retry: {message}")
     return verdicts
 
 
-def main():
-    data = load_json(DATA_FILE)
-    cache = load_json(CACHE_FILE, default={})
+def main(context: ReviewContext | None = None):
+    context = context or build_review_context(
+        data_file=Path("public/data.json"),
+        cache_file=Path("scripts/verdicts_cache.json"),
+    )
+    config = context.config
+    data = load_json(config.data_file)
+    cache = load_json(config.cache_file, default={})
     movies = data.get("movies", [])
-    now = datetime.now()
+    now = context.now
+    client = None
+    if config.api_key:
+        client = AnthropicReviewClient(api_key=config.api_key, model=config.model)
 
-    if FORCE_REFRESH:
+    if config.force_refresh:
         for movie in movies:
             movie.pop("verdict", None)
 
@@ -355,14 +291,14 @@ def main():
 
     for movie in movies:
         movie_id = movie.get("id")
-        if FORCE_REFRESH and movie_id:
+        if config.force_refresh and movie_id:
             cache.pop(movie_id, None)
-        if movie_id and not FORCE_REFRESH and not is_usable_cache_entry(cache.get(movie_id)):
+        if movie_id and not config.force_refresh and not is_usable_cache_entry(cache.get(movie_id)):
             seeded = existing_verdict_entry(movie, now)
             if seeded and is_usable_cache_entry(seeded):
                 cache[movie_id] = seeded
 
-        if needs_verdict(movie, cache, now):
+        if needs_verdict(movie, cache, config.force_refresh):
             to_process.append(movie)
         else:
             cached_count += 1
@@ -370,7 +306,7 @@ def main():
     print(f"Using cache: {cached_count}")
     print(f"Need API calls: {len(to_process)}")
 
-    if to_process and not ANTHROPIC_API_KEY:
+    if to_process and client is None:
         print("ERROR: ANTHROPIC_API_KEY not set")
         print("Applying cached verdicts only; unresolved films will remain without reviews.")
         to_process = []
@@ -391,7 +327,7 @@ def main():
             batch_titles = [m["title"] for m in batch]
 
             try:
-                verdicts = call_claude_strict(films_block, batch_titles)
+                verdicts = call_claude_strict(client, films_block, batch_titles)
 
                 # Map results by title for matching
                 verdict_map = {v["title"]: v for v in verdicts}
@@ -435,8 +371,8 @@ def main():
     print(f"\nUpdated {updated}/{len(movies)} films in data.json")
 
     # Save
-    save_json(DATA_FILE, data)
-    save_json(CACHE_FILE, cache)
+    save_json(config.data_file, data)
+    save_json(config.cache_file, cache)
 
     print(f"Cache size: {len(cache)} entries")
     print("Done.")
