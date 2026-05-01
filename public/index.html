@@ -1460,10 +1460,10 @@
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 86px 82px minmax(0, 1fr) minmax(150px, 190px) auto;
-      gap: 18px;
+      grid-template-columns: 132px minmax(0, 1fr) minmax(150px, 190px) auto;
+      gap: 22px;
       align-items: start;
-      padding: 18px 18px 18px 16px;
+      padding: 22px 18px 22px 22px;
       border: 1px solid var(--movie-box-border);
       border-radius: 2px;
       background: var(--off-black);
@@ -1497,14 +1497,21 @@
       box-shadow: var(--saved-card-shadow);
     }
 
+    .ranking-poster-stack {
+      width: 132px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .ranking-poster-wrap {
-      width: 86px;
+      width: 100%;
       aspect-ratio: 2 / 3;
       border: 1px solid var(--movie-box-border);
       border-radius: 2px;
       overflow: hidden;
       background: var(--dark-gray);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
       position: relative;
     }
 
@@ -1534,12 +1541,16 @@
 
     .ranking-score {
       min-width: 0;
-      padding-top: 2px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 8px;
+      row-gap: 2px;
+      align-items: end;
     }
 
     .ranking-rt {
       font-family: var(--font-sans);
-      font-size: 2.15rem;
+      font-size: 1.6rem;
       font-weight: 900;
       line-height: 0.95;
       white-space: nowrap;
@@ -1558,21 +1569,23 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 0;
     }
 
     .ranking-lb {
+      grid-column: 1 / -1;
       color: var(--text-dim);
       letter-spacing: 0.04em;
     }
 
     .ranking-main {
       min-width: 0;
+      padding-top: 4px;
     }
 
     .ranking-title {
       font-family: var(--font-sans);
-      font-size: 1.35rem;
+      font-size: 1.62rem;
       font-weight: 900;
       line-height: 1.18;
       color: var(--cream);
@@ -1589,18 +1602,18 @@
     }
 
     .ranking-meta {
-      margin-top: 5px;
+      margin-top: 7px;
       font-family: var(--font-sans);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-dim);
       line-height: 1.45;
     }
 
     .ranking-blurb {
-      margin-top: 12px;
+      margin-top: 16px;
       color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1.58;
+      font-size: 1rem;
+      line-height: 1.62;
       font-style: italic;
       border-left: 2px solid var(--mid-gray);
       padding-left: 12px;
@@ -1656,7 +1669,7 @@
     }
 
     .ranking-times-panel {
-      grid-column: 3 / -1;
+      grid-column: 2 / -1;
       display: none;
       padding-top: 2px;
     }
@@ -1677,14 +1690,14 @@
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .ranking-row {
-        grid-template-columns: 76px 78px minmax(0, 1fr) auto;
+        grid-template-columns: 112px minmax(0, 1fr) auto;
       }
       .ranking-next,
       .ranking-times-panel {
-        grid-column: 3 / -1;
+        grid-column: 2 / -1;
       }
-      .ranking-poster-wrap {
-        width: 76px;
+      .ranking-poster-stack {
+        width: 112px;
       }
     }
 
@@ -1736,26 +1749,25 @@
       }
       .theater-film-review { font-size: 0.88rem; }
       .ranking-row {
-        grid-template-columns: 64px minmax(0, 1fr);
+        grid-template-columns: 92px minmax(0, 1fr);
         gap: 14px;
         padding: 16px 14px 16px 14px;
       }
-      .ranking-poster-wrap {
-        width: 64px;
+      .ranking-poster-stack {
+        width: 92px;
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 1 / span 2;
       }
-      .ranking-score {
-        grid-column: 1;
-        grid-row: 2;
-        padding-top: 0;
-      }
-      .ranking-rt { font-size: 1.75rem; }
+      .ranking-rt { font-size: 1.25rem; }
+      .ranking-score-label,
+      .ranking-lb { font-size: 0.56rem; }
       .ranking-main {
         grid-column: 2 / -1;
         grid-row: 1 / span 2;
       }
-      .ranking-title { font-size: 1.15rem; }
+      .ranking-title { font-size: 1.22rem; }
+      .ranking-meta { font-size: 0.78rem; }
+      .ranking-blurb { font-size: 0.9rem; margin-top: 12px; }
       .ranking-next,
       .ranking-actions,
       .ranking-times-panel {
@@ -3623,19 +3635,21 @@ function buildRankingRow(movie, idx) {
   row.style.animationDelay = `${idx * 30}ms`;
   row.dataset.title = movie.title || '';
   row.innerHTML = `
-    <div class="ranking-poster-wrap">
-      ${posterUrl
-        ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
-        : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
-    </div>
-    <div class="ranking-score">
-      <div class="ranking-rt ${getRTClass(rtScore)}">${
-        rtScore === null
-          ? 'NR'
-          : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
-      }</div>
-      <div class="ranking-score-label">Critics</div>
-      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+    <div class="ranking-poster-stack">
+      <div class="ranking-poster-wrap">
+        ${posterUrl
+          ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
+          : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
+      </div>
+      <div class="ranking-score">
+        <div class="ranking-rt ${getRTClass(rtScore)}">${
+          rtScore === null
+            ? 'NR'
+            : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
+        }</div>
+        <div class="ranking-score-label">Critics</div>
+        ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+      </div>
     </div>
     <div class="ranking-main">
       <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
