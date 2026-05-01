@@ -1471,6 +1471,23 @@ def ensure_poster_fallback(title: str, ratings: dict, query_year: Optional[int] 
     return ratings
 
 
+def backfill_missing_posters(movies: list[dict]) -> int:
+    updated = 0
+    for movie in movies:
+        ratings = movie.get("ratings") or {}
+        if ratings.get("poster") not in (None, "", "N/A"):
+            continue
+        if not str(ratings.get("rt") or "").strip().endswith("%"):
+            continue
+        lookup_title, title_year = split_trailing_title_year(movie.get("title") or "")
+        query_year = letterboxd_query_year(extract_year_int(ratings.get("year")) or title_year)
+        before = ratings.get("poster")
+        ensure_poster_fallback(lookup_title, ratings, query_year=query_year)
+        if ratings.get("poster") not in (None, "", "N/A", before):
+            updated += 1
+    return updated
+
+
 def parse_omdb_ratings(data: dict) -> dict:
     rt = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "Rotten Tomatoes"), None)
     cinema_score = next((r["Value"] for r in data.get("Ratings", []) if r["Source"] == "CinemaScore"), None)
@@ -2366,6 +2383,10 @@ def build_dataset() -> dict:
 
     if not movies_list:
         raise RuntimeError("No movies scraped from any source")
+
+    poster_count = backfill_missing_posters(movies_list)
+    if poster_count:
+        print(f"  Backfilled posters for {poster_count} movies")
 
     ensure_unique_movie_ids(movies_list)
 

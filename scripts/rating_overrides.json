@@ -28,9 +28,21 @@
     "year": 1979,
     "director": "Andrei Tarkovsky"
   },
+  "star wars episode iv a new hope": {
+    "poster": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+    "rtUrl": "https://www.rottentomatoes.com/m/star_wars_episode_iv_a_new_hope"
+  },
   "i swear": {
     "imdbID": "tt31514146",
     "rtUrl": "https://www.rottentomatoes.com/m/i_swear_2025"
+  },
+  "ricky": {
+    "poster": "https://resizing.flixster.com/RsneGlhqHO-19UxPSVl2z_XNmgM=/206x305/v2/https://resizing.flixster.com/kYOG4-W3LBLWsKkWxzlJrUa5Q9o=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzhmNGExZDAwLTk5YjUtNGFkMi1iZGQ1LWI3NmNlZmEyZTVhYi5qcGc=",
+    "rtUrl": "https://www.rottentomatoes.com/m/ricky_2025"
+  },
+  "the mountain": {
+    "poster": "https://resizing.flixster.com/Fg5FI4Xkepl5E35t_L3KNCgMMbY=/206x305/v2/https://resizing.flixster.com/1M0etNiZ5u88z9PYDxsYf5B7B1U=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzNkZjM0OTVkLWQyMzMtNDgxYS05ZmFkLWE0NGYwZTRmMTY3Yi5qcGc=",
+    "rtUrl": "https://www.rottentomatoes.com/m/the_mountain_2024"
   },
   "you me tuscany": {
     "imdbID": "tt36352591",
