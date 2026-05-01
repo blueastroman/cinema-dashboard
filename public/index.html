@@ -1455,15 +1455,15 @@
     .rankings-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 132px minmax(0, 1fr) minmax(150px, 190px) auto;
-      gap: 22px;
-      align-items: start;
-      padding: 22px 18px 22px 22px;
+      grid-template-columns: 82px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 16px 14px 18px;
       border: 1px solid var(--movie-box-border);
       border-radius: 2px;
       background: var(--off-black);
@@ -1488,6 +1488,26 @@
     .ranking-row.watch::before { background: var(--watch); }
     .ranking-row.depends::before { background: var(--depends); }
     .ranking-row.skip::before { background: var(--skip); }
+    .ranking-row::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(250, 248, 242, 0) 0%, rgba(250, 248, 242, 0.78) 58%, rgba(250, 248, 242, 0.94) 100%),
+        var(--poster-bg, none);
+      background-position: center right;
+      background-size: cover;
+      opacity: 0.2;
+      filter: saturate(0.78);
+      pointer-events: none;
+    }
+
+    .ranking-row > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .ranking-row:hover {
       background: var(--charcoal);
       border-color: var(--mid-gray);
@@ -1498,10 +1518,10 @@
     }
 
     .ranking-poster-stack {
-      width: 132px;
+      width: 82px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 7px;
     }
 
     .ranking-poster-wrap {
@@ -1511,7 +1531,7 @@
       border-radius: 2px;
       overflow: hidden;
       background: var(--dark-gray);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
       position: relative;
     }
 
@@ -1545,12 +1565,12 @@
       grid-template-columns: auto minmax(0, 1fr);
       column-gap: 8px;
       row-gap: 2px;
-      align-items: end;
+      align-items: center;
     }
 
     .ranking-rt {
       font-family: var(--font-sans);
-      font-size: 1.6rem;
+      font-size: 1.1rem;
       font-weight: 900;
       line-height: 0.95;
       white-space: nowrap;
@@ -1564,7 +1584,7 @@
     .ranking-score-label,
     .ranking-lb {
       font-family: var(--font-sans);
-      font-size: 0.62rem;
+      font-size: 0.55rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -1580,12 +1600,12 @@
 
     .ranking-main {
       min-width: 0;
-      padding-top: 4px;
+      max-width: 820px;
     }
 
     .ranking-title {
       font-family: var(--font-sans);
-      font-size: 1.62rem;
+      font-size: 1.35rem;
       font-weight: 900;
       line-height: 1.18;
       color: var(--cream);
@@ -1602,21 +1622,26 @@
     }
 
     .ranking-meta {
-      margin-top: 7px;
+      margin-top: 5px;
       font-family: var(--font-sans);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: var(--text-dim);
       line-height: 1.45;
     }
 
     .ranking-blurb {
-      margin-top: 16px;
+      margin-top: 11px;
       color: var(--text);
-      font-size: 1rem;
-      line-height: 1.62;
+      font-size: 0.95rem;
+      line-height: 1.54;
       font-style: italic;
       border-left: 2px solid var(--mid-gray);
       padding-left: 12px;
+      max-width: 820px;
+    }
+
+    .ranking-row:not(.has-review) .ranking-main {
+      align-self: center;
     }
 
     .ranking-next {
@@ -1624,6 +1649,15 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
+      min-width: 0;
+      justify-self: end;
+    }
+
+    .ranking-side {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
       min-width: 0;
     }
 
@@ -1666,6 +1700,7 @@
       gap: 8px;
       align-items: center;
       justify-content: flex-end;
+      flex-shrink: 0;
     }
 
     .ranking-times-panel {
@@ -1690,14 +1725,18 @@
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .ranking-row {
-        grid-template-columns: 112px minmax(0, 1fr) auto;
+        grid-template-columns: 76px minmax(0, 1fr);
       }
-      .ranking-next,
+      .ranking-side,
       .ranking-times-panel {
         grid-column: 2 / -1;
       }
+      .ranking-side {
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
       .ranking-poster-stack {
-        width: 112px;
+        width: 76px;
       }
     }
 
@@ -1749,27 +1788,27 @@
       }
       .theater-film-review { font-size: 0.88rem; }
       .ranking-row {
-        grid-template-columns: 92px minmax(0, 1fr);
-        gap: 14px;
-        padding: 16px 14px 16px 14px;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px 12px 12px 14px;
       }
       .ranking-poster-stack {
-        width: 92px;
+        width: 72px;
         grid-column: 1;
         grid-row: 1 / span 2;
       }
-      .ranking-rt { font-size: 1.25rem; }
+      .ranking-rt { font-size: 1rem; }
       .ranking-score-label,
       .ranking-lb { font-size: 0.56rem; }
       .ranking-main {
         grid-column: 2 / -1;
         grid-row: 1 / span 2;
       }
-      .ranking-title { font-size: 1.22rem; }
+      .ranking-title { font-size: 1.1rem; }
       .ranking-meta { font-size: 0.78rem; }
-      .ranking-blurb { font-size: 0.9rem; margin-top: 12px; }
+      .ranking-blurb { font-size: 0.88rem; margin-top: 9px; }
       .ranking-next,
-      .ranking-actions,
+      .ranking-side,
       .ranking-times-panel {
         grid-column: 1 / -1;
       }
@@ -3631,8 +3670,9 @@ function buildRankingRow(movie, idx) {
   const safeTitle = String(movie.title || '').replace(/'/g, "\\'");
 
   const row = document.createElement('div');
-  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}`;
+  row.className = `ranking-row ${verdict}${review ? ' has-review' : ''}${watched ? ' is-watched' : ''}`;
   row.style.animationDelay = `${idx * 30}ms`;
+  if (posterUrl) row.style.setProperty('--poster-bg', `url("${posterUrl.replace(/"/g, '\\"')}")`);
   row.dataset.title = movie.title || '';
   row.innerHTML = `
     <div class="ranking-poster-stack">
@@ -3656,14 +3696,16 @@ function buildRankingRow(movie, idx) {
       ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
       ${review ? `<div class="ranking-blurb">${escapeHTML(review)}</div>` : ''}
     </div>
-    <div class="ranking-next">
-      <div class="next-showtime-pill">${escapeHTML(getNextShowtimeLabel(nextShow))}</div>
-      <button class="ranking-times-toggle" type="button">See times</button>
-    </div>
-    <div class="ranking-actions">
-      ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, '${safeId}', '${safeTitle}')">★</button>
-      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, '${safeId}', '${safeTitle}')">×</button>
+    <div class="ranking-side">
+      <div class="ranking-next">
+        <div class="next-showtime-pill">${escapeHTML(getNextShowtimeLabel(nextShow))}</div>
+        <button class="ranking-times-toggle" type="button">See times</button>
+      </div>
+      <div class="ranking-actions">
+        ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
+        <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, '${safeId}', '${safeTitle}')">★</button>
+        <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, '${safeId}', '${safeTitle}')">×</button>
+      </div>
     </div>
     <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
   `;
