@@ -18,7 +18,9 @@ Files:
 from __future__ import annotations
 
 import json
+import os
 import re
+from datetime import datetime
 from pathlib import Path
 
 from cinema_backend.review_client import AnthropicReviewClient
@@ -75,6 +77,10 @@ def has_placeholder_premise(reason):
     return "premise unavailable" in str(reason or "").lower()
 
 
+def only_review_placeholder_premises() -> bool:
+    return os.environ.get("VERDICT_ONLY_PREMISE_UNAVAILABLE", "").strip().lower() in {"1", "true", "yes"}
+
+
 def is_usable_cache_entry(entry):
     if not isinstance(entry, dict):
         return False
@@ -121,6 +127,20 @@ def needs_verdict(movie, cache, force_refresh=False):
         return True
 
     return False
+
+
+def should_review_movie(movie, cache, force_refresh=False, only_placeholder=False):
+    movie_id = movie.get("id")
+    if not movie_id:
+        return False if only_placeholder else True
+
+    if only_placeholder:
+        movie_verdict = movie.get("verdict") or {}
+        movie_reason = movie_verdict.get("reason")
+        cache_reason = (cache.get(movie_id) or {}).get("reason")
+        return has_placeholder_premise(movie_reason) or has_placeholder_premise(cache_reason)
+
+    return needs_verdict(movie, cache, force_refresh)
 
 
 def build_film_block(movie):
@@ -274,6 +294,7 @@ def main(context: ReviewContext | None = None):
     cache = load_json(config.cache_file, default={})
     movies = data.get("movies", [])
     now = context.now
+    only_placeholder = only_review_placeholder_premises()
     client = None
     if config.api_key:
         client = AnthropicReviewClient(api_key=config.api_key, model=config.model)
@@ -293,12 +314,12 @@ def main(context: ReviewContext | None = None):
         movie_id = movie.get("id")
         if config.force_refresh and movie_id:
             cache.pop(movie_id, None)
-        if movie_id and not config.force_refresh and not is_usable_cache_entry(cache.get(movie_id)):
+        if not only_placeholder and movie_id and not config.force_refresh and not is_usable_cache_entry(cache.get(movie_id)):
             seeded = existing_verdict_entry(movie, now)
             if seeded and is_usable_cache_entry(seeded):
                 cache[movie_id] = seeded
 
-        if needs_verdict(movie, cache, config.force_refresh):
+        if should_review_movie(movie, cache, config.force_refresh, only_placeholder):
             to_process.append(movie)
         else:
             cached_count += 1
@@ -314,8 +335,8 @@ def main(context: ReviewContext | None = None):
     # Process in batches
     if to_process:
         batches = [
-            to_process[i : i + BATCH_SIZE]
-            for i in range(0, len(to_process), BATCH_SIZE)
+            to_process[i : i + config.batch_size]
+            for i in range(0, len(to_process), config.batch_size)
         ]
 
         for batch_idx, batch in enumerate(batches):
