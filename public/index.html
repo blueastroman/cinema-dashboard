@@ -3233,6 +3233,25 @@ function tunePosterTint(rgb) {
   return boosted;
 }
 
+function hashStringToInt(value) {
+  const text = String(value || '');
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function deriveFallbackPosterTint(movie) {
+  const key = getMoviePosterTintKey(movie) || `${movie?.title || ''}-${movie?.ratings?.year || ''}`;
+  const hash = hashStringToInt(key);
+  const hue = (132 + (hash % 11)) / 360;
+  const saturation = 0.22 + ((hash >> 8) % 10) / 100;
+  const lightness = 0.84 + ((hash >> 16) % 7) / 100;
+  return hslToRgb([hue, Math.min(0.4, saturation), Math.min(0.94, lightness)]);
+}
+
 function getPosterTintBaseColor() {
   const styles = getComputedStyle(document.documentElement);
   return hexToRgb(styles.getPropertyValue('--off-black').trim()) || [17, 17, 17];
@@ -3248,8 +3267,8 @@ function setRankingRowPosterTint(row, posterRgb) {
   const base = getPosterTintBaseColor();
   const hoverBase = getPosterTintHoverBaseColor();
   const tunedPoster = tunePosterTint(posterRgb) || posterRgb;
-  const body = blendRgb(base, tunedPoster, 0.36);
-  const hover = blendRgb(hoverBase, tunedPoster, 0.31);
+  const body = blendRgb(base, tunedPoster, 0.42);
+  const hover = blendRgb(hoverBase, tunedPoster, 0.36);
   row.style.setProperty('--poster-bg', rgbArrayToCss(body));
   row.style.setProperty('--poster-bg-hover', rgbArrayToCss(hover));
 }
@@ -3288,13 +3307,14 @@ function samplePosterTintFromImage(img) {
   }
 }
 
-function storePosterTint(movieOrKey, tintRgb) {
+function storePosterTint(movieOrKey, tintRgb, source = 'sample') {
   const key = typeof movieOrKey === 'string' ? movieOrKey : getMoviePosterTintKey(movieOrKey);
   if (!key || !Array.isArray(tintRgb)) return;
   posterTintCache = {
     ...posterTintCache,
     [key]: {
       color: rgbArrayToCss(tintRgb),
+      source,
       version: POSTER_TINT_CACHE_VERSION,
       updated_at: new Date().toISOString(),
     },
@@ -3307,10 +3327,16 @@ function applyStoredPosterTint(movie, row) {
   const key = getMoviePosterTintKey(movie);
   const entry = posterTintCache[key];
   const color = parsePosterTintColor(entry?.color);
-  if (!color) return false;
+  const hasPoster = Boolean(cleanDisplayText(row.dataset.posterUrl));
+  if (!color || entry?.source === 'fallback' || (!entry?.source && !hasPoster)) {
+    const fallback = deriveFallbackPosterTint(movie);
+    setRankingRowPosterTint(row, fallback);
+    storePosterTint(key || movie, fallback, 'fallback');
+    return true;
+  }
   setRankingRowPosterTint(row, color);
   if (entry?.version !== POSTER_TINT_CACHE_VERSION) {
-    storePosterTint(key, color);
+    storePosterTint(key, color, entry?.source || 'sample');
   }
   return true;
 }
@@ -3324,13 +3350,21 @@ function handleRankingPosterLoad(img) {
   if (cached) {
     setRankingRowPosterTint(row, cached);
     if (posterTintCache[key]?.version !== POSTER_TINT_CACHE_VERSION) {
-      storePosterTint(key, cached);
+      storePosterTint(key, cached, posterTintCache[key]?.source || 'sample');
     }
     return;
   }
   const tint = samplePosterTintFromImage(img);
-  if (!tint) return;
-  storePosterTint(row.dataset.posterKey || { title: row.dataset.title || '', ratings: { year: row.dataset.year || '', poster: row.dataset.posterUrl || '' } }, tint);
+  if (!tint) {
+    const fallback = deriveFallbackPosterTint({
+      title: row.dataset.title || '',
+      ratings: { year: row.dataset.year || '', poster: row.dataset.posterUrl || '' },
+    });
+    setRankingRowPosterTint(row, fallback);
+    storePosterTint(row.dataset.posterKey || { title: row.dataset.title || '', ratings: { year: row.dataset.year || '', poster: row.dataset.posterUrl || '' } }, fallback, 'fallback');
+    return;
+  }
+  storePosterTint(row.dataset.posterKey || { title: row.dataset.title || '', ratings: { year: row.dataset.year || '', poster: row.dataset.posterUrl || '' } }, tint, 'sample');
   setRankingRowPosterTint(row, tint);
 }
 
@@ -4264,7 +4298,6 @@ function buildRankingRow(movie, idx) {
       ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
       <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, '${safeId}', '${safeTitle}')">★</button>
       <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, '${safeId}', '${safeTitle}')">×</button>
-      <button class="theater-action-btn refresh" aria-label="Refresh blurb" title="Refresh blurb" onclick="event.stopPropagation(); refreshRankingBlurb(this, '${safeId}')">↻</button>
     </div>
     <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
   `;
