@@ -52,9 +52,9 @@
       --saved-card-bg: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
       --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
       --confidence-bg: rgba(200, 169, 110, 0.08);
-      --prestige-chip-bg: rgba(200, 169, 110, 0.10);
-      --prestige-chip-border: rgba(200, 169, 110, 0.24);
-      --prestige-chip-text: var(--accent-dim);
+      --prestige-chip-bg: rgba(79, 190, 128, 0.10);
+      --prestige-chip-border: rgba(79, 190, 128, 0.30);
+      --prestige-chip-text: #4fbf80;
       --saved-chip-bg: rgba(16, 34, 24, 0.92);
       --saved-chip-border: rgba(79, 190, 128, 0.35);
       --action-surface: rgba(17, 17, 17, 0.96);
@@ -93,9 +93,9 @@
       --saved-card-bg: linear-gradient(180deg, rgba(76, 153, 99, 0.10), rgba(255, 253, 248, 0.92));
       --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.12);
       --confidence-bg: rgba(200, 169, 110, 0.12);
-      --prestige-chip-bg: rgba(182, 139, 60, 0.09);
-      --prestige-chip-border: rgba(182, 139, 60, 0.24);
-      --prestige-chip-text: #7f632b;
+      --prestige-chip-bg: rgba(46, 123, 78, 0.10);
+      --prestige-chip-border: rgba(46, 123, 78, 0.28);
+      --prestige-chip-text: #2e7b4e;
       --saved-chip-bg: rgba(229, 243, 233, 0.96);
       --saved-chip-border: rgba(46, 123, 78, 0.28);
       --action-surface: rgba(255, 253, 248, 0.96);
@@ -1635,12 +1635,23 @@
       background: var(--prestige-chip-bg);
       color: var(--prestige-chip-text);
       font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-weight: 900;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       line-height: 1;
       white-space: nowrap;
       width: fit-content;
+      box-shadow: 0 0 0 1px rgba(79, 190, 128, 0.08), 0 0 0 4px rgba(79, 190, 128, 0.03);
+    }
+
+    .ranking-prestige-chip::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: 0.9;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.28);
     }
 
     .ranking-blurb {
