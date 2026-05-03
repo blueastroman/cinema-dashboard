@@ -1624,11 +1624,17 @@
       line-height: 1.45;
     }
 
+    .ranking-title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+    }
+
     .ranking-prestige-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 10px;
       padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid var(--prestige-chip-border);
@@ -4372,9 +4378,11 @@ function buildRankingRow(movie, idx) {
       ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
     </div>
     <div class="ranking-main">
-      <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
+      <div class="ranking-title-row">
+        <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
+        ${prestigeChip ? `<div class="ranking-prestige-chip">${escapeHTML(prestigeChip)}</div>` : ''}
+      </div>
       ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
-      ${prestigeChip ? `<div class="ranking-prestige-chip">${escapeHTML(prestigeChip)}</div>` : ''}
       ${renderMovieBlurbMarkup(movie, 'ranking-blurb', { forceRefresh: false })}
     </div>
     <div class="ranking-next">
