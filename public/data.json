@@ -765,7 +765,7 @@
         "imdb": null,
         "metacritic": null,
         "letterboxd": null,
-        "poster": null,
+        "poster": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster--dark-mode.png/0/images/masterrepository/Fandango/244804/Hokum%20-%20Final%20Poster%20-%2027x40.jpg",
         "genre": "Documentary",
         "runtime": "90 min",
         "plot": "In EVERYONE IS LYING TO YOU FOR MONEY, actor and author Ben McKenzie turns investigator, pulling back the curtain on the cryptocurrency industry and the culture of hype, misinformation, and speculation that fueled its explosive rise. What began as a promise of financial freedom has evolved into a volatile ecosystem rife with fraud and reckless gambling, carrying with it devastating consequences for everyday people. Through firsthand reporting, expert interviews, and a clear-eyed examination of major collapses and scandals, the film traces how crypto became one of the most aggressively marketed financial products of the modern era – and how warning signs were ignored, dismissed, or deliberately obscured. As fortunes are made and lost, EVERYONE IS LYING TO YOU FOR MONEY asks a sobering question: who benefits from the chaos, and who is left to clean up the damage? Accessible, urgent, and often darkly iconic, the film is both a cautionary tale and a call for accountability – cutting through the noise to expose a system built on speculation, influence, and belief rather than truth.",
@@ -857,10 +857,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "prestige_tags": [
-        "4K RESTORATION"
-      ]
+      "special_formats": []
     },
     {
       "id": "wasteman",
@@ -1498,6 +1495,7 @@
       ],
       "special_formats": [],
       "prestige_tags": [
+        "PALME D'OR",
         "CRITERION COLLECTION"
       ]
     },
@@ -5976,6 +5974,7 @@
       ],
       "special_formats": [],
       "prestige_tags": [
+        "PALME D'OR",
         "CRITERION COLLECTION"
       ]
     },
@@ -13201,10 +13200,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "prestige_tags": [
-        "SILENT FILM"
-      ]
+      "special_formats": []
     },
     {
       "id": "a-blind-bargain-2026-2026",
@@ -13252,10 +13248,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "prestige_tags": [
-        "SILENT FILM"
-      ]
+      "special_formats": []
     },
     {
       "id": "tt36731244",
@@ -16853,6 +16846,7 @@
       ],
       "special_formats": [],
       "prestige_tags": [
+        "PALME D'OR",
         "CRITERION COLLECTION"
       ]
     },
@@ -18437,9 +18431,10 @@
         }
       ],
       "special_formats": [],
-      "prestige_tags": [
-        "4K RESTORATION"
-      ]
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Fincher's dark satire about toxic masculinity and consumer culture in stunning 4K restoration. The Brad Pitt-Edward Norton chemistry hits different on the big screen."
+      }
     },
     {
       "id": "original-sound",
@@ -18590,9 +18585,10 @@
         }
       ],
       "special_formats": [],
-      "prestige_tags": [
-        "REPERTORY"
-      ]
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Classic French arthouse cinema getting a rare theatrical screening deserves your attention. These repertory showings at places like Metrograph don't happen often."
+      }
     },
     {
       "id": "naked-childhood",

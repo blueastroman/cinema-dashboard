@@ -42,6 +42,7 @@ from cinema_backend.common import (
     title_explicitly_allows_short,
 )
 from cinema_backend.http import DEFAULT_HEADERS, fetch_source_html
+from cinema_backend.prestige import build_movie_prestige_tags
 from cinema_backend.providers.alamo import (
     ALAMO_ALGOLIA_HEADERS,
     ALAMO_ALGOLIA_QUERY_URL,
@@ -56,6 +57,7 @@ from cinema_backend.runtime import (
 SCRIPT_DIR = Path(__file__).resolve().parent
 RATING_OVERRIDES_PATH = SCRIPT_DIR / "rating_overrides.json"
 CINEMASCORE_OVERRIDES_PATH = SCRIPT_DIR / "cinemascore_overrides.json"
+PRESTIGE_OVERRIDES_PATH = SCRIPT_DIR / "prestige_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
 OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
 AMC_THEATRE_PAGE_SIZE = 100
@@ -2653,6 +2655,12 @@ def finalize_dataset(
     theater_meta: dict[str, dict],
     issues: list[ScrapeIssue],
 ) -> dict:
+    for movie in movies_list:
+        prestige_tags = build_movie_prestige_tags(movie, ctx.state.prestige_overrides)
+        if prestige_tags:
+            movie["prestige_tags"] = prestige_tags
+        else:
+            movie.pop("prestige_tags", None)
     dataset = {
         "generated_at": ny_now().isoformat(),
         "week_of": (ny_now() + timedelta(days=(4 - ny_now().weekday()) % 7)).strftime("%B %d, %Y"),
@@ -2689,6 +2697,7 @@ if __name__ == "__main__":
         output_data_path=OUTPUT_DATA_PATH,
         rating_overrides_path=RATING_OVERRIDES_PATH,
         cinemascore_overrides_path=CINEMASCORE_OVERRIDES_PATH,
+        prestige_overrides_path=PRESTIGE_OVERRIDES_PATH,
         rating_cache_path=RATING_CACHE_PATH,
     )
     dataset = build_dataset(scrape_ctx)

@@ -77,6 +77,7 @@ class ScrapeConfig:
 class ScrapeState:
     rating_overrides: dict[str, Any] = field(default_factory=dict)
     cinemascore_overrides: dict[str, Any] = field(default_factory=dict)
+    prestige_overrides: dict[str, Any] = field(default_factory=dict)
     rating_cache: dict[str, Any] = field(default_factory=dict)
     existing_movie_metadata: dict[str, dict[str, Any]] = field(default_factory=dict)
     existing_movie_records: dict[str, dict[str, Any]] = field(default_factory=dict)
@@ -114,6 +115,7 @@ def build_scrape_context(
     output_data_path: Path,
     rating_overrides_path: Path,
     cinemascore_overrides_path: Path,
+    prestige_overrides_path: Path,
     rating_cache_path: Path,
     now: Optional[datetime] = None,
 ) -> ScrapeContext:
@@ -128,6 +130,7 @@ def build_scrape_context(
     state = ScrapeState(
         rating_overrides=load_json_dict(rating_overrides_path),
         cinemascore_overrides=load_json_dict(cinemascore_overrides_path),
+        prestige_overrides=load_json_dict(prestige_overrides_path),
         rating_cache=load_json_dict(rating_cache_path),
         existing_movie_metadata=_load_existing_movie_metadata(output_data_path),
         existing_movie_records=_load_existing_movie_records(output_data_path),

@@ -14,12 +14,6 @@ PRESTIGE_TAG_PRIORITY = [
     "BEST ANIMATED FEATURE WINNER",
     "BEST INTERNATIONAL FEATURE WINNER",
     "CRITERION COLLECTION",
-    "DIRECTOR'S CUT",
-    "4K RESTORATION",
-    "WORLD PREMIERE",
-    "NYC PREMIERE",
-    "REPERTORY",
-    "SILENT FILM",
 ]
 
 PRESTIGE_PATTERNS: list[tuple[str, tuple[re.Pattern[str], ...]]] = [
@@ -51,26 +45,6 @@ PRESTIGE_PATTERNS: list[tuple[str, tuple[re.Pattern[str], ...]]] = [
         ),
     ),
     ("CRITERION COLLECTION", (re.compile(r"criterion collection", re.IGNORECASE),)),
-    (
-        "DIRECTOR'S CUT",
-        (
-            re.compile(r"director['’]?s cut", re.IGNORECASE),
-            re.compile(r"directors cut", re.IGNORECASE),
-        ),
-    ),
-    (
-        "4K RESTORATION",
-        (
-            re.compile(r"4k restoration", re.IGNORECASE),
-            re.compile(r"restored in 4k", re.IGNORECASE),
-            re.compile(r"remastered in 4k", re.IGNORECASE),
-            re.compile(r"4k quality", re.IGNORECASE),
-        ),
-    ),
-    ("WORLD PREMIERE", (re.compile(r"world premiere", re.IGNORECASE),)),
-    ("NYC PREMIERE", (re.compile(r"(nyc premiere|new york premiere)", re.IGNORECASE),)),
-    ("REPERTORY", (re.compile(r"\brepertory\b", re.IGNORECASE),)),
-    ("SILENT FILM", (re.compile(r"silent film", re.IGNORECASE),)),
 ]
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
@@ -78,6 +52,7 @@ CRITERION_COLLECTION_KEYS_PATH = SCRIPT_DIR / "criterion_collection_keys.json"
 BEST_PICTURE_WINNER_KEYS_PATH = SCRIPT_DIR / "oscar_best_picture_winners.json"
 BEST_ANIMATED_FEATURE_WINNER_KEYS_PATH = SCRIPT_DIR / "oscar_animated_feature_winners.json"
 BEST_INTERNATIONAL_FEATURE_WINNER_KEYS_PATH = SCRIPT_DIR / "oscar_international_feature_winners.json"
+PALME_DOR_WINNER_KEYS_PATH = SCRIPT_DIR / "palme_d_or_winners.json"
 
 
 def _iter_text_values(value: Any) -> Iterable[str]:
@@ -187,6 +162,10 @@ def load_best_international_feature_winner_keys() -> frozenset[str]:
     return load_static_award_keys(BEST_INTERNATIONAL_FEATURE_WINNER_KEYS_PATH)
 
 
+def load_palme_dor_winner_keys() -> frozenset[str]:
+    return load_static_award_keys(PALME_DOR_WINNER_KEYS_PATH)
+
+
 def build_movie_prestige_tags(movie: dict[str, Any], overrides: Any = None) -> list[str]:
     title = str(movie.get("title") or "").strip()
     year = movie.get("year") or (movie.get("ratings") or {}).get("year")
@@ -207,6 +186,7 @@ def build_movie_prestige_tags(movie: dict[str, Any], overrides: Any = None) -> l
 
     return merge_prestige_tags(
         movie.get("prestige_tags") or [],
+        ["PALME D'OR"] if title_identity_key(title, year) in load_palme_dor_winner_keys() else [],
         ["BEST PICTURE WINNER"] if title_identity_key(title, year) in load_best_picture_winner_keys() else [],
         ["BEST ANIMATED FEATURE WINNER"] if title_identity_key(title, year) in load_best_animated_feature_winner_keys() else [],
         ["BEST INTERNATIONAL FEATURE WINNER"] if title_identity_key(title, year) in load_best_international_feature_winner_keys() else [],

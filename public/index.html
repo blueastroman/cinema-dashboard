@@ -4279,12 +4279,6 @@ function getPrestigeChipLabel(movie) {
     { label: 'BEST ANIMATED FEATURE WINNER', pattern: /(best animated feature(?: film)? winner|academy award(?:s)? for best animated feature(?: film)?|won best animated feature(?: film)?)/ },
     { label: 'BEST INTERNATIONAL FEATURE WINNER', pattern: /(best international feature(?: film)? winner|academy award(?:s)? for best international feature(?: film)?|won best international feature(?: film)?|foreign language film)/ },
     { label: 'CRITERION COLLECTION', pattern: /criterion collection/ },
-    { label: "DIRECTOR'S CUT", pattern: /director['’]?s cut/ },
-    { label: '4K RESTORATION', pattern: /4k restoration|restored in 4k|remastered in 4k|4k quality/ },
-    { label: 'WORLD PREMIERE', pattern: /world premiere/ },
-    { label: 'NYC PREMIERE', pattern: /(nyc premiere|new york premiere)/ },
-    { label: 'REPERTORY', pattern: /\brepertory\b/ },
-    { label: 'SILENT FILM', pattern: /silent film/ },
   ];
   for (const item of patterns) {
     if (item.pattern.test(blob)) return item.label;
