@@ -37,9 +37,11 @@ VERDICT RULES:
 VOICE RULES:
 - Talk like you're texting a friend who asked "should I see this?"
 - Exactly two sentences.
-- Sentence 1 must start with "A " or "An " and state the premise/setup in concrete terms.
-- Sentence 2 must start with "Best for " or "For " and state the audience or mood fit.
-- Be specific to THIS film. Explain what it is about and what kind of movie it is.
+- Do not describe the plot. Assume the reader already knows what the movie is about.
+- Your only job is to tell me whether it's worth buying a ticket tonight in NYC, and give me one specific reason why or why not.
+- Sentence 1 must make a direct call on whether it's worth the ticket tonight.
+- Sentence 2 must give one specific reason why or why not.
+- Be specific to THIS film, but do not summarize the premise.
 - Have a real opinion. Don't hedge.
 - No adjective stacking. No "masterful," "riveting," "poignant," "tour de force," "compelling," "gripping."
 - No film critic language. No "exploration of," "meditation on," "unflinching look at."
@@ -223,10 +225,8 @@ def validate_reason(reason):
     for pattern in FORBIDDEN_REASON_PATTERNS:
         if re.search(pattern, lower, re.IGNORECASE):
             return False, f"forbidden language matched: {pattern}"
-    if not lower.startswith(("a ", "an ")):
-        return False, "first sentence must start with A or An"
-    if not re.search(r"\.\s*(best for |for )", text, re.IGNORECASE):
-        return False, "second sentence must start with Best for or For"
+    if not re.search(r"\b(tonight|ticket|buy a ticket|worth it|worth the trip|see it|skip it|take a pass|pass on it)\b", lower):
+        return False, "must make a direct ticket-worthiness call"
     if lower.startswith(("critics ", "reviews ", "score ", "scores ", "rt ", "100% rt", "high rt", "low rt", "mixed reception", "poor critical", "moderate reception", "critical reception")):
         return False, "starts like a score summary"
     return True, ""
@@ -268,8 +268,9 @@ def review_prompt(films_block, message=None):
         return f"{message}\n\n{films_block}"
     return (
         "For each film, return a verdict and a recommendation blurb.\n"
-        'Use this exact shape: "A [premise]. Best for [audience or mood]."\n'
-        "The blurb must be exactly 2 sentences: sentence 1 is the premise, sentence 2 is the audience or mood fit.\n"
+        'Use this exact shape: "[Direct ticket call]. [One specific reason why or why not]."\n'
+        "The blurb must be exactly 2 sentences: sentence 1 is the direct ticket call, sentence 2 is one specific reason why or why not.\n"
+        "Do not describe the plot. Assume the reader already knows the movie.\n"
         "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
         "Return only the JSON array.\n\n"
         f"{films_block}"
@@ -286,8 +287,9 @@ def call_claude_strict(client, films_block, titles):
         "Your previous response failed validation and is being rejected.\n"
         f"Problem: {message}\n\n"
         "Rewrite only the same titles. Return a JSON array with the exact titles below.\n"
-        'Each reason must follow this exact shape: "A [premise]. Best for [audience or mood]."\n'
-        "Each reason must be exactly 2 sentences, premise first and audience/mood second.\n"
+        'Each reason must follow this exact shape: "[Direct ticket call]. [One specific reason why or why not]."\n'
+        "Each reason must be exactly 2 sentences, direct ticket call first and specific reason second.\n"
+        "Do not describe the plot. Assume the reader already knows the movie.\n"
         "Do not mention Rotten Tomatoes, Metacritic, Letterboxd, critics, reviews, scores, reception, metrics, percentages, or hedges like could/might/seems/sounds like.\n"
         "Return only the JSON array.\n\n"
         f"Titles: {', '.join(titles)}"
