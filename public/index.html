@@ -2017,6 +2017,19 @@ const BLURB_MODEL = 'claude-sonnet-4-20250514';
 const BLURB_SYSTEM_PROMPT = `You write brutally honest, specific one-liners about whether a movie is worth seeing in a NYC theater tonight. You have strong opinions. You are not promotional. You consider: critical score, director track record, genre, premise, and whether seeing it on a big screen adds anything. Your tone is that of a smart, opinionated film friend — not a critic, not a marketer. Never use the phrases "cinematic experience," "must-see," or "worth your time." Never hedge with "it depends." Take a stance. Max 2 sentences.`;
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
 const BLURB_MAX_VISIBLE_CHARS = 220;
+const PRESTIGE_TAG_PRIORITY = [
+  "PALME D'OR",
+  'BEST PICTURE WINNER',
+  'BEST ANIMATED FEATURE WINNER',
+  'BEST INTERNATIONAL FEATURE WINNER',
+  'CRITERION COLLECTION',
+  "DIRECTOR'S CUT",
+  '4K RESTORATION',
+  'WORLD PREMIERE',
+  'NYC PREMIERE',
+  'REPERTORY',
+  'SILENT FILM',
+];
 let movieBlurbCache = {};
 let posterTintCache = {};
 const movieBlurbSlotRegistry = new Map();
@@ -4226,6 +4239,11 @@ function getNextShowtimeLabel(nextShow) {
 }
 
 function getPrestigeChipLabel(movie) {
+  const explicitTags = Array.isArray(movie?.prestige_tags) ? movie.prestige_tags.map(tag => String(tag || '').trim().toUpperCase()).filter(Boolean) : [];
+  for (const label of PRESTIGE_TAG_PRIORITY) {
+    if (explicitTags.includes(label)) return label;
+  }
+
   const ratings = movie?.ratings || {};
   const verdictReason = cleanDisplayText(movie?.verdict?.reason);
   const specialFormats = Array.isArray(movie?.special_formats) ? movie.special_formats.join(', ') : '';
@@ -4241,13 +4259,14 @@ function getPrestigeChipLabel(movie) {
   const patterns = [
     { label: "PALME D'OR", pattern: /palme d['’]or/ },
     { label: 'BEST PICTURE WINNER', pattern: /(best picture winner|academy award(?:s)? for best picture|won best picture)/ },
-    { label: 'BEST PICTURE NOMINEE', pattern: /(best picture nominee|nominated for best picture)/ },
+    { label: 'BEST ANIMATED FEATURE WINNER', pattern: /(best animated feature(?: film)? winner|academy award(?:s)? for best animated feature(?: film)?|won best animated feature(?: film)?)/ },
+    { label: 'BEST INTERNATIONAL FEATURE WINNER', pattern: /(best international feature(?: film)? winner|academy award(?:s)? for best international feature(?: film)?|won best international feature(?: film)?|foreign language film)/ },
     { label: 'CRITERION COLLECTION', pattern: /criterion collection/ },
     { label: "DIRECTOR'S CUT", pattern: /director['’]?s cut/ },
-    { label: '4K RESTORATION', pattern: /4k restoration/ },
+    { label: '4K RESTORATION', pattern: /4k restoration|restored in 4k|remastered in 4k|4k quality/ },
     { label: 'WORLD PREMIERE', pattern: /world premiere/ },
     { label: 'NYC PREMIERE', pattern: /(nyc premiere|new york premiere)/ },
-    { label: 'REPERTORY', pattern: /repertory/ },
+    { label: 'REPERTORY', pattern: /\brepertory\b/ },
     { label: 'SILENT FILM', pattern: /silent film/ },
   ];
   for (const item of patterns) {
