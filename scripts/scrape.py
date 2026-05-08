@@ -6,6 +6,7 @@ Pulls showtimes via SerpAPI/AMC API and ratings via OMDb.
 
 import json
 import hashlib
+import os
 import requests
 import html
 from dataclasses import dataclass
@@ -289,60 +290,75 @@ def fetch_metrograph_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 def fetch_ifc_showtimes(theater: dict) -> list[dict]:
-    source_url = str(theater.get("source_url") or "").strip()
-    if not source_url:
+    # IFC removed their /now-playing/ listing page; film URLs now come from the homepage
+    # and schedule data lives on each individual film page.
+    homepage_url = str(theater.get("source_url") or "").strip()
+    if not homepage_url:
         return []
 
-    content = fetch_source_html(source_url, theater.get("name", "IFC Center"))
-    if not content:
+    homepage = fetch_source_html(homepage_url, theater.get("name", "IFC Center"))
+    if not homepage:
         return []
+
+    film_urls = list(dict.fromkeys(
+        re.findall(r'https://www\.ifccenter\.com/films/[^"\'>\s]+', homepage)
+    ))
 
     grouped: dict[str, dict[str, dict[str, str]]] = defaultdict(lambda: defaultdict(dict))
     grouped_formats: dict[str, set[str]] = defaultdict(set)
 
-    day_blocks = re.findall(
-        r'(<div class="daily-schedule\s+[^"]*">.*?)(?=<div class="daily-schedule\s+[^"]*"|$)',
-        content,
-        re.DOTALL | re.IGNORECASE,
-    )
-
-    for full_block in day_blocks:
-        day_match = re.search(r"<h3>([^<]+)</h3>", full_block, re.IGNORECASE)
-        if not day_match:
+    for film_url in film_urls:
+        page = fetch_source_html(film_url, theater.get("name", "IFC Center"))
+        if not page:
             continue
-        clean_day = html.unescape(re.sub(r"\s+", " ", day_match.group(1)).strip())
-        movie_blocks = re.findall(
-            r'<div class="details">\s*<h3><a href="[^"]+">([^<]+)</a></h3>\s*<ul class="times">(.*?)</ul>',
-            full_block,
+
+        h1_match = re.search(r"<h1[^>]*>(.*?)</h1>", page, re.DOTALL | re.IGNORECASE)
+        if not h1_match:
+            continue
+        raw_title = html.unescape(re.sub(r"<[^>]+>", "", h1_match.group(1))).strip()
+        title = clean_title(raw_title)
+        if not title:
+            continue
+
+        title_formats = extract_special_formats(raw_title, page[:2000])
+        if title_formats:
+            grouped_formats[title].update(title_formats)
+
+        sched_start = page.find('SHOWTIMES AT IFC CENTER')
+        if sched_start == -1:
+            continue
+        # Grab a large enough slice; the schedule section is self-contained
+        sched_section = page[sched_start:sched_start + 20000]
+
+        day_blocks = re.findall(
+            r"<p[^>]*>\s*<strong>([^<]+)</strong>\s*</p>.*?<ul[^>]*class=\"times\"[^>]*>(.*?)</ul>",
+            sched_section,
             re.DOTALL | re.IGNORECASE,
         )
-
-        for raw_title, times_html in movie_blocks:
-            clean_raw_title = html.unescape(raw_title).strip()
-            title = clean_title(clean_raw_title)
-            if not title:
-                continue
-            title_formats = extract_special_formats(clean_raw_title, times_html)
-            if title_formats:
-                grouped_formats[title].update(title_formats)
-
-            links = re.findall(
-                r'<a href="([^"]*ticketsearchcriteria[^"]*)"[^>]*>([^<]+)</a>',
+        for raw_day, times_html in day_blocks:
+            clean_day = html.unescape(raw_day).strip()
+            time_spans = re.findall(r"<span>([^<]+)</span>", times_html)
+            ticket_hrefs = re.findall(
+                r'href="([^"]*ticketsearchcriteria[^"]*)"',
                 times_html,
-                re.DOTALL | re.IGNORECASE,
+                re.IGNORECASE,
             )
-            for href, raw_time in links:
-                time_label = html.unescape(raw_time).strip().upper()
+            for i, raw_time in enumerate(time_spans):
+                time_label = html.unescape(raw_time).strip()
                 if not time_label:
                     continue
-                ticket_url = html.unescape(href).replace("&#038;", "&").strip()
-                grouped[title][clean_day][time_label] = ticket_url or get_source_ticket_url(theater)
+                ticket_url = (
+                    html.unescape(ticket_hrefs[i]).replace("&#038;", "&").strip()
+                    if i < len(ticket_hrefs)
+                    else get_source_ticket_url(theater)
+                )
+                grouped[title][clean_day][time_label] = ticket_url
 
     flattened = []
     for title, days in grouped.items():
         for day_label, time_map in days.items():
             unique_times = sort_time_labels(list(time_map.keys()))
-            ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
+            ticket_urls = {t: time_map[t] for t in unique_times if time_map.get(t)}
             ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
             flattened.append({
                 "title": title,
@@ -583,23 +599,26 @@ def fetch_film_forum_showtimes(theater: dict) -> list[dict]:
     return flattened
 
 
+
+
 def fetch_moma_showtimes(theater: dict) -> list[dict]:
-    base_url = str(theater.get("source_url") or theater.get("official_url") or "").strip()
-    if not base_url:
+    # MoMA blocks all automated requests (HTTP 403). Instead, read a locally saved
+    # HTML export of https://www.moma.org/calendar/?happening_filter=Films&location=both
+    # Refresh by re-exporting the page from a browser and saving to scripts/moma_export.html.
+    source_file = str(theater.get("source_file") or "moma_export.html").strip()
+    scripts_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(scripts_dir, source_file)
+
+    if not os.path.exists(file_path):
+        print(f"  [WARN] MoMA export not found at {file_path}; skipping")
         return []
+
+    with open(file_path, encoding="utf-8") as f:
+        content = f.read()
 
     now = ny_now().replace(tzinfo=None)
-    source_url = f"{base_url}{'&' if '?' in base_url else '?'}date={now.strftime('%Y-%m-%d')}"
-    content = fetch_source_html(source_url, theater.get("name", "Museum of Modern Art"))
-    if not content:
-        if theater.get("serpapi_id"):
-            print(f"  [WARN] MoMA official calendar unavailable; falling back to SerpAPI")
-            return fetch_showtimes(theater)
-        return []
-
-    grouped: dict[str, dict[str, dict[str, dict[str, str]]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
-    hint_years: dict[tuple[str, str], Optional[int]] = {}
-    grouped_dates: dict[tuple[str, str, str], str] = {}
+    grouped: dict[str, dict[str, str]] = defaultdict(dict)
+    grouped_dates: dict[str, str] = {}
 
     day_blocks = re.findall(
         r'<h2[^>]*>\s*([^<]+(?:&nbsp;[^<]+)?)\s*</h2>(.*?)(?=<h2[^>]*>|<div\s+data-pagination-mount=|</section>)',
@@ -607,31 +626,27 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
         re.DOTALL | re.IGNORECASE,
     )
 
-    latest_date = now + timedelta(days=6)
-
     for raw_day, day_html in day_blocks:
         clean_day = html.unescape(raw_day).replace("\xa0", " ").replace(",", "").strip()
+        clean_day = re.sub(r"\s+", " ", clean_day).strip()
         try:
-            parsed_day = datetime.strptime(clean_day, "%a %b %d").replace(year=now.year)
+            parsed_day = datetime.strptime(f"{clean_day} {now.year}", "%a %b %d %Y")
         except ValueError:
             continue
-        if parsed_day.date() < now.date() and parsed_day.month < now.month:
+        if parsed_day.date() < now.date():
             parsed_day = parsed_day.replace(year=now.year + 1)
 
-        if parsed_day.date() < now.date() or parsed_day.date() > latest_date.date():
-            continue
-
         day_label = format_day_label(parsed_day)
-        item_blocks = re.findall(
+
+        for m in re.finditer(
             r'<a\s+class="\s*link/disable.*?"href="/calendar/events/\d+".*?</a>',
             day_html,
             re.DOTALL | re.IGNORECASE,
-        )
-
-        for item_html in item_blocks:
-            href_match = re.search(r'href="(/calendar/events/\d+)"', item_html, re.IGNORECASE)
+        ):
+            item_html = m.group(0)
+            href_match = re.search(r'href="(/calendar/events/\d+)"', item_html)
             title_match = re.search(
-                r"<span class='layout/block balance-text'>(.*?)</span></p>",
+                r"<span class='layout/block balance-text'>(.*?)</span>",
                 item_html,
                 re.DOTALL | re.IGNORECASE,
             )
@@ -640,98 +655,67 @@ def fetch_moma_showtimes(theater: dict) -> list[dict]:
                 item_html,
                 re.DOTALL | re.IGNORECASE,
             )
-            venue_matches = re.findall(
-                r"<p[^>]*><span class='layout/block(?:\s+balance-text)?\s*'>(.*?)</span></p>",
+            venue_spans = re.findall(
+                r"<span class='layout/block '>([^<]+)</span>",
                 item_html,
-                re.DOTALL | re.IGNORECASE,
+                re.IGNORECASE,
             )
             if not href_match or not title_match or not time_match:
                 continue
 
-            venue_texts = [
-                html.unescape(re.sub(r"<.*?>", "", value)).replace("\xa0", " ").strip()
-                for value in venue_matches
-            ]
-            venue_text = next(
+            venue = next(
                 (
-                    value for value in venue_texts
-                    if value and ("moma" in value.lower() or "walter reade" in value.lower() or "film at lincoln center" in value.lower())
+                    html.unescape(v).replace("\xa0", " ").strip()
+                    for v in venue_spans
+                    if "moma" in v.lower() or "floor" in v.lower() or "walter reade" in v.lower()
                 ),
                 "",
             )
-            if not venue_text:
-                continue
-            venue_lower = venue_text.lower()
-            if "walter reade" in venue_lower or "film at lincoln center" in venue_lower:
-                target_theater_name = "Film at Lincoln Center"
-            elif "moma" in venue_lower:
-                target_theater_name = "Museum of Modern Art"
-            else:
+            if not venue:
                 continue
 
-            title_line = html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).replace("\xa0", " ").strip()
-            title_line = re.sub(r"\s+", " ", title_line)
-            title_year_match = re.match(
-                r"^(?P<title>.+?)\.\s*(?P<year>(18|19|20)\d{2})\.\s*(?:Directed by .*)?$",
-                title_line,
-                re.IGNORECASE,
-            )
-            if title_year_match:
-                title = clean_title(title_year_match.group("title"))
-                hint_year = int(title_year_match.group("year"))
-            else:
-                title = clean_title(title_line)
-                hint_year = extract_year_int(title_line)
+            title_raw = html.unescape(re.sub(r"<.*?>", "", title_match.group(1))).replace("\xa0", " ").strip()
+            title_raw = re.sub(r"\s+", " ", title_raw)
+            # Strip ". YEAR[–YY]. Directed by ..." or ". YEAR-YY. ..." suffixes
+            title_raw = re.sub(r"\.\s*(18|19|20)\d{2}[–\-]\d{2,4}\..*$", "", title_raw).strip(". ")
+            title_raw = re.sub(r"\.\s*(18|19|20)\d{2}\..*$", "", title_raw).strip(". ")
+            title = clean_title(title_raw)
             if not title:
                 continue
-            hint_key = (target_theater_name, title)
-            if hint_key not in hint_years:
-                hint_years[hint_key] = hint_year
 
             raw_time = html.unescape(time_match.group(1)).replace("\xa0", " ").strip().lower()
-            normalized_time = (
-                raw_time.replace("a.m.", "am")
-                .replace("p.m.", "pm")
-                .replace("a.m", "am")
-                .replace("p.m", "pm")
-                .replace(" ", "")
+            normalized = (
+                raw_time.replace("a.m.", "am").replace("p.m.", "pm").replace(" ", "")
             )
-            time_match_clean = re.match(r"(\d{1,2}):(\d{2})(am|pm)", normalized_time)
-            if not time_match_clean:
+            tc = re.match(r"(\d{1,2}):(\d{2})(am|pm)", normalized)
+            if not tc:
                 continue
-            hour = int(time_match_clean.group(1))
-            minute = int(time_match_clean.group(2))
-            meridiem = time_match_clean.group(3)
+            hour, minute, meridiem = int(tc.group(1)), int(tc.group(2)), tc.group(3)
             if meridiem == "pm" and hour != 12:
                 hour += 12
             if meridiem == "am" and hour == 12:
                 hour = 0
             time_label = format_time_label(parsed_day.replace(hour=hour, minute=minute))
-
             ticket_url = f"https://www.moma.org{href_match.group(1)}"
-            bucket = grouped[target_theater_name][title][day_label]
-            bucket[time_label] = ticket_url
-            grouped_dates[(target_theater_name, title, day_label)] = date_iso(parsed_day)
+            grouped[f"{title}|{day_label}"][time_label] = ticket_url
+            grouped_dates[f"{title}|{day_label}"] = date_iso(parsed_day)
 
     flattened = []
-    for grouped_theater_name, titles in grouped.items():
-        grouped_theater = {"name": grouped_theater_name, **THEATER_CONFIG.get(grouped_theater_name, {})}
-        for title, days in titles.items():
-            hint_year = hint_years.get((grouped_theater_name, title))
-            for day_label, time_map in days.items():
-                unique_times = sort_time_labels(list(time_map.keys()))
-                ticket_urls = {time_label: time_map[time_label] for time_label in unique_times if time_map.get(time_label)}
-                ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(grouped_theater))
-                flattened.append({
-                    "title": title,
-                    "hint_year": hint_year,
-                    "theater": grouped_theater_name,
-                    "day": day_label,
-                    "date": grouped_dates.get((grouped_theater_name, title, day_label)),
-                    "times": unique_times,
-                    "ticket_url": ticket_url,
-                    "ticket_urls": ticket_urls,
-                })
+    for key, time_map in grouped.items():
+        title, day_label = key.rsplit("|", 1)
+        unique_times = sort_time_labels(list(time_map.keys()))
+        ticket_urls = {t: time_map[t] for t in unique_times if time_map.get(t)}
+        ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+        flattened.append({
+            "title": title,
+            "theater": theater["name"],
+            "day": day_label,
+            "date": grouped_dates.get(key),
+            "times": unique_times,
+            "ticket_url": ticket_url,
+            "ticket_urls": ticket_urls,
+            "special_formats": [],
+        })
 
     return flattened
 
