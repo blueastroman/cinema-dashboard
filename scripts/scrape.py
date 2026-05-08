@@ -2606,6 +2606,29 @@ def resolve_movie_records(
             existing_formats = set(movie.get("special_formats") or [])
             movie["special_formats"] = sorted(existing_formats.union(special_formats))
 
+    # Deduplicate entries that resolved to the same IMDB ID.
+    # This happens when different sources list the same film under slightly
+    # different titles (e.g. "... (Live in 3D)", capitalisation differences).
+    imdb_to_keys: dict[str, list[str]] = defaultdict(list)
+    for key, movie in list(all_movies.items()):
+        imdb_id = str((movie.get("ratings") or {}).get("imdbID") or "").strip()
+        if imdb_id:
+            imdb_to_keys[imdb_id].append(key)
+    for imdb_id, keys in imdb_to_keys.items():
+        if len(keys) <= 1:
+            continue
+        # Keep the key whose title most closely matches the OMDB-returned title,
+        # falling back to the shortest title (fewest extra qualifiers).
+        def key_score(k: str) -> int:
+            return len(all_movies[k].get("title") or "")
+        primary_key = min(keys, key=key_score)
+        for dup_key in keys:
+            if dup_key == primary_key:
+                continue
+            dup_title = (all_movies.get(dup_key) or {}).get("title", dup_key)
+            print(f"  [INFO] Merging same-IMDB duplicate ({imdb_id}): '{dup_title}' → '{all_movies[primary_key].get('title')}'")
+            migrate_movie_key(all_movies, theater_schedule, theater_formats, dup_key, primary_key)
+
     return all_movies, theater_schedule, theater_formats
 
 
