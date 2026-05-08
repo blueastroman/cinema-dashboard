@@ -2823,10 +2823,8 @@ function getDisplayVerdict(movie) {
 }
 
 function getCardTone(movie) {
-  const claudeVerdict = getDisplayVerdict(movie).toLowerCase();
-  if (claudeVerdict === 'watch' || claudeVerdict === 'depends' || claudeVerdict === 'skip') {
-    return claudeVerdict;
-  }
+  const raw = (movie?.verdict?.verdict || '').toLowerCase();
+  if (raw === 'watch' || raw === 'depends' || raw === 'skip') return raw;
 
   const rt = parseInt(movie?.ratings?.rt || '', 10);
   if (Number.isFinite(rt)) {
