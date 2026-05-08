@@ -33,6 +33,9 @@ VERDICT RULES:
 - DEPENDS = decent but not essential. Niche appeal or "good not great."
 - SKIP = not worth the trip. Lazy franchise, weak premise, or actively bad.
 - Classic repertory films screening at art house theaters (older acclaimed films) should almost always be WATCH. If it survived 30+ years and is screening at a place like Metrograph or Film Forum, it earned that.
+- If a film has a Critics Score of 85% or higher, default to WATCH. Only override this if there is a very specific reason why it is not worth seeing in a NYC theater (e.g. a straight-to-streaming style film that happens to be playing, or something only suited to a tiny niche audience).
+- If a film has a Critics Score of 40% or lower, default to SKIP unless there is a strong specific reason to recommend it.
+- Critics Score is ground truth. Do not let a weird premise or unfamiliar title override a strong score.
 
 VOICE RULES:
 - Talk like you're texting a friend who asked "should I see this?"
@@ -190,6 +193,10 @@ def build_film_block(movie):
         lines.append(f"Genre: {r['genre']}")
     if r.get("runtime"):
         lines.append(f"Runtime: {r['runtime']}")
+    if r.get("rt"):
+        lines.append(f"Critics Score: {r['rt']}")
+    if r.get("metacritic"):
+        lines.append(f"Metacritic: {r['metacritic']}")
     if r.get("plot"):
         lines.append(f"Plot: {r['plot']}")
 
