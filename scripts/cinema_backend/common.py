@@ -55,7 +55,7 @@ THEATER_CONFIG = {
         "slug": "flc",
         "short_name": "FLC",
         "sort_name": "FLC",
-        "source_type": "serpapi",
+        "source_type": "flc",
         "serpapi_id": "film at lincoln center new york",
         "official_url": "https://www.filmlinc.org/now-playing/",
         "aliases": ["flc", "film linc", "lincoln center", "film at lincoln center"],

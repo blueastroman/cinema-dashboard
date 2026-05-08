@@ -1482,6 +1482,104 @@ def title_lookup_aliases(title: str) -> list[str]:
     return aliases
 
 
+FLC_REAL_FACILITY_IDS = {3, 24, 26, 93}  # Walter Reade, Francesca Beale, Howard Gilman, Hearst Plaza
+
+
+def fetch_flc_showtimes(theater: dict) -> list[dict]:
+    """Scrape Film at Lincoln Center showtimes from filmlinc.org Next.js RSC payload."""
+    url = str(theater.get("official_url") or "https://www.filmlinc.org/now-playing/").strip()
+    try:
+        content = fetch_source_html(url, theater.get("name", "Film at Lincoln Center"))
+    except Exception as exc:
+        print(f"  [ERROR] FLC fetch failed: {exc}")
+        return []
+    if not content:
+        return []
+
+    # The page is Next.js with RSC payload: self.__next_f.push([1, "...escaped json..."])
+    push_chunks = re.findall(r'self\.__next_f\.push\(\[1,"(.*?)"\]\)', content, re.DOTALL)
+    all_showtimes_raw: Optional[list] = None
+    for chunk_str in push_chunks:
+        if "allShowtimes" not in chunk_str:
+            continue
+        unescaped = chunk_str.replace('\\"', '"').replace('\\\\', '\\').replace('\\n', '\n').replace('\\t', '\t')
+        idx = unescaped.find('"allShowtimes":')
+        if idx < 0:
+            continue
+        start = idx + len('"allShowtimes":')
+        try:
+            bracket_start = unescaped.index('[', start)
+        except ValueError:
+            continue
+        depth = 0
+        end = bracket_start
+        for j, ch in enumerate(unescaped[bracket_start:], bracket_start):
+            if ch == '[':
+                depth += 1
+            elif ch == ']':
+                depth -= 1
+                if depth == 0:
+                    end = j
+                    break
+        try:
+            all_showtimes_raw = json.loads(unescaped[bracket_start:end + 1])
+        except (json.JSONDecodeError, ValueError):
+            continue
+        break
+
+    if not all_showtimes_raw:
+        print(f"  [WARN] FLC: could not find allShowtimes in RSC payload")
+        return []
+
+    today_iso = ny_now().date().isoformat()
+    # Group: title -> date_iso -> list of (time_label, ticket_url)
+    grouped: dict[str, dict[str, list[tuple[str, str]]]] = defaultdict(lambda: defaultdict(list))
+
+    for event in all_showtimes_raw:
+        title = clean_title(str(event.get("title") or "").strip())
+        if not title:
+            continue
+        for st in event.get("showtimes") or []:
+            facility_id = st.get("facilityId")
+            if facility_id not in FLC_REAL_FACILITY_IDS:
+                continue
+            raw_date = str(st.get("date") or "").strip()  # "2026-05-29"
+            raw_time = str(st.get("time") or "").strip()  # "6:00 PM"
+            if not raw_date or not raw_time or raw_date < today_iso:
+                continue
+            tickets_url = str(st.get("ticketsUrl") or "").strip()
+            # Normalize time: "6:00 PM" -> "6:00pm"
+            time_label = re.sub(r'\s*(AM|PM)', lambda m: m.group(1).lower(), raw_time)
+            time_label = time_label.lstrip("0") or time_label
+            grouped[title][raw_date].append((time_label, tickets_url))
+
+    flattened: list[dict] = []
+    for title, dates in grouped.items():
+        for date_str, time_entries in sorted(dates.items()):
+            try:
+                dt = datetime.strptime(date_str, "%Y-%m-%d")
+            except ValueError:
+                continue
+            day_label = format_day_label(dt)
+            unique_times = sort_time_labels(list(dict.fromkeys(t for t, _ in time_entries)))
+            ticket_urls = {t: u for t, u in time_entries if u}
+            ticket_url = next(iter(ticket_urls.values()), get_source_ticket_url(theater))
+            special_formats = extract_special_formats(title)
+            flattened.append({
+                "title": title,
+                "theater": theater["name"],
+                "day": day_label,
+                "date": date_str,
+                "times": unique_times,
+                "ticket_url": ticket_url,
+                "ticket_urls": ticket_urls,
+                "special_formats": special_formats,
+            })
+
+    print(f"  [FLC] {len(grouped)} films, {len(flattened)} (title, date) entries")
+    return flattened
+
+
 def fetch_rt_fallback(title: str, query_year: Optional[int] = None) -> Optional[str]:
     candidates = []
     for alias in title_lookup_aliases(title):
@@ -2417,6 +2515,8 @@ def fetch_theater_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
         return fetch_alamo_showtimes(theater)
     if theater.get("source_type") == "paris":
         return fetch_paris_showtimes(theater)
+    if theater.get("source_type") == "flc":
+        return fetch_flc_showtimes(theater)
     return fetch_showtimes(theater, ctx)
 
 
