@@ -254,6 +254,13 @@ FORBIDDEN_REASON_PATTERNS = [
     r"\bsounds like\b",
     r"\brisks becoming\b",
     r"\bmay be\b",
+    # Critic-speak (banned in system prompt — enforced here)
+    r"\bexploration of\b",
+    r"\bmeditation on\b",
+    r"\bexamination of\b",
+    r"\bportrait of\b",
+    r"\bstudy of\b",
+    r"\bjourney (of|through|into)\b",
 ]
 
 
