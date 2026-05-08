@@ -50,7 +50,12 @@ Score anchoring:
 
 TWO-SENTENCE RULE
 
-Sentence 1 — Make the call. Answer clearly: should someone buy a ticket tonight?
+Sentence 1 — Make the call. This must be a direct recommendation — not a description of the film.
+BAD: "The painter revisits an abandoned project." (plot summary — banned)
+BAD: "Questions about art and truth are explored." (description — banned)
+GOOD: "Worth the trip if you can commit to three hours of Rivette."
+GOOD: "One of the great films about creative obsession — see it on a big screen."
+GOOD: "Skip it; the theatrical cut is available streaming and the runtime punishes patience."
 
 Sentence 2 — Give one specific reason that applies to this film alone. Use a detail from the direction, performance, image, sound, editing, structure, venue, format, restoration, print, historical place, or theatrical experience.
 
@@ -257,6 +262,17 @@ def validate_reason(reason):
             return False, f"forbidden language matched: {pattern}"
     if lower.startswith(("critics ", "reviews ", "score ", "scores ", "rt ", "100% rt", "high rt", "low rt", "mixed reception", "poor critical", "moderate reception", "critical reception")):
         return False, "starts like a score summary"
+    # Sentence 1 must be a ticket call, not a plot description.
+    # Reject if it opens with a character/story narration pattern.
+    first_sentence = text.replace("!", ".").replace("?", ".").split(".")[0].strip()
+    first_lower = first_sentence.lower()
+    if re.match(r"^(a |an |the )", first_lower) and not re.search(
+        r"\b(film|movie|director|performance|screening|restoration|print|version|cut|cinematography|score|soundtrack|cast|actor|actress|runtime|sequel|remake|debut|return|career)\b",
+        first_lower,
+    ):
+        return False, "sentence 1 reads like plot narration, not a ticket call"
+    if re.search(r"\b(are explored|is explored|are examined|is examined|are depicted|is depicted|are questioned|follows a|tells the story|revolves around)\b", first_lower):
+        return False, "sentence 1 is a plot description"
     return True, ""
 
 
