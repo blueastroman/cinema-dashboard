@@ -2823,8 +2823,10 @@ function getDisplayVerdict(movie) {
 }
 
 function getCardTone(movie) {
-  const cinemaTone = getCinemaScoreTone(movie?.ratings?.cinemaScore);
-  if (cinemaTone) return cinemaTone;
+  const claudeVerdict = getDisplayVerdict(movie).toLowerCase();
+  if (claudeVerdict === 'watch' || claudeVerdict === 'depends' || claudeVerdict === 'skip') {
+    return claudeVerdict;
+  }
 
   const rt = parseInt(movie?.ratings?.rt || '', 10);
   if (Number.isFinite(rt)) {
@@ -2833,7 +2835,7 @@ function getCardTone(movie) {
     return 'watch';
   }
 
-  return getDisplayVerdict(movie).toLowerCase();
+  return 'depends';
 }
 
 function cleanDisplayText(value) {
