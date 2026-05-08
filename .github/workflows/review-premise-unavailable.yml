@@ -3,6 +3,8 @@ name: Review Premise-Unavailable Movies with Claude
 on:
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 permissions:
   contents: write
 
