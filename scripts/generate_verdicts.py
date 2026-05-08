@@ -24,7 +24,7 @@ from datetime import datetime
 from pathlib import Path
 
 from cinema_backend.review_client import AnthropicReviewClient
-from cinema_backend.runtime import ReviewContext, build_review_context
+from cinema_backend.runtime import ReviewContext, build_review_context, parse_positive_int_env
 
 SYSTEM_PROMPT = """You are the editorial voice of Showtimes NYC, a curated cinema board for people deciding whether to buy a ticket tonight.
 
@@ -371,6 +371,11 @@ def main(context: ReviewContext | None = None):
 
     print(f"Using cache: {cached_count}")
     print(f"Need API calls: {len(to_process)}")
+
+    verdict_limit = parse_positive_int_env("VERDICT_LIMIT")
+    if verdict_limit and len(to_process) > verdict_limit:
+        print(f"VERDICT_LIMIT={verdict_limit}: capping to first {verdict_limit} film(s)")
+        to_process = to_process[:verdict_limit]
 
     if to_process and client is None:
         print("ERROR: ANTHROPIC_API_KEY not set")
