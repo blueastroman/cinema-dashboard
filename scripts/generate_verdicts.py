@@ -231,8 +231,6 @@ FORBIDDEN_REASON_PATTERNS = [
     r"rotten tomatoes",
     r"\bmetacritic\b",
     r"\bletterboxd\b",
-    r"\bcritics?\b",
-    r"\breviews?\b",
     r"\bscore[s]?\b",
     r"\breception\b",
     r"\bmetrics?\b",
@@ -240,12 +238,6 @@ FORBIDDEN_REASON_PATTERNS = [
     r"\b\d{1,3}%\b",
     r"critics are united",
     r"well.reviewed",
-    r"\bacclaimed\b",
-    r"\bfor fans of\b",
-    r"\bfor viewers who\b",
-    r"\bbest for\b",
-    r"\banyone who likes\b",
-    r"\bfor anyone who\b",
 ]
 
 
@@ -427,6 +419,25 @@ def main(context: ReviewContext | None = None):
                     else:
                         print(f"  MISS    {title} (no match in API response)")
 
+            except RuntimeError as e:
+                # Validation failed after retry — try to salvage individual items
+                print(f"  WARN: batch validation failed ({e}), attempting per-film fallback")
+                for movie in batch:
+                    title = movie["title"]
+                    movie_id = movie.get("id")
+                    try:
+                        single_block = build_film_block(movie)
+                        single_verdicts = call_claude_strict(client, single_block, [title])
+                        v = single_verdicts[0]
+                        if movie_id:
+                            cache[movie_id] = {
+                                "verdict": v["verdict"],
+                                "reason": v["reason"],
+                                "generated_at": now.isoformat(),
+                            }
+                        print(f"  {v['verdict']:7s} {title} (fallback)")
+                    except Exception as inner_e:
+                        print(f"  SKIP    {title} ({inner_e})")
             except Exception as e:
                 print(f"  ERROR: {e}")
                 print("  Skipping batch, will retry next run")
