@@ -107,10 +107,10 @@
     "title": "Alice",
     "year": "2025"
   },
-  "alien³|1992": {
+  "alien\u00b3|1992": {
     "imdbID": "tt0103644",
     "source": "exact",
-    "title": "Alien³",
+    "title": "Alien\u00b3",
     "year": "1992"
   },
   "all about my mother|1999": {
@@ -135,7 +135,7 @@
     "imdbID": "tt34959898",
     "source": "exact_year",
     "title": "Alpha 00",
-    "year": "2026–"
+    "year": "2026\u2013"
   },
   "alpha|2018": {
     "imdbID": "tt4244998",
@@ -183,7 +183,7 @@
     "imdbID": "tt6423364",
     "source": "exact",
     "title": "Bad Blood",
-    "year": "2017–2018"
+    "year": "2017\u20132018"
   },
   "bambi|1942": {
     "imdbID": "tt0034492",
@@ -237,7 +237,7 @@
     "imdbID": "tt35625305",
     "source": "exact_year",
     "title": "Best in Show",
-    "year": "2025–"
+    "year": "2025\u2013"
   },
   "beyond silence": {
     "imdbID": "tt37675862",
@@ -314,7 +314,7 @@
   "cach|2005": {
     "imdbID": "tt0387898",
     "source": "exact",
-    "title": "Caché",
+    "title": "Cach\u00e9",
     "year": "2005"
   },
   "castle in the sky|1986": {
@@ -362,7 +362,7 @@
   "cl o from 5 to 7": {
     "imdbID": "tt0055852",
     "source": "exact",
-    "title": "Cléo from 5 to 7",
+    "title": "Cl\u00e9o from 5 to 7",
     "year": "1962"
   },
   "clockwatchers|1997": {
@@ -389,10 +389,10 @@
     "title": "Clueless",
     "year": "1995"
   },
-  "cléo from 5 to 7|1962": {
+  "cl\u00e9o from 5 to 7|1962": {
     "imdbID": "tt0055852",
     "source": "exact",
-    "title": "Cléo from 5 to 7",
+    "title": "Cl\u00e9o from 5 to 7",
     "year": "1962"
   },
   "cobweb|2023": {
@@ -827,7 +827,7 @@
     "title": "Kangaroo Island",
     "year": "2024"
   },
-  "kontinental ‘25|2025": {
+  "kontinental \u201825|2025": {
     "imdbID": "tt35492581",
     "source": "exact_year",
     "title": "Kontinental '25",
@@ -860,7 +860,7 @@
   "le bonheur": {
     "imdbID": "tt36314890",
     "source": "exact_year",
-    "title": "Le bonheur est une bête sauvage",
+    "title": "Le bonheur est une b\u00eate sauvage",
     "year": "2025"
   },
   "legends of the lost ark|2026": {
@@ -1004,7 +1004,7 @@
   "nausica of the valley of the wind|1984": {
     "imdbID": "tt0087544",
     "source": "exact",
-    "title": "Nausicaä of the Valley of the Wind",
+    "title": "Nausica\u00e4 of the Valley of the Wind",
     "year": "1984"
   },
   "nesting|2012": {
@@ -1442,7 +1442,7 @@
   "the double life of veronique|1991": {
     "imdbID": "tt0101765",
     "source": "exact_year",
-    "title": "The Double Life of Véronique",
+    "title": "The Double Life of V\u00e9ronique",
     "year": "1991"
   },
   "the emperor and the assassin|1998": {
@@ -1655,12 +1655,6 @@
     "title": "The Story of Qiu Ju",
     "year": "1992"
   },
-  "the stranger|2024": {
-    "imdbID": "tt31170218",
-    "source": "exact_year",
-    "title": "The Stranger",
-    "year": "2024"
-  },
   "the taste of tea|2004": {
     "imdbID": "tt0413893",
     "source": "exact_year",
@@ -1820,7 +1814,7 @@
   "varda by agn s": {
     "imdbID": "tt9530198",
     "source": "exact",
-    "title": "Varda by Agnès",
+    "title": "Varda by Agn\u00e8s",
     "year": "2019"
   },
   "violent saturday|1955": {
@@ -1899,7 +1893,7 @@
     "imdbID": "tt39328163",
     "source": "exact_year",
     "title": "Countdown to Yes",
-    "year": "2026–"
+    "year": "2026\u2013"
   },
   "yes|2025": {
     "imdbID": "tt35514313",
