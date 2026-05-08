@@ -255,11 +255,6 @@ def validate_reason(reason):
     for pattern in FORBIDDEN_REASON_PATTERNS:
         if re.search(pattern, lower, re.IGNORECASE):
             return False, f"forbidden language matched: {pattern}"
-    if not re.search(
-        r"\b(tonight|ticket|buy a ticket|worth it|worth the trip|worth the ride|worth seeing|worth watching|worth your time|worth every|not worth|see it|skip it|take a pass|pass on it|go see|go watch|catch it|catch this|don't bother|stay home|stream it|stream this|rent it|rent this|in theaters|at the theater|make the trip|head out|must.see|not worth)\b",
-        lower,
-    ):
-        return False, "must make a direct ticket-worthiness call"
     if lower.startswith(("critics ", "reviews ", "score ", "scores ", "rt ", "100% rt", "high rt", "low rt", "mixed reception", "poor critical", "moderate reception", "critical reception")):
         return False, "starts like a score summary"
     return True, ""
