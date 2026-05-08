@@ -1363,5 +1363,15 @@
     "verdict": "SKIP",
     "reason": "Skip this incomplete listing with a truncated title and no screening details. The broken event information suggests poor organization.",
     "generated_at": "2026-05-08T17:04:54.488592"
+  },
+  "tt12042730": {
+    "verdict": "DEPENDS",
+    "reason": "Lord and Miller's space adventure could deliver crowd-pleasing entertainment but risks becoming another generic blockbuster. The 156-minute runtime suggests bloated spectacle over tight storytelling.",
+    "generated_at": "2026-05-08T17:53:22.775389"
+  },
+  "tt0070698": {
+    "verdict": "WATCH",
+    "reason": "Essential early De Palma that showcases his Hitchcock obsessions before they became mannered. The split-screen sequences and Bernard Herrmann's final soundtrack create genuine theatrical tension that streaming can't match.",
+    "generated_at": "2026-05-08T17:53:22.775389"
   }
 }
