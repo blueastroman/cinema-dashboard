@@ -2035,7 +2035,7 @@ const POSTER_TINT_STORAGE_KEY = 'cinema_poster_tints';
 const BLURB_MODEL = 'claude-sonnet-4-20250514';
 const BLURB_SYSTEM_PROMPT = `You write brutally honest, specific one-liners about whether a movie is worth seeing in a NYC theater tonight. You have strong opinions. You are not promotional. You consider: critical score, director track record, genre, premise, and whether seeing it on a big screen adds anything. Your tone is that of a smart, opinionated film friend — not a critic, not a marketer. Never use the phrases "cinematic experience," "must-see," or "worth your time." Never hedge with "it depends." Take a stance. Max 2 sentences.`;
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
-const BLURB_MAX_VISIBLE_CHARS = 220;
+const BLURB_MAX_VISIBLE_CHARS = 340;
 const PRESTIGE_TAG_PRIORITY = [
   "PALME D'OR",
   'BEST PICTURE WINNER',
@@ -3839,11 +3839,12 @@ function initDashboard(data) {
   }
 
   // Genre dropdown
+  const ALLOWED_GENRES = new Set(['Action', 'Animation', 'Comedy', 'Drama', 'Family', 'Horror', 'Sci-Fi', 'Thriller']);
   const genreSet = new Set();
   (data.movies || []).forEach(m => {
     (m.ratings?.genre || '').split(',').forEach(g => {
       const trimmed = g.trim();
-      if (trimmed && trimmed !== 'N/A') genreSet.add(trimmed);
+      if (trimmed && trimmed !== 'N/A' && ALLOWED_GENRES.has(trimmed)) genreSet.add(trimmed);
     });
   });
   const genreSelect = document.getElementById('genre-select');
