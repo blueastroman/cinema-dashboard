@@ -232,6 +232,7 @@ def build_film_block(movie):
 
 
 FORBIDDEN_REASON_PATTERNS = [
+    # Score references
     r"\brt\b",
     r"rotten tomatoes",
     r"\bmetacritic\b",
@@ -243,6 +244,16 @@ FORBIDDEN_REASON_PATTERNS = [
     r"\b\d{1,3}%\b",
     r"critics are united",
     r"well.reviewed",
+    # Hedges (banned in system prompt — enforced here)
+    r"\bcould\b",
+    r"\bmight\b",
+    r"\bperhaps\b",
+    r"\barguably\b",
+    r"\bseems to\b",
+    r"\bappears to\b",
+    r"\bsounds like\b",
+    r"\brisks becoming\b",
+    r"\bmay be\b",
 ]
 
 
@@ -435,6 +446,7 @@ def main(context: ReviewContext | None = None):
                             cache[movie_id] = cache_entry
 
                         print(f"  {v['verdict']:7s} {title}")
+                        print(f"           {v['reason']}")
                     else:
                         print(f"  MISS    {title} (no match in API response)")
 
