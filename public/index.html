@@ -4249,11 +4249,8 @@ function compareRankingsBySoonest(a, b) {
 }
 
 function getNextShowtimeLabel(nextShow) {
-  if (!nextShow) return 'No upcoming time';
-  const day = dateScope === 'today' ? '' : getShowtimeDayLabel(nextShow.day);
-  const time = formatShowtimeLabel(nextShow.time);
-  const theater = getDisplayTheaterName(nextShow.theater?.name);
-  return [time, theater].filter(Boolean).join(' · ');
+  if (!nextShow) return 'No upcoming times';
+  return 'See Showtimes';
 }
 
 function getPrestigeChipLabel(movie) {

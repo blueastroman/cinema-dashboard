@@ -59,3 +59,47 @@ jobs:
             echo "Failed to push weekly data after 3 attempts."
             exit 1
           fi
+
+  review:
+    needs: scrape
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Generate Claude movie reviews
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_verdicts.py
+      - name: Validate dataset
+        run: python scripts/validate_dataset.py
+      - name: Commit updated reviews
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --local user.email "daniel@dannymora.com"
+          git config --local user.name "Daniel Mora"
+          git add public/data.json scripts/verdicts_cache.json
+          if git diff --cached --quiet; then
+            echo "No review changes to commit."
+          else
+            git commit -m "Update Claude movie reviews"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Push failed on attempt ${attempt}; retrying after remote update."
+              sleep 5
+            done
+            echo "Failed to push review updates after 3 attempts."
+            exit 1
+          fi
