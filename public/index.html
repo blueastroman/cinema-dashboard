@@ -1553,6 +1553,7 @@
     .ranking-score {
       min-width: 0;
       padding-top: 2px;
+      padding-right: 10px;
     }
 
     .ranking-rt {
@@ -1635,19 +1636,19 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
       border: 1px solid var(--prestige-chip-border);
-      background: var(--prestige-chip-bg);
-      color: var(--prestige-chip-text);
-      font-size: 0.68rem;
+      background: var(--prestige-chip-text);
+      color: var(--accent-ink);
+      font-size: 0.67rem;
       font-weight: 900;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       line-height: 1;
       white-space: nowrap;
       width: fit-content;
-      box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.10), 0 0 0 4px rgba(200, 169, 110, 0.04);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
     }
 
     .ranking-prestige-chip::before {
@@ -1769,7 +1770,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 40px;
+      padding: 14px 40px;
       border-bottom: 1px solid var(--dark-gray);
     }
     .mobile-filter-toggle {
@@ -1781,7 +1782,7 @@
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      padding: 6px 12px;
+      padding: 7px 14px;
       border: 1px solid var(--mid-gray);
       border-radius: 2px;
       background: transparent;
@@ -1929,11 +1930,9 @@
             <div class="settings-section" id="membership-list">
               <label class="membership-item"><input type="checkbox" value="amc"> AMC A-List</label>
               <label class="membership-item"><input type="checkbox" value="alamo"> Alamo Season Pass</label>
-              <label class="membership-item"><input type="checkbox" value="regal"> Regal Unlimited</label>
               <label class="membership-item"><input type="checkbox" value="filmforum"> Film Forum Member</label>
               <label class="membership-item"><input type="checkbox" value="metrograph"> Metrograph Member</label>
               <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
-              <label class="membership-item"><input type="checkbox" value="moma"> MoMA Member</label>
             </div>
             <div class="settings-section settings-defaults" id="membership-defaults" hidden>
               <div class="settings-subtitle">Default theaters</div>
@@ -1947,12 +1946,6 @@
                 <span class="settings-default-label">Choose default Alamo</span>
                 <select class="settings-default-select" id="default-alamo-select" data-membership-kind="alamo">
                   <option value="all">All Alamo</option>
-                </select>
-              </label>
-              <label class="settings-default-row" id="default-regal-row" hidden>
-                <span class="settings-default-label">Choose default Regal</span>
-                <select class="settings-default-select" id="default-regal-select" data-membership-kind="regal">
-                  <option value="all">All Regal</option>
                 </select>
               </label>
             </div>
@@ -3807,11 +3800,14 @@ function initDashboard(data) {
   movieBlurbCache = loadStoredMovieBlurbs();
   posterTintCache = loadStoredPosterTints();
   theaterMeta = { ...DEFAULT_THEATER_META, ...(data.theater_meta || {}) };
-  allMovies = (data.movies || []).map(movie => ({
-    ...movie,
-    id: movie.id || slugify(`${movie.title}-${movie?.ratings?.year || ''}`),
-    _confidence: getMovieConfidence(movie),
-  }));
+  allMovies = (data.movies || [])
+    .map(movie => ({
+      ...movie,
+      id: movie.id || slugify(`${movie.title}-${movie?.ratings?.year || ''}`),
+      _confidence: getMovieConfidence(movie),
+      theaters: (movie.theaters || []).filter(t => t.name !== 'Museum of Modern Art'),
+    }))
+    .filter(movie => movie.theaters.length > 0);
   primeMovieBlurbCache(allMovies);
   effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
   hasLoadedData = true;
@@ -4975,7 +4971,6 @@ function getTheaterTicketPriceNote(name) {
     'IFC Center': 'Gen $18 · Members $12',
     'Metrograph': 'Gen $18 · Members $11',
     'Film at Lincoln Center': 'Gen $19 · Members $14',
-    'Museum of Modern Art': 'Adults $14 · Members free',
     'Paris Theater': '$17',
     'Village East by Angelika': '$19',
   };
