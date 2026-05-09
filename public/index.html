@@ -1767,6 +1767,11 @@
       border-top: 1px solid var(--dark-gray);
     }
 
+    /* ── MOBILE FILTER TOGGLE ──────────────────────────────── */
+    .mobile-filter-bar {
+      display: none;
+    }
+
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1829,9 +1834,56 @@
         bottom: 10px;
       }
       .theater-film-review { font-size: 0.88rem; }
+      .mobile-filter-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-bottom: 1px solid var(--dark-gray);
+      }
+      .mobile-filter-toggle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border: 1px solid var(--mid-gray);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--text-dim);
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .mobile-filter-arrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      body.filters-open .mobile-filter-arrow {
+        transform: rotate(180deg);
+      }
+      .mobile-filter-summary {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        color: var(--muted);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .stats-bar {
+        display: none;
+      }
+      body.filters-open .stats-bar {
+        display: block;
+      }
       .ranking-row {
         grid-template-columns: 64px minmax(0, 1fr);
-        gap: 14px;
+        row-gap: 14px;
+        column-gap: 20px;
         padding: 16px 14px 16px 14px;
       }
       .ranking-poster-wrap {
@@ -1916,6 +1968,15 @@
     </div>
   </header>
 
+  <!-- MOBILE FILTER TOGGLE (mobile only) -->
+  <div class="mobile-filter-bar" id="mobile-filter-bar">
+    <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" onclick="toggleMobileFilters()">
+      <span>Filters</span>
+      <span class="mobile-filter-arrow" id="mobile-filter-arrow">▾</span>
+    </button>
+    <span class="mobile-filter-summary" id="mobile-filter-summary"></span>
+  </div>
+
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
@@ -1976,7 +2037,7 @@
       <div class="daypart-filter" id="daypart-filter-wrap">
         <span class="control-label">Time</span>
         <select class="genre-select daypart-select" id="daypart-select">
-          <option value="all">Anytime</option>
+          <option value="all">Any time</option>
           <option value="morning">Morning</option>
           <option value="evening">Evening</option>
           <option value="night">Night</option>
@@ -3898,6 +3959,7 @@ function initDashboard(data) {
 
   syncShowButtons();
   syncSortButtons();
+  initMobileFilters();
 
   render();
 }
@@ -3965,6 +4027,38 @@ function getFiltered() {
 
 // ── SORT ────────────────────────────────────────────────────────────────────
 
+function toggleMobileFilters() {
+  const isOpen = document.body.classList.toggle('filters-open');
+  try { localStorage.setItem('mobile_filters_open', isOpen ? '1' : '0'); } catch(e) {}
+}
+
+function updateMobileFilterSummary() {
+  const el = document.getElementById('mobile-filter-summary');
+  if (!el) return;
+  const parts = [];
+  const isRankings = document.getElementById('view-rankings')?.classList.contains('active');
+  parts.push(isRankings ? 'Rankings' : 'Grid');
+  const isBest = document.getElementById('sort-rating')?.classList.contains('active');
+  parts.push(isBest ? 'Best' : 'Soonest');
+  const theaterSelect = document.getElementById('theater-select');
+  if (theaterSelect && theaterSelect.value !== 'all') {
+    parts.push(theaterSelect.options[theaterSelect.selectedIndex]?.text || '');
+  }
+  const genreSelect = document.getElementById('genre-select');
+  if (genreSelect && genreSelect.value !== 'all') parts.push(genreSelect.value);
+  el.textContent = parts.filter(Boolean).join(' · ');
+}
+
+function initMobileFilters() {
+  if (window.innerWidth > 768) return;
+  try {
+    if (localStorage.getItem('mobile_filters_open') === '1') {
+      document.body.classList.add('filters-open');
+    }
+  } catch(e) {}
+  updateMobileFilterSummary();
+}
+
 function setSort(mode) {
   if (viewMode === 'rankings') {
     activeSort = 'rating';
@@ -3986,6 +4080,7 @@ function syncSortButtons() {
     btn.setAttribute('aria-disabled', locked && m === 'day' ? 'true' : 'false');
     btn.classList.toggle('active', m === 'rating' ? (viewMode === 'rankings' || activeSort === 'rating') : m === activeSort);
   });
+  updateMobileFilterSummary();
 }
 
 function syncShowButtons() {
@@ -3997,6 +4092,7 @@ function syncShowButtons() {
 function syncViewButtons() {
   document.getElementById('view-rankings')?.classList.toggle('active', viewMode === 'rankings');
   document.getElementById('view-grid')?.classList.toggle('active', viewMode === 'grid');
+  updateMobileFilterSummary();
 }
 
 function setView(mode) {
