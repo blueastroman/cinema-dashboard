@@ -2895,16 +2895,12 @@ function getDisplayVerdict(movie) {
 }
 
 function getCardTone(movie) {
-  const raw = (movie?.verdict?.verdict || '').toLowerCase();
-  if (raw === 'watch' || raw === 'depends' || raw === 'skip') return raw;
-
   const rt = parseInt(movie?.ratings?.rt || '', 10);
   if (Number.isFinite(rt)) {
-    if (rt < 50) return 'skip';
-    if (rt < 70) return 'depends';
-    return 'watch';
+    if (rt >= 80) return 'watch';
+    if (rt >= 60) return 'depends';
+    return 'skip';
   }
-
   return 'depends';
 }
 
