@@ -1141,7 +1141,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 3px;
+      width: 5px;
     }
 
     .theater-film-row.watch::before  { background: var(--watch); }
@@ -1499,7 +1499,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 3px;
+      width: 5px;
       background: transparent;
     }
 
@@ -1638,9 +1638,9 @@
       gap: 6px;
       padding: 5px 11px;
       border-radius: 999px;
-      border: 1px solid var(--prestige-chip-border);
-      background: var(--prestige-chip-text);
-      color: var(--accent-ink);
+      border: 1px solid rgba(255, 220, 120, 0.35);
+      background: linear-gradient(175deg, #d4a93a 0%, #a87820 55%, #c49630 100%);
+      color: #fff8e8;
       font-size: 0.67rem;
       font-weight: 900;
       letter-spacing: 0.12em;
@@ -1648,7 +1648,8 @@
       line-height: 1;
       white-space: nowrap;
       width: fit-content;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,235,140,0.35);
+      text-shadow: 0 1px 2px rgba(80,50,0,0.3);
     }
 
     .ranking-prestige-chip::before {
@@ -1656,6 +1657,23 @@
       font-size: 0.72em;
       line-height: 1;
       opacity: 0.9;
+    }
+
+    .ranking-prestige-chip--criterion {
+      background: #111;
+      border-color: rgba(255,255,255,0.15);
+      color: #f0ece4;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+      text-shadow: none;
+    }
+    .ranking-prestige-chip--criterion::before {
+      content: none;
+    }
+    .ranking-prestige-chip--criterion svg {
+      width: 13px;
+      height: 13px;
+      display: block;
+      flex-shrink: 0;
     }
 
     .ranking-blurb {
@@ -4345,6 +4363,15 @@ function getNextShowtimeLabel(nextShow) {
   return 'See Showtimes';
 }
 
+const CRITERION_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"><path fill="white" d="M78.3 16.3 A44 44 0 1 0 88.1 72 L70.8 62 A24 24 0 1 1 65.4 31.6Z"/></svg>`;
+
+function renderPrestigeChip(label) {
+  if (label === 'CRITERION COLLECTION') {
+    return `<div class="ranking-prestige-chip ranking-prestige-chip--criterion">${CRITERION_SVG}CRITERION COLLECTION</div>`;
+  }
+  return `<div class="ranking-prestige-chip">${escapeHTML(label)}</div>`;
+}
+
 function getPrestigeChipLabel(movie) {
   const explicitTags = Array.isArray(movie?.prestige_tags) ? movie.prestige_tags.map(tag => String(tag || '').trim().toUpperCase()).filter(Boolean) : [];
   for (const label of PRESTIGE_TAG_PRIORITY) {
@@ -4464,7 +4491,7 @@ function buildRankingRow(movie, idx) {
     <div class="ranking-main">
       <div class="ranking-title-row">
         <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
-        ${prestigeChip ? `<div class="ranking-prestige-chip">${escapeHTML(prestigeChip)}</div>` : ''}
+        ${prestigeChip ? renderPrestigeChip(prestigeChip) : ''}
       </div>
       ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
       ${renderMovieBlurbMarkup(movie, 'ranking-blurb', { forceRefresh: false })}
