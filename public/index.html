@@ -52,9 +52,9 @@
       --saved-card-bg: linear-gradient(180deg, rgba(44, 74, 54, 0.34), rgba(20, 28, 22, 0.92));
       --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.1);
       --confidence-bg: rgba(200, 169, 110, 0.08);
-      --prestige-chip-bg: rgba(79, 190, 128, 0.10);
-      --prestige-chip-border: rgba(79, 190, 128, 0.30);
-      --prestige-chip-text: #4fbf80;
+      --prestige-chip-bg: rgba(200, 169, 110, 0.12);
+      --prestige-chip-border: rgba(200, 169, 110, 0.40);
+      --prestige-chip-text: #c8a96e;
       --saved-chip-bg: rgba(16, 34, 24, 0.92);
       --saved-chip-border: rgba(79, 190, 128, 0.35);
       --action-surface: rgba(17, 17, 17, 0.96);
@@ -93,9 +93,9 @@
       --saved-card-bg: linear-gradient(180deg, rgba(76, 153, 99, 0.10), rgba(255, 253, 248, 0.92));
       --saved-card-shadow: inset 0 0 0 1px rgba(79, 190, 128, 0.34), 0 0 0 1px rgba(79, 190, 128, 0.12);
       --confidence-bg: rgba(200, 169, 110, 0.12);
-      --prestige-chip-bg: rgba(46, 123, 78, 0.10);
-      --prestige-chip-border: rgba(46, 123, 78, 0.28);
-      --prestige-chip-text: #2e7b4e;
+      --prestige-chip-bg: rgba(182, 139, 60, 0.10);
+      --prestige-chip-border: rgba(182, 139, 60, 0.38);
+      --prestige-chip-text: #8a6520;
       --saved-chip-bg: rgba(229, 243, 233, 0.96);
       --saved-chip-border: rgba(46, 123, 78, 0.28);
       --action-surface: rgba(255, 253, 248, 0.96);
@@ -1647,17 +1647,14 @@
       line-height: 1;
       white-space: nowrap;
       width: fit-content;
-      box-shadow: 0 0 0 1px rgba(79, 190, 128, 0.08), 0 0 0 4px rgba(79, 190, 128, 0.03);
+      box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.10), 0 0 0 4px rgba(200, 169, 110, 0.04);
     }
 
     .ranking-prestige-chip::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: currentColor;
+      content: '🏆';
+      font-size: 0.72em;
+      line-height: 1;
       opacity: 0.9;
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.28);
     }
 
     .ranking-blurb {
@@ -1767,9 +1764,56 @@
       border-top: 1px solid var(--dark-gray);
     }
 
-    /* ── MOBILE FILTER TOGGLE ──────────────────────────────── */
+    /* ── FILTER TOGGLE BAR ─────────────────────────────────── */
     .mobile-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 40px;
+      border-bottom: 1px solid var(--dark-gray);
+    }
+    .mobile-filter-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .mobile-filter-toggle:hover {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
+    .mobile-filter-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    body.filters-open .mobile-filter-arrow {
+      transform: rotate(180deg);
+    }
+    .mobile-filter-summary {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .stats-bar {
       display: none;
+    }
+    body.filters-open .stats-bar {
+      display: block;
     }
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
@@ -1834,52 +1878,7 @@
         bottom: 10px;
       }
       .theater-film-review { font-size: 0.88rem; }
-      .mobile-filter-bar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 20px;
-        border-bottom: 1px solid var(--dark-gray);
-      }
-      .mobile-filter-toggle {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-family: var(--font-sans);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-        padding: 6px 12px;
-        border: 1px solid var(--mid-gray);
-        border-radius: 2px;
-        background: transparent;
-        color: var(--text-dim);
-        cursor: pointer;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-      .mobile-filter-arrow {
-        display: inline-block;
-        transition: transform 0.2s ease;
-      }
-      body.filters-open .mobile-filter-arrow {
-        transform: rotate(180deg);
-      }
-      .mobile-filter-summary {
-        font-family: var(--font-sans);
-        font-size: 0.7rem;
-        color: var(--muted);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .stats-bar {
-        display: none;
-      }
-      body.filters-open .stats-bar {
-        display: block;
-      }
+      .mobile-filter-bar { padding: 10px 20px; }
       .ranking-row {
         grid-template-columns: 64px minmax(0, 1fr);
         row-gap: 14px;
@@ -2013,7 +2012,7 @@
         <div class="control-group">
           <span class="control-label">View</span>
           <button class="filter-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
-          <button class="filter-btn" id="view-grid" onclick="setView('grid')">Grid</button>
+          <button class="filter-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
         </div>
         <div class="control-group tight">
           <span class="control-label">Show</span>
@@ -4037,7 +4036,7 @@ function updateMobileFilterSummary() {
   if (!el) return;
   const parts = [];
   const isRankings = document.getElementById('view-rankings')?.classList.contains('active');
-  parts.push(isRankings ? 'Rankings' : 'Grid');
+  parts.push(isRankings ? 'Rankings' : 'Theaters');
   const isBest = document.getElementById('sort-rating')?.classList.contains('active');
   parts.push(isBest ? 'Best' : 'Soonest');
   const theaterSelect = document.getElementById('theater-select');
@@ -4050,7 +4049,6 @@ function updateMobileFilterSummary() {
 }
 
 function initMobileFilters() {
-  if (window.innerWidth > 768) return;
   try {
     if (localStorage.getItem('mobile_filters_open') === '1') {
       document.body.classList.add('filters-open');
