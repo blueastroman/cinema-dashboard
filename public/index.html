@@ -3827,6 +3827,85 @@ async function loadData() {
   }
 }
 
+// ── AMC FORMAT DEDUPLICATION ────────────────────────────────────────────────
+
+const AMC_FORMAT_SUFFIXES = [
+  /\s*[:\-–]\s*HDR by Barco Early Access\b/i,
+  /\s*[:\-–]\s*HDR by Barco\b/i,
+  /\s*[:\-–]\s*Premium Early Access Screening\b/i,
+  /\s*[:\-–]\s*Memorial Day Early Access\b/i,
+  /\s*[:\-–]\s*Early Access Event\b/i,
+  /\s*[:\-–]\s*Early Access\b/i,
+  /\s*[:\-–]\s*One Wish Movie Party\b/i,
+  /\s*[:\-–]\s*Movie Party\b/i,
+  /\s*[:\-–]\s*Open Captioning\b/i,
+  /\s*[:\-–]\s*Book Club Screening\b/i,
+  /\s*[:\-–]\s*Free Victory Screening\b/i,
+  /\s*[:\-–]\s*Fashion Forward Filanthropy Screening\b/i,
+  // Trailing parenthetical format labels
+  /\s+\(HDR by Barco\)\s*$/i,
+  /\s+\(Early Access\)\s*$/i,
+  /\s+\(Open Captioning\)\s*$/i,
+];
+
+function normalizeMovieTitle(title) {
+  let normalized = title;
+  for (const pattern of AMC_FORMAT_SUFFIXES) {
+    normalized = normalized.replace(pattern, '');
+  }
+  return normalized.trim();
+}
+
+function deduplicateMovies(movies) {
+  // Group movies by normalized title + year
+  const groups = new Map();
+  for (const movie of movies) {
+    const year = movie?.ratings?.year || '';
+    const normTitle = normalizeMovieTitle(movie.title);
+    const key = `${normTitle}|||${year}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(movie);
+  }
+
+  const result = [];
+  for (const [, group] of groups) {
+    if (group.length === 1) {
+      result.push(group[0]);
+      continue;
+    }
+    // Pick primary: prefer entry whose title matches the normalized form (no suffix),
+    // then prefer one with RT score, then just take the first.
+    const normTitle = normalizeMovieTitle(group[0].title);
+    let primary = group.find(m => m.title.trim() === normTitle)
+      || group.find(m => m?.ratings?.rt != null)
+      || group[0];
+
+    // Merge all theater entries from variants into primary
+    const allTheaterEntries = [];
+    const seenTheaterShowtimePairs = new Set();
+    for (const variant of group) {
+      for (const th of variant.theaters || []) {
+        for (const show of th.showtimes || []) {
+          const key = `${th.name}|||${show.time}|||${show.link || ''}`;
+          if (!seenTheaterShowtimePairs.has(key)) {
+            seenTheaterShowtimePairs.add(key);
+            // Find or create theater entry in allTheaterEntries
+            let te = allTheaterEntries.find(t => t.name === th.name);
+            if (!te) {
+              te = { ...th, showtimes: [] };
+              allTheaterEntries.push(te);
+            }
+            te.showtimes.push(show);
+          }
+        }
+      }
+    }
+
+    result.push({ ...primary, title: normTitle, theaters: allTheaterEntries });
+  }
+  return result;
+}
+
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 function initDashboard(data) {
@@ -3841,6 +3920,7 @@ function initDashboard(data) {
       theaters: (movie.theaters || []).filter(t => t.name !== 'Museum of Modern Art'),
     }))
     .filter(movie => movie.theaters.length > 0);
+  allMovies = deduplicateMovies(allMovies);
   primeMovieBlurbCache(allMovies);
   effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
   hasLoadedData = true;
