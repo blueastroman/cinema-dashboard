@@ -333,8 +333,8 @@ function saveCache() {
 }
 
 function getKey(movie) {
-  const title = (movie?.title || '').trim();
-  const year = (movie?.ratings?.year || '').trim();
+  const title = String(movie?.title ?? '').trim();
+  const year = String(movie?.ratings?.year ?? '').trim();
   return `${title}-${year}`;
 }
 
@@ -359,7 +359,7 @@ function getConsensus(movie) {
     movie?.consensus,
   ];
   for (const f of fields) {
-    const t = (f || '').trim();
+    const t = String(f ?? '').trim();
     if (t && t.toUpperCase() !== 'N/A') return t;
   }
   return '';
