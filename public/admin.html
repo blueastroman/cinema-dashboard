@@ -269,6 +269,11 @@
     .btn-clear { color: var(--skip); border-color: rgba(184,80,80,0.3); }
     .btn-clear:hover { border-color: var(--skip); color: var(--skip); }
 
+    .btn-hide { color: var(--muted); }
+    .btn-hide.is-hidden { color: var(--skip); border-color: rgba(184,80,80,0.35); background: rgba(184,80,80,0.08); }
+    .movie-card.is-hidden-movie { opacity: 0.45; }
+    .movie-card.is-hidden-movie:hover { opacity: 0.75; }
+
     .saved-flash {
       font-size: 0.68rem;
       color: var(--watch);
@@ -319,6 +324,7 @@
 
 <script>
 const STORAGE_KEY = 'cinema_movie_blurbs';
+const HIDDEN_KEY = 'cinema_hidden';
 const MAX_CHARS = 340;
 const PASSWORD_HASH = 'f0802d4c67ac66013292e4d04adeb815b0431c0e1633c999ca1557d64fed5ff9';
 const SESSION_KEY = 'admin_auth';
@@ -421,6 +427,41 @@ function getBlurbText(movie) {
   return blurbCache[getKey(movie)]?.text?.trim() || '';
 }
 
+function slugify(str) {
+  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function getMovieId(movie) {
+  return movie.id || slugify(`${movie.title || ''}-${movie.ratings?.year || ''}`);
+}
+
+function loadHidden() {
+  try { return JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]'); } catch { return []; }
+}
+
+function saveHidden(list) {
+  try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(list)); } catch {}
+}
+
+function isHidden(movie) {
+  const list = loadHidden();
+  const id = getMovieId(movie);
+  return list.includes(id) || list.includes(movie.title);
+}
+
+function toggleHidden(movie) {
+  let list = loadHidden();
+  const id = getMovieId(movie);
+  const hidden = list.includes(id) || list.includes(movie.title);
+  if (hidden) {
+    list = list.filter(k => k !== id && k !== movie.title);
+  } else {
+    list.push(id);
+  }
+  saveHidden(list);
+  return !hidden;
+}
+
 function saveBlurb(movie, text) {
   const key = getKey(movie);
   const clean = text.trim();
@@ -488,8 +529,9 @@ function buildCard(movie) {
   const consensus = getConsensus(movie);
   const meta = [movie.ratings?.year, movie.ratings?.director, movie.ratings?.genre].filter(Boolean).join(' · ');
 
+  const hidden = isHidden(movie);
   const card = document.createElement('div');
-  card.className = `movie-card is-${source}`;
+  card.className = `movie-card is-${source}${hidden ? ' is-hidden-movie' : ''}`;
   card.dataset.key = key;
 
   card.innerHTML = `
@@ -518,6 +560,7 @@ function buildCard(movie) {
         <div class="blurb-actions">
           <button class="btn-save" disabled>Save</button>
           ${blurb ? `<button class="btn-clear">Clear</button>` : ''}
+          <button class="btn-hide${hidden ? ' is-hidden' : ''}">${hidden ? 'Hidden' : 'Hide'}</button>
           <span class="saved-flash">Saved</span>
         </div>
       </div>
@@ -580,6 +623,14 @@ function buildCard(movie) {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => doClear(clearBtn));
   }
+
+  const hideBtn = card.querySelector('.btn-hide');
+  hideBtn.addEventListener('click', () => {
+    const nowHidden = toggleHidden(movie);
+    hideBtn.textContent = nowHidden ? 'Hidden' : 'Hide';
+    hideBtn.classList.toggle('is-hidden', nowHidden);
+    card.classList.toggle('is-hidden-movie', nowHidden);
+  });
 
   return card;
 }
