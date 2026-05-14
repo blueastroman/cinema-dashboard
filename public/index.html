@@ -3608,13 +3608,33 @@ function getPriorityScore(movie) {
   const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
   if (cinemaWeight !== null) return cinemaWeight;
 
-  const rt = parseInt(movie?.ratings?.rt || '0', 10);
-  if (Number.isFinite(rt)) return rt;
+  const rt   = parseInt(movie?.ratings?.rt || '', 10);
+  const meta = parseInt(movie?.ratings?.metacritic || '', 10);
+  const lb   = parseFloat(getLetterboxdScore(movie));
 
-  const lb = parseFloat(getLetterboxdScore(movie));
-  if (Number.isFinite(lb)) return lb * 20;
+  const hasRT   = Number.isFinite(rt);
+  const hasMeta = Number.isFinite(meta);
+  const hasLB   = Number.isFinite(lb);
 
-  return 0;
+  if (!hasRT && !hasMeta && !hasLB) return 0;
+
+  // No RT — fall back to other signals
+  if (!hasRT) return hasMeta ? meta : (lb / 5) * 100;
+
+  // Weighted composite of available signals
+  let composite = rt * 0.5, weight = 0.5;
+  if (hasMeta) { composite += meta * 0.3;              weight += 0.3; }
+  if (hasLB)   { composite += (lb / 5) * 100 * 0.2;   weight += 0.2; }
+  composite /= weight;
+
+  // Bayesian correction: when RT is the only signal, a handful of reviews
+  // can inflate the score to 100%. Blend toward a prior (72) to restore
+  // ordering — films with real consensus from multiple sources won't move.
+  if (!hasMeta && !hasLB) {
+    composite = composite * 0.5 + 72 * 0.5;
+  }
+
+  return composite;
 }
 
 function getMovieConfidence(movie) {
