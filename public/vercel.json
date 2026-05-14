@@ -2,7 +2,7 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "routes": [
-    { "src": "/admin", "dest": "/admin.html" }
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin.html" }
   ]
 }
