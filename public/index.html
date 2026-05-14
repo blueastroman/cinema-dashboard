@@ -1653,10 +1653,7 @@
     }
 
     .ranking-prestige-chip::before {
-      content: '🏆';
-      font-size: 0.72em;
-      line-height: 1;
-      opacity: 0.9;
+      content: none;
     }
 
     .ranking-prestige-chip--criterion {
@@ -3033,7 +3030,8 @@ function getMovieBlurbUserPrompt(movie) {
   const scoreText = score === null ? 'N/A' : String(score);
   const lb = cleanDisplayText(getLetterboxdScore(movie)) || 'N/A';
   const premise = getMovieBlurbPremiseText(movie) || 'N/A';
-  return `Movie: ${title} (${year}). Director: ${director}. Genre: ${genre}. Runtime: ${runtimeText} min. RT Critics Score: ${scoreText}%. Letterboxd: ${lb}. Premise: ${premise}. Should someone see this in a NYC theater tonight?`;
+  const consensus = getMovieBlurbConsensusText(movie) || 'N/A';
+  return `Movie: ${title} (${year}). Director: ${director}. Genre: ${genre}. Runtime: ${runtimeText} min. RT Critics Score: ${scoreText}%. Letterboxd: ${lb}. Premise: ${premise}. Critics consensus: ${consensus}. Should someone see this in a NYC theater tonight?`;
 }
 
 function normalizeGeneratedBlurb(text) {

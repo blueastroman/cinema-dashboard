@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Editor · Showtimes NYC</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --off-black: #111;
+      --charcoal: #1a1a1a;
+      --dark-gray: #2a2a2a;
+      --mid-gray: #3a3a3a;
+      --text: #e8e2d9;
+      --text-dim: #a09880;
+      --muted: #666;
+      --cream: #f0ece4;
+      --accent: #c8a96e;
+      --watch: #4a9e6b;
+      --depends: #b8922a;
+      --skip: #b85050;
+      --font: 'Georgia', serif;
+      --font-sans: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    header {
+      background: var(--off-black);
+      border-bottom: 1px solid var(--dark-gray);
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .logo span { color: var(--accent); }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      max-width: 700px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 3px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      outline: none;
+    }
+    input[type="text"]:focus { border-color: var(--accent); }
+    input[type="text"]::placeholder { color: var(--muted); }
+
+    select {
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 3px;
+      color: var(--text-dim);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      outline: none;
+      cursor: pointer;
+    }
+    select:focus { border-color: var(--accent); }
+
+    .stats {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .stats strong { color: var(--text-dim); }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 32px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .movie-card {
+      background: var(--off-black);
+      border: 1px solid var(--dark-gray);
+      border-radius: 3px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 14px;
+      transition: border-color 0.15s;
+    }
+    .movie-card:hover { border-color: var(--mid-gray); }
+    .movie-card.is-manual { border-left: 3px solid var(--accent); }
+    .movie-card.is-ai { border-left: 3px solid var(--watch); }
+    .movie-card.is-none { border-left: 3px solid var(--dark-gray); }
+
+    .movie-score {
+      text-align: right;
+      padding-top: 2px;
+    }
+
+    .rt-num {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .rt-high { color: var(--watch); }
+    .rt-mid  { color: var(--depends); }
+    .rt-low  { color: var(--skip); }
+    .rt-none { color: var(--muted); }
+
+    .rt-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .movie-body { min-width: 0; }
+
+    .movie-head {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .movie-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--cream);
+    }
+
+    .movie-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .source-badge {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .source-badge.manual { background: rgba(200,169,110,0.15); color: var(--accent); border: 1px solid rgba(200,169,110,0.3); }
+    .source-badge.ai     { background: rgba(74,158,107,0.12); color: var(--watch);  border: 1px solid rgba(74,158,107,0.25); }
+    .source-badge.none   { background: rgba(255,255,255,0.04); color: var(--muted); border: 1px solid var(--dark-gray); }
+
+    .consensus {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      font-style: italic;
+      border-left: 2px solid var(--mid-gray);
+      padding-left: 8px;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .consensus-label {
+      font-style: normal;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .blurb-area {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    textarea {
+      width: 100%;
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 3px;
+      color: var(--text);
+      font-family: var(--font), serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.55;
+      padding: 8px 10px;
+      resize: vertical;
+      outline: none;
+      min-height: 72px;
+      transition: border-color 0.15s;
+    }
+    textarea:focus { border-color: var(--accent); }
+    textarea.is-dirty { border-color: var(--accent); }
+    textarea::placeholder { color: var(--muted); font-style: normal; }
+
+    .blurb-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    button {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      border: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    button:hover { border-color: var(--cream); color: var(--cream); }
+
+    .btn-save {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #111;
+    }
+    .btn-save:hover { opacity: 0.88; color: #111; border-color: var(--accent); }
+    .btn-save:disabled { opacity: 0.4; cursor: default; }
+
+    .btn-clear { color: var(--skip); border-color: rgba(184,80,80,0.3); }
+    .btn-clear:hover { border-color: var(--skip); color: var(--skip); }
+
+    .saved-flash {
+      font-size: 0.68rem;
+      color: var(--watch);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .saved-flash.show { opacity: 1; }
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+    .empty-state h2 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dim); }
+    .empty-state p { font-size: 0.82rem; }
+
+    .loading-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Showtimes <span>NYC</span> · Review Editor</div>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search films…" oninput="renderList()">
+      <select id="filter" onchange="renderList()">
+        <option value="all">All films</option>
+        <option value="manual">Manual</option>
+        <option value="ai">AI generated</option>
+        <option value="none">No review</option>
+      </select>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="loading-state">Loading films…</div>
+</main>
+
+<script>
+const STORAGE_KEY = 'cinema_movie_blurbs';
+const MAX_CHARS = 340;
+
+let allMovies = [];
+let blurbCache = {};
+
+function loadCache() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+}
+
+function saveCache() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(blurbCache)); } catch {}
+}
+
+function getKey(movie) {
+  const title = (movie?.title || '').trim();
+  const year = (movie?.ratings?.year || '').trim();
+  return `${title}-${year}`;
+}
+
+function getRTScore(movie) {
+  const v = parseInt(movie?.ratings?.rt || '', 10);
+  return Number.isFinite(v) ? v : null;
+}
+
+function getRTClass(score) {
+  if (score === null) return 'rt-none';
+  if (score >= 80) return 'rt-high';
+  if (score >= 60) return 'rt-mid';
+  return 'rt-low';
+}
+
+function getConsensus(movie) {
+  const fields = [
+    movie?.ratings?.consensus,
+    movie?.ratings?.rtConsensus,
+    movie?.ratings?.criticConsensus,
+    movie?.ratings?.rottenTomatoesConsensus,
+    movie?.consensus,
+  ];
+  for (const f of fields) {
+    const t = (f || '').trim();
+    if (t && t.toUpperCase() !== 'N/A') return t;
+  }
+  return '';
+}
+
+function getSource(movie) {
+  const entry = blurbCache[getKey(movie)];
+  if (!entry?.text?.trim()) return 'none';
+  return entry.source === 'manual' ? 'manual' : 'ai';
+}
+
+function getBlurbText(movie) {
+  return blurbCache[getKey(movie)]?.text?.trim() || '';
+}
+
+function saveBlurb(movie, text) {
+  const key = getKey(movie);
+  const clean = text.trim();
+  if (!clean) {
+    delete blurbCache[key];
+  } else {
+    blurbCache[key] = { text: clean, source: 'manual', updated_at: new Date().toISOString() };
+  }
+  saveCache();
+}
+
+function clearBlurb(movie) {
+  delete blurbCache[getKey(movie)];
+  saveCache();
+}
+
+function renderList() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const filter = document.getElementById('filter').value;
+  const main = document.getElementById('main');
+
+  let movies = allMovies.filter(m => {
+    if (query) {
+      const haystack = `${m.title} ${m.ratings?.director || ''} ${m.ratings?.year || ''}`.toLowerCase();
+      if (!haystack.includes(query)) return false;
+    }
+    if (filter !== 'all') {
+      if (getSource(m) !== filter) return false;
+    }
+    return true;
+  });
+
+  // Sort by RT score desc, then title
+  movies.sort((a, b) => {
+    const ra = getRTScore(a) ?? -1;
+    const rb = getRTScore(b) ?? -1;
+    return rb - ra || (a.title || '').localeCompare(b.title || '');
+  });
+
+  const total = allMovies.length;
+  const withBlurb = allMovies.filter(m => getSource(m) !== 'none').length;
+  const manual = allMovies.filter(m => getSource(m) === 'manual').length;
+  document.getElementById('stats').innerHTML =
+    `<strong>${withBlurb}</strong>/${total} reviewed &nbsp;·&nbsp; <strong>${manual}</strong> manual`;
+
+  if (!movies.length) {
+    main.innerHTML = `<div class="empty-state"><h2>No films match</h2><p>Try adjusting the search or filter.</p></div>`;
+    return;
+  }
+
+  main.innerHTML = '';
+  movies.forEach(movie => {
+    const card = buildCard(movie);
+    main.appendChild(card);
+  });
+}
+
+function buildCard(movie) {
+  const key = getKey(movie);
+  const rt = getRTScore(movie);
+  const rtClass = getRTClass(rt);
+  const rtDisplay = rt !== null ? `${rt}%` : 'NR';
+  const source = getSource(movie);
+  const blurb = getBlurbText(movie);
+  const consensus = getConsensus(movie);
+  const meta = [movie.ratings?.year, movie.ratings?.director, movie.ratings?.genre].filter(Boolean).join(' · ');
+
+  const card = document.createElement('div');
+  card.className = `movie-card is-${source}`;
+  card.dataset.key = key;
+
+  card.innerHTML = `
+    <div class="movie-score">
+      <div class="rt-num ${rtClass}">${rtDisplay}</div>
+      <div class="rt-label">RT</div>
+    </div>
+    <div class="movie-body">
+      <div class="movie-head">
+        <span class="movie-title">${escapeHTML(movie.title || '')}</span>
+        <span class="movie-meta">${escapeHTML(meta)}</span>
+        <span class="source-badge ${source}">${source === 'none' ? 'No review' : source === 'manual' ? 'Manual' : 'AI'}</span>
+      </div>
+      ${consensus ? `
+        <div class="consensus">
+          <span class="consensus-label">Critics consensus</span>
+          ${escapeHTML(consensus)}
+        </div>
+      ` : ''}
+      <div class="blurb-area">
+        <textarea
+          rows="3"
+          placeholder="Write a review… (leave blank to use AI-generated or consensus)"
+          maxlength="400"
+        >${escapeHTML(blurb)}</textarea>
+        <div class="blurb-actions">
+          <button class="btn-save" disabled>Save</button>
+          ${blurb ? `<button class="btn-clear">Clear</button>` : ''}
+          <span class="saved-flash">Saved</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const textarea = card.querySelector('textarea');
+  const saveBtn = card.querySelector('.btn-save');
+  const clearBtn = card.querySelector('.btn-clear');
+  const flash = card.querySelector('.saved-flash');
+  let originalText = blurb;
+
+  textarea.addEventListener('input', () => {
+    const isDirty = textarea.value.trim() !== originalText;
+    textarea.classList.toggle('is-dirty', isDirty);
+    saveBtn.disabled = !isDirty;
+  });
+
+  saveBtn.addEventListener('click', () => {
+    const text = textarea.value.trim();
+    saveBlurb(movie, text);
+    originalText = text;
+    textarea.classList.remove('is-dirty');
+    saveBtn.disabled = true;
+
+    // Update card appearance
+    const newSource = text ? 'manual' : 'none';
+    card.className = `movie-card is-${newSource}`;
+    card.querySelector('.source-badge').className = `source-badge ${newSource}`;
+    card.querySelector('.source-badge').textContent = newSource === 'manual' ? 'Manual' : 'No review';
+
+    // Show/hide clear button
+    let clearBtnEl = card.querySelector('.btn-clear');
+    if (text && !clearBtnEl) {
+      clearBtnEl = document.createElement('button');
+      clearBtnEl.className = 'btn-clear';
+      clearBtnEl.textContent = 'Clear';
+      saveBtn.after(clearBtnEl);
+      clearBtnEl.addEventListener('click', () => doClear(clearBtnEl));
+    } else if (!text && clearBtnEl) {
+      clearBtnEl.remove();
+    }
+
+    flash.classList.add('show');
+    setTimeout(() => flash.classList.remove('show'), 1800);
+  });
+
+  function doClear(btn) {
+    clearBlurb(movie);
+    textarea.value = '';
+    originalText = '';
+    textarea.classList.remove('is-dirty');
+    saveBtn.disabled = true;
+    card.className = 'movie-card is-none';
+    card.querySelector('.source-badge').className = 'source-badge none';
+    card.querySelector('.source-badge').textContent = 'No review';
+    btn.remove();
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => doClear(clearBtn));
+  }
+
+  return card;
+}
+
+function escapeHTML(str) {
+  return String(str || '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+async function init() {
+  blurbCache = loadCache();
+  try {
+    const res = await fetch('/data.json');
+    if (!res.ok) throw new Error('Failed to load data.json');
+    const data = await res.json();
+    const EXCLUDED = ['Museum of Modern Art'];
+    allMovies = (data.movies || [])
+      .map(m => ({
+        ...m,
+        theaters: (m.theaters || []).filter(t => !EXCLUDED.includes(t.name)),
+      }))
+      .filter(m => m.theaters.length > 0);
+    renderList();
+  } catch (e) {
+    document.getElementById('main').innerHTML =
+      `<div class="empty-state"><h2>Could not load films</h2><p>${e.message}</p></div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
