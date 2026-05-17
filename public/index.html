@@ -153,7 +153,6 @@
     /* ── HEADER ────────────────────────────────────────────── */
     header {
       border-bottom: 1px solid var(--mid-gray);
-      padding: 0 40px;
       position: sticky;
       top: 0;
       z-index: 110;
@@ -178,6 +177,7 @@
     .header-inner {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -405,12 +405,12 @@
     /* ── HERO / STATS BAR ──────────────────────────────────── */
     .stats-bar {
       border-bottom: 1px solid var(--dark-gray);
-      padding: 20px 40px;
     }
 
     .stats-inner {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 20px 40px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -427,12 +427,12 @@
 
     .date-scope-row {
       border-bottom: 1px solid var(--dark-gray);
-      padding: 14px 40px;
     }
 
     .date-scope-inner {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 14px 40px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1894,7 +1894,7 @@
 
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
-      header, .stats-bar, .date-scope-row, main { padding-left: 20px; padding-right: 20px; }
+      .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
       body::after { height: calc(var(--safe-top) + 76px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
