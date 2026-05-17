@@ -494,9 +494,11 @@ const ADMIN_EMAILS = ['danymora131@hotmail.com'];
 
 // _sbAuth: handles login/logout only (session persisted for gating)
 const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-// _sb: always runs as anon role so RLS anon policies apply to data reads/writes
+// _sb: always runs as anon role so RLS anon policies apply to data reads/writes.
+// No-op storage prevents it from ever reading the _sbAuth session out of localStorage.
+const _NOOP_STORAGE = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storage: _NOOP_STORAGE },
 });
 
 async function requireAuth() {
