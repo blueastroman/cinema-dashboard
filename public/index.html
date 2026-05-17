@@ -1117,17 +1117,29 @@
     }
 
     .theater-film-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
       padding: 4px 2px 10px;
     }
 
+    .theater-poster-wrap {
+      width: 86px;
+      aspect-ratio: 2 / 3;
+      border: 1px solid var(--movie-box-border);
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--dark-gray);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+      flex-shrink: 0;
+    }
+
     .theater-film-row {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding: 14px 14px 56px 16px;
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) minmax(170px, 230px) auto;
+      gap: 18px;
+      align-items: start;
+      padding: 16px 16px 16px 16px;
       border: 1px solid var(--movie-box-border);
       box-shadow: var(--movie-box-shadow);
       border-radius: 2px;
@@ -1240,10 +1252,10 @@
     }
 
     .theater-film-times {
-      margin-top: 8px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 2px;
     }
 
     .theater-film-day-group {
@@ -1251,12 +1263,11 @@
     }
 
     .theater-film-actions {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
       display: flex;
+      flex-direction: column;
       gap: 8px;
       align-items: center;
+      padding-top: 2px;
     }
 
     .theater-ticket-price {
@@ -1836,7 +1847,8 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .theater-film-row { grid-template-columns: 80px minmax(0, 1fr) minmax(150px, 200px) auto; gap: 14px; }
+      .theater-poster-wrap { width: 80px; }
       .ranking-row {
         grid-template-columns: 76px 78px minmax(0, 1fr) auto;
       }
@@ -1889,12 +1901,12 @@
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
       .theater-film-row {
-        padding-bottom: 64px;
+        grid-template-columns: 64px minmax(0, 1fr) auto;
+        gap: 12px;
       }
-      .theater-film-actions {
-        right: 10px;
-        bottom: 10px;
-      }
+      .theater-poster-wrap { width: 64px; }
+      .theater-film-times { grid-column: 2 / 3; }
+      .theater-film-actions { grid-column: 3 / 4; grid-row: 1; }
       .theater-film-review { font-size: 0.88rem; }
       .mobile-filter-bar { padding: 10px 20px; }
       .ranking-row {
@@ -4982,9 +4994,15 @@ function renderTheaterView() {
       const blurbState = getMovieBlurbState(movie);
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
+      const posterUrl = getPosterUrl(movie);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
       row.innerHTML = `
+        <div class="theater-poster-wrap">
+          ${posterUrl
+            ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
+            : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
+        </div>
         <div class="theater-film-info">
           <div class="theater-film-head">
             <div class="theater-film-title">
@@ -5013,8 +5031,8 @@ function renderTheaterView() {
           ${(metaParts.length || formatTags.length) ? `<div class="theater-film-meta">${metaParts.join(' · ')}${metaParts.length && formatTags.length ? ' · ' : ''}${formatTags.join('')}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
           ${renderMovieBlurbMarkup(movie, 'theater-film-review', { forceRefresh: false })}
-          <div class="theater-film-times">${scheduleHTML}</div>
         </div>
+        <div class="theater-film-times">${scheduleHTML}</div>
         <div class="theater-film-actions">
           ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
           <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
