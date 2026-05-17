@@ -489,6 +489,35 @@ function getPrestigeTag(movie) {
   return blurbCache[getKey(movie)]?.prestige_tag || '';
 }
 
+async function replaceBlurbRow(movie, entry) {
+  const key = getKey(movie);
+  const row = {
+    movie_key: key,
+    title: movie.title || '',
+    text: entry.text || '',
+    source: entry.source || 'manual',
+    prestige_tag: entry.prestige_tag || null,
+    rt_override: entry.rt_override || null,
+    cinema_score_override: entry.cinema_score_override || null,
+    updated_at: new Date().toISOString(),
+  };
+
+  const { error: deleteError } = await _sb.from('blurbs').delete().eq('movie_key', key);
+  if (deleteError) throw deleteError;
+
+  const { error: insertError } = await _sb.from('blurbs').insert(row);
+  if (insertError) throw insertError;
+
+  blurbCache[key] = {
+    text: row.text,
+    source: row.source,
+    prestige_tag: row.prestige_tag || '',
+    rt_override: row.rt_override || '',
+    cinema_score_override: row.cinema_score_override || '',
+  };
+  return blurbCache[key];
+}
+
 async function toggleCriterion(movie, btn) {
   const key = getKey(movie);
   const current = blurbCache[key]?.prestige_tag || '';
@@ -496,15 +525,10 @@ async function toggleCriterion(movie, btn) {
   btn.disabled = true;
   try {
     const entry = blurbCache[key] || {};
-    await _sb.from('blurbs').upsert({
-      movie_key: key,
-      title: movie.title || '',
-      text: entry.text || '',
-      source: entry.source || 'manual',
+    await replaceBlurbRow(movie, {
+      ...entry,
       prestige_tag: next,
-      updated_at: new Date().toISOString()
-    }, { onConflict: 'movie_key' });
-    blurbCache[key] = { ...entry, prestige_tag: next };
+    });
     btn.textContent = next ? '✦ Criterion' : 'Criterion';
     btn.classList.toggle('is-criterion', !!next);
   } catch (e) {
@@ -594,17 +618,23 @@ async function saveBlurb(movie, text) {
   const clean = text.trim();
   if (!clean) {
     delete blurbCache[key];
-    await _sb.from('blurbs').delete().eq('movie_key', key);
+    const { error } = await _sb.from('blurbs').delete().eq('movie_key', key);
+    if (error) throw error;
   } else {
-    blurbCache[key] = { text: clean, source: 'manual' };
-    await _sb.from('blurbs').upsert({ movie_key: key, title: movie.title || '', text: clean, source: 'manual', updated_at: new Date().toISOString() }, { onConflict: 'movie_key' });
+    const entry = blurbCache[key] || {};
+    await replaceBlurbRow(movie, {
+      ...entry,
+      text: clean,
+      source: 'manual',
+    });
   }
 }
 
 async function clearBlurb(movie) {
   const key = getKey(movie);
   delete blurbCache[key];
-  await _sb.from('blurbs').delete().eq('movie_key', key);
+  const { error } = await _sb.from('blurbs').delete().eq('movie_key', key);
+  if (error) throw error;
 }
 
 function renderList() {
@@ -719,41 +749,58 @@ function buildCard(movie) {
   saveBtn.addEventListener('click', async () => {
     const text = textarea.value.trim();
     saveBtn.disabled = true;
-    await saveBlurb(movie, text);
-    originalText = text;
-    textarea.classList.remove('is-dirty');
+    try {
+      await saveBlurb(movie, text);
+      originalText = text;
+      textarea.classList.remove('is-dirty');
 
-    const newSource = text ? 'manual' : 'none';
-    card.className = `movie-card is-${newSource}`;
-    card.querySelector('.source-badge').className = `source-badge ${newSource}`;
-    card.querySelector('.source-badge').textContent = newSource === 'manual' ? 'Manual' : 'No review';
+      const newSource = text ? 'manual' : 'none';
+      card.className = `movie-card is-${newSource}`;
+      card.querySelector('.source-badge').className = `source-badge ${newSource}`;
+      card.querySelector('.source-badge').textContent = newSource === 'manual' ? 'Manual' : 'No review';
 
-    let clearBtnEl = card.querySelector('.btn-clear');
-    if (text && !clearBtnEl) {
-      clearBtnEl = document.createElement('button');
-      clearBtnEl.className = 'btn-clear';
-      clearBtnEl.textContent = 'Clear';
-      saveBtn.after(clearBtnEl);
-      clearBtnEl.addEventListener('click', () => doClear(clearBtnEl));
-    } else if (!text && clearBtnEl) {
-      clearBtnEl.remove();
+      let clearBtnEl = card.querySelector('.btn-clear');
+      if (text && !clearBtnEl) {
+        clearBtnEl = document.createElement('button');
+        clearBtnEl.className = 'btn-clear';
+        clearBtnEl.textContent = 'Clear';
+        saveBtn.after(clearBtnEl);
+        clearBtnEl.addEventListener('click', () => doClear(clearBtnEl));
+      } else if (!text && clearBtnEl) {
+        clearBtnEl.remove();
+      }
+
+      flash.textContent = 'Saved';
+      flash.classList.add('show');
+      setTimeout(() => flash.classList.remove('show'), 1800);
+    } catch (e) {
+      console.error('save blurb error:', e);
+      flash.textContent = 'Error';
+      flash.classList.add('show');
+      setTimeout(() => {
+        flash.classList.remove('show');
+        flash.textContent = 'Saved';
+      }, 2200);
+      saveBtn.disabled = false;
     }
-
-    flash.classList.add('show');
-    setTimeout(() => flash.classList.remove('show'), 1800);
   });
 
   async function doClear(btn) {
     btn.disabled = true;
-    await clearBlurb(movie);
-    textarea.value = '';
-    originalText = '';
-    textarea.classList.remove('is-dirty');
-    saveBtn.disabled = true;
-    card.className = 'movie-card is-none';
-    card.querySelector('.source-badge').className = 'source-badge none';
-    card.querySelector('.source-badge').textContent = 'No review';
-    btn.remove();
+    try {
+      await clearBlurb(movie);
+      textarea.value = '';
+      originalText = '';
+      textarea.classList.remove('is-dirty');
+      saveBtn.disabled = true;
+      card.className = 'movie-card is-none';
+      card.querySelector('.source-badge').className = 'source-badge none';
+      card.querySelector('.source-badge').textContent = 'No review';
+      btn.remove();
+    } catch (e) {
+      console.error('clear blurb error:', e);
+      btn.disabled = false;
+    }
   }
 
   if (clearBtn) {
@@ -787,17 +834,11 @@ function buildCard(movie) {
     const cs = csInput.value.trim().toUpperCase();
     const entry = blurbCache[key] || {};
     try {
-      await _sb.from('blurbs').upsert({
-        movie_key: key,
-        title: movie.title || '',
-        text: entry.text || '',
-        source: entry.source || 'manual',
-        prestige_tag: entry.prestige_tag || null,
+      await replaceBlurbRow(movie, {
+        ...entry,
         rt_override: rt || null,
         cinema_score_override: cs || null,
-        updated_at: new Date().toISOString(),
-      }, { onConflict: 'movie_key' });
-      blurbCache[key] = { ...entry, rt_override: rt, cinema_score_override: cs };
+      });
       scoresFlash.classList.add('show');
       setTimeout(() => scoresFlash.classList.remove('show'), 1800);
     } catch (e) {
