@@ -1075,8 +1075,8 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { transform: translateY(10px); }
+      to { transform: translateY(0); }
     }
 
     /* stagger via nth-child */
@@ -6066,7 +6066,7 @@ async function loadUserListsFromCloud() {
       const merged = [...new Set([...local, ...remoteIds])];
       localStorage.setItem('cinema_watched', JSON.stringify(merged));
     }
-    render();
+    if (hasLoadedData) render();
   } catch (e) { /* silent */ }
 }
 
