@@ -4859,8 +4859,8 @@ function buildRankingRow(movie, idx) {
           : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
       }</div>
       <div class="ranking-score-label">Rotten Tomatoes</div>
-      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
       ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
+      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
@@ -5063,8 +5063,8 @@ function renderTheaterView() {
               : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener">${rtScore}%</a>`
           }</div>
           <div class="ranking-score-label">Rotten Tomatoes</div>
-          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
           ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
+          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
