@@ -4883,10 +4883,10 @@ function buildRankingShowtimesHTML(movie) {
 
 function renderRankingsView() {
   const movies = getRankingEntries();
-  const main = document.getElementById('main-content');
-  main.innerHTML = '';
 
   if (!movies.length) {
+    const main = document.getElementById('main-content');
+    main.innerHTML = '';
     renderEmptyState(main);
     return;
   }
@@ -4897,6 +4897,9 @@ function renderRankingsView() {
   const list = document.createElement('div');
   list.className = 'rankings-list';
   sorted.forEach((movie, idx) => list.appendChild(buildRankingRow(movie, idx)));
+
+  const main = document.getElementById('main-content');
+  main.innerHTML = '';
   main.appendChild(list);
 }
 
@@ -5006,9 +5009,9 @@ function getNextShowFromSchedule(schedule, scopeLabel = getActiveDayFilterLabel(
 function renderTheaterView() {
   const movies = getFiltered();
   const main = document.getElementById('main-content');
-  main.innerHTML = '';
 
   if (!movies.length) {
+    main.innerHTML = '';
     renderEmptyState(main);
     return;
   }
@@ -5177,6 +5180,7 @@ function renderTheaterView() {
     rendered++;
   });
 
+  main.innerHTML = '';
   if (!rendered) {
     renderEmptyState(main);
   } else {

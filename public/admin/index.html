@@ -1175,51 +1175,7 @@ function renderRankings() {
     return;
   }
 
-  const list = document.createElement('div');
-  list.className = 'rankings-preview';
-
-  movies.forEach(movie => {
-    const rt = getRTScore(movie);
-    const rtClass = rt === null ? 'nr' : rt >= 80 ? 'high' : rt >= 60 ? 'mid' : 'low';
-    const rtDisplay = rt !== null ? `${rt}%` : 'NR';
-    const poster = movie.ratings?.poster;
-    const blurb = getBlurbText(movie);
-    const meta = [movie.ratings?.year, movie.ratings?.director, movie.ratings?.genre, movie.ratings?.runtime]
-      .filter(v => v && String(v).toUpperCase() !== 'N/A').join(' · ');
-    const hidden = isHidden(movie);
-    const pick = isPick(movie);
-    const genre = (movie.ratings?.genre || '').toLowerCase();
-    const isDoc = genre.includes('documentary');
-
-    const card = document.createElement('div');
-    card.className = `rp-card${hidden ? ' rp-hidden' : ''}${pick ? ' rp-pick' : ''}`;
-
-    const posterEl = poster
-      ? `<img class="rp-poster" src="${escapeHTML(poster)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'rp-poster-placeholder\\'>${escapeHTML((movie.title||'?')[0].toUpperCase())}</div>'">`
-      : `<div class="rp-poster-placeholder">${escapeHTML((movie.title||'?')[0].toUpperCase())}</div>`;
-
-    const badges = [];
-    if (hidden) badges.push('<span class="rp-badge hidden">Hidden</span>');
-    if (pick)   badges.push('<span class="rp-badge pick">✦ Pick</span>');
-    if (isDoc)  badges.push('<span class="rp-badge doc">Doc</span>');
-
-    card.innerHTML = `
-      <div class="rp-score">
-        <div class="rp-rt ${rtClass}">${rtDisplay}</div>
-        <div class="rp-rt-label">RT</div>
-      </div>
-      ${posterEl}
-      <div class="rp-body">
-        <div class="rp-title">${escapeHTML(movie.title || '')}</div>
-        <div class="rp-meta">${escapeHTML(meta)}</div>
-        <div class="rp-blurb${blurb ? '' : ' no-blurb'}">${blurb ? escapeHTML(blurb) : 'No review — will use consensus or AI'}</div>
-        ${badges.length ? `<div class="rp-badges">${badges.join('')}</div>` : ''}
-      </div>
-    `;
-    list.appendChild(card);
-  });
-
-  main.appendChild(list);
+  movies.forEach(movie => main.appendChild(buildCard(movie)));
 }
 
 async function init() {
