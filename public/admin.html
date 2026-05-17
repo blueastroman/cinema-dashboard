@@ -442,9 +442,13 @@ function showLoginScreen() {
           style="width:100%;background:#1a1a1a;border:1px solid #3a3a3a;border-radius:3px;color:#e8e2d9;font-family:system-ui,sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;margin-bottom:10px;box-sizing:border-box;"
           onkeydown="if(event.key==='Enter')tryLogin()">
         <div id="pw-error" style="font-size:0.72rem;color:#b85050;min-height:18px;margin-bottom:8px;"></div>
-        <button onclick="tryLogin()"
+        <button id="login-btn" onclick="tryLogin()"
           style="width:100%;background:#c8a96e;border:none;border-radius:3px;color:#111;font-family:system-ui,sans-serif;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px;cursor:pointer;">
           Sign In
+        </button>
+        <button onclick="resetAdminSession()"
+          style="width:100%;margin-top:10px;background:transparent;border:1px solid #3a3a3a;border-radius:3px;color:#a09880;font-family:system-ui,sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:9px;cursor:pointer;">
+          Reset Session
         </button>
       </div>
     </div>
@@ -452,18 +456,38 @@ function showLoginScreen() {
   setTimeout(() => document.getElementById('email-input')?.focus(), 50);
 }
 
+async function resetAdminSession() {
+  try { await _sb.auth.signOut(); } catch (e) { /* ignore */ }
+  try {
+    Object.keys(localStorage)
+      .filter(key => key.startsWith('sb-'))
+      .forEach(key => localStorage.removeItem(key));
+  } catch (e) { /* ignore */ }
+  location.reload();
+}
+
 async function tryLogin() {
   const email = document.getElementById('email-input').value.trim();
   const password = document.getElementById('pw-input').value;
   const error = document.getElementById('pw-error');
+  const button = document.getElementById('login-btn');
   error.textContent = '';
-  const { error: authError } = await _sb.auth.signInWithPassword({ email, password });
-  if (authError) {
-    error.textContent = 'Incorrect email or password.';
+  if (button) {
+    button.disabled = true;
+    button.textContent = 'Signing in...';
+  }
+  try {
+    const { error: authError } = await _sb.auth.signInWithPassword({ email, password });
+    if (authError) throw authError;
+    location.reload();
+  } catch (e) {
+    error.textContent = e?.message || 'Could not sign in.';
     document.getElementById('pw-input').value = '';
     document.getElementById('pw-input').focus();
-  } else {
-    location.reload();
+    if (button) {
+      button.disabled = false;
+      button.textContent = 'Sign In';
+    }
   }
 }
 
@@ -918,6 +942,24 @@ function escapeHTML(str) {
   }[c]));
 }
 
+function renderAdminError(error) {
+  document.body.innerHTML = `
+    <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;padding:24px;">
+      <div style="width:min(520px,100%);background:#111;border:1px solid #2a2a2a;border-radius:4px;padding:32px;color:#e8e2d9;font-family:system-ui,sans-serif;">
+        <div style="font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#666;margin-bottom:16px;">
+          Showtimes <span style="color:#c8a96e">NYC</span> · Admin
+        </div>
+        <h1 style="font-size:1rem;margin:0 0 10px;color:#f0ece4;">Could not load admin data</h1>
+        <p style="font-size:0.82rem;line-height:1.55;color:#a09880;margin:0 0 18px;">${escapeHTML(error?.message || 'Something went wrong.')}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button onclick="location.reload()" style="background:#c8a96e;border:none;border-radius:3px;color:#111;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;cursor:pointer;">Retry</button>
+          <button onclick="resetAdminSession()" style="background:transparent;border:1px solid #3a3a3a;border-radius:3px;color:#e8e2d9;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;cursor:pointer;">Sign out</button>
+        </div>
+      </div>
+    </main>
+  `;
+}
+
 async function init() {
   try {
     if (!await checkAuth()) { showLoginScreen(); return; }
@@ -934,8 +976,7 @@ async function init() {
       .filter(m => m.theaters.length > 0);
     renderList();
   } catch (e) {
-    document.getElementById('main').innerHTML =
-      `<div class="empty-state"><h2>Could not load films</h2><p>${escapeHTML(e.message)}</p></div>`;
+    renderAdminError(e);
   }
 }
 
