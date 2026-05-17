@@ -4105,6 +4105,8 @@ function toggleHidden(movieId, fallbackTitle = '') {
 async function loadData() {
   try {
     readFiltersFromUrl();
+    movieBlurbCache = loadStoredMovieBlurbs();
+    posterTintCache = loadStoredPosterTints();
     const [res] = await Promise.all([
       fetch('./data.json?t=' + Date.now()),
       loadBlurbsFromCloud(),
@@ -4207,8 +4209,6 @@ function deduplicateMovies(movies) {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 function initDashboard(data) {
-  movieBlurbCache = loadStoredMovieBlurbs();
-  posterTintCache = loadStoredPosterTints();
   theaterMeta = { ...DEFAULT_THEATER_META, ...(data.theater_meta || {}) };
   allMovies = (data.movies || [])
     .map(movie => ({
@@ -5854,9 +5854,11 @@ async function loadBlurbsFromCloud() {
     if (!res.ok) return;
     const data = await res.json();
     if (!Array.isArray(data) || !data.length) return;
+    let changedBlurbs = false;
     data.forEach(r => {
       if (r.movie_key && r.text) {
         movieBlurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual' };
+        changedBlurbs = true;
       }
       if (r.movie_key && r.prestige_tag) {
         cloudPrestigeTags[r.movie_key] = r.prestige_tag;
@@ -5868,6 +5870,7 @@ async function loadBlurbsFromCloud() {
         };
       }
     });
+    if (changedBlurbs) saveStoredMovieBlurbs();
   } catch (e) { /* silent */ }
 }
 
