@@ -3199,6 +3199,10 @@ function escapeHTML(value) {
   }[char]));
 }
 
+function escapeJSString(value) {
+  return escapeHTML(JSON.stringify(String(value || '')));
+}
+
 function firstDisplayText(...values) {
   for (const value of values) {
     const text = cleanDisplayText(value);
@@ -5122,8 +5126,8 @@ function theaterLink(name) {
   const url = getTheaterUrl(name);
   const label = getDisplayTheaterName(name);
   return url
-    ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
-    : label;
+    ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener">${escapeHTML(label)}</a>`
+    : escapeHTML(label);
 }
 
 function buildCard(movie, idx) {
@@ -5149,7 +5153,7 @@ function buildCard(movie, idx) {
   const firstTheater = theaters[0];
   const extraTheaters = theaters.slice(1);
 
-  const tagsHTML = tags.slice(0, 4).map(t => `<span class="tag">${t}</span>`).join('');
+  const tagsHTML = tags.slice(0, 4).map(t => `<span class="tag">${escapeHTML(t)}</span>`).join('');
 
   const firstTheaterHTML = firstTheater ? `
     <div class="theater-row">
@@ -5171,12 +5175,17 @@ function buildCard(movie, idx) {
   card.dataset.title = movie.title;
 
   const lbUrl = getLetterboxdUrl(movie);
+  const safeMovieId = escapeJSString(movie.id);
+  const safeMovieTitle = escapeJSString(movie.title);
+  const safeTitle = escapeHTML(movie.title);
+  const safeYear = escapeHTML(year);
+  const safeDirector = escapeHTML(ratings.director);
 
   card.innerHTML = `
     <div class="card-top">
       <div>
-        <div class="movie-title"><a href="${lbUrl}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${movie.title}</a></div>
-        <div class="movie-year">${year}${ratings.director ? ' · ' + ratings.director : ''}</div>
+        <div class="movie-title"><a href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${safeTitle}</a></div>
+        <div class="movie-year">${safeYear}${safeDirector ? ' · ' + safeDirector : ''}</div>
       </div>
     </div>
 
@@ -5184,7 +5193,7 @@ function buildCard(movie, idx) {
         <div class="card-meta">
           <div class="meta-item">
           <span class="meta-value ${scoreHierarchy.primary.className}">${renderScoreValue(scoreHierarchy.primary, movie)}</span>
-          <span class="meta-label">${scoreHierarchy.primary.label}</span>
+          <span class="meta-label">${escapeHTML(scoreHierarchy.primary.label)}</span>
         </div>
       </div>
     ` : ''}
@@ -5194,7 +5203,7 @@ function buildCard(movie, idx) {
           ${index ? '<div class="meta-sep"></div>' : ''}
           <div class="meta-item">
             <span class="meta-value ${score.className}">${renderScoreValue(score, movie)}</span>
-            <span class="meta-label">${score.shortLabel}</span>
+            <span class="meta-label">${escapeHTML(score.shortLabel)}</span>
           </div>
         `).join('')}
       </div>
@@ -5217,10 +5226,10 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
+      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, ${safeMovieId}, ${safeMovieTitle})">
         ${watched ? '★ Saved' : 'Save'}
       </button>
-      <button class="action-btn" onclick="onHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">
+      <button class="action-btn" onclick="onHide(this, ${safeMovieId}, ${safeMovieTitle})">
         Not Interested
       </button>
     </div>
@@ -5435,12 +5444,12 @@ function buildScheduleHTML(theaterData) {
 
   return upcoming.slice(0, 3).map(s => `
       <div>
-      <div class="theater-day">${s.day}</div>
+      <div class="theater-day">${escapeHTML(s.day)}</div>
       <div class="showtime-list">
         ${(s.times || []).map(t => {
           const label = formatShowtimeLabel(t);
           const chipUrl = getShowtimeTicketUrl(theaterData, s, t) || url;
-          return chipUrl ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${label}</a>` : `<span class="showtime-chip">${label}</span>`;
+          return chipUrl ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${escapeHTML(label)}</a>` : `<span class="showtime-chip">${escapeHTML(label)}</span>`;
         }).join('')}
       </div>
     </div>
@@ -5489,14 +5498,14 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
       if (count >= limit) break;
       const chipUrl = getShowtimeTicketUrl(theaterData, item.scheduleItem, item.raw) || url;
       chips.push(chipUrl
-        ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`
-        : `<span class="showtime-chip">${item.label}</span>`);
+        ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${escapeHTML(item.label)}</a>`
+        : `<span class="showtime-chip">${escapeHTML(item.label)}</span>`);
       count++;
     }
     if (!chips.length) return '';
     return `
       <div class="theater-film-day-group">
-        ${group.dayLabel ? `<div class="theater-day">${group.dayLabel}</div>` : ''}
+        ${group.dayLabel ? `<div class="theater-day">${escapeHTML(group.dayLabel)}</div>` : ''}
         <div class="showtime-list">${chips.join('')}</div>
       </div>
     `;
