@@ -336,6 +336,7 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
+    .saved-flash.error { color: var(--skip); }
     .saved-flash.show { opacity: 1; }
 
     .empty-state {
@@ -388,7 +389,8 @@ const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 let picks = new Set();
 
 async function loadPicks() {
-  const { data } = await _sb.from('picks').select('movie_id');
+  const { data, error } = await _sb.from('picks').select('movie_id');
+  if (error) throw error;
   if (data) data.forEach(r => picks.add(r.movie_id));
 }
 
@@ -399,9 +401,10 @@ function isPick(movie) {
 async function togglePick(movie, btn, card) {
   const id = getMovieId(movie);
   const title = movie.title || '';
+  const wasPicked = picks.has(id);
   btn.disabled = true;
   try {
-    if (picks.has(id)) {
+    if (wasPicked) {
       const { error } = await _sb.from('picks').delete().eq('movie_id', id);
       if (error) throw error;
       picks.delete(id);
@@ -419,6 +422,8 @@ async function togglePick(movie, btn, card) {
   } catch (e) {
     console.error('picks error:', e);
     btn.textContent = 'Error — retry';
+    btn.classList.toggle('is-pick', wasPicked);
+    card.classList.toggle('is-pick-movie', wasPicked);
   } finally {
     btn.disabled = false;
   }
@@ -463,7 +468,8 @@ async function tryLogin() {
 }
 
 async function checkAuth() {
-  const { data: { session } } = await _sb.auth.getSession();
+  const { data: { session }, error } = await _sb.auth.getSession();
+  if (error) throw error;
   return !!session;
 }
 
@@ -471,7 +477,8 @@ let allMovies = [];
 let blurbCache = {};
 
 async function loadBlurbs() {
-  const { data } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override');
+  const { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override');
+  if (error) throw error;
   if (data) {
     data.forEach(r => {
       blurbCache[r.movie_key] = {
@@ -502,11 +509,8 @@ async function replaceBlurbRow(movie, entry) {
     updated_at: new Date().toISOString(),
   };
 
-  const { error: deleteError } = await _sb.from('blurbs').delete().eq('movie_key', key);
-  if (deleteError) throw deleteError;
-
-  const { error: insertError } = await _sb.from('blurbs').insert(row);
-  if (insertError) throw insertError;
+  const { error } = await _sb.from('blurbs').upsert(row, { onConflict: 'movie_key' });
+  if (error) throw error;
 
   blurbCache[key] = {
     text: row.text,
@@ -522,6 +526,7 @@ async function toggleCriterion(movie, btn) {
   const key = getKey(movie);
   const current = blurbCache[key]?.prestige_tag || '';
   const next = current === 'CRITERION COLLECTION' ? '' : 'CRITERION COLLECTION';
+  const originalText = btn.textContent;
   btn.disabled = true;
   try {
     const entry = blurbCache[key] || {};
@@ -533,15 +538,46 @@ async function toggleCriterion(movie, btn) {
     btn.classList.toggle('is-criterion', !!next);
   } catch (e) {
     console.error('criterion error:', e);
+    btn.textContent = 'Error — retry';
+    setTimeout(() => { btn.textContent = originalText; }, 1800);
   } finally {
     btn.disabled = false;
   }
 }
 
 function getKey(movie) {
-  const title = String(movie?.title ?? '').trim();
-  const year = String(movie?.ratings?.year ?? '').trim();
+  const title = cleanDisplayText(movie?.title);
+  const year = cleanDisplayText(movie?.ratings?.year);
   return `${title}-${year}`;
+}
+
+function cleanDisplayText(value) {
+  const text = String(value || '').trim();
+  if (!text || text.toUpperCase() === 'N/A') return '';
+  return text;
+}
+
+function normalizeReviewText(value) {
+  return String(value || '').trim().slice(0, MAX_CHARS);
+}
+
+function normalizeRTOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return '';
+  const parsed = Number(text);
+  if (!Number.isInteger(parsed) || parsed < 0 || parsed > 100) {
+    throw new Error('RT override must be a whole number from 0 to 100.');
+  }
+  return String(parsed);
+}
+
+function normalizeCinemaScoreOverride(value) {
+  const text = String(value || '').trim().toUpperCase();
+  if (!text) return '';
+  if (!/^(A\+|A|A-|B\+|B|B-|C\+|C|C-|D\+|D|D-|F)$/.test(text)) {
+    throw new Error('CinemaScore override must be A+ through F.');
+  }
+  return text;
 }
 
 function getRTScore(movie) {
@@ -589,10 +625,23 @@ function getMovieId(movie) {
   return movie.id || slugify(`${movie.title || ''}-${movie.ratings?.year || ''}`);
 }
 
+function showFlash(el, message, isError = false) {
+  if (!el) return;
+  el.textContent = message;
+  el.classList.toggle('error', isError);
+  el.classList.add('show');
+  setTimeout(() => {
+    el.classList.remove('show');
+    el.classList.remove('error');
+    el.textContent = 'Saved';
+  }, isError ? 2400 : 1800);
+}
+
 let siteHidden = new Set();
 
 async function loadHidden() {
-  const { data } = await _sb.from('site_hidden').select('movie_id');
+  const { data, error } = await _sb.from('site_hidden').select('movie_id');
+  if (error) throw error;
   if (data) data.forEach(r => siteHidden.add(r.movie_id));
 }
 
@@ -603,11 +652,13 @@ function isHidden(movie) {
 async function toggleHidden(movie) {
   const id = getMovieId(movie);
   if (siteHidden.has(id)) {
-    await _sb.from('site_hidden').delete().eq('movie_id', id);
+    const { error } = await _sb.from('site_hidden').delete().eq('movie_id', id);
+    if (error) throw error;
     siteHidden.delete(id);
     return false;
   } else {
-    await _sb.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
+    const { error } = await _sb.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
+    if (error) throw error;
     siteHidden.add(id);
     return true;
   }
@@ -615,13 +666,15 @@ async function toggleHidden(movie) {
 
 async function saveBlurb(movie, text) {
   const key = getKey(movie);
-  const clean = text.trim();
+  const clean = normalizeReviewText(text);
+  const entry = blurbCache[key] || {};
   if (!clean) {
-    delete blurbCache[key];
-    const { error } = await _sb.from('blurbs').delete().eq('movie_key', key);
-    if (error) throw error;
+    await replaceBlurbRow(movie, {
+      ...entry,
+      text: '',
+      source: 'manual',
+    });
   } else {
-    const entry = blurbCache[key] || {};
     await replaceBlurbRow(movie, {
       ...entry,
       text: clean,
@@ -632,9 +685,12 @@ async function saveBlurb(movie, text) {
 
 async function clearBlurb(movie) {
   const key = getKey(movie);
-  delete blurbCache[key];
-  const { error } = await _sb.from('blurbs').delete().eq('movie_key', key);
-  if (error) throw error;
+  const entry = blurbCache[key] || {};
+  await replaceBlurbRow(movie, {
+    ...entry,
+    text: '',
+    source: 'manual',
+  });
 }
 
 function renderList() {
@@ -714,7 +770,7 @@ function buildCard(movie) {
         <textarea
           rows="3"
           placeholder="Write a review… (leave blank to use AI-generated or consensus)"
-          maxlength="400"
+          maxlength="340"
         >${escapeHTML(blurb)}</textarea>
         <div class="blurb-actions">
           <button class="btn-save" disabled>Save</button>
@@ -741,17 +797,19 @@ function buildCard(movie) {
   let originalText = blurb;
 
   textarea.addEventListener('input', () => {
-    const isDirty = textarea.value.trim() !== originalText;
+    const isDirty = normalizeReviewText(textarea.value) !== originalText;
     textarea.classList.toggle('is-dirty', isDirty);
     saveBtn.disabled = !isDirty;
   });
 
   saveBtn.addEventListener('click', async () => {
-    const text = textarea.value.trim();
+    const text = normalizeReviewText(textarea.value);
     saveBtn.disabled = true;
+    textarea.disabled = true;
     try {
       await saveBlurb(movie, text);
       originalText = text;
+      textarea.value = text;
       textarea.classList.remove('is-dirty');
 
       const newSource = text ? 'manual' : 'none';
@@ -770,18 +828,14 @@ function buildCard(movie) {
         clearBtnEl.remove();
       }
 
-      flash.textContent = 'Saved';
-      flash.classList.add('show');
-      setTimeout(() => flash.classList.remove('show'), 1800);
+      showFlash(flash, 'Saved');
     } catch (e) {
       console.error('save blurb error:', e);
-      flash.textContent = 'Error';
-      flash.classList.add('show');
-      setTimeout(() => {
-        flash.classList.remove('show');
-        flash.textContent = 'Saved';
-      }, 2200);
+      showFlash(flash, 'Error', true);
       saveBtn.disabled = false;
+    } finally {
+      textarea.disabled = false;
+      saveBtn.disabled = normalizeReviewText(textarea.value) === originalText;
     }
   });
 
@@ -799,6 +853,7 @@ function buildCard(movie) {
       btn.remove();
     } catch (e) {
       console.error('clear blurb error:', e);
+      showFlash(flash, 'Error', true);
       btn.disabled = false;
     }
   }
@@ -810,11 +865,17 @@ function buildCard(movie) {
   const hideBtn = card.querySelector('.btn-hide');
   hideBtn.addEventListener('click', async () => {
     hideBtn.disabled = true;
-    const nowHidden = await toggleHidden(movie);
-    hideBtn.textContent = nowHidden ? 'Hidden' : 'Hide';
-    hideBtn.classList.toggle('is-hidden', nowHidden);
-    card.classList.toggle('is-hidden-movie', nowHidden);
-    hideBtn.disabled = false;
+    try {
+      const nowHidden = await toggleHidden(movie);
+      hideBtn.textContent = nowHidden ? 'Hidden' : 'Hide';
+      hideBtn.classList.toggle('is-hidden', nowHidden);
+      card.classList.toggle('is-hidden-movie', nowHidden);
+    } catch (e) {
+      console.error('hide error:', e);
+      hideBtn.textContent = 'Error — retry';
+    } finally {
+      hideBtn.disabled = false;
+    }
   });
 
   const pickBtn = card.querySelector('.btn-pick');
@@ -830,19 +891,19 @@ function buildCard(movie) {
   saveScoresBtn.addEventListener('click', async () => {
     saveScoresBtn.disabled = true;
     const key = getKey(movie);
-    const rt = rtInput.value.trim();
-    const cs = csInput.value.trim().toUpperCase();
     const entry = blurbCache[key] || {};
     try {
+      const rt = normalizeRTOverride(rtInput.value);
+      const cs = normalizeCinemaScoreOverride(csInput.value);
       await replaceBlurbRow(movie, {
         ...entry,
         rt_override: rt || null,
         cinema_score_override: cs || null,
       });
-      scoresFlash.classList.add('show');
-      setTimeout(() => scoresFlash.classList.remove('show'), 1800);
+      showFlash(scoresFlash, 'Saved');
     } catch (e) {
       console.error('score override error:', e);
+      showFlash(scoresFlash, 'Error', true);
     } finally {
       saveScoresBtn.disabled = false;
     }
@@ -858,9 +919,9 @@ function escapeHTML(str) {
 }
 
 async function init() {
-  if (!await checkAuth()) { showLoginScreen(); return; }
-  await Promise.all([loadBlurbs(), loadPicks(), loadHidden()]);
   try {
+    if (!await checkAuth()) { showLoginScreen(); return; }
+    await Promise.all([loadBlurbs(), loadPicks(), loadHidden()]);
     const res = await fetch('/data.json');
     if (!res.ok) throw new Error('Failed to load data.json');
     const data = await res.json();
