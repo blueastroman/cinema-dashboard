@@ -5779,7 +5779,9 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 let _supabase = null;
 let currentUser = null;
-let sitepicks = new Set();
+let sitepicks = (() => {
+  try { return new Set(JSON.parse(localStorage.getItem('cinema_picks') || '[]')); } catch { return new Set(); }
+})();
 
 let siteHidden = new Set();
 
@@ -5817,23 +5819,22 @@ async function loadBlurbsFromCloud() {
 
 async function loadPicks() {
   try {
+    let ids = null;
     const sb = getSupabase();
     if (sb) {
       const { data } = await sb.from('picks').select('movie_id');
-      if (data) {
-        sitepicks = new Set(data.map(r => r.movie_id));
-        render();
-        return;
-      }
+      if (data) ids = data.map(r => r.movie_id);
     }
-    // Fallback: direct REST fetch (works even if Supabase CDN is slow)
-    const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/picks?select=movie_id`,
-      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
-    );
-    if (res.ok) {
-      const data = await res.json();
-      sitepicks = new Set(data.map(r => r.movie_id));
+    if (!ids) {
+      const res = await fetch(
+        `${SUPABASE_URL}/rest/v1/picks?select=movie_id`,
+        { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+      );
+      if (res.ok) ids = (await res.json()).map(r => r.movie_id);
+    }
+    if (ids) {
+      sitepicks = new Set(ids);
+      try { localStorage.setItem('cinema_picks', JSON.stringify(ids)); } catch {}
       render();
     }
   } catch (e) { /* silent */ }
