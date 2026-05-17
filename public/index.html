@@ -1124,7 +1124,7 @@
     }
 
     .theater-poster-wrap {
-      width: 68px;
+      width: 86px;
       aspect-ratio: 2 / 3;
       border: 1px solid var(--movie-box-border);
       border-radius: 2px;
@@ -1136,10 +1136,10 @@
 
     .theater-film-row {
       display: grid;
-      grid-template-columns: 68px minmax(0, 1fr) minmax(140px, 200px) auto;
-      gap: 14px;
+      grid-template-columns: 86px 72px minmax(0, 1fr) minmax(140px, 200px) auto;
+      gap: 18px;
       align-items: start;
-      padding: 12px 14px;
+      padding: 18px 18px 18px 16px;
       border: 1px solid var(--movie-box-border);
       box-shadow: var(--movie-box-shadow);
       border-radius: 2px;
@@ -1884,8 +1884,8 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-row { grid-template-columns: 64px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 12px; }
-      .theater-poster-wrap { width: 64px; }
+      .theater-film-row { grid-template-columns: 76px 68px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 14px; }
+      .theater-poster-wrap { width: 76px; }
       .ranking-row {
         grid-template-columns: 76px 78px minmax(0, 1fr) auto;
       }
@@ -1942,6 +1942,7 @@
         gap: 10px;
       }
       .theater-poster-wrap { width: 56px; }
+      .theater-film-row .ranking-score { display: none; }
       .theater-film-times { grid-column: 2 / 3; }
       .theater-film-actions { grid-column: 3 / 4; grid-row: 1; }
       .theater-film-review { font-size: 0.88rem; }
@@ -5034,12 +5035,11 @@ function renderTheaterView() {
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
       const posterUrl = getPosterUrl(movie);
+      const rtScore = getRTScore(movie);
+      const lbScore = getLetterboxdScore(movie);
+      const rtUrl = getRottenTomatoesUrl(movie);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
-      const allScores = [scoreHierarchy.primary, ...scoreHierarchy.secondary].filter(Boolean);
-      const scoresHTML = allScores.map(s =>
-        `<span class="theater-score-item ${s.className}">${renderScoreValue(s, movie)}<span class="score-label-sm">${s.shortLabel}</span></span>`
-      ).join('');
       const metaItems = [year, director, ...genreParts].filter(Boolean);
       if (runtime && runtime !== 'N/A') metaItems.push(`<span class="${runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime'}">${runtime}</span>`);
       const metaStr = metaItems.join(' · ') + (formatTags.length ? ' · ' + formatTags.join('') : '');
@@ -5050,11 +5050,19 @@ function renderTheaterView() {
             ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
             : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
         </div>
+        <div class="ranking-score">
+          <div class="ranking-rt ${getRTClass(rtScore)}">${
+            rtScore === null
+              ? 'NR'
+              : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener">${rtScore}%</a>`
+          }</div>
+          <div class="ranking-score-label">Critics</div>
+          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+        </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
             <a class="theater-film-title" href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
             ${isPickMovie(movie) ? renderPicksBadge() : ''}
-            ${scoresHTML ? `<span class="theater-score-row">${scoresHTML}</span>` : ''}
           </div>
           ${metaStr ? `<div class="theater-film-meta">${metaStr}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
