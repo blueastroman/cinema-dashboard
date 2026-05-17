@@ -280,6 +280,10 @@
     .btn-pick.is-pick { color: #111; background: var(--accent); border-color: var(--accent); font-weight: 700; }
     .movie-card.is-pick-movie { box-shadow: inset 0 0 0 1px rgba(200,169,110,0.4), 0 0 0 1px rgba(200,169,110,0.15); }
 
+    .btn-criterion { color: #aaa; border-color: rgba(255,255,255,0.15); }
+    .btn-criterion:hover { border-color: #aaa; }
+    .btn-criterion.is-criterion { color: #f0ece4; background: #111; border-color: rgba(255,255,255,0.3); font-weight: 700; }
+
     .saved-flash {
       font-size: 0.68rem;
       color: var(--watch);
@@ -426,11 +430,40 @@ let allMovies = [];
 let blurbCache = {};
 
 async function loadBlurbs() {
-  const { data } = await _sb.from('blurbs').select('movie_key,text,source');
+  const { data } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag');
   if (data) {
     data.forEach(r => {
-      blurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual' };
+      blurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual', prestige_tag: r.prestige_tag || '' };
     });
+  }
+}
+
+function getPrestigeTag(movie) {
+  return blurbCache[getKey(movie)]?.prestige_tag || '';
+}
+
+async function toggleCriterion(movie, btn) {
+  const key = getKey(movie);
+  const current = blurbCache[key]?.prestige_tag || '';
+  const next = current === 'CRITERION COLLECTION' ? '' : 'CRITERION COLLECTION';
+  btn.disabled = true;
+  try {
+    const entry = blurbCache[key] || {};
+    await _sb.from('blurbs').upsert({
+      movie_key: key,
+      title: movie.title || '',
+      text: entry.text || '',
+      source: entry.source || 'manual',
+      prestige_tag: next,
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'movie_key' });
+    blurbCache[key] = { ...entry, prestige_tag: next };
+    btn.textContent = next ? '✦ Criterion' : 'Criterion';
+    btn.classList.toggle('is-criterion', !!next);
+  } catch (e) {
+    console.error('criterion error:', e);
+  } finally {
+    btn.disabled = false;
   }
 }
 
@@ -611,6 +644,7 @@ function buildCard(movie) {
           ${blurb ? `<button class="btn-clear">Clear</button>` : ''}
           <button class="btn-hide${hidden ? ' is-hidden' : ''}">${hidden ? 'Hidden' : 'Hide'}</button>
           <button class="btn-pick${isPick(movie) ? ' is-pick' : ''}">${isPick(movie) ? '✦ Recommended' : 'Recommend'}</button>
+          <button class="btn-criterion${getPrestigeTag(movie) ? ' is-criterion' : ''}">${getPrestigeTag(movie) ? '✦ Criterion' : 'Criterion'}</button>
           <span class="saved-flash">Saved</span>
         </div>
       </div>
@@ -686,6 +720,9 @@ function buildCard(movie) {
   const pickBtn = card.querySelector('.btn-pick');
   pickBtn.addEventListener('click', () => togglePick(movie, pickBtn, card));
   if (isPick(movie)) card.classList.add('is-pick-movie');
+
+  const criterionBtn = card.querySelector('.btn-criterion');
+  criterionBtn.addEventListener('click', () => toggleCriterion(movie, criterionBtn));
 
   return card;
 }

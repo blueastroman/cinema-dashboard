@@ -4741,6 +4741,8 @@ function renderPrestigeChip(label) {
 }
 
 function getPrestigeChipLabel(movie) {
+  const key = getMovieBlurbKey(movie);
+  if (key && cloudPrestigeTags[key]) return cloudPrestigeTags[key];
   const explicitTags = Array.isArray(movie?.prestige_tags) ? movie.prestige_tags.map(tag => String(tag || '').trim().toUpperCase()).filter(Boolean) : [];
   for (const label of PRESTIGE_TAG_PRIORITY) {
     if (explicitTags.includes(label)) return label;
@@ -5805,10 +5807,12 @@ async function loadSiteHidden() {
   } catch (e) { /* silent */ }
 }
 
+let cloudPrestigeTags = {};
+
 async function loadBlurbsFromCloud() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source`,
+      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     );
     if (!res.ok) return;
@@ -5817,6 +5821,9 @@ async function loadBlurbsFromCloud() {
     data.forEach(r => {
       if (r.movie_key && r.text) {
         movieBlurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual' };
+      }
+      if (r.movie_key && r.prestige_tag) {
+        cloudPrestigeTags[r.movie_key] = r.prestige_tag;
       }
     });
     render();
