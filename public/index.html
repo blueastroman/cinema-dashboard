@@ -4446,7 +4446,6 @@ function getFiltered() {
   const today = getTodayLabel();
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
-    if (siteHidden.has(movie.id)) return false;
     const visibleTheaters = getVisibleTheaters(movie);
     const visibleFormats = getVisibleMovieFormats({ ...movie, theaters: visibleTheaters });
     const isHidden = hasStoredMovie(hidden, movie);
@@ -4700,7 +4699,7 @@ function getRTClass(score) {
 }
 
 function getRankingKey(movie) {
-  return slugify(`${movie?.title || ''}-${movie?.ratings?.year || ''}`);
+  return movie?.ratings?.imdbID || slugify(`${movie?.title || ''}-${movie?.ratings?.year || ''}`);
 }
 
 function mergeScheduleItems(existing = [], incoming = []) {
@@ -4749,6 +4748,7 @@ function mergeTheaterEntries(theaters = []) {
 function getRankingEntries() {
   const byMovie = new Map();
   getFiltered().forEach(movie => {
+    if (siteHidden.has(movie.id)) return;
     if (!hasCriticRating(movie)) return;
     const genreLower = (movie.ratings?.genre || '').toLowerCase();
     if (genreLower.includes('documentary') || genreLower.includes('short')) return;
