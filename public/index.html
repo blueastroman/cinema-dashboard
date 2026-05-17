@@ -5956,15 +5956,39 @@ function updateProfileUI() {
   const wrap = document.getElementById('profile-wrap');
   if (!wrap) return;
   if (currentUser) {
-    const initial = (currentUser.email || 'U')[0].toUpperCase();
-    wrap.innerHTML = `
-      <button class="profile-avatar-btn" id="profile-avatar-btn" onclick="toggleProfileDropdown(event)" title="${currentUser.email}">${initial}</button>
-      <div class="profile-dropdown" id="profile-dropdown">
-        <div class="profile-dropdown-email">${currentUser.email}</div>
-        <button class="profile-dropdown-item" onclick="handleSignOut()">Sign out</button>
-      </div>`;
+    const email = currentUser.email || '';
+    const initial = (email || 'U')[0].toUpperCase();
+
+    const avatarBtn = document.createElement('button');
+    avatarBtn.className = 'profile-avatar-btn';
+    avatarBtn.id = 'profile-avatar-btn';
+    avatarBtn.setAttribute('title', email);
+    avatarBtn.textContent = initial;
+    avatarBtn.onclick = toggleProfileDropdown;
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'profile-dropdown';
+    dropdown.id = 'profile-dropdown';
+
+    const emailDiv = document.createElement('div');
+    emailDiv.className = 'profile-dropdown-email';
+    emailDiv.textContent = email;
+
+    const signOutBtn = document.createElement('button');
+    signOutBtn.className = 'profile-dropdown-item';
+    signOutBtn.textContent = 'Sign out';
+    signOutBtn.onclick = handleSignOut;
+
+    dropdown.append(emailDiv, signOutBtn);
+    wrap.replaceChildren(avatarBtn, dropdown);
   } else {
-    wrap.innerHTML = `<button class="profile-btn" id="profile-btn" type="button" onclick="openAuthModal()">Sign in</button>`;
+    const signInBtn = document.createElement('button');
+    signInBtn.className = 'profile-btn';
+    signInBtn.id = 'profile-btn';
+    signInBtn.type = 'button';
+    signInBtn.textContent = 'Sign in';
+    signInBtn.onclick = openAuthModal;
+    wrap.replaceChildren(signInBtn);
   }
 }
 
