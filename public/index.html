@@ -1826,11 +1826,15 @@
 
     /* ── FILTER TOGGLE BAR ─────────────────────────────────── */
     .mobile-filter-bar {
+      border-bottom: 1px solid var(--dark-gray);
+    }
+    .mobile-filter-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 40px;
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 40px;
-      border-bottom: 1px solid var(--dark-gray);
     }
     .mobile-filter-toggle {
       display: flex;
@@ -1940,7 +1944,7 @@
       .theater-film-times { grid-column: 2 / 3; }
       .theater-film-actions { grid-column: 3 / 4; grid-row: 1; }
       .theater-film-review { font-size: 0.88rem; }
-      .mobile-filter-bar { padding: 10px 20px; }
+      .mobile-filter-inner { padding: 10px 20px; }
       .ranking-row {
         grid-template-columns: 64px minmax(0, 1fr);
         row-gap: 14px;
@@ -2244,11 +2248,13 @@
 
   <!-- MOBILE FILTER TOGGLE (mobile only) -->
   <div class="mobile-filter-bar" id="mobile-filter-bar">
-    <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" onclick="toggleMobileFilters()">
-      <span>Filters</span>
-      <span class="mobile-filter-arrow" id="mobile-filter-arrow">▾</span>
-    </button>
-    <span class="mobile-filter-summary" id="mobile-filter-summary"></span>
+    <div class="mobile-filter-inner">
+      <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" onclick="toggleMobileFilters()">
+        <span>Filters</span>
+        <span class="mobile-filter-arrow" id="mobile-filter-arrow">▾</span>
+      </button>
+      <span class="mobile-filter-summary" id="mobile-filter-summary"></span>
+    </div>
   </div>
 
   <!-- STATS BAR -->
