@@ -2474,7 +2474,7 @@ function syncMembershipSignals() {
   const container = document.getElementById('membership-signals');
   if (!container) return;
   const labels = getActiveMembershipLabels();
-  container.innerHTML = labels.map(label => `<span class="membership-signal">${label}</span>`).join('');
+  container.innerHTML = labels.map(label => `<span class="membership-signal">${escapeHTML(label)}</span>`).join('');
 }
 
 function syncMembershipCheckboxes() {
@@ -4524,7 +4524,7 @@ function renderSection(label, labelClass, list, main) {
   const header = document.createElement('div');
   header.className = 'verdict-section-header';
   header.innerHTML = `
-    <span class="verdict-badge-large ${labelClass}">${label}</span>
+    <span class="verdict-badge-large ${escapeHTML(labelClass)}">${escapeHTML(label)}</span>
     <span class="section-count">${list.length} film${list.length !== 1 ? 's' : ''}</span>
   `;
   section.appendChild(header);
@@ -4862,8 +4862,8 @@ function buildRankingRow(movie, idx) {
   const director = cleanDisplayText(ratings.director);
   const prestigeChip = getPrestigeChipLabel(movie);
   const meta = [year, director, genre, runtime].filter(Boolean).join(' · ');
-  const safeId = String(movie.id).replace(/'/g, "\\'");
-  const safeTitle = String(movie.title || '').replace(/'/g, "\\'");
+  const safeId = escapeJSString(movie.id);
+  const safeTitle = escapeJSString(movie.title);
 
   const row = document.createElement('div');
   row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}`;
@@ -4888,7 +4888,7 @@ function buildRankingRow(movie, idx) {
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
-        <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
+        <div class="ranking-title"><a href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
         ${isPickMovie(movie) ? renderPicksBadge() : ''}
         ${prestigeChip ? renderPrestigeChip(prestigeChip) : ''}
       </div>
@@ -4900,8 +4900,8 @@ function buildRankingRow(movie, idx) {
     </div>
     <div class="ranking-actions">
       ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, '${safeId}', '${safeTitle}')">★</button>
-      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, '${safeId}', '${safeTitle}')">×</button>
+      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, ${safeId}, ${safeTitle})">★</button>
+      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, ${safeId}, ${safeTitle})">×</button>
     </div>
     <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
   `;
@@ -5013,18 +5013,18 @@ function renderTheaterView() {
     const membershipLabel = getTheaterMembershipLabel(theaterName);
     const priceNote = getTheaterTicketPriceNote(theaterName);
     const nameHTML = theaterUrl
-      ? `<a href="${theaterUrl}" target="_blank" rel="noopener">${theaterName}</a>`
-      : theaterName;
+      ? `<a href="${escapeHTML(theaterUrl)}" target="_blank" rel="noopener">${escapeHTML(theaterName)}</a>`
+      : escapeHTML(theaterName);
 
     const headerEl = document.createElement('div');
     headerEl.className = 'theater-view-header';
     headerEl.innerHTML = `
-      <div class="theater-view-header-main">
-        <span class="theater-view-name">${nameHTML}</span>
-        ${membershipLabel ? `<span class="theater-view-inline-status">${membershipLabel}</span>` : ''}
+        <div class="theater-view-header-main">
+          <span class="theater-view-name">${nameHTML}</span>
+        ${membershipLabel ? `<span class="theater-view-inline-status">${escapeHTML(membershipLabel)}</span>` : ''}
       </div>
       <div class="theater-view-header-side">
-        ${priceNote ? `<span class="theater-price-note">${priceNote}</span>` : ''}
+        ${priceNote ? `<span class="theater-price-note">${escapeHTML(priceNote)}</span>` : ''}
       </div>
     `;
     section.appendChild(headerEl);
@@ -5068,6 +5068,8 @@ function renderTheaterView() {
       const rtScore = getRTScore(movie);
       const lbScore = getLetterboxdScore(movie);
       const rtUrl = getRottenTomatoesUrl(movie);
+      const safeMovieId = escapeJSString(movie.id);
+      const safeMovieTitle = escapeJSString(movie.title);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
       const metaItems = [escapeHTML(year), escapeHTML(director), ...genreParts].filter(Boolean);
@@ -5092,18 +5094,18 @@ function renderTheaterView() {
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
-            <a class="theater-film-title" href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
+            <a class="theater-film-title" href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
             ${isPickMovie(movie) ? renderPicksBadge() : ''}
           </div>
           ${metaStr ? `<div class="theater-film-meta">${metaStr}</div>` : ''}
-          ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
+          ${confidence ? `<div class="confidence-note">${escapeHTML(confidence)}</div>` : ''}
           ${renderMovieBlurbMarkup(movie, 'theater-film-review', { forceRefresh: false })}
         </div>
         <div class="theater-film-times">${scheduleHTML}</div>
         <div class="theater-film-actions">
           ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">★</button>
-          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, '${String(movie.id).replace(/'/g, "\\'")}', '${movie.title.replace(/'/g, "\\'")}')">×</button>
+          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, ${safeMovieId}, ${safeMovieTitle})">★</button>
+          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, ${safeMovieId}, ${safeMovieTitle})">×</button>
         </div>
       `;
       const blurbSlot = row.querySelector('.movie-blurb');

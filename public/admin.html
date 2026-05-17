@@ -695,8 +695,8 @@ function buildCard(movie) {
           <span class="saved-flash">Saved</span>
         </div>
         <div class="score-overrides">
-          <label class="score-override-field">RT% <input class="score-override-input" type="number" min="0" max="100" placeholder="${movie.ratings?.rt || 'NR'}" value="${blurbCache[getKey(movie)]?.rt_override || ''}"></label>
-          <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${movie.ratings?.cinemaScore || '—'}" value="${blurbCache[getKey(movie)]?.cinema_score_override || ''}"></label>
+          <label class="score-override-field">RT% <input class="score-override-input" type="number" min="0" max="100" placeholder="${escapeHTML(movie.ratings?.rt || 'NR')}" value="${escapeHTML(blurbCache[getKey(movie)]?.rt_override || '')}"></label>
+          <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${escapeHTML(movie.ratings?.cinemaScore || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.cinema_score_override || '')}"></label>
           <button class="btn-save-scores">Save scores</button
           ><span class="saved-flash scores-flash">Saved</span>
         </div>
@@ -833,7 +833,7 @@ async function init() {
     renderList();
   } catch (e) {
     document.getElementById('main').innerHTML =
-      `<div class="empty-state"><h2>Could not load films</h2><p>${e.message}</p></div>`;
+      `<div class="empty-state"><h2>Could not load films</h2><p>${escapeHTML(e.message)}</p></div>`;
   }
 }
 
