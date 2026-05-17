@@ -380,8 +380,6 @@
 const STORAGE_KEY = 'cinema_movie_blurbs';
 const HIDDEN_KEY = 'cinema_hidden';
 const MAX_CHARS = 340;
-const PASSWORD_HASH = 'f0802d4c67ac66013292e4d04adeb815b0431c0e1633c999ca1557d64fed5ff9';
-const SESSION_KEY = 'admin_auth';
 
 const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
@@ -426,11 +424,6 @@ async function togglePick(movie, btn, card) {
   }
 }
 
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 function showLoginScreen() {
   document.body.innerHTML = `
     <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;">
@@ -438,36 +431,40 @@ function showLoginScreen() {
         <div style="font-family:system-ui,sans-serif;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#666;margin-bottom:24px;">
           Showtimes <span style="color:#c8a96e">NYC</span> · Admin
         </div>
+        <input id="email-input" type="email" placeholder="Email"
+          style="width:100%;background:#1a1a1a;border:1px solid #3a3a3a;border-radius:3px;color:#e8e2d9;font-family:system-ui,sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;margin-bottom:8px;box-sizing:border-box;">
         <input id="pw-input" type="password" placeholder="Password"
-          style="width:100%;background:#1a1a1a;border:1px solid #3a3a3a;border-radius:3px;color:#e8e2d9;font-family:system-ui,sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;margin-bottom:10px;"
+          style="width:100%;background:#1a1a1a;border:1px solid #3a3a3a;border-radius:3px;color:#e8e2d9;font-family:system-ui,sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;margin-bottom:10px;box-sizing:border-box;"
           onkeydown="if(event.key==='Enter')tryLogin()">
         <div id="pw-error" style="font-size:0.72rem;color:#b85050;min-height:18px;margin-bottom:8px;"></div>
         <button onclick="tryLogin()"
           style="width:100%;background:#c8a96e;border:none;border-radius:3px;color:#111;font-family:system-ui,sans-serif;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px;cursor:pointer;">
-          Enter
+          Sign In
         </button>
       </div>
     </div>
   `;
-  setTimeout(() => document.getElementById('pw-input')?.focus(), 50);
+  setTimeout(() => document.getElementById('email-input')?.focus(), 50);
 }
 
 async function tryLogin() {
-  const input = document.getElementById('pw-input');
+  const email = document.getElementById('email-input').value.trim();
+  const password = document.getElementById('pw-input').value;
   const error = document.getElementById('pw-error');
-  const hash = await sha256(input.value);
-  if (hash === PASSWORD_HASH) {
-    sessionStorage.setItem(SESSION_KEY, '1');
-    location.reload();
+  error.textContent = '';
+  const { error: authError } = await _sb.auth.signInWithPassword({ email, password });
+  if (authError) {
+    error.textContent = 'Incorrect email or password.';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
   } else {
-    error.textContent = 'Incorrect password.';
-    input.value = '';
-    input.focus();
+    location.reload();
   }
 }
 
-function checkAuth() {
-  return sessionStorage.getItem(SESSION_KEY) === '1';
+async function checkAuth() {
+  const { data: { session } } = await _sb.auth.getSession();
+  return !!session;
 }
 
 let allMovies = [];
@@ -820,7 +817,7 @@ function escapeHTML(str) {
 }
 
 async function init() {
-  if (!checkAuth()) { showLoginScreen(); return; }
+  if (!await checkAuth()) { showLoginScreen(); return; }
   await Promise.all([loadBlurbs(), loadPicks(), loadHidden()]);
   try {
     const res = await fetch('/data.json');
