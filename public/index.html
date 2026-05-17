@@ -4172,13 +4172,21 @@ function deduplicateMovies(movies) {
           te = { ...th, schedule: [] };
           allTheaterEntries.push(te);
         }
-        // Merge schedule days, deduping by date+day key
-        const seenDays = new Set(te.schedule.map(s => `${s.date}|||${s.day}`));
+        // Merge schedule days: combine times/ticket_urls within matching date+day slots
         for (const s of th.schedule || []) {
           const dayKey = `${s.date}|||${s.day}`;
-          if (!seenDays.has(dayKey)) {
-            seenDays.add(dayKey);
-            te.schedule.push(s);
+          const existing = te.schedule.find(e => `${e.date}|||${e.day}` === dayKey);
+          if (!existing) {
+            te.schedule.push({ ...s, times: [...(s.times || [])], ticket_urls: [...(s.ticket_urls || [])] });
+          } else {
+            const seenTimes = new Set(existing.times || []);
+            for (const t of s.times || []) {
+              if (!seenTimes.has(t)) { seenTimes.add(t); existing.times.push(t); }
+            }
+            const seenUrls = new Set(existing.ticket_urls || []);
+            for (const u of s.ticket_urls || []) {
+              if (!seenUrls.has(u)) { seenUrls.add(u); existing.ticket_urls.push(u); }
+            }
           }
         }
       }
