@@ -4106,16 +4106,22 @@ async function loadData() {
     readFiltersFromUrl();
     movieBlurbCache = loadStoredMovieBlurbs();
     posterTintCache = loadStoredPosterTints();
-    const [res] = await Promise.all([
-      fetch('./data.json?t=' + Date.now()),
-      loadBlurbsFromCloud(),
-      loadSiteHidden(),
-      loadPicks(),
-    ]);
+
+    // Render from data.json immediately — don't wait for Supabase
+    const res = await fetch('./data.json?t=' + Date.now());
     if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
     const data = await res.json();
     if (!data || !Array.isArray(data.movies)) throw new Error('Invalid dashboard payload');
     initDashboard(data);
+
+    // Cloud data loads in background; re-render silently when ready
+    Promise.all([loadBlurbsFromCloud(), loadSiteHidden(), loadPicks()])
+      .then(() => {
+        applyScoreOverrides();
+        primeMovieBlurbCache(allMovies);
+        render();
+      })
+      .catch(() => {});
   } catch (e) {
     renderLoadError(e);
   }
