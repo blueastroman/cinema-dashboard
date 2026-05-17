@@ -272,6 +272,7 @@
 
     .btn-hide { color: var(--muted); }
     .btn-hide.is-hidden { color: var(--skip); border-color: rgba(184,80,80,0.35); background: rgba(184,80,80,0.08); }
+    .btn-hide:disabled { opacity: 0.35; cursor: not-allowed; }
     .movie-card.is-hidden-movie { opacity: 0.45; }
     .movie-card.is-hidden-movie:hover { opacity: 0.75; }
 
@@ -346,6 +347,24 @@
     }
     .empty-state h2 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dim); }
     .empty-state p { font-size: 0.82rem; }
+
+    .admin-warning {
+      border: 1px solid rgba(200,169,110,0.35);
+      background: rgba(200,169,110,0.08);
+      color: var(--text-dim);
+      border-radius: 3px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+    .admin-warning strong {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+    }
 
     .loading-state {
       text-align: center;
@@ -662,10 +681,17 @@ function showFlash(el, message, isError = false) {
 }
 
 let siteHidden = new Set();
+let canEditSiteHidden = true;
+let adminWarnings = [];
 
 async function loadHidden() {
   const { data, error } = await _sb.from('site_hidden').select('movie_id');
-  if (error) throw error;
+  if (error) {
+    canEditSiteHidden = false;
+    adminWarnings.push('Site-wide Hide is unavailable because Supabase denied access to site_hidden. The rest of the editor is still usable.');
+    console.warn('site_hidden unavailable:', error);
+    return;
+  }
   if (data) data.forEach(r => siteHidden.add(r.movie_id));
 }
 
@@ -674,6 +700,9 @@ function isHidden(movie) {
 }
 
 async function toggleHidden(movie) {
+  if (!canEditSiteHidden) {
+    throw new Error('Site-wide Hide is unavailable for this account.');
+  }
   const id = getMovieId(movie);
   if (siteHidden.has(id)) {
     const { error } = await _sb.from('site_hidden').delete().eq('movie_id', id);
@@ -752,6 +781,12 @@ function renderList() {
   }
 
   main.innerHTML = '';
+  adminWarnings.forEach(message => {
+    const warning = document.createElement('div');
+    warning.className = 'admin-warning';
+    warning.innerHTML = `<strong>Limited Access</strong><br>${escapeHTML(message)}`;
+    main.appendChild(warning);
+  });
   movies.forEach(movie => {
     const card = buildCard(movie);
     main.appendChild(card);
@@ -799,7 +834,7 @@ function buildCard(movie) {
         <div class="blurb-actions">
           <button class="btn-save" disabled>Save</button>
           ${blurb ? `<button class="btn-clear">Clear</button>` : ''}
-          <button class="btn-hide${hidden ? ' is-hidden' : ''}">${hidden ? 'Hidden' : 'Hide'}</button>
+          <button class="btn-hide${hidden ? ' is-hidden' : ''}"${canEditSiteHidden ? '' : ' disabled title="Site-wide Hide is unavailable for this account"'}>${canEditSiteHidden ? (hidden ? 'Hidden' : 'Hide') : 'Hide unavailable'}</button>
           <button class="btn-pick${isPick(movie) ? ' is-pick' : ''}">${isPick(movie) ? '✦ Recommended' : 'Recommend'}</button>
           <button class="btn-criterion${getPrestigeTag(movie) ? ' is-criterion' : ''}">${getPrestigeTag(movie) ? '✦ Criterion' : 'Criterion'}</button>
           <span class="saved-flash">Saved</span>
