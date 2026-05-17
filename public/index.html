@@ -5778,6 +5778,24 @@ let _supabase = null;
 let currentUser = null;
 let sitepicks = new Set();
 
+async function loadBlurbsFromCloud() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!Array.isArray(data) || !data.length) return;
+    data.forEach(r => {
+      if (r.movie_key && r.text) {
+        movieBlurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual' };
+      }
+    });
+    render();
+  } catch (e) { /* silent */ }
+}
+
 async function loadPicks() {
   try {
     const sb = getSupabase();
@@ -5858,6 +5876,7 @@ function initSupabase() {
     if (currentUser) loadUserListsFromCloud();
   });
   loadPicks();
+  loadBlurbsFromCloud();
 }
 
 function updateProfileUI() {
