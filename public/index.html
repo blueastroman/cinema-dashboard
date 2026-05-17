@@ -1019,6 +1019,56 @@
       50% { opacity: 1; }
     }
 
+    /* ── SKELETON LOADING ──────────────────────────────────── */
+    @keyframes shimmer {
+      0% { background-position: -600px 0; }
+      100% { background-position: 600px 0; }
+    }
+    .skeleton-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 0;
+    }
+    .skeleton-card {
+      display: flex;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--off-black);
+      border-radius: 4px;
+      border: 1px solid var(--dark-gray);
+      align-items: flex-start;
+    }
+    .skeleton-poster {
+      flex-shrink: 0;
+      width: 64px;
+      height: 96px;
+      border-radius: 3px;
+      background: var(--charcoal);
+      background-image: linear-gradient(90deg, var(--charcoal) 0px, var(--dark-gray) 200px, var(--charcoal) 400px);
+      background-size: 600px 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+    }
+    .skeleton-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 4px;
+    }
+    .skeleton-line {
+      border-radius: 3px;
+      background: var(--charcoal);
+      background-image: linear-gradient(90deg, var(--charcoal) 0px, var(--dark-gray) 200px, var(--charcoal) 400px);
+      background-size: 600px 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+      height: 13px;
+    }
+    .sk-title  { width: 42%; height: 16px; }
+    .sk-meta   { width: 28%; height: 11px; opacity: 0.6; }
+    .sk-blurb  { width: 85%; }
+    .sk-blurb2 { width: 65%; }
+
     /* ── ANIMATIONS ────────────────────────────────────────── */
     .movie-card {
       animation: fadeUp 0.3s ease both;
@@ -2343,8 +2393,12 @@
 
   <!-- MAIN -->
   <main id="main-content">
-  <div class="loading" data-build="2026-04-01-2255">
-      <div class="loading-text">Loading this week's program</div>
+    <div class="skeleton-feed" aria-hidden="true">
+      <div class="skeleton-card"><div class="skeleton-poster"></div><div class="skeleton-body"><div class="skeleton-line sk-title"></div><div class="skeleton-line sk-meta"></div><div class="skeleton-line sk-blurb"></div><div class="skeleton-line sk-blurb2"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-poster"></div><div class="skeleton-body"><div class="skeleton-line sk-title"></div><div class="skeleton-line sk-meta"></div><div class="skeleton-line sk-blurb"></div><div class="skeleton-line sk-blurb2"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-poster"></div><div class="skeleton-body"><div class="skeleton-line sk-title"></div><div class="skeleton-line sk-meta"></div><div class="skeleton-line sk-blurb"></div><div class="skeleton-line sk-blurb2"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-poster"></div><div class="skeleton-body"><div class="skeleton-line sk-title"></div><div class="skeleton-line sk-meta"></div><div class="skeleton-line sk-blurb"></div><div class="skeleton-line sk-blurb2"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-poster"></div><div class="skeleton-body"><div class="skeleton-line sk-title"></div><div class="skeleton-line sk-meta"></div><div class="skeleton-line sk-blurb"></div><div class="skeleton-line sk-blurb2"></div></div></div>
     </div>
   </main>
 
@@ -4107,21 +4161,16 @@ async function loadData() {
     movieBlurbCache = loadStoredMovieBlurbs();
     posterTintCache = loadStoredPosterTints();
 
-    // Render from data.json immediately — don't wait for Supabase
-    const res = await fetch('./data.json?t=' + Date.now());
+    const [res] = await Promise.all([
+      fetch('./data.json?t=' + Date.now()),
+      loadBlurbsFromCloud(),
+      loadSiteHidden(),
+      loadPicks(),
+    ]);
     if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
     const data = await res.json();
     if (!data || !Array.isArray(data.movies)) throw new Error('Invalid dashboard payload');
     initDashboard(data);
-
-    // Cloud data loads in background; re-render silently when ready
-    Promise.all([loadBlurbsFromCloud(), loadSiteHidden(), loadPicks()])
-      .then(() => {
-        applyScoreOverrides();
-        primeMovieBlurbCache(allMovies);
-        render();
-      })
-      .catch(() => {});
   } catch (e) {
     renderLoadError(e);
   }
