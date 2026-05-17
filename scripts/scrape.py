@@ -1029,6 +1029,96 @@ def fetch_amc_theatres(ctx: ScrapeContext) -> list[dict]:
     return sorted(results, key=lambda t: t["name"])
 
 
+AMC_SHOWTIME_TICKET_URL_KEYS = (
+    "purchaseUrl",
+    "purchaseURL",
+    "mobilePurchaseUrl",
+    "mobilePurchaseURL",
+    "ticketUrl",
+    "ticketURL",
+    "mobileTicketUrl",
+    "mobileTicketURL",
+    "webSalesUrl",
+    "webSalesURL",
+    "mobileWebSalesUrl",
+    "mobileWebSalesURL",
+    "showtimeUrl",
+    "showtimeURL",
+)
+
+
+def normalize_amc_ticket_url(url: object) -> str:
+    text = str(url or "").strip()
+    if text.startswith("//"):
+        return f"https:{text}"
+    if text.startswith("/"):
+        return f"https://www.amctheatres.com{text}"
+    return text
+
+
+def amc_link_href(value: object) -> str:
+    if isinstance(value, str):
+        return normalize_amc_ticket_url(value)
+    if isinstance(value, dict):
+        for key in (
+            "href",
+            "url",
+            *AMC_SHOWTIME_TICKET_URL_KEYS,
+        ):
+            text = normalize_amc_ticket_url(value.get(key))
+            if text:
+                return text
+    return ""
+
+
+def is_amc_showtime_ticket_url(url: object) -> bool:
+    text = normalize_amc_ticket_url(url).lower()
+    if not text.startswith("http"):
+        return False
+    if "amctheatres.com" not in text:
+        return False
+    if "api.amctheatres.com" in text:
+        return False
+    if "/movie-theatres/" in text:
+        return False
+    return True
+
+
+def amc_showtime_ticket_url_from_id(showtime: dict[str, Any]) -> str:
+    for key in ("id", "showtimeId", "showtimeID", "showtimeNumber"):
+        showtime_id = str(showtime.get(key) or "").strip()
+        if showtime_id.isdigit():
+            return f"https://www.amctheatres.com/showtimes/{showtime_id}/tickets"
+    return ""
+
+
+def amc_showtime_purchase_url(showtime: dict[str, Any]) -> str:
+    for key in AMC_SHOWTIME_TICKET_URL_KEYS:
+        url = amc_link_href(showtime.get(key))
+        if is_amc_showtime_ticket_url(url):
+            return url
+
+    for links_key in ("_links", "links"):
+        links = showtime.get(links_key) or {}
+        if not isinstance(links, dict):
+            continue
+        preferred_values = []
+        fallback_values = []
+        for key, value in links.items():
+            key_text = str(key).lower()
+            if any(token in key_text for token in ("purchase", "ticket", "websales", "showtime")):
+                preferred_values.append(value)
+            elif "web" in key_text or "mobile" in key_text:
+                fallback_values.append(value)
+        for value in [*preferred_values, *fallback_values]:
+            values = value if isinstance(value, list) else [value]
+            for item in values:
+                url = amc_link_href(item)
+                if is_amc_showtime_ticket_url(url):
+                    return url
+    return amc_showtime_ticket_url_from_id(showtime)
+
+
 def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     theatre_id = theater.get("id")
     if not theatre_id:
@@ -1084,15 +1174,7 @@ def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
 
                 day_label = format_day_label(local_dt)
                 time_label = format_time_label(local_dt)
-                ticket_url = str(
-                    showtime.get("purchaseUrl")
-                    or showtime.get("purchaseURL")
-                    or showtime.get("ticketUrl")
-                    or showtime.get("ticketURL")
-                    or showtime.get("webSalesUrl")
-                    or showtime.get("webSalesURL")
-                    or get_source_ticket_url(theater)
-                ).strip()
+                ticket_url = amc_showtime_purchase_url(showtime)
                 day_bucket = grouped[title][day_label]
                 day_bucket["date"] = date_iso(local_dt)
                 day_bucket["times"].append(time_label)
