@@ -2199,7 +2199,6 @@
       .auth-modal { margin: 0 16px; padding: 28px 20px 24px; }
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -3055,7 +3054,7 @@ function getVisibleMovieFormats(movie) {
 
 function getTheaterUrl(name) {
   const canonical = getCanonicalTheaterName(name) || String(name || '').trim();
-  return getTheaterMeta(canonical)?.official_url || '';
+  return safeExternalUrl(getTheaterMeta(canonical)?.official_url, SAFE_URL_HOSTS.ticket);
 }
 
 function getAvailableTheaters(data = null) {
@@ -4801,7 +4800,7 @@ function getPrestigeChipLabel(movie) {
 }
 
 function getPosterUrl(movie) {
-  const poster = cleanDisplayText(movie?.ratings?.poster);
+  const poster = safeExternalUrl(movie?.ratings?.poster, SAFE_URL_HOSTS.poster);
   if (!poster || poster === 'N/A') return '';
   return poster;
 }
@@ -5378,9 +5377,54 @@ function makeRottenTomatoesSlug(title) {
   return slugifyForUrl(titleWithoutTrailingYear(title)).replace(/-/g, '_');
 }
 
+const SAFE_URL_HOSTS = {
+  letterboxd: ['letterboxd.com'],
+  poster: ['image.tmdb.org', 'm.media-amazon.com'],
+  rottenTomatoes: ['rottentomatoes.com'],
+  ticket: [
+    'amctheatres.com',
+    'angelikafilmcenter.com',
+    'drafthouse.com',
+    'filmforum.org',
+    'filmlinc.org',
+    'ifccenter.com',
+    'metrograph.com',
+    'moma.org',
+    'paristheaternyc.com',
+    'purchase.filmlinc.org',
+    't.metrograph.com',
+    'tickets.ifccenter.com',
+    'tickets.paristheaternyc.com',
+  ],
+};
+
+function hostMatchesAllowed(hostname, allowedHosts) {
+  const host = String(hostname || '').toLowerCase();
+  return (allowedHosts || []).some(allowed => {
+    const clean = String(allowed || '').toLowerCase();
+    return host === clean || host.endsWith(`.${clean}`);
+  });
+}
+
+function safeExternalUrl(value, allowedHosts) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== 'https:') return '';
+    if (!hostMatchesAllowed(parsed.hostname, allowedHosts)) return '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
 function getRottenTomatoesUrl(movie) {
   const ratings = movie?.ratings || {};
-  const explicitUrl = String(ratings.rtUrl || ratings.rt_url || ratings.rottenTomatoesUrl || ratings.rotten_tomatoes_url || '').trim();
+  const explicitUrl = safeExternalUrl(
+    ratings.rtUrl || ratings.rt_url || ratings.rottenTomatoesUrl || ratings.rotten_tomatoes_url,
+    SAFE_URL_HOSTS.rottenTomatoes,
+  );
   if (explicitUrl) return explicitUrl;
 
   const slug = makeRottenTomatoesSlug(movie?.title || '');
@@ -5388,11 +5432,14 @@ function getRottenTomatoesUrl(movie) {
 }
 
 function getTicketUrl(theaterData) {
-  return String(theaterData?.ticket_url || getTheaterUrl(theaterData?.name) || '').trim();
+  return (
+    safeExternalUrl(theaterData?.ticket_url, SAFE_URL_HOSTS.ticket) ||
+    safeExternalUrl(getTheaterUrl(theaterData?.name), SAFE_URL_HOSTS.ticket)
+  );
 }
 
 function getShowtimeTicketUrl(theaterData, scheduleItem, time) {
-  const exactUrl = String(scheduleItem?.ticket_urls?.[time] || '').trim();
+  const exactUrl = safeExternalUrl(scheduleItem?.ticket_urls?.[time], SAFE_URL_HOSTS.ticket);
   if (exactUrl) return exactUrl;
   return getTicketUrl(theaterData);
 }
@@ -5416,7 +5463,10 @@ function getTheaterTicketPriceNote(name) {
 
 function getLetterboxdUrl(movie) {
   const ratings = movie?.ratings || {};
-  const explicitUrl = String(ratings.letterboxdUrl || ratings.letterboxd_url || '').trim();
+  const explicitUrl = safeExternalUrl(
+    ratings.letterboxdUrl || ratings.letterboxd_url,
+    SAFE_URL_HOSTS.letterboxd,
+  );
   if (explicitUrl) return explicitUrl;
 
   const imdbId = String(ratings.imdbID || ratings.imdbId || '').trim();
