@@ -5905,15 +5905,29 @@ async function loadUserListsFromCloud() {
       sb.from('watched_movies').select('movie_id').eq('user_id', currentUser.id),
     ]);
     if (hidden) {
-      const ids = hidden.map(r => r.movie_id);
+      const remoteIds = new Set(hidden.map(r => r.movie_id));
       const local = getHidden();
-      const merged = [...new Set([...local, ...ids])];
+      const localOnly = local.filter(id => !remoteIds.has(id));
+      if (localOnly.length) {
+        sb.from('hidden_movies').upsert(
+          localOnly.map(id => ({ user_id: currentUser.id, movie_id: id, title: id })),
+          { onConflict: 'user_id,movie_id' }
+        ).then(() => {});
+      }
+      const merged = [...new Set([...local, ...remoteIds])];
       localStorage.setItem('cinema_hidden', JSON.stringify(merged));
     }
     if (watched) {
-      const ids = watched.map(r => r.movie_id);
+      const remoteIds = new Set(watched.map(r => r.movie_id));
       const local = getWatched();
-      const merged = [...new Set([...local, ...ids])];
+      const localOnly = local.filter(id => !remoteIds.has(id));
+      if (localOnly.length) {
+        sb.from('watched_movies').upsert(
+          localOnly.map(id => ({ user_id: currentUser.id, movie_id: id, title: id })),
+          { onConflict: 'user_id,movie_id' }
+        ).then(() => {});
+      }
+      const merged = [...new Set([...local, ...remoteIds])];
       localStorage.setItem('cinema_watched', JSON.stringify(merged));
     }
     render();
