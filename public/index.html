@@ -5030,14 +5030,14 @@ function renderTheaterView() {
       const runtimeMinutes = getRuntimeMinutes(runtime);
       const theaterData = entry.theaterData;
       const genreParts = genre && genre !== 'N/A'
-        ? genre.split(',').map(part => part.trim()).filter(Boolean).slice(0, 2)
+        ? genre.split(',').map(part => escapeHTML(part.trim())).filter(Boolean).slice(0, 2)
         : [];
       const formatParts = getTheaterFormats(theaterData, movie);
       const metaParts = [...genreParts];
-      const formatTags = formatParts.map(format => `<span class="tag">${format}</span>`);
+      const formatTags = formatParts.map(format => `<span class="tag">${escapeHTML(format)}</span>`);
       if (runtime && runtime !== 'N/A') {
         const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
-        metaParts.push(`<span class="${runtimeClass}">${runtime}</span>`);
+        metaParts.push(`<span class="${runtimeClass}">${escapeHTML(runtime)}</span>`);
       }
 
       const lbUrl = getLetterboxdUrl(movie);
@@ -5055,8 +5055,8 @@ function renderTheaterView() {
       const rtUrl = getRottenTomatoesUrl(movie);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
-      const metaItems = [year, director, ...genreParts].filter(Boolean);
-      if (runtime && runtime !== 'N/A') metaItems.push(`<span class="${runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime'}">${runtime}</span>`);
+      const metaItems = [escapeHTML(year), escapeHTML(director), ...genreParts].filter(Boolean);
+      if (runtime && runtime !== 'N/A') metaItems.push(`<span class="${runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime'}">${escapeHTML(runtime)}</span>`);
       const metaStr = metaItems.join(' · ') + (formatTags.length ? ' · ' + formatTags.join('') : '');
 
       row.innerHTML = `
