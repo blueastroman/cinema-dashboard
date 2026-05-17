@@ -346,10 +346,6 @@ async function loadPicks() {
   if (data) data.forEach(r => picks.add(r.movie_id));
 }
 
-function getMovieId(movie) {
-  return movie.id || movie.title || '';
-}
-
 function isPick(movie) {
   return picks.has(getMovieId(movie));
 }
