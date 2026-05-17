@@ -354,22 +354,28 @@ async function togglePick(movie, btn, card) {
   const id = getMovieId(movie);
   const title = movie.title || '';
   btn.disabled = true;
-  if (picks.has(id)) {
-    const { error } = await _sb.from('picks').delete().eq('movie_id', id);
-    if (error) { console.error('picks delete error:', error); btn.disabled = false; return; }
-    picks.delete(id);
-    btn.textContent = 'Recommend';
-    btn.classList.remove('is-pick');
-    card.classList.remove('is-pick-movie');
-  } else {
-    const { error } = await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
-    if (error) { console.error('picks upsert error:', error); btn.disabled = false; return; }
-    picks.add(id);
-    btn.textContent = '✦ Recommended';
-    btn.classList.add('is-pick');
-    card.classList.add('is-pick-movie');
+  try {
+    if (picks.has(id)) {
+      const { error } = await _sb.from('picks').delete().eq('movie_id', id);
+      if (error) throw error;
+      picks.delete(id);
+      btn.textContent = 'Recommend';
+      btn.classList.remove('is-pick');
+      card.classList.remove('is-pick-movie');
+    } else {
+      const { error } = await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+      if (error) throw error;
+      picks.add(id);
+      btn.textContent = '✦ Recommended';
+      btn.classList.add('is-pick');
+      card.classList.add('is-pick-movie');
+    }
+  } catch (e) {
+    console.error('picks error:', e);
+    btn.textContent = 'Error — retry';
+  } finally {
+    btn.disabled = false;
   }
-  btn.disabled = false;
 }
 
 async function sha256(str) {
