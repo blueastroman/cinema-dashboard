@@ -4867,7 +4867,7 @@ function buildRankingRow(movie, idx) {
       }</div>
       <div class="ranking-score-label">Critics</div>
       ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
-      ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CS</div>` : ''}
+      ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} Cinemascore</div>` : ''}
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
@@ -5071,7 +5071,7 @@ function renderTheaterView() {
           }</div>
           <div class="ranking-score-label">Critics</div>
           ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
-          ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CS</div>` : ''}
+          ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} Cinemascore</div>` : ''}
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
