@@ -4364,6 +4364,7 @@ function getFiltered() {
   const today = getTodayLabel();
   const tomorrow = getTomorrowLabel();
   return allMovies.filter(movie => {
+    if (siteHidden.has(movie.id)) return false;
     const visibleTheaters = getVisibleTheaters(movie);
     const visibleFormats = getVisibleMovieFormats({ ...movie, theaters: visibleTheaters });
     const isHidden = hasStoredMovie(hidden, movie);
@@ -5778,6 +5779,22 @@ let _supabase = null;
 let currentUser = null;
 let sitepicks = new Set();
 
+let siteHidden = new Set();
+
+async function loadSiteHidden() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/site_hidden?select=movie_id`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!Array.isArray(data) || !data.length) return;
+    siteHidden = new Set(data.map(r => r.movie_id));
+    render();
+  } catch (e) { /* silent */ }
+}
+
 async function loadBlurbsFromCloud() {
   try {
     const res = await fetch(
@@ -5877,6 +5894,7 @@ function initSupabase() {
   });
   loadPicks();
   loadBlurbsFromCloud();
+  loadSiteHidden();
 }
 
 function updateProfileUI() {

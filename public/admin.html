@@ -485,31 +485,28 @@ function getMovieId(movie) {
   return movie.id || slugify(`${movie.title || ''}-${movie.ratings?.year || ''}`);
 }
 
-function loadHidden() {
-  try { return JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]'); } catch { return []; }
-}
+let siteHidden = new Set();
 
-function saveHidden(list) {
-  try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(list)); } catch {}
+async function loadHidden() {
+  const { data } = await _sb.from('site_hidden').select('movie_id');
+  if (data) data.forEach(r => siteHidden.add(r.movie_id));
 }
 
 function isHidden(movie) {
-  const list = loadHidden();
-  const id = getMovieId(movie);
-  return list.includes(id) || list.includes(movie.title);
+  return siteHidden.has(getMovieId(movie));
 }
 
-function toggleHidden(movie) {
-  let list = loadHidden();
+async function toggleHidden(movie) {
   const id = getMovieId(movie);
-  const hidden = list.includes(id) || list.includes(movie.title);
-  if (hidden) {
-    list = list.filter(k => k !== id && k !== movie.title);
+  if (siteHidden.has(id)) {
+    await _sb.from('site_hidden').delete().eq('movie_id', id);
+    siteHidden.delete(id);
+    return false;
   } else {
-    list.push(id);
+    await _sb.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
+    siteHidden.add(id);
+    return true;
   }
-  saveHidden(list);
-  return !hidden;
 }
 
 async function saveBlurb(movie, text) {
@@ -677,11 +674,13 @@ function buildCard(movie) {
   }
 
   const hideBtn = card.querySelector('.btn-hide');
-  hideBtn.addEventListener('click', () => {
-    const nowHidden = toggleHidden(movie);
+  hideBtn.addEventListener('click', async () => {
+    hideBtn.disabled = true;
+    const nowHidden = await toggleHidden(movie);
     hideBtn.textContent = nowHidden ? 'Hidden' : 'Hide';
     hideBtn.classList.toggle('is-hidden', nowHidden);
     card.classList.toggle('is-hidden-movie', nowHidden);
+    hideBtn.disabled = false;
   });
 
   const pickBtn = card.querySelector('.btn-pick');
@@ -699,7 +698,7 @@ function escapeHTML(str) {
 
 async function init() {
   if (!checkAuth()) { showLoginScreen(); return; }
-  await Promise.all([loadBlurbs(), loadPicks()]);
+  await Promise.all([loadBlurbs(), loadPicks(), loadHidden()]);
   try {
     const res = await fetch('/data.json');
     if (!res.ok) throw new Error('Failed to load data.json');
