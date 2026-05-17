@@ -9,6 +9,7 @@
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     (function() {
       try {
@@ -1927,6 +1928,209 @@
         justify-content: flex-start;
       }
     }
+
+    /* ── AUTH / PROFILE ────────────────────────────────────────── */
+    .profile-btn {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0 14px;
+      height: 34px;
+      border-radius: 6px;
+      border: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .profile-btn:hover { color: var(--text); border-color: var(--accent); }
+
+    .profile-avatar-btn {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.15s;
+      position: relative;
+    }
+    .profile-avatar-btn:hover { opacity: 0.8; }
+
+    .profile-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 10px;
+      padding: 8px;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 200;
+      display: none;
+    }
+    .profile-dropdown.open { display: block; }
+    .profile-dropdown-email {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      padding: 6px 8px 10px;
+      border-bottom: 1px solid var(--mid-gray);
+      margin-bottom: 6px;
+      word-break: break-all;
+    }
+    .profile-dropdown-item {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+    .profile-dropdown-item:hover { background: var(--mid-gray); }
+
+    /* Auth modal */
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .auth-overlay.open { opacity: 1; pointer-events: all; }
+    .auth-modal {
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 16px;
+      padding: 36px 32px 32px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      transform: translateY(12px);
+      transition: transform 0.2s;
+      position: relative;
+    }
+    .auth-overlay.open .auth-modal { transform: translateY(0); }
+    .auth-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: none; border: none;
+      color: var(--text-dim); font-size: 1.2rem;
+      cursor: pointer; line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: color 0.12s, background 0.12s;
+    }
+    .auth-close:hover { color: var(--text); background: var(--mid-gray); }
+    .auth-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .auth-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .auth-google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--mid-gray);
+      background: var(--dark-gray);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      margin-bottom: 20px;
+    }
+    .auth-google-btn:hover { border-color: var(--accent); background: var(--mid-gray); }
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--mid-gray);
+    }
+    .auth-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--dark-gray);
+      border: 1px solid var(--mid-gray);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 10px;
+    }
+    .auth-input:focus { border-color: var(--accent); }
+    .auth-submit-btn {
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .auth-submit-btn:hover { opacity: 0.88; }
+    .auth-submit-btn:disabled { opacity: 0.5; cursor: default; }
+    .auth-message {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      text-align: center;
+      line-height: 1.5;
+      min-height: 20px;
+    }
+    .auth-message.success { color: var(--watch); }
+    .auth-message.error { color: var(--skip); }
+    @media (max-width: 600px) {
+      .auth-modal { margin: 0 16px; padding: 28px 20px 24px; }
+    }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -1972,9 +2176,24 @@
           <button class="theme-btn" id="theme-dark-btn" type="button" onclick="setTheme('dark')">Dark</button>
           <button class="theme-btn" id="theme-light-btn" type="button" onclick="setTheme('light')">Light</button>
         </div>
+        <div id="profile-wrap" style="position:relative;">
+          <button class="profile-btn" id="profile-btn" type="button" onclick="openAuthModal()">Sign in</button>
+        </div>
       </div>
     </div>
   </header>
+
+  <!-- AUTH MODAL -->
+  <div class="auth-overlay" id="auth-overlay" onclick="handleOverlayClick(event)">
+    <div class="auth-modal" role="dialog" aria-modal="true" aria-label="Sign in">
+      <button class="auth-close" onclick="closeAuthModal()" aria-label="Close">✕</button>
+      <div class="auth-title">Sign in</div>
+      <div class="auth-subtitle">Save the movies you've seen so they stop showing up across all your devices.</div>
+      <input class="auth-input" id="auth-email-input" type="email" placeholder="your@email.com" autocomplete="email" />
+      <button class="auth-submit-btn" id="auth-magic-btn" onclick="signInWithMagicLink()">Send magic link</button>
+      <div class="auth-message" id="auth-message"></div>
+    </div>
+  </div>
 
   <!-- MOBILE FILTER TOGGLE (mobile only) -->
   <div class="mobile-filter-bar" id="mobile-filter-bar">
@@ -5462,6 +5681,223 @@ function getMockData() {
     ]
   };
 }
+
+// ── SUPABASE AUTH & CLOUD SYNC ───────────────────────────────────────────────
+
+// ⚙️  Replace these two values with your Supabase project credentials.
+//    Dashboard → Project Settings → API
+const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
+
+/*
+  SQL to run once in Supabase → SQL Editor:
+
+  create table hidden_movies (
+    id         uuid primary key default gen_random_uuid(),
+    user_id    uuid references auth.users not null,
+    movie_id   text not null,
+    title      text,
+    created_at timestamptz default now(),
+    unique(user_id, movie_id)
+  );
+  alter table hidden_movies enable row level security;
+  create policy "own rows" on hidden_movies for all using (auth.uid() = user_id);
+
+  create table watched_movies (
+    id         uuid primary key default gen_random_uuid(),
+    user_id    uuid references auth.users not null,
+    movie_id   text not null,
+    title      text,
+    created_at timestamptz default now(),
+    unique(user_id, movie_id)
+  );
+  alter table watched_movies enable row level security;
+  create policy "own rows" on watched_movies for all using (auth.uid() = user_id);
+
+  Also enable Google provider in Supabase → Authentication → Providers,
+  and set your site URL in Authentication → URL Configuration.
+*/
+
+let _supabase = null;
+let currentUser = null;
+
+function getSupabase() {
+  if (!_supabase && typeof supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+    _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+  return _supabase;
+}
+
+async function loadUserListsFromCloud() {
+  const sb = getSupabase();
+  if (!sb || !currentUser) return;
+  try {
+    const [{ data: hidden }, { data: watched }] = await Promise.all([
+      sb.from('hidden_movies').select('movie_id').eq('user_id', currentUser.id),
+      sb.from('watched_movies').select('movie_id').eq('user_id', currentUser.id),
+    ]);
+    if (hidden) {
+      const ids = hidden.map(r => r.movie_id);
+      const local = getHidden();
+      const merged = [...new Set([...local, ...ids])];
+      localStorage.setItem('cinema_hidden', JSON.stringify(merged));
+    }
+    if (watched) {
+      const ids = watched.map(r => r.movie_id);
+      const local = getWatched();
+      const merged = [...new Set([...local, ...ids])];
+      localStorage.setItem('cinema_watched', JSON.stringify(merged));
+    }
+    render();
+  } catch (e) { /* silent */ }
+}
+
+function initSupabase() {
+  const sb = getSupabase();
+  if (!sb) return;
+  sb.auth.onAuthStateChange((_event, session) => {
+    currentUser = session?.user ?? null;
+    updateProfileUI();
+    if (currentUser) {
+      closeAuthModal();
+      loadUserListsFromCloud();
+    }
+  });
+  sb.auth.getSession().then(({ data: { session } }) => {
+    currentUser = session?.user ?? null;
+    updateProfileUI();
+    if (currentUser) loadUserListsFromCloud();
+  });
+}
+
+function updateProfileUI() {
+  const wrap = document.getElementById('profile-wrap');
+  if (!wrap) return;
+  if (currentUser) {
+    const initial = (currentUser.email || 'U')[0].toUpperCase();
+    wrap.innerHTML = `
+      <button class="profile-avatar-btn" id="profile-avatar-btn" onclick="toggleProfileDropdown(event)" title="${currentUser.email}">${initial}</button>
+      <div class="profile-dropdown" id="profile-dropdown">
+        <div class="profile-dropdown-email">${currentUser.email}</div>
+        <button class="profile-dropdown-item" onclick="handleSignOut()">Sign out</button>
+      </div>`;
+  } else {
+    wrap.innerHTML = `<button class="profile-btn" id="profile-btn" type="button" onclick="openAuthModal()">Sign in</button>`;
+  }
+}
+
+function toggleProfileDropdown(e) {
+  e.stopPropagation();
+  document.getElementById('profile-dropdown')?.classList.toggle('open');
+}
+
+async function handleSignOut() {
+  const sb = getSupabase();
+  if (sb) await sb.auth.signOut();
+  currentUser = null;
+  updateProfileUI();
+}
+
+function openAuthModal() {
+  document.getElementById('auth-overlay')?.classList.add('open');
+  document.getElementById('auth-message').textContent = '';
+  document.getElementById('auth-email-input').value = '';
+  setTimeout(() => document.getElementById('auth-email-input')?.focus(), 200);
+}
+
+function closeAuthModal() {
+  document.getElementById('auth-overlay')?.classList.remove('open');
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('auth-overlay')) closeAuthModal();
+}
+
+async function signInWithGoogle() {
+  const sb = getSupabase();
+  if (!sb) return;
+  await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin + window.location.pathname },
+  });
+}
+
+async function signInWithMagicLink() {
+  const sb = getSupabase();
+  if (!sb) return;
+  const email = document.getElementById('auth-email-input').value.trim();
+  const msgEl = document.getElementById('auth-message');
+  const btn = document.getElementById('auth-magic-btn');
+  if (!email || !email.includes('@')) {
+    msgEl.textContent = 'Enter a valid email address.';
+    msgEl.className = 'auth-message error';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  msgEl.textContent = '';
+  msgEl.className = 'auth-message';
+  const { error } = await sb.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: window.location.origin + window.location.pathname },
+  });
+  btn.disabled = false;
+  btn.textContent = 'Send magic link';
+  if (error) {
+    msgEl.textContent = error.message || 'Something went wrong. Try again.';
+    msgEl.className = 'auth-message error';
+  } else {
+    msgEl.textContent = 'Check your email — a sign-in link is on its way.';
+    msgEl.className = 'auth-message success';
+  }
+}
+
+// Close profile dropdown when clicking outside
+document.addEventListener('click', () => {
+  document.getElementById('profile-dropdown')?.classList.remove('open');
+});
+
+// Enter key submits magic link form
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAuthModal();
+  if (e.key === 'Enter' && document.getElementById('auth-overlay')?.classList.contains('open')) {
+    const focused = document.activeElement;
+    if (focused && focused.id === 'auth-email-input') signInWithMagicLink();
+  }
+});
+
+// Patch toggleHidden / toggleWatched to also sync to cloud
+const _origToggleHidden = toggleHidden;
+toggleHidden = function(movieId, fallbackTitle = '') {
+  const before = getHidden();
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const wasHidden = keys.some(k => before.includes(k));
+  _origToggleHidden(movieId, fallbackTitle);
+  const sb = getSupabase();
+  if (!sb || !currentUser || !movieId) return;
+  if (!wasHidden) {
+    sb.from('hidden_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
+  } else {
+    sb.from('hidden_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
+  }
+};
+
+const _origToggleWatched = toggleWatched;
+toggleWatched = function(movieId, fallbackTitle = '') {
+  const before = getWatched();
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const wasSaved = keys.some(k => before.includes(k));
+  _origToggleWatched(movieId, fallbackTitle);
+  const sb = getSupabase();
+  if (!sb || !currentUser || !movieId) return;
+  if (!wasSaved) {
+    sb.from('watched_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
+  } else {
+    sb.from('watched_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
+  }
+};
+
+initSupabase();
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 syncThemeButtons();
