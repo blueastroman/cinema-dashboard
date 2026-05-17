@@ -1975,7 +1975,8 @@
       border: 1px solid var(--mid-gray);
       border-radius: 10px;
       padding: 8px;
-      min-width: 180px;
+      min-width: 220px;
+      max-width: 300px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
       z-index: 200;
       display: none;
@@ -1987,7 +1988,9 @@
       padding: 6px 8px 10px;
       border-bottom: 1px solid var(--mid-gray);
       margin-bottom: 6px;
-      word-break: break-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .profile-dropdown-item {
       font-family: var(--font-sans);
