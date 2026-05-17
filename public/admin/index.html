@@ -643,7 +643,7 @@ async function checkAuth() {
 }
 
 async function loadBlurbs() {
-  const { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override');
+  const { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override');
   if (error) {
     canEditBlurbs = false;
     addAdminWarning('Manual reviews, Criterion tags, and score overrides are unavailable because Supabase denied access to blurbs. The movie list is still usable.');
@@ -658,6 +658,7 @@ async function loadBlurbs() {
         prestige_tag: r.prestige_tag || '',
         rt_override: r.rt_override || '',
         cinema_score_override: r.cinema_score_override || '',
+        lb_override: r.lb_override || '',
       };
     });
   }
@@ -681,6 +682,7 @@ async function replaceBlurbRow(movie, entry) {
     prestige_tag: entry.prestige_tag || null,
     rt_override: entry.rt_override || null,
     cinema_score_override: entry.cinema_score_override || null,
+    lb_override: entry.lb_override || null,
     updated_at: new Date().toISOString(),
   };
 
@@ -693,6 +695,7 @@ async function replaceBlurbRow(movie, entry) {
     prestige_tag: row.prestige_tag || '',
     rt_override: row.rt_override || '',
     cinema_score_override: row.cinema_score_override || '',
+    lb_override: row.lb_override || '',
   };
   return blurbCache[key];
 }
@@ -974,6 +977,7 @@ function buildCard(movie) {
         <div class="score-overrides">
           <label class="score-override-field">RT% <input class="score-override-input" type="number" min="0" max="100" placeholder="${escapeHTML(movie.ratings?.rt || 'NR')}" value="${escapeHTML(blurbCache[getKey(movie)]?.rt_override || '')}"${reviewDisabled}></label>
           <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${escapeHTML(movie.ratings?.cinemaScore || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.cinema_score_override || '')}"${reviewDisabled}></label>
+          <label class="score-override-field">LB <input class="score-override-input" type="number" min="0" max="5" step="0.1" placeholder="${escapeHTML(movie.ratings?.letterboxd || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.lb_override || '')}"${reviewDisabled}></label>
           <button class="btn-save-scores"${reviewDisabled}>Save scores</button
           ><span class="saved-flash scores-flash">Saved</span>
         </div>
@@ -1078,7 +1082,7 @@ function buildCard(movie) {
 
   const saveScoresBtn = card.querySelector('.btn-save-scores');
   const scoresFlash = card.querySelector('.scores-flash');
-  const [rtInput, csInput] = card.querySelectorAll('.score-override-input');
+  const [rtInput, csInput, lbInput] = card.querySelectorAll('.score-override-input');
   if (canEditBlurbs) saveScoresBtn.addEventListener('click', async () => {
     saveScoresBtn.disabled = true;
     const key = getKey(movie);
@@ -1086,10 +1090,12 @@ function buildCard(movie) {
     try {
       const rt = normalizeRTOverride(rtInput.value);
       const cs = normalizeCinemaScoreOverride(csInput.value);
+      const lb = lbInput.value.trim() || null;
       await replaceBlurbRow(movie, {
         ...entry,
         rt_override: rt || null,
         cinema_score_override: cs || null,
+        lb_override: lb,
       });
       showFlash(scoresFlash, 'Saved');
     } catch (e) {

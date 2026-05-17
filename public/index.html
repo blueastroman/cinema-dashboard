@@ -5959,7 +5959,7 @@ let cloudScoreOverrides = {};
 async function loadBlurbsFromCloud() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag,rt_override,cinema_score_override`,
+      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     );
     if (!res.ok) return;
@@ -5974,10 +5974,11 @@ async function loadBlurbsFromCloud() {
       if (r.movie_key && r.prestige_tag) {
         cloudPrestigeTags[r.movie_key] = r.prestige_tag;
       }
-      if (r.movie_key && (r.rt_override || r.cinema_score_override)) {
+      if (r.movie_key && (r.rt_override || r.cinema_score_override || r.lb_override)) {
         cloudScoreOverrides[r.movie_key] = {
           rt: r.rt_override || null,
           cinemaScore: r.cinema_score_override || null,
+          lb: r.lb_override || null,
         };
       }
     });
@@ -5992,6 +5993,7 @@ function applyScoreOverrides() {
     if (!ov) return;
     if (ov.rt) movie.ratings.rt = ov.rt;
     if (ov.cinemaScore) movie.ratings.cinemaScore = ov.cinemaScore;
+    if (ov.lb) movie.ratings.letterboxd = ov.lb;
   });
 }
 
@@ -6073,10 +6075,10 @@ async function loadUserListsFromCloud() {
 function initSupabase() {
   const sb = getSupabase();
   if (!sb) return;
-  sb.auth.onAuthStateChange((_event, session) => {
+  sb.auth.onAuthStateChange((event, session) => {
     currentUser = session?.user ?? null;
     updateProfileUI();
-    if (currentUser) {
+    if (currentUser && event !== 'TOKEN_REFRESHED') {
       closeAuthModal();
       loadUserListsFromCloud();
     }
