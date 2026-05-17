@@ -355,13 +355,15 @@ async function togglePick(movie, btn, card) {
   const title = movie.title || '';
   btn.disabled = true;
   if (picks.has(id)) {
-    await _sb.from('picks').delete().eq('movie_id', id);
+    const { error } = await _sb.from('picks').delete().eq('movie_id', id);
+    if (error) { console.error('picks delete error:', error); btn.disabled = false; return; }
     picks.delete(id);
     btn.textContent = 'Recommend';
     btn.classList.remove('is-pick');
     card.classList.remove('is-pick-movie');
   } else {
-    await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+    const { error } = await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+    if (error) { console.error('picks upsert error:', error); btn.disabled = false; return; }
     picks.add(id);
     btn.textContent = '✦ Recommended';
     btn.classList.add('is-pick');
