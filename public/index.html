@@ -1663,6 +1663,24 @@
       gap: 8px 10px;
     }
 
+    .picks-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 169, 110, 0.5);
+      background: var(--prestige-chip-bg);
+      color: var(--prestige-chip-text);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      line-height: 1;
+      width: fit-content;
+    }
+
     .ranking-prestige-chip {
       display: inline-flex;
       align-items: center;
@@ -4839,6 +4857,7 @@ function buildRankingRow(movie, idx) {
     <div class="ranking-main">
       <div class="ranking-title-row">
         <div class="ranking-title"><a href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
+        ${isPickMovie(movie) ? renderPicksBadge() : ''}
         ${prestigeChip ? renderPrestigeChip(prestigeChip) : ''}
       </div>
       ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
@@ -5033,6 +5052,7 @@ function renderTheaterView() {
         <div class="theater-film-info">
           <div class="theater-film-title-row">
             <a class="theater-film-title" href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
+            ${isPickMovie(movie) ? renderPicksBadge() : ''}
             ${scoresHTML ? `<span class="theater-score-row">${scoresHTML}</span>` : ''}
           </div>
           ${metaStr ? `<div class="theater-film-meta">${metaStr}</div>` : ''}
@@ -5402,38 +5422,46 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
   const url = getTicketUrl(theaterData);
   const now = getNYNow();
   const activeDayLabel = getActiveDayFilterLabel();
-  const grouped = [];
-  let count = 0;
 
+  // Merge all schedule entries by day label, preserving scheduleItem per time for ticket URLs
+  const dayMap = new Map();
   for (const s of schedule) {
     if (!dayMatchesActiveScope(s.day, activeDayLabel, s.date || '')) continue;
     const dayRaw = String(s.day || '').trim();
-    const times = [];
-
+    const dayLabel = dateScope === 'today' ? '' : getShowtimeDayLabel(dayRaw);
+    const key = s.date || dayRaw || '_';
+    if (!dayMap.has(key)) dayMap.set(key, { dayLabel, times: [] });
     for (const t of (s.times || [])) {
       const showAt = parseShowtimeDate(dayRaw, t, s.date || '');
       if (!showAt || showAt < now || !isTimeInActiveDaypart(showAt)) continue;
-      times.push({ at: showAt, label: formatShowtimeLabel(t), raw: t });
+      dayMap.get(key).times.push({ at: showAt, label: formatShowtimeLabel(t), raw: t, scheduleItem: s });
     }
-
-    if (!times.length) continue;
-    times.sort((a, b) => a.at - b.at);
-    grouped.push({
-      scheduleItem: s,
-      dayLabel: dateScope === 'today' ? '' : getShowtimeDayLabel(dayRaw),
-      times,
-    });
   }
 
-  if (!grouped.length) return '';
+  // Deduplicate times within each day by timestamp, then sort
+  for (const [key, group] of dayMap) {
+    const seen = new Set();
+    group.times = group.times.filter(t => {
+      const k = t.at.getTime();
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    }).sort((a, b) => a.at - b.at);
+    if (!group.times.length) dayMap.delete(key);
+  }
 
-  return grouped.map(group => {
+  if (!dayMap.size) return '';
+
+  let count = 0;
+  return [...dayMap.values()].map(group => {
     const chips = [];
     for (const item of group.times) {
       if (count >= limit) break;
-      const chipUrl = getShowtimeTicketUrl(theaterData, group.scheduleItem, item.raw) || url;
-      chips.push(chipUrl ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>` : `<span class="showtime-chip">${item.label}</span>`);
-      count += 1;
+      const chipUrl = getShowtimeTicketUrl(theaterData, item.scheduleItem, item.raw) || url;
+      chips.push(chipUrl
+        ? `<a href="${chipUrl}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${item.label}</a>`
+        : `<span class="showtime-chip">${item.label}</span>`);
+      count++;
     }
     if (!chips.length) return '';
     return `
@@ -5748,6 +5776,27 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 let _supabase = null;
 let currentUser = null;
+let sitepicks = new Set();
+
+async function loadPicks() {
+  const sb = getSupabase();
+  if (!sb) return;
+  try {
+    const { data } = await sb.from('picks').select('movie_id');
+    if (data) {
+      sitepicks = new Set(data.map(r => r.movie_id));
+      render();
+    }
+  } catch (e) { /* silent */ }
+}
+
+function isPickMovie(movie) {
+  return sitepicks.has(movie.id) || sitepicks.has(movie.title);
+}
+
+function renderPicksBadge() {
+  return `<span class="picks-badge">✦ Recommends</span>`;
+}
 
 function getSupabase() {
   if (!_supabase && typeof supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
@@ -5796,6 +5845,7 @@ function initSupabase() {
     updateProfileUI();
     if (currentUser) loadUserListsFromCloud();
   });
+  loadPicks();
 }
 
 function updateProfileUI() {

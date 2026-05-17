@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Review Editor · Showtimes NYC</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -274,6 +275,11 @@
     .movie-card.is-hidden-movie { opacity: 0.45; }
     .movie-card.is-hidden-movie:hover { opacity: 0.75; }
 
+    .btn-pick { color: var(--accent); border-color: rgba(200,169,110,0.3); }
+    .btn-pick:hover { border-color: var(--accent); }
+    .btn-pick.is-pick { color: #111; background: var(--accent); border-color: var(--accent); font-weight: 700; }
+    .movie-card.is-pick-movie { box-shadow: inset 0 0 0 1px rgba(200,169,110,0.4), 0 0 0 1px rgba(200,169,110,0.15); }
+
     .saved-flash {
       font-size: 0.68rem;
       color: var(--watch);
@@ -328,6 +334,45 @@ const HIDDEN_KEY = 'cinema_hidden';
 const MAX_CHARS = 340;
 const PASSWORD_HASH = 'f0802d4c67ac66013292e4d04adeb815b0431c0e1633c999ca1557d64fed5ff9';
 const SESSION_KEY = 'admin_auth';
+
+const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
+const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let picks = new Set();
+
+async function loadPicks() {
+  const { data } = await _sb.from('picks').select('movie_id');
+  if (data) data.forEach(r => picks.add(r.movie_id));
+}
+
+function getMovieId(movie) {
+  return movie.id || movie.title || '';
+}
+
+function isPick(movie) {
+  return picks.has(getMovieId(movie));
+}
+
+async function togglePick(movie, btn, card) {
+  const id = getMovieId(movie);
+  const title = movie.title || '';
+  btn.disabled = true;
+  if (picks.has(id)) {
+    await _sb.from('picks').delete().eq('movie_id', id);
+    picks.delete(id);
+    btn.textContent = 'Recommend';
+    btn.classList.remove('is-pick');
+    card.classList.remove('is-pick-movie');
+  } else {
+    await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+    picks.add(id);
+    btn.textContent = '✦ Recommended';
+    btn.classList.add('is-pick');
+    card.classList.add('is-pick-movie');
+  }
+  btn.disabled = false;
+}
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -561,6 +606,7 @@ function buildCard(movie) {
           <button class="btn-save" disabled>Save</button>
           ${blurb ? `<button class="btn-clear">Clear</button>` : ''}
           <button class="btn-hide${hidden ? ' is-hidden' : ''}">${hidden ? 'Hidden' : 'Hide'}</button>
+          <button class="btn-pick${isPick(movie) ? ' is-pick' : ''}">${isPick(movie) ? '✦ Recommended' : 'Recommend'}</button>
           <span class="saved-flash">Saved</span>
         </div>
       </div>
@@ -632,6 +678,10 @@ function buildCard(movie) {
     card.classList.toggle('is-hidden-movie', nowHidden);
   });
 
+  const pickBtn = card.querySelector('.btn-pick');
+  pickBtn.addEventListener('click', () => togglePick(movie, pickBtn, card));
+  if (isPick(movie)) card.classList.add('is-pick-movie');
+
   return card;
 }
 
@@ -644,6 +694,7 @@ function escapeHTML(str) {
 async function init() {
   if (!checkAuth()) { showLoginScreen(); return; }
   blurbCache = loadCache();
+  await loadPicks();
   try {
     const res = await fetch('/data.json');
     if (!res.ok) throw new Error('Failed to load data.json');
