@@ -1136,7 +1136,7 @@
 
     .theater-film-row {
       display: grid;
-      grid-template-columns: 86px 72px minmax(0, 1fr) minmax(140px, 200px) auto;
+      grid-template-columns: 86px 130px minmax(0, 1fr) minmax(140px, 200px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1503,7 +1503,7 @@
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 86px 82px minmax(0, 1fr) minmax(150px, 190px) auto;
+      grid-template-columns: 86px 130px minmax(0, 1fr) minmax(150px, 190px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1605,29 +1605,21 @@
     }
 
     .ranking-score-label,
-    .ranking-lb {
-      font-family: var(--font-sans);
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .ranking-lb {
-      color: var(--text-dim);
-      letter-spacing: 0.04em;
-    }
-
+    .ranking-lb,
     .ranking-cs {
       font-family: var(--font-sans);
       font-size: 0.62rem;
       font-weight: 800;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--text-dim);
+      color: var(--muted);
       margin-top: 4px;
+      white-space: nowrap;
+    }
+
+    .ranking-lb,
+    .ranking-cs {
+      color: var(--text-dim);
     }
 
     .ranking-main {
@@ -1892,10 +1884,10 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-row { grid-template-columns: 76px 68px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 14px; }
+      .theater-film-row { grid-template-columns: 76px 130px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 14px; }
       .theater-poster-wrap { width: 76px; }
       .ranking-row {
-        grid-template-columns: 76px 78px minmax(0, 1fr) auto;
+        grid-template-columns: 76px 130px minmax(0, 1fr) auto;
       }
       .ranking-next,
       .ranking-times-panel {
@@ -4867,7 +4859,7 @@ function buildRankingRow(movie, idx) {
           : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
       }</div>
       <div class="ranking-score-label">Rotten Tomatoes</div>
-      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
       ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
     </div>
     <div class="ranking-main">
@@ -5071,7 +5063,7 @@ function renderTheaterView() {
               : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener">${rtScore}%</a>`
           }</div>
           <div class="ranking-score-label">Rotten Tomatoes</div>
-          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
           ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
         </div>
         <div class="theater-film-info">
