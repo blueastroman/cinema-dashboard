@@ -5779,11 +5779,23 @@ let currentUser = null;
 let sitepicks = new Set();
 
 async function loadPicks() {
-  const sb = getSupabase();
-  if (!sb) return;
   try {
-    const { data } = await sb.from('picks').select('movie_id');
-    if (data) {
+    const sb = getSupabase();
+    if (sb) {
+      const { data } = await sb.from('picks').select('movie_id');
+      if (data) {
+        sitepicks = new Set(data.map(r => r.movie_id));
+        render();
+        return;
+      }
+    }
+    // Fallback: direct REST fetch (works even if Supabase CDN is slow)
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/picks?select=movie_id`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    );
+    if (res.ok) {
+      const data = await res.json();
       sitepicks = new Set(data.map(r => r.movie_id));
       render();
     }
