@@ -405,7 +405,12 @@ const MAX_CHARS = 340;
 
 const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
-const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// _sbAuth: handles login/logout only (session persisted for gating)
+const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// _sb: always runs as anon role so RLS anon policies apply to data reads/writes
+const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+});
 
 let picks = new Set();
 let canEditPicks = true;
@@ -497,7 +502,7 @@ function showLoginScreen() {
 }
 
 async function resetAdminSession() {
-  try { await _sb.auth.signOut(); } catch (e) { /* ignore */ }
+  try { await _sbAuth.auth.signOut(); } catch (e) { /* ignore */ }
   try {
     Object.keys(localStorage)
       .filter(key => key.startsWith('sb-'))
@@ -517,7 +522,7 @@ async function tryLogin() {
     button.textContent = 'Signing in...';
   }
   try {
-    const { error: authError } = await _sb.auth.signInWithPassword({ email, password });
+    const { error: authError } = await _sbAuth.auth.signInWithPassword({ email, password });
     if (authError) throw authError;
     location.reload();
   } catch (e) {
@@ -532,7 +537,7 @@ async function tryLogin() {
 }
 
 async function checkAuth() {
-  const { data: { session }, error } = await _sb.auth.getSession();
+  const { data: { session }, error } = await _sbAuth.auth.getSession();
   if (error) throw error;
   return !!session;
 }
