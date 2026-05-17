@@ -1124,22 +1124,22 @@
     }
 
     .theater-poster-wrap {
-      width: 86px;
+      width: 68px;
       aspect-ratio: 2 / 3;
       border: 1px solid var(--movie-box-border);
       border-radius: 2px;
       overflow: hidden;
       background: var(--dark-gray);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
       flex-shrink: 0;
     }
 
     .theater-film-row {
       display: grid;
-      grid-template-columns: 86px minmax(0, 1fr) minmax(170px, 230px) auto;
-      gap: 18px;
+      grid-template-columns: 68px minmax(0, 1fr) minmax(140px, 200px) auto;
+      gap: 14px;
       align-items: start;
-      padding: 16px 16px 16px 16px;
+      padding: 12px 14px;
       border: 1px solid var(--movie-box-border);
       box-shadow: var(--movie-box-shadow);
       border-radius: 2px;
@@ -1174,49 +1174,64 @@
       min-width: 0;
     }
 
-    .theater-film-head {
+    .theater-film-title-row {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
     }
 
     .theater-film-title {
       font-family: var(--font-sans);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 800;
       color: var(--cream);
       line-height: 1.25;
       min-width: 0;
-      flex: 1;
-    }
-
-    .theater-film-title a {
-      color: inherit;
       text-decoration: none;
     }
-    .theater-film-title a:hover {
+
+    .theater-film-title:hover {
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    .theater-film-sub {
+    .theater-score-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theater-score-item {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
       font-family: var(--font-sans);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      margin-top: 3px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    .theater-score-item .score-label-sm {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .theater-film-meta {
       font-family: var(--font-sans);
       font-size: 0.72rem;
       color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.4;
+      margin-top: 0;
+      line-height: 1.5;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
+      gap: 4px 6px;
     }
 
     .confidence-note {
@@ -1235,13 +1250,17 @@
     }
 
     .theater-film-review {
-      margin-top: 8px;
+      margin-top: 6px;
       color: var(--text);
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       line-height: 1.5;
       font-style: italic;
       border-left: 2px solid var(--mid-gray);
-      padding-left: 12px;
+      padding-left: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .theater-film-runtime.long {
@@ -1847,8 +1866,8 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-row { grid-template-columns: 80px minmax(0, 1fr) minmax(150px, 200px) auto; gap: 14px; }
-      .theater-poster-wrap { width: 80px; }
+      .theater-film-row { grid-template-columns: 64px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 12px; }
+      .theater-poster-wrap { width: 64px; }
       .ranking-row {
         grid-template-columns: 76px 78px minmax(0, 1fr) auto;
       }
@@ -1901,10 +1920,10 @@
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
       .theater-film-row {
-        grid-template-columns: 64px minmax(0, 1fr) auto;
-        gap: 12px;
+        grid-template-columns: 56px minmax(0, 1fr) auto;
+        gap: 10px;
       }
-      .theater-poster-wrap { width: 64px; }
+      .theater-poster-wrap { width: 56px; }
       .theater-film-times { grid-column: 2 / 3; }
       .theater-film-actions { grid-column: 3 / 4; grid-row: 1; }
       .theater-film-review { font-size: 0.88rem; }
@@ -4997,6 +5016,14 @@ function renderTheaterView() {
       const posterUrl = getPosterUrl(movie);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
+      const allScores = [scoreHierarchy.primary, ...scoreHierarchy.secondary].filter(Boolean);
+      const scoresHTML = allScores.map(s =>
+        `<span class="theater-score-item ${s.className}">${renderScoreValue(s, movie)}<span class="score-label-sm">${s.shortLabel}</span></span>`
+      ).join('');
+      const metaItems = [year, director, ...genreParts].filter(Boolean);
+      if (runtime && runtime !== 'N/A') metaItems.push(`<span class="${runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime'}">${runtime}</span>`);
+      const metaStr = metaItems.join(' · ') + (formatTags.length ? ' · ' + formatTags.join('') : '');
+
       row.innerHTML = `
         <div class="theater-poster-wrap">
           ${posterUrl
@@ -5004,31 +5031,11 @@ function renderTheaterView() {
             : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
         </div>
         <div class="theater-film-info">
-          <div class="theater-film-head">
-            <div class="theater-film-title">
-              <a href="${lbUrl}" target="_blank" rel="noopener">${movie.title}</a>
-            </div>
-          <div class="theater-film-scores">
-            ${scoreHierarchy.primary ? `
-              <div class="score-primary">
-                <div class="t-score ${scoreHierarchy.primary.className}">${renderScoreValue(scoreHierarchy.primary, movie)}</div>
-                <div class="t-score-label">${scoreHierarchy.primary.label}</div>
-                </div>
-              ` : ''}
-              ${scoreHierarchy.secondary.length ? `
-                <div class="score-secondary-list">
-                  ${scoreHierarchy.secondary.map(score => `
-                    <div class="score-secondary-item">
-                      <div class="t-score ${score.className}">${renderScoreValue(score, movie)}</div>
-                      <div class="t-score-label">${score.shortLabel}</div>
-                    </div>
-                  `).join('')}
-                </div>
-              ` : ''}
-            </div>
+          <div class="theater-film-title-row">
+            <a class="theater-film-title" href="${lbUrl}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
+            ${scoresHTML ? `<span class="theater-score-row">${scoresHTML}</span>` : ''}
           </div>
-          <div class="theater-film-sub">${[year, director].filter(Boolean).join(' · ')}</div>
-          ${(metaParts.length || formatTags.length) ? `<div class="theater-film-meta">${metaParts.join(' · ')}${metaParts.length && formatTags.length ? ' · ' : ''}${formatTags.join('')}</div>` : ''}
+          ${metaStr ? `<div class="theater-film-meta">${metaStr}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${confidence}</div>` : ''}
           ${renderMovieBlurbMarkup(movie, 'theater-film-review', { forceRefresh: false })}
         </div>
