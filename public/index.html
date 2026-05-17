@@ -4865,7 +4865,7 @@ function buildRankingRow(movie, idx) {
           ? 'NR'
           : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
       }</div>
-      <div class="ranking-score-label">Critics</div>
+      <div class="ranking-score-label">Rotten Tomatoes</div>
       ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
       ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
     </div>
@@ -5069,7 +5069,7 @@ function renderTheaterView() {
               ? 'NR'
               : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener">${rtScore}%</a>`
           }</div>
-          <div class="ranking-score-label">Critics</div>
+          <div class="ranking-score-label">Rotten Tomatoes</div>
           ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
           ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
         </div>
