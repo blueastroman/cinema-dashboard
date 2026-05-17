@@ -1620,6 +1620,16 @@
       letter-spacing: 0.04em;
     }
 
+    .ranking-cs {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
     .ranking-main {
       min-width: 0;
     }
@@ -4857,6 +4867,7 @@ function buildRankingRow(movie, idx) {
       }</div>
       <div class="ranking-score-label">Critics</div>
       ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+      ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CS</div>` : ''}
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
@@ -5060,6 +5071,7 @@ function renderTheaterView() {
           }</div>
           <div class="ranking-score-label">Critics</div>
           ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} LB</div>` : ''}
+          ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs">${escapeHTML(String(ratings.cinemaScore))} CS</div>` : ''}
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
