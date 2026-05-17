@@ -5808,11 +5808,12 @@ async function loadSiteHidden() {
 }
 
 let cloudPrestigeTags = {};
+let cloudScoreOverrides = {};
 
 async function loadBlurbsFromCloud() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag`,
+      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag,rt_override,cinema_score_override`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     );
     if (!res.ok) return;
@@ -5825,9 +5826,26 @@ async function loadBlurbsFromCloud() {
       if (r.movie_key && r.prestige_tag) {
         cloudPrestigeTags[r.movie_key] = r.prestige_tag;
       }
+      if (r.movie_key && (r.rt_override || r.cinema_score_override)) {
+        cloudScoreOverrides[r.movie_key] = {
+          rt: r.rt_override || null,
+          cinemaScore: r.cinema_score_override || null,
+        };
+      }
     });
+    applyScoreOverrides();
     render();
   } catch (e) { /* silent */ }
+}
+
+function applyScoreOverrides() {
+  allMovies.forEach(movie => {
+    const key = getMovieBlurbKey(movie);
+    const ov = cloudScoreOverrides[key];
+    if (!ov) return;
+    if (ov.rt) movie.ratings.rt = ov.rt;
+    if (ov.cinemaScore) movie.ratings.cinemaScore = ov.cinemaScore;
+  });
 }
 
 async function loadPicks() {

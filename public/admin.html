@@ -284,6 +284,50 @@
     .btn-criterion:hover { border-color: #aaa; }
     .btn-criterion.is-criterion { color: #f0ece4; background: #111; border-color: rgba(255,255,255,0.3); font-weight: 700; }
 
+    .score-overrides {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .score-override-field {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .score-override-input {
+      width: 58px;
+      background: #1a1a1a;
+      border: 1px solid #3a3a3a;
+      border-radius: 3px;
+      color: var(--cream);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      padding: 4px 7px;
+      outline: none;
+    }
+    .score-override-input:focus { border-color: var(--accent); }
+    .btn-save-scores {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid rgba(200,169,110,0.35);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+    }
+    .btn-save-scores:hover { background: rgba(200,169,110,0.1); }
+    .btn-save-scores:disabled { opacity: 0.4; cursor: default; }
+
     .saved-flash {
       font-size: 0.68rem;
       color: var(--watch);
@@ -430,10 +474,16 @@ let allMovies = [];
 let blurbCache = {};
 
 async function loadBlurbs() {
-  const { data } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag');
+  const { data } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override');
   if (data) {
     data.forEach(r => {
-      blurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual', prestige_tag: r.prestige_tag || '' };
+      blurbCache[r.movie_key] = {
+        text: r.text,
+        source: r.source || 'manual',
+        prestige_tag: r.prestige_tag || '',
+        rt_override: r.rt_override || '',
+        cinema_score_override: r.cinema_score_override || '',
+      };
     });
   }
 }
@@ -647,6 +697,12 @@ function buildCard(movie) {
           <button class="btn-criterion${getPrestigeTag(movie) ? ' is-criterion' : ''}">${getPrestigeTag(movie) ? '✦ Criterion' : 'Criterion'}</button>
           <span class="saved-flash">Saved</span>
         </div>
+        <div class="score-overrides">
+          <label class="score-override-field">RT% <input class="score-override-input" type="number" min="0" max="100" placeholder="${movie.ratings?.rt || 'NR'}" value="${blurbCache[getKey(movie)]?.rt_override || ''}"></label>
+          <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${movie.ratings?.cinemaScore || '—'}" value="${blurbCache[getKey(movie)]?.cinema_score_override || ''}"></label>
+          <button class="btn-save-scores">Save scores</button
+          ><span class="saved-flash scores-flash">Saved</span>
+        </div>
       </div>
     </div>
   `;
@@ -723,6 +779,36 @@ function buildCard(movie) {
 
   const criterionBtn = card.querySelector('.btn-criterion');
   criterionBtn.addEventListener('click', () => toggleCriterion(movie, criterionBtn));
+
+  const saveScoresBtn = card.querySelector('.btn-save-scores');
+  const scoresFlash = card.querySelector('.scores-flash');
+  const [rtInput, csInput] = card.querySelectorAll('.score-override-input');
+  saveScoresBtn.addEventListener('click', async () => {
+    saveScoresBtn.disabled = true;
+    const key = getKey(movie);
+    const rt = rtInput.value.trim();
+    const cs = csInput.value.trim().toUpperCase();
+    const entry = blurbCache[key] || {};
+    try {
+      await _sb.from('blurbs').upsert({
+        movie_key: key,
+        title: movie.title || '',
+        text: entry.text || '',
+        source: entry.source || 'manual',
+        prestige_tag: entry.prestige_tag || null,
+        rt_override: rt || null,
+        cinema_score_override: cs || null,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: 'movie_key' });
+      blurbCache[key] = { ...entry, rt_override: rt, cinema_score_override: cs };
+      scoresFlash.classList.add('show');
+      setTimeout(() => scoresFlash.classList.remove('show'), 1800);
+    } catch (e) {
+      console.error('score override error:', e);
+    } finally {
+      saveScoresBtn.disabled = false;
+    }
+  });
 
   return card;
 }
