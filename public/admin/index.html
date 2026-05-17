@@ -405,12 +405,22 @@ const MAX_CHARS = 340;
 
 const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
+const ADMIN_EMAILS = ['daniel@dannymora.com'];
+
 // _sbAuth: handles login/logout only (session persisted for gating)
 const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // _sb: always runs as anon role so RLS anon policies apply to data reads/writes
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
 });
+
+async function requireAuth() {
+  const { data: { session } } = await _sbAuth.auth.getSession();
+  if (!session) {
+    showLoginScreen();
+    throw new Error('Not authenticated');
+  }
+}
 
 let picks = new Set();
 let canEditPicks = true;
@@ -441,6 +451,7 @@ function isPick(movie) {
 }
 
 async function togglePick(movie, btn, card) {
+  await requireAuth();
   if (!canEditPicks) {
     throw new Error('Recommendations are unavailable for this account.');
   }
@@ -522,8 +533,12 @@ async function tryLogin() {
     button.textContent = 'Signing in...';
   }
   try {
-    const { error: authError } = await _sbAuth.auth.signInWithPassword({ email, password });
+    const { data: signInData, error: authError } = await _sbAuth.auth.signInWithPassword({ email, password });
     if (authError) throw authError;
+    if (!ADMIN_EMAILS.includes(signInData.user?.email)) {
+      await _sbAuth.auth.signOut();
+      throw new Error('Access denied.');
+    }
     location.reload();
   } catch (e) {
     error.textContent = e?.message || 'Could not sign in.';
@@ -568,6 +583,7 @@ function getPrestigeTag(movie) {
 }
 
 async function replaceBlurbRow(movie, entry) {
+  await requireAuth();
   if (!canEditBlurbs) {
     throw new Error('Manual reviews are unavailable for this account.');
   }
@@ -727,6 +743,7 @@ function isHidden(movie) {
 }
 
 async function toggleHidden(movie) {
+  await requireAuth();
   if (!canEditSiteHidden) {
     throw new Error('Site-wide Hide is unavailable for this account.');
   }
