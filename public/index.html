@@ -4095,14 +4095,15 @@ function toggleHidden(movieId, fallbackTitle = '') {
 async function loadData() {
   try {
     readFiltersFromUrl();
-    const res = await fetch('./data.json?t=' + Date.now());
-    if (!res.ok) {
-      throw new Error(`Failed to load data.json (${res.status})`);
-    }
+    const [res] = await Promise.all([
+      fetch('./data.json?t=' + Date.now()),
+      loadBlurbsFromCloud(),
+      loadSiteHidden(),
+      loadPicks(),
+    ]);
+    if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
     const data = await res.json();
-    if (!data || !Array.isArray(data.movies)) {
-      throw new Error('Invalid dashboard payload');
-    }
+    if (!data || !Array.isArray(data.movies)) throw new Error('Invalid dashboard payload');
     initDashboard(data);
   } catch (e) {
     renderLoadError(e);
@@ -5816,7 +5817,6 @@ async function loadSiteHidden() {
     const data = await res.json();
     if (!Array.isArray(data) || !data.length) return;
     siteHidden = new Set(data.map(r => r.movie_id));
-    render();
   } catch (e) { /* silent */ }
 }
 
@@ -5846,8 +5846,6 @@ async function loadBlurbsFromCloud() {
         };
       }
     });
-    applyScoreOverrides();
-    render();
   } catch (e) { /* silent */ }
 }
 
@@ -5879,7 +5877,6 @@ async function loadPicks() {
     if (ids) {
       sitepicks = new Set(ids);
       try { localStorage.setItem('cinema_picks', JSON.stringify(ids)); } catch {}
-      render();
     }
   } catch (e) { /* silent */ }
 }
@@ -5939,9 +5936,6 @@ function initSupabase() {
     updateProfileUI();
     if (currentUser) loadUserListsFromCloud();
   });
-  loadPicks();
-  loadBlurbsFromCloud();
-  loadSiteHidden();
 }
 
 function updateProfileUI() {
