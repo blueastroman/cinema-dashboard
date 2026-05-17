@@ -4164,20 +4164,20 @@ function deduplicateMovies(movies) {
 
     // Merge all theater entries from variants into primary
     const allTheaterEntries = [];
-    const seenTheaterShowtimePairs = new Set();
     for (const variant of group) {
       for (const th of variant.theaters || []) {
-        for (const show of th.showtimes || []) {
-          const key = `${th.name}|||${show.time}|||${show.link || ''}`;
-          if (!seenTheaterShowtimePairs.has(key)) {
-            seenTheaterShowtimePairs.add(key);
-            // Find or create theater entry in allTheaterEntries
-            let te = allTheaterEntries.find(t => t.name === th.name);
-            if (!te) {
-              te = { ...th, showtimes: [] };
-              allTheaterEntries.push(te);
-            }
-            te.showtimes.push(show);
+        let te = allTheaterEntries.find(t => t.name === th.name);
+        if (!te) {
+          te = { ...th, schedule: [] };
+          allTheaterEntries.push(te);
+        }
+        // Merge schedule days, deduping by date+day key
+        const seenDays = new Set(te.schedule.map(s => `${s.date}|||${s.day}`));
+        for (const s of th.schedule || []) {
+          const dayKey = `${s.date}|||${s.day}`;
+          if (!seenDays.has(dayKey)) {
+            seenDays.add(dayKey);
+            te.schedule.push(s);
           }
         }
       }
