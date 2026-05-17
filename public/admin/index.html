@@ -390,6 +390,70 @@
       flex-shrink: 0;
     }
     .btn-signout:hover { border-color: var(--text-dim); color: var(--text-dim); }
+
+    .view-toggle {
+      display: flex;
+      gap: 2px;
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 3px;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+    .view-btn {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .view-btn.active { background: var(--mid-gray); color: var(--text); }
+    .view-btn:hover:not(.active) { color: var(--text-dim); }
+
+    /* ── RANKINGS PREVIEW ── */
+    .rankings-preview { display: flex; flex-direction: column; gap: 2px; }
+
+    .rp-card {
+      display: grid;
+      grid-template-columns: 52px 72px 1fr;
+      gap: 16px;
+      background: var(--off-black);
+      border: 1px solid var(--dark-gray);
+      border-radius: 3px;
+      padding: 14px 18px;
+      align-items: start;
+      transition: border-color 0.15s;
+    }
+    .rp-card:hover { border-color: var(--mid-gray); }
+    .rp-card.rp-hidden { opacity: 0.4; border-left: 3px solid var(--skip); }
+    .rp-card.rp-pick  { box-shadow: inset 0 0 0 1px rgba(200,169,110,0.35); }
+
+    .rp-score { text-align: right; padding-top: 2px; }
+    .rp-rt { font-size: 1.3rem; font-weight: 900; line-height: 1; }
+    .rp-rt.high { color: var(--watch); }
+    .rp-rt.mid  { color: var(--depends); }
+    .rp-rt.low  { color: var(--skip); }
+    .rp-rt.nr   { color: var(--muted); font-size: 1rem; }
+    .rp-rt-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+
+    .rp-poster { width: 72px; height: 108px; object-fit: cover; border-radius: 2px; background: var(--charcoal); display: block; }
+    .rp-poster-placeholder { width: 72px; height: 108px; border-radius: 2px; background: var(--charcoal); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; color: var(--muted); }
+
+    .rp-body { min-width: 0; }
+    .rp-title { font-size: 0.95rem; font-weight: 800; color: var(--cream); margin-bottom: 2px; }
+    .rp-meta { font-size: 0.7rem; color: var(--muted); margin-bottom: 8px; }
+    .rp-blurb { font-size: 0.78rem; font-style: italic; color: var(--text-dim); line-height: 1.5; border-left: 2px solid var(--mid-gray); padding-left: 8px; }
+    .rp-blurb.no-blurb { font-style: normal; color: var(--muted); opacity: 0.6; }
+    .rp-badges { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .rp-badge { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; }
+    .rp-badge.hidden { background: rgba(184,80,80,0.12); color: var(--skip); border: 1px solid rgba(184,80,80,0.3); }
+    .rp-badge.pick   { background: rgba(200,169,110,0.12); color: var(--accent); border: 1px solid rgba(200,169,110,0.3); }
+    .rp-badge.doc    { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--dark-gray); }
   </style>
 </head>
 <body>
@@ -407,6 +471,10 @@
       </select>
     </div>
     <div class="stats" id="stats"></div>
+    <div class="view-toggle">
+      <button id="btn-editor" class="view-btn active" onclick="setView('editor')">Editor</button>
+      <button id="btn-rankings" class="view-btn" onclick="setView('rankings')">Rankings</button>
+    </div>
     <button class="btn-signout" onclick="resetAdminSession()">Sign out</button>
   </div>
 </header>
@@ -1057,6 +1125,101 @@ function renderAdminError(error) {
       </div>
     </main>
   `;
+}
+
+let adminView = 'editor';
+
+function setView(v) {
+  adminView = v;
+  document.getElementById('btn-editor').classList.toggle('active', v === 'editor');
+  document.getElementById('btn-rankings').classList.toggle('active', v === 'rankings');
+  const controls = document.querySelector('.controls');
+  if (controls) controls.style.visibility = v === 'editor' ? '' : 'hidden';
+  if (v === 'rankings') renderRankings();
+  else renderList();
+}
+
+function getRankingsMovies() {
+  const byImdb = new Map();
+  allMovies.forEach(movie => {
+    const rt = getRTScore(movie);
+    if (rt === null) return;
+    const genre = (movie.ratings?.genre || '').toLowerCase();
+    if (genre.includes('documentary') || genre.includes('short')) return;
+    const key = movie.ratings?.imdbID || getKey(movie);
+    if (!byImdb.has(key)) {
+      byImdb.set(key, { ...movie });
+    }
+  });
+  return [...byImdb.values()].sort((a, b) => {
+    const ra = getRTScore(a) ?? -1;
+    const rb = getRTScore(b) ?? -1;
+    return rb - ra || (a.title || '').localeCompare(b.title || '');
+  });
+}
+
+function renderRankings() {
+  const main = document.getElementById('main');
+  const movies = getRankingsMovies();
+
+  main.innerHTML = '';
+  adminWarnings.forEach(message => {
+    const warning = document.createElement('div');
+    warning.className = 'admin-warning';
+    warning.innerHTML = `<strong>Limited Access</strong><br>${escapeHTML(message)}`;
+    main.appendChild(warning);
+  });
+
+  if (!movies.length) {
+    main.innerHTML += `<div class="empty-state"><h2>No ranked films</h2><p>No films with RT scores found.</p></div>`;
+    return;
+  }
+
+  const list = document.createElement('div');
+  list.className = 'rankings-preview';
+
+  movies.forEach(movie => {
+    const rt = getRTScore(movie);
+    const rtClass = rt === null ? 'nr' : rt >= 80 ? 'high' : rt >= 60 ? 'mid' : 'low';
+    const rtDisplay = rt !== null ? `${rt}%` : 'NR';
+    const poster = movie.ratings?.poster;
+    const blurb = getBlurbText(movie);
+    const meta = [movie.ratings?.year, movie.ratings?.director, movie.ratings?.genre, movie.ratings?.runtime]
+      .filter(v => v && String(v).toUpperCase() !== 'N/A').join(' · ');
+    const hidden = isHidden(movie);
+    const pick = isPick(movie);
+    const genre = (movie.ratings?.genre || '').toLowerCase();
+    const isDoc = genre.includes('documentary');
+
+    const card = document.createElement('div');
+    card.className = `rp-card${hidden ? ' rp-hidden' : ''}${pick ? ' rp-pick' : ''}`;
+
+    const posterEl = poster
+      ? `<img class="rp-poster" src="${escapeHTML(poster)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'rp-poster-placeholder\\'>${escapeHTML((movie.title||'?')[0].toUpperCase())}</div>'">`
+      : `<div class="rp-poster-placeholder">${escapeHTML((movie.title||'?')[0].toUpperCase())}</div>`;
+
+    const badges = [];
+    if (hidden) badges.push('<span class="rp-badge hidden">Hidden</span>');
+    if (pick)   badges.push('<span class="rp-badge pick">✦ Pick</span>');
+    if (isDoc)  badges.push('<span class="rp-badge doc">Doc</span>');
+
+    card.innerHTML = `
+      <div class="rp-score">
+        <div class="rp-rt ${rtClass}">${rtDisplay}</div>
+        <div class="rp-rt-label">RT</div>
+      </div>
+      ${posterEl}
+      <div class="rp-body">
+        <div class="rp-title">${escapeHTML(movie.title || '')}</div>
+        <div class="rp-meta">${escapeHTML(meta)}</div>
+        <div class="rp-blurb${blurb ? '' : ' no-blurb'}">${blurb ? escapeHTML(blurb) : 'No review — will use consensus or AI'}</div>
+        ${badges.length ? `<div class="rp-badges">${badges.join('')}</div>` : ''}
+      </div>
+    `;
+    list.appendChild(card);
+  });
+
+  main.appendChild(list);
 }
 
 async function init() {
