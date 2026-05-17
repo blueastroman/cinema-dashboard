@@ -4203,6 +4203,7 @@ function initDashboard(data) {
     }))
     .filter(movie => movie.theaters.length > 0);
   allMovies = deduplicateMovies(allMovies);
+  applyScoreOverrides();
   primeMovieBlurbCache(allMovies);
   effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
   hasLoadedData = true;
