@@ -2742,6 +2742,33 @@ function buildMembershipPanel() {
   const fragment = template.content.cloneNode(true);
   const panel = fragment.firstElementChild;
   if (!(panel instanceof HTMLElement)) return null;
+
+  const amcSelect = panel.querySelector('#default-amc-select');
+  if (amcSelect instanceof HTMLSelectElement) {
+    const options = hasLoadedData ? getAvailableMembershipTheaters('amc', { movies: allMovies }) : [];
+    amcSelect.innerHTML = '<option value="all">All AMC</option>';
+    options.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = getMembershipDefaultOptionLabel('amc', name);
+      amcSelect.appendChild(option);
+    });
+    amcSelect.value = options.includes(membershipDefaults.amc) ? membershipDefaults.amc : 'all';
+  }
+
+  const alamoSelect = panel.querySelector('#default-alamo-select');
+  if (alamoSelect instanceof HTMLSelectElement) {
+    const options = hasLoadedData ? getAvailableMembershipTheaters('alamo', { movies: allMovies }) : [];
+    alamoSelect.innerHTML = '<option value="all">All Alamo</option>';
+    options.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = getMembershipDefaultOptionLabel('alamo', name);
+      alamoSelect.appendChild(option);
+    });
+    alamoSelect.value = options.includes(membershipDefaults.alamo) ? membershipDefaults.alamo : 'all';
+  }
+
   return panel;
 }
 const DEFAULT_THEATER_META = {
