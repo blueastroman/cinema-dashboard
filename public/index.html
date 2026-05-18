@@ -1313,6 +1313,9 @@
       font-style: italic;
       border-left: 2px solid var(--mid-gray);
       padding-left: 12px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: normal;
     }
 
     .theater-film-runtime.long {
@@ -1671,7 +1674,8 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-top: 4px;
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .ranking-lb {
@@ -1965,25 +1969,50 @@
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
       .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
-      body::after { height: calc(var(--safe-top) + 76px); }
+      body::after { height: calc(var(--safe-top) + 128px); }
       header { padding-top: var(--safe-top); }
-      .header-inner { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
-      .header-actions { width: 100%; margin-left: 0; justify-content: flex-start; }
+      .header-inner { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; }
+      .header-actions {
+        width: 100%;
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        align-items: center;
+        gap: 10px;
+      }
+      .settings-wrap { min-width: 0; }
+      .settings-btn { width: 100%; }
       .settings-menu { right: auto; left: 0; width: min(320px, calc(100vw - 40px)); }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
-      .date-scope-inner { gap: 8px; }
+      .date-scope-inner { gap: 10px 12px; }
       .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
-      .daypart-filter { width: 100%; margin-left: 0; }
-      .daypart-select { width: 100%; }
+      .date-scope-inner > .filter-btn {
+        flex: 1 1 calc((100% - 24px) / 3);
+        min-width: 0;
+      }
+      .daypart-filter {
+        flex: 1 1 calc(50% - 6px);
+        min-width: 0;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 8px;
+        margin-left: 0;
+      }
+      .daypart-filter .control-label { margin: 0; }
+      .daypart-select { width: 100%; min-width: 0; }
       .date-picker-wrap {
         display: inline-block;
         position: relative;
+        flex: 1 1 calc(50% - 6px);
+        min-width: 0;
       }
       .date-picker-wrap #pickdate-btn {
         display: inline-flex;
-        min-width: 146px;
+        width: 100%;
+        min-width: 0;
         justify-content: center;
       }
       .date-picker-wrap #date-picker {
@@ -2002,14 +2031,44 @@
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
       .theater-film-row {
-        grid-template-columns: 56px minmax(0, 1fr) auto;
-        gap: 10px;
+        grid-template-columns: 56px minmax(0, 1fr);
+        column-gap: 12px;
+        row-gap: 12px;
       }
       .theater-poster-wrap { width: 56px; }
-      .theater-film-row .ranking-score { display: none; }
-      .theater-film-times { grid-column: 2 / 3; }
-      .theater-film-actions { grid-column: 3 / 4; grid-row: 1; }
-      .theater-film-review { font-size: 0.88rem; }
+      .theater-film-row .ranking-score {
+        display: block;
+        grid-column: 1;
+        grid-row: 2;
+        padding-right: 0;
+      }
+      .theater-film-info {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+      .theater-film-title-row {
+        padding-right: 0;
+      }
+      .theater-film-times {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
+      .theater-film-actions {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 0;
+      }
+      .theater-film-review { font-size: 0.88rem; line-height: 1.5; }
+      .ranking-score-label,
+      .ranking-lb,
+      .ranking-cs {
+        font-size: 0.56rem;
+        line-height: 1.2;
+      }
+      .ranking-rt { font-size: 2.2rem; }
       .mobile-filter-inner { padding: 10px 20px; }
       .ranking-row {
         grid-template-columns: 64px minmax(0, 1fr);
@@ -2033,6 +2092,11 @@
         grid-row: 1 / span 2;
       }
       .ranking-title { font-size: 1.15rem; }
+      .ranking-prestige-chip {
+        font-size: 0.6rem;
+        letter-spacing: 0.09em;
+        padding: 4px 9px;
+      }
       .ranking-next,
       .ranking-actions,
       .ranking-times-panel {
@@ -2447,17 +2511,115 @@ const BLURB_SYSTEM_PROMPT = `You write brutally honest, specific one-liners abou
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
 const BLURB_MAX_VISIBLE_CHARS = 340;
 const PRESTIGE_TAG_PRIORITY = [
-  "PALME D'OR",
   'BEST PICTURE WINNER',
+  'AFI TOP 100',
   'BEST ANIMATED FEATURE WINNER',
   'BEST INTERNATIONAL FEATURE WINNER',
+  "PALME D'OR",
   'CRITERION COLLECTION',
-  "DIRECTOR'S CUT",
-  '4K RESTORATION',
-  'WORLD PREMIERE',
-  'NYC PREMIERE',
-  'REPERTORY',
-  'SILENT FILM',
+  'SHOWTIMES RECOMMENDED',
+];
+const AFI_TOP_100_ENTRIES = [
+  ['CITIZEN KANE', '1941'],
+  ['CASABLANCA', '1942'],
+  ['GODFATHER, THE', '1972'],
+  ['GONE WITH THE WIND', '1939'],
+  ['LAWRENCE OF ARABIA', '1962'],
+  ['WIZARD OF OZ, THE', '1939'],
+  ['GRADUATE, THE', '1967'],
+  ['ON THE WATERFRONT', '1954'],
+  ["SCHINDLER'S LIST", '1993'],
+  ["SINGIN' IN THE RAIN", '1952'],
+  ["IT'S A WONDERFUL LIFE", '1946'],
+  ['SUNSET BOULEVARD', '1950'],
+  ['BRIDGE ON THE RIVER KWAI, THE', '1957'],
+  ['SOME LIKE IT HOT', '1959'],
+  ['STAR WARS', '1977'],
+  ['ALL ABOUT EVE', '1950'],
+  ['AFRICAN QUEEN, THE', '1951'],
+  ['PSYCHO', '1960'],
+  ['CHINATOWN', '1974'],
+  ["ONE FLEW OVER THE CUCKOO'S NEST", '1975'],
+  ['GRAPES OF WRATH, THE', '1940'],
+  ['2001: A SPACE ODYSSEY', '1968'],
+  ['MALTESE FALCON, THE', '1941'],
+  ['RAGING BULL', '1980'],
+  ['E.T. THE EXTRA-TERRESTRIAL', '1982'],
+  ['DR. STRANGELOVE', '1964'],
+  ['BONNIE & CLYDE', '1967'],
+  ['APOCALYPSE NOW', '1979'],
+  ['MR. SMITH GOES TO WASHINGTON', '1939'],
+  ['TREASURE OF THE SIERRA MADRE', '1948'],
+  ['ANNIE HALL', '1977'],
+  ['GODFATHER PART II, THE', '1974'],
+  ['HIGH NOON', '1952'],
+  ['TO KILL A MOCKINGBIRD', '1962'],
+  ['IT HAPPENED ONE NIGHT', '1934'],
+  ['MIDNIGHT COWBOY', '1969'],
+  ['BEST YEARS OF OUR LIVES, THE', '1946'],
+  ['DOUBLE INDEMNITY', '1944'],
+  ['DOCTOR ZHIVAGO', '1965'],
+  ['NORTH BY NORTHWEST', '1959'],
+  ['WEST SIDE STORY', '1961'],
+  ['REAR WINDOW', '1954'],
+  ['KING KONG', '1933'],
+  ['BIRTH OF A NATION, THE', '1915'],
+  ['STREETCAR NAMED DESIRE, A', '1951'],
+  ['CLOCKWORK ORANGE, A', '1971'],
+  ['TAXI DRIVER', '1976'],
+  ['JAWS', '1975'],
+  ['SNOW WHITE & THE SEVEN DWARFS', '1937'],
+  ['BUTCH CASSIDY & THE SUNDANCE KID', '1969'],
+  ['PHILADELPHIA STORY, THE', '1940'],
+  ['FROM HERE TO ETERNITY', '1953'],
+  ['AMADEUS', '1984'],
+  ['ALL QUIET ON THE WESTERN FRONT', '1930'],
+  ['SOUND OF MUSIC, THE', '1965'],
+  ['M*A*S*H', '1970'],
+  ['THIRD MAN, THE', '1949'],
+  ['FANTASIA', '1940'],
+  ['REBEL WITHOUT A CAUSE', '1955'],
+  ['RAIDERS OF THE LOST ARK', '1981'],
+  ['VERTIGO', '1958'],
+  ['TOOTSIE', '1982'],
+  ['STAGECOACH', '1939'],
+  ['CLOSE ENCOUNTERS OF THE THIRD KIND', '1977'],
+  ['SILENCE OF THE LAMBS, THE', '1991'],
+  ['NETWORK', '1976'],
+  ['MANCHURIAN CANDIDATE, THE', '1962'],
+  ['AMERICAN IN PARIS, AN', '1951'],
+  ['SHANE', '1953'],
+  ['FRENCH CONNECTION, THE', '1971'],
+  ['FORREST GUMP', '1994'],
+  ['BEN-HUR', '1959'],
+  ['WUTHERING HEIGHTS', '1939'],
+  ['GOLD RUSH, THE', '1925'],
+  ['DANCES WITH WOLVES', '1990'],
+  ['CITY LIGHTS', '1931'],
+  ['AMERICAN GRAFFITI', '1973'],
+  ['ROCKY', '1976'],
+  ['DEER HUNTER, THE', '1978'],
+  ['WILD BUNCH, THE', '1969'],
+  ['MODERN TIMES', '1936'],
+  ['GIANT', '1956'],
+  ['PLATOON', '1986'],
+  ['FARGO', '1996'],
+  ['DUCK SOUP', '1933'],
+  ['MUTINY ON THE BOUNTY', '1935'],
+  ['FRANKENSTEIN', '1931'],
+  ['EASY RIDER', '1969'],
+  ['PATTON', '1970'],
+  ['JAZZ SINGER, THE', '1927'],
+  ['MY FAIR LADY', '1964'],
+  ['PLACE IN THE SUN, A', '1951'],
+  ['APARTMENT, THE', '1960'],
+  ['GOODFELLAS', '1990'],
+  ['PULP FICTION', '1994'],
+  ['SEARCHERS, THE', '1956'],
+  ['BRINGING UP BABY', '1938'],
+  ['UNFORGIVEN', '1992'],
+  ["GUESS WHO'S COMING TO DINNER", '1967'],
+  ['YANKEE DOODLE DANDY', '1942'],
 ];
 let movieBlurbCache = {};
 let posterTintCache = {};
@@ -4820,8 +4982,29 @@ function renderPrestigeChip(label) {
   if (label === 'CRITERION COLLECTION') {
     return `<div class="ranking-prestige-chip ranking-prestige-chip--criterion">${CRITERION_SVG}CRITERION COLLECTION</div>`;
   }
+  if (label === 'SHOWTIMES RECOMMENDED') {
+    return `<div class="picks-badge">✦ Showtimes Recommended</div>`;
+  }
   return `<div class="ranking-prestige-chip">${escapeHTML(label)}</div>`;
 }
+
+function normalizePrestigeTitle(title) {
+  return String(title || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .replace(/,\s*(THE|A|AN)$/i, (_, article) => `${article.toUpperCase()} `)
+    .replace(/&/g, ' AND ')
+    .replace(/\*/g, '')
+    .replace(/[.:'’,-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toUpperCase();
+}
+
+const AFI_TOP_100_SET = new Set(
+  AFI_TOP_100_ENTRIES.map(([title, year]) => `${normalizePrestigeTitle(title)}|${String(year)}`)
+);
 
 function getPrestigeChipLabel(movie) {
   const key = getMovieBlurbKey(movie);
@@ -4832,6 +5015,11 @@ function getPrestigeChipLabel(movie) {
   }
 
   const ratings = movie?.ratings || {};
+  const normalizedTitle = normalizePrestigeTitle(movie?.title);
+  const releaseYear = String(cleanDisplayText(ratings.year) || '').match(/\d{4}/)?.[0] || '';
+  if (normalizedTitle && releaseYear && AFI_TOP_100_SET.has(`${normalizedTitle}|${releaseYear}`)) {
+    return 'AFI TOP 100';
+  }
   const verdictReason = cleanDisplayText(movie?.verdict?.reason);
   const specialFormats = Array.isArray(movie?.special_formats) ? movie.special_formats.join(', ') : '';
   const blob = [
@@ -4853,6 +5041,7 @@ function getPrestigeChipLabel(movie) {
   for (const item of patterns) {
     if (item.pattern.test(blob)) return item.label;
   }
+  if (isPickMovie(movie)) return 'SHOWTIMES RECOMMENDED';
   return '';
 }
 
@@ -4948,7 +5137,6 @@ function buildRankingRow(movie, idx) {
     <div class="ranking-main">
       <div class="ranking-title-row">
         <div class="ranking-title"><a href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
-        ${isPickMovie(movie) ? renderPicksBadge() : ''}
         ${prestigeChip ? renderPrestigeChip(prestigeChip) : ''}
       </div>
       ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
@@ -5154,7 +5342,6 @@ function renderTheaterView() {
         <div class="theater-film-info">
           <div class="theater-film-title-row">
             <a class="theater-film-title" href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>
-            ${isPickMovie(movie) ? renderPicksBadge() : ''}
           </div>
           ${metaStr ? `<div class="theater-film-meta">${metaStr}</div>` : ''}
           ${confidence ? `<div class="confidence-note">${escapeHTML(confidence)}</div>` : ''}
