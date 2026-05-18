@@ -1975,7 +1975,17 @@
         gap: 10px;
       }
       .logo { font-size: 1.05rem; }
-      .profile-dropdown { right: 0; width: min(320px, calc(100vw - 40px)); }
+      .profile-dropdown {
+        position: fixed;
+        top: calc(var(--safe-top) + 58px);
+        right: 20px;
+        width: min(320px, calc(100vw - 40px));
+        max-height: calc(100vh - var(--safe-top) - 78px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 320;
+        pointer-events: auto;
+      }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
