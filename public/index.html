@@ -1675,7 +1675,8 @@
       color: var(--muted);
       margin-top: 4px;
       white-space: normal;
-      overflow-wrap: anywhere;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .ranking-lb {
@@ -1969,7 +1970,7 @@
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
       .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
-      body::after { height: calc(var(--safe-top) + 128px); }
+      body::after { height: calc(var(--safe-top) + 168px); }
       header { padding-top: var(--safe-top); }
       .header-inner { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; }
       .header-actions {
@@ -1977,12 +1978,17 @@
         margin-left: 0;
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto auto;
+        grid-template-areas:
+          ". theme profile"
+          ". memberships memberships";
         align-items: center;
-        gap: 10px;
+        gap: 8px 10px;
       }
-      .settings-wrap { min-width: 0; }
-      .settings-btn { width: 100%; }
-      .settings-menu { right: auto; left: 0; width: min(320px, calc(100vw - 40px)); }
+      .settings-wrap { min-width: 0; grid-area: memberships; justify-self: end; }
+      .settings-btn { width: auto; }
+      .theme-switch { grid-area: theme; justify-self: end; }
+      #profile-wrap { grid-area: profile; justify-self: end; }
+      .settings-menu { right: 0; left: auto; width: min(320px, calc(100vw - 40px)); }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
@@ -2031,7 +2037,7 @@
       .movies-grid { grid-template-columns: 1fr; }
       body.compact-mode .movies-grid { grid-template-columns: 1fr; }
       .theater-film-row {
-        grid-template-columns: 56px minmax(0, 1fr);
+        grid-template-columns: 64px minmax(0, 1fr);
         column-gap: 12px;
         row-gap: 12px;
       }
@@ -2041,6 +2047,7 @@
         grid-column: 1;
         grid-row: 2;
         padding-right: 0;
+        width: 64px;
       }
       .theater-film-info {
         grid-column: 2;
@@ -2066,6 +2073,7 @@
       .ranking-lb,
       .ranking-cs {
         font-size: 0.56rem;
+        letter-spacing: 0.04em;
         line-height: 1.2;
       }
       .ranking-rt { font-size: 2.2rem; }
@@ -6208,10 +6216,6 @@ async function loadPicks() {
 
 function isPickMovie(movie) {
   return sitepicks.has(movie.id) || sitepicks.has(movie.title);
-}
-
-function renderPicksBadge() {
-  return `<span class="picks-badge">✦ Showtimes Recommended</span>`;
 }
 
 function getSupabase() {
