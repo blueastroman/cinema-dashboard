@@ -153,7 +153,7 @@
       height: calc(var(--safe-top) + 76px);
       background: var(--header-bg);
       pointer-events: none;
-      z-index: 109;
+      z-index: 110;
     }
 
     /* ── HEADER ────────────────────────────────────────────── */
@@ -163,6 +163,7 @@
       top: 0;
       z-index: 110;
       background: var(--header-bg);
+      will-change: transform;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -1042,8 +1043,8 @@
     }
 
     @keyframes fadeUp {
-      from { transform: translateY(10px); }
-      to { transform: translateY(0); }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
     }
 
     /* stagger via nth-child */
