@@ -163,6 +163,8 @@
       top: 0;
       z-index: 110;
       background: var(--header-bg);
+      isolation: isolate;
+      overflow: clip;
       will-change: transform;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -1939,8 +1941,7 @@
       .theater-film-list { grid-template-columns: 1fr; }
       .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
       body::after {
-        height: calc(var(--safe-top) + 88px);
-        background: var(--off-black);
+        display: none;
       }
       header {
         padding-top: var(--safe-top);
