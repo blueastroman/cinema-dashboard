@@ -196,49 +196,16 @@
       align-items: center;
       gap: 12px;
       margin-left: auto;
-    }
-
-    .settings-wrap {
-      position: relative;
-    }
-
-    .settings-btn {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 8px 14px;
-      border: 1px solid var(--mid-gray);
-      border-radius: 999px;
-      background: var(--off-black);
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-    }
-
-    .settings-btn:hover,
-    .settings-btn.active {
-      border-color: var(--accent-dim);
-      color: var(--accent);
+      flex-shrink: 0;
     }
 
     .settings-menu {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      width: 280px;
-      padding: 14px;
-      border: 1px solid var(--mid-gray);
-      border-radius: 12px;
-      background: var(--off-black);
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
-      display: none;
-      z-index: 220;
-    }
-
-    .settings-menu.open {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 8px;
+      margin-top: 8px;
+      border-top: 1px solid var(--mid-gray);
     }
 
     .settings-title {
@@ -1970,25 +1937,26 @@
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
       .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
-      body::after { height: calc(var(--safe-top) + 168px); }
-      header { padding-top: var(--safe-top); }
-      .header-inner { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; }
-      .header-actions {
-        width: 100%;
-        margin-left: 0;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
-        grid-template-areas:
-          ". theme profile"
-          ". memberships memberships";
-        align-items: center;
-        gap: 8px 10px;
+      body::after {
+        height: calc(var(--safe-top) + 88px);
+        background: var(--off-black);
       }
-      .settings-wrap { min-width: 0; grid-area: memberships; justify-self: end; }
-      .settings-btn { width: auto; }
-      .theme-switch { grid-area: theme; justify-self: end; }
-      #profile-wrap { grid-area: profile; justify-self: end; }
-      .settings-menu { right: 0; left: auto; width: min(320px, calc(100vw - 40px)); }
+      header {
+        padding-top: var(--safe-top);
+        background: var(--off-black);
+      }
+      header::before { background: var(--off-black); }
+      .header-inner { flex-wrap: nowrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; align-items: center; }
+      .header-actions {
+        width: auto;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .logo { font-size: 1.05rem; }
+      .profile-dropdown { right: 0; width: min(320px, calc(100vw - 40px)); }
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
@@ -2041,28 +2009,34 @@
         column-gap: 12px;
         row-gap: 12px;
       }
-      .theater-poster-wrap { width: 56px; }
+      .theater-poster-wrap {
+        width: 56px;
+        grid-column: 1;
+        grid-row: 1;
+      }
       .theater-film-row .ranking-score {
         display: block;
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 1;
+        align-self: start;
+        margin-top: 94px;
         padding-right: 0;
         width: 64px;
       }
       .theater-film-info {
         grid-column: 2;
-        grid-row: 1 / span 2;
+        grid-row: 1;
       }
       .theater-film-title-row {
         padding-right: 0;
       }
       .theater-film-times {
         grid-column: 1 / -1;
-        grid-row: 3;
+        grid-row: 2;
       }
       .theater-film-actions {
         grid-column: 1 / -1;
-        grid-row: 4;
+        grid-row: 3;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
@@ -2193,6 +2167,14 @@
       transition: background 0.12s;
     }
     .profile-dropdown-item:hover { background: var(--mid-gray); }
+    .profile-dropdown-section-title {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 2px 8px 0;
+    }
 
     /* Auth modal */
     .auth-overlay {
@@ -2331,35 +2313,6 @@
         <div class="logo">Showtimes <span>NYC</span></div>
       </div>
       <div class="header-actions">
-        <div class="settings-wrap">
-          <button class="settings-btn" id="settings-btn" type="button" aria-expanded="false" aria-controls="settings-menu">Memberships</button>
-          <div class="settings-menu" id="settings-menu">
-            <div class="settings-title">Memberships</div>
-            <div class="settings-section" id="membership-list">
-              <label class="membership-item"><input type="checkbox" value="amc"> AMC A-List</label>
-              <label class="membership-item"><input type="checkbox" value="alamo"> Alamo Season Pass</label>
-              <label class="membership-item"><input type="checkbox" value="filmforum"> Film Forum Member</label>
-              <label class="membership-item"><input type="checkbox" value="metrograph"> Metrograph Member</label>
-              <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
-            </div>
-            <div class="settings-section settings-defaults" id="membership-defaults" hidden>
-              <div class="settings-subtitle">Default theaters</div>
-              <label class="settings-default-row" id="default-amc-row" hidden>
-                <span class="settings-default-label">Choose default AMC</span>
-                <select class="settings-default-select" id="default-amc-select" data-membership-kind="amc">
-                  <option value="all">All AMC</option>
-                </select>
-              </label>
-              <label class="settings-default-row" id="default-alamo-row" hidden>
-                <span class="settings-default-label">Choose default Alamo</span>
-                <select class="settings-default-select" id="default-alamo-select" data-membership-kind="alamo">
-                  <option value="all">All Alamo</option>
-                </select>
-              </label>
-            </div>
-            <div class="membership-note">Memberships personalize the board, unlock theater-specific controls, and replace generic price notes.</div>
-          </div>
-        </div>
         <div class="theme-switch" role="group" aria-label="Color mode">
           <button class="theme-btn" id="theme-dark-btn" type="button" onclick="setTheme('dark')">Dark</button>
           <button class="theme-btn" id="theme-light-btn" type="button" onclick="setTheme('light')">Light</button>
@@ -2370,6 +2323,35 @@
       </div>
     </div>
   </header>
+
+  <template id="membership-panel-template">
+    <div class="settings-menu">
+      <div class="profile-dropdown-section-title">Memberships</div>
+      <div class="settings-section" id="membership-list">
+        <label class="membership-item"><input type="checkbox" value="amc"> AMC A-List</label>
+        <label class="membership-item"><input type="checkbox" value="alamo"> Alamo Season Pass</label>
+        <label class="membership-item"><input type="checkbox" value="filmforum"> Film Forum Member</label>
+        <label class="membership-item"><input type="checkbox" value="metrograph"> Metrograph Member</label>
+        <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
+      </div>
+      <div class="settings-section settings-defaults" id="membership-defaults" hidden>
+        <div class="settings-subtitle">Default theaters</div>
+        <label class="settings-default-row" id="default-amc-row" hidden>
+          <span class="settings-default-label">Choose default AMC</span>
+          <select class="settings-default-select" id="default-amc-select" data-membership-kind="amc">
+            <option value="all">All AMC</option>
+          </select>
+        </label>
+        <label class="settings-default-row" id="default-alamo-row" hidden>
+          <span class="settings-default-label">Choose default Alamo</span>
+          <select class="settings-default-select" id="default-alamo-select" data-membership-kind="alamo">
+            <option value="all">All Alamo</option>
+          </select>
+        </label>
+      </div>
+      <div class="membership-note">Memberships personalize the board, unlock theater-specific controls, and replace generic price notes.</div>
+    </div>
+  </template>
 
   <!-- AUTH MODAL -->
   <div class="auth-overlay" id="auth-overlay" onclick="handleOverlayClick(event)">
@@ -2725,13 +2707,13 @@ function syncMembershipDrivenControls() {
   if (defaultRegalRow) defaultRegalRow.hidden = !memberships.regal;
 }
 
-function syncSettingsButton(open) {
-  const btn = document.getElementById('settings-btn');
-  const menu = document.getElementById('settings-menu');
-  if (!btn || !menu) return;
-  btn.classList.toggle('active', !!open);
-  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  menu.classList.toggle('open', !!open);
+function buildMembershipPanel() {
+  const template = document.getElementById('membership-panel-template');
+  if (!(template instanceof HTMLTemplateElement)) return null;
+  const fragment = template.content.cloneNode(true);
+  const panel = fragment.firstElementChild;
+  if (!(panel instanceof HTMLElement)) return null;
+  return panel;
 }
 const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'metrograph', aliases: ['metro'] },
@@ -5940,20 +5922,9 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   render();
 });
 
-document.getElementById('settings-btn')?.addEventListener('click', e => {
-  e.stopPropagation();
-  const menu = document.getElementById('settings-menu');
-  syncSettingsButton(!(menu && menu.classList.contains('open')));
-});
-
-document.getElementById('settings-menu')?.addEventListener('click', e => {
-  e.stopPropagation();
-});
-
-document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(input => {
-  input.addEventListener('change', e => {
-    const target = e.target;
-    if (!(target instanceof HTMLInputElement)) return;
+document.addEventListener('change', e => {
+  const target = e.target;
+  if (target instanceof HTMLInputElement && target.matches('#membership-list input[type="checkbox"]')) {
     setStoredMemberships({ [target.value]: target.checked });
     syncMembershipSignals();
     syncMembershipDrivenControls();
@@ -5970,34 +5941,26 @@ document.querySelectorAll('#membership-list input[type="checkbox"]').forEach(inp
       }
     }
     render();
-  });
-});
+  }
 
-document.getElementById('default-amc-select')?.addEventListener('change', e => {
-  const target = e.target;
-  if (!(target instanceof HTMLSelectElement)) return;
-  setStoredMembershipDefaults({ amc: target.value || 'all' });
-  setStoredAmcSelection(target.value || 'all');
-  activeAmc = target.value || 'all';
-  hasExplicitAmcFilter = false;
-  render();
-});
+  if (target instanceof HTMLSelectElement && target.id === 'default-amc-select') {
+    setStoredMembershipDefaults({ amc: target.value || 'all' });
+    setStoredAmcSelection(target.value || 'all');
+    activeAmc = target.value || 'all';
+    hasExplicitAmcFilter = false;
+    render();
+  }
 
-document.getElementById('default-alamo-select')?.addEventListener('change', e => {
-  const target = e.target;
-  if (!(target instanceof HTMLSelectElement)) return;
-  setStoredMembershipDefaults({ alamo: target.value || 'all' });
-  render();
+  if (target instanceof HTMLSelectElement && target.id === 'default-alamo-select') {
+    setStoredMembershipDefaults({ alamo: target.value || 'all' });
+    render();
+  }
 });
 
 document.getElementById('default-regal-select')?.addEventListener('change', e => {
   const target = e.target;
   if (!(target instanceof HTMLSelectElement)) return;
   setStoredMembershipDefaults({ regal: target.value || 'all' });
-});
-
-document.addEventListener('click', () => {
-  syncSettingsButton(false);
 });
 
 readFiltersFromUrl();
@@ -6284,6 +6247,7 @@ function initSupabase() {
 function updateProfileUI() {
   const wrap = document.getElementById('profile-wrap');
   if (!wrap) return;
+  const membershipPanel = buildMembershipPanel();
   if (currentUser) {
     const email = currentUser.email || '';
     const initial = (email || 'U')[0].toUpperCase();
@@ -6298,6 +6262,7 @@ function updateProfileUI() {
     const dropdown = document.createElement('div');
     dropdown.className = 'profile-dropdown';
     dropdown.id = 'profile-dropdown';
+    dropdown.addEventListener('click', e => e.stopPropagation());
 
     const emailDiv = document.createElement('div');
     emailDiv.className = 'profile-dropdown-email';
@@ -6308,21 +6273,37 @@ function updateProfileUI() {
     signOutBtn.textContent = 'Sign out';
     signOutBtn.onclick = handleSignOut;
 
-    dropdown.append(emailDiv, signOutBtn);
+    if (membershipPanel) dropdown.append(emailDiv, membershipPanel, signOutBtn);
+    else dropdown.append(emailDiv, signOutBtn);
     wrap.replaceChildren(avatarBtn, dropdown);
   } else {
+    const profileBtn = document.createElement('button');
+    profileBtn.className = 'profile-btn';
+    profileBtn.id = 'profile-btn';
+    profileBtn.type = 'button';
+    profileBtn.textContent = 'Profile';
+    profileBtn.onclick = toggleProfileDropdown;
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'profile-dropdown';
+    dropdown.id = 'profile-dropdown';
+    dropdown.addEventListener('click', e => e.stopPropagation());
+
     const signInBtn = document.createElement('button');
-    signInBtn.className = 'profile-btn';
-    signInBtn.id = 'profile-btn';
-    signInBtn.type = 'button';
+    signInBtn.className = 'profile-dropdown-item';
     signInBtn.textContent = 'Sign in';
     signInBtn.onclick = openAuthModal;
-    wrap.replaceChildren(signInBtn);
+
+    if (membershipPanel) dropdown.append(membershipPanel, signInBtn);
+    else dropdown.append(signInBtn);
+    wrap.replaceChildren(profileBtn, dropdown);
   }
+  syncMembershipCheckboxes();
+  syncMembershipDrivenControls();
 }
 
 function toggleProfileDropdown(e) {
-  e.stopPropagation();
+  e?.stopPropagation?.();
   document.getElementById('profile-dropdown')?.classList.toggle('open');
 }
 
