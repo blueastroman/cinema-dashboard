@@ -3366,6 +3366,40 @@ function populateMembershipDefaultSelect(selectId, options, defaultValue, allLab
   }
 }
 
+function syncMembershipDefaultSelects() {
+  if (!hasLoadedData) return;
+  document.querySelectorAll('.settings-default-select').forEach(select => {
+    if (!(select instanceof HTMLSelectElement)) return;
+    const kind = String(select.dataset.membershipKind || '').trim();
+    if (!kind) return;
+    let options = [];
+    let allLabel = 'All';
+    if (kind === 'amc') {
+      options = getAvailableMembershipTheaters('amc', { movies: allMovies });
+      allLabel = 'All AMC';
+    } else if (kind === 'alamo') {
+      options = getAvailableMembershipTheaters('alamo', { movies: allMovies });
+      allLabel = 'All Alamo';
+    } else if (kind === 'regal') {
+      options = getAvailableMembershipTheaters('regal', { movies: allMovies });
+      allLabel = 'All Regal';
+    }
+    const currentDefault = membershipDefaults?.[kind] || 'all';
+    select.innerHTML = '';
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = allLabel;
+    select.appendChild(allOption);
+    options.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = getMembershipDefaultOptionLabel(kind, name);
+      select.appendChild(option);
+    });
+    select.value = options.includes(currentDefault) ? currentDefault : 'all';
+  });
+}
+
 // ── MOCK REASON STRINGS (suppress these) ───────────────────────────────────
 const MOCK_REASONS = [
   "Critics are united — this one earns its runtime.",
@@ -4462,6 +4496,7 @@ function initDashboard(data) {
   populateMembershipDefaultSelect('default-amc-select', getAvailableMembershipTheaters('amc', data), membershipDefaults.amc, 'All AMC');
   populateMembershipDefaultSelect('default-alamo-select', getAvailableMembershipTheaters('alamo', data), membershipDefaults.alamo, 'All Alamo');
   populateMembershipDefaultSelect('default-regal-select', getAvailableMembershipTheaters('regal', data), membershipDefaults.regal, 'All Regal');
+  syncMembershipDefaultSelects();
 
   // Theater dropdown
   const theaters = getAvailableTheaters(data);
@@ -6359,6 +6394,7 @@ function updateProfileUI() {
   }
   syncMembershipCheckboxes();
   syncMembershipDrivenControls();
+  syncMembershipDefaultSelects();
 }
 
 function toggleProfileDropdown(e) {
