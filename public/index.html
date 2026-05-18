@@ -1949,6 +1949,24 @@
       }
       header::before { background: var(--off-black); }
       .header-inner { flex-wrap: nowrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; align-items: center; }
+      .mobile-filter-bar,
+      .stats-bar,
+      .date-scope-row {
+        position: sticky;
+        background: var(--off-black);
+      }
+      .mobile-filter-bar {
+        top: var(--mobile-header-height, 0px);
+        z-index: 109;
+      }
+      .stats-bar {
+        top: calc(var(--mobile-header-height, 0px) + var(--mobile-filter-bar-height, 0px));
+        z-index: 108;
+      }
+      .date-scope-row {
+        top: calc(var(--mobile-header-height, 0px) + var(--mobile-filter-bar-height, 0px) + var(--mobile-stats-bar-height, 0px));
+        z-index: 107;
+      }
       .header-actions {
         width: auto;
         margin-left: auto;
@@ -4574,7 +4592,8 @@ function initDashboard(data) {
 
   syncShowButtons();
   syncSortButtons();
-  initMobileFilters();
+initMobileFilters();
+window.addEventListener('resize', updateMobileStickyOffsets);
 
   render();
 }
@@ -4645,6 +4664,7 @@ function getFiltered() {
 function toggleMobileFilters() {
   const isOpen = document.body.classList.toggle('filters-open');
   try { localStorage.setItem('mobile_filters_open', isOpen ? '1' : '0'); } catch(e) {}
+  updateMobileStickyOffsets();
 }
 
 function updateMobileFilterSummary() {
@@ -4671,6 +4691,27 @@ function initMobileFilters() {
     }
   } catch(e) {}
   updateMobileFilterSummary();
+  updateMobileStickyOffsets();
+}
+
+function updateMobileStickyOffsets() {
+  if (!window.matchMedia('(max-width: 768px)').matches) {
+    document.documentElement.style.removeProperty('--mobile-header-height');
+    document.documentElement.style.removeProperty('--mobile-filter-bar-height');
+    document.documentElement.style.removeProperty('--mobile-stats-bar-height');
+    return;
+  }
+  const header = document.querySelector('header');
+  const filterBar = document.getElementById('mobile-filter-bar');
+  const statsBar = document.querySelector('.stats-bar');
+  document.documentElement.style.setProperty('--mobile-header-height', `${header?.offsetHeight || 0}px`);
+  document.documentElement.style.setProperty('--mobile-filter-bar-height', `${filterBar?.offsetHeight || 0}px`);
+  const statsHeight = (statsBar && getComputedStyle(statsBar).display !== 'none') ? statsBar.offsetHeight : 0;
+  document.documentElement.style.setProperty('--mobile-stats-bar-height', `${statsHeight}px`);
+}
+
+function queueMobileStickyOffsets() {
+  requestAnimationFrame(updateMobileStickyOffsets);
 }
 
 function setSort(mode) {
@@ -4753,6 +4794,7 @@ function render() {
 
   if (!movies.length) {
     main.innerHTML = '<div class="empty-state"><p>No films match your filters.</p></div>';
+    queueMobileStickyOffsets();
     return;
   }
 
@@ -4822,6 +4864,7 @@ function render() {
     sorted.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
     section.appendChild(grid);
     main.appendChild(section);
+    queueMobileStickyOffsets();
     return;
   }
 
@@ -4834,6 +4877,7 @@ function render() {
   sorted.forEach((movie, idx) => grid.appendChild(buildCard(movie, idx)));
   section.appendChild(grid);
   main.appendChild(section);
+  queueMobileStickyOffsets();
 }
 
 // ── RANKINGS VIEW ──────────────────────────────────────────────────────────
@@ -5069,6 +5113,7 @@ function renderRankingsView() {
     const main = document.getElementById('main-content');
     main.innerHTML = '';
     renderEmptyState(main);
+    queueMobileStickyOffsets();
     return;
   }
 
@@ -5082,6 +5127,7 @@ function renderRankingsView() {
   const main = document.getElementById('main-content');
   main.innerHTML = '';
   main.appendChild(list);
+  queueMobileStickyOffsets();
 }
 
 function buildRankingRow(movie, idx) {
@@ -5193,6 +5239,7 @@ function renderTheaterView() {
   if (!movies.length) {
     main.innerHTML = '';
     renderEmptyState(main);
+    queueMobileStickyOffsets();
     return;
   }
 
@@ -5365,6 +5412,7 @@ function renderTheaterView() {
   } else {
     main.appendChild(grid);
   }
+  queueMobileStickyOffsets();
 }
 
 // ── CARD BUILDER ────────────────────────────────────────────────────────────
