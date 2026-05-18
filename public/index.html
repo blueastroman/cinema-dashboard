@@ -6415,7 +6415,7 @@ function updateProfileUI() {
     signInBtn.textContent = 'Sign in';
     signInBtn.onclick = openAuthModal;
 
-    if (membershipPanel) dropdown.append(membershipPanel, signInBtn);
+    if (membershipPanel) dropdown.append(signInBtn, membershipPanel);
     else dropdown.append(signInBtn);
     wrap.replaceChildren(profileBtn, dropdown);
   }
