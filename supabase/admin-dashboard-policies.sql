@@ -13,6 +13,9 @@ alter table public.blurbs enable row level security;
 alter table public.picks enable row level security;
 alter table public.site_hidden enable row level security;
 
+alter table public.blurbs
+add column if not exists rt_url_override text;
+
 drop policy if exists "public read blurbs" on public.blurbs;
 create policy "public read blurbs"
 on public.blurbs

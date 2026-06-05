@@ -315,6 +315,9 @@
       padding: 4px 7px;
       outline: none;
     }
+    .score-override-input.is-url {
+      width: min(360px, 72vw);
+    }
     .score-override-input:focus { border-color: var(--accent); }
     .btn-save-scores {
       font-size: 0.65rem;
@@ -656,7 +659,11 @@ async function checkAuth() {
 }
 
 async function loadBlurbs() {
-  const { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override');
+  let { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override,rt_url_override');
+  if (error && String(error.message || '').includes('rt_url_override')) {
+    addAdminWarning('Rotten Tomatoes URL overrides need the latest Supabase SQL setup before they can be saved.');
+    ({ data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override'));
+  }
   if (error) {
     canEditBlurbs = false;
     addAdminWarning('Manual reviews, Criterion tags, and score overrides are unavailable because Supabase denied access to blurbs. The movie list is still usable.');
@@ -672,6 +679,7 @@ async function loadBlurbs() {
         rt_override: r.rt_override || '',
         cinema_score_override: r.cinema_score_override || '',
         lb_override: r.lb_override || '',
+        rt_url_override: r.rt_url_override || '',
       };
     });
   }
@@ -696,6 +704,7 @@ async function replaceBlurbRow(movie, entry) {
     rt_override: entry.rt_override || null,
     cinema_score_override: entry.cinema_score_override || null,
     lb_override: entry.lb_override || null,
+    rt_url_override: entry.rt_url_override || null,
     updated_at: new Date().toISOString(),
   };
 
@@ -709,6 +718,7 @@ async function replaceBlurbRow(movie, entry) {
     rt_override: row.rt_override || '',
     cinema_score_override: row.cinema_score_override || '',
     lb_override: row.lb_override || '',
+    rt_url_override: row.rt_url_override || '',
   };
   return blurbCache[key];
 }
@@ -783,6 +793,21 @@ function normalizeLetterboxdOverride(value) {
     throw new Error('Letterboxd override must be a number from 0 to 5.');
   }
   return parsed;
+}
+
+function normalizeRottenTomatoesUrlOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  try {
+    const url = new URL(text);
+    const host = url.hostname.toLowerCase();
+    if (url.protocol !== 'https:' || (host !== 'rottentomatoes.com' && !host.endsWith('.rottentomatoes.com'))) {
+      throw new Error();
+    }
+    return url.href;
+  } catch {
+    throw new Error('RT URL must be an https://rottentomatoes.com link.');
+  }
 }
 
 function getRTScore(movie) {
@@ -1014,7 +1039,8 @@ function buildCard(movie) {
           <label class="score-override-field">RT% <input class="score-override-input" type="number" min="0" max="100" placeholder="${escapeHTML(movie.ratings?.rt || 'NR')}" value="${escapeHTML(blurbCache[getKey(movie)]?.rt_override || '')}"${reviewDisabled}></label>
           <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${escapeHTML(movie.ratings?.cinemaScore || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.cinema_score_override || '')}"${reviewDisabled}></label>
           <label class="score-override-field">LB <input class="score-override-input" type="number" min="0" max="5" step="0.1" placeholder="${escapeHTML(movie.ratings?.letterboxd || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.lb_override || '')}"${reviewDisabled}></label>
-          <button class="btn-save-scores"${reviewDisabled}>Save scores</button
+          <label class="score-override-field">RT URL <input class="score-override-input is-url" type="url" inputmode="url" placeholder="https://www.rottentomatoes.com/m/..." value="${escapeHTML(blurbCache[getKey(movie)]?.rt_url_override || '')}"${reviewDisabled}></label>
+          <button class="btn-save-scores"${reviewDisabled}>Save ratings</button
           ><span class="saved-flash scores-flash">Saved</span>
         </div>
       </div>
@@ -1123,7 +1149,7 @@ function buildCard(movie) {
 
   const saveScoresBtn = card.querySelector('.btn-save-scores');
   const scoresFlash = card.querySelector('.scores-flash');
-  const [rtInput, csInput, lbInput] = card.querySelectorAll('.score-override-input');
+  const [rtInput, csInput, lbInput, rtUrlInput] = card.querySelectorAll('.score-override-input');
   if (canEditBlurbs) saveScoresBtn.addEventListener('click', async () => {
     saveScoresBtn.disabled = true;
     const key = getKey(movie);
@@ -1132,11 +1158,13 @@ function buildCard(movie) {
       const rt = normalizeRTOverride(rtInput.value);
       const cs = normalizeCinemaScoreOverride(csInput.value);
       const lb = normalizeLetterboxdOverride(lbInput.value);
+      const rtUrl = normalizeRottenTomatoesUrlOverride(rtUrlInput.value);
       await replaceBlurbRow(movie, {
         ...entry,
         rt_override: rt,
         cinema_score_override: cs || null,
         lb_override: lb,
+        rt_url_override: rtUrl,
       });
       showFlash(scoresFlash, 'Saved');
     } catch (e) {
