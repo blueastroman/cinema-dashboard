@@ -337,6 +337,7 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       opacity: 0;
+      max-width: min(520px, 100%);
       transition: opacity 0.3s;
     }
     .saved-flash.error { color: var(--skip); }
@@ -569,7 +570,12 @@ async function togglePick(movie, btn, card) {
     }
   } catch (e) {
     console.error('picks error:', e);
-    btn.textContent = 'Error — retry';
+    btn.textContent = getErrorMessage(e);
+    btn.title = getErrorMessage(e);
+    setTimeout(() => {
+      btn.textContent = wasPicked ? '✦ Recommended' : 'Recommend';
+      btn.title = '';
+    }, 9000);
     btn.classList.toggle('is-pick', wasPicked);
     card.classList.toggle('is-pick-movie', wasPicked);
   } finally {
@@ -723,8 +729,12 @@ async function toggleCriterion(movie, btn) {
     btn.classList.toggle('is-criterion', !!next);
   } catch (e) {
     console.error('criterion error:', e);
-    btn.textContent = 'Error — retry';
-    setTimeout(() => { btn.textContent = originalText; }, 1800);
+    btn.textContent = getErrorMessage(e);
+    btn.title = getErrorMessage(e);
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.title = '';
+    }, 9000);
   } finally {
     btn.disabled = false;
   }
@@ -748,12 +758,12 @@ function normalizeReviewText(value) {
 
 function normalizeRTOverride(value) {
   const text = String(value || '').trim();
-  if (!text) return '';
+  if (!text) return null;
   const parsed = Number(text);
   if (!Number.isInteger(parsed) || parsed < 0 || parsed > 100) {
     throw new Error('RT override must be a whole number from 0 to 100.');
   }
-  return String(parsed);
+  return parsed;
 }
 
 function normalizeCinemaScoreOverride(value) {
@@ -763,6 +773,16 @@ function normalizeCinemaScoreOverride(value) {
     throw new Error('CinemaScore override must be A+ through F.');
   }
   return text;
+}
+
+function normalizeLetterboxdOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  const parsed = Number(text);
+  if (!Number.isFinite(parsed) || parsed < 0 || parsed > 5) {
+    throw new Error('Letterboxd override must be a number from 0 to 5.');
+  }
+  return parsed;
 }
 
 function getRTScore(movie) {
@@ -813,13 +833,22 @@ function getMovieId(movie) {
 function showFlash(el, message, isError = false) {
   if (!el) return;
   el.textContent = message;
+  el.title = message;
   el.classList.toggle('error', isError);
   el.classList.add('show');
   setTimeout(() => {
     el.classList.remove('show');
     el.classList.remove('error');
+    el.title = '';
     el.textContent = 'Saved';
-  }, isError ? 2400 : 1800);
+  }, isError ? 9000 : 1800);
+}
+
+function getErrorMessage(error) {
+  if (!error) return 'Unknown error';
+  const code = error.code || error.status || '';
+  const message = error.message || String(error);
+  return [code, message].filter(Boolean).join(': ');
 }
 
 async function loadHidden() {
@@ -1033,7 +1062,7 @@ function buildCard(movie) {
       showFlash(flash, 'Saved');
     } catch (e) {
       console.error('save blurb error:', e);
-      showFlash(flash, 'Error', true);
+      showFlash(flash, getErrorMessage(e), true);
       saveBtn.disabled = false;
     } finally {
       textarea.disabled = false;
@@ -1055,7 +1084,7 @@ function buildCard(movie) {
       btn.remove();
     } catch (e) {
       console.error('clear blurb error:', e);
-      showFlash(flash, 'Error', true);
+      showFlash(flash, getErrorMessage(e), true);
       btn.disabled = false;
     }
   }
@@ -1074,7 +1103,12 @@ function buildCard(movie) {
       card.classList.toggle('is-hidden-movie', nowHidden);
     } catch (e) {
       console.error('hide error:', e);
-      hideBtn.textContent = 'Error — retry';
+      hideBtn.textContent = getErrorMessage(e);
+      hideBtn.title = getErrorMessage(e);
+      setTimeout(() => {
+        hideBtn.textContent = isHidden(movie) ? 'Hidden' : 'Hide';
+        hideBtn.title = '';
+      }, 9000);
     } finally {
       hideBtn.disabled = false;
     }
@@ -1097,17 +1131,17 @@ function buildCard(movie) {
     try {
       const rt = normalizeRTOverride(rtInput.value);
       const cs = normalizeCinemaScoreOverride(csInput.value);
-      const lb = lbInput.value.trim() || null;
+      const lb = normalizeLetterboxdOverride(lbInput.value);
       await replaceBlurbRow(movie, {
         ...entry,
-        rt_override: rt || null,
+        rt_override: rt,
         cinema_score_override: cs || null,
         lb_override: lb,
       });
       showFlash(scoresFlash, 'Saved');
     } catch (e) {
       console.error('score override error:', e);
-      showFlash(scoresFlash, 'Error', true);
+      showFlash(scoresFlash, getErrorMessage(e), true);
     } finally {
       saveScoresBtn.disabled = false;
     }
