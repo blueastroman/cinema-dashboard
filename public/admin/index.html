@@ -492,21 +492,26 @@ const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
 const ADMIN_EMAILS = ['danymora131@hotmail.com'];
 
-// _sbAuth: handles login/logout only (session persisted for gating)
+// _sbAuth: handles login/logout and authenticated admin writes.
 const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-// _sb: always runs as anon role so RLS anon policies apply to data reads/writes.
+// _sb: always runs as anon role so RLS anon policies apply to data reads.
 // No-op storage prevents it from ever reading the _sbAuth session out of localStorage.
 const _NOOP_STORAGE = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storage: _NOOP_STORAGE },
 });
 
+function isAdminSession(session) {
+  return ADMIN_EMAILS.includes(session?.user?.email);
+}
+
 async function requireAuth() {
   const { data: { session } } = await _sbAuth.auth.getSession();
-  if (!session) {
+  if (!isAdminSession(session)) {
     showLoginScreen();
     throw new Error('Not authenticated');
   }
+  return session;
 }
 
 let picks = new Set();
@@ -548,14 +553,14 @@ async function togglePick(movie, btn, card) {
   btn.disabled = true;
   try {
     if (wasPicked) {
-      const { error } = await _sb.from('picks').delete().eq('movie_id', id);
+      const { error } = await _sbAuth.from('picks').delete().eq('movie_id', id);
       if (error) throw error;
       picks.delete(id);
       btn.textContent = 'Recommend';
       btn.classList.remove('is-pick');
       card.classList.remove('is-pick-movie');
     } else {
-      const { error } = await _sb.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+      const { error } = await _sbAuth.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
       if (error) throw error;
       picks.add(id);
       btn.textContent = '✦ Recommended';
@@ -641,7 +646,7 @@ async function tryLogin() {
 async function checkAuth() {
   const { data: { session }, error } = await _sbAuth.auth.getSession();
   if (error) throw error;
-  return !!session;
+  return isAdminSession(session);
 }
 
 async function loadBlurbs() {
@@ -688,7 +693,7 @@ async function replaceBlurbRow(movie, entry) {
     updated_at: new Date().toISOString(),
   };
 
-  const { error } = await _sb.from('blurbs').upsert(row, { onConflict: 'movie_key' });
+  const { error } = await _sbAuth.from('blurbs').upsert(row, { onConflict: 'movie_key' });
   if (error) throw error;
 
   blurbCache[key] = {
@@ -839,12 +844,12 @@ async function toggleHidden(movie) {
   }
   const id = getMovieId(movie);
   if (siteHidden.has(id)) {
-    const { error } = await _sb.from('site_hidden').delete().eq('movie_id', id);
+    const { error } = await _sbAuth.from('site_hidden').delete().eq('movie_id', id);
     if (error) throw error;
     siteHidden.delete(id);
     return false;
   } else {
-    const { error } = await _sb.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
+    const { error } = await _sbAuth.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
     if (error) throw error;
     siteHidden.add(id);
     return true;
