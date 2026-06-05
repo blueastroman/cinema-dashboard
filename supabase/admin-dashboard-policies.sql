@@ -16,6 +16,18 @@ alter table public.site_hidden enable row level security;
 alter table public.blurbs
 add column if not exists rt_url_override text;
 
+grant usage on schema public to anon, authenticated;
+grant execute on function public.is_cinema_admin() to authenticated;
+
+grant select on table public.blurbs to anon, authenticated;
+grant insert, update, delete on table public.blurbs to authenticated;
+
+grant select on table public.picks to anon, authenticated;
+grant insert, update, delete on table public.picks to authenticated;
+
+grant select on table public.site_hidden to anon, authenticated;
+grant insert, update, delete on table public.site_hidden to authenticated;
+
 drop policy if exists "public read blurbs" on public.blurbs;
 create policy "public read blurbs"
 on public.blurbs
