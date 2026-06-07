@@ -646,6 +646,29 @@
       transition: background 0.15s;
     }
 
+    .movie-card::after,
+    .theater-film-row::after,
+    .ranking-row::after {
+      content: attr(data-completion-label);
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(154, 184, 122, 0.45);
+      background: rgba(154, 184, 122, 0.14);
+      color: #dcecc9;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .movie-card.watch::before { background: var(--watch); }
     .movie-card.depends::before { background: var(--depends); }
     .movie-card.skip::before { background: var(--skip); }
@@ -924,6 +947,10 @@
     .action-btn.active-watched { border-color: var(--star-solid); color: var(--star-ink); background: var(--star-solid); }
     .action-btn.active-seen { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
     .action-btn.active-hidden { border-color: var(--skip); color: var(--skip); background: var(--skip-bg); }
+    .action-btn.completion-burst,
+    .theater-action-btn.completion-burst {
+      animation: completionButtonBurst 0.36s ease;
+    }
 
     /* Saved card overlay */
     .movie-card.is-watched {
@@ -1590,6 +1617,61 @@
     .ranking-row.is-watched {
       background: var(--poster-bg, var(--saved-card-bg));
       box-shadow: var(--saved-card-shadow);
+    }
+
+    .movie-card.is-completing,
+    .theater-film-row.is-completing,
+    .ranking-row.is-completing {
+      pointer-events: none;
+      animation: completionExit 0.46s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .movie-card.is-completing::after,
+    .theater-film-row.is-completing::after,
+    .ranking-row.is-completing::after {
+      animation: completionBadgeIn 0.34s ease-out forwards;
+    }
+
+    @keyframes completionButtonBurst {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes completionBadgeIn {
+      0% { opacity: 0; transform: translateY(8px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes completionExit {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: saturate(1);
+      }
+      35% {
+        opacity: 1;
+        transform: scale(1.015);
+        filter: saturate(1.12);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.965);
+        filter: saturate(0.88);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .action-btn.completion-burst,
+      .theater-action-btn.completion-burst,
+      .movie-card.is-completing,
+      .theater-film-row.is-completing,
+      .ranking-row.is-completing,
+      .movie-card.is-completing::after,
+      .theater-film-row.is-completing::after,
+      .ranking-row.is-completing::after {
+        animation: none !important;
+      }
     }
 
     .ranking-poster-wrap {
@@ -5674,15 +5756,23 @@ function onWatched(btn, movieId, title) {
   btn.textContent = isNowWatched ? '★ Saved' : 'Save';
 }
 
-function hideWatchedRowAfterToggle(element) {
+function hideWatchedRowAfterToggle(element, triggerButton = null) {
   if (!element) {
     render();
     return;
   }
-  element.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
-  element.style.opacity = '0';
-  element.style.transform = 'scale(0.985)';
-  setTimeout(() => render(), 220);
+  if (element.dataset.completing === 'true') return;
+  element.dataset.completing = 'true';
+  element.dataset.completionLabel = 'Completed';
+  if (triggerButton) {
+    triggerButton.classList.remove('completion-burst');
+    void triggerButton.offsetWidth;
+    triggerButton.classList.add('completion-burst');
+  }
+  element.classList.remove('is-completing');
+  void element.offsetWidth;
+  element.classList.add('is-completing');
+  setTimeout(() => render(), window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 460);
 }
 
 function onSeen(btn, movieId, title) {
@@ -5691,7 +5781,8 @@ function onSeen(btn, movieId, title) {
   btn.classList.toggle('active-seen', isNowSeen);
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('title', isNowSeen ? 'Marked watched' : 'Mark watched');
-  hideWatchedRowAfterToggle(btn.closest('.movie-card'));
+  btn.textContent = isNowSeen ? 'Completed' : '✓ Watched';
+  hideWatchedRowAfterToggle(btn.closest('.movie-card'), btn);
 }
 
 function onHide(btn, movieId, title) {
@@ -5720,7 +5811,7 @@ function onTheaterSeen(btn, movieId, title) {
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
   btn.setAttribute('title', isNowSeen ? 'Mark unwatched' : 'Mark watched');
-  hideWatchedRowAfterToggle(btn.closest('.theater-film-row'));
+  hideWatchedRowAfterToggle(btn.closest('.theater-film-row'), btn);
 }
 
 function onTheaterHide(btn, movieId, title) {
@@ -5756,7 +5847,7 @@ function onRankingSeen(btn, movieId, title) {
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
   btn.setAttribute('title', isNowSeen ? 'Mark unwatched' : 'Mark watched');
-  hideWatchedRowAfterToggle(btn.closest('.ranking-row'));
+  hideWatchedRowAfterToggle(btn.closest('.ranking-row'), btn);
 }
 
 function onRankingHide(btn, movieId, title) {

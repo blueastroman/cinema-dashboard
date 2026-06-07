@@ -132,6 +132,51 @@ def infer_date_iso_from_label(day_label: object, now: Optional[datetime] = None)
 
     return ""
 
+
+def parse_release_date(value: object) -> Optional[datetime.date]:
+    text = str(value or "").strip()
+    if not text or text.upper() == "N/A":
+        return None
+
+    iso_candidate = text.replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(iso_candidate).date()
+    except ValueError:
+        pass
+
+    for fmt in ("%Y-%m-%d", "%d %b %Y", "%d %B %Y", "%b %d, %Y", "%B %d, %Y"):
+        try:
+            return datetime.strptime(text, fmt).date()
+        except ValueError:
+            continue
+
+    iso_match = re.search(r"\b((?:18|19|20)\d{2}-\d{2}-\d{2})\b", text)
+    if iso_match:
+        try:
+            return datetime.strptime(iso_match.group(1), "%Y-%m-%d").date()
+        except ValueError:
+            return None
+    return None
+
+
+def should_reverify_recent_rt(
+    ctx: ScrapeContext,
+    *,
+    release_date_hint: Optional[object] = None,
+    omdb_data: Optional[dict] = None,
+    window_days: int = 92,
+) -> bool:
+    current_date = (ctx.now or ny_now()).date()
+    if current_date.weekday() != 2:  # Wednesday
+        return False
+
+    release_date = parse_release_date(release_date_hint)
+    if release_date is None and isinstance(omdb_data, dict):
+        release_date = parse_release_date(omdb_data.get("Released"))
+    if release_date is None or release_date > current_date:
+        return False
+    return (current_date - release_date).days <= window_days
+
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
 def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
@@ -767,6 +812,8 @@ def extract_alamo_metadata(show_data: dict, event_data: dict) -> dict:
         metadata["runtime"] = f"{runtime_minutes} min"
 
     release_date = str(first_value("nationalReleaseDateUtc", "releaseDate", "openingDateClt") or "").strip()
+    if release_date:
+        metadata["releaseDate"] = release_date
     release_year = extract_year_int(release_date)
     if release_year:
         metadata["year"] = str(release_year)
@@ -1257,6 +1304,9 @@ def paris_api_get(token: str, path: str, params: Optional[dict[str, object]] = N
 
 def extract_paris_metadata(film: dict, related_data: dict) -> dict:
     metadata: dict[str, str] = {}
+    release_date = str(film.get("releaseDate") or "").strip()
+    if release_date:
+        metadata["releaseDate"] = release_date
     release_year = extract_year_int(film.get("releaseDate"))
     if release_year:
         metadata["year"] = str(release_year)
@@ -2464,7 +2514,13 @@ def resolve_omdb_record(ctx: ScrapeContext, title: str, hint_year: Optional[int]
         return best_data
     return None
 
-def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> dict:
+def fetch_ratings(
+    ctx: ScrapeContext,
+    title: str,
+    hint_year: Optional[int] = None,
+    theater_name: Optional[str] = None,
+    release_date_hint: Optional[object] = None,
+) -> dict:
     """Fetch RT, IMDb, and CinemaScore via OMDb; include a Letterboxd-style score."""
     lookup_title, title_year = split_trailing_title_year(title)
     effective_hint_year = hint_year or title_year
@@ -2484,9 +2540,18 @@ def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = Non
     try:
         data = resolve_omdb_record(ctx, title, hint_year=effective_hint_year, theater_name=theater_name)
         parsed = parse_omdb_ratings(data) if data else empty_ratings()
+        should_force_rt_refresh = should_reverify_recent_rt(
+            ctx,
+            release_date_hint=release_date_hint,
+            omdb_data=data,
+        )
 
         # Fallbacks for new/edge releases where OMDb is lagging.
-        if not parsed.get("rt"):
+        if should_force_rt_refresh:
+            refreshed_rt = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
+            if refreshed_rt:
+                parsed["rt"] = refreshed_rt
+        elif not parsed.get("rt"):
             parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
@@ -2672,7 +2737,13 @@ def resolve_movie_records(
                 ratings = dict(request_cache[rating_key])
             else:
                 print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                ratings = fetch_ratings(ctx, title, hint_year=hint_year, theater_name=theater_name)
+                ratings = fetch_ratings(
+                    ctx,
+                    title,
+                    hint_year=hint_year,
+                    theater_name=theater_name,
+                    release_date_hint=source_metadata.get("releaseDate"),
+                )
                 request_cache[rating_key] = dict(ratings)
             ratings = merge_source_metadata(ratings, source_metadata)
             ratings = strip_placeholder_metadata(ratings)
@@ -2761,7 +2832,13 @@ def resolve_movie_records(
                     refreshed = dict(request_cache[refetch_key])
                 else:
                     print(f"  Fetching ratings for: {title}" + (f" (year hint: {hint_year})" if hint_year else ""))
-                    refreshed = fetch_ratings(ctx, title, hint_year=hint_year, theater_name=theater_name)
+                    refreshed = fetch_ratings(
+                        ctx,
+                        title,
+                        hint_year=hint_year,
+                        theater_name=theater_name,
+                        release_date_hint=source_metadata.get("releaseDate"),
+                    )
                     request_cache[refetch_key] = dict(refreshed)
                 current_ratings = merge_prior_ratings(refreshed, current_ratings)
             movie["ratings"] = strip_placeholder_metadata(merge_source_metadata(current_ratings, source_metadata))
