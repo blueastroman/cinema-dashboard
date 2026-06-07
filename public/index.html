@@ -1796,6 +1796,11 @@
       line-height: 1.45;
     }
 
+    .ranking-meta .theater-film-runtime.long {
+      color: var(--skip);
+      font-weight: 800;
+    }
+
     .ranking-title-row {
       display: flex;
       align-items: center;
@@ -5142,11 +5147,20 @@ function mergeTheaterEntries(theaters = []) {
     .sort((a, b) => getTheaterSortLabel(a.name).localeCompare(getTheaterSortLabel(b.name), undefined, { sensitivity: 'base' }));
 }
 
+function isRankingEligible(movie) {
+  const rtScore = getRTScore(movie);
+  if (rtScore !== null && rtScore >= 65) return true;
+
+  const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
+  return cinemaWeight !== null && cinemaWeight >= 100; // B and above
+}
+
 function getRankingEntries() {
   const byMovie = new Map();
   getFiltered().forEach(movie => {
     if (siteHidden.has(movie.id)) return;
     if (!hasCriticRating(movie)) return;
+    if (!isRankingEligible(movie)) return;
     const genreLower = (movie.ratings?.genre || '').toLowerCase();
     if (genreLower.includes('documentary') || genreLower.includes('short')) return;
     const key = getRankingKey(movie);
@@ -5292,6 +5306,33 @@ function getPosterFallbackInitial(movie) {
   return match ? match[0].toUpperCase() : 'S';
 }
 
+function getMovieMetaHTML(movie, { includeFormats = false, theaterData = null } = {}) {
+  const ratings = movie?.ratings || {};
+  const year = cleanDisplayText(ratings.year);
+  const director = cleanDisplayText(ratings.director);
+  const genre = cleanDisplayText(ratings.genre);
+  const runtime = cleanDisplayText(ratings.runtime);
+  const runtimeMinutes = getRuntimeMinutes(runtime);
+
+  const genreParts = genre && genre !== 'N/A'
+    ? genre.split(',').map(part => escapeHTML(part.trim())).filter(Boolean).slice(0, 2)
+    : [];
+
+  const metaItems = [escapeHTML(year), escapeHTML(director), ...genreParts].filter(Boolean);
+  if (runtime && runtime !== 'N/A') {
+    const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
+    metaItems.push(`<span class="${runtimeClass}">${escapeHTML(runtime)}</span>`);
+  }
+
+  if (includeFormats) {
+    const formatParts = getTheaterFormats(theaterData, movie);
+    const formatTags = formatParts.map(format => `<span class="tag">${escapeHTML(format)}</span>`);
+    if (formatTags.length) metaItems.push(...formatTags);
+  }
+
+  return metaItems.join(' · ');
+}
+
 function buildRankingShowtimesHTML(movie) {
   return getVisibleTheaters(movie).map(theater => {
     const scheduleHTML = buildInlineShowtimeHTML(theater.schedule, theater, Number.POSITIVE_INFINITY);
@@ -5342,12 +5383,9 @@ function buildRankingRow(movie, idx) {
   const lbUrl = getLetterboxdUrl(movie);
   const rtUrl = getRottenTomatoesUrl(movie);
   const posterUrl = getPosterUrl(movie);
-  const genre = cleanDisplayText(ratings.genre);
-  const runtime = cleanDisplayText(ratings.runtime);
   const year = cleanDisplayText(ratings.year);
-  const director = cleanDisplayText(ratings.director);
   const prestigeChip = getPrestigeChipLabel(movie);
-  const meta = [year, director, genre, runtime].filter(Boolean).join(' · ');
+  const meta = getMovieMetaHTML(movie);
   const safeId = escapeJSString(movie.id);
   const safeTitle = escapeJSString(movie.title);
 
@@ -5377,7 +5415,7 @@ function buildRankingRow(movie, idx) {
         <div class="ranking-title"><a href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a></div>
         ${prestigeChip ? renderPrestigeChip(prestigeChip) : ''}
       </div>
-      ${meta ? `<div class="ranking-meta">${escapeHTML(meta)}</div>` : ''}
+      ${meta ? `<div class="ranking-meta">${meta}</div>` : ''}
       ${renderMovieBlurbMarkup(movie, 'ranking-blurb', { forceRefresh: false })}
     </div>
     <div class="ranking-next">
@@ -5526,24 +5564,9 @@ function renderTheaterView() {
       const seen = hasStoredMovie(getSeen(), movie);
       const ratings = movie.ratings || {};
       const scoreHierarchy = getScoreHierarchy(movie);
-      const year = ratings.year || '';
-      const director = ratings.director || '';
-      const genre = String(ratings.genre || '').trim();
-      const runtime = String(ratings.runtime || '').trim();
-      const runtimeMinutes = getRuntimeMinutes(runtime);
       const theaterData = entry.theaterData;
-      const genreParts = genre && genre !== 'N/A'
-        ? genre.split(',').map(part => escapeHTML(part.trim())).filter(Boolean).slice(0, 2)
-        : [];
-      const formatParts = getTheaterFormats(theaterData, movie);
-      const metaParts = [...genreParts];
-      const formatTags = formatParts.map(format => `<span class="tag">${escapeHTML(format)}</span>`);
-      if (runtime && runtime !== 'N/A') {
-        const runtimeClass = runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime';
-        metaParts.push(`<span class="${runtimeClass}">${escapeHTML(runtime)}</span>`);
-      }
-
       const lbUrl = getLetterboxdUrl(movie);
+      const metaStr = getMovieMetaHTML(movie, { includeFormats: true, theaterData });
 
       const scheduleHTML = theaterData
         ? buildInlineShowtimeHTML(theaterData.schedule, theaterData)
@@ -5560,9 +5583,6 @@ function renderTheaterView() {
       const safeMovieTitle = escapeJSString(movie.title);
       const row = document.createElement('div');
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
-      const metaItems = [escapeHTML(year), escapeHTML(director), ...genreParts].filter(Boolean);
-      if (runtime && runtime !== 'N/A') metaItems.push(`<span class="${runtimeMinutes !== null && runtimeMinutes > 150 ? 'theater-film-runtime long' : 'theater-film-runtime'}">${escapeHTML(runtime)}</span>`);
-      const metaStr = metaItems.join(' · ') + (formatTags.length ? ' · ' + formatTags.join('') : '');
 
       row.innerHTML = `
         <div class="theater-poster-wrap">
