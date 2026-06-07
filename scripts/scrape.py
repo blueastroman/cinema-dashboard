@@ -1951,15 +1951,25 @@ def is_placeholder_metadata(ratings: Optional[dict]) -> bool:
     )
 
 
-def merge_existing_metadata(ctx: ScrapeContext, title: str, ratings: dict) -> dict:
+def merge_existing_metadata(ctx: ScrapeContext, title: str, ratings: dict, expected_year: Optional[int] = None) -> dict:
     existing = get_existing_metadata(ctx, title)
     if not existing:
         return ratings
     if is_suspect_short_metadata(title, existing):
         return ratings
 
+    _base_title, title_year = split_trailing_title_year(title)
+    expected_year = expected_year or title_year
     existing_year = extract_year_int(existing.get("year"))
     current_year = extract_year_int(ratings.get("year"))
+    if (
+        expected_year is not None
+        and current_year is not None
+        and existing_year is not None
+        and abs(current_year - expected_year) <= 2
+        and abs(existing_year - expected_year) > 2
+    ):
+        return ratings
 
     def completeness(meta: dict) -> int:
         return sum(1 for key in ("imdbID", "rt", "imdb", "metacritic", "letterboxd", "poster", "genre", "runtime", "plot", "year", "director", "cinemaScore") if meta.get(key) not in (None, "", "N/A"))
@@ -2466,7 +2476,7 @@ def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = Non
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
-        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = merge_existing_metadata(ctx, title, parsed, expected_year=effective_hint_year)
         parsed = apply_rating_overrides(ctx, title, parsed)
         parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)
         return strip_placeholder_metadata(parsed)
@@ -2481,7 +2491,7 @@ def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = Non
         if not parsed.get("letterboxd"):
             parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
 
-        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = merge_existing_metadata(ctx, title, parsed, expected_year=effective_hint_year)
         parsed = enrich_from_rating_cache(ctx, title, parsed, hint_year=effective_hint_year)
         parsed = apply_rating_overrides(ctx, title, parsed)
         parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)
@@ -2492,7 +2502,7 @@ def fetch_ratings(ctx: ScrapeContext, title: str, hint_year: Optional[int] = Non
         parsed = empty_ratings()
         parsed["rt"] = fetch_rt_fallback(lookup_title, query_year=effective_hint_year)
         parsed["letterboxd"] = fetch_letterboxd_fallback(lookup_title, query_year=lb_query_year)
-        parsed = merge_existing_metadata(ctx, title, parsed)
+        parsed = merge_existing_metadata(ctx, title, parsed, expected_year=effective_hint_year)
         parsed = enrich_from_rating_cache(ctx, title, parsed, hint_year=effective_hint_year)
         parsed = apply_rating_overrides(ctx, title, parsed)
         parsed = ensure_poster_fallback(lookup_title, parsed, query_year=poster_query_year)

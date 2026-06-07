@@ -14737,436 +14737,6 @@
       }
     },
     {
-      "id": "tt0175142",
-      "title": "Scary Movie (2026)",
-      "ratings": {
-        "imdbID": "tt0175142",
-        "rt": "52%",
-        "imdb": "6.3",
-        "metacritic": "48",
-        "letterboxd": "3.1",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGRmMGRhOWMtOTk3Ni00OTRjLTkyYTAtYzA1M2IzMGE3NGRkXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy",
-        "runtime": "88 min",
-        "plot": "A year after disposing of the body of a man they accidentally killed, a group of dumb teenagers are stalked by a bumbling serial killer.",
-        "year": "2000",
-        "director": "Keenen Ivory Wayans"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89902",
-          "schedule": [
-            {
-              "day": "Thu Jun 4",
-              "times": [
-                "3:30pm",
-                "4:45pm",
-                "6:30pm",
-                "7:45pm",
-                "9:15pm",
-                "10:00pm"
-              ],
-              "date": "2026-06-04",
-              "ticket_urls": {
-                "3:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89902",
-                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91101",
-                "6:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89965",
-                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91097",
-                "9:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89904",
-                "10:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91105"
-              }
-            },
-            {
-              "day": "Fri Jun 5",
-              "times": [
-                "11:15am",
-                "1:45pm",
-                "2:15pm",
-                "5:00pm",
-                "7:45pm",
-                "10:30pm",
-                "10:35pm"
-              ],
-              "date": "2026-06-05",
-              "ticket_urls": {
-                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89907",
-                "1:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91111",
-                "2:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89906",
-                "5:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89905",
-                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89908",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89959",
-                "10:35pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91146"
-              }
-            },
-            {
-              "day": "Sat Jun 6",
-              "times": [
-                "11:15am",
-                "2:00pm",
-                "4:45pm",
-                "7:00pm",
-                "7:30pm",
-                "7:45pm",
-                "10:30pm"
-              ],
-              "date": "2026-06-06",
-              "ticket_urls": {
-                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89961",
-                "2:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89960",
-                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89963",
-                "7:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91188",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89962",
-                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91150",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89964"
-              }
-            },
-            {
-              "day": "Sun Jun 7",
-              "times": [
-                "11:15am",
-                "2:00pm",
-                "4:45pm",
-                "7:00pm",
-                "7:30pm",
-                "10:30pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-07",
-              "ticket_urls": {
-                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89969",
-                "2:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89968",
-                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91191",
-                "7:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91229",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89966",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89913",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91222"
-              }
-            },
-            {
-              "day": "Mon Jun 8",
-              "times": [
-                "12:45pm",
-                "1:45pm",
-                "4:00pm",
-                "7:15pm",
-                "10:30pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-08",
-              "ticket_urls": {
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89918",
-                "1:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91233",
-                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89919",
-                "7:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89920",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89917",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91267"
-              }
-            },
-            {
-              "day": "Tue Jun 9",
-              "times": [
-                "12:45pm",
-                "4:00pm",
-                "6:45pm",
-                "7:30pm",
-                "7:45pm",
-                "10:00pm",
-                "10:30pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-09",
-              "ticket_urls": {
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89922",
-                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89923",
-                "6:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91310",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89924",
-                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91273",
-                "10:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91312",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89921",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91305"
-              }
-            },
-            {
-              "day": "Wed Jun 10",
-              "times": [
-                "12:45pm",
-                "4:00pm",
-                "4:45pm",
-                "7:30pm",
-                "7:45pm",
-                "10:15pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-10",
-              "ticket_urls": {
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89926",
-                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89927",
-                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91315",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89928",
-                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91344",
-                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91352",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89925"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130129",
-          "schedule": [
-            {
-              "day": "Thu Jun 4",
-              "times": [
-                "4:00pm",
-                "10:15pm"
-              ],
-              "date": "2026-06-04",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130129",
-                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130131"
-              }
-            },
-            {
-              "day": "Fri Jun 5",
-              "times": [
-                "9:00am",
-                "11:45am",
-                "2:30pm",
-                "5:15pm",
-                "7:35pm",
-                "8:00pm",
-                "10:15pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-05",
-              "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130135",
-                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130134",
-                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130133",
-                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130132",
-                "7:35pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131215",
-                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130136",
-                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131216",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130209"
-              }
-            },
-            {
-              "day": "Sat Jun 6",
-              "times": [
-                "9:00am",
-                "11:45am",
-                "12:45pm",
-                "2:30pm",
-                "5:15pm",
-                "6:30pm",
-                "8:00pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-06",
-              "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130138",
-                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130139",
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131263",
-                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130140",
-                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130141",
-                "6:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131260",
-                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130137",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130210"
-              }
-            },
-            {
-              "day": "Sun Jun 7",
-              "times": [
-                "9:00am",
-                "11:45am",
-                "2:30pm",
-                "5:15pm",
-                "8:00pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-07",
-              "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130143",
-                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130144",
-                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130145",
-                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130146",
-                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130142",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130211"
-              }
-            },
-            {
-              "day": "Mon Jun 8",
-              "times": [
-                "9:45am",
-                "12:45pm",
-                "4:00pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-06-08",
-              "ticket_urls": {
-                "9:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130150",
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130149",
-                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130148",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130147",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130151"
-              }
-            },
-            {
-              "day": "Tue Jun 9",
-              "times": [
-                "9:00am",
-                "11:45am",
-                "12:45pm",
-                "2:30pm",
-                "5:15pm",
-                "8:00pm",
-                "10:45pm"
-              ],
-              "date": "2026-06-09",
-              "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130155",
-                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130154",
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131439",
-                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130153",
-                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130152",
-                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130156",
-                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131351"
-              }
-            },
-            {
-              "day": "Wed Jun 10",
-              "times": [
-                "9:00am",
-                "11:45am",
-                "12:45pm",
-                "2:30pm",
-                "5:15pm",
-                "8:00pm",
-                "10:30pm"
-              ],
-              "date": "2026-06-10",
-              "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130160",
-                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130159",
-                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131438",
-                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130158",
-                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130157",
-                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130161",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131352"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41675",
-          "schedule": [
-            {
-              "day": "Thu Jun 4",
-              "times": [
-                "4:30pm"
-              ],
-              "date": "2026-06-04",
-              "ticket_urls": {
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41675"
-              }
-            },
-            {
-              "day": "Fri Jun 5",
-              "times": [
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-06-05",
-              "ticket_urls": {
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41666",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41665",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41664"
-              }
-            },
-            {
-              "day": "Sat Jun 6",
-              "times": [
-                "1:15pm",
-                "4:15pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-06-06",
-              "ticket_urls": {
-                "1:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41670",
-                "4:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41669",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41667",
-                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41668"
-              }
-            },
-            {
-              "day": "Sun Jun 7",
-              "times": [
-                "1:30pm",
-                "4:30pm",
-                "7:30pm"
-              ],
-              "date": "2026-06-07",
-              "ticket_urls": {
-                "1:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41673",
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41672",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41671"
-              }
-            },
-            {
-              "day": "Mon Jun 8",
-              "times": [
-                "4:30pm",
-                "7:30pm"
-              ],
-              "date": "2026-06-08",
-              "ticket_urls": {
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42237",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42318"
-              }
-            },
-            {
-              "day": "Tue Jun 9",
-              "times": [
-                "4:30pm",
-                "7:30pm"
-              ],
-              "date": "2026-06-09",
-              "ticket_urls": {
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42253",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42252"
-              }
-            },
-            {
-              "day": "Wed Jun 10",
-              "times": [
-                "4:30pm",
-                "7:30pm"
-              ],
-              "date": "2026-06-10",
-              "ticket_urls": {
-                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42267",
-                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42266"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "Skip this tired franchise revival that mistakes volume for humor. The Wayans brothers' absence strips away the original's sharper pop culture timing."
-      }
-    },
-    {
       "id": "tt32386654",
       "title": "The Wizard of the Kremlin",
       "ratings": {
@@ -28946,6 +28516,411 @@
                 "10:30pm"
               ],
               "date": "2026-06-09"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89902",
+          "schedule": [
+            {
+              "day": "Thu Jun 4",
+              "times": [
+                "3:30pm",
+                "4:45pm",
+                "6:30pm",
+                "7:45pm",
+                "9:15pm",
+                "10:00pm"
+              ],
+              "date": "2026-06-04",
+              "ticket_urls": {
+                "3:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89902",
+                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91101",
+                "6:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89965",
+                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91097",
+                "9:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89904",
+                "10:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91105"
+              }
+            },
+            {
+              "day": "Fri Jun 5",
+              "times": [
+                "11:15am",
+                "1:45pm",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:30pm",
+                "10:35pm"
+              ],
+              "date": "2026-06-05",
+              "ticket_urls": {
+                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89907",
+                "1:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91111",
+                "2:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89906",
+                "5:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89905",
+                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89908",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89959",
+                "10:35pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91146"
+              }
+            },
+            {
+              "day": "Sat Jun 6",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:45pm",
+                "7:00pm",
+                "7:30pm",
+                "7:45pm",
+                "10:30pm"
+              ],
+              "date": "2026-06-06",
+              "ticket_urls": {
+                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89961",
+                "2:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89960",
+                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89963",
+                "7:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91188",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89962",
+                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91150",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89964"
+              }
+            },
+            {
+              "day": "Sun Jun 7",
+              "times": [
+                "11:15am",
+                "2:00pm",
+                "4:45pm",
+                "7:00pm",
+                "7:30pm",
+                "10:30pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-07",
+              "ticket_urls": {
+                "11:15am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89969",
+                "2:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89968",
+                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91191",
+                "7:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91229",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89966",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89913",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91222"
+              }
+            },
+            {
+              "day": "Mon Jun 8",
+              "times": [
+                "12:45pm",
+                "1:45pm",
+                "4:00pm",
+                "7:15pm",
+                "10:30pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-08",
+              "ticket_urls": {
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89918",
+                "1:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91233",
+                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89919",
+                "7:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89920",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89917",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91267"
+              }
+            },
+            {
+              "day": "Tue Jun 9",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "6:45pm",
+                "7:30pm",
+                "7:45pm",
+                "10:00pm",
+                "10:30pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-09",
+              "ticket_urls": {
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89922",
+                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89923",
+                "6:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91310",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89924",
+                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91273",
+                "10:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91312",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89921",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91305"
+              }
+            },
+            {
+              "day": "Wed Jun 10",
+              "times": [
+                "12:45pm",
+                "4:00pm",
+                "4:45pm",
+                "7:30pm",
+                "7:45pm",
+                "10:15pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-10",
+              "ticket_urls": {
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89926",
+                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89927",
+                "4:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91315",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89928",
+                "7:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91344",
+                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=91352",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2103&sessionId=89925"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Downtown Brooklyn",
+          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130129",
+          "schedule": [
+            {
+              "day": "Thu Jun 4",
+              "times": [
+                "4:00pm",
+                "10:15pm"
+              ],
+              "date": "2026-06-04",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130129",
+                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130131"
+              }
+            },
+            {
+              "day": "Fri Jun 5",
+              "times": [
+                "9:00am",
+                "11:45am",
+                "2:30pm",
+                "5:15pm",
+                "7:35pm",
+                "8:00pm",
+                "10:15pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-05",
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130135",
+                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130134",
+                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130133",
+                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130132",
+                "7:35pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131215",
+                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130136",
+                "10:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131216",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130209"
+              }
+            },
+            {
+              "day": "Sat Jun 6",
+              "times": [
+                "9:00am",
+                "11:45am",
+                "12:45pm",
+                "2:30pm",
+                "5:15pm",
+                "6:30pm",
+                "8:00pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-06",
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130138",
+                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130139",
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131263",
+                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130140",
+                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130141",
+                "6:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131260",
+                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130137",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130210"
+              }
+            },
+            {
+              "day": "Sun Jun 7",
+              "times": [
+                "9:00am",
+                "11:45am",
+                "2:30pm",
+                "5:15pm",
+                "8:00pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-07",
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130143",
+                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130144",
+                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130145",
+                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130146",
+                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130142",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130211"
+              }
+            },
+            {
+              "day": "Mon Jun 8",
+              "times": [
+                "9:45am",
+                "12:45pm",
+                "4:00pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-06-08",
+              "ticket_urls": {
+                "9:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130150",
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130149",
+                "4:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130148",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130147",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130151"
+              }
+            },
+            {
+              "day": "Tue Jun 9",
+              "times": [
+                "9:00am",
+                "11:45am",
+                "12:45pm",
+                "2:30pm",
+                "5:15pm",
+                "8:00pm",
+                "10:45pm"
+              ],
+              "date": "2026-06-09",
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130155",
+                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130154",
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131439",
+                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130153",
+                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130152",
+                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130156",
+                "10:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131351"
+              }
+            },
+            {
+              "day": "Wed Jun 10",
+              "times": [
+                "9:00am",
+                "11:45am",
+                "12:45pm",
+                "2:30pm",
+                "5:15pm",
+                "8:00pm",
+                "10:30pm"
+              ],
+              "date": "2026-06-10",
+              "ticket_urls": {
+                "9:00am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130160",
+                "11:45am": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130159",
+                "12:45pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131438",
+                "2:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130158",
+                "5:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130157",
+                "8:00pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=130161",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2101&sessionId=131352"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Staten Island",
+          "ticket_url": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41675",
+          "schedule": [
+            {
+              "day": "Thu Jun 4",
+              "times": [
+                "4:30pm"
+              ],
+              "date": "2026-06-04",
+              "ticket_urls": {
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41675"
+              }
+            },
+            {
+              "day": "Fri Jun 5",
+              "times": [
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-06-05",
+              "ticket_urls": {
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41666",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41665",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41664"
+              }
+            },
+            {
+              "day": "Sat Jun 6",
+              "times": [
+                "1:15pm",
+                "4:15pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-06-06",
+              "ticket_urls": {
+                "1:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41670",
+                "4:15pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41669",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41667",
+                "10:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41668"
+              }
+            },
+            {
+              "day": "Sun Jun 7",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:30pm"
+              ],
+              "date": "2026-06-07",
+              "ticket_urls": {
+                "1:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41673",
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41672",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=41671"
+              }
+            },
+            {
+              "day": "Mon Jun 8",
+              "times": [
+                "4:30pm",
+                "7:30pm"
+              ],
+              "date": "2026-06-08",
+              "ticket_urls": {
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42237",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42318"
+              }
+            },
+            {
+              "day": "Tue Jun 9",
+              "times": [
+                "4:30pm",
+                "7:30pm"
+              ],
+              "date": "2026-06-09",
+              "ticket_urls": {
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42253",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42252"
+              }
+            },
+            {
+              "day": "Wed Jun 10",
+              "times": [
+                "4:30pm",
+                "7:30pm"
+              ],
+              "date": "2026-06-10",
+              "ticket_urls": {
+                "4:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42267",
+                "7:30pm": "https://drafthouse.com/nyc/show/scary-movie-2026?cinemaId=2102&sessionId=42266"
+              }
             }
           ],
           "special_formats": []
