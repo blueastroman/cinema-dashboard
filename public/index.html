@@ -70,6 +70,9 @@
       --hide-soft-bg: rgba(200, 91, 91, 0.08);
       --hide-soft-border: rgba(200, 91, 91, 0.55);
       --hide-soft-bg-hover: rgba(200, 91, 91, 0.12);
+      --seen-soft-bg: rgba(74, 158, 107, 0.08);
+      --seen-soft-border: rgba(74, 158, 107, 0.55);
+      --seen-soft-bg-hover: rgba(74, 158, 107, 0.14);
       --star-solid: #d4af37;
       --star-ink: #101010;
       --movie-box-border: #323232;
@@ -111,6 +114,9 @@
       --hide-soft-bg: rgba(200, 91, 91, 0.10);
       --hide-soft-border: rgba(200, 91, 91, 0.55);
       --hide-soft-bg-hover: rgba(200, 91, 91, 0.18);
+      --seen-soft-bg: rgba(46, 123, 78, 0.10);
+      --seen-soft-border: rgba(46, 123, 78, 0.50);
+      --seen-soft-bg-hover: rgba(46, 123, 78, 0.18);
       --star-solid: #d4af37;
       --star-ink: #1a140b;
       --movie-box-border: #d6cab9;
@@ -892,6 +898,7 @@
     /* ── CARD ACTIONS ──────────────────────────────────────── */
     .card-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       padding-top: 4px;
       border-top: 1px solid var(--dark-gray);
@@ -915,6 +922,7 @@
 
     .action-btn:hover { border-color: var(--accent-dim); color: var(--accent); }
     .action-btn.active-watched { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
+    .action-btn.active-seen { border-color: var(--watch); color: var(--watch); background: var(--watch-bg); }
     .action-btn.active-hidden { border-color: var(--skip); color: var(--skip); background: var(--skip-bg); }
 
     /* Saved card overlay */
@@ -1365,6 +1373,13 @@
       border-color: var(--hide-soft-border);
       color: #c85b5b;
       background: var(--hide-soft-bg);
+      font-size: 1rem;
+    }
+
+    .theater-action-btn.seen {
+      border-color: var(--seen-soft-border);
+      color: var(--watch);
+      background: var(--seen-soft-bg);
     }
 
     .theater-action-btn:hover {
@@ -1384,6 +1399,15 @@
       border-color: #c85b5b;
       color: #c85b5b;
       background: var(--hide-soft-bg-hover);
+    }
+
+    .theater-action-btn.seen:hover,
+    .theater-action-btn.seen.active {
+      border-color: var(--watch);
+      color: var(--watch);
+      background: var(--seen-soft-bg-hover);
+      box-shadow: 0 0 0 1px rgba(74, 158, 107, 0.18), 0 0 14px rgba(74, 158, 107, 0.16);
+      transform: translateY(-1px) scale(1.04);
     }
 
     .theater-action-btn.refresh {
@@ -4362,6 +4386,7 @@ function setShowMode(mode) {
 
 // ── WATCHED / HIDDEN STATE ─────────────────────────────────────────────────
 function getWatched() { try { return JSON.parse(localStorage.getItem('cinema_watched') || '[]'); } catch { return []; } }
+function getSeen() { try { return JSON.parse(localStorage.getItem('cinema_seen') || '[]'); } catch { return []; } }
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
 function getMovieStorageKeys(movieOrId, fallbackTitle = '') {
   if (typeof movieOrId === 'object' && movieOrId) {
@@ -4382,6 +4407,17 @@ function toggleWatched(movieId, fallbackTitle = '') {
     list.push(movieId);
   }
   localStorage.setItem('cinema_watched', JSON.stringify(list));
+}
+function toggleSeen(movieId, fallbackTitle = '') {
+  const list = getSeen();
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const existingIdx = list.findIndex(item => keys.includes(item));
+  if (existingIdx > -1) {
+    list.splice(existingIdx, 1);
+  } else if (movieId) {
+    list.push(movieId);
+  }
+  localStorage.setItem('cinema_seen', JSON.stringify(list));
 }
 function toggleHidden(movieId, fallbackTitle = '') {
   const list = getHidden();
@@ -5209,6 +5245,7 @@ function buildRankingRow(movie, idx) {
   const nextShow = getNextRankingShow(movie);
   const blurbState = getMovieBlurbState(movie);
   const watched = hasStoredMovie(getWatched(), movie);
+  const seen = hasStoredMovie(getSeen(), movie);
   const isHiddenRow = hasStoredMovie(getHidden(), movie);
   const lbUrl = getLetterboxdUrl(movie);
   const rtUrl = getRottenTomatoesUrl(movie);
@@ -5256,7 +5293,8 @@ function buildRankingRow(movie, idx) {
     </div>
     <div class="ranking-actions">
       ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, ${safeId}, ${safeTitle})">★</button>
+      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, ${safeId}, ${safeTitle})">★</button>
+      <button class="theater-action-btn seen${seen ? ' active' : ''}" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="event.stopPropagation(); onRankingSeen(this, ${safeId}, ${safeTitle})">✓</button>
       <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, ${safeId}, ${safeTitle})">×</button>
     </div>
     <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
@@ -5393,6 +5431,7 @@ function renderTheaterView() {
       const movie = entry.movie;
       const verdict = getCardTone(movie);
       const watched = hasStoredMovie(getWatched(), movie);
+      const seen = hasStoredMovie(getSeen(), movie);
       const ratings = movie.ratings || {};
       const scoreHierarchy = getScoreHierarchy(movie);
       const year = ratings.year || '';
@@ -5460,7 +5499,8 @@ function renderTheaterView() {
         <div class="theater-film-times">${scheduleHTML}</div>
         <div class="theater-film-actions">
           ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" title="Save movie" onclick="onTheaterWatched(this, ${safeMovieId}, ${safeMovieTitle})">★</button>
+          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="onTheaterWatched(this, ${safeMovieId}, ${safeMovieTitle})">★</button>
+          <button class="theater-action-btn seen${seen ? ' active' : ''}" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="onTheaterSeen(this, ${safeMovieId}, ${safeMovieTitle})">✓</button>
           <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, ${safeMovieId}, ${safeMovieTitle})">×</button>
         </div>
       `;
@@ -5507,6 +5547,7 @@ function buildCard(movie, idx) {
   const year = ratings.year || '';
   const theaters = getVisibleTheaters(movie);
   const watched = hasStoredMovie(getWatched(), movie);
+  const seen = hasStoredMovie(getSeen(), movie);
 
   // Genre tags
   const tags = [...new Set([
@@ -5592,8 +5633,11 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn${watched ? ' active-watched' : ''}" onclick="onWatched(this, ${safeMovieId}, ${safeMovieTitle})">
+      <button class="action-btn${watched ? ' active-watched' : ''}" aria-pressed="${watched ? 'true' : 'false'}" onclick="onWatched(this, ${safeMovieId}, ${safeMovieTitle})">
         ${watched ? '★ Saved' : 'Save'}
+      </button>
+      <button class="action-btn${seen ? ' active-seen' : ''}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Marked watched' : 'Mark watched'}" onclick="onSeen(this, ${safeMovieId}, ${safeMovieTitle})">
+        ✓ Watched
       </button>
       <button class="action-btn" onclick="onHide(this, ${safeMovieId}, ${safeMovieTitle})">
         Not Interested
@@ -5616,7 +5660,16 @@ function onWatched(btn, movieId, title) {
   const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
   card.classList.toggle('is-watched', isNowWatched);
   btn.classList.toggle('active-watched', isNowWatched);
+  btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.textContent = isNowWatched ? '★ Saved' : 'Save';
+}
+
+function onSeen(btn, movieId, title) {
+  toggleSeen(movieId, title);
+  const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.classList.toggle('active-seen', isNowSeen);
+  btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
+  btn.setAttribute('title', isNowSeen ? 'Marked watched' : 'Mark watched');
 }
 
 function onHide(btn, movieId, title) {
@@ -5636,6 +5689,15 @@ function onTheaterWatched(btn, movieId, title) {
   btn.classList.toggle('active', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
+}
+
+function onTheaterSeen(btn, movieId, title) {
+  toggleSeen(movieId, title);
+  const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.classList.toggle('active', isNowSeen);
+  btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
+  btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
+  btn.setAttribute('title', isNowSeen ? 'Mark unwatched' : 'Mark watched');
 }
 
 function onTheaterHide(btn, movieId, title) {
@@ -5662,6 +5724,15 @@ function onRankingWatched(btn, movieId, title) {
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
   setTimeout(() => render(), 80);
+}
+
+function onRankingSeen(btn, movieId, title) {
+  toggleSeen(movieId, title);
+  const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.classList.toggle('active', isNowSeen);
+  btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
+  btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
+  btn.setAttribute('title', isNowSeen ? 'Mark unwatched' : 'Mark watched');
 }
 
 function onRankingHide(btn, movieId, title) {
@@ -6207,6 +6278,30 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
   alter table watched_movies enable row level security;
   create policy "own rows" on watched_movies for all using (auth.uid() = user_id);
 
+  create table seen_movies (
+    id         uuid primary key default gen_random_uuid(),
+    user_id    uuid references auth.users not null,
+    movie_id   text not null,
+    title      text,
+    created_at timestamptz default now(),
+    unique(user_id, movie_id)
+  );
+  alter table seen_movies enable row level security;
+  create policy "own rows" on seen_movies for all using (auth.uid() = user_id);
+
+  create table site_visits (
+    id         bigserial primary key,
+    visitor_id text not null,
+    user_id    uuid references auth.users,
+    path       text,
+    referrer   text,
+    user_agent text,
+    visited_at timestamptz default now(),
+    visit_date date default current_date
+  );
+  alter table site_visits enable row level security;
+  create policy "record visits" on site_visits for insert with check (true);
+
   Also enable Google provider in Supabase → Authentication → Providers,
   and set your site URL in Authentication → URL Configuration.
 */
@@ -6317,13 +6412,53 @@ function getSupabase() {
   return _supabase;
 }
 
+function getVisitVisitorId() {
+  try {
+    let id = localStorage.getItem('cinema_visitor_id');
+    if (!id) {
+      id = crypto?.randomUUID?.() || `visitor-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      localStorage.setItem('cinema_visitor_id', id);
+    }
+    return id;
+  } catch {
+    return `visitor-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  }
+}
+
+async function trackSiteVisit(user = currentUser) {
+  try {
+    const visitorId = getVisitVisitorId();
+    const visitDate = new Date().toISOString().slice(0, 10);
+    const userKey = user?.id || 'anon';
+    const sessionKey = `cinema_visit_${visitDate}_${userKey}_${location.pathname}`;
+    if (sessionStorage.getItem(sessionKey)) return;
+    sessionStorage.setItem(sessionKey, '1');
+    await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        visitor_id: visitorId,
+        user_id: user?.id || null,
+        path: location.pathname || '/',
+        referrer: document.referrer || null,
+        user_agent: navigator.userAgent || null,
+      }),
+    });
+  } catch (e) { /* silent */ }
+}
+
 async function loadUserListsFromCloud() {
   const sb = getSupabase();
   if (!sb || !currentUser) return;
   try {
-    const [{ data: hidden }, { data: watched }] = await Promise.all([
+    const [{ data: hidden }, { data: watched }, { data: seen }] = await Promise.all([
       sb.from('hidden_movies').select('movie_id').eq('user_id', currentUser.id),
       sb.from('watched_movies').select('movie_id').eq('user_id', currentUser.id),
+      sb.from('seen_movies').select('movie_id').eq('user_id', currentUser.id),
     ]);
     if (hidden) {
       const remoteIds = new Set(hidden.map(r => r.movie_id));
@@ -6351,6 +6486,19 @@ async function loadUserListsFromCloud() {
       const merged = [...new Set([...local, ...remoteIds])];
       localStorage.setItem('cinema_watched', JSON.stringify(merged));
     }
+    if (seen) {
+      const remoteIds = new Set(seen.map(r => r.movie_id));
+      const local = getSeen();
+      const localOnly = local.filter(id => !remoteIds.has(id));
+      if (localOnly.length) {
+        sb.from('seen_movies').upsert(
+          localOnly.map(id => ({ user_id: currentUser.id, movie_id: id, title: id })),
+          { onConflict: 'user_id,movie_id' }
+        ).then(() => {});
+      }
+      const merged = [...new Set([...local, ...remoteIds])];
+      localStorage.setItem('cinema_seen', JSON.stringify(merged));
+    }
     if (hasLoadedData) render();
   } catch (e) { /* silent */ }
 }
@@ -6363,12 +6511,14 @@ function initSupabase() {
     updateProfileUI();
     if (currentUser && event !== 'TOKEN_REFRESHED') {
       closeAuthModal();
+      trackSiteVisit(currentUser);
       loadUserListsFromCloud();
     }
   });
   sb.auth.getSession().then(({ data: { session } }) => {
     currentUser = session?.user ?? null;
     updateProfileUI();
+    trackSiteVisit(currentUser);
     if (currentUser) loadUserListsFromCloud();
   });
 }
@@ -6543,7 +6693,23 @@ toggleWatched = function(movieId, fallbackTitle = '') {
   }
 };
 
+const _origToggleSeen = toggleSeen;
+toggleSeen = function(movieId, fallbackTitle = '') {
+  const before = getSeen();
+  const keys = getMovieStorageKeys(movieId, fallbackTitle);
+  const wasSeen = keys.some(k => before.includes(k));
+  _origToggleSeen(movieId, fallbackTitle);
+  const sb = getSupabase();
+  if (!sb || !currentUser || !movieId) return;
+  if (!wasSeen) {
+    sb.from('seen_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
+  } else {
+    sb.from('seen_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
+  }
+};
+
 initSupabase();
+trackSiteVisit();
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 syncThemeButtons();

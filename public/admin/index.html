@@ -372,6 +372,129 @@
       font-size: 0.68rem;
     }
 
+    .analytics-dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .analytics-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .analytics-section-title {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric-card,
+    .top-list-card {
+      background: var(--off-black);
+      border: 1px solid var(--dark-gray);
+      border-radius: 3px;
+      padding: 14px 16px;
+    }
+
+    .metric-value {
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .metric-detail {
+      margin-top: 8px;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .top-list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .top-list-title {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .top-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .top-list-row {
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+      min-width: 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .top-list-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .top-list-rank {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .top-list-movie {
+      min-width: 0;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-list-count {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .analytics-note {
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .metric-grid,
+      .top-list-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .loading-state {
       text-align: center;
       padding: 80px 20px;
@@ -478,6 +601,7 @@
     <div class="view-toggle">
       <button id="btn-editor" class="view-btn active" onclick="setView('editor')">Editor</button>
       <button id="btn-rankings" class="view-btn" onclick="setView('rankings')">Rankings</button>
+      <button id="btn-analytics" class="view-btn" onclick="setView('analytics')">Analytics</button>
     </div>
     <button class="btn-signout" onclick="resetAdminSession()">Sign out</button>
   </div>
@@ -526,6 +650,9 @@ let canEditBlurbs = true;
 let siteHidden = new Set();
 let canEditSiteHidden = true;
 let adminWarnings = [];
+let analyticsData = null;
+let analyticsError = '';
+let analyticsLoading = false;
 
 function addAdminWarning(message) {
   if (!adminWarnings.includes(message)) adminWarnings.push(message);
@@ -1208,9 +1335,11 @@ function setView(v) {
   adminView = v;
   document.getElementById('btn-editor').classList.toggle('active', v === 'editor');
   document.getElementById('btn-rankings').classList.toggle('active', v === 'rankings');
+  document.getElementById('btn-analytics').classList.toggle('active', v === 'analytics');
   const controls = document.querySelector('.controls');
   if (controls) controls.style.visibility = v === 'editor' ? '' : 'hidden';
-  if (v === 'rankings') renderRankings();
+  if (v === 'analytics') renderAnalytics();
+  else if (v === 'rankings') renderRankings();
   else renderList();
 }
 
@@ -1251,6 +1380,133 @@ function renderRankings() {
   }
 
   movies.forEach(movie => main.appendChild(buildCard(movie)));
+}
+
+function formatNumber(value) {
+  const n = Number(value || 0);
+  return Number.isFinite(n) ? n.toLocaleString() : '0';
+}
+
+function metricCard(label, value, detail = '') {
+  return `
+    <div class="metric-card">
+      <div class="metric-value">${formatNumber(value)}</div>
+      <div class="metric-label">${escapeHTML(label)}</div>
+      ${detail ? `<div class="metric-detail">${detail}</div>` : ''}
+    </div>
+  `;
+}
+
+function getMovieTitleForAnalytics(row) {
+  const id = String(row?.movie_id || '');
+  const storedTitle = cleanDisplayText(row?.title);
+  const movie = allMovies.find(item => getMovieId(item) === id || item.id === id || item.title === id);
+  return movie?.title || storedTitle || id || 'Unknown movie';
+}
+
+function topListCard(title, rows) {
+  const cleanRows = Array.isArray(rows) ? rows : [];
+  const body = cleanRows.length
+    ? cleanRows.slice(0, 10).map((row, index) => `
+        <div class="top-list-row">
+          <div class="top-list-rank">${index + 1}</div>
+          <div class="top-list-movie" title="${escapeHTML(getMovieTitleForAnalytics(row))}">${escapeHTML(getMovieTitleForAnalytics(row))}</div>
+          <div class="top-list-count">${formatNumber(row.count)}</div>
+        </div>
+      `).join('')
+    : `<div class="analytics-note">No activity yet.</div>`;
+  return `
+    <div class="top-list-card">
+      <div class="top-list-title">${escapeHTML(title)}</div>
+      <div class="top-list">${body}</div>
+    </div>
+  `;
+}
+
+async function loadAnalytics() {
+  if (analyticsData || analyticsLoading) return;
+  analyticsLoading = true;
+  analyticsError = '';
+  try {
+    await requireAuth();
+    const { data, error } = await _sbAuth.rpc('get_admin_analytics');
+    if (error) throw error;
+    analyticsData = data || {};
+  } catch (e) {
+    console.error('analytics error:', e);
+    analyticsError = getErrorMessage(e);
+  } finally {
+    analyticsLoading = false;
+  }
+}
+
+async function renderAnalytics() {
+  const main = document.getElementById('main');
+  main.innerHTML = '';
+  adminWarnings.forEach(message => {
+    const warning = document.createElement('div');
+    warning.className = 'admin-warning';
+    warning.innerHTML = `<strong>Limited Access</strong><br>${escapeHTML(message)}`;
+    main.appendChild(warning);
+  });
+
+  if (!analyticsData && !analyticsError) {
+    main.innerHTML += `<div class="loading-state">Loading analytics…</div>`;
+    await loadAnalytics();
+  }
+
+  if (analyticsError) {
+    main.innerHTML = `
+      <div class="admin-warning">
+        <strong>Analytics unavailable</strong><br>
+        ${escapeHTML(analyticsError)}<br><br>
+        Run <code>supabase/admin-dashboard-policies.sql</code> in Supabase, then reload this page.
+      </div>
+    `;
+    return;
+  }
+
+  const users = analyticsData?.users || {};
+  const visits = analyticsData?.visits || {};
+  const actions = analyticsData?.actions || {};
+  const top = analyticsData?.top || {};
+  const generatedAt = analyticsData?.generated_at ? new Date(analyticsData.generated_at) : null;
+
+  main.innerHTML = `
+    <div class="analytics-dashboard">
+      <div class="analytics-section">
+        <div class="analytics-section-title">Audience</div>
+        <div class="metric-grid">
+          ${metricCard('Signed-up users', users.signed_up, `${formatNumber(users.signed_up_7d)} new in 7 days · ${formatNumber(users.signed_up_30d)} in 30 days`)}
+          ${metricCard('Unique visitors', visits.unique_visitors, `${formatNumber(visits.unique_today)} today · ${formatNumber(visits.unique_7d)} in 7 days`)}
+          ${metricCard('Total visits', visits.total, `${formatNumber(visits.today)} today · ${formatNumber(visits.last_30d)} in 30 days`)}
+        </div>
+      </div>
+
+      <div class="analytics-section">
+        <div class="analytics-section-title">Movie Actions</div>
+        <div class="metric-grid">
+          ${metricCard('Saved movies', actions.saved_total, `${formatNumber(actions.saved_users)} users have saved at least one movie`)}
+          ${metricCard('Seen movies', actions.seen_total, `${formatNumber(actions.seen_users)} users have marked at least one movie seen`)}
+          ${metricCard('Hidden movies', actions.hidden_total, `${formatNumber(actions.hidden_users)} users have hidden at least one movie`)}
+        </div>
+      </div>
+
+      <div class="analytics-section">
+        <div class="analytics-section-title">Most Used Movies</div>
+        <div class="top-list-grid">
+          ${topListCard('Most Saved', top.saved)}
+          ${topListCard('Most Seen', top.seen)}
+          ${topListCard('Most Hidden', top.hidden)}
+        </div>
+      </div>
+
+      <div class="analytics-note">
+        Unique visitors are counted by anonymous browser IDs stored locally. Signed-up user totals come from Supabase Auth.
+        ${generatedAt ? `Last refreshed ${escapeHTML(generatedAt.toLocaleString())}.` : ''}
+      </div>
+    </div>
+  `;
 }
 
 async function init() {
