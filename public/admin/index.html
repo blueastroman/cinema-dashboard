@@ -1338,7 +1338,7 @@ function setView(v) {
   document.getElementById('btn-analytics').classList.toggle('active', v === 'analytics');
   const controls = document.querySelector('.controls');
   if (controls) controls.style.visibility = v === 'editor' ? '' : 'hidden';
-  if (v === 'analytics') renderAnalytics();
+  if (v === 'analytics') renderAnalytics({ forceRefresh: true });
   else if (v === 'rankings') renderRankings();
   else renderList();
 }
@@ -1423,8 +1423,9 @@ function topListCard(title, rows) {
   `;
 }
 
-async function loadAnalytics() {
-  if (analyticsData || analyticsLoading) return;
+async function loadAnalytics({ forceRefresh = false } = {}) {
+  if (analyticsLoading) return;
+  if (!forceRefresh && analyticsData) return;
   analyticsLoading = true;
   analyticsError = '';
   try {
@@ -1440,7 +1441,13 @@ async function loadAnalytics() {
   }
 }
 
-async function renderAnalytics() {
+async function refreshAnalytics() {
+  analyticsData = null;
+  analyticsError = '';
+  await renderAnalytics({ forceRefresh: true });
+}
+
+async function renderAnalytics({ forceRefresh = false } = {}) {
   const main = document.getElementById('main');
   main.innerHTML = '';
   adminWarnings.forEach(message => {
@@ -1452,7 +1459,7 @@ async function renderAnalytics() {
 
   if (!analyticsData && !analyticsError) {
     main.innerHTML += `<div class="loading-state">Loading analytics…</div>`;
-    await loadAnalytics();
+    await loadAnalytics({ forceRefresh });
   }
 
   if (analyticsError) {
@@ -1475,7 +1482,7 @@ async function renderAnalytics() {
   main.innerHTML = `
     <div class="analytics-dashboard">
       <div class="analytics-section">
-        <div class="analytics-section-title">Audience</div>
+        <div class="analytics-section-title">Audience <button class="view-btn" type="button" onclick="refreshAnalytics()">Refresh</button></div>
         <div class="metric-grid">
           ${metricCard('Signed-up users', users.signed_up, `${formatNumber(users.signed_up_7d)} new in 7 days · ${formatNumber(users.signed_up_30d)} in 30 days`)}
           ${metricCard('Unique visitors', visits.unique_visitors, `${formatNumber(visits.unique_today)} today · ${formatNumber(visits.unique_7d)} in 7 days`)}
