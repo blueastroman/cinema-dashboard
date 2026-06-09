@@ -406,26 +406,79 @@
       flex-wrap: wrap;
     }
 
-    .date-scope-row {
-      border-bottom: 1px solid var(--dark-gray);
+    /* ── SEGMENTED VIEW TOGGLE ────────────────────────────── */
+    .seg-toggle {
+      display: inline-flex;
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .date-scope-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 14px 40px;
-      display: flex;
+    .seg-btn {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border: none;
+      border-right: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .seg-btn:last-child { border-right: none; }
+
+    .seg-btn:hover { color: var(--accent); }
+
+    .seg-btn.active {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    /* ── DATE TAB STRIP ───────────────────────────────────── */
+    .date-tabs {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .date-scope-inner .filter-btn {
-      font-size: 0.98rem;
-      font-weight: 700;
-      padding: 10px 20px;
-      letter-spacing: 0.05em;
+    .date-tab {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: none;
+      border-right: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
     }
+
+    .date-tabs .date-picker-wrap { display: flex; }
+    .date-tabs .date-picker-wrap .date-tab { border-right: none; }
+
+    .date-tab:hover { color: var(--accent); }
+
+    .date-tab.active,
+    .date-picker-wrap.active .date-tab {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .sort-select,
+    .show-select { min-width: 120px; }
 
     .daypart-filter {
       display: inline-flex;
@@ -459,12 +512,6 @@
       height: 100%;
       opacity: 0.01;
       cursor: pointer;
-    }
-
-    .date-picker-wrap.active .filter-btn {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--accent-ink);
     }
 
     .search-wrap {
@@ -2049,7 +2096,7 @@
 
     @media (max-width: 768px) {
       .theater-film-list { grid-template-columns: 1fr; }
-      .header-inner, .stats-inner, .date-scope-inner, main { padding-left: 20px; padding-right: 20px; }
+      .header-inner, .stats-inner, main { padding-left: 20px; padding-right: 20px; }
       body::after {
         display: none;
       }
@@ -2060,8 +2107,7 @@
       header::before { background: var(--off-black); }
       .header-inner { flex-wrap: nowrap; height: auto; padding-top: 14px; padding-bottom: 14px; gap: 12px; align-items: center; }
       .mobile-filter-bar,
-      .stats-bar,
-      .date-scope-row {
+      .stats-bar {
         position: sticky;
         background: var(--off-black);
       }
@@ -2072,10 +2118,6 @@
       .stats-bar {
         top: calc(var(--mobile-header-height, 0px) + var(--mobile-filter-bar-height, 0px));
         z-index: 108;
-      }
-      .date-scope-row {
-        top: calc(var(--mobile-header-height, 0px) + var(--mobile-filter-bar-height, 0px) + var(--mobile-stats-bar-height, 0px));
-        z-index: 107;
       }
       .header-actions {
         width: auto;
@@ -2100,12 +2142,9 @@
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
-      .date-scope-inner { gap: 10px 12px; }
-      .date-scope-inner .filter-btn { font-size: 0.88rem; padding: 8px 14px; }
-      .date-scope-inner > .filter-btn {
-        flex: 1 1 calc((100% - 24px) / 3);
-        min-width: 0;
-      }
+      .date-tabs { flex-wrap: wrap; overflow: visible; border: none; border-radius: 0; gap: 6px; }
+      .date-tab { border: 1px solid var(--mid-gray); border-radius: 2px; }
+      .date-tab.active, .date-picker-wrap.active .date-tab { border-color: var(--accent); }
       .daypart-filter {
         flex: 1 1 calc(50% - 6px);
         min-width: 0;
@@ -2519,6 +2558,7 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
+      <!-- Row 1: Discovery filters -->
       <div class="stats-row">
         <div class="control-group">
           <span class="control-label">Theater</span>
@@ -2533,7 +2573,7 @@
           </select>
         </div>
         <div class="control-group">
-          <span class="control-label">Formats</span>
+          <span class="control-label">Format</span>
           <select class="genre-select" id="format-select">
             <option value="all">All</option>
           </select>
@@ -2543,45 +2583,39 @@
           <input class="search-input" type="text" placeholder="Search films..." id="search-input" />
         </div>
       </div>
+      <!-- Row 2: Context controls -->
       <div class="stats-row">
-        <div class="control-group">
-          <span class="control-label">Sort by</span>
-          <button class="filter-btn active" id="sort-day" onclick="setSort('day')">Soonest</button>
-          <button class="filter-btn" id="sort-rating" onclick="setSort('rating')">Best</button>
+        <div class="seg-toggle">
+          <button class="seg-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
+          <button class="seg-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
         </div>
-        <div class="control-group">
-          <span class="control-label">View</span>
-          <button class="filter-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
-          <button class="filter-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
+        <div class="date-tabs">
+          <button class="date-tab active" id="today-btn">Today</button>
+          <button class="date-tab" id="tomorrow-btn">Tomorrow</button>
+          <button class="date-tab" id="thisweek-btn">This Week</button>
+          <div class="date-picker-wrap">
+            <button class="date-tab" id="pickdate-btn" type="button">Select Date</button>
+            <input type="date" id="date-picker" />
+          </div>
         </div>
-        <div class="control-group tight">
-          <span class="control-label">Show</span>
-          <button class="filter-btn saved-toggle" id="show-all-btn" onclick="setShowMode('all')">All</button>
-          <button class="filter-btn saved-toggle" id="saved-btn" onclick="setShowMode('saved')">Saved</button>
-          <button class="filter-btn saved-toggle" id="watched-btn" onclick="setShowMode('watched')">Watched</button>
-          <button class="filter-btn saved-toggle" id="hidden-btn" onclick="setShowMode('hidden')">Hidden</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="date-scope-row">
-    <div class="date-scope-inner">
-      <button class="filter-btn active" id="today-btn">Today</button>
-      <button class="filter-btn" id="tomorrow-btn" style="border-color:var(--accent-dim);color:var(--accent)">Tomorrow</button>
-      <button class="filter-btn" id="thisweek-btn" style="border-color:var(--accent-dim);color:var(--accent)">This Week</button>
-      <div class="date-picker-wrap">
-        <button class="filter-btn" id="pickdate-btn" type="button" style="border-color:var(--accent-dim);color:var(--accent)">Select Date</button>
-        <input type="date" id="date-picker" />
-      </div>
-      <div class="daypart-filter" id="daypart-filter-wrap">
-        <span class="control-label">Time</span>
-        <select class="genre-select daypart-select" id="daypart-select">
-          <option value="all">Any time</option>
-          <option value="morning">Morning</option>
-          <option value="evening">Evening</option>
-          <option value="night">Night</option>
+        <select class="genre-select sort-select" id="sort-select" onchange="setSort(this.value)">
+          <option value="rating">Best first</option>
+          <option value="day">Soonest first</option>
         </select>
+        <select class="genre-select show-select" id="show-select" onchange="setShowMode(this.value)">
+          <option value="all">Browse</option>
+          <option value="saved">Saved</option>
+          <option value="watched">Watched</option>
+          <option value="hidden">Hidden</option>
+        </select>
+        <div class="daypart-filter" id="daypart-filter-wrap">
+          <select class="genre-select daypart-select" id="daypart-select">
+            <option value="all">Any time</option>
+            <option value="morning">Morning</option>
+            <option value="evening">Evening</option>
+            <option value="night">Night</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
@@ -4449,9 +4483,9 @@ function getEmptyStateMessage() {
 }
 
 function getEmptyStateHint() {
-  if (showMode === 'saved') return 'Try switching Show back to All or broadening the date range.';
+  if (showMode === 'saved') return 'Try switching Show back to Browse or broadening the date range.';
   if (showMode === 'watched') return 'Movies marked watched will appear here if they still have upcoming showtimes.';
-  if (showMode === 'hidden') return 'Try switching Show back to All or clearing one of the other filters.';
+  if (showMode === 'hidden') return 'Try switching Show back to Browse or clearing one of the other filters.';
   if (activeFormat !== 'all') return 'Try clearing the format filter or switching theaters.';
   if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
   if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
@@ -4874,10 +4908,9 @@ function updateMobileFilterSummary() {
   const el = document.getElementById('mobile-filter-summary');
   if (!el) return;
   const parts = [];
-  const isRankings = document.getElementById('view-rankings')?.classList.contains('active');
-  parts.push(isRankings ? 'Rankings' : 'Theaters');
-  const isBest = document.getElementById('sort-rating')?.classList.contains('active');
-  parts.push(isBest ? 'Best' : 'Soonest');
+  parts.push(viewMode === 'rankings' ? 'Rankings' : 'Theaters');
+  const effectiveSort = viewMode === 'rankings' ? 'rating' : activeSort;
+  parts.push(effectiveSort === 'rating' ? 'Best' : 'Soonest');
   const theaterSelect = document.getElementById('theater-select');
   if (theaterSelect && theaterSelect.value !== 'all') {
     parts.push(theaterSelect.options[theaterSelect.selectedIndex]?.text || '');
@@ -4930,22 +4963,19 @@ function setSort(mode) {
 }
 
 function syncSortButtons() {
-  ['rating', 'day'].forEach(m => {
-    const btn = document.getElementById('sort-' + m);
-    if (!btn) return;
+  const select = document.getElementById('sort-select');
+  if (select) {
     const locked = viewMode === 'rankings';
-    btn.disabled = locked && m === 'day';
-    btn.setAttribute('aria-disabled', locked && m === 'day' ? 'true' : 'false');
-    btn.classList.toggle('active', m === 'rating' ? (viewMode === 'rankings' || activeSort === 'rating') : m === activeSort);
-  });
+    select.value = locked ? 'rating' : activeSort;
+    const dayOpt = select.querySelector('option[value="day"]');
+    if (dayOpt) dayOpt.disabled = locked;
+  }
   updateMobileFilterSummary();
 }
 
 function syncShowButtons() {
-  document.getElementById('show-all-btn')?.classList.toggle('active', showMode === 'all');
-  document.getElementById('saved-btn')?.classList.toggle('active', showMode === 'saved');
-  document.getElementById('watched-btn')?.classList.toggle('active', showMode === 'watched');
-  document.getElementById('hidden-btn')?.classList.toggle('active', showMode === 'hidden');
+  const select = document.getElementById('show-select');
+  if (select) select.value = showMode;
 }
 
 function syncViewButtons() {
@@ -6188,8 +6218,6 @@ function syncDateScopeButtons() {
   buttons.forEach(({ el, active }) => {
     if (!el) return;
     el.classList.toggle('active', active);
-    el.style.borderColor = active ? '' : 'var(--accent-dim)';
-    el.style.color = active ? '' : 'var(--accent)';
   });
 
   if (dateBtn) {
