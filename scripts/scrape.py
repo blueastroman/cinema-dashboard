@@ -62,6 +62,10 @@ PRESTIGE_OVERRIDES_PATH = SCRIPT_DIR / "prestige_overrides.json"
 RATING_CACHE_PATH = SCRIPT_DIR / "rating_cache.json"
 OUTPUT_DATA_PATH = (SCRIPT_DIR / "../public/data.json").resolve()
 AMC_THEATRE_PAGE_SIZE = 100
+DEFAULT_AMC_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+    "Accept": "application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
 PARIS_SITE_ID = "2001"
 PARIS_AUTH_URL = "https://auth.moviexchange.com/connect/token"
 PARIS_API_BASE = "https://digital-api.paristheaternyc.com/ocapi/v1"
@@ -975,6 +979,7 @@ def amc_request(ctx: ScrapeContext, path: str, params: Optional[dict] = None) ->
             f"{ctx.config.amc_api_base}{path}",
             params=request_params,
             headers={
+                **DEFAULT_AMC_HEADERS,
                 "X-AMC-Vendor-Key": ctx.config.amc_vendor_key,
                 "Accept": "application/json",
             },
@@ -1065,6 +1070,7 @@ def fetch_amc_theatres(ctx: ScrapeContext) -> list[dict]:
                 or theatre.get("websiteURL")
                 or theatre.get("mobileUrl")
                 or theatre.get("mobileURL")
+                or THEATER_CONFIG.get(name, {}).get("official_url")
                 or "https://www.amctheatres.com/"
             ).strip(),
         })
