@@ -70,6 +70,7 @@ class ScrapeConfig:
     amc_api_base: str
     amc_theatre_ids: list[str]
     amc_theatre_page_size: int = 100
+    amc_force_serpapi_fallback: bool = False
     allow_mock_data: bool = False
 
 
@@ -125,6 +126,7 @@ def build_scrape_context(
         amc_vendor_key=os.environ.get("AMC_VENDOR_KEY", ""),
         amc_api_base=os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/"),
         amc_theatre_ids=[token.strip() for token in os.environ.get("AMC_THEATRE_IDS", "").split(",") if token.strip()],
+        amc_force_serpapi_fallback=os.environ.get("AMC_FORCE_SERPAPI_FALLBACK", "").strip().lower() in {"1", "true", "yes"},
         allow_mock_data=os.environ.get("ALLOW_MOCK_DATA", "").strip().lower() in {"1", "true", "yes"},
     )
     state = ScrapeState(

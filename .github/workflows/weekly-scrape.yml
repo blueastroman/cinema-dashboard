@@ -25,6 +25,7 @@ jobs:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+          AMC_FORCE_SERPAPI_FALLBACK: "1"
         run: |
           set -euo pipefail
           for attempt in 1 2 3; do

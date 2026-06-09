@@ -21,6 +21,7 @@ class AmcRequestTests(unittest.TestCase):
                 amc_vendor_key="test-vendor-key",
                 amc_api_base="https://api.amctheatres.com",
                 amc_theatre_ids=[],
+                amc_force_serpapi_fallback=False,
                 allow_mock_data=False,
             ),
             state=ScrapeState(),
@@ -70,6 +71,28 @@ class AmcRequestTests(unittest.TestCase):
         self.assertTrue(theaters)
         self.assertTrue(all(theater.get("source_type") == "serpapi" for theater in theaters))
         self.assertIn("AMC 34th Street 14", {theater["name"] for theater in theaters})
+
+    def test_weekly_scrape_can_force_serpapi_fallback(self):
+        ctx = self.make_context()
+        ctx.config.amc_force_serpapi_fallback = True
+
+        with mock.patch.object(scrape, "amc_request") as amc_request:
+            theaters = scrape.fetch_amc_theatres(ctx)
+
+        amc_request.assert_not_called()
+        self.assertTrue(theaters)
+        self.assertTrue(all(theater.get("source_type") == "serpapi" for theater in theaters))
+
+    def test_refresh_amc_can_force_serpapi_fallback(self):
+        with (
+            mock.patch.object(refresh_amc, "AMC_FORCE_SERPAPI_FALLBACK", True),
+            mock.patch.object(refresh_amc, "amc_request") as amc_request,
+        ):
+            theaters = refresh_amc.fetch_amc_theatres()
+
+        amc_request.assert_not_called()
+        self.assertTrue(theaters)
+        self.assertTrue(all(theater.get("source_type") == "serpapi" for theater in theaters))
 
     def test_refresh_amc_main_continues_after_single_theater_failure(self):
         theaters = [

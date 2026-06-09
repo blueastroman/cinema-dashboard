@@ -1014,6 +1014,10 @@ def fetch_amc_theatres(ctx: ScrapeContext) -> list[dict]:
             })
         return sorted(fallback, key=lambda t: t["name"])
 
+    if ctx.config.amc_force_serpapi_fallback:
+        print("  [WARN] AMC_FORCE_SERPAPI_FALLBACK enabled; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback()
+
     if not ctx.config.amc_vendor_key:
         print("  [WARN] AMC_VENDOR_KEY missing; using SerpAPI fallback for AMC theaters.")
         return serpapi_fallback()

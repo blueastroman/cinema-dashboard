@@ -43,6 +43,7 @@ AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [token.strip() for token in os.environ.get("AMC_THEATRE_IDS", "").split(",") if token.strip()]
 AMC_THEATRE_PAGE_SIZE = 100
+AMC_FORCE_SERPAPI_FALLBACK = os.environ.get("AMC_FORCE_SERPAPI_FALLBACK", "").strip().lower() in {"1", "true", "yes"}
 DEFAULT_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
     "Accept": "application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -117,6 +118,10 @@ def serpapi_fallback_theatres() -> list[dict[str, Any]]:
 
 
 def fetch_amc_theatres() -> list[dict[str, Any]]:
+    if AMC_FORCE_SERPAPI_FALLBACK:
+        print("  [WARN] AMC_FORCE_SERPAPI_FALLBACK enabled; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback_theatres()
+
     if not AMC_VENDOR_KEY:
         print("  [WARN] AMC_VENDOR_KEY missing; using SerpAPI fallback for AMC theaters.")
         return serpapi_fallback_theatres()
@@ -193,6 +198,7 @@ def build_serpapi_context() -> ScrapeContext:
             amc_vendor_key=AMC_VENDOR_KEY,
             amc_api_base=AMC_API_BASE,
             amc_theatre_ids=AMC_THEATRE_IDS,
+            amc_force_serpapi_fallback=AMC_FORCE_SERPAPI_FALLBACK,
             allow_mock_data=False,
         ),
         state=ScrapeState(),
