@@ -197,7 +197,7 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
         "api_key": ctx.config.serpapi_key,
     }
     try:
-        r = requests.get("https://serpapi.com/search", params=params, timeout=15)
+        r = requests.get("https://serpapi.com/search", params=params, timeout=30)
         data = r.json()
         movies = []
         for day in data.get("showtimes", []):

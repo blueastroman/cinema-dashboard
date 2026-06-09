@@ -566,15 +566,23 @@ def main() -> int:
 
     serpapi_ctx = build_serpapi_context()
     entries = []
+    failures: list[tuple[str, str]] = []
     for theater in amc_theaters:
         print(f"\nRefreshing AMC: {theater['name']}")
-        if theater.get("source") == "amc":
-            entries.extend(fetch_amc_showtimes(theater))
-            continue
-        entries.extend(fetch_showtimes(theater, serpapi_ctx))
+        try:
+            if theater.get("source") == "amc":
+                entries.extend(fetch_amc_showtimes(theater))
+                continue
+            entries.extend(fetch_showtimes(theater, serpapi_ctx))
+        except Exception as exc:
+            failures.append((str(theater.get("name") or "AMC theater"), str(exc)))
+            print(f"  [ERROR] AMC theater refresh failed for {theater['name']}: {exc}")
 
     if not entries:
         raise RuntimeError("AMC API returned no showtimes.")
+
+    if failures:
+        print(f"\nCompleted with {len(failures)} AMC theater refresh failure(s).")
 
     merge_amc_entries(dataset, amc_theaters, entries)
     save_dataset(OUTPUT_DATA_PATH, dataset)

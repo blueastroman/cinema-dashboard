@@ -71,6 +71,27 @@ class AmcRequestTests(unittest.TestCase):
         self.assertTrue(all(theater.get("source_type") == "serpapi" for theater in theaters))
         self.assertIn("AMC 34th Street 14", {theater["name"] for theater in theaters})
 
+    def test_refresh_amc_main_continues_after_single_theater_failure(self):
+        theaters = [
+            {"name": "AMC 19th St. East 6", "source_type": "serpapi", "serpapi_id": "amc 19th st east 6 new york"},
+            {"name": "AMC 34th Street 14", "source_type": "serpapi", "serpapi_id": "amc 34th street 14 new york"},
+        ]
+        entries = [{"title": "Movie", "theater": "AMC 34th Street 14", "day": "Today", "times": ["7:00pm"]}]
+
+        with (
+            mock.patch.object(refresh_amc, "load_dataset", return_value={"movies": [], "theater_meta": {}}),
+            mock.patch.object(refresh_amc, "fetch_amc_theatres", return_value=theaters),
+            mock.patch.object(refresh_amc, "build_serpapi_context", return_value=mock.Mock()),
+            mock.patch.object(refresh_amc, "fetch_showtimes", side_effect=[RuntimeError("timeout"), entries]),
+            mock.patch.object(refresh_amc, "merge_amc_entries") as merge_entries,
+            mock.patch.object(refresh_amc, "save_dataset") as save_dataset,
+        ):
+            result = refresh_amc.main()
+
+        self.assertEqual(result, 0)
+        merge_entries.assert_called_once()
+        save_dataset.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()
