@@ -6003,9 +6003,34 @@ function getTicketUrl(theaterData) {
   );
 }
 
+function getAmcShowtimesFallbackUrl(theaterData, scheduleItem) {
+  const theaterName = String(theaterData?.name || '').trim();
+  if (!/^AMC\b/i.test(theaterName)) return '';
+  const baseUrl = getTicketUrl(theaterData);
+  if (!baseUrl) return '';
+
+  try {
+    const parsed = new URL(baseUrl);
+    if (!/amctheatres\.com$/i.test(parsed.hostname)) return '';
+
+    const cleanPath = parsed.pathname.replace(/\/+$/, '');
+    const showtimesPath = cleanPath.includes('/showtimes') ? cleanPath : `${cleanPath}/showtimes`;
+    const nextUrl = new URL(`https://${parsed.hostname}${showtimesPath}`);
+    const rawDate = String(scheduleItem?.date || '').trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+      nextUrl.searchParams.set('date', rawDate);
+    }
+    return nextUrl.href;
+  } catch {
+    return '';
+  }
+}
+
 function getShowtimeTicketUrl(theaterData, scheduleItem, time) {
   const exactUrl = safeExternalUrl(scheduleItem?.ticket_urls?.[time], SAFE_URL_HOSTS.ticket);
   if (exactUrl) return exactUrl;
+  const amcFallbackUrl = getAmcShowtimesFallbackUrl(theaterData, scheduleItem);
+  if (amcFallbackUrl) return amcFallbackUrl;
   return getTicketUrl(theaterData);
 }
 
