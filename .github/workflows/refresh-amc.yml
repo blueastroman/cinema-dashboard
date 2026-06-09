@@ -20,7 +20,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 0
 
       - name: Set up Python
@@ -34,6 +33,7 @@ jobs:
       - name: Refresh AMC showtimes
         env:
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           AMC_THEATRE_IDS: ${{ inputs.theatre_ids }}
         run: python scripts/refresh_amc.py
 

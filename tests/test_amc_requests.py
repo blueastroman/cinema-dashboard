@@ -60,6 +60,17 @@ class AmcRequestTests(unittest.TestCase):
         self.assertIn("Mozilla/5.0", kwargs["headers"]["User-Agent"])
         self.assertEqual(kwargs["headers"]["Accept"], "application/json")
 
+    def test_refresh_amc_theatres_falls_back_to_serpapi_when_api_fails(self):
+        with (
+            mock.patch.object(refresh_amc, "AMC_VENDOR_KEY", "test-vendor-key"),
+            mock.patch.object(refresh_amc, "amc_request", return_value=None),
+        ):
+            theaters = refresh_amc.fetch_amc_theatres()
+
+        self.assertTrue(theaters)
+        self.assertTrue(all(theater.get("source_type") == "serpapi" for theater in theaters))
+        self.assertIn("AMC 34th Street 14", {theater["name"] for theater in theaters})
+
 
 if __name__ == "__main__":
     unittest.main()

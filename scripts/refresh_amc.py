@@ -33,9 +33,12 @@ from cinema_backend.common import (  # noqa: E402
     sort_time_labels,
     split_trailing_title_year,
 )
+from cinema_backend.runtime import ScrapeConfig, ScrapeContext, ScrapeState  # noqa: E402
+from scrape import fetch_showtimes  # noqa: E402
 
 
 OUTPUT_DATA_PATH = ROOT / "public" / "data.json"
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 AMC_VENDOR_KEY = os.environ.get("AMC_VENDOR_KEY", "")
 AMC_API_BASE = os.environ.get("AMC_API_BASE", "https://api.amctheatres.com").rstrip("/")
 AMC_THEATRE_IDS = [token.strip() for token in os.environ.get("AMC_THEATRE_IDS", "").split(",") if token.strip()]
@@ -99,7 +102,25 @@ def is_supported_amc_theatre(theatre: dict[str, Any]) -> bool:
     return city in AMC_ALLOWED_CITIES_BY_STATE.get(state, set())
 
 
+def serpapi_fallback_theatres() -> list[dict[str, Any]]:
+    fallback = []
+    for name, config in THEATER_CONFIG.items():
+        if config.get("source_type") != "amc":
+            continue
+        fallback.append({
+            "name": name,
+            "source_type": "serpapi",
+            "serpapi_id": config.get("serpapi_id") or f"{name} showtimes",
+            "official_url": config.get("official_url") or "https://www.amctheatres.com/",
+        })
+    return sorted(fallback, key=lambda theater: theater["name"])
+
+
 def fetch_amc_theatres() -> list[dict[str, Any]]:
+    if not AMC_VENDOR_KEY:
+        print("  [WARN] AMC_VENDOR_KEY missing; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback_theatres()
+
     theatres_by_id: dict[str, dict[str, Any]] = {}
 
     if AMC_THEATRE_IDS:
@@ -157,7 +178,28 @@ def fetch_amc_theatres() -> list[dict[str, Any]]:
             ).strip(),
         })
 
+    if not results:
+        print("  [WARN] AMC API returned no supported theaters; using SerpAPI fallback for AMC theaters.")
+        return serpapi_fallback_theatres()
+
     return sorted(results, key=lambda theater: theater["name"])
+
+
+def build_serpapi_context() -> ScrapeContext:
+    return ScrapeContext(
+        config=ScrapeConfig(
+            serpapi_key=SERPAPI_KEY,
+            omdb_key="",
+            amc_vendor_key=AMC_VENDOR_KEY,
+            amc_api_base=AMC_API_BASE,
+            amc_theatre_ids=AMC_THEATRE_IDS,
+            allow_mock_data=False,
+        ),
+        state=ScrapeState(),
+        now=ny_now().replace(tzinfo=None),
+        output_data_path=OUTPUT_DATA_PATH,
+        rating_cache_path=ROOT / "scripts" / "rating_cache.json",
+    )
 
 
 AMC_SHOWTIME_TICKET_URL_KEYS = (
@@ -517,18 +559,19 @@ def merge_amc_entries(dataset: dict[str, Any], amc_theaters: list[dict[str, Any]
 
 
 def main() -> int:
-    if not AMC_VENDOR_KEY:
-        raise RuntimeError("AMC_VENDOR_KEY is required to refresh AMC showtimes.")
-
     dataset = load_dataset(OUTPUT_DATA_PATH)
     amc_theaters = fetch_amc_theatres()
     if not amc_theaters:
         raise RuntimeError("AMC API returned no supported theaters.")
 
+    serpapi_ctx = build_serpapi_context()
     entries = []
     for theater in amc_theaters:
         print(f"\nRefreshing AMC: {theater['name']}")
-        entries.extend(fetch_amc_showtimes(theater))
+        if theater.get("source") == "amc":
+            entries.extend(fetch_amc_showtimes(theater))
+            continue
+        entries.extend(fetch_showtimes(theater, serpapi_ctx))
 
     if not entries:
         raise RuntimeError("AMC API returned no showtimes.")
