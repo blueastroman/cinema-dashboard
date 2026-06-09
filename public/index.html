@@ -6562,19 +6562,21 @@ function getVisitVisitorId() {
 
 async function trackSiteVisit(user = currentUser) {
   try {
+    if (!SUPABASE_URL || SUPABASE_URL === 'YOUR_SUPABASE_URL' || !SUPABASE_ANON_KEY) return;
     const visitorId = getVisitVisitorId();
     const visitDate = new Date().toISOString().slice(0, 10);
     const userKey = user?.id || 'anon';
     const sessionKey = `cinema_visit_${visitDate}_${userKey}_${location.pathname}`;
     if (sessionStorage.getItem(sessionKey)) return;
-    sessionStorage.setItem(sessionKey, '1');
-    await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
       method: 'POST',
       headers: {
         apikey: SUPABASE_ANON_KEY,
         Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         'Content-Type': 'application/json',
+        Prefer: 'return=minimal',
       },
+      keepalive: true,
       body: JSON.stringify({
         visitor_id: visitorId,
         user_id: user?.id || null,
@@ -6583,6 +6585,12 @@ async function trackSiteVisit(user = currentUser) {
         user_agent: navigator.userAgent || null,
       }),
     });
+    if (!response.ok) {
+      const details = await response.text().catch(() => '');
+      console.warn('Site visit tracking failed:', response.status, details || response.statusText);
+      return;
+    }
+    sessionStorage.setItem(sessionKey, '1');
   } catch (e) { /* silent */ }
 }
 

@@ -1,5 +1,8 @@
--- Run in the Supabase SQL editor for the project used by public/admin/index.html.
+-- Run this whole file in the Supabase SQL editor for the project used by
+-- public/index.html and public/admin/index.html.
 -- Keeps public reads available while allowing only the configured admin email to write.
+-- Analytics stay at zero until the site_visits grants and RLS policy below are
+-- applied to the live project.
 
 create or replace function public.is_cinema_admin()
 returns boolean
