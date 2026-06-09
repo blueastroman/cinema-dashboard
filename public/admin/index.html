@@ -620,14 +620,32 @@ const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
 const ADMIN_EMAILS = ['danymora131@hotmail.com'];
 
-// _sbAuth: handles login/logout and authenticated admin writes.
+// _sbAuth: authenticated client — handles login/logout and reads on the admin page.
 const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-// _sb: always runs as anon role so RLS anon policies apply to data reads.
-// No-op storage prevents it from ever reading the _sbAuth session out of localStorage.
-const _NOOP_STORAGE = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
-const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storage: _NOOP_STORAGE },
-});
+// _sb: alias for reads (anon is fine; RLS allows SELECT for all tables used here).
+const _sb = _sbAuth;
+
+// fetchAuth: bypass Supabase JS client auth injection for writes by passing the
+// access token explicitly. The JS client's session-to-header wiring is unreliable
+// when multiple GoTrueClient instances exist in the same context.
+async function fetchAuth(path, options = {}) {
+  const { data: { session } } = await _sbAuth.auth.getSession();
+  if (!session?.access_token) throw new Error('Not authenticated');
+  const resp = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${session.access_token}`,
+      ...(options.headers || {}),
+    },
+  });
+  if (!resp.ok) {
+    let err = {};
+    try { err = await resp.json(); } catch (_) {}
+    throw { message: err.message || `HTTP ${resp.status}`, code: err.code, details: err.details };
+  }
+}
 
 function isAdminSession(session) {
   return ADMIN_EMAILS.includes(session?.user?.email);
@@ -684,15 +702,17 @@ async function togglePick(movie, btn, card) {
   btn.disabled = true;
   try {
     if (wasPicked) {
-      const { error } = await _sbAuth.from('picks').delete().eq('movie_id', id);
-      if (error) throw error;
+      await fetchAuth(`picks?movie_id=eq.${encodeURIComponent(id)}`, { method: 'DELETE' });
       picks.delete(id);
       btn.textContent = 'Recommend';
       btn.classList.remove('is-pick');
       card.classList.remove('is-pick-movie');
     } else {
-      const { error } = await _sbAuth.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
-      if (error) throw error;
+      await fetchAuth(`picks?on_conflict=movie_id`, {
+        method: 'POST',
+        headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify({ movie_id: id, title }),
+      });
       picks.add(id);
       btn.textContent = '✦ Recommended';
       btn.classList.add('is-pick');
@@ -835,8 +855,11 @@ async function replaceBlurbRow(movie, entry) {
     updated_at: new Date().toISOString(),
   };
 
-  const { error } = await _sbAuth.from('blurbs').upsert(row, { onConflict: 'movie_key' });
-  if (error) throw error;
+  await fetchAuth(`blurbs?on_conflict=movie_key`, {
+    method: 'POST',
+    headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify(row),
+  });
 
   blurbCache[key] = {
     text: row.text,
@@ -1025,13 +1048,15 @@ async function toggleHidden(movie) {
   }
   const id = getMovieId(movie);
   if (siteHidden.has(id)) {
-    const { error } = await _sbAuth.from('site_hidden').delete().eq('movie_id', id);
-    if (error) throw error;
+    await fetchAuth(`site_hidden?movie_id=eq.${encodeURIComponent(id)}`, { method: 'DELETE' });
     siteHidden.delete(id);
     return false;
   } else {
-    const { error } = await _sbAuth.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
-    if (error) throw error;
+    await fetchAuth(`site_hidden?on_conflict=movie_id`, {
+      method: 'POST',
+      headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify({ movie_id: id, title: movie.title || '' }),
+    });
     siteHidden.add(id);
     return true;
   }
