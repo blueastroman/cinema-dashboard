@@ -1317,7 +1317,7 @@
 
     .theater-film-row {
       display: grid;
-      grid-template-columns: 86px 130px minmax(0, 1fr) minmax(140px, 200px) auto;
+      grid-template-columns: 86px minmax(0, 1fr) minmax(140px, 200px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1341,11 +1341,11 @@
     .theater-film-row.watch::before  { background: var(--watch); }
     .theater-film-row.depends::before { background: var(--depends); }
     .theater-film-row.skip::before   { background: var(--skip); }
-    .theater-film-row.see-tonight::before  { background: var(--see-tonight); }
-    .theater-film-row.worth-trip::before   { background: var(--worth-trip); }
-    .theater-film-row.nothing-else::before { background: var(--nothing-else); }
-    .theater-film-row.better-home::before  { background: var(--better-home); }
-    .theater-film-row.dont-bother::before  { background: var(--dont-bother); }
+    .theater-film-row.see-tonight::before  { background: transparent; }
+    .theater-film-row.worth-trip::before   { background: transparent; }
+    .theater-film-row.nothing-else::before { background: transparent; }
+    .theater-film-row.better-home::before  { background: transparent; }
+    .theater-film-row.dont-bother::before  { background: transparent; }
     .theater-film-row:hover {
       background: var(--charcoal);
       border-color: var(--mid-gray);
@@ -1751,7 +1751,7 @@
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 86px auto minmax(0, 1fr) minmax(150px, 190px) auto;
+      grid-template-columns: 86px minmax(0, 1fr) minmax(150px, 190px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1779,11 +1779,26 @@
     .ranking-row.watch::before { background: var(--watch); }
     .ranking-row.depends::before { background: var(--depends); }
     .ranking-row.skip::before { background: var(--skip); }
-    .ranking-row.see-tonight::before { background: var(--see-tonight); }
-    .ranking-row.worth-trip::before { background: var(--worth-trip); }
-    .ranking-row.nothing-else::before { background: var(--nothing-else); }
-    .ranking-row.better-home::before { background: var(--better-home); }
-    .ranking-row.dont-bother::before { background: var(--dont-bother); }
+    .ranking-row.see-tonight::before,
+    .ranking-row.worth-trip::before,
+    .ranking-row.nothing-else::before,
+    .ranking-row.better-home::before,
+    .ranking-row.dont-bother::before { background: transparent; }
+
+    .ranking-row-verdict {
+      grid-column: 1 / -1;
+      margin: -18px -18px 0 -16px;
+      padding: 8px 18px 8px 21px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .ranking-row-verdict.see-tonight  { background: var(--see-tonight-bg);  color: var(--see-tonight); }
+    .ranking-row-verdict.worth-trip   { background: var(--worth-trip-bg);   color: var(--worth-trip); }
+    .ranking-row-verdict.nothing-else { background: var(--nothing-else-bg); color: var(--nothing-else); }
+    .ranking-row-verdict.better-home  { background: var(--better-home-bg);  color: var(--better-home); }
+    .ranking-row-verdict.dont-bother  { background: var(--dont-bother-bg);  color: var(--dont-bother); }
     .ranking-row:hover {
       background: var(--poster-bg-hover, var(--charcoal));
       border-color: var(--mid-gray);
@@ -2227,7 +2242,7 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .theater-film-row { grid-template-columns: 76px 130px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 14px; }
+      .theater-film-row { grid-template-columns: 76px minmax(0, 1fr) minmax(130px, 180px) auto; gap: 14px; }
       .theater-poster-wrap { width: 76px; }
       .ranking-row {
         grid-template-columns: 76px 130px minmax(0, 1fr) auto;
@@ -2338,14 +2353,9 @@
         grid-column: 1;
         grid-row: 1;
       }
-      .theater-film-row .ranking-score {
-        display: block;
-        grid-column: 1;
+      .theater-film-row .ranking-row-verdict {
+        grid-column: 1 / -1;
         grid-row: 1;
-        align-self: start;
-        margin-top: 94px;
-        padding-right: 0;
-        width: 64px;
       }
       .theater-film-info {
         grid-column: 2;
@@ -5630,13 +5640,11 @@ function buildRankingRow(movie, idx) {
   row.dataset.title = movie.title || '';
   row.dataset.year = year || '';
   row.innerHTML = `
+    <div class="ranking-row-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
     <div class="ranking-poster-wrap">
       ${posterUrl
         ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
         : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
-    </div>
-    <div class="ranking-score">
-      <div class="ranking-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
@@ -5810,13 +5818,11 @@ function renderTheaterView() {
       row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
 
       row.innerHTML = `
+        <div class="ranking-row-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
         <div class="theater-poster-wrap">
           ${posterUrl
             ? `<img class="ranking-poster" src="${escapeHTML(posterUrl)}" alt="${escapeHTML(movie.title)} poster" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'ranking-poster-placeholder', textContent: '${getPosterFallbackInitial(movie)}' }))">`
             : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
-        </div>
-        <div class="ranking-score">
-          <div class="ranking-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
