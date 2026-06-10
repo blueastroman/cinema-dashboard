@@ -221,11 +221,7 @@ AMC_ALLOWED_CITIES_BY_STATE = {
     "CT": {"STAMFORD"},
 }
 
-AMC_EXCLUDED_THEATRES = {
-    "AMC BAY PLAZA CINEMA 13",
-    "AMC MAGIC JOHNSON HARLEM 9",
-    "AMC STATEN ISLAND 11",
-}
+AMC_EXCLUDED_THEATRES: set[str] = set()
 
 FORMAT_TAGS = re.compile(
     r'\b(70mm|35mm|imax|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
