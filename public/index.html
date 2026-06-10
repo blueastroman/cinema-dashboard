@@ -5233,7 +5233,7 @@ function getRankingEntries() {
     if (!hasCriticRating(movie)) return;
     if (!isRankingEligible(movie)) return;
     const genreLower = (movie.ratings?.genre || '').toLowerCase();
-    if (genreLower.includes('documentary') || genreLower.includes('short')) return;
+    if (genreLower.includes('short')) return;
     const key = getRankingKey(movie);
     const visibleTheaters = getVisibleTheaters(movie);
     if (!visibleTheaters.length) return;
