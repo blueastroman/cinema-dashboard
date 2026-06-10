@@ -2142,9 +2142,7 @@
       .filters { gap: 6px; }
       .stats-inner { gap: 10px; }
       .stats-row { gap: 10px; justify-content: flex-start; }
-      .date-tabs { flex-wrap: wrap; overflow: visible; border: none; border-radius: 0; gap: 6px; }
-      .date-tab { border: 1px solid var(--mid-gray); border-radius: 2px; }
-      .date-tab.active, .date-picker-wrap.active .date-tab { border-color: var(--accent); }
+      .mobile-filter-inner { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
       .daypart-filter {
         flex: 1 1 calc(50% - 6px);
         min-width: 0;
@@ -2547,6 +2545,15 @@
   <!-- MOBILE FILTER TOGGLE (mobile only) -->
   <div class="mobile-filter-bar" id="mobile-filter-bar">
     <div class="mobile-filter-inner">
+      <div class="date-tabs">
+        <button class="date-tab active" id="today-btn">Today</button>
+        <button class="date-tab" id="tomorrow-btn">Tomorrow</button>
+        <button class="date-tab" id="thisweek-btn">This Week</button>
+        <div class="date-picker-wrap">
+          <button class="date-tab" id="pickdate-btn" type="button">Select Date</button>
+          <input type="date" id="date-picker" />
+        </div>
+      </div>
       <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" onclick="toggleMobileFilters()">
         <span>Filters</span>
         <span class="mobile-filter-arrow" id="mobile-filter-arrow">▾</span>
@@ -2588,15 +2595,6 @@
         <div class="seg-toggle">
           <button class="seg-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
           <button class="seg-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
-        </div>
-        <div class="date-tabs">
-          <button class="date-tab active" id="today-btn">Today</button>
-          <button class="date-tab" id="tomorrow-btn">Tomorrow</button>
-          <button class="date-tab" id="thisweek-btn">This Week</button>
-          <div class="date-picker-wrap">
-            <button class="date-tab" id="pickdate-btn" type="button">Select Date</button>
-            <input type="date" id="date-picker" />
-          </div>
         </div>
         <select class="genre-select sort-select" id="sort-select" onchange="setSort(this.value)">
           <option value="rating">Best first</option>
