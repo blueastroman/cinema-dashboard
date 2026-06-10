@@ -1751,7 +1751,7 @@
 
     .ranking-row {
       display: grid;
-      grid-template-columns: 86px 130px minmax(0, 1fr) minmax(150px, 190px) auto;
+      grid-template-columns: 86px auto minmax(0, 1fr) minmax(150px, 190px) auto;
       gap: 18px;
       align-items: start;
       padding: 18px 18px 18px 16px;
@@ -1884,25 +1884,23 @@
     }
 
     .ranking-score {
-      min-width: 80px;
-      max-width: 110px;
       padding-top: 2px;
       padding-right: 10px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      width: fit-content;
     }
 
     .ranking-verdict {
       font-family: var(--font-sans);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      line-height: 1.25;
-      padding: 5px 8px;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+      padding: 5px 10px;
       border-radius: 2px;
-      white-space: normal;
+      white-space: nowrap;
     }
 
     .ranking-verdict.see-tonight { background: var(--see-tonight-bg); color: var(--see-tonight); }
