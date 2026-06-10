@@ -1621,6 +1621,49 @@
     }
 
     /* ── RANKINGS VIEW ─────────────────────────────────────── */
+    .rankings-page-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .rankings-page-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .rankings-page-title {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+    }
+
+    .rankings-page-scope {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .rankings-page-count {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     .rankings-list {
       display: flex;
       flex-direction: column;
@@ -5388,12 +5431,30 @@ function renderRankingsView() {
   activeSort = 'rating';
   syncSortButtons();
   const sorted = [...movies].sort(compareRankingsByScore);
+
+  // Page header
+  const scopeLabel = dateScope === 'today' ? 'Today'
+    : dateScope === 'tomorrow' ? 'Tomorrow'
+    : dateScope === 'week' ? 'This Week'
+    : dateScope === 'custom' && selectedDateISO ? getCustomDateLabel()
+    : '';
+  const pageHeader = document.createElement('div');
+  pageHeader.className = 'rankings-page-header';
+  pageHeader.innerHTML = `
+    <div class="rankings-page-header-left">
+      <span class="rankings-page-title">Rankings</span>
+      ${scopeLabel ? `<span class="rankings-page-scope">${escapeHTML(scopeLabel)}</span>` : ''}
+    </div>
+    <span class="rankings-page-count">${sorted.length} film${sorted.length !== 1 ? 's' : ''}</span>
+  `;
+
   const list = document.createElement('div');
   list.className = 'rankings-list';
   sorted.forEach((movie, idx) => list.appendChild(buildRankingRow(movie, idx)));
 
   const main = document.getElementById('main-content');
   main.innerHTML = '';
+  main.appendChild(pageHeader);
   main.appendChild(list);
   queueMobileStickyOffsets();
 }
