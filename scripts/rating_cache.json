@@ -23,12 +23,6 @@
     "title": "2001: A Space Odyssey",
     "year": "1968"
   },
-  "35 shots of rum|2008": {
-    "imdbID": "tt1100048",
-    "source": "exact",
-    "title": "35 Shots of Rum",
-    "year": "2008"
-  },
   "a clockwork orange": {
     "imdbID": "tt0066921",
     "source": "exact",
@@ -47,23 +41,11 @@
     "title": "A Magnificent Life",
     "year": "2025"
   },
-  "a man called adam|1966": {
-    "imdbID": "tt0060660",
-    "source": "exact_year",
-    "title": "A Man Called Adam",
-    "year": "1966"
-  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
     "title": "A Master Builder",
     "year": "2013"
-  },
-  "a new leaf|1971": {
-    "imdbID": "tt0067482",
-    "source": "exact",
-    "title": "A New Leaf",
-    "year": "1971"
   },
   "a short film about killing|1988": {
     "imdbID": "tt0095468",
@@ -77,23 +59,11 @@
     "title": "A Short Film About Love",
     "year": "1988"
   },
-  "a special day|1977": {
-    "imdbID": "tt0076085",
-    "source": "exact",
-    "title": "A Special Day",
-    "year": "1977"
-  },
   "a splendid outing|2016": {
     "imdbID": "tt6298036",
     "source": "exact_year",
     "title": "A Splendid Outing",
     "year": "2016"
-  },
-  "ace in the hole|1951": {
-    "imdbID": "tt0043338",
-    "source": "exact_year",
-    "title": "Ace in the Hole",
-    "year": "1951"
   },
   "adaptation.|2002": {
     "imdbID": "tt0268126",
@@ -124,18 +94,6 @@
     "source": "search",
     "title": "After Hours",
     "year": "1985"
-  },
-  "aftersun|2022": {
-    "imdbID": "tt19770238",
-    "source": "exact_year",
-    "title": "Aftersun",
-    "year": "2022"
-  },
-  "agatha's almanac|2025": {
-    "imdbID": "tt35932393",
-    "source": "exact_year",
-    "title": "Agatha's Almanac",
-    "year": "2025"
   },
   "agnus dei|2012": {
     "imdbID": "tt2233951",
@@ -185,12 +143,6 @@
     "title": "All About Eve",
     "year": "1950"
   },
-  "all about lily chou-chou|2001": {
-    "imdbID": "tt0297721",
-    "source": "exact",
-    "title": "All About Lily Chou-Chou",
-    "year": "2001"
-  },
   "all about my mother|1999": {
     "imdbID": "tt0185125",
     "source": "exact",
@@ -203,12 +155,6 @@
     "title": "All Dogs Go to Heaven",
     "year": "1989"
   },
-  "all night long|1962": {
-    "imdbID": "tt0054614",
-    "source": "exact_year",
-    "title": "All Night Long",
-    "year": "1962"
-  },
   "all that heaven allows|1955": {
     "imdbID": "tt0047811",
     "source": "exact_year",
@@ -220,12 +166,6 @@
     "source": "exact",
     "title": "Allegro non troppo",
     "year": "1976"
-  },
-  "allonsanfan|1974": {
-    "imdbID": "tt0069690",
-    "source": "exact",
-    "title": "Allonsanfan",
-    "year": "1974"
   },
   "alpha": {
     "imdbID": "tt34959898",
@@ -245,12 +185,6 @@
     "title": "Alyonka",
     "year": "1962"
   },
-  "amarcord|1973": {
-    "imdbID": "tt0071129",
-    "source": "exact",
-    "title": "Amarcord",
-    "year": "1973"
-  },
   "american dream|1990": {
     "imdbID": "tt0099028",
     "source": "exact",
@@ -262,12 +196,6 @@
     "source": "exact",
     "title": "Amélie",
     "year": "2002"
-  },
-  "andrei rublev|1966": {
-    "imdbID": "tt0060107",
-    "source": "exact",
-    "title": "Andrei Rublev",
-    "year": "1966"
   },
   "animal farm|2026": {
     "imdbID": "tt2467700",
@@ -281,23 +209,11 @@
     "title": "Another World",
     "year": "2026"
   },
-  "april story|1998": {
-    "imdbID": "tt0146271",
-    "source": "exact",
-    "title": "April Story",
-    "year": "1998"
-  },
   "aranyer din ratri": {
     "imdbID": "tt0065417",
     "source": "exact",
     "title": "Aranyer Din Ratri",
     "year": "1970"
-  },
-  "arco|2025": {
-    "imdbID": "tt14883538",
-    "source": "exact_year",
-    "title": "Arco",
-    "year": "2025"
   },
   "armored car robbery|1950": {
     "imdbID": "tt0042206",
@@ -322,36 +238,6 @@
     "source": "exact_year",
     "title": "ASCO: Without Permission",
     "year": "2025"
-  },
-  "ask e. jean|2025": {
-    "imdbID": "tt38037335",
-    "source": "exact_year",
-    "title": "Ask E Jean",
-    "year": "2025"
-  },
-  "at eternity's gate|2018": {
-    "imdbID": "tt6938828",
-    "source": "exact_year",
-    "title": "At Eternity's Gate",
-    "year": "2018"
-  },
-  "atlantic city|1980": {
-    "imdbID": "tt0080388",
-    "source": "exact",
-    "title": "Atlantic City",
-    "year": "1980"
-  },
-  "back to the future|1985": {
-    "imdbID": "tt0088763",
-    "source": "exact",
-    "title": "Back to the Future",
-    "year": "1985"
-  },
-  "backrooms|2026": {
-    "imdbID": "tt26657236",
-    "source": "exact_year",
-    "title": "Backrooms",
-    "year": "2026"
   },
   "bad blood": {
     "imdbID": "tt6423364",
@@ -383,12 +269,6 @@
     "title": "Baseball: Beyond Belief",
     "year": "2025"
   },
-  "basquiat|1996": {
-    "imdbID": "tt0115632",
-    "source": "exact_year",
-    "title": "Basquiat",
-    "year": "1996"
-  },
   "beast|2026": {
     "imdbID": "tt39391389",
     "source": "exact_year",
@@ -400,36 +280,6 @@
     "source": "exact",
     "title": "Beetlejuice",
     "year": "1988"
-  },
-  "before night falls|2000": {
-    "imdbID": "tt0247196",
-    "source": "exact_year",
-    "title": "Before Night Falls",
-    "year": "2000"
-  },
-  "belle de jour|1967": {
-    "imdbID": "tt0061395",
-    "source": "exact_year",
-    "title": "Belle de Jour",
-    "year": "1967"
-  },
-  "bellissima|1951": {
-    "imdbID": "tt0043332",
-    "source": "exact_year",
-    "title": "Bellissima",
-    "year": "1951"
-  },
-  "below sea level|2008": {
-    "imdbID": "tt1270612",
-    "source": "exact",
-    "title": "Below Sea Level",
-    "year": "2008"
-  },
-  "berberian sound studio|2012": {
-    "imdbID": "tt1833844",
-    "source": "exact",
-    "title": "Berberian Sound Studio",
-    "year": "2012"
   },
   "bernstein's wall|2021": {
     "imdbID": "tt14622972",
@@ -479,12 +329,6 @@
     "title": "Billy Preston: That's the Way God Planned It",
     "year": "2024"
   },
-  "black angel|1946": {
-    "imdbID": "tt0038360",
-    "source": "exact_year",
-    "title": "Black Angel",
-    "year": "1946"
-  },
   "black girl|1966": {
     "imdbID": "tt0060758",
     "source": "exact",
@@ -497,29 +341,11 @@
     "title": "Blade II",
     "year": "2002"
   },
-  "blast of silence|1961": {
-    "imdbID": "tt0054687",
-    "source": "exact_year",
-    "title": "Blast of Silence",
-    "year": "1961"
-  },
   "blast|2026": {
     "imdbID": "tt37971394",
     "source": "exact_year",
     "title": "Blast",
     "year": "2026"
-  },
-  "blow out|1981": {
-    "imdbID": "tt0082085",
-    "source": "exact_year",
-    "title": "Blow Out",
-    "year": "1981"
-  },
-  "blue heron|2025": {
-    "imdbID": "tt32252801",
-    "source": "exact",
-    "title": "Blue Heron",
-    "year": "2025"
   },
   "blue is the warmest colour|2013": {
     "imdbID": "tt2278871",
@@ -539,47 +365,11 @@
     "title": "Bluebeard's Eighth Wife",
     "year": "1938"
   },
-  "boatman|1993": {
-    "imdbID": "tt0106445",
-    "source": "exact",
-    "title": "Boatman",
-    "year": "1993"
-  },
-  "bob & carol & ted & alice|1969": {
-    "imdbID": "tt0064100",
-    "source": "exact_year",
-    "title": "Bob & Carol & Ted & Alice",
-    "year": "1969"
-  },
-  "body blow|2025": {
-    "imdbID": "tt29477119",
-    "source": "exact_year",
-    "title": "Body Blow",
-    "year": "2025"
-  },
-  "body double|1984": {
-    "imdbID": "tt0086984",
-    "source": "exact_year",
-    "title": "Body Double",
-    "year": "1984"
-  },
   "bodyguard|1948": {
     "imdbID": "tt0040178",
     "source": "exact_year",
     "title": "Bodyguard",
     "year": "1948"
-  },
-  "boogie nights|1997": {
-    "imdbID": "tt0118749",
-    "source": "exact_year",
-    "title": "Boogie Nights",
-    "year": "1997"
-  },
-  "bouchra|2025": {
-    "imdbID": "tt36543744",
-    "source": "exact",
-    "title": "Bouchra",
-    "year": "2025"
   },
   "boulevard|2026": {
     "imdbID": "tt38235625",
@@ -611,12 +401,6 @@
     "title": "Breaking the Waves",
     "year": "1996"
   },
-  "bts world tour 'arirang' in busan: live viewing|2026": {
-    "imdbID": "tt42867738",
-    "source": "exact_year",
-    "title": "BTS World Tour 'Arirang' in Busan: Live Viewing",
-    "year": "2026"
-  },
   "bts world tour `arirang` in busan: live viewing|2026": {
     "imdbID": "tt42867738",
     "source": "exact_year",
@@ -634,12 +418,6 @@
     "source": "search",
     "title": "Bumming in Beijing: The Last Dreamers",
     "year": "1990"
-  },
-  "bus stop|1956": {
-    "imdbID": "tt0049038",
-    "source": "exact_year",
-    "title": "Bus Stop",
-    "year": "1956"
   },
   "by design|2025": {
     "imdbID": "tt33365660",
@@ -659,48 +437,6 @@
     "title": "Caliber 9",
     "year": "1972"
   },
-  "call me by your name|2017": {
-    "imdbID": "tt5726616",
-    "source": "exact",
-    "title": "Call Me by Your Name",
-    "year": "2017"
-  },
-  "camp|2025": {
-    "imdbID": "tt38226226",
-    "source": "exact_year",
-    "title": "Camp",
-    "year": "2025"
-  },
-  "capitale-paysage|1983": {
-    "imdbID": "tt6932198",
-    "source": "exact_year",
-    "title": "Capitale-paysage",
-    "year": "1983"
-  },
-  "capri-revolution|2018": {
-    "imdbID": "tt7188002",
-    "source": "exact",
-    "title": "Capri-Revolution",
-    "year": "2018"
-  },
-  "caravaggio|1986": {
-    "imdbID": "tt0090798",
-    "source": "exact",
-    "title": "Caravaggio",
-    "year": "1986"
-  },
-  "carlito's way|1993": {
-    "imdbID": "tt0106519",
-    "source": "exact_year",
-    "title": "Carlito's Way",
-    "year": "1993"
-  },
-  "carolina caroline|2026": {
-    "imdbID": "tt33365126",
-    "source": "exact_year",
-    "title": "Carolina Caroline",
-    "year": "2026"
-  },
   "carrie|1976": {
     "imdbID": "tt0074285",
     "source": "override",
@@ -718,12 +454,6 @@
     "source": "search",
     "title": "Castration Movie Anthology i. Traps",
     "year": "2024"
-  },
-  "casualties of war|1989": {
-    "imdbID": "tt0097027",
-    "source": "exact_year",
-    "title": "Casualties of War",
-    "year": "1989"
   },
   "cave of forgotten dreams|2026": {
     "imdbID": "tt1664894",
@@ -773,12 +503,6 @@
     "title": "City of God",
     "year": "2004"
   },
-  "city on fire|1987": {
-    "imdbID": "tt0093435",
-    "source": "exact",
-    "title": "City on Fire",
-    "year": "1987"
-  },
   "cl o from 5 to 7": {
     "imdbID": "tt0055852",
     "source": "exact",
@@ -790,12 +514,6 @@
     "source": "exact_year",
     "title": "Clash by Night",
     "year": "1952"
-  },
-  "class of 1984|1982": {
-    "imdbID": "tt0083739",
-    "source": "exact",
-    "title": "Class of 1984",
-    "year": "1982"
   },
   "clockwatchers|1997": {
     "imdbID": "tt0118866",
@@ -827,12 +545,6 @@
     "title": "Cluny Brown",
     "year": "1946"
   },
-  "cléo from 5 to 7|1962": {
-    "imdbID": "tt0055852",
-    "source": "exact",
-    "title": "Cléo from 5 to 7",
-    "year": "1962"
-  },
   "cobweb|2023": {
     "imdbID": "tt9100018",
     "source": "exact",
@@ -850,12 +562,6 @@
     "source": "exact",
     "title": "Cold Meat",
     "year": "2023"
-  },
-  "come and see|1985": {
-    "imdbID": "tt0091251",
-    "source": "exact",
-    "title": "Come and See",
-    "year": "1985"
   },
   "coming to america|1988": {
     "imdbID": "tt0094898",
@@ -893,18 +599,6 @@
     "title": "Crazy Rich Asians",
     "year": "2018"
   },
-  "cristaux|1978": {
-    "imdbID": "tt11646808",
-    "source": "exact",
-    "title": "Cristaux",
-    "year": "1978"
-  },
-  "cristo|1977": {
-    "imdbID": "tt1196135",
-    "source": "exact",
-    "title": "Cristo",
-    "year": "1977"
-  },
   "crooklyn|1994": {
     "imdbID": "tt0109504",
     "source": "exact_year",
@@ -916,12 +610,6 @@
     "source": "exact_year",
     "title": "Crumb",
     "year": "1994"
-  },
-  "cry of the city|1948": {
-    "imdbID": "tt0040257",
-    "source": "exact_year",
-    "title": "Cry of the City",
-    "year": "1948"
   },
   "cujo|1983": {
     "imdbID": "tt0085382",
@@ -935,12 +623,6 @@
     "title": "Dacoit: A Love Story",
     "year": "2025"
   },
-  "daughters of darkness|1971": {
-    "imdbID": "tt0067690",
-    "source": "exact",
-    "title": "Daughters of Darkness",
-    "year": "1971"
-  },
   "dead lover": {
     "imdbID": "tt27378311",
     "source": "exact",
@@ -952,12 +634,6 @@
     "source": "exact",
     "title": "Dead Mountaineer's Hotel",
     "year": "1979"
-  },
-  "death in venice|1971": {
-    "imdbID": "tt0067445",
-    "source": "exact",
-    "title": "Death in Venice",
-    "year": "1971"
   },
   "decision to leave|2022": {
     "imdbID": "tt12477480",
@@ -983,41 +659,17 @@
     "title": "Design for Living",
     "year": "1933"
   },
-  "desperate living|1977": {
-    "imdbID": "tt0075936",
-    "source": "exact",
-    "title": "Desperate Living",
-    "year": "1977"
-  },
   "detective bureau 2-3: go to hell bastards!|1963": {
     "imdbID": "tt0056989",
     "source": "exact_year",
     "title": "Detective Bureau 2-3: Go to Hell Bastards!",
     "year": "1963"
   },
-  "diamantino|2018": {
-    "imdbID": "tt6522668",
-    "source": "exact",
-    "title": "Diamantino",
-    "year": "2018"
-  },
   "diamonds|2024": {
     "imdbID": "tt32810496",
     "source": "exact",
     "title": "Diamonds",
     "year": "2024"
-  },
-  "diary of a chambermaid|1964": {
-    "imdbID": "tt0058249",
-    "source": "exact_year",
-    "title": "Diary of a Chambermaid",
-    "year": "1964"
-  },
-  "disclosure day|2026": {
-    "imdbID": "tt15047880",
-    "source": "exact_year",
-    "title": "Disclosure Day",
-    "year": "2026"
   },
   "dj ahmet": {
     "imdbID": "tt34964187",
@@ -1055,23 +707,11 @@
     "title": "Bob Dylan: Dont Look Back",
     "year": "1967"
   },
-  "double indemnity|1944": {
-    "imdbID": "tt0036775",
-    "source": "exact_year",
-    "title": "Double Indemnity",
-    "year": "1944"
-  },
   "dr jack|1922": {
     "imdbID": "tt0013075",
     "source": "exact",
     "title": "Dr. Jack",
     "year": "1922"
-  },
-  "dressed to kill|1980": {
-    "imdbID": "tt0080661",
-    "source": "exact_year",
-    "title": "Dressed to Kill",
-    "year": "1980"
   },
   "drishyam 3|2026": {
     "imdbID": "tt14113634",
@@ -1091,12 +731,6 @@
     "title": "Eastern Promises",
     "year": "2007"
   },
-  "eat drink man woman|1994": {
-    "imdbID": "tt0111797",
-    "source": "exact",
-    "title": "Eat Drink Man Woman",
-    "year": "1994"
-  },
   "edvard munch|1974": {
     "imdbID": "tt0074462",
     "source": "exact",
@@ -1109,12 +743,6 @@
     "title": "Ek Din",
     "year": "2025"
   },
-  "el sicario room 164|2010": {
-    "imdbID": "tt1760956",
-    "source": "exact",
-    "title": "El Sicario, Room 164",
-    "year": "2010"
-  },
   "el tren fluvial|2026": {
     "imdbID": "tt39381628",
     "source": "exact",
@@ -1126,12 +754,6 @@
     "source": "exact",
     "title": "Elisa",
     "year": "2025"
-  },
-  "empire of the sun|1987": {
-    "imdbID": "tt0092965",
-    "source": "exact",
-    "title": "Empire of the Sun",
-    "year": "1987"
   },
   "eo|2022": {
     "imdbID": "tt19652910",
@@ -1157,12 +779,6 @@
     "title": "Eternal Sunshine of the Spotless Mind",
     "year": "2004"
   },
-  "europa|1991": {
-    "imdbID": "tt0101829",
-    "source": "exact",
-    "title": "Europa",
-    "year": "1991"
-  },
   "everyone is lying to you for money|2025": {
     "imdbID": "tt36733913",
     "source": "exact",
@@ -1180,12 +796,6 @@
     "source": "exact_year",
     "title": "Exit 8",
     "year": "2025"
-  },
-  "fallen angels|1995": {
-    "imdbID": "tt0112913",
-    "source": "exact",
-    "title": "Fallen Angels",
-    "year": "1995"
   },
   "fantasia": {
     "imdbID": "tt36596439",
@@ -1217,12 +827,6 @@
     "title": "Fantasy",
     "year": "2022"
   },
-  "farewell my concubine|1993": {
-    "imdbID": "tt0106332",
-    "source": "exact",
-    "title": "Farewell My Concubine",
-    "year": "1993"
-  },
   "fargo": {
     "imdbID": "tt0116282",
     "source": "exact",
@@ -1247,23 +851,11 @@
     "title": "Find Your Friends",
     "year": "2025"
   },
-  "fire at sea|2016": {
-    "imdbID": "tt3652526",
-    "source": "exact",
-    "title": "Fire at Sea",
-    "year": "2016"
-  },
   "fiume o morte!|2025": {
     "imdbID": "tt34383611",
     "source": "exact_year",
     "title": "Fiume o morte!",
     "year": "2025"
-  },
-  "flag day|2021": {
-    "imdbID": "tt2304637",
-    "source": "exact",
-    "title": "Flag Day",
-    "year": "2021"
   },
   "flashdance|1983": {
     "imdbID": "tt0085549",
@@ -1271,35 +863,11 @@
     "title": "Flashdance",
     "year": "1983"
   },
-  "flow|2024": {
-    "imdbID": "tt4772188",
-    "source": "exact_year",
-    "title": "Flow",
-    "year": "2024"
-  },
-  "forastera|2024": {
-    "imdbID": "tt32126595",
-    "source": "exact",
-    "title": "Forastera",
-    "year": "2024"
-  },
   "forbidden games|1952": {
     "imdbID": "tt0043686",
     "source": "exact",
     "title": "Forbidden Games",
     "year": "1952"
-  },
-  "force majeure|2014": {
-    "imdbID": "tt2121382",
-    "source": "exact_year",
-    "title": "Force Majeure",
-    "year": "2014"
-  },
-  "force of evil|1948": {
-    "imdbID": "tt0040366",
-    "source": "exact_year",
-    "title": "Force of Evil",
-    "year": "1948"
   },
   "four adventures of reinette and mirabelle|1987": {
     "imdbID": "tt0090565",
@@ -1325,18 +893,6 @@
     "title": "Fruitvale Station",
     "year": "2013"
   },
-  "full alert|1997": {
-    "imdbID": "tt0134664",
-    "source": "exact",
-    "title": "Full Alert",
-    "year": "1997"
-  },
-  "full contact|1992": {
-    "imdbID": "tt0105851",
-    "source": "exact",
-    "title": "Full Contact",
-    "year": "1992"
-  },
   "funeral parade of roses|1969": {
     "imdbID": "tt0064068",
     "source": "exact_year",
@@ -1361,23 +917,11 @@
     "title": "Fuze",
     "year": "2026"
   },
-  "garden of the finzi-continis|1970": {
-    "imdbID": "tt0065777",
-    "source": "exact",
-    "title": "The Garden of the Finzi-Continis",
-    "year": "1970"
-  },
   "gaslight|1944": {
     "imdbID": "tt0036855",
     "source": "exact_year",
     "title": "Gaslight",
     "year": "1944"
-  },
-  "gaslit|2024": {
-    "imdbID": "tt31790294",
-    "source": "search",
-    "title": "Gaslit",
-    "year": "2024"
   },
   "genealogy|1979": {
     "imdbID": "tt0077330",
@@ -1396,18 +940,6 @@
     "source": "exact_year",
     "title": "Ghost World",
     "year": "2001"
-  },
-  "gilda|1946": {
-    "imdbID": "tt0038559",
-    "source": "exact_year",
-    "title": "Gilda",
-    "year": "1946"
-  },
-  "girls like girls|2026": {
-    "imdbID": "tt32432654",
-    "source": "exact_year",
-    "title": "Girls Like Girls",
-    "year": "2026"
   },
   "goat|2026": {
     "imdbID": "tt27613895",
@@ -1433,12 +965,6 @@
     "title": "Godzilla Minus One",
     "year": "2023"
   },
-  "godzilla vs. biollante|1989": {
-    "imdbID": "tt0097444",
-    "source": "exact_year",
-    "title": "Godzilla vs. Biollante",
-    "year": "1989"
-  },
   "godzilla vs. hedorah|1971": {
     "imdbID": "tt0067148",
     "source": "exact_year",
@@ -1450,12 +976,6 @@
     "source": "exact_year",
     "title": "Golden Boy",
     "year": "2025"
-  },
-  "goodbye dragon inn|2003": {
-    "imdbID": "tt0377556",
-    "source": "exact_year",
-    "title": "Goodbye, Dragon Inn",
-    "year": "2003"
   },
   "goodfellas": {
     "imdbID": "tt0099685",
@@ -1475,29 +995,11 @@
     "title": "Gosford Park",
     "year": "2001"
   },
-  "graal|1980": {
-    "imdbID": "tt1196761",
-    "source": "exact",
-    "title": "Graal",
-    "year": "1980"
-  },
-  "grand hotel|1932": {
-    "imdbID": "tt0022958",
-    "source": "exact",
-    "title": "Grand Hotel",
-    "year": "1932"
-  },
   "grave of the fireflies|1989": {
     "imdbID": "tt0095327",
     "source": "exact",
     "title": "Grave of the Fireflies",
     "year": "1989"
-  },
-  "gregg allman: the music of my soul|2026": {
-    "imdbID": "tt40210973",
-    "source": "exact_year",
-    "title": "Gregg Allman: The Music of My Soul",
-    "year": "2026"
   },
   "grey gardens|1975": {
     "imdbID": "tt0073076",
@@ -1511,12 +1013,6 @@
     "title": "Guess Who's Coming to Dinner",
     "year": "1967"
   },
-  "guillermo del toro's pinocchio|2022": {
-    "imdbID": "tt1488589",
-    "source": "exact_year",
-    "title": "Guillermo del Toro's Pinocchio",
-    "year": "2022"
-  },
   "guilty bystander|1950": {
     "imdbID": "tt0042529",
     "source": "search",
@@ -1528,42 +1024,6 @@
     "source": "exact_year",
     "title": "Gulliver's Travels",
     "year": "1939"
-  },
-  "hahaha|2010": {
-    "imdbID": "tt1452626",
-    "source": "exact",
-    "title": "Hahaha",
-    "year": "2010"
-  },
-  "hai jawani toh ishq hona hai|2026": {
-    "imdbID": "tt30447822",
-    "source": "exact_year",
-    "title": "Hai Jawani Toh Ishq Hona Hai",
-    "year": "2026"
-  },
-  "hairspray|2007": {
-    "imdbID": "tt0427327",
-    "source": "exact",
-    "title": "Hairspray",
-    "year": "2007"
-  },
-  "hana and alice|2004": {
-    "imdbID": "tt0407851",
-    "source": "exact",
-    "title": "Hana and Alice",
-    "year": "2004"
-  },
-  "hangover square|1945": {
-    "imdbID": "tt0037761",
-    "source": "exact_year",
-    "title": "Hangover Square",
-    "year": "1945"
-  },
-  "happy as lazzaro|2018": {
-    "imdbID": "tt6752992",
-    "source": "exact",
-    "title": "Happy as Lazzaro",
-    "year": "2018"
   },
   "harold and maude|1971": {
     "imdbID": "tt0067185",
@@ -1577,12 +1037,6 @@
     "title": "Harry and Tonto",
     "year": "1974"
   },
-  "heads or tails?|2025": {
-    "imdbID": "tt32448429",
-    "source": "exact",
-    "title": "Heads or Tails?",
-    "year": "2025"
-  },
   "heavenly homecoming to stars|1974": {
     "imdbID": "tt0319126",
     "source": "exact",
@@ -1595,12 +1049,6 @@
     "title": "High Life",
     "year": "2018"
   },
-  "hill of freedom|2014": {
-    "imdbID": "tt3732252",
-    "source": "exact",
-    "title": "Hill of Freedom",
-    "year": "2014"
-  },
   "hokum|2026": {
     "imdbID": "tt35672862",
     "source": "exact_year",
@@ -1612,18 +1060,6 @@
     "source": "exact_year",
     "title": "Holy Motors",
     "year": "2012"
-  },
-  "honeyjoon|2025": {
-    "imdbID": "tt32648803",
-    "source": "exact",
-    "title": "Honeyjoon",
-    "year": "2025"
-  },
-  "how to marry a millionaire|1953": {
-    "imdbID": "tt0045891",
-    "source": "exact_year",
-    "title": "How to Marry a Millionaire",
-    "year": "1953"
   },
   "how to stuff a wild bikini|1965": {
     "imdbID": "tt0059287",
@@ -1649,35 +1085,11 @@
     "title": "Hunting Matthew Nichols",
     "year": "2024"
   },
-  "i am not your negro|2016": {
-    "imdbID": "tt5804038",
-    "source": "exact_year",
-    "title": "I Am Not Your Negro",
-    "year": "2016"
-  },
-  "i am ryan|2026": {
-    "imdbID": "tt37807317",
-    "source": "exact_year",
-    "title": "I Am Ryan",
-    "year": "2026"
-  },
   "i have graduated|1992": {
     "imdbID": "tt4370650",
     "source": "exact",
     "title": "I Have Graduated",
     "year": "1992"
-  },
-  "i love boosters|2026": {
-    "imdbID": "tt30827810",
-    "source": "exact_year",
-    "title": "I Love Boosters",
-    "year": "2026"
-  },
-  "i shot andy warhol|1996": {
-    "imdbID": "tt0116594",
-    "source": "exact",
-    "title": "I Shot Andy Warhol",
-    "year": "1996"
   },
   "i swear|2026": {
     "imdbID": "tt31514146",
@@ -1697,47 +1109,17 @@
     "title": "Images",
     "year": "1972"
   },
-  "in a lonely place|1950": {
-    "imdbID": "tt0042593",
-    "source": "exact_year",
-    "title": "In a Lonely Place",
-    "year": "1950"
-  },
   "in the grey|2026": {
     "imdbID": "tt27681354",
     "source": "exact_year",
     "title": "In the Grey",
     "year": "2026"
   },
-  "in the hand of dante|2025": {
-    "imdbID": "tt1333644",
-    "source": "exact_year",
-    "title": "In the Hand of Dante",
-    "year": "2025"
-  },
   "in the mood for love|2000": {
     "imdbID": "tt0118694",
     "source": "exact",
     "title": "In the Mood for Love",
     "year": "2000"
-  },
-  "in viaggio: the travels of pope francis|2022": {
-    "imdbID": "tt21374930",
-    "source": "exact",
-    "title": "In Viaggio: The Travels of Pope Francis",
-    "year": "2022"
-  },
-  "india: matri bhumi|1959": {
-    "imdbID": "tt0052923",
-    "source": "exact",
-    "title": "India: Matri Bhumi",
-    "year": "1959"
-  },
-  "infinite football|2018": {
-    "imdbID": "tt7999962",
-    "source": "exact",
-    "title": "Infinite Football",
-    "year": "2018"
   },
   "inherent vice|2014": {
     "imdbID": "tt1791528",
@@ -1757,53 +1139,11 @@
     "title": "Iron Maiden: Burning Ambition",
     "year": "2026"
   },
-  "irreversible|2002": {
-    "imdbID": "tt0290673",
-    "source": "exact_year",
-    "title": "Irreversible",
-    "year": "2002"
-  },
-  "is god is|2026": {
-    "imdbID": "tt34379307",
-    "source": "exact_year",
-    "title": "Is God Is",
-    "year": "2026"
-  },
-  "ishtar|1987": {
-    "imdbID": "tt0093278",
-    "source": "exact",
-    "title": "Ishtar",
-    "year": "1987"
-  },
   "it doesn t get any better than this|2023": {
     "imdbID": "tt31912070",
     "source": "exact",
     "title": "It Doesn't Get Any Better Than This",
     "year": "2023"
-  },
-  "ivan's childhood|1962": {
-    "imdbID": "tt0056111",
-    "source": "exact",
-    "title": "Ivan's Childhood",
-    "year": "1962"
-  },
-  "jack johnson: surfilmusic|2026": {
-    "imdbID": "tt39655277",
-    "source": "exact_year",
-    "title": "Jack Johnson: SURFILMUSIC",
-    "year": "2026"
-  },
-  "jeanne dielman 23 quai du commerce 1080 bruxelles|1975": {
-    "imdbID": "tt0073198",
-    "source": "exact",
-    "title": "Jeanne Dielman, 23, quai du Commerce, 1080 Bruxelles",
-    "year": "1975"
-  },
-  "jinsei|2025": {
-    "imdbID": "tt36639420",
-    "source": "exact_year",
-    "title": "Jinsei",
-    "year": "2025"
   },
   "john wick|2014": {
     "imdbID": "tt2911666",
@@ -1811,29 +1151,11 @@
     "title": "John Wick",
     "year": "2014"
   },
-  "johnny guitar|1954": {
-    "imdbID": "tt0047136",
-    "source": "exact_year",
-    "title": "Johnny Guitar",
-    "year": "1954"
-  },
   "kangaroo island|2024": {
     "imdbID": "tt26669836",
     "source": "exact",
     "title": "Kangaroo Island",
     "year": "2024"
-  },
-  "killer's kiss|1955": {
-    "imdbID": "tt0048254",
-    "source": "exact_year",
-    "title": "Killer's Kiss",
-    "year": "1955"
-  },
-  "king creole|1958": {
-    "imdbID": "tt0051818",
-    "source": "exact_year",
-    "title": "King Creole",
-    "year": "1958"
   },
   "kiss me deadly|1955": {
     "imdbID": "tt0048261",
@@ -1845,12 +1167,6 @@
     "imdbID": "tt35492581",
     "source": "exact_year",
     "title": "Kontinental '25",
-    "year": "2025"
-  },
-  "kpop demon hunters|2025": {
-    "imdbID": "tt14205554",
-    "source": "exact_year",
-    "title": "KPop Demon Hunters",
     "year": "2025"
   },
   "la belle noiseuse|1991": {
@@ -1871,41 +1187,17 @@
     "title": "Labyrinth",
     "year": "2026"
   },
-  "lacrima christi|1980": {
-    "imdbID": "tt10622278",
-    "source": "exact",
-    "title": "Lacrima Christi",
-    "year": "1980"
-  },
-  "lady and the tramp|1955": {
-    "imdbID": "tt0048280",
-    "source": "exact",
-    "title": "Lady and the Tramp",
-    "year": "1955"
-  },
   "landscape in the mist|1988": {
     "imdbID": "tt0096288",
     "source": "exact",
     "title": "Landscape in the Mist",
     "year": "1988"
   },
-  "last year at marienbad|1961": {
-    "imdbID": "tt0054632",
-    "source": "exact",
-    "title": "Last Year at Marienbad",
-    "year": "1961"
-  },
   "late autumn|1960": {
     "imdbID": "tt0053579",
     "source": "exact_year",
     "title": "Late Autumn",
     "year": "1960"
-  },
-  "late spring|1949": {
-    "imdbID": "tt0041154",
-    "source": "exact",
-    "title": "Late Spring",
-    "year": "1949"
   },
   "le bonheur|1934": {
     "imdbID": "tt0145682",
@@ -1943,18 +1235,6 @@
     "title": "Let's Make Love",
     "year": "1960"
   },
-  "leviticus|2026": {
-    "imdbID": "tt39143902",
-    "source": "exact",
-    "title": "Leviticus",
-    "year": "2026"
-  },
-  "light of day|1987": {
-    "imdbID": "tt0093415",
-    "source": "exact",
-    "title": "Light of Day",
-    "year": "1987"
-  },
   "living the land|2025": {
     "imdbID": "tt32110302",
     "source": "search",
@@ -1972,18 +1252,6 @@
     "source": "exact",
     "title": "Lost Highway",
     "year": "1997"
-  },
-  "lost persons area|2009": {
-    "imdbID": "tt1405808",
-    "source": "exact",
-    "title": "Lost Persons Area",
-    "year": "2009"
-  },
-  "lou reed: berlin|2007": {
-    "imdbID": "tt1093836",
-    "source": "exact_year",
-    "title": "Lou Reed: Berlin",
-    "year": "2007"
   },
   "louie bluie|1985": {
     "imdbID": "tt0089507",
@@ -2003,51 +1271,15 @@
     "title": "LIK: Love Insurance Kompany",
     "year": "2025"
   },
-  "love letter|1995": {
-    "imdbID": "tt0113703",
-    "source": "exact",
-    "title": "Love Letter",
-    "year": "1995"
-  },
   "love me or leave me|1955": {
     "imdbID": "tt0048317",
     "source": "search",
     "title": "Love Me or Leave Me",
     "year": "1955"
   },
-  "love's a bitch|2005": {
-    "imdbID": "tt0808356",
-    "source": "exact",
-    "title": "Love's a Bitch",
-    "year": "2005"
-  },
-  "lust for life|1956": {
-    "imdbID": "tt0049456",
-    "source": "exact",
-    "title": "Lust for Life",
-    "year": "1956"
-  },
-  "mad max 2: the road warrior|1981": {
-    "imdbID": "tt26094842",
-    "source": "exact",
-    "title": "Mad Max 2: The Road Warrior (1981)",
-    "year": "1981"
-  },
   "maddie s secret|2025": {
     "imdbID": "tt37675037",
     "source": "exact",
-    "title": "Maddie's Secret",
-    "year": "2025"
-  },
-  "maddie's secret|2025": {
-    "imdbID": "tt37675037",
-    "source": "exact_year",
-    "title": "Maddie's Secret",
-    "year": "2025"
-  },
-  "maddie’s secret|2025": {
-    "imdbID": "tt37675037",
-    "source": "exact_year",
     "title": "Maddie's Secret",
     "year": "2025"
   },
@@ -2069,35 +1301,11 @@
     "title": "Magic Hour",
     "year": "2015"
   },
-  "manas|2024": {
-    "imdbID": "tt27911420",
-    "source": "exact",
-    "title": "Manas",
-    "year": "2024"
-  },
-  "manhood|2003": {
-    "imdbID": "tt0316219",
-    "source": "exact",
-    "title": "Manhood",
-    "year": "2003"
-  },
-  "many wars ago|1970": {
-    "imdbID": "tt0066511",
-    "source": "exact",
-    "title": "Many Wars Ago",
-    "year": "1970"
-  },
   "marc by sofia|2025": {
     "imdbID": "tt37660536",
     "source": "exact_year",
     "title": "Marc by Sofia",
     "year": "2025"
-  },
-  "marcel the shell with shoes on|2021": {
-    "imdbID": "tt15339456",
-    "source": "exact_year",
-    "title": "Marcel the Shell with Shoes On",
-    "year": "2021"
   },
   "margin call|2011": {
     "imdbID": "tt1615147",
@@ -2111,65 +1319,11 @@
     "title": "Marie and Bruce",
     "year": "2004"
   },
-  "marnie|1964": {
-    "imdbID": "tt0058329",
-    "source": "exact",
-    "title": "Marnie",
-    "year": "1964"
-  },
-  "martin eden|2019": {
-    "imdbID": "tt4516162",
-    "source": "exact",
-    "title": "Martin Eden",
-    "year": "2019"
-  },
-  "masters of the universe|2026": {
-    "imdbID": "tt0427340",
-    "source": "exact_year",
-    "title": "Masters of the Universe",
-    "year": "2026"
-  },
-  "matador|1986": {
-    "imdbID": "tt0091495",
-    "source": "exact_year",
-    "title": "Matador",
-    "year": "1986"
-  },
-  "matilda|1996": {
-    "imdbID": "tt0117008",
-    "source": "exact_year",
-    "title": "Matilda",
-    "year": "1996"
-  },
-  "maya|1993": {
-    "imdbID": "tt0137100",
-    "source": "exact_year",
-    "title": "Maya",
-    "year": "1993"
-  },
-  "michael|2026": {
-    "imdbID": "tt11378946",
-    "source": "exact_year",
-    "title": "Michael",
-    "year": "2026"
-  },
   "midnight run": {
     "imdbID": "tt0095631",
     "source": "exact",
     "title": "Midnight Run",
     "year": "1988"
-  },
-  "mikey and nicky|1976": {
-    "imdbID": "tt0074901",
-    "source": "exact",
-    "title": "Mikey and Nicky",
-    "year": "1976"
-  },
-  "milk|2008": {
-    "imdbID": "tt1013753",
-    "source": "exact",
-    "title": "Milk",
-    "year": "2008"
   },
   "millennium mambo": {
     "imdbID": "tt0283283",
@@ -2177,23 +1331,11 @@
     "title": "Millennium Mambo",
     "year": "2001"
   },
-  "minions & monsters|2026": {
-    "imdbID": "tt32890033",
-    "source": "exact_year",
-    "title": "Minions & Monsters",
-    "year": "2026"
-  },
   "miracle mile|1988": {
     "imdbID": "tt0097889",
     "source": "exact_year",
     "title": "Miracle Mile",
     "year": "1988"
-  },
-  "miral|2010": {
-    "imdbID": "tt1366409",
-    "source": "exact_year",
-    "title": "Miral",
-    "year": "2010"
   },
   "miroirs no 3": {
     "imdbID": "tt36848172",
@@ -2261,12 +1403,6 @@
     "title": "Moonstruck",
     "year": "1987"
   },
-  "mortal kombat ii|2026": {
-    "imdbID": "tt17490712",
-    "source": "exact_year",
-    "title": "Mortal Kombat II",
-    "year": "2026"
-  },
   "mother mary|2026": {
     "imdbID": "tt27200708",
     "source": "exact_year",
@@ -2291,29 +1427,11 @@
     "title": "Mr. Majestyk",
     "year": "1974"
   },
-  "mr. turner|2014": {
-    "imdbID": "tt2473794",
-    "source": "exact",
-    "title": "Mr. Turner",
-    "year": "2014"
-  },
-  "mulholland dr.|1999": {
-    "imdbID": "tt1619856",
-    "source": "exact",
-    "title": "Mulholland Dr.",
-    "year": "1999"
-  },
   "mulholland drive|2001": {
     "imdbID": "tt0166924",
     "source": "exact_year",
     "title": "Mulholland Drive",
     "year": "2001"
-  },
-  "my dinner with andré|1997": {
-    "imdbID": "tt0195931",
-    "source": "search",
-    "title": "My Dinner with André the Giant",
-    "year": "1997"
   },
   "mysterious skin|2004": {
     "imdbID": "tt0370986",
@@ -2339,18 +1457,6 @@
     "title": "Nausicaä of the Valley of the Wind",
     "year": "1984"
   },
-  "nausicaä of the valley of the wind|1984": {
-    "imdbID": "tt0087544",
-    "source": "exact",
-    "title": "Nausicaä of the Valley of the Wind",
-    "year": "1984"
-  },
-  "nazarin|1959": {
-    "imdbID": "tt0051983",
-    "source": "exact_year",
-    "title": "Nazarin",
-    "year": "1959"
-  },
   "nesting|2012": {
     "imdbID": "tt1705126",
     "source": "search",
@@ -2374,18 +1480,6 @@
     "source": "exact",
     "title": "Next Life",
     "year": "2025"
-  },
-  "niagara|1953": {
-    "imdbID": "tt0046126",
-    "source": "exact_year",
-    "title": "Niagara",
-    "year": "1953"
-  },
-  "ninotchka|1939": {
-    "imdbID": "tt0031725",
-    "source": "exact_year",
-    "title": "Ninotchka",
-    "year": "1939"
   },
   "nirvanna the band the show the movie": {
     "imdbID": "tt35522483",
@@ -2411,18 +1505,6 @@
     "title": "No Other Choice",
     "year": "2026"
   },
-  "no picnic|1986": {
-    "imdbID": "tt0091638",
-    "source": "exact_year",
-    "title": "No Picnic",
-    "year": "1986"
-  },
-  "nora prentiss|1947": {
-    "imdbID": "tt0039666",
-    "source": "exact_year",
-    "title": "Nora Prentiss",
-    "year": "1947"
-  },
   "normal|2026": {
     "imdbID": "tt31195136",
     "source": "exact_year",
@@ -2435,35 +1517,11 @@
     "title": "325 Noroi - The Curse (2005)",
     "year": "2005"
   },
-  "notturno|2020": {
-    "imdbID": "tt7945450",
-    "source": "exact",
-    "title": "Notturno",
-    "year": "2020"
-  },
-  "oasis|2002": {
-    "imdbID": "tt0320193",
-    "source": "exact",
-    "title": "Oasis",
-    "year": "2002"
-  },
-  "obsession|2026": {
-    "imdbID": "tt37287335",
-    "source": "exact_year",
-    "title": "Obsession",
-    "year": "2026"
-  },
   "ocean's eleven|2001": {
     "imdbID": "tt0240772",
     "source": "exact_year",
     "title": "Ocean's Eleven",
     "year": "2001"
-  },
-  "offside|2006": {
-    "imdbID": "tt0499537",
-    "source": "exact",
-    "title": "Offside",
-    "year": "2006"
   },
   "one hour with you|1932": {
     "imdbID": "tt0023303",
@@ -2501,12 +1559,6 @@
     "title": "Out of Sight",
     "year": "2025"
   },
-  "out of the past|1947": {
-    "imdbID": "tt0039689",
-    "source": "exact_year",
-    "title": "Out of the Past",
-    "year": "1947"
-  },
   "outcome|2023": {
     "imdbID": "tt23724682",
     "source": "exact_year",
@@ -2524,12 +1576,6 @@
     "source": "exact_year",
     "title": "Over Your Dead Body",
     "year": "2026"
-  },
-  "paddington 2|2017": {
-    "imdbID": "tt4468740",
-    "source": "exact_year",
-    "title": "Paddington 2",
-    "year": "2017"
   },
   "painters painting|1972": {
     "imdbID": "tt0207645",
@@ -2567,41 +1613,11 @@
     "title": "Passenger",
     "year": "1963"
   },
-  "passenger|2026": {
-    "imdbID": "tt33763941",
-    "source": "exact_year",
-    "title": "Passenger",
-    "year": "2026"
-  },
   "past lives|2023": {
     "imdbID": "tt13238346",
     "source": "exact",
     "title": "Past Lives",
     "year": "2023"
-  },
-  "peddi|2026": {
-    "imdbID": "tt23865918",
-    "source": "exact_year",
-    "title": "Peddi",
-    "year": "2026"
-  },
-  "pele|2006": {
-    "imdbID": "tt0793430",
-    "source": "exact_year",
-    "title": "Pele",
-    "year": "2006"
-  },
-  "peppermint candy|1999": {
-    "imdbID": "tt0247613",
-    "source": "exact",
-    "title": "Peppermint Candy",
-    "year": "1999"
-  },
-  "persona|1966": {
-    "imdbID": "tt0060827",
-    "source": "exact_year",
-    "title": "Persona",
-    "year": "1966"
   },
   "peter pan|1953": {
     "imdbID": "tt0046183",
@@ -2614,18 +1630,6 @@
     "source": "exact_year",
     "title": "Phantom Beirut",
     "year": "1998"
-  },
-  "phantom lady|1944": {
-    "imdbID": "tt0036260",
-    "source": "exact_year",
-    "title": "Phantom Lady",
-    "year": "1944"
-  },
-  "pickup on south street|1953": {
-    "imdbID": "tt0046187",
-    "source": "exact_year",
-    "title": "Pickup on South Street",
-    "year": "1953"
   },
   "pillion": {
     "imdbID": "tt32321317",
@@ -2681,18 +1685,6 @@
     "title": "Pompei: Below the Clouds",
     "year": "2025"
   },
-  "pompei: below the clouds|2025": {
-    "imdbID": "tt36874833",
-    "source": "exact",
-    "title": "Pompei: Below the Clouds",
-    "year": "2025"
-  },
-  "portrait of a lady on fire|2020": {
-    "imdbID": "tt8613070",
-    "source": "exact_year",
-    "title": "Portrait of a Lady on Fire",
-    "year": "2020"
-  },
   "possessions": {
     "imdbID": "tt3080074",
     "source": "exact",
@@ -2705,23 +1697,11 @@
     "title": "Possession",
     "year": "1981"
   },
-  "power ballad|2026": {
-    "imdbID": "tt32267691",
-    "source": "exact_year",
-    "title": "Power Ballad",
-    "year": "2026"
-  },
   "premarital|2016": {
     "imdbID": "tt6918652",
     "source": "exact",
     "title": "A Premarital Question",
     "year": "2016"
-  },
-  "pressure|2026": {
-    "imdbID": "tt32547691",
-    "source": "exact_year",
-    "title": "Pressure",
-    "year": "2026"
   },
   "pride & prejudice|2005": {
     "imdbID": "tt0414387",
@@ -2747,23 +1727,11 @@
     "title": "Prison on Fire",
     "year": "1987"
   },
-  "project hail mary|2026": {
-    "imdbID": "tt12042730",
-    "source": "override",
-    "title": "Project Hail Mary",
-    "year": "2026"
-  },
   "psycho|2026": {
     "imdbID": "tt41334106",
     "source": "exact_year",
     "title": "Psycho",
     "year": "2026"
-  },
-  "purple rain|1984": {
-    "imdbID": "tt0087957",
-    "source": "exact",
-    "title": "Purple Rain",
-    "year": "1984"
   },
   "pusher|1996": {
     "imdbID": "tt0117407",
@@ -2782,12 +1750,6 @@
     "source": "exact",
     "title": "Radio Days",
     "year": "1987"
-  },
-  "raiders of the lost ark|1981": {
-    "imdbID": "tt0082971",
-    "source": "exact_year",
-    "title": "Raiders of the Lost Ark",
-    "year": "1981"
   },
   "raja shivaji|2026": {
     "imdbID": "tt31390893",
@@ -2819,18 +1781,6 @@
     "title": "Remarkably Bright Creatures",
     "year": "2026"
   },
-  "remember my name|1978": {
-    "imdbID": "tt0078150",
-    "source": "exact_year",
-    "title": "Remember My Name",
-    "year": "1978"
-  },
-  "renoir|2012": {
-    "imdbID": "tt2150332",
-    "source": "exact",
-    "title": "Renoir",
-    "year": "2012"
-  },
   "revolutionary america|2026": {
     "imdbID": "tt41600476",
     "source": "exact_year",
@@ -2848,30 +1798,6 @@
     "source": "exact_year",
     "title": "Ringu",
     "year": "1998"
-  },
-  "river of no return|1954": {
-    "imdbID": "tt0047422",
-    "source": "exact_year",
-    "title": "River of No Return",
-    "year": "1954"
-  },
-  "road to everywhere|2026": {
-    "imdbID": "tt30056610",
-    "source": "exact_year",
-    "title": "Road to Everywhere",
-    "year": "2026"
-  },
-  "rome, open city|1945": {
-    "imdbID": "tt0038890",
-    "source": "exact",
-    "title": "Rome, Open City",
-    "year": "1945"
-  },
-  "rose of nevada|2026": {
-    "imdbID": "tt35674521",
-    "source": "exact",
-    "title": "Rose of Nevada",
-    "year": "2026"
   },
   "rumba royale|2025": {
     "imdbID": "tt32660062",
@@ -2897,18 +1823,6 @@
     "title": "Saccharine",
     "year": "2026"
   },
-  "sacred heart: his reign has no end|2026": {
-    "imdbID": "tt38551604",
-    "source": "exact_year",
-    "title": "Sacred Heart: His Reign Has No End",
-    "year": "2026"
-  },
-  "sacro gra|2013": {
-    "imdbID": "tt3172520",
-    "source": "exact",
-    "title": "Sacro GRA",
-    "year": "2013"
-  },
   "salem's lot|2024": {
     "imdbID": "tt10245072",
     "source": "exact",
@@ -2920,12 +1834,6 @@
     "source": "search",
     "title": "Salò, or the 120 Days of Sodom",
     "year": "1975"
-  },
-  "salomé|2013": {
-    "imdbID": "tt3112900",
-    "source": "exact",
-    "title": "Salomé",
-    "year": "2013"
   },
   "sambizanga": {
     "imdbID": "tt0069214",
@@ -2939,35 +1847,11 @@
     "title": "Saw III",
     "year": "2006"
   },
-  "scarface|1983": {
-    "imdbID": "tt0086250",
-    "source": "exact_year",
-    "title": "Scarface",
-    "year": "1983"
-  },
   "scary movie|2000": {
     "imdbID": "tt0175142",
     "source": "search",
     "title": "Scary Movie",
     "year": "2000"
-  },
-  "scary movie|2026": {
-    "imdbID": "tt32093575",
-    "source": "exact_year",
-    "title": "Scary Movie",
-    "year": "2026"
-  },
-  "school on fire|1988": {
-    "imdbID": "tt0096472",
-    "source": "exact",
-    "title": "School on Fire",
-    "year": "1988"
-  },
-  "score|1973": {
-    "imdbID": "tt0069236",
-    "source": "exact_year",
-    "title": "Score",
-    "year": "1973"
   },
   "scream 7|2026": {
     "imdbID": "tt27047903",
@@ -2999,30 +1883,6 @@
     "title": "Shanghai Triad",
     "year": "1995"
   },
-  "shaolin soccer|2001": {
-    "imdbID": "tt0286112",
-    "source": "exact",
-    "title": "Shaolin Soccer",
-    "year": "2001"
-  },
-  "she's the man|2006": {
-    "imdbID": "tt0454945",
-    "source": "exact",
-    "title": "She's the Man",
-    "year": "2006"
-  },
-  "she’s the he|2025": {
-    "imdbID": "tt32261856",
-    "source": "exact",
-    "title": "She's the He",
-    "year": "2025"
-  },
-  "showgirls|1995": {
-    "imdbID": "tt0114436",
-    "source": "exact",
-    "title": "Showgirls",
-    "year": "1995"
-  },
   "shrek: 25th anniversary|2001": {
     "imdbID": "tt0126029",
     "source": "override",
@@ -3040,18 +1900,6 @@
     "source": "exact_year",
     "title": "Signs",
     "year": "2002"
-  },
-  "silent friend|2025": {
-    "imdbID": "tt27811632",
-    "source": "exact_year",
-    "title": "Silent Friend",
-    "year": "2025"
-  },
-  "single white female|1992": {
-    "imdbID": "tt0105414",
-    "source": "exact_year",
-    "title": "Single White Female",
-    "year": "1992"
   },
   "sinners in the sun|1932": {
     "imdbID": "tt0023479",
@@ -3077,24 +1925,6 @@
     "title": "Sisters",
     "year": "1972"
   },
-  "six: the musical live!|2025": {
-    "imdbID": "tt35391146",
-    "source": "exact_year",
-    "title": "Six: The Musical Live!",
-    "year": "2025"
-  },
-  "small body|2021": {
-    "imdbID": "tt13926310",
-    "source": "exact",
-    "title": "Small Body",
-    "year": "2021"
-  },
-  "snake eyes|1998": {
-    "imdbID": "tt0120832",
-    "source": "exact_year",
-    "title": "Snake Eyes",
-    "year": "1998"
-  },
   "so this is new york|1948": {
     "imdbID": "tt0040810",
     "source": "exact_year",
@@ -3107,12 +1937,6 @@
     "title": "Some Kind of Heaven",
     "year": "2020"
   },
-  "some like it hot|1959": {
-    "imdbID": "tt0053291",
-    "source": "exact_year",
-    "title": "Some Like It Hot",
-    "year": "1959"
-  },
   "something wild|1986": {
     "imdbID": "tt0091983",
     "source": "override",
@@ -3124,12 +1948,6 @@
     "source": "exact_year",
     "title": "Sorry to Bother You",
     "year": "2018"
-  },
-  "sorry, wrong number|1948": {
-    "imdbID": "tt0040823",
-    "source": "exact_year",
-    "title": "Sorry, Wrong Number",
-    "year": "1948"
   },
   "southland tales|2006": {
     "imdbID": "tt0405336",
@@ -3173,34 +1991,10 @@
     "title": "Stalker",
     "year": "1979"
   },
-  "star wars: the mandalorian and grogu|2026": {
-    "imdbID": "tt30825738",
-    "source": "exact_year",
-    "title": "Star Wars: The Mandalorian and Grogu",
-    "year": "2026"
-  },
-  "state of firsts|2025": {
-    "imdbID": "tt36589618",
-    "source": "exact_year",
-    "title": "State of Firsts",
-    "year": "2025"
-  },
-  "steal this story, please!|2025": {
-    "imdbID": "tt36748956",
-    "source": "exact",
-    "title": "Steal This Story, Please!",
-    "year": "2025"
-  },
   "stolen kingdom|2026": {
     "imdbID": "tt22245582",
     "source": "exact_year",
     "title": "Stolen Kingdom",
-    "year": "2026"
-  },
-  "stop! that! train!|2026": {
-    "imdbID": "tt38128726",
-    "source": "exact_year",
-    "title": "Stop! That! Train!",
     "year": "2026"
   },
   "strange river|2023": {
@@ -3209,29 +2003,11 @@
     "title": "River God Water Strange Story",
     "year": "2023"
   },
-  "stranger on the third floor|1940": {
-    "imdbID": "tt0033107",
-    "source": "exact_year",
-    "title": "Stranger on the Third Floor",
-    "year": "1940"
-  },
   "super 8|2011": {
     "imdbID": "tt1650062",
     "source": "exact_year",
     "title": "Super 8",
     "year": "2011"
-  },
-  "supergirl|2026": {
-    "imdbID": "tt8814476",
-    "source": "exact_year",
-    "title": "Supergirl",
-    "year": "2026"
-  },
-  "susana|1951": {
-    "imdbID": "tt0043018",
-    "source": "exact_year",
-    "title": "Susana",
-    "year": "1951"
   },
   "suspiria": {
     "imdbID": "tt0076786",
@@ -3251,47 +2027,17 @@
     "title": "Sweet Movie",
     "year": "1974"
   },
-  "sweet smell of success|1957": {
-    "imdbID": "tt0051036",
-    "source": "exact_year",
-    "title": "Sweet Smell of Success",
-    "year": "1957"
-  },
   "takeover|2020": {
     "imdbID": "tt10567444",
     "source": "exact_year",
     "title": "Takeover",
     "year": "2020"
   },
-  "tampopo|1985": {
-    "imdbID": "tt0092048",
-    "source": "exact",
-    "title": "Tampopo",
-    "year": "1985"
-  },
   "taxi driver|1976": {
     "imdbID": "tt0075314",
     "source": "exact",
     "title": "Taxi Driver",
     "year": "1976"
-  },
-  "teen wolf|1985": {
-    "imdbID": "tt0090142",
-    "source": "search",
-    "title": "Teen Wolf",
-    "year": "1985"
-  },
-  "terminator 2: judgment day|1991": {
-    "imdbID": "tt0103064",
-    "source": "exact",
-    "title": "Terminator 2: Judgment Day",
-    "year": "1991"
-  },
-  "that obscure object of desire|1977": {
-    "imdbID": "tt0075824",
-    "source": "exact_year",
-    "title": "That Obscure Object of Desire",
-    "year": "1977"
   },
   "that time i got reincarnated as a slime the movie: tears of the azure sea|2026": {
     "imdbID": "tt38650409",
@@ -3304,12 +2050,6 @@
     "source": "exact_year",
     "title": "The Age of Innocence",
     "year": "1993"
-  },
-  "the amazing circus: the last act|2026": {
-    "imdbID": "tt41635245",
-    "source": "search",
-    "title": "The Amazing Digital Circus: The Last Act",
-    "year": "2026"
   },
   "the asphalt jungle|1950": {
     "imdbID": "tt0042208",
@@ -3329,29 +2069,11 @@
     "title": "The Best Years of Our Lives",
     "year": "1946"
   },
-  "the big clock|1948": {
-    "imdbID": "tt0040160",
-    "source": "exact_year",
-    "title": "The Big Clock",
-    "year": "1948"
-  },
-  "the big lebowski|1998": {
-    "imdbID": "tt0118715",
-    "source": "exact",
-    "title": "The Big Lebowski",
-    "year": "1998"
-  },
   "the bird with the crystal plumage|1970": {
     "imdbID": "tt0065143",
     "source": "exact",
     "title": "The Bird with the Crystal Plumage",
     "year": "1970"
-  },
-  "the blair witch project|1999": {
-    "imdbID": "tt0185937",
-    "source": "exact",
-    "title": "The Blair Witch Project",
-    "year": "1999"
   },
   "the boston strangler|1968": {
     "imdbID": "tt0062755",
@@ -3359,35 +2081,17 @@
     "title": "The Boston Strangler",
     "year": "1968"
   },
-  "the breadwinner|2026": {
-    "imdbID": "tt34459219",
-    "source": "exact_year",
-    "title": "The Breadwinner",
-    "year": "2026"
-  },
   "the bridges of madison county|1995": {
     "imdbID": "tt0112579",
     "source": "exact_year",
     "title": "The Bridges of Madison County",
     "year": "1995"
   },
-  "the brigand|1952": {
-    "imdbID": "tt0044449",
-    "source": "exact",
-    "title": "The Brigand",
-    "year": "1952"
-  },
   "the christophers|2026": {
     "imdbID": "tt34966562",
     "source": "exact",
     "title": "The Christophers",
     "year": "2026"
-  },
-  "the conformist|1970": {
-    "imdbID": "tt0065571",
-    "source": "exact",
-    "title": "The Conformist",
-    "year": "1970"
   },
   "the cook the thief his wife her lover": {
     "imdbID": "tt0097108",
@@ -3401,12 +2105,6 @@
     "title": "The Great Annual Party of the Creatures of the Moon",
     "year": "2025"
   },
-  "the crimson canary|1945": {
-    "imdbID": "tt0037623",
-    "source": "exact_year",
-    "title": "The Crimson Canary",
-    "year": "1945"
-  },
   "the darjeeling limited|2007": {
     "imdbID": "tt0838221",
     "source": "exact_year",
@@ -3419,59 +2117,17 @@
     "title": "The Dark Crystal",
     "year": "1982"
   },
-  "the death of robin hood|2026": {
-    "imdbID": "tt32273171",
-    "source": "exact_year",
-    "title": "The Death of Robin Hood",
-    "year": "2026"
-  },
-  "the decameron|1971": {
-    "imdbID": "tt0065622",
-    "source": "exact",
-    "title": "The Decameron",
-    "year": "1971"
-  },
   "the designated mourner|1997": {
     "imdbID": "tt0118964",
     "source": "exact",
     "title": "The Designated Mourner",
     "year": "1997"
   },
-  "the devil wears prada 2|2026": {
-    "imdbID": "tt33612209",
-    "source": "exact_year",
-    "title": "The Devil Wears Prada 2",
-    "year": "2026"
-  },
-  "the devil's backbone|2001": {
-    "imdbID": "tt0256009",
-    "source": "exact",
-    "title": "The Devil's Backbone",
-    "year": "2001"
-  },
-  "the discreet charm of the bourgeoisie|1972": {
-    "imdbID": "tt0068361",
-    "source": "exact_year",
-    "title": "The Discreet Charm of the Bourgeoisie",
-    "year": "1972"
-  },
-  "the diving bell and the butterfly|2007": {
-    "imdbID": "tt0401383",
-    "source": "exact_year",
-    "title": "The Diving Bell and the Butterfly",
-    "year": "2007"
-  },
   "the double life of veronique|1991": {
     "imdbID": "tt0101765",
     "source": "exact_year",
     "title": "The Double Life of Véronique",
     "year": "1991"
-  },
-  "the easy kind|2024": {
-    "imdbID": "tt23765492",
-    "source": "exact",
-    "title": "The Easy Kind",
-    "year": "2024"
   },
   "the emperor and the assassin|1998": {
     "imdbID": "tt0162866",
@@ -3485,29 +2141,11 @@
     "title": "The Eternal Daughter",
     "year": "2022"
   },
-  "the exterminating angel|1962": {
-    "imdbID": "tt0056732",
-    "source": "exact_year",
-    "title": "The Exterminating Angel",
-    "year": "1962"
-  },
   "the eyes of ghana|2025": {
     "imdbID": "tt37815334",
     "source": "exact",
     "title": "The Eyes of Ghana",
     "year": "2025"
-  },
-  "the furious|2026": {
-    "imdbID": "tt33311069",
-    "source": "exact_year",
-    "title": "The Furious",
-    "year": "2026"
-  },
-  "the goalie's anxiety at the penalty kick|1972": {
-    "imdbID": "tt0066773",
-    "source": "exact",
-    "title": "The Goalie's Anxiety at the Penalty Kick",
-    "year": "1972"
   },
   "the goonies|1985": {
     "imdbID": "tt0089218",
@@ -3521,23 +2159,11 @@
     "title": "The Gospel According to St. Matthew",
     "year": "1964"
   },
-  "the graduate|1967": {
-    "imdbID": "tt0061722",
-    "source": "exact",
-    "title": "The Graduate",
-    "year": "1967"
-  },
   "the grandmaster|2013": {
     "imdbID": "tt1462900",
     "source": "exact",
     "title": "The Grandmaster",
     "year": "2013"
-  },
-  "the handmaiden|2016": {
-    "imdbID": "tt4016934",
-    "source": "exact",
-    "title": "The Handmaiden",
-    "year": "2016"
   },
   "the hand|1981": {
     "imdbID": "tt0082497",
@@ -3575,12 +2201,6 @@
     "title": "The Holy Mountain",
     "year": "1975"
   },
-  "the invite|2026": {
-    "imdbID": "tt14173636",
-    "source": "exact",
-    "title": "The Invite",
-    "year": "2026"
-  },
   "the jerk|1979": {
     "imdbID": "tt0079367",
     "source": "exact",
@@ -3599,12 +2219,6 @@
     "title": "The Last Run",
     "year": "1971"
   },
-  "the last whale singer|2026": {
-    "imdbID": "tt13518550",
-    "source": "exact_year",
-    "title": "The Last Whale Singer",
-    "year": "2026"
-  },
   "the last witness|2018": {
     "imdbID": "tt3709552",
     "source": "exact",
@@ -3616,18 +2230,6 @@
     "source": "exact",
     "title": "The Leopard",
     "year": "1963"
-  },
-  "the little girl of hanoi|1974": {
-    "imdbID": "tt0327681",
-    "source": "exact",
-    "title": "The Little Girl of Hanoi",
-    "year": "1974"
-  },
-  "the little sister|2025": {
-    "imdbID": "tt28326501",
-    "source": "exact",
-    "title": "The Little Sister",
-    "year": "2025"
   },
   "the long goodbye|1973": {
     "imdbID": "tt0070334",
@@ -3653,30 +2255,6 @@
     "title": "The Love Parade",
     "year": "1929"
   },
-  "the lovemakers|1972": {
-    "imdbID": "tt0250539",
-    "source": "exact_year",
-    "title": "The Lovemakers",
-    "year": "1972"
-  },
-  "the man i love|1946": {
-    "imdbID": "tt0038721",
-    "source": "exact_year",
-    "title": "The Man I Love",
-    "year": "1946"
-  },
-  "the man who wasn't there|2001": {
-    "imdbID": "tt0243133",
-    "source": "exact_year",
-    "title": "The Man Who Wasn't There",
-    "year": "2001"
-  },
-  "the man with the golden arm|1955": {
-    "imdbID": "tt0048347",
-    "source": "exact_year",
-    "title": "The Man with the Golden Arm",
-    "year": "1955"
-  },
   "the march of fools|1975": {
     "imdbID": "tt0398727",
     "source": "exact",
@@ -3701,23 +2279,11 @@
     "title": "The Merry Widow",
     "year": "1934"
   },
-  "the milky way|1969": {
-    "imdbID": "tt0066534",
-    "source": "exact_year",
-    "title": "The Milky Way",
-    "year": "1969"
-  },
   "the misfits|1961": {
     "imdbID": "tt0055184",
     "source": "exact_year",
     "title": "The Misfits",
     "year": "1961"
-  },
-  "the muppet movie|1979": {
-    "imdbID": "tt0079588",
-    "source": "exact_year",
-    "title": "The Muppet Movie",
-    "year": "1979"
   },
   "the narrow margin|1952": {
     "imdbID": "tt0044954",
@@ -3730,18 +2296,6 @@
     "source": "exact_year",
     "title": "The New Centurions",
     "year": "1972"
-  },
-  "the odyssey|2026": {
-    "imdbID": "tt33764258",
-    "source": "exact_year",
-    "title": "The Odyssey",
-    "year": "2026"
-  },
-  "the organizer|1963": {
-    "imdbID": "tt0056945",
-    "source": "exact",
-    "title": "The Organizer",
-    "year": "1963"
   },
   "the outfit": {
     "imdbID": "tt14114802",
@@ -3797,12 +2351,6 @@
     "title": "The Rocky Horror Picture Show",
     "year": "1975"
   },
-  "the room|2025": {
-    "imdbID": "tt39284795",
-    "source": "exact_year",
-    "title": "The Room",
-    "year": "2025"
-  },
   "the root": {
     "imdbID": "tt19063048",
     "source": "exact",
@@ -3839,23 +2387,11 @@
     "title": "The Serpent's Skin",
     "year": "2025"
   },
-  "the seven year itch|1955": {
-    "imdbID": "tt0048605",
-    "source": "exact_year",
-    "title": "The Seven Year Itch",
-    "year": "1955"
-  },
   "the seventh seal": {
     "imdbID": "tt0050976",
     "source": "exact",
     "title": "The Seventh Seal",
     "year": "1957"
-  },
-  "the sheep detectives|2026": {
-    "imdbID": "tt32565993",
-    "source": "exact_year",
-    "title": "The Sheep Detectives",
-    "year": "2026"
   },
   "the shop around the corner|1940": {
     "imdbID": "tt0033045",
@@ -3863,23 +2399,11 @@
     "title": "The Shop Around the Corner",
     "year": "1940"
   },
-  "the silence of the lambs|1991": {
-    "imdbID": "tt0102926",
-    "source": "exact",
-    "title": "The Silence of the Lambs",
-    "year": "1991"
-  },
   "the silence|2025": {
     "imdbID": "tt37836779",
     "source": "exact_year",
     "title": "The Silence",
     "year": "2025"
-  },
-  "the snake girl and the silver-haired witch|1968": {
-    "imdbID": "tt0142360",
-    "source": "exact_year",
-    "title": "The Snake Girl and the Silver-Haired Witch",
-    "year": "1968"
   },
   "the story of everything|2026": {
     "imdbID": "tt13374694",
@@ -3898,42 +2422,6 @@
     "source": "override",
     "title": "The Stranger",
     "year": "2025"
-  },
-  "the super mario galaxy movie|2026": {
-    "imdbID": "tt28650488",
-    "source": "exact_year",
-    "title": "The Super Mario Galaxy Movie",
-    "year": "2026"
-  },
-  "the taste of tea|2004": {
-    "imdbID": "tt0413893",
-    "source": "exact",
-    "title": "The Taste of Tea",
-    "year": "2004"
-  },
-  "the terminator|1984": {
-    "imdbID": "tt0088247",
-    "source": "exact",
-    "title": "The Terminator",
-    "year": "1984"
-  },
-  "the thing|1982": {
-    "imdbID": "tt0084787",
-    "source": "exact",
-    "title": "The Thing",
-    "year": "1982"
-  },
-  "the third man|1949": {
-    "imdbID": "tt0041959",
-    "source": "exact_year",
-    "title": "The Third Man",
-    "year": "1949"
-  },
-  "the tin drum|1979": {
-    "imdbID": "tt0078875",
-    "source": "exact",
-    "title": "The Tin Drum",
-    "year": "1979"
   },
   "the trap": {
     "imdbID": "tt39093784",
@@ -3959,12 +2447,6 @@
     "title": "The Unholy Rollers",
     "year": "1972"
   },
-  "the untouchables|1987": {
-    "imdbID": "tt0094226",
-    "source": "exact_year",
-    "title": "The Untouchables",
-    "year": "1987"
-  },
   "the vikings|1958": {
     "imdbID": "tt0052365",
     "source": "exact_year",
@@ -3982,12 +2464,6 @@
     "source": "exact",
     "title": "The Wife",
     "year": "2017"
-  },
-  "the window|1949": {
-    "imdbID": "tt0042046",
-    "source": "exact_year",
-    "title": "The Window",
-    "year": "1949"
   },
   "the wizard of the kremlin|2025": {
     "imdbID": "tt32386654",
@@ -4012,12 +2488,6 @@
     "source": "exact_year",
     "title": "The Yeti",
     "year": "2026"
-  },
-  "the young one|1960": {
-    "imdbID": "tt0053967",
-    "source": "exact_year",
-    "title": "The Young One",
-    "year": "1960"
   },
   "thelma & louise|1991": {
     "imdbID": "tt0103074",
@@ -4073,18 +2543,6 @@
     "title": "Time and Water",
     "year": "2026"
   },
-  "to have and have not|1944": {
-    "imdbID": "tt0037382",
-    "source": "exact_year",
-    "title": "To Have and Have Not",
-    "year": "1944"
-  },
-  "tomboy|2011": {
-    "imdbID": "tt1847731",
-    "source": "exact",
-    "title": "Tomboy",
-    "year": "2011"
-  },
   "tootsie|1982": {
     "imdbID": "tt0084805",
     "source": "exact",
@@ -4109,12 +2567,6 @@
     "title": "Top Gun",
     "year": "1986"
   },
-  "touch of evil|1958": {
-    "imdbID": "tt0052311",
-    "source": "exact_year",
-    "title": "Touch of Evil",
-    "year": "1958"
-  },
   "touki bouki|1973": {
     "imdbID": "tt0070820",
     "source": "exact",
@@ -4126,12 +2578,6 @@
     "source": "exact",
     "title": "Tow",
     "year": "2022"
-  },
-  "toy story 5|2026": {
-    "imdbID": "tt29355505",
-    "source": "exact_year",
-    "title": "Toy Story 5",
-    "year": "2026"
   },
   "trainspotting|1996": {
     "imdbID": "tt0117951",
@@ -4175,12 +2621,6 @@
     "title": "Tristana",
     "year": "1970"
   },
-  "trouble every day|2001": {
-    "imdbID": "tt0204700",
-    "source": "exact_year",
-    "title": "Trouble Every Day",
-    "year": "2001"
-  },
   "trouble in paradise|1932": {
     "imdbID": "tt0023622",
     "source": "exact_year",
@@ -4193,29 +2633,11 @@
     "title": "True Lies",
     "year": "1994"
   },
-  "true north|2006": {
-    "imdbID": "tt0497365",
-    "source": "exact",
-    "title": "True North",
-    "year": "2006"
-  },
-  "tuner|2026": {
-    "imdbID": "tt33296751",
-    "source": "exact_year",
-    "title": "Tuner",
-    "year": "2026"
-  },
   "turtle vision|1991": {
     "imdbID": "tt0103142",
     "source": "exact_year",
     "title": "Turtle Vision",
     "year": "1991"
-  },
-  "turtles can fly|2004": {
-    "imdbID": "tt0424227",
-    "source": "exact",
-    "title": "Turtles Can Fly",
-    "year": "2004"
   },
   "two pianos|2026": {
     "imdbID": "tt33518607",
@@ -4234,18 +2656,6 @@
     "source": "exact",
     "title": "Two Seasons, Two Strangers",
     "year": "2025"
-  },
-  "two women|1960": {
-    "imdbID": "tt0054749",
-    "source": "exact",
-    "title": "Two Women",
-    "year": "1960"
-  },
-  "undeclared war|1990": {
-    "imdbID": "tt0100595",
-    "source": "exact",
-    "title": "Undeclared War",
-    "year": "1990"
   },
   "underland|2025": {
     "imdbID": "tt36590141",
@@ -4271,41 +2681,17 @@
     "title": "Van Gogh",
     "year": "1991"
   },
-  "vanya on 42nd street|1994": {
-    "imdbID": "tt0111590",
-    "source": "exact",
-    "title": "Vanya on 42nd Street",
-    "year": "1994"
-  },
   "varda by agn s": {
     "imdbID": "tt9530198",
     "source": "exact",
     "title": "Varda by Agnès",
     "year": "2019"
   },
-  "vermiglio|2025": {
-    "imdbID": "tt28618488",
-    "source": "exact",
-    "title": "Vermiglio",
-    "year": "2025"
-  },
-  "vincere|2009": {
-    "imdbID": "tt1156173",
-    "source": "exact",
-    "title": "Vincere",
-    "year": "2009"
-  },
   "violent saturday|1955": {
     "imdbID": "tt0048790",
     "source": "exact_year",
     "title": "Violent Saturday",
     "year": "1955"
-  },
-  "viridiana|1961": {
-    "imdbID": "tt0055601",
-    "source": "exact_year",
-    "title": "Viridiana",
-    "year": "1961"
   },
   "vive l'amour|1994": {
     "imdbID": "tt0109066",
@@ -4319,12 +2705,6 @@
     "title": "War Horse",
     "year": "2011"
   },
-  "welcome to the dollhouse|1995": {
-    "imdbID": "tt0114906",
-    "source": "exact_year",
-    "title": "Welcome to the Dollhouse",
-    "year": "1995"
-  },
   "wendy and lucy|2008": {
     "imdbID": "tt1152850",
     "source": "exact_year",
@@ -4336,18 +2716,6 @@
     "source": "exact_year",
     "title": "Werckmeister Harmonies",
     "year": "2000"
-  },
-  "what do we see when we look at the sky?|2021": {
-    "imdbID": "tt14035154",
-    "source": "exact",
-    "title": "What Do We See When We Look at the Sky?",
-    "year": "2021"
-  },
-  "what ever happened to baby jane?|1962": {
-    "imdbID": "tt0056687",
-    "source": "exact",
-    "title": "What Ever Happened to Baby Jane?",
-    "year": "1962"
   },
   "what time is it there?|2001": {
     "imdbID": "tt0269746",
@@ -4367,23 +2735,11 @@
     "title": "When Nigeria Happens",
     "year": "2025"
   },
-  "where is the friend's house?|1987": {
-    "imdbID": "tt0093342",
-    "source": "exact",
-    "title": "Where Is the Friend's House?",
-    "year": "1987"
-  },
   "whistle stop|1946": {
     "imdbID": "tt0039101",
     "source": "exact",
     "title": "Whistle Stop",
     "year": "1946"
-  },
-  "white material|2009": {
-    "imdbID": "tt1135952",
-    "source": "exact",
-    "title": "White Material",
-    "year": "2009"
   },
   "who moves america|2026": {
     "imdbID": "tt28303275",
@@ -4396,12 +2752,6 @@
     "source": "exact",
     "title": "Who's Afraid of Virginia Woolf?",
     "year": "1966"
-  },
-  "with hasan in gaza|2025": {
-    "imdbID": "tt37538502",
-    "source": "exact",
-    "title": "With Hasan in Gaza",
-    "year": "2025"
   },
   "wolf children|2012": {
     "imdbID": "tt2140203",
@@ -4426,17 +2776,5 @@
     "source": "exact_year",
     "title": "Now! More! Yes!",
     "year": "2025"
-  },
-  "young man with a horn|1950": {
-    "imdbID": "tt0043153",
-    "source": "exact_year",
-    "title": "Young Man with a Horn",
-    "year": "1950"
-  },
-  "zodiac|2007": {
-    "imdbID": "tt0443706",
-    "source": "override",
-    "title": "Zodiac",
-    "year": "2007"
   }
 }
