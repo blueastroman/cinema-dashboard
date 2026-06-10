@@ -691,6 +691,8 @@
     }
 
     body.compact-mode .movie-card {
+      --card-pad-v: 16px;
+      --card-pad-h: 18px;
       padding: 16px 18px;
       gap: 10px;
     }
@@ -714,6 +716,8 @@
 
     /* ── MOVIE CARD ────────────────────────────────────────── */
     .movie-card {
+      --card-pad-v: 28px;
+      --card-pad-h: 28px;
       background: var(--off-black);
       padding: 28px;
       display: flex;
@@ -764,11 +768,26 @@
     .movie-card.watch::before { background: var(--watch); }
     .movie-card.depends::before { background: var(--depends); }
     .movie-card.skip::before { background: var(--skip); }
-    .movie-card.see-tonight::before { background: var(--see-tonight); }
-    .movie-card.worth-trip::before { background: var(--worth-trip); }
-    .movie-card.nothing-else::before { background: var(--nothing-else); }
-    .movie-card.better-home::before { background: var(--better-home); }
-    .movie-card.dont-bother::before { background: var(--dont-bother); }
+    .movie-card.see-tonight::before,
+    .movie-card.worth-trip::before,
+    .movie-card.nothing-else::before,
+    .movie-card.better-home::before,
+    .movie-card.dont-bother::before { background: transparent; }
+
+    .card-verdict-header {
+      margin: calc(-1 * var(--card-pad-v)) calc(-1 * var(--card-pad-h)) 0;
+      padding: 9px var(--card-pad-h);
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .card-verdict-header.see-tonight { background: var(--see-tonight-bg); color: var(--see-tonight); }
+    .card-verdict-header.worth-trip  { background: var(--worth-trip-bg);  color: var(--worth-trip); }
+    .card-verdict-header.nothing-else { background: var(--nothing-else-bg); color: var(--nothing-else); }
+    .card-verdict-header.better-home  { background: var(--better-home-bg);  color: var(--better-home); }
+    .card-verdict-header.dont-bother  { background: var(--dont-bother-bg);  color: var(--dont-bother); }
 
     .movie-card:hover {
       background: var(--charcoal);
@@ -5902,15 +5921,13 @@ function buildCard(movie, idx) {
   const safeDirector = escapeHTML(ratings.director);
 
   card.innerHTML = `
+    <div class="card-verdict-header ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
+
     <div class="card-top">
       <div>
         <div class="movie-title"><a href="${escapeHTML(lbUrl)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${safeTitle}</a></div>
         <div class="movie-year">${safeYear}${safeDirector ? ' · ' + safeDirector : ''}</div>
       </div>
-    </div>
-
-    <div class="card-meta">
-      <span class="verdict-pill ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</span>
     </div>
 
     ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
