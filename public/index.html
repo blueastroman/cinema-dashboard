@@ -51,6 +51,16 @@
       --depends-bg: #2a200a;
       --skip: #9e4a4a;
       --skip-bg: #2a0f0f;
+      --see-tonight: #4db373;
+      --see-tonight-bg: #0a2416;
+      --worth-trip: #8cc4a0;
+      --worth-trip-bg: #0f2018;
+      --nothing-else: #c8a96e;
+      --nothing-else-bg: #2a200a;
+      --better-home: #6a9ab8;
+      --better-home-bg: #0d1f2d;
+      --dont-bother: #9e4a4a;
+      --dont-bother-bg: #2a0f0f;
       --safe-top: env(safe-area-inset-top, 0px);
       --font-sans: 'Manrope', sans-serif;
       --accent-ink: #0a0a0a;
@@ -97,6 +107,16 @@
       --depends-bg: #f8eed7;
       --skip: #b65252;
       --skip-bg: #f9e4e4;
+      --see-tonight: #1a6e3d;
+      --see-tonight-bg: #dff0e5;
+      --worth-trip: #2d7a50;
+      --worth-trip-bg: #e5f5eb;
+      --nothing-else: #b68b3c;
+      --nothing-else-bg: #f8eed7;
+      --better-home: #3a6e8c;
+      --better-home-bg: #ddeef7;
+      --dont-bother: #b65252;
+      --dont-bother-bg: #f9e4e4;
       --accent-ink: #17120d;
       --header-bg: rgba(246, 241, 232, 0.94);
       --grain-opacity: 0.16;
@@ -623,6 +643,31 @@
       color: var(--skip);
       border: 1px solid var(--skip);
     }
+    .verdict-badge-large.see-tonight {
+      background: var(--see-tonight-bg);
+      color: var(--see-tonight);
+      border: 1px solid var(--see-tonight);
+    }
+    .verdict-badge-large.worth-trip {
+      background: var(--worth-trip-bg);
+      color: var(--worth-trip);
+      border: 1px solid var(--worth-trip);
+    }
+    .verdict-badge-large.nothing-else {
+      background: var(--nothing-else-bg);
+      color: var(--nothing-else);
+      border: 1px solid var(--nothing-else);
+    }
+    .verdict-badge-large.better-home {
+      background: var(--better-home-bg);
+      color: var(--better-home);
+      border: 1px solid var(--better-home);
+    }
+    .verdict-badge-large.dont-bother {
+      background: var(--dont-bother-bg);
+      color: var(--dont-bother);
+      border: 1px solid var(--dont-bother);
+    }
 
     .section-count {
       font-family: var(--font-sans);
@@ -719,6 +764,11 @@
     .movie-card.watch::before { background: var(--watch); }
     .movie-card.depends::before { background: var(--depends); }
     .movie-card.skip::before { background: var(--skip); }
+    .movie-card.see-tonight::before { background: var(--see-tonight); }
+    .movie-card.worth-trip::before { background: var(--worth-trip); }
+    .movie-card.nothing-else::before { background: var(--nothing-else); }
+    .movie-card.better-home::before { background: var(--better-home); }
+    .movie-card.dont-bother::before { background: var(--dont-bother); }
 
     .movie-card:hover {
       background: var(--charcoal);
@@ -775,6 +825,11 @@
     .verdict-pill.watch { background: var(--watch-bg); color: var(--watch); }
     .verdict-pill.depends { background: var(--depends-bg); color: var(--depends); }
     .verdict-pill.skip { background: var(--skip-bg); color: var(--skip); }
+    .verdict-pill.see-tonight { background: var(--see-tonight-bg); color: var(--see-tonight); }
+    .verdict-pill.worth-trip { background: var(--worth-trip-bg); color: var(--worth-trip); }
+    .verdict-pill.nothing-else { background: var(--nothing-else-bg); color: var(--nothing-else); }
+    .verdict-pill.better-home { background: var(--better-home-bg); color: var(--better-home); }
+    .verdict-pill.dont-bother { background: var(--dont-bother-bg); color: var(--dont-bother); }
 
     /* Meta row */
     .card-meta {
@@ -1267,6 +1322,11 @@
     .theater-film-row.watch::before  { background: var(--watch); }
     .theater-film-row.depends::before { background: var(--depends); }
     .theater-film-row.skip::before   { background: var(--skip); }
+    .theater-film-row.see-tonight::before  { background: var(--see-tonight); }
+    .theater-film-row.worth-trip::before   { background: var(--worth-trip); }
+    .theater-film-row.nothing-else::before { background: var(--nothing-else); }
+    .theater-film-row.better-home::before  { background: var(--better-home); }
+    .theater-film-row.dont-bother::before  { background: var(--dont-bother); }
     .theater-film-row:hover {
       background: var(--charcoal);
       border-color: var(--mid-gray);
@@ -1700,6 +1760,11 @@
     .ranking-row.watch::before { background: var(--watch); }
     .ranking-row.depends::before { background: var(--depends); }
     .ranking-row.skip::before { background: var(--skip); }
+    .ranking-row.see-tonight::before { background: var(--see-tonight); }
+    .ranking-row.worth-trip::before { background: var(--worth-trip); }
+    .ranking-row.nothing-else::before { background: var(--nothing-else); }
+    .ranking-row.better-home::before { background: var(--better-home); }
+    .ranking-row.dont-bother::before { background: var(--dont-bother); }
     .ranking-row:hover {
       background: var(--poster-bg-hover, var(--charcoal));
       border-color: var(--mid-gray);
@@ -1800,10 +1865,32 @@
     }
 
     .ranking-score {
-      min-width: 0;
+      min-width: 80px;
+      max-width: 110px;
       padding-top: 2px;
       padding-right: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
+
+    .ranking-verdict {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      padding: 5px 8px;
+      border-radius: 2px;
+      white-space: normal;
+    }
+
+    .ranking-verdict.see-tonight { background: var(--see-tonight-bg); color: var(--see-tonight); }
+    .ranking-verdict.worth-trip  { background: var(--worth-trip-bg);  color: var(--worth-trip); }
+    .ranking-verdict.nothing-else { background: var(--nothing-else-bg); color: var(--nothing-else); }
+    .ranking-verdict.better-home  { background: var(--better-home-bg);  color: var(--better-home); }
+    .ranking-verdict.dont-bother  { background: var(--dont-bother-bg);  color: var(--dont-bother); }
 
     .ranking-rt {
       font-family: var(--font-sans);
@@ -2273,7 +2360,7 @@
       .ranking-poster-wrap {
         width: 64px;
         grid-column: 1;
-        grid-row: 1 / 3;
+        grid-row: 1;
         align-self: start;
       }
       .ranking-score {
@@ -2295,7 +2382,7 @@
         line-height: 1;
       }
       .ranking-main {
-        grid-column: 2;
+        grid-column: 1 / -1;
         grid-row: 2;
       }
       .ranking-blurb {
@@ -3653,34 +3740,11 @@ function hasCriticRating(movie) {
 }
 
 function getDisplayVerdict(movie) {
-  const rawVerdict = movie?.verdict?.verdict || 'SKIP';
-  const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
-  if (cinemaWeight !== null) {
-    return cinemaWeight <= 65 ? 'SKIP' : 'WATCH';
-  }
-
-  const rt = parseInt(movie?.ratings?.rt || '', 10);
-  if (Number.isFinite(rt)) {
-    return rt < 50 ? 'SKIP' : 'WATCH';
-  }
-
-  const lb = parseFloat(getLetterboxdScore(movie));
-  if (Number.isFinite(lb)) {
-    return lb < 2.7 ? 'SKIP' : 'WATCH';
-  }
-
-  if (rawVerdict === 'SKIP' && !hasReviewSignals(movie)) return 'WATCH';
-  return rawVerdict === 'SKIP' ? 'SKIP' : 'WATCH';
+  return getCinemaVerdict(movie).cssClass;
 }
 
 function getCardTone(movie) {
-  const rt = parseInt(movie?.ratings?.rt || '', 10);
-  if (Number.isFinite(rt)) {
-    if (rt >= 80) return 'watch';
-    if (rt >= 60) return 'depends';
-    return 'skip';
-  }
-  return 'depends';
+  return getCinemaVerdict(movie).cssClass;
 }
 
 function cleanDisplayText(value) {
@@ -4390,37 +4454,92 @@ function renderScoreValue(score, movie) {
   return `<a href="${escapeHTML(url)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${value}</a>`;
 }
 
-function getPriorityScore(movie) {
-  const cinemaWeight = getCinemaScoreWeight(movie?.ratings?.cinemaScore);
-  if (cinemaWeight !== null) return cinemaWeight;
+const CINEMA_SCORE_TO_100 = {
+  'A+': 98, 'A': 93, 'A-': 88,
+  'B+': 78, 'B': 70, 'B-': 62,
+  'C+': 54, 'C': 46, 'C-': 38,
+  'D+': 30, 'D': 24, 'D-': 16,
+  'F': 10
+};
 
-  const rt   = parseInt(movie?.ratings?.rt || '', 10);
-  const meta = parseInt(movie?.ratings?.metacritic || '', 10);
-  const lb   = parseFloat(getLetterboxdScore(movie));
+const PRESTIGE_VENUE_NAMES = [
+  'Film Forum', 'Metrograph', 'BAM', 'Anthology',
+  'MoMA', 'Lincoln Center', 'Museum of the Moving Image', 'IFC Center'
+];
 
-  const hasRT   = Number.isFinite(rt);
-  const hasMeta = Number.isFinite(meta);
-  const hasLB   = Number.isFinite(lb);
+function getWorthItScore(movie) {
+  const ratings = movie?.ratings || {};
 
-  if (!hasRT && !hasMeta && !hasLB) return 0;
+  // Critics layer
+  const rt   = parseInt(String(ratings.rt   || ''), 10);
+  const meta = parseInt(String(ratings.metacritic || ''), 10);
+  const hasRT   = Number.isFinite(rt)   && rt   >= 0;
+  const hasMeta = Number.isFinite(meta) && meta >= 0 && String(ratings.metacritic || '').toUpperCase() !== 'N/A';
 
-  // No RT — fall back to other signals
-  if (!hasRT) return hasMeta ? meta : (lb / 5) * 100;
+  let critics = null;
+  if (hasRT && hasMeta) critics = rt * 0.60 + meta * 0.40;
+  else if (hasRT)       critics = rt   * 0.75 + 50 * 0.25;
+  else if (hasMeta)     critics = meta * 0.75 + 50 * 0.25;
 
-  // Weighted composite of available signals
-  let composite = rt * 0.5, weight = 0.5;
-  if (hasMeta) { composite += meta * 0.3;              weight += 0.3; }
-  if (hasLB)   { composite += (lb / 5) * 100 * 0.2;   weight += 0.2; }
-  composite /= weight;
+  // Audience layer
+  const imdbRaw = parseFloat(String(ratings.imdb || ''));
+  const imdb = Number.isFinite(imdbRaw) && imdbRaw > 0 ? (imdbRaw / 10) * 100 : null;
 
-  // Bayesian correction: when RT is the only signal, a handful of reviews
-  // can inflate the score to 100%. Blend toward a prior (72) to restore
-  // ordering — films with real consensus from multiple sources won't move.
-  if (!hasMeta && !hasLB) {
-    composite = composite * 0.5 + 72 * 0.5;
+  const csKey = String(ratings.cinemaScore || '').trim().toUpperCase();
+  const cs = CINEMA_SCORE_TO_100[csKey] ?? null;
+
+  const audienceParts = [imdb, cs].filter(v => v !== null);
+  const audience = audienceParts.length ? audienceParts.reduce((a, b) => a + b, 0) / audienceParts.length : null;
+
+  // Base composite — audience weighted higher
+  let base;
+  if (critics !== null && audience !== null) {
+    base = critics * 0.40 + audience * 0.60;
+  } else if (critics !== null) {
+    base = critics * 0.75 + 50 * 0.25;
+  } else if (audience !== null) {
+    base = audience * 0.90 + 50 * 0.10;
+  } else {
+    const v = String(movie?.verdict?.verdict || '').toUpperCase();
+    base = v === 'WATCH' ? 78 : v === 'DEPENDS' ? 52 : 25;
   }
 
-  return composite;
+  // Consensus bonus: both critics and audience agree it's strong
+  const consensusBonus = (critics !== null && audience !== null && critics >= 80 && audience >= 80) ? 6 : 0;
+
+  // Prestige bonus (capped at 5)
+  const tags = Array.isArray(movie?.prestige_tags) ? movie.prestige_tags : [];
+  let prestigeBonus = 0;
+  if (tags.includes('PALME D\'OR'))                       prestigeBonus += 5;
+  if (tags.includes('BEST PICTURE WINNER'))               prestigeBonus += 4;
+  if (tags.includes('CRITERION COLLECTION'))              prestigeBonus += 3;
+  if (tags.includes('BEST INTERNATIONAL FEATURE WINNER')) prestigeBonus += 3;
+  if (tags.includes('BEST ANIMATED FEATURE WINNER'))      prestigeBonus += 3;
+  prestigeBonus = Math.min(prestigeBonus, 5);
+
+  // Special format bonus
+  const formats = Array.isArray(movie?.special_formats) ? movie.special_formats : [];
+  const formatStr = formats.join(' ').toLowerCase();
+  const formatBonus = /70\s*mm/.test(formatStr) ? 5 : /35\s*mm/.test(formatStr) ? 3 : /imax/.test(formatStr) ? 2 : 0;
+
+  // Prestige venue bonus
+  const theaters = Array.isArray(movie?.theaters) ? movie.theaters : [];
+  const venueBonus = theaters.some(t => PRESTIGE_VENUE_NAMES.some(v => String(t?.name || '').includes(v))) ? 2 : 0;
+
+  return Math.round(Math.max(5, Math.min(100, base + consensusBonus + prestigeBonus + formatBonus + venueBonus)));
+}
+
+function getCinemaVerdict(movie) {
+  const score = getWorthItScore(movie);
+  if (score >= 90) return { label: 'See It Tonight',        cssClass: 'see-tonight',  score };
+  if (score >= 76) return { label: 'Worth the Trip',        cssClass: 'worth-trip',   score };
+  if (score >= 62) return { label: "If There's Nothing Else", cssClass: 'nothing-else', score };
+  if (score >= 45) return { label: 'Better at Home',        cssClass: 'better-home',  score };
+  return               { label: "Don't Bother",             cssClass: 'dont-bother',  score };
+}
+
+function getPriorityScore(movie) {
+  return getWorthItScore(movie);
 }
 
 function getMovieConfidence(movie) {
@@ -5472,17 +5591,15 @@ function renderRankingsView() {
 }
 
 function buildRankingRow(movie, idx) {
-  const verdict = getCardTone(movie);
+  const cinemaVerdict = getCinemaVerdict(movie);
+  const verdict = cinemaVerdict.cssClass;
   const ratings = movie.ratings || {};
-  const rtScore = getRTScore(movie);
-  const lbScore = getLetterboxdScore(movie);
   const nextShow = getNextRankingShow(movie);
   const blurbState = getMovieBlurbState(movie);
   const watched = hasStoredMovie(getWatched(), movie);
   const seen = hasStoredMovie(getSeen(), movie);
   const isHiddenRow = hasStoredMovie(getHidden(), movie);
   const lbUrl = getLetterboxdUrl(movie);
-  const rtUrl = getRottenTomatoesUrl(movie);
   const posterUrl = getPosterUrl(movie);
   const year = cleanDisplayText(ratings.year);
   const prestigeChip = getPrestigeChipLabel(movie);
@@ -5502,14 +5619,7 @@ function buildRankingRow(movie, idx) {
         : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
     </div>
     <div class="ranking-score">
-      <div class="ranking-rt ${getRTClass(rtScore)}">${
-        rtScore === null
-          ? 'NR'
-          : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener" aria-label="Open Rotten Tomatoes page">${rtScore}%</a>`
-      }</div>
-      <div class="ranking-score-label">Rotten Tomatoes</div>
-      ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs ${getCinemaScoreClass(ratings.cinemaScore)}">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
-      ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
+      <div class="ranking-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
     </div>
     <div class="ranking-main">
       <div class="ranking-title-row">
@@ -5660,11 +5770,11 @@ function renderTheaterView() {
 
     filmEntries.forEach(entry => {
       const movie = entry.movie;
-      const verdict = getCardTone(movie);
+      const cinemaVerdict = getCinemaVerdict(movie);
+      const verdict = cinemaVerdict.cssClass;
       const watched = hasStoredMovie(getWatched(), movie);
       const seen = hasStoredMovie(getSeen(), movie);
       const ratings = movie.ratings || {};
-      const scoreHierarchy = getScoreHierarchy(movie);
       const theaterData = entry.theaterData;
       const lbUrl = getLetterboxdUrl(movie);
       const metaStr = getMovieMetaHTML(movie, { includeFormats: true, theaterData });
@@ -5677,9 +5787,6 @@ function renderTheaterView() {
       const isHiddenRow = hasStoredMovie(getHidden(), movie);
 
       const posterUrl = getPosterUrl(movie);
-      const rtScore = getRTScore(movie);
-      const lbScore = getLetterboxdScore(movie);
-      const rtUrl = getRottenTomatoesUrl(movie);
       const safeMovieId = escapeJSString(movie.id);
       const safeMovieTitle = escapeJSString(movie.title);
       const row = document.createElement('div');
@@ -5692,14 +5799,7 @@ function renderTheaterView() {
             : `<div class="ranking-poster-placeholder">${getPosterFallbackInitial(movie)}</div>`}
         </div>
         <div class="ranking-score">
-          <div class="ranking-rt ${getRTClass(rtScore)}">${
-            rtScore === null
-              ? 'NR'
-              : `<a href="${escapeHTML(rtUrl)}" target="_blank" rel="noopener">${rtScore}%</a>`
-          }</div>
-          <div class="ranking-score-label">Rotten Tomatoes</div>
-          ${ratings.cinemaScore && ratings.cinemaScore !== 'N/A' ? `<div class="ranking-cs ${getCinemaScoreClass(ratings.cinemaScore)}">${escapeHTML(String(ratings.cinemaScore))} CinemaScore</div>` : ''}
-          ${lbScore ? `<div class="ranking-lb">${escapeHTML(lbScore)} Letterboxd</div>` : ''}
+          <div class="ranking-verdict ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</div>
         </div>
         <div class="theater-film-info">
           <div class="theater-film-title-row">
@@ -5750,9 +5850,9 @@ function theaterLink(name) {
 }
 
 function buildCard(movie, idx) {
-  const verdict = getCardTone(movie);
+  const cinemaVerdict = getCinemaVerdict(movie);
+  const verdict = cinemaVerdict.cssClass;
   const ratings = movie.ratings || {};
-  const scoreHierarchy = getScoreHierarchy(movie);
   const blurbState = getMovieBlurbState(movie);
   const plot = ratings.plot || '';
   const genre = ratings.genre || '';
@@ -5809,25 +5909,9 @@ function buildCard(movie, idx) {
       </div>
     </div>
 
-    ${scoreHierarchy.primary ? `
-        <div class="card-meta">
-          <div class="meta-item">
-          <span class="meta-value ${scoreHierarchy.primary.className}">${renderScoreValue(scoreHierarchy.primary, movie)}</span>
-          <span class="meta-label">${escapeHTML(scoreHierarchy.primary.label)}</span>
-        </div>
-      </div>
-    ` : ''}
-    ${scoreHierarchy.secondary.length ? `
-      <div class="card-meta secondary">
-        ${scoreHierarchy.secondary.map((score, index) => `
-          ${index ? '<div class="meta-sep"></div>' : ''}
-          <div class="meta-item">
-            <span class="meta-value ${score.className}">${renderScoreValue(score, movie)}</span>
-            <span class="meta-label">${escapeHTML(score.shortLabel)}</span>
-          </div>
-        `).join('')}
-      </div>
-    ` : ''}
+    <div class="card-meta">
+      <span class="verdict-pill ${escapeHTML(cinemaVerdict.cssClass)}">${escapeHTML(cinemaVerdict.label)}</span>
+    </div>
 
     ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
 
