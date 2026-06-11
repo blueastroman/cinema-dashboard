@@ -292,22 +292,46 @@ begin
     raise exception 'admin access required';
   end if;
 
-  select coalesce(jsonb_agg(
-    jsonb_build_object('lat', lat, 'lon', lon, 'country', country_code, 'count', cnt)
-    order by cnt desc
-  ), '[]'::jsonb)
-  from (
+  with centroids (cc, clat, clon) as (
+    values
+      ('US'::text, 40.71::float, -74.01::float),
+      ('GB', 51.51, -0.13), ('CA', 43.65, -79.38), ('AU', -33.87, 151.21),
+      ('DE', 52.52, 13.40), ('FR', 48.85, 2.35), ('JP', 35.68, 139.69),
+      ('MX', 19.43, -99.13), ('BR', -23.55, -46.63), ('IN', 28.61, 77.21),
+      ('IT', 41.90, 12.49), ('ES', 40.42, -3.70), ('NL', 52.37, 4.90),
+      ('KR', 37.57, 126.98), ('SE', 59.33, 18.07), ('NO', 59.91, 10.75),
+      ('DK', 55.68, 12.57), ('CH', 47.38, 8.54), ('PL', 52.23, 21.01),
+      ('PT', 38.72, -9.14), ('AR', -34.60, -58.38), ('CL', -33.45, -70.67),
+      ('CO', 4.71, -74.07), ('SG', 1.35, 103.82), ('HK', 22.32, 114.17),
+      ('NZ', -36.87, 174.77), ('IE', 53.33, -6.25), ('IL', 32.08, 34.78),
+      ('ZA', -26.20, 28.04), ('TR', 41.01, 28.95), ('RU', 55.75, 37.62)
+  ),
+  geo_visits as (
     select
-      round(lat::numeric, 2) as lat,
-      round(lon::numeric, 2) as lon,
-      max(country_code) as country_code,
+      round(lat::numeric, 2) as plat,
+      round(lon::numeric, 2) as plon,
+      max(country_code) as cc,
       count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int as cnt
     from public.site_visits
     where lat is not null and lon is not null
     group by round(lat::numeric, 2), round(lon::numeric, 2)
+
+    union all
+
+    select
+      c.clat::numeric, c.clon::numeric,
+      sv.country_code,
+      count(distinct sv.visitor_id || '|' || coalesce(sv.ip_address, ''))::int
+    from public.site_visits sv
+    join centroids c on c.cc = sv.country_code
+    where sv.lat is null
+    group by c.clat, c.clon, sv.country_code
+  )
+  select coalesce(jsonb_agg(
+    jsonb_build_object('lat', plat, 'lon', plon, 'country', cc, 'count', cnt)
     order by cnt desc
-    limit 500
-  ) t
+  ), '[]'::jsonb)
+  from (select * from geo_visits order by cnt desc limit 500) t
   into result;
 
   return result;
