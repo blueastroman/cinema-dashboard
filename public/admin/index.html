@@ -671,20 +671,9 @@ let adminWarnings = [];
 let analyticsData = null;
 let analyticsError = '';
 let analyticsLoading = false;
-const ANALYTICS_DIAGNOSTIC_KEY = 'cinema_last_analytics_issue';
 
 function addAdminWarning(message) {
   if (!adminWarnings.includes(message)) adminWarnings.push(message);
-}
-
-function readAnalyticsDiagnostic() {
-  try {
-    const raw = localStorage.getItem(ANALYTICS_DIAGNOSTIC_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
 }
 
 async function loadPicks() {
@@ -1548,15 +1537,6 @@ async function renderAnalytics({ forceRefresh = false } = {}) {
   const actions = analyticsData?.actions || {};
   const top = analyticsData?.top || {};
   const generatedAt = analyticsData?.generated_at ? new Date(analyticsData.generated_at) : null;
-  const analyticsDiagnostic = readAnalyticsDiagnostic();
-  const diagnosticHtml = analyticsDiagnostic
-    ? `<div class="analytics-note" style="margin-top:12px;color:#d6b36a;">
-        Last client-side analytics issue on this browser:
-        <strong>${escapeHTML(String(analyticsDiagnostic.kind || 'unknown'))}</strong>
-        ${analyticsDiagnostic.at ? `at ${escapeHTML(new Date(analyticsDiagnostic.at).toLocaleString())}` : ''}
-        ${analyticsDiagnostic.details?.message ? `· ${escapeHTML(String(analyticsDiagnostic.details.message))}` : ''}
-      </div>`
-    : '';
 
   main.innerHTML = `
     <div class="analytics-dashboard">
@@ -1591,7 +1571,6 @@ async function renderAnalytics({ forceRefresh = false } = {}) {
         Unique visitors are counted by anonymous browser IDs stored locally. Signed-up user totals come from Supabase Auth.
         ${generatedAt ? `Last refreshed ${escapeHTML(generatedAt.toLocaleString())}.` : ''}
       </div>
-      ${diagnosticHtml}
     </div>
   `;
 }

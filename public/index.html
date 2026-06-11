@@ -6764,7 +6764,6 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 */
 
 let _supabase = null;
-const ANALYTICS_DIAGNOSTIC_KEY = 'cinema_last_analytics_issue';
 let currentUser = null;
 let sitepicks = (() => {
   try { return new Set(JSON.parse(localStorage.getItem('cinema_picks') || '[]')); } catch { return new Set(); }
@@ -6883,44 +6882,6 @@ function getVisitVisitorId() {
   }
 }
 
-function recordAnalyticsIssue(kind, details = {}) {
-  const payload = {
-    kind,
-    at: new Date().toISOString(),
-    path: location.pathname || '/',
-    details,
-  };
-  try {
-    localStorage.setItem(ANALYTICS_DIAGNOSTIC_KEY, JSON.stringify(payload));
-  } catch {}
-  console.warn(`Analytics issue [${kind}]`, payload);
-}
-
-function clearAnalyticsIssue(kind = '') {
-  try {
-    const raw = localStorage.getItem(ANALYTICS_DIAGNOSTIC_KEY);
-    if (!raw) return;
-    const parsed = JSON.parse(raw);
-    if (!kind || parsed?.kind === kind) {
-      localStorage.removeItem(ANALYTICS_DIAGNOSTIC_KEY);
-    }
-  } catch {}
-}
-
-function runCloudAnalyticsMutation(promise, kind) {
-  promise
-    .then(({ error }) => {
-      if (error) {
-        recordAnalyticsIssue(kind, { message: error.message || String(error) });
-        return;
-      }
-      clearAnalyticsIssue(kind);
-    })
-    .catch(error => {
-      recordAnalyticsIssue(kind, { message: error?.message || String(error) });
-    });
-}
-
 async function trackSiteVisit(user = currentUser) {
   try {
     if (!SUPABASE_URL || SUPABASE_URL === 'YOUR_SUPABASE_URL' || !SUPABASE_ANON_KEY) return;
@@ -6948,21 +6909,11 @@ async function trackSiteVisit(user = currentUser) {
     });
     if (!response.ok) {
       const details = await response.text().catch(() => '');
-      recordAnalyticsIssue('site_visit', {
-        status: response.status,
-        message: details || response.statusText,
-        user_id: user?.id || null,
-      });
+      console.warn('Site visit tracking failed:', response.status, details || response.statusText);
       return;
     }
     sessionStorage.setItem(sessionKey, '1');
-    clearAnalyticsIssue('site_visit');
-  } catch (e) {
-    recordAnalyticsIssue('site_visit', {
-      message: e?.message || String(e),
-      user_id: user?.id || null,
-    });
-  }
+  } catch (e) { /* silent */ }
 }
 
 async function loadUserListsFromCloud() {
@@ -7014,9 +6965,7 @@ async function loadUserListsFromCloud() {
       localStorage.setItem('cinema_seen', JSON.stringify(merged));
     }
     if (hasLoadedData) render();
-  } catch (e) {
-    recordAnalyticsIssue('cloud_sync', { message: e?.message || String(e) });
-  }
+  } catch (e) { /* silent */ }
 }
 
 function initSupabase() {
@@ -7188,15 +7137,9 @@ toggleHidden = function(movieId, fallbackTitle = '') {
   const sb = getSupabase();
   if (!sb || !currentUser || !movieId) return;
   if (!wasHidden) {
-    runCloudAnalyticsMutation(
-      sb.from('hidden_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }),
-      'hidden_movies'
-    );
+    sb.from('hidden_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
   } else {
-    runCloudAnalyticsMutation(
-      sb.from('hidden_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId),
-      'hidden_movies'
-    );
+    sb.from('hidden_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
   }
 };
 
@@ -7209,15 +7152,9 @@ toggleWatched = function(movieId, fallbackTitle = '') {
   const sb = getSupabase();
   if (!sb || !currentUser || !movieId) return;
   if (!wasSaved) {
-    runCloudAnalyticsMutation(
-      sb.from('watched_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }),
-      'watched_movies'
-    );
+    sb.from('watched_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
   } else {
-    runCloudAnalyticsMutation(
-      sb.from('watched_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId),
-      'watched_movies'
-    );
+    sb.from('watched_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
   }
 };
 
@@ -7230,23 +7167,14 @@ toggleSeen = function(movieId, fallbackTitle = '') {
   const sb = getSupabase();
   if (!sb || !currentUser || !movieId) return;
   if (!wasSeen) {
-    runCloudAnalyticsMutation(
-      sb.from('seen_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }),
-      'seen_movies'
-    );
+    sb.from('seen_movies').upsert({ user_id: currentUser.id, movie_id: movieId, title: fallbackTitle || movieId }, { onConflict: 'user_id,movie_id' }).then(() => {});
   } else {
-    runCloudAnalyticsMutation(
-      sb.from('seen_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId),
-      'seen_movies'
-    );
+    sb.from('seen_movies').delete().eq('user_id', currentUser.id).eq('movie_id', movieId).then(() => {});
   }
 };
 
 initSupabase();
 trackSiteVisit();
-window.addEventListener('pageshow', () => {
-  trackSiteVisit(currentUser);
-});
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 syncThemeButtons();
