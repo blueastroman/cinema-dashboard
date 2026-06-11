@@ -62,6 +62,9 @@ alter table public.site_visits enable row level security;
 alter table public.blurbs
 add column if not exists rt_url_override text;
 
+alter table public.site_visits
+add column if not exists ip_address text;
+
 select pg_notify('pgrst', 'reload schema');
 
 grant usage on schema public to anon, authenticated;
@@ -236,14 +239,14 @@ begin
     ),
     'visits', jsonb_build_object(
       'total', (select count(*)::int from public.site_visits),
-      'unique_visitors', (select count(distinct visitor_id)::int from public.site_visits),
+      'unique_visitors', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits),
       'unique_signed_in_users', (select count(distinct user_id)::int from public.site_visits where user_id is not null),
       'today', (select count(*)::int from public.site_visits where visited_at >= date_trunc('day', now())),
-      'unique_today', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= date_trunc('day', now())),
+      'unique_today', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= date_trunc('day', now())),
       'last_7d', (select count(*)::int from public.site_visits where visited_at >= now() - interval '7 days'),
-      'unique_7d', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= now() - interval '7 days'),
+      'unique_7d', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= now() - interval '7 days'),
       'last_30d', (select count(*)::int from public.site_visits where visited_at >= now() - interval '30 days'),
-      'unique_30d', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= now() - interval '30 days')
+      'unique_30d', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= now() - interval '30 days')
     ),
     'actions', jsonb_build_object(
       'hidden_total', (select count(*)::int from public.hidden_movies),

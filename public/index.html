@@ -2774,13 +2774,17 @@
           <option value="rating">Best first</option>
           <option value="day">Soonest first</option>
         </select>
-        <select class="genre-select show-select" id="show-select" onchange="setShowMode(this.value)">
-          <option value="all">Browse</option>
-          <option value="saved">Saved</option>
-          <option value="watched">Watched</option>
-          <option value="hidden">Hidden</option>
-        </select>
-        <div class="daypart-filter" id="daypart-filter-wrap">
+        <div class="control-group">
+          <span class="control-label">Status</span>
+          <select class="genre-select show-select" id="show-select" onchange="setShowMode(this.value)">
+            <option value="all">All</option>
+            <option value="saved">Saved</option>
+            <option value="watched">Watched</option>
+            <option value="hidden">Hidden</option>
+          </select>
+        </div>
+        <div class="control-group daypart-filter" id="daypart-filter-wrap">
+          <span class="control-label">Time</span>
           <select class="genre-select daypart-select" id="daypart-select">
             <option value="all">Any time</option>
             <option value="morning">Morning</option>
@@ -3167,8 +3171,13 @@ function readFiltersFromUrl() {
   if (time === 'all' || time === 'morning' || time === 'evening' || time === 'night') activeDaypart = time;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
-  if (show === 'saved' || show === 'watched' || show === 'hidden' || show === 'all') showMode = show;
-  if ((saved === '1' || saved === 'true') && showMode === 'all') showMode = 'saved';
+  if (show === 'saved' || show === 'watched' || show === 'hidden' || show === 'all') {
+    if (show === 'saved' && !getWatched().length) showMode = 'all';
+    else if (show === 'watched' && !getSeen().length) showMode = 'all';
+    else if (show === 'hidden' && !getHidden().length) showMode = 'all';
+    else showMode = show;
+  }
+  if ((saved === '1' || saved === 'true') && showMode === 'all' && getWatched().length) showMode = 'saved';
 }
 
 function updateUrlFromState() {
@@ -4734,9 +4743,18 @@ function getEmptyStateMessage() {
 }
 
 function getEmptyStateHint() {
-  if (showMode === 'saved') return 'Try switching Show back to Browse or broadening the date range.';
-  if (showMode === 'watched') return 'Movies marked watched will appear here if they still have upcoming showtimes.';
-  if (showMode === 'hidden') return 'Try switching Show back to Browse or clearing one of the other filters.';
+  if (showMode === 'saved') {
+    if (!getWatched().length) return 'Your saved list is personal and stored on this device — it won\'t appear on other browsers or shared links. Tap the ♥ on any film to save it.';
+    return 'Try switching Status back to All or broadening the date range.';
+  }
+  if (showMode === 'watched') {
+    if (!getSeen().length) return 'Your watched list is personal and stored on this device — it won\'t appear on other browsers or shared links.';
+    return 'Movies you\'ve marked as watched will appear here if they still have upcoming showtimes.';
+  }
+  if (showMode === 'hidden') {
+    if (!getHidden().length) return 'Your hidden list is personal and stored on this device — it won\'t appear on other browsers or shared links.';
+    return 'Try switching Status back to All or clearing one of the other filters.';
+  }
   if (activeFormat !== 'all') return 'Try clearing the format filter or switching theaters.';
   if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
   if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
@@ -6882,6 +6900,20 @@ function getVisitVisitorId() {
   }
 }
 
+async function getVisitorIP() {
+  const cached = sessionStorage.getItem('cinema_visitor_ip');
+  if (cached) return cached;
+  try {
+    const res = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+    if (!res.ok) return null;
+    const { ip } = await res.json();
+    if (ip) sessionStorage.setItem('cinema_visitor_ip', ip);
+    return ip || null;
+  } catch {
+    return null;
+  }
+}
+
 async function trackSiteVisit(user = currentUser) {
   try {
     if (!SUPABASE_URL || SUPABASE_URL === 'YOUR_SUPABASE_URL' || !SUPABASE_ANON_KEY) return;
@@ -6890,6 +6922,7 @@ async function trackSiteVisit(user = currentUser) {
     const userKey = user?.id || 'anon';
     const sessionKey = `cinema_visit_${visitDate}_${userKey}_${location.pathname}`;
     if (sessionStorage.getItem(sessionKey)) return;
+    const ip = await getVisitorIP();
     const response = await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
       method: 'POST',
       headers: {
@@ -6901,6 +6934,7 @@ async function trackSiteVisit(user = currentUser) {
       keepalive: true,
       body: JSON.stringify({
         visitor_id: visitorId,
+        ip_address: ip || null,
         user_id: user?.id || null,
         path: location.pathname || '/',
         referrer: document.referrer || null,
