@@ -65,6 +65,9 @@ add column if not exists rt_url_override text;
 alter table public.site_visits
 add column if not exists ip_address text;
 
+alter table public.site_visits
+add column if not exists country_code text;
+
 select pg_notify('pgrst', 'reload schema');
 
 grant usage on schema public to anon, authenticated;
@@ -269,5 +272,40 @@ end;
 $$;
 
 grant execute on function public.get_admin_analytics() to authenticated;
+
+create or replace function public.get_visitor_locations()
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  result jsonb;
+begin
+  if not public.is_cinema_admin() then
+    raise exception 'admin access required';
+  end if;
+
+  select coalesce(jsonb_agg(
+    jsonb_build_object('country', country_code, 'count', cnt)
+    order by cnt desc
+  ), '[]'::jsonb)
+  from (
+    select
+      country_code,
+      count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int as cnt
+    from public.site_visits
+    where country_code is not null
+    group by country_code
+    order by cnt desc
+    limit 100
+  ) t
+  into result;
+
+  return result;
+end;
+$$;
+
+grant execute on function public.get_visitor_locations() to authenticated;
 
 select pg_notify('pgrst', 'reload schema');

@@ -6900,15 +6900,17 @@ function getVisitVisitorId() {
   }
 }
 
-async function getVisitorIP() {
-  const cached = sessionStorage.getItem('cinema_visitor_ip');
-  if (cached) return cached;
+async function getVisitorGeo() {
+  const cached = sessionStorage.getItem('cinema_visitor_geo');
+  if (cached) try { return JSON.parse(cached); } catch {}
   try {
-    const res = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+    const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
     if (!res.ok) return null;
-    const { ip } = await res.json();
-    if (ip) sessionStorage.setItem('cinema_visitor_ip', ip);
-    return ip || null;
+    const d = await res.json();
+    if (!d.ip) return null;
+    const geo = { ip: d.ip, country_code: d.country_code || null };
+    sessionStorage.setItem('cinema_visitor_geo', JSON.stringify(geo));
+    return geo;
   } catch {
     return null;
   }
@@ -6922,7 +6924,7 @@ async function trackSiteVisit(user = currentUser) {
     const userKey = user?.id || 'anon';
     const sessionKey = `cinema_visit_${visitDate}_${userKey}_${location.pathname}`;
     if (sessionStorage.getItem(sessionKey)) return;
-    const ip = await getVisitorIP();
+    const geo = await getVisitorGeo();
     const response = await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
       method: 'POST',
       headers: {
@@ -6934,7 +6936,8 @@ async function trackSiteVisit(user = currentUser) {
       keepalive: true,
       body: JSON.stringify({
         visitor_id: visitorId,
-        ip_address: ip || null,
+        ip_address: geo?.ip || null,
+        country_code: geo?.country_code || null,
         user_id: user?.id || null,
         path: location.pathname || '/',
         referrer: document.referrer || null,
