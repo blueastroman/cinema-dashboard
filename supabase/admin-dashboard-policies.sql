@@ -9,7 +9,7 @@ returns boolean
 language sql
 stable
 as $$
-  select lower(coalesce(auth.jwt() ->> 'email', '')) = 'danymora131@hotmail.com'
+  select lower(coalesce(auth.email(), auth.jwt() ->> 'email', '')) = 'danymora131@hotmail.com'
 $$;
 
 alter table public.blurbs enable row level security;

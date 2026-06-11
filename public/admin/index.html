@@ -720,8 +720,10 @@ async function togglePick(movie, btn, card) {
     }
   } catch (e) {
     console.error('picks error:', e);
-    btn.textContent = getErrorMessage(e);
-    btn.title = getErrorMessage(e);
+    const msg = getErrorMessage(e);
+    showWriteError(msg);
+    btn.textContent = 'Error';
+    btn.title = msg;
     setTimeout(() => {
       btn.textContent = wasPicked ? '✦ Recommended' : 'Recommend';
       btn.title = '';
@@ -889,8 +891,10 @@ async function toggleCriterion(movie, btn) {
     btn.classList.toggle('is-criterion', !!next);
   } catch (e) {
     console.error('criterion error:', e);
-    btn.textContent = getErrorMessage(e);
-    btn.title = getErrorMessage(e);
+    const msg = getErrorMessage(e);
+    showWriteError(msg);
+    btn.textContent = 'Error';
+    btn.title = msg;
     setTimeout(() => {
       btn.textContent = originalText;
       btn.title = '';
@@ -1023,7 +1027,29 @@ function getErrorMessage(error) {
   if (!error) return 'Unknown error';
   const code = error.code || error.status || '';
   const message = error.message || String(error);
-  return [code, message].filter(Boolean).join(': ');
+  const combined = [code, message].filter(Boolean).join(': ');
+  if (code === '42501' || message.includes('row-level security')) {
+    return 'Permission denied — run supabase/admin-dashboard-policies.sql in the Supabase SQL editor to grant write access.';
+  }
+  if (message.includes('JWT') || message.includes('token') || code === 'PGRST301') {
+    return 'Session expired — please sign out and sign back in.';
+  }
+  return combined;
+}
+
+function showWriteError(message) {
+  let banner = document.getElementById('admin-write-error');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'admin-write-error';
+    banner.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#2a0f0f;border:1px solid var(--skip);color:#e07070;font-family:var(--font-sans);font-size:0.78rem;font-weight:600;padding:10px 16px;border-radius:4px;z-index:9999;max-width:560px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.5);cursor:pointer;';
+    banner.title = 'Click to dismiss';
+    banner.addEventListener('click', () => banner.remove());
+    document.body.appendChild(banner);
+  }
+  banner.textContent = message;
+  clearTimeout(banner._timer);
+  banner._timer = setTimeout(() => banner.remove(), 15000);
 }
 
 async function loadHidden() {
@@ -1240,7 +1266,9 @@ function buildCard(movie) {
       showFlash(flash, 'Saved');
     } catch (e) {
       console.error('save blurb error:', e);
-      showFlash(flash, getErrorMessage(e), true);
+      const msg = getErrorMessage(e);
+      showFlash(flash, msg, true);
+      showWriteError(msg);
       saveBtn.disabled = false;
     } finally {
       textarea.disabled = false;
@@ -1262,7 +1290,9 @@ function buildCard(movie) {
       btn.remove();
     } catch (e) {
       console.error('clear blurb error:', e);
-      showFlash(flash, getErrorMessage(e), true);
+      const msg = getErrorMessage(e);
+      showFlash(flash, msg, true);
+      showWriteError(msg);
       btn.disabled = false;
     }
   }
@@ -1281,8 +1311,10 @@ function buildCard(movie) {
       card.classList.toggle('is-hidden-movie', nowHidden);
     } catch (e) {
       console.error('hide error:', e);
-      hideBtn.textContent = getErrorMessage(e);
-      hideBtn.title = getErrorMessage(e);
+      const msg = getErrorMessage(e);
+      hideBtn.textContent = 'Error';
+      hideBtn.title = msg;
+      showWriteError(msg);
       setTimeout(() => {
         hideBtn.textContent = isHidden(movie) ? 'Hidden' : 'Hide';
         hideBtn.title = '';
@@ -1321,7 +1353,9 @@ function buildCard(movie) {
       showFlash(scoresFlash, 'Saved');
     } catch (e) {
       console.error('score override error:', e);
-      showFlash(scoresFlash, getErrorMessage(e), true);
+      const msg = getErrorMessage(e);
+      showFlash(scoresFlash, msg, true);
+      showWriteError(msg);
     } finally {
       saveScoresBtn.disabled = false;
     }
