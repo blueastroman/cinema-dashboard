@@ -68,6 +68,12 @@ add column if not exists ip_address text;
 alter table public.site_visits
 add column if not exists country_code text;
 
+alter table public.site_visits
+add column if not exists lat numeric(9,6);
+
+alter table public.site_visits
+add column if not exists lon numeric(9,6);
+
 select pg_notify('pgrst', 'reload schema');
 
 grant usage on schema public to anon, authenticated;
@@ -287,18 +293,20 @@ begin
   end if;
 
   select coalesce(jsonb_agg(
-    jsonb_build_object('country', country_code, 'count', cnt)
+    jsonb_build_object('lat', lat, 'lon', lon, 'country', country_code, 'count', cnt)
     order by cnt desc
   ), '[]'::jsonb)
   from (
     select
-      country_code,
+      round(lat::numeric, 2) as lat,
+      round(lon::numeric, 2) as lon,
+      max(country_code) as country_code,
       count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int as cnt
     from public.site_visits
-    where country_code is not null
-    group by country_code
+    where lat is not null and lon is not null
+    group by round(lat::numeric, 2), round(lon::numeric, 2)
     order by cnt desc
-    limit 100
+    limit 500
   ) t
   into result;
 

@@ -6908,7 +6908,7 @@ async function getVisitorGeo() {
     if (!res.ok) return null;
     const d = await res.json();
     if (!d.ip) return null;
-    const geo = { ip: d.ip, country_code: d.country_code || null };
+    const geo = { ip: d.ip, country_code: d.country_code || null, lat: d.latitude || null, lon: d.longitude || null };
     sessionStorage.setItem('cinema_visitor_geo', JSON.stringify(geo));
     return geo;
   } catch {
@@ -6938,6 +6938,8 @@ async function trackSiteVisit(user = currentUser) {
         visitor_id: visitorId,
         ip_address: geo?.ip || null,
         country_code: geo?.country_code || null,
+        lat: geo?.lat || null,
+        lon: geo?.lon || null,
         user_id: user?.id || null,
         path: location.pathname || '/',
         referrer: document.referrer || null,
