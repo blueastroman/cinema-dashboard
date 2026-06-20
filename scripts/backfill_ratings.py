@@ -47,18 +47,65 @@ def rt_slug(title: str) -> str:
     return normalize_title(title).replace(" ", "_")
 
 
+_SUFFIX_PATTERNS = re.compile(
+    r"\s*[\(\[]OV[\)\]]"                          # [OV]
+    r"|\s+3D$"
+    r"|\s+HDR by Barco.*$"
+    r"|\s+(Movie\s+)?Party$"
+    r"|\s+with\s+(Live|Livestream)\s+Q&A$"
+    r"|\s+(Fan\s+)?(Screening|Event)$"
+    r"|\s+Sing[\-\s]Along$"
+    r"|\s+Open\s+Captioning$"
+    r"|\s+Early\s+Access.*$"
+    r"|\s+\d{1,2}(st|nd|rd|th)\s+Anniversary.*$"
+    r"|\s*[\(\[]\d{4}[\)\]]\s*$",                 # trailing year
+    re.IGNORECASE,
+)
+
+_PREFIX_PATTERNS = re.compile(
+    r"^[^:]{1,40}:\s+",          # "Theater Name: " or "Event: "
+    re.IGNORECASE,
+)
+
+_CONJUNCTION_PATTERNS = re.compile(
+    r"\s+preceded by\s+.+$"
+    r"|\s+with\s+.+$"
+    r"|\s*\+\s*.+$"
+    r"|\s*&\s*.+$",
+    re.IGNORECASE,
+)
+
+
 def title_lookup_aliases(title: str) -> list[str]:
     """Return title variants to try when building RT URLs."""
-    aliases = [title]
-    # Strip trailing year in parens: "Film (2025)" -> "Film"
-    stripped = re.sub(r"\s*[\(\[]\d{4}[\)\]]\s*$", "", title).strip()
-    if stripped and stripped != title:
-        aliases.append(stripped)
-    # Move leading article to end: "The Film" -> "Film, The"
-    m = re.match(r"^(The|A|An)\s+(.+)$", title, re.IGNORECASE)
-    if m:
-        aliases.append(f"{m.group(2)}, {m.group(1)}")
-    return aliases
+    seen: list[str] = [title]
+
+    def add(t: str) -> str:
+        t = t.strip(" -–—·")
+        if t and t not in seen:
+            seen.append(t)
+        return t
+
+    # 1. Strip common suffixes (HDR by Barco, Movie Party, 3D, etc.)
+    suffix_stripped = _SUFFIX_PATTERNS.sub("", title).strip()
+    add(suffix_stripped)
+
+    # 2. Strip conjunction tails (preceded by X, with X, + X, & X)
+    conj_stripped = _CONJUNCTION_PATTERNS.sub("", suffix_stripped or title).strip()
+    add(conj_stripped)
+
+    # 3. Strip venue/event prefix ("Alamo Crafthouse: X" → "X")
+    for base in list(seen):
+        prefix_stripped = _PREFIX_PATTERNS.sub("", base).strip()
+        add(prefix_stripped)
+
+    # 4. Move leading article to end for each variant
+    for base in list(seen):
+        m = re.match(r"^(The|A|An)\s+(.+)$", base, re.IGNORECASE)
+        if m:
+            add(f"{m.group(2)}, {m.group(1)}")
+
+    return seen
 
 
 def extract_page_title(html: str) -> tuple[str, Optional[int]]:
