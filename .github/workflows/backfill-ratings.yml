@@ -1,0 +1,68 @@
+name: Backfill Ratings
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max movies to process (0 = all)"
+        required: false
+        default: "0"
+        type: string
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Backfill missing RT scores
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          LIMIT="${{ inputs.limit }}"
+          cd scripts
+          if [ "$LIMIT" = "0" ]; then
+            python3 backfill_ratings.py --data ../public/data.json
+          else
+            python3 backfill_ratings.py --data ../public/data.json --limit "$LIMIT"
+          fi
+
+      - name: Commit updated ratings
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --local user.email "daniel@dannymora.com"
+          git config --local user.name "Daniel Mora"
+          git add public/data.json
+          if git diff --cached --quiet; then
+            echo "No rating changes to commit."
+          else
+            git commit -m "Backfill RT ratings for unscored movies"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Push failed on attempt ${attempt}; retrying."
+              sleep 5
+            done
+            echo "Failed to push after 3 attempts."
+            exit 1
+          fi
