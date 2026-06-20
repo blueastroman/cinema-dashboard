@@ -508,6 +508,9 @@ def main(context: ReviewContext | None = None):
                 "reason": entry["reason"],
             }
             updated += 1
+        elif not has_reviewable_content(movie):
+            movie["verdict"] = {"reason": "Showtimes review pending."}
+            updated += 1
 
     print(f"\nUpdated {updated}/{len(movies)} films in data.json")
 
