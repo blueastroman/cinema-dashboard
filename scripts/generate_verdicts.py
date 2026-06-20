@@ -197,6 +197,10 @@ def should_review_movie(movie, cache, force_refresh=False, only_placeholder=Fals
     if not movie_id:
         return False if only_placeholder else True
 
+    # Never review movies with no critics score and no plot — Claude will hallucinate.
+    if not force_refresh and not has_reviewable_content(movie):
+        return False
+
     if only_placeholder:
         movie_verdict = movie.get("verdict") or {}
         movie_reason = movie_verdict.get("reason")
@@ -206,6 +210,18 @@ def should_review_movie(movie, cache, force_refresh=False, only_placeholder=Fals
         return not get_movie_consensus_text(movie) and not get_movie_premise_text(movie)
 
     return needs_verdict(movie, cache, force_refresh)
+
+
+def has_reviewable_content(movie):
+    """Return True only if we have enough grounded information to write a real review.
+
+    Without an RT score or a plot, Claude has nothing to anchor to and invents
+    speculative text that sounds authoritative but is fabricated.
+    """
+    r = movie.get("ratings", {})
+    has_score = bool(r.get("rt") or r.get("metacritic"))
+    has_plot = bool(str(r.get("plot") or movie.get("plot") or "").strip())
+    return has_score or has_plot
 
 
 def build_film_block(movie):
