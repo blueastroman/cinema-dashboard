@@ -12934,7 +12934,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "One of the essential films of Hong Kong's handover period that deserves a big screen viewing. Chan shoots with handheld 16mm that captures the raw energy of street-level desperation better than any digital transfer."
+      }
     },
     {
       "id": "tt0093304",
@@ -12976,7 +12980,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential viewing for anyone serious about Hong Kong cinema at its peak. Ringo Lam's direction strips away melodrama to focus on raw human connection inside brutal institutional walls."
+      }
     },
     {
       "id": "tt0112471",
@@ -15212,7 +15220,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "Generic horror premise dressed up with high production values that cannot mask thin storytelling. Barker's direction lacks the innovation needed to elevate familiar wish-fulfillment scares."
+      }
     },
     {
       "id": "tt0077613",
@@ -17405,7 +17417,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential viewing for anyone serious about contemporary Chinese cinema or digital filmmaking as art form. Lou Ye's handheld DV camerawork turns Shanghai's polluted waterway into a fever dream of mirrors and doubles."
+      }
     },
     {
       "id": "tt4846232",
@@ -18425,7 +18441,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential Hawks on a big screen where Monroe and Russell's chemistry can work its full magic. The Technicolor musical numbers demand theatrical presentation to capture their lavish spectacle."
+      }
     },
     {
       "id": "tt26657236",
@@ -19199,7 +19219,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Zulawski's unhinged masterpiece demands big screen viewing for maximum impact. Adjani's performance is one of the most intense ever captured on film."
+      }
     },
     {
       "id": "tt0091954",
@@ -20656,7 +20680,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential viewing for Pialat's uncompromising final portrait of artistic madness and the weight of creation. Jacques Dutronc delivers a magnetic performance that captures Van Gogh's fevered energy without romanticizing his suffering."
+      }
     },
     {
       "id": "tt0086250",
@@ -25092,7 +25120,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "Save your money for a better superhero film this year. Gillespie's direction feels completely wrong for cosmic-scale action, turning what should be epic into something awkwardly small."
+      }
     },
     {
       "id": "tt1160996",
@@ -25168,7 +25200,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ace-presents-breakfast-of-champions",
@@ -25206,7 +25241,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt36543744",
@@ -25326,7 +25364,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential viewing for anyone interested in Soviet-era genre filmmaking that predates Western sci-fi thrillers by years. Kromanov's atmospheric direction transforms a remote Alpine hotel into a genuinely unsettling psychological maze."
+      }
     },
     {
       "id": "grand-budapest-hotel-preceded-by-hotel-chevalier",
@@ -25374,7 +25416,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "private-event-today-in-theater-commissary",
@@ -25412,7 +25457,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "No public screening means no ticket to buy. Check back tomorrow for regular programming."
+      }
     },
     {
       "id": "saturday-afternoon-cartoons-dynamic-duos",
@@ -25450,7 +25499,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0038484",
@@ -25538,7 +25590,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "my-heart-is-that-eternal-rose",
@@ -25596,7 +25651,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "once-upon-a-time-in-beirut",
@@ -25638,7 +25696,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "terminator-2-judgment-day-35th-anniversary",
@@ -25690,7 +25751,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-bakery-girl-of-monceau-suzanne-s-career",
@@ -25728,7 +25792,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-beirut-trilogy",
@@ -25766,7 +25833,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-razor-s-edge-preceded-by-lebanese-hostage-of",
@@ -25804,7 +25874,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "toute-une-nuit",
@@ -25842,7 +25915,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt36510056",
@@ -26110,7 +26186,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt37675037",
@@ -26526,7 +26605,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "camp-open-captioning",
@@ -26594,7 +26676,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "she-s-the-he-open-captioning",
@@ -26642,7 +26727,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-kidnapping-of-arabella",
@@ -26690,7 +26778,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "wild-inside",
@@ -26814,7 +26905,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "romer-a",
@@ -26930,7 +27024,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "bleach-thousand-year-blood-war-the-calamity",
@@ -27214,7 +27311,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt38784232",
@@ -27290,7 +27390,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "a-life-in-cinema",
@@ -27328,7 +27431,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "afterpiece",
@@ -27366,7 +27472,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "aliens-on",
@@ -27414,7 +27523,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt38589488",
@@ -27530,7 +27642,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt36576750",
@@ -27702,7 +27817,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0307034",
@@ -27778,7 +27896,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt36304379",
@@ -27940,7 +28061,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "higuma-the-killer-bear",
@@ -27978,7 +28102,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0439630",
@@ -28054,7 +28181,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt37970522",
@@ -28168,7 +28298,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt36616095",
@@ -28282,7 +28415,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "malcolm-x-on",
@@ -28330,7 +28466,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt38503727",
@@ -28444,7 +28583,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "nope-on",
@@ -28502,7 +28644,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "night-king-director-s-cut",
@@ -28540,7 +28685,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "north-by-northwest-on",
@@ -28588,7 +28736,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0793430",
@@ -28766,7 +28917,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "shorts-program-lost-found",
@@ -28804,7 +28958,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "shorts-program-spirited-away",
@@ -28842,7 +28999,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "shorts-pressure-points",
@@ -28880,7 +29040,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "street-kingdom",
@@ -28918,7 +29081,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tenet-on",
@@ -28966,7 +29132,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt37741473",
@@ -29122,7 +29291,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt29429728",
@@ -29218,7 +29390,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt39762779",
@@ -29304,7 +29479,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt37535198",
@@ -33416,7 +33594,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-silent-treatment",
@@ -33474,7 +33655,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt3112900",
@@ -33716,7 +33900,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "teo-hern-ndez-time-s-bend",
@@ -33764,7 +33951,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "teo-hern-ndez-the-jaguar-speaks-the-language-of-flowers",
@@ -33812,7 +34002,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "teo-hern-ndez-a-journal-is-a-measure-of-semen-in-a-die",
@@ -33860,7 +34053,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "teo-hern-ndez-cluster-of-eyes-michel-nedjar-jakobois-and-m-trobarb-srochechou-art",
@@ -33908,7 +34104,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "rumeurs-saint-maur",
@@ -33956,7 +34155,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt6932198",
@@ -34177,7 +34379,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ocean-s-eleven-25th-anniversary",
@@ -34226,7 +34431,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "moonlight",
@@ -34262,7 +34470,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "hell-trotter",
@@ -34297,7 +34508,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "deewana",
@@ -34332,7 +34546,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "lucky-strike",
@@ -34467,7 +34684,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "sugar-beach",
@@ -34530,7 +34750,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "republica-checa-vs-mexico-telemundo-presenta-la-copa-mundial-de-la-fifa",
@@ -34565,7 +34788,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "escocia-vs-brasil-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34600,7 +34826,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "suiza-vs-canada-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34635,7 +34864,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "turquia-vs-estados-unidos-telemundo-presenta-la-copa-mundial-de-la-fifa",
@@ -34670,7 +34902,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ecuador-vs-alemania-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34705,7 +34940,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "paraguay-vs-australia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34740,7 +34978,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "uruguay-vs-cabo-verde-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34775,7 +35016,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34810,7 +35054,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-devil-wears-prada-20th-anniversary-double-feature",
@@ -34873,7 +35120,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "colombia-vs-portugal-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34908,7 +35158,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "panama-vs-croacia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34943,7 +35196,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "argentina-vs-argelia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026",
@@ -34978,7 +35234,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "cuartos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-1",
@@ -35013,7 +35272,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "cuartos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-2",
@@ -35048,7 +35310,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "cuartos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-3",
@@ -35083,7 +35348,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "cuartos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-4",
@@ -35118,7 +35386,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-5",
@@ -35153,7 +35424,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-6",
@@ -35188,7 +35462,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-7",
@@ -35223,7 +35500,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     }
   ]
 }
