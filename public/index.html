@@ -2525,7 +2525,10 @@
         line-height: 1.25;
       }
       .ranking-blurb {
-        -webkit-line-clamp: 6;
+        display: block;
+        -webkit-line-clamp: unset;
+        -webkit-box-orient: initial;
+        overflow: visible;
       }
       .next-showtime-pill {
         width: 100%;
