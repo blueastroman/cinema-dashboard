@@ -2186,6 +2186,7 @@
 
     /* ── FILTER TOGGLE BAR ─────────────────────────────────── */
     .mobile-filter-bar {
+      display: none;
       border-bottom: 1px solid var(--dark-gray);
     }
     .mobile-filter-inner {
@@ -2226,12 +2227,17 @@
       transform: rotate(180deg);
     }
     .mobile-filter-summary {
+      flex: 1;
+      min-width: 0;
       font-family: var(--font-sans);
       font-size: 0.7rem;
       color: var(--muted);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    .mobile-filter-summary:empty::before {
+      content: 'Sort, search, theater, and genre';
     }
     .stats-bar {
       display: none;
@@ -2274,6 +2280,7 @@
         background: var(--off-black);
       }
       .mobile-filter-bar {
+        display: block;
         top: var(--mobile-header-height, 0px);
         z-index: 109;
       }
@@ -2437,6 +2444,95 @@
       }
       .ranking-actions {
         justify-content: flex-start;
+      }
+      .ranking-score {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 10px;
+        padding-right: 0;
+      }
+      .ranking-score-label,
+      .ranking-lb,
+      .ranking-cs {
+        margin-top: 0;
+      }
+      .ranking-main {
+        grid-column: 2 / -1;
+        grid-row: 1;
+      }
+      .ranking-title-row {
+        align-items: flex-start;
+      }
+      .ranking-meta {
+        margin-top: 6px;
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+      .ranking-blurb {
+        margin-top: 10px;
+        font-size: 0.96rem;
+        line-height: 1.5;
+        -webkit-line-clamp: 5;
+      }
+      .ranking-next {
+        padding-top: 2px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ranking-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+        column-gap: 14px;
+        row-gap: 12px;
+        padding: 16px 14px 18px;
+      }
+      .ranking-poster-wrap {
+        width: 72px;
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+      }
+      .ranking-main {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+      }
+      .ranking-title {
+        font-size: 1.28rem;
+        line-height: 1.15;
+      }
+      .ranking-title-row {
+        gap: 8px;
+      }
+      .ranking-prestige-chip {
+        max-width: 100%;
+        white-space: normal;
+      }
+      .ranking-score {
+        gap: 3px 8px;
+      }
+      .ranking-rt {
+        font-size: 1.9rem;
+        line-height: 0.95;
+      }
+      .ranking-score-label,
+      .ranking-lb,
+      .ranking-cs {
+        font-size: 0.64rem;
+        line-height: 1.25;
+      }
+      .ranking-blurb {
+        -webkit-line-clamp: 6;
+      }
+      .next-showtime-pill {
+        width: 100%;
+        justify-content: center;
+      }
+      .ranking-actions {
+        gap: 10px;
       }
     }
 
@@ -2728,7 +2824,7 @@
           <input type="date" id="date-picker" />
         </div>
       </div>
-      <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" onclick="toggleMobileFilters()">
+      <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" aria-expanded="false" onclick="toggleMobileFilters()">
         <span>Filters</span>
         <span class="mobile-filter-arrow" id="mobile-filter-arrow">▾</span>
       </button>
@@ -5170,6 +5266,8 @@ function getFiltered() {
 function toggleMobileFilters() {
   const isOpen = document.body.classList.toggle('filters-open');
   try { localStorage.setItem('mobile_filters_open', isOpen ? '1' : '0'); } catch(e) {}
+  const toggle = document.getElementById('mobile-filter-toggle');
+  if (toggle) toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   updateMobileStickyOffsets();
 }
 
@@ -5190,11 +5288,15 @@ function updateMobileFilterSummary() {
 }
 
 function initMobileFilters() {
+  const toggle = document.getElementById('mobile-filter-toggle');
   try {
     if (localStorage.getItem('mobile_filters_open') === '1') {
       document.body.classList.add('filters-open');
     }
   } catch(e) {}
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', document.body.classList.contains('filters-open') ? 'true' : 'false');
+  }
   updateMobileFilterSummary();
   updateMobileStickyOffsets();
 }
