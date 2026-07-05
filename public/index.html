@@ -2361,17 +2361,26 @@
         grid-row: 1;
       }
       .theater-film-row .ranking-score {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 2;
         align-self: start;
-        margin-top: 94px;
+        margin-top: 0;
         padding-right: 0;
-        width: 64px;
+        width: 56px;
+        gap: 2px;
+      }
+      .theater-film-row .ranking-score-label,
+      .theater-film-row .ranking-lb,
+      .theater-film-row .ranking-cs {
+        margin-top: 0;
+        line-height: 1.15;
       }
       .theater-film-info {
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 1 / span 2;
       }
       .theater-film-title-row {
         padding-right: 0;
