@@ -196,6 +196,57 @@ class AlamoMetadataTests(unittest.TestCase):
         self.assertEqual(ratings["rt"], "88%")
         rt_refresh.assert_not_called()
 
+    def test_fetch_ratings_retries_recent_nr_rt_scores_within_first_month(self):
+        ctx = ScrapeContext(
+            config=ScrapeConfig(
+                serpapi_key="",
+                omdb_key="test-key",
+                amc_vendor_key="",
+                amc_api_base="https://api.amctheatres.com",
+                amc_theatre_ids=[],
+                allow_mock_data=False,
+            ),
+            state=ScrapeState(),
+            now=datetime(2026, 4, 21, 12, 0, 0),
+            output_data_path=ROOT / "public" / "data.json",
+            rating_cache_path=ROOT / "scripts" / "rating_cache.json",
+        )
+
+        omdb_data = {
+            "Title": "Recent Movie",
+            "Year": "2026",
+            "Released": "17 Apr 2026",
+        }
+        parsed_ratings = {
+            "imdbID": "tt1234567",
+            "rt": None,
+            "imdb": "7.0",
+            "metacritic": "70",
+            "letterboxd": "3.5",
+            "poster": "poster.jpg",
+            "genre": "Drama",
+            "runtime": "100 min",
+            "plot": "Plot",
+            "year": "2026",
+            "director": "Director",
+            "cinemaScore": None,
+        }
+
+        with (
+            mock.patch.object(scrape, "resolve_omdb_record", return_value=omdb_data),
+            mock.patch.object(scrape, "parse_omdb_ratings", return_value=dict(parsed_ratings)),
+            mock.patch.object(scrape, "fetch_rt_fallback", return_value="91%") as rt_refresh,
+        ):
+            ratings = scrape.fetch_ratings(
+                ctx,
+                "Recent Movie",
+                hint_year=2026,
+                release_date_hint="2026-04-17T00:00:00Z",
+            )
+
+        self.assertEqual(ratings["rt"], "91%")
+        rt_refresh.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()

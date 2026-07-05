@@ -170,6 +170,7 @@ def should_reverify_recent_rt(
     *,
     release_date_hint: Optional[object] = None,
     omdb_data: Optional[dict] = None,
+    current_rt: Optional[object] = None,
     offsets: Optional[set[int]] = None,
     window_days: int = RT_REVERIFY_WINDOW_DAYS,
 ) -> bool:
@@ -181,7 +182,12 @@ def should_reverify_recent_rt(
         return False
     day_offsets = offsets or RT_REVERIFY_DAY_OFFSETS
     days_since_release = (current_date - release_date).days
-    return days_since_release <= window_days and days_since_release in day_offsets
+    if days_since_release > window_days:
+        return False
+    rt_value = str(current_rt or "").strip().upper()
+    if rt_value in {"", "N/A", "NR"}:
+        return True
+    return days_since_release in day_offsets
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
@@ -2556,6 +2562,7 @@ def fetch_ratings(
             ctx,
             release_date_hint=release_date_hint,
             omdb_data=data,
+            current_rt=parsed.get("rt"),
         )
 
         # Fallbacks for new/edge releases where OMDb is lagging.
