@@ -87,6 +87,8 @@ MONTH_INDEX = {
     month.lower(): index
     for index, month in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], start=1)
 }
+RT_REVERIFY_DAY_OFFSETS = {3, 5, 7}
+RT_REVERIFY_WINDOW_DAYS = 31
 
 
 @dataclass
@@ -168,18 +170,18 @@ def should_reverify_recent_rt(
     *,
     release_date_hint: Optional[object] = None,
     omdb_data: Optional[dict] = None,
-    window_days: int = 92,
+    offsets: Optional[set[int]] = None,
+    window_days: int = RT_REVERIFY_WINDOW_DAYS,
 ) -> bool:
     current_date = (ctx.now or ny_now()).date()
-    if current_date.weekday() != 2:  # Wednesday
-        return False
-
     release_date = parse_release_date(release_date_hint)
     if release_date is None and isinstance(omdb_data, dict):
         release_date = parse_release_date(omdb_data.get("Released"))
     if release_date is None or release_date > current_date:
         return False
-    return (current_date - release_date).days <= window_days
+    day_offsets = offsets or RT_REVERIFY_DAY_OFFSETS
+    days_since_release = (current_date - release_date).days
+    return days_since_release <= window_days and days_since_release in day_offsets
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 

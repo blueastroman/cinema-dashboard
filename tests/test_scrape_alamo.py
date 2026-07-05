@@ -94,7 +94,7 @@ class AlamoMetadataTests(unittest.TestCase):
         self.assertEqual(merged["director"], "Michael Tiddes")
         self.assertEqual(merged["runtime"], "95 min")
 
-    def test_fetch_ratings_reverifies_recent_rt_score_on_wednesday(self):
+    def test_fetch_ratings_reverifies_recent_rt_score_three_days_after_release(self):
         ctx = ScrapeContext(
             config=ScrapeConfig(
                 serpapi_key="",
@@ -105,7 +105,7 @@ class AlamoMetadataTests(unittest.TestCase):
                 allow_mock_data=False,
             ),
             state=ScrapeState(),
-            now=datetime(2026, 6, 10, 12, 0, 0),
+            now=datetime(2026, 4, 20, 12, 0, 0),
             output_data_path=ROOT / "public" / "data.json",
             rating_cache_path=ROOT / "scripts" / "rating_cache.json",
         )
@@ -144,6 +144,57 @@ class AlamoMetadataTests(unittest.TestCase):
 
         self.assertEqual(ratings["rt"], "91%")
         rt_refresh.assert_called_once()
+
+    def test_fetch_ratings_does_not_reverify_rt_outside_target_days(self):
+        ctx = ScrapeContext(
+            config=ScrapeConfig(
+                serpapi_key="",
+                omdb_key="test-key",
+                amc_vendor_key="",
+                amc_api_base="https://api.amctheatres.com",
+                amc_theatre_ids=[],
+                allow_mock_data=False,
+            ),
+            state=ScrapeState(),
+            now=datetime(2026, 4, 21, 12, 0, 0),
+            output_data_path=ROOT / "public" / "data.json",
+            rating_cache_path=ROOT / "scripts" / "rating_cache.json",
+        )
+
+        omdb_data = {
+            "Title": "Recent Movie",
+            "Year": "2026",
+            "Released": "17 Apr 2026",
+        }
+        parsed_ratings = {
+            "imdbID": "tt1234567",
+            "rt": "88%",
+            "imdb": "7.0",
+            "metacritic": "70",
+            "letterboxd": "3.5",
+            "poster": "poster.jpg",
+            "genre": "Drama",
+            "runtime": "100 min",
+            "plot": "Plot",
+            "year": "2026",
+            "director": "Director",
+            "cinemaScore": None,
+        }
+
+        with (
+            mock.patch.object(scrape, "resolve_omdb_record", return_value=omdb_data),
+            mock.patch.object(scrape, "parse_omdb_ratings", return_value=dict(parsed_ratings)),
+            mock.patch.object(scrape, "fetch_rt_fallback", return_value="91%") as rt_refresh,
+        ):
+            ratings = scrape.fetch_ratings(
+                ctx,
+                "Recent Movie",
+                hint_year=2026,
+                release_date_hint="2026-04-17T00:00:00Z",
+            )
+
+        self.assertEqual(ratings["rt"], "88%")
+        rt_refresh.assert_not_called()
 
 
 if __name__ == "__main__":
