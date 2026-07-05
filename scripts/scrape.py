@@ -87,7 +87,7 @@ MONTH_INDEX = {
     month.lower(): index
     for index, month in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], start=1)
 }
-RT_REVERIFY_DAY_OFFSETS = {3, 5, 7}
+RT_REVERIFY_DAY_OFFSETS = {3, 5, 7, 30}
 RT_REVERIFY_WINDOW_DAYS = 31
 
 
