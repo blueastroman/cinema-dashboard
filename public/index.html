@@ -2403,26 +2403,30 @@
         align-self: start;
       }
       .ranking-score {
-        grid-column: 2;
-        grid-row: 1;
+        grid-column: 1;
+        grid-row: 2;
         display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        gap: 8px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
         padding: 0;
+        width: 64px;
       }
-      .ranking-score-label { display: none; }
+      .ranking-score-label {
+        display: block;
+        margin-top: 0;
+      }
       .ranking-rt { font-size: 1.55rem; }
       .ranking-lb,
       .ranking-cs {
         font-size: 0.6rem;
         letter-spacing: 0.03em;
-        line-height: 1;
+        line-height: 1.2;
+        margin-top: 0;
       }
       .ranking-main {
-        grid-column: 1 / -1;
-        grid-row: 2;
+        grid-column: 2 / -1;
+        grid-row: 1 / span 2;
       }
       .ranking-blurb {
         margin-top: 8px;
@@ -2444,24 +2448,6 @@
       }
       .ranking-actions {
         justify-content: flex-start;
-      }
-      .ranking-score {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 4px 10px;
-        padding-right: 0;
-      }
-      .ranking-score-label,
-      .ranking-lb,
-      .ranking-cs {
-        margin-top: 0;
-      }
-      .ranking-main {
-        grid-column: 2 / -1;
-        grid-row: 1;
       }
       .ranking-title-row {
         align-items: flex-start;
@@ -2495,9 +2481,13 @@
         grid-row: 1;
         align-self: start;
       }
+      .ranking-score {
+        width: 72px;
+        gap: 3px;
+      }
       .ranking-main {
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 1 / span 2;
         min-width: 0;
       }
       .ranking-title {
@@ -2511,17 +2501,14 @@
         max-width: 100%;
         white-space: normal;
       }
-      .ranking-score {
-        gap: 3px 8px;
-      }
       .ranking-rt {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
         line-height: 0.95;
       }
       .ranking-score-label,
       .ranking-lb,
       .ranking-cs {
-        font-size: 0.64rem;
+        font-size: 0.62rem;
         line-height: 1.25;
       }
       .ranking-blurb {
