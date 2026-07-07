@@ -1625,6 +1625,12 @@
     "title": "Gulliver's Travels",
     "year": "1939"
   },
+  "gummo|1997": {
+    "imdbID": "tt0119237",
+    "source": "exact",
+    "title": "Gummo",
+    "year": "1997"
+  },
   "hairspray|2007": {
     "imdbID": "tt0427327",
     "source": "exact_year",
@@ -2314,6 +2320,12 @@
     "source": "exact_year",
     "title": "Mother",
     "year": "2009"
+  },
+  "motor city|2026": {
+    "imdbID": "tt2012616",
+    "source": "exact_year",
+    "title": "Motor City",
+    "year": "2026"
   },
   "mountains of the moon|1990": {
     "imdbID": "tt0100196",
@@ -3028,6 +3040,12 @@
     "source": "exact",
     "title": "Senso",
     "year": "1954"
+  },
+  "seoul station|2016": {
+    "imdbID": "tt3845670",
+    "source": "exact",
+    "title": "Seoul Station",
+    "year": "2016"
   },
   "serpent s path": {
     "imdbID": "tt0241588",
@@ -4318,6 +4336,12 @@
     "source": "exact_year",
     "title": "Unfaithful",
     "year": "2002"
+  },
+  "unforgiven|1992": {
+    "imdbID": "tt0105695",
+    "source": "exact",
+    "title": "Unforgiven",
+    "year": "1992"
   },
   "unidentified|2025": {
     "imdbID": "tt32298366",
