@@ -2321,6 +2321,12 @@
     "title": "Mother",
     "year": "2009"
   },
+  "mothra vs. godzilla|1964": {
+    "imdbID": "tt0058379",
+    "source": "exact_year",
+    "title": "Mothra vs. Godzilla",
+    "year": "1964"
+  },
   "motor city|2026": {
     "imdbID": "tt2012616",
     "source": "exact_year",
@@ -2855,12 +2861,6 @@
     "title": "Rear Window",
     "year": "1954"
   },
-  "rebecca|1940": {
-    "imdbID": "tt0032976",
-    "source": "exact",
-    "title": "Rebecca",
-    "year": "1940"
-  },
   "red sorghum": {
     "imdbID": "tt0093206",
     "source": "exact",
@@ -3076,6 +3076,12 @@
     "source": "exact_year",
     "title": "She's the Man",
     "year": "2006"
+  },
+  "sherman's march|1985": {
+    "imdbID": "tt0091943",
+    "source": "exact_year",
+    "title": "Sherman's March",
+    "year": "1985"
   },
   "she’s the he|2025": {
     "imdbID": "tt32261856",
