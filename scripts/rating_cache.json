@@ -35,6 +35,12 @@
     "title": "35 Shots of Rum",
     "year": "2008"
   },
+  "42|2013": {
+    "imdbID": "tt0453562",
+    "source": "exact_year",
+    "title": "42",
+    "year": "2013"
+  },
   "a bigger splash|2015": {
     "imdbID": "tt2056771",
     "source": "exact",
@@ -1895,6 +1901,12 @@
     "title": "L'Argent",
     "year": "1983"
   },
+  "la bamba|1987": {
+    "imdbID": "tt0093378",
+    "source": "exact",
+    "title": "La Bamba",
+    "year": "1987"
+  },
   "la belle noiseuse|1991": {
     "imdbID": "tt0101428",
     "source": "exact_year",
@@ -2182,12 +2194,6 @@
     "source": "exact",
     "title": "Memento",
     "year": "2001"
-  },
-  "michael|2026": {
-    "imdbID": "tt11378946",
-    "source": "exact_year",
-    "title": "Michael",
-    "year": "2026"
   },
   "midnight run": {
     "imdbID": "tt0095631",
@@ -2482,12 +2488,6 @@
     "source": "exact_year",
     "title": "Nowhere",
     "year": "2023"
-  },
-  "obsession|2026": {
-    "imdbID": "tt37287335",
-    "source": "exact_year",
-    "title": "Obsession",
-    "year": "2026"
   },
   "ocean's eleven|2001": {
     "imdbID": "tt0240772",
@@ -2969,6 +2969,12 @@
     "title": "Salò, or the 120 Days of Sodom",
     "year": "1975"
   },
+  "salomé|2013": {
+    "imdbID": "tt3112900",
+    "source": "exact_year",
+    "title": "Salomé",
+    "year": "2013"
+  },
   "sambizanga": {
     "imdbID": "tt0069214",
     "source": "exact",
@@ -3287,12 +3293,6 @@
     "title": "Super 8",
     "year": "2011"
   },
-  "supergirl|2026": {
-    "imdbID": "tt8814476",
-    "source": "exact_year",
-    "title": "Supergirl",
-    "year": "2026"
-  },
   "suspiria": {
     "imdbID": "tt0076786",
     "source": "exact",
@@ -3484,6 +3484,12 @@
     "source": "exact_year",
     "title": "The Dark Crystal",
     "year": "1982"
+  },
+  "the dead pit|1989": {
+    "imdbID": "tt0122037",
+    "source": "exact_year",
+    "title": "The Dead Pit",
+    "year": "1989"
   },
   "the death of robin hood|2026": {
     "imdbID": "tt32273171",
@@ -3869,6 +3875,12 @@
     "title": "The Root",
     "year": "2022"
   },
+  "the sandlot|1993": {
+    "imdbID": "tt0108037",
+    "source": "exact_year",
+    "title": "The Sandlot",
+    "year": "1993"
+  },
   "the scar|1976": {
     "imdbID": "tt0074220",
     "source": "exact_year",
@@ -4192,12 +4204,6 @@
     "source": "exact",
     "title": "Tow",
     "year": "2022"
-  },
-  "toy story 5|2026": {
-    "imdbID": "tt29355505",
-    "source": "exact_year",
-    "title": "Toy Story 5",
-    "year": "2026"
   },
   "train to busan|2016": {
     "imdbID": "tt5700672",
