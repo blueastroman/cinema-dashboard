@@ -137,6 +137,12 @@
     "title": "A Wedding",
     "year": "1978"
   },
+  "ace in the hole|1951": {
+    "imdbID": "tt0043338",
+    "source": "exact_year",
+    "title": "Ace in the Hole",
+    "year": "1951"
+  },
   "adaptation.|2002": {
     "imdbID": "tt0268126",
     "source": "exact_year",
@@ -245,6 +251,12 @@
     "title": "All Dogs Go to Heaven",
     "year": "1989"
   },
+  "all night long|1962": {
+    "imdbID": "tt0054614",
+    "source": "exact_year",
+    "title": "All Night Long",
+    "year": "1962"
+  },
   "all that heaven allows|1955": {
     "imdbID": "tt0047811",
     "source": "exact_year",
@@ -286,6 +298,12 @@
     "source": "exact",
     "title": "Amélie",
     "year": "2002"
+  },
+  "an unmarried woman|1978": {
+    "imdbID": "tt0078444",
+    "source": "exact_year",
+    "title": "An Unmarried Woman",
+    "year": "1978"
   },
   "andrei rublev|1966": {
     "imdbID": "tt0060107",
@@ -509,6 +527,12 @@
     "title": "Bird of Paradise",
     "year": "1932"
   },
+  "black angel|1946": {
+    "imdbID": "tt0038360",
+    "source": "exact_year",
+    "title": "Black Angel",
+    "year": "1946"
+  },
   "black girl|1966": {
     "imdbID": "tt0060758",
     "source": "exact",
@@ -520,6 +544,12 @@
     "source": "exact_year",
     "title": "Blade II",
     "year": "2002"
+  },
+  "blast of silence|1961": {
+    "imdbID": "tt0054687",
+    "source": "exact_year",
+    "title": "Blast of Silence",
+    "year": "1961"
   },
   "blast|2026": {
     "imdbID": "tt37971394",
@@ -923,6 +953,12 @@
     "title": "Crumb",
     "year": "1994"
   },
+  "cry of the city|1948": {
+    "imdbID": "tt0040257",
+    "source": "exact_year",
+    "title": "Cry of the City",
+    "year": "1948"
+  },
   "cujo|1983": {
     "imdbID": "tt0085382",
     "source": "exact",
@@ -1072,6 +1108,12 @@
     "source": "exact_year",
     "title": "Bob Dylan: Dont Look Back",
     "year": "1967"
+  },
+  "double indemnity|1944": {
+    "imdbID": "tt0036775",
+    "source": "exact_year",
+    "title": "Double Indemnity",
+    "year": "1944"
   },
   "dr jack|1922": {
     "imdbID": "tt0013075",
@@ -1403,6 +1445,12 @@
     "title": "Force Majeure",
     "year": "2014"
   },
+  "force of evil|1948": {
+    "imdbID": "tt0040366",
+    "source": "exact_year",
+    "title": "Force of Evil",
+    "year": "1948"
+  },
   "four adventures of reinette and mirabelle|1987": {
     "imdbID": "tt0090565",
     "source": "exact",
@@ -1492,6 +1540,12 @@
     "source": "exact_year",
     "title": "Ghost World",
     "year": "2001"
+  },
+  "gilda|1946": {
+    "imdbID": "tt0038559",
+    "source": "exact_year",
+    "title": "Gilda",
+    "year": "1946"
   },
   "girlfriends|1978": {
     "imdbID": "tt0077613",
@@ -1637,6 +1691,12 @@
     "title": "Hairspray",
     "year": "2007"
   },
+  "hangover square|1945": {
+    "imdbID": "tt0037761",
+    "source": "exact_year",
+    "title": "Hangover Square",
+    "year": "1945"
+  },
   "happy as lazzaro|2018": {
     "imdbID": "tt6752992",
     "source": "exact_year",
@@ -1781,6 +1841,12 @@
     "title": "Imitation of Life",
     "year": "1959"
   },
+  "in a lonely place|1950": {
+    "imdbID": "tt0042593",
+    "source": "exact_year",
+    "title": "In a Lonely Place",
+    "year": "1950"
+  },
   "in the grey|2026": {
     "imdbID": "tt27681354",
     "source": "exact_year",
@@ -1883,6 +1949,18 @@
     "title": "Kangaroo Island",
     "year": "2024"
   },
+  "killer's kiss|1955": {
+    "imdbID": "tt0048254",
+    "source": "exact_year",
+    "title": "Killer's Kiss",
+    "year": "1955"
+  },
+  "king creole|1958": {
+    "imdbID": "tt0051818",
+    "source": "exact_year",
+    "title": "King Creole",
+    "year": "1958"
+  },
   "kiss me deadly|1955": {
     "imdbID": "tt0048261",
     "source": "exact_year",
@@ -1972,6 +2050,12 @@
     "source": "search",
     "title": "Le bonheur",
     "year": "1934"
+  },
+  "leave her to heaven|1945": {
+    "imdbID": "tt0037865",
+    "source": "exact_year",
+    "title": "Leave Her to Heaven",
+    "year": "1945"
   },
   "leaving las vegas|1995": {
     "imdbID": "tt0113627",
@@ -2291,6 +2375,12 @@
     "title": "Monkey Business",
     "year": "1952"
   },
+  "monsieur verdoux|1947": {
+    "imdbID": "tt0039631",
+    "source": "exact_year",
+    "title": "Monsieur Verdoux",
+    "year": "1947"
+  },
   "monte carlo|2011": {
     "imdbID": "tt1067774",
     "source": "exact",
@@ -2477,6 +2567,12 @@
     "title": "No Picnic",
     "year": "1986"
   },
+  "nora prentiss|1947": {
+    "imdbID": "tt0039666",
+    "source": "exact_year",
+    "title": "Nora Prentiss",
+    "year": "1947"
+  },
   "normal|2026": {
     "imdbID": "tt31195136",
     "source": "exact_year",
@@ -2555,6 +2651,12 @@
     "title": "Only God Forgives",
     "year": "2013"
   },
+  "ordinary people|1980": {
+    "imdbID": "tt0081283",
+    "source": "exact_year",
+    "title": "Ordinary People",
+    "year": "1980"
+  },
   "orfeo|1985": {
     "imdbID": "tt0089737",
     "source": "exact_year",
@@ -2590,6 +2692,12 @@
     "source": "exact_year",
     "title": "Out of Sight",
     "year": "2025"
+  },
+  "out of the past|1947": {
+    "imdbID": "tt0039689",
+    "source": "exact_year",
+    "title": "Out of the Past",
+    "year": "1947"
   },
   "outcome|2023": {
     "imdbID": "tt23724682",
@@ -2692,6 +2800,18 @@
     "source": "exact_year",
     "title": "Phantom Beirut",
     "year": "1998"
+  },
+  "phantom lady|1944": {
+    "imdbID": "tt0036260",
+    "source": "exact_year",
+    "title": "Phantom Lady",
+    "year": "1944"
+  },
+  "pickup on south street|1953": {
+    "imdbID": "tt0046187",
+    "source": "exact_year",
+    "title": "Pickup on South Street",
+    "year": "1953"
   },
   "pillion": {
     "imdbID": "tt32321317",
@@ -3227,6 +3347,12 @@
     "title": "Sorry to Bother You",
     "year": "2018"
   },
+  "sorry, wrong number|1948": {
+    "imdbID": "tt0040823",
+    "source": "exact_year",
+    "title": "Sorry, Wrong Number",
+    "year": "1948"
+  },
   "southland tales|2006": {
     "imdbID": "tt0405336",
     "source": "exact",
@@ -3317,6 +3443,12 @@
     "title": "River God Water Strange Story",
     "year": "2023"
   },
+  "stranger on the third floor|1940": {
+    "imdbID": "tt0033107",
+    "source": "exact_year",
+    "title": "Stranger on the Third Floor",
+    "year": "1940"
+  },
   "super 8|2011": {
     "imdbID": "tt1650062",
     "source": "exact_year",
@@ -3346,6 +3478,12 @@
     "source": "exact",
     "title": "Sweet Movie",
     "year": "1974"
+  },
+  "sweet smell of success|1957": {
+    "imdbID": "tt0051036",
+    "source": "exact_year",
+    "title": "Sweet Smell of Success",
+    "year": "1957"
   },
   "take care of my cat|2001": {
     "imdbID": "tt0296658",
@@ -3448,6 +3586,12 @@
     "source": "exact_year",
     "title": "The Best Years of Our Lives",
     "year": "1946"
+  },
+  "the big clock|1948": {
+    "imdbID": "tt0040160",
+    "source": "exact_year",
+    "title": "The Big Clock",
+    "year": "1948"
   },
   "the big lebowski|1998": {
     "imdbID": "tt0118715",
@@ -3773,6 +3917,18 @@
     "title": "The Love Parade",
     "year": "1929"
   },
+  "the lunchbox|2013": {
+    "imdbID": "tt2350496",
+    "source": "exact_year",
+    "title": "The Lunchbox",
+    "year": "2013"
+  },
+  "the man i love|1946": {
+    "imdbID": "tt0038721",
+    "source": "exact_year",
+    "title": "The Man I Love",
+    "year": "1946"
+  },
   "the march of fools|1975": {
     "imdbID": "tt0398727",
     "source": "exact",
@@ -4097,6 +4253,12 @@
     "title": "The Wind Rises",
     "year": "2013"
   },
+  "the window|1949": {
+    "imdbID": "tt0042046",
+    "source": "exact_year",
+    "title": "The Window",
+    "year": "1949"
+  },
   "the wizard of the kremlin|2025": {
     "imdbID": "tt32386654",
     "source": "exact_year",
@@ -4240,6 +4402,12 @@
     "source": "exact_year",
     "title": "Total Recall",
     "year": "1990"
+  },
+  "touch of evil|1958": {
+    "imdbID": "tt0052311",
+    "source": "exact_year",
+    "title": "Touch of Evil",
+    "year": "1958"
   },
   "touki bouki|1973": {
     "imdbID": "tt0070820",
