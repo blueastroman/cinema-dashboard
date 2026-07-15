@@ -77,6 +77,12 @@
     "title": "A Magnificent Life",
     "year": "2025"
   },
+  "a man called adam|1966": {
+    "imdbID": "tt0060660",
+    "source": "exact_year",
+    "title": "A Man Called Adam",
+    "year": "1966"
+  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -526,6 +532,12 @@
     "source": "exact_year",
     "title": "Blade II",
     "year": "2002"
+  },
+  "blast of silence|1961": {
+    "imdbID": "tt0054687",
+    "source": "exact_year",
+    "title": "Blast of Silence",
+    "year": "1961"
   },
   "blast|2026": {
     "imdbID": "tt37971394",
@@ -1147,7 +1159,7 @@
   },
   "easy rider|1969": {
     "imdbID": "tt0064276",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Easy Rider",
     "year": "1969"
   },
@@ -1661,6 +1673,12 @@
     "title": "Hairspray",
     "year": "2007"
   },
+  "hangover square|1945": {
+    "imdbID": "tt0037761",
+    "source": "exact_year",
+    "title": "Hangover Square",
+    "year": "1945"
+  },
   "happy as lazzaro|2018": {
     "imdbID": "tt6752992",
     "source": "exact_year",
@@ -1805,6 +1823,12 @@
     "title": "Imitation of Life",
     "year": "1959"
   },
+  "in a lonely place|1950": {
+    "imdbID": "tt0042593",
+    "source": "exact_year",
+    "title": "In a Lonely Place",
+    "year": "1950"
+  },
   "in the grey|2026": {
     "imdbID": "tt27681354",
     "source": "exact_year",
@@ -1859,6 +1883,12 @@
     "title": "It Doesn't Get Any Better Than This",
     "year": "2023"
   },
+  "it's a mad, mad, mad, mad world|1963": {
+    "imdbID": "tt0057193",
+    "source": "exact_year",
+    "title": "It's a Mad Mad Mad Mad World",
+    "year": "1963"
+  },
   "ivan's childhood|1962": {
     "imdbID": "tt0056111",
     "source": "exact_year",
@@ -1912,6 +1942,12 @@
     "source": "exact_year",
     "title": "Killer's Kiss",
     "year": "1955"
+  },
+  "king creole|1958": {
+    "imdbID": "tt0051818",
+    "source": "exact_year",
+    "title": "King Creole",
+    "year": "1958"
   },
   "kiss me deadly|1955": {
     "imdbID": "tt0048261",
@@ -2453,6 +2489,12 @@
     "title": "Nazarin",
     "year": "1959"
   },
+  "neon genesis evangelion: death & rebirth|1997": {
+    "imdbID": "tt0169880",
+    "source": "exact",
+    "title": "Neon Genesis Evangelion: Death & Rebirth",
+    "year": "1997"
+  },
   "nesting|2012": {
     "imdbID": "tt1705126",
     "source": "search",
@@ -2633,6 +2675,12 @@
     "title": "Out of Sight",
     "year": "2025"
   },
+  "out of the past|1947": {
+    "imdbID": "tt0039689",
+    "source": "exact_year",
+    "title": "Out of the Past",
+    "year": "1947"
+  },
   "outcome|2023": {
     "imdbID": "tt23724682",
     "source": "exact_year",
@@ -2734,6 +2782,12 @@
     "source": "exact_year",
     "title": "Phantom Beirut",
     "year": "1998"
+  },
+  "phantom lady|1944": {
+    "imdbID": "tt0036260",
+    "source": "exact_year",
+    "title": "Phantom Lady",
+    "year": "1944"
   },
   "pillion": {
     "imdbID": "tt32321317",
@@ -3317,6 +3371,12 @@
     "title": "Stalker",
     "year": "1979"
   },
+  "stan & ollie|2018": {
+    "imdbID": "tt3385524",
+    "source": "exact_year",
+    "title": "Stan & Ollie",
+    "year": "2018"
+  },
   "state of firsts|2026": {
     "imdbID": "tt36589618",
     "source": "exact_year",
@@ -3388,6 +3448,12 @@
     "source": "exact",
     "title": "Sweet Movie",
     "year": "1974"
+  },
+  "sweet smell of success|1957": {
+    "imdbID": "tt0051036",
+    "source": "exact_year",
+    "title": "Sweet Smell of Success",
+    "year": "1957"
   },
   "take care of my cat|2001": {
     "imdbID": "tt0296658",
@@ -3496,6 +3562,12 @@
     "source": "exact_year",
     "title": "The Best Years of Our Lives",
     "year": "1946"
+  },
+  "the big clock|1948": {
+    "imdbID": "tt0040160",
+    "source": "exact_year",
+    "title": "The Big Clock",
+    "year": "1948"
   },
   "the big lebowski|1998": {
     "imdbID": "tt0118715",
@@ -3897,6 +3969,12 @@
     "imdbID": "tt14114802",
     "source": "exact",
     "title": "The Outfit",
+    "year": "2022"
+  },
+  "the outwaters|2022": {
+    "imdbID": "tt13259610",
+    "source": "exact",
+    "title": "The Outwaters",
     "year": "2022"
   },
   "the piano|1993": {
@@ -4315,7 +4393,7 @@
   },
   "train to busan|2016": {
     "imdbID": "tt5700672",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Train to Busan",
     "year": "2016"
   },
@@ -4654,5 +4732,11 @@
     "source": "exact_year",
     "title": "Young Frankenstein",
     "year": "1974"
+  },
+  "zoot suit|1981": {
+    "imdbID": "tt0083365",
+    "source": "exact_year",
+    "title": "Zoot Suit",
+    "year": "1981"
   }
 }
