@@ -77,12 +77,6 @@
     "title": "A Magnificent Life",
     "year": "2025"
   },
-  "a man called adam|1966": {
-    "imdbID": "tt0060660",
-    "source": "exact_year",
-    "title": "A Man Called Adam",
-    "year": "1966"
-  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -533,12 +527,6 @@
     "title": "Blade II",
     "year": "2002"
   },
-  "blast of silence|1961": {
-    "imdbID": "tt0054687",
-    "source": "exact_year",
-    "title": "Blast of Silence",
-    "year": "1961"
-  },
   "blast|2026": {
     "imdbID": "tt37971394",
     "source": "exact_year",
@@ -665,6 +653,12 @@
     "title": "BTS WORLD TOUR 'ARIRANG' in GOYANG: LIVE VIEWING",
     "year": "2026"
   },
+  "buddy|2003": {
+    "imdbID": "tt0371589",
+    "source": "exact",
+    "title": "Buddy",
+    "year": "2003"
+  },
   "bumming in beijing: the last dreamers|1990": {
     "imdbID": "tt5673218",
     "source": "search",
@@ -688,6 +682,12 @@
     "source": "exact_year",
     "title": "Caliber 9",
     "year": "1972"
+  },
+  "cam|2018": {
+    "imdbID": "tt8361028",
+    "source": "exact",
+    "title": "Cam",
+    "year": "2018"
   },
   "cane river|1982": {
     "imdbID": "tt0318346",
@@ -1523,12 +1523,6 @@
     "title": "Ghost World",
     "year": "2001"
   },
-  "gilda|1946": {
-    "imdbID": "tt0038559",
-    "source": "exact_year",
-    "title": "Gilda",
-    "year": "1946"
-  },
   "girlfriends|1978": {
     "imdbID": "tt0077613",
     "source": "exact_year",
@@ -1673,12 +1667,6 @@
     "title": "Hairspray",
     "year": "2007"
   },
-  "hangover square|1945": {
-    "imdbID": "tt0037761",
-    "source": "exact_year",
-    "title": "Hangover Square",
-    "year": "1945"
-  },
   "happy as lazzaro|2018": {
     "imdbID": "tt6752992",
     "source": "exact_year",
@@ -1714,6 +1702,12 @@
     "source": "exact",
     "title": "Heavenly Homecoming to Stars",
     "year": "1974"
+  },
+  "henry: portrait serial killer|1986": {
+    "imdbID": "tt0099763",
+    "source": "search",
+    "title": "Henry: Portrait of a Serial Killer",
+    "year": "1986"
   },
   "high life|2018": {
     "imdbID": "tt4827558",
@@ -1757,6 +1751,12 @@
     "title": "How to Stuff a Wild Bikini",
     "year": "1965"
   },
+  "howl's moving castle|2004": {
+    "imdbID": "tt0347149",
+    "source": "exact",
+    "title": "Howl's Moving Castle",
+    "year": "2004"
+  },
   "hundreds of beavers": {
     "imdbID": "tt12818328",
     "source": "exact",
@@ -1768,6 +1768,12 @@
     "source": "exact_year",
     "title": "Hungry",
     "year": "2026"
+  },
+  "hunt for the wilderpeople|2016": {
+    "imdbID": "tt4698684",
+    "source": "exact",
+    "title": "Hunt for the Wilderpeople",
+    "year": "2016"
   },
   "hunting matthew nichols|2024": {
     "imdbID": "tt29373684",
@@ -1822,12 +1828,6 @@
     "source": "exact_year",
     "title": "Imitation of Life",
     "year": "1959"
-  },
-  "in a lonely place|1950": {
-    "imdbID": "tt0042593",
-    "source": "exact_year",
-    "title": "In a Lonely Place",
-    "year": "1950"
   },
   "in the grey|2026": {
     "imdbID": "tt27681354",
@@ -1913,6 +1913,12 @@
     "title": "JFK",
     "year": "1991"
   },
+  "jimmy|2013": {
+    "imdbID": "tt1376205",
+    "source": "exact",
+    "title": "Jimmy",
+    "year": "2013"
+  },
   "jinsei|2026": {
     "imdbID": "tt36639420",
     "source": "exact_year",
@@ -1942,12 +1948,6 @@
     "source": "exact_year",
     "title": "Killer's Kiss",
     "year": "1955"
-  },
-  "king creole|1958": {
-    "imdbID": "tt0051818",
-    "source": "exact_year",
-    "title": "King Creole",
-    "year": "1958"
   },
   "kiss me deadly|1955": {
     "imdbID": "tt0048261",
@@ -2026,6 +2026,12 @@
     "source": "exact_year",
     "title": "Late Autumn",
     "year": "1960"
+  },
+  "late fame|2025": {
+    "imdbID": "tt32298494",
+    "source": "exact",
+    "title": "Late Fame",
+    "year": "2025"
   },
   "late spring|1949": {
     "imdbID": "tt0041154",
@@ -2675,12 +2681,6 @@
     "title": "Out of Sight",
     "year": "2025"
   },
-  "out of the past|1947": {
-    "imdbID": "tt0039689",
-    "source": "exact_year",
-    "title": "Out of the Past",
-    "year": "1947"
-  },
   "outcome|2023": {
     "imdbID": "tt23724682",
     "source": "exact_year",
@@ -2782,12 +2782,6 @@
     "source": "exact_year",
     "title": "Phantom Beirut",
     "year": "1998"
-  },
-  "phantom lady|1944": {
-    "imdbID": "tt0036260",
-    "source": "exact_year",
-    "title": "Phantom Lady",
-    "year": "1944"
   },
   "pillion": {
     "imdbID": "tt32321317",
@@ -3419,6 +3413,12 @@
     "title": "River God Water Strange Story",
     "year": "2023"
   },
+  "sudden fury|1975": {
+    "imdbID": "tt0073762",
+    "source": "exact",
+    "title": "Sudden Fury",
+    "year": "1975"
+  },
   "super 8|2011": {
     "imdbID": "tt1650062",
     "source": "exact_year",
@@ -3448,12 +3448,6 @@
     "source": "exact",
     "title": "Sweet Movie",
     "year": "1974"
-  },
-  "sweet smell of success|1957": {
-    "imdbID": "tt0051036",
-    "source": "exact_year",
-    "title": "Sweet Smell of Success",
-    "year": "1957"
   },
   "take care of my cat|2001": {
     "imdbID": "tt0296658",
@@ -4180,6 +4174,12 @@
     "source": "exact",
     "title": "The Traveler",
     "year": "2010"
+  },
+  "the trek|2008": {
+    "imdbID": "tt1331074",
+    "source": "exact",
+    "title": "The Trek",
+    "year": "2008"
   },
   "the true story of tamara de lempicka the art of survival|2024": {
     "imdbID": "tt13172076",
