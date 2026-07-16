@@ -1,7 +1,7 @@
-name: Weekly Cinema Scrape
+name: Scheduled Cinema Scrape
 on:
   schedule:
-    - cron: "0 12 * * 3"
+    - cron: "0 12 * * *"
   workflow_dispatch:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -25,6 +25,9 @@ jobs:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+          PARIS_API_USERNAME: ${{ secrets.PARIS_API_USERNAME }}
+          PARIS_API_PASSWORD: ${{ secrets.PARIS_API_PASSWORD }}
+          PARIS_API_CLIENT_ID: ${{ secrets.PARIS_API_CLIENT_ID }}
           AMC_FORCE_SERPAPI_FALLBACK: "1"
         run: |
           set -euo pipefail

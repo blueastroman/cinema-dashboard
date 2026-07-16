@@ -15,8 +15,12 @@ jobs:
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install pinned Vercel CLI
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        run: npm install --global vercel@54.20.1
 
       - name: Deploy to Vercel
         if: ${{ env.VERCEL_TOKEN != '' }}
-        run: npx vercel deploy public/ --prod --yes --token $VERCEL_TOKEN
+        run: vercel deploy public/ --prod --yes --token $VERCEL_TOKEN

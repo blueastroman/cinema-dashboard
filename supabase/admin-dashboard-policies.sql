@@ -9,7 +9,7 @@ returns boolean
 language sql
 stable
 as $$
-  select lower(coalesce(auth.email(), auth.jwt() ->> 'email', '')) = 'danymora131@hotmail.com'
+  select lower(coalesce(auth.jwt() ->> 'email', '')) = 'danymora131@hotmail.com'
 $$;
 
 alter table public.blurbs enable row level security;
@@ -48,8 +48,9 @@ create table if not exists public.site_visits (
   visitor_id text not null,
   user_id uuid references auth.users,
   path text,
-  referrer text,
-  user_agent text,
+  referrer_host text,
+  client_hint text,
+  visit_fingerprint text,
   visited_at timestamptz default now(),
   visit_date date default current_date
 );
@@ -58,21 +59,26 @@ alter table public.hidden_movies enable row level security;
 alter table public.watched_movies enable row level security;
 alter table public.seen_movies enable row level security;
 alter table public.site_visits enable row level security;
+alter table public.site_visits add column if not exists referrer_host text;
+alter table public.site_visits add column if not exists client_hint text;
+alter table public.site_visits add column if not exists visit_fingerprint text;
+alter table public.site_visits drop column if exists referrer;
+alter table public.site_visits drop column if exists user_agent;
+
+create index if not exists site_visits_visit_date_idx
+on public.site_visits (visit_date);
+
+create index if not exists site_visits_path_visit_date_idx
+on public.site_visits (path, visit_date);
+
+create index if not exists site_visits_fingerprint_visited_at_idx
+on public.site_visits (visit_fingerprint, visited_at desc);
 
 alter table public.blurbs
-add column if not exists rt_url_override text;
-
-alter table public.site_visits
-add column if not exists ip_address text;
-
-alter table public.site_visits
-add column if not exists country_code text;
-
-alter table public.site_visits
-add column if not exists lat numeric(9,6);
-
-alter table public.site_visits
-add column if not exists lon numeric(9,6);
+add column if not exists rt_url_override text,
+add column if not exists letterboxd_url_override text,
+add column if not exists imdb_id_override text,
+add column if not exists poster_url_override text;
 
 select pg_notify('pgrst', 'reload schema');
 
@@ -91,8 +97,8 @@ grant insert, update, delete on table public.site_hidden to authenticated;
 grant select, insert, update, delete on table public.hidden_movies to authenticated;
 grant select, insert, update, delete on table public.watched_movies to authenticated;
 grant select, insert, update, delete on table public.seen_movies to authenticated;
-grant insert on table public.site_visits to anon, authenticated;
-grant usage, select on sequence public.site_visits_id_seq to anon, authenticated;
+revoke insert on table public.site_visits from anon, authenticated;
+revoke usage, select on sequence public.site_visits_id_seq from anon, authenticated;
 
 drop policy if exists "public read blurbs" on public.blurbs;
 create policy "public read blurbs"
@@ -167,11 +173,98 @@ using (auth.uid() = user_id)
 with check (auth.uid() = user_id);
 
 drop policy if exists "record site visits" on public.site_visits;
-create policy "record site visits"
-on public.site_visits
-for insert
-to anon, authenticated
-with check (true);
+drop function if exists public.record_site_visit(text, uuid, text, text, text, text);
+create or replace function public.record_site_visit(
+  p_visitor_id text,
+  p_user_id uuid,
+  p_path text,
+  p_referrer_host text,
+  p_client_hint text,
+  p_visit_fingerprint text
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  normalized_path text;
+  recent_count integer;
+  inserted_id bigint;
+begin
+  normalized_path := left(nullif(trim(coalesce(p_path, '')), ''), 255);
+  if normalized_path is null then
+    normalized_path := '/';
+  end if;
+
+  if nullif(trim(coalesce(p_visitor_id, '')), '') is null then
+    return jsonb_build_object('accepted', false, 'reason', 'invalid_visitor');
+  end if;
+
+  if nullif(trim(coalesce(p_visit_fingerprint, '')), '') is null then
+    return jsonb_build_object('accepted', false, 'reason', 'missing_fingerprint');
+  end if;
+
+  select count(*)::int
+  into recent_count
+  from public.site_visits
+  where visit_fingerprint = p_visit_fingerprint
+    and path = normalized_path
+    and visited_at >= now() - interval '15 minutes';
+
+  if recent_count >= 5 then
+    return jsonb_build_object('accepted', false, 'reason', 'rate_limited');
+  end if;
+
+  if exists (
+    select 1
+    from public.site_visits
+    where visit_fingerprint = p_visit_fingerprint
+      and path = normalized_path
+      and visit_date = current_date
+  ) then
+    return jsonb_build_object('accepted', false, 'reason', 'already_recorded_today');
+  end if;
+
+  insert into public.site_visits (
+    visitor_id,
+    user_id,
+    path,
+    referrer_host,
+    client_hint,
+    visit_fingerprint
+  ) values (
+    left(trim(p_visitor_id), 128),
+    p_user_id,
+    normalized_path,
+    left(nullif(trim(coalesce(p_referrer_host, '')), ''), 255),
+    left(nullif(trim(coalesce(p_client_hint, '')), ''), 64),
+    left(trim(p_visit_fingerprint), 128)
+  )
+  returning id into inserted_id;
+
+  return jsonb_build_object('accepted', true, 'id', inserted_id);
+end;
+$$;
+
+grant execute on function public.record_site_visit(text, uuid, text, text, text, text) to anon, authenticated;
+
+drop function if exists public.purge_old_site_visits(integer);
+create or replace function public.purge_old_site_visits(retention_days integer default 90)
+returns integer
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  deleted_count integer;
+begin
+  delete from public.site_visits
+  where visited_at < now() - make_interval(days => greatest(retention_days, 1));
+  get diagnostics deleted_count = row_count;
+  return deleted_count;
+end;
+$$;
 
 drop function if exists public.get_admin_analytics();
 drop function if exists public.movie_action_toplist(text);
@@ -248,14 +341,14 @@ begin
     ),
     'visits', jsonb_build_object(
       'total', (select count(*)::int from public.site_visits),
-      'unique_visitors', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits),
+      'unique_visitors', (select count(distinct visitor_id)::int from public.site_visits),
       'unique_signed_in_users', (select count(distinct user_id)::int from public.site_visits where user_id is not null),
       'today', (select count(*)::int from public.site_visits where visited_at >= date_trunc('day', now())),
-      'unique_today', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= date_trunc('day', now())),
+      'unique_today', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= date_trunc('day', now())),
       'last_7d', (select count(*)::int from public.site_visits where visited_at >= now() - interval '7 days'),
-      'unique_7d', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= now() - interval '7 days'),
+      'unique_7d', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= now() - interval '7 days'),
       'last_30d', (select count(*)::int from public.site_visits where visited_at >= now() - interval '30 days'),
-      'unique_30d', (select count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int from public.site_visits where visited_at >= now() - interval '30 days')
+      'unique_30d', (select count(distinct visitor_id)::int from public.site_visits where visited_at >= now() - interval '30 days')
     ),
     'actions', jsonb_build_object(
       'hidden_total', (select count(*)::int from public.hidden_movies),
@@ -278,66 +371,5 @@ end;
 $$;
 
 grant execute on function public.get_admin_analytics() to authenticated;
-
-create or replace function public.get_visitor_locations()
-returns jsonb
-language plpgsql
-security definer
-set search_path = public
-as $$
-declare
-  result jsonb;
-begin
-  if not public.is_cinema_admin() then
-    raise exception 'admin access required';
-  end if;
-
-  with centroids (cc, clat, clon) as (
-    values
-      ('US'::text, 40.71::float, -74.01::float),
-      ('GB', 51.51, -0.13), ('CA', 43.65, -79.38), ('AU', -33.87, 151.21),
-      ('DE', 52.52, 13.40), ('FR', 48.85, 2.35), ('JP', 35.68, 139.69),
-      ('MX', 19.43, -99.13), ('BR', -23.55, -46.63), ('IN', 28.61, 77.21),
-      ('IT', 41.90, 12.49), ('ES', 40.42, -3.70), ('NL', 52.37, 4.90),
-      ('KR', 37.57, 126.98), ('SE', 59.33, 18.07), ('NO', 59.91, 10.75),
-      ('DK', 55.68, 12.57), ('CH', 47.38, 8.54), ('PL', 52.23, 21.01),
-      ('PT', 38.72, -9.14), ('AR', -34.60, -58.38), ('CL', -33.45, -70.67),
-      ('CO', 4.71, -74.07), ('SG', 1.35, 103.82), ('HK', 22.32, 114.17),
-      ('NZ', -36.87, 174.77), ('IE', 53.33, -6.25), ('IL', 32.08, 34.78),
-      ('ZA', -26.20, 28.04), ('TR', 41.01, 28.95), ('RU', 55.75, 37.62)
-  ),
-  geo_visits as (
-    select
-      round(lat::numeric, 2) as plat,
-      round(lon::numeric, 2) as plon,
-      max(country_code) as cc,
-      count(distinct visitor_id || '|' || coalesce(ip_address, ''))::int as cnt
-    from public.site_visits
-    where lat is not null and lon is not null
-    group by round(lat::numeric, 2), round(lon::numeric, 2)
-
-    union all
-
-    select
-      c.clat::numeric, c.clon::numeric,
-      sv.country_code,
-      count(distinct sv.visitor_id || '|' || coalesce(sv.ip_address, ''))::int
-    from public.site_visits sv
-    join centroids c on c.cc = sv.country_code
-    where sv.lat is null
-    group by c.clat, c.clon, sv.country_code
-  )
-  select coalesce(jsonb_agg(
-    jsonb_build_object('lat', plat, 'lon', plon, 'country', cc, 'count', cnt)
-    order by cnt desc
-  ), '[]'::jsonb)
-  from (select * from geo_visits order by cnt desc limit 500) t
-  into result;
-
-  return result;
-end;
-$$;
-
-grant execute on function public.get_visitor_locations() to authenticated;
 
 select pg_notify('pgrst', 'reload schema');

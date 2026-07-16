@@ -10,7 +10,7 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - `scripts/rating_cache.json`: resolved OMDb matches cached for stability
 - `public/index.html`: production frontend
 - `public/data.json`: live dataset consumed by the frontend
-- `.github/workflows/weekly-scrape.yml`: scheduled scrape and commit
+- `.github/workflows/weekly-scrape.yml`: daily scheduled scrape and commit
 - `.github/workflows/deploy.yml`: deploys production when `public/**` changes on `main`
 
 ## Data Sources
@@ -18,7 +18,7 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - Showtimes:
   - SerpAPI for some theaters
   - AMC API for AMC theaters
-  - direct theater scraping for Metrograph, IFC, Alamo, and MoMA
+- direct theater scraping for Metrograph, IFC, and Alamo
 - Metadata:
   - OMDb as primary source
   - Rotten Tomatoes and Letterboxd fallbacks where OMDb is incomplete
@@ -38,7 +38,6 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - Film Forum
 - Film at Lincoln Center
 - Paris Theater
-- Museum of Modern Art
 - Alamo Drafthouse Lower Manhattan
 - Alamo Drafthouse Downtown Brooklyn
 - Alamo Drafthouse Staten Island
@@ -52,9 +51,20 @@ The scraper reads these environment variables:
 - `OMDB_KEY`
 - `ANTHROPIC_API_KEY`
 - `AMC_VENDOR_KEY`
+- `PARIS_API_USERNAME`
+- `PARIS_API_PASSWORD`
+- `PARIS_API_CLIENT_ID`
 - `AMC_API_BASE` optional
 - `AMC_THEATRE_IDS` optional comma-separated override
 - `ALLOW_MOCK_DATA=1` optional local-only escape hatch for mock scraper runs
+
+Frontend/serverless production also expects:
+
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `ANALYTICS_FINGERPRINT_SALT`
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_REVIEW_MODEL` optional
 
 ## Local Development
 
@@ -69,13 +79,15 @@ python scripts/scrape.py
 
 Production scrapes fail loudly when `SERPAPI_KEY`, `OMDB_KEY`, or `ANTHROPIC_API_KEY` is missing. For local layout work without API keys, run `ALLOW_MOCK_DATA=1 python scripts/scrape.py` and do not commit the generated mock dataset.
 
+If Paris Theater credentials were previously committed, rotate them in the upstream provider before the next scrape or deploy.
+
 Open `public/index.html` in a browser, or serve the `public/` directory with any static file server.
 
 ## Deployment Flow
 
 Production deploys should follow one path:
 
-1. `weekly-scrape.yml` runs on schedule or manually.
+1. `weekly-scrape.yml` runs daily on schedule or manually.
 2. The scraper updates `public/data.json` and `scripts/rating_cache.json`.
 3. The workflow commits and pushes to `main`.
 4. `deploy.yml` deploys production when `public/**` changes on `main`.

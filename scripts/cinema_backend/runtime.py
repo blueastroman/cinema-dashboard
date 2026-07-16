@@ -102,6 +102,7 @@ class ReviewConfig:
     cache_file: Path
     force_refresh: bool
     batch_size: int
+    allow_incomplete: bool
 
 
 @dataclass
@@ -171,6 +172,7 @@ def build_review_context(*, data_file: Path, cache_file: Path, now: Optional[dat
             cache_file=cache_file,
             force_refresh=os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {"1", "true", "yes"},
             batch_size=parse_positive_int_env("VERDICT_BATCH_SIZE", 12) or 12,
+            allow_incomplete=os.environ.get("VERDICT_ALLOW_INCOMPLETE", "").strip().lower() in {"1", "true", "yes"},
         ),
         now=now or datetime.now(),
     )

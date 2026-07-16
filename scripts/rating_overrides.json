@@ -67,6 +67,28 @@
     "year": 2025,
     "director": "François Ozon"
   },
+  "the odyssey": {
+    "imdbID": "tt33764258",
+    "year": 2026,
+    "director": "Christopher Nolan",
+    "genre": "Adventure, Action, Fantasy",
+    "runtime": "172 min",
+    "plot": "Odysseus, king of Ithaca, embarks on a perilous journey to return home after the Trojan War.",
+    "rt": "96%",
+    "letterboxd": "4.3",
+    "poster": "https://resizing.flixster.com/fAkkN7VTQZUvKIiAm4g0R_ltt_4=/206x305/v2/https://resizing.flixster.com/A6I9ex8FRe7tDW-mI3eP3tx_HmE=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzkyOGVlMzAxLThhN2ItNGYyMy04NzdjLTYyNTEyMDRmYTQzOS5qcGc="
+  },
+  "the oddyssey": {
+    "imdbID": "tt33764258",
+    "year": 2026,
+    "director": "Christopher Nolan",
+    "genre": "Adventure, Action, Fantasy",
+    "runtime": "172 min",
+    "plot": "Odysseus, king of Ithaca, embarks on a perilous journey to return home after the Trojan War.",
+    "rt": "96%",
+    "letterboxd": "4.3",
+    "poster": "https://resizing.flixster.com/fAkkN7VTQZUvKIiAm4g0R_ltt_4=/206x305/v2/https://resizing.flixster.com/A6I9ex8FRe7tDW-mI3eP3tx_HmE=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzkyOGVlMzAxLThhN2ItNGYyMy04NzdjLTYyNTEyMDRmYTQzOS5qcGc="
+  },
   "shrek 25th anniversary": {
     "imdbID": "tt0126029",
     "year": 2001
@@ -78,5 +100,16 @@
   "top gun 40th anniversary": {
     "imdbID": "tt0092099",
     "year": 1986
+  },
+  "backrooms everything must go edition": {
+    "imdbID": "tt26657236",
+    "year": 2026,
+    "director": "Kane Parsons",
+    "genre": "Horror, Sci-Fi, Thriller",
+    "runtime": "110 min",
+    "rt": "89%",
+    "imdb": "7.1",
+    "metacritic": "77",
+    "letterboxd": "3.5"
   }
 }

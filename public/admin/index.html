@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Review Editor · Showtimes NYC</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -581,13 +581,7 @@
     .rp-badge.hidden { background: rgba(184,80,80,0.12); color: var(--skip); border: 1px solid rgba(184,80,80,0.3); }
     .rp-badge.pick   { background: rgba(200,169,110,0.12); color: var(--accent); border: 1px solid rgba(200,169,110,0.3); }
     .rp-badge.doc    { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--dark-gray); }
-  #visitor-map { height: 460px; border-radius: 4px; border: 1px solid var(--dark-gray); margin-top: 12px; background: #1a1a1a; }
-  .leaflet-container { background: #1a1a1a !important; font-family: var(--font-sans); }
-  .leaflet-tile { filter: brightness(0.5) saturate(0.3); }
-  .visitor-map-note { font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 </head>
 <body>
 
@@ -621,37 +615,23 @@
 const STORAGE_KEY = 'cinema_movie_blurbs';
 const HIDDEN_KEY = 'cinema_hidden';
 const MAX_CHARS = 340;
+const ADMIN_SAFE_URL_HOSTS = {
+  letterboxd: ['letterboxd.com'],
+  poster: ['image.tmdb.org', 'm.media-amazon.com', 'resizing.flixster.com'],
+};
 
 const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzdmh6aGpjbXZzaXVva3JwdWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5Nzc4OTQsImV4cCI6MjA5NDU1Mzg5NH0.hoLyb6jWEPNHNzCMGLXm5Zddo0QOzZwseMjxmja8bgI';
 const ADMIN_EMAILS = ['danymora131@hotmail.com'];
 
-// _sbAuth: authenticated client — handles login/logout and reads on the admin page.
+// _sbAuth: handles login/logout and authenticated admin writes.
 const _sbAuth = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-// _sb: alias for reads (anon is fine; RLS allows SELECT for all tables used here).
-const _sb = _sbAuth;
-
-// fetchAuth: bypass Supabase JS client auth injection for writes by passing the
-// access token explicitly. The JS client's session-to-header wiring is unreliable
-// when multiple GoTrueClient instances exist in the same context.
-async function fetchAuth(path, options = {}) {
-  const { data: { session } } = await _sbAuth.auth.getSession();
-  if (!session?.access_token) throw new Error('Not authenticated');
-  const resp = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${session.access_token}`,
-      ...(options.headers || {}),
-    },
-  });
-  if (!resp.ok) {
-    let err = {};
-    try { err = await resp.json(); } catch (_) {}
-    throw { message: err.message || `HTTP ${resp.status}`, code: err.code, details: err.details };
-  }
-}
+// _sb: always runs as anon role so RLS anon policies apply to data reads.
+// No-op storage prevents it from ever reading the _sbAuth session out of localStorage.
+const _NOOP_STORAGE = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
+const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storage: _NOOP_STORAGE },
+});
 
 function isAdminSession(session) {
   return ADMIN_EMAILS.includes(session?.user?.email);
@@ -677,9 +657,20 @@ let adminWarnings = [];
 let analyticsData = null;
 let analyticsError = '';
 let analyticsLoading = false;
+const ANALYTICS_DIAGNOSTIC_KEY = 'cinema_last_analytics_issue';
 
 function addAdminWarning(message) {
   if (!adminWarnings.includes(message)) adminWarnings.push(message);
+}
+
+function readAnalyticsDiagnostic() {
+  try {
+    const raw = localStorage.getItem(ANALYTICS_DIAGNOSTIC_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
 }
 
 async function loadPicks() {
@@ -708,17 +699,15 @@ async function togglePick(movie, btn, card) {
   btn.disabled = true;
   try {
     if (wasPicked) {
-      await fetchAuth(`picks?movie_id=eq.${encodeURIComponent(id)}`, { method: 'DELETE' });
+      const { error } = await _sbAuth.from('picks').delete().eq('movie_id', id);
+      if (error) throw error;
       picks.delete(id);
       btn.textContent = 'Recommend';
       btn.classList.remove('is-pick');
       card.classList.remove('is-pick-movie');
     } else {
-      await fetchAuth(`picks?on_conflict=movie_id`, {
-        method: 'POST',
-        headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
-        body: JSON.stringify({ movie_id: id, title }),
-      });
+      const { error } = await _sbAuth.from('picks').upsert({ movie_id: id, title }, { onConflict: 'movie_id' });
+      if (error) throw error;
       picks.add(id);
       btn.textContent = '✦ Recommended';
       btn.classList.add('is-pick');
@@ -726,10 +715,8 @@ async function togglePick(movie, btn, card) {
     }
   } catch (e) {
     console.error('picks error:', e);
-    const msg = getErrorMessage(e);
-    showWriteError(msg);
-    btn.textContent = 'Error';
-    btn.title = msg;
+    btn.textContent = getErrorMessage(e);
+    btn.title = getErrorMessage(e);
     setTimeout(() => {
       btn.textContent = wasPicked ? '✦ Recommended' : 'Recommend';
       btn.title = '';
@@ -814,9 +801,9 @@ async function checkAuth() {
 }
 
 async function loadBlurbs() {
-  let { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override,rt_url_override');
-  if (error && String(error.message || '').includes('rt_url_override')) {
-    addAdminWarning('Rotten Tomatoes URL overrides need the latest Supabase SQL setup before they can be saved.');
+  let { data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override,rt_url_override,letterboxd_url_override,imdb_id_override,poster_url_override');
+  if (error && /(rt_url_override|letterboxd_url_override|imdb_id_override|poster_url_override)/i.test(String(error.message || ''))) {
+    addAdminWarning('Link and poster overrides need the latest Supabase SQL setup before they can be saved.');
     ({ data, error } = await _sb.from('blurbs').select('movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override'));
   }
   if (error) {
@@ -835,6 +822,9 @@ async function loadBlurbs() {
         cinema_score_override: r.cinema_score_override || '',
         lb_override: r.lb_override || '',
         rt_url_override: r.rt_url_override || '',
+        letterboxd_url_override: r.letterboxd_url_override || '',
+        imdb_id_override: r.imdb_id_override || '',
+        poster_url_override: r.poster_url_override || '',
       };
     });
   }
@@ -860,14 +850,14 @@ async function replaceBlurbRow(movie, entry) {
     cinema_score_override: entry.cinema_score_override || null,
     lb_override: entry.lb_override || null,
     rt_url_override: entry.rt_url_override || null,
+    letterboxd_url_override: entry.letterboxd_url_override || null,
+    imdb_id_override: entry.imdb_id_override || null,
+    poster_url_override: entry.poster_url_override || null,
     updated_at: new Date().toISOString(),
   };
 
-  await fetchAuth(`blurbs?on_conflict=movie_key`, {
-    method: 'POST',
-    headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
-    body: JSON.stringify(row),
-  });
+  const { error } = await _sbAuth.from('blurbs').upsert(row, { onConflict: 'movie_key' });
+  if (error) throw error;
 
   blurbCache[key] = {
     text: row.text,
@@ -877,6 +867,9 @@ async function replaceBlurbRow(movie, entry) {
     cinema_score_override: row.cinema_score_override || '',
     lb_override: row.lb_override || '',
     rt_url_override: row.rt_url_override || '',
+    letterboxd_url_override: row.letterboxd_url_override || '',
+    imdb_id_override: row.imdb_id_override || '',
+    poster_url_override: row.poster_url_override || '',
   };
   return blurbCache[key];
 }
@@ -897,10 +890,8 @@ async function toggleCriterion(movie, btn) {
     btn.classList.toggle('is-criterion', !!next);
   } catch (e) {
     console.error('criterion error:', e);
-    const msg = getErrorMessage(e);
-    showWriteError(msg);
-    btn.textContent = 'Error';
-    btn.title = msg;
+    btn.textContent = getErrorMessage(e);
+    btn.title = getErrorMessage(e);
     setTimeout(() => {
       btn.textContent = originalText;
       btn.title = '';
@@ -970,6 +961,96 @@ function normalizeRottenTomatoesUrlOverride(value) {
   }
 }
 
+function hostMatchesAllowed(hostname, allowedHosts) {
+  const host = String(hostname || '').toLowerCase();
+  return (allowedHosts || []).some(allowed => host === allowed || host.endsWith(`.${allowed}`));
+}
+
+function normalizeLetterboxdUrlOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  try {
+    const url = new URL(text);
+    if (url.protocol !== 'https:' || !hostMatchesAllowed(url.hostname, ADMIN_SAFE_URL_HOSTS.letterboxd)) {
+      throw new Error();
+    }
+    return url.href;
+  } catch {
+    throw new Error('Letterboxd URL must be an https://letterboxd.com link.');
+  }
+}
+
+function normalizeImdbIdOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  const directMatch = text.match(/^(tt\d{5,12})$/i);
+  if (directMatch) return directMatch[1].toLowerCase();
+  try {
+    const url = new URL(text);
+    const imdbMatch = url.href.match(/\/title\/(tt\d{5,12})(?:[/?#]|$)/i);
+    if (imdbMatch) return imdbMatch[1].toLowerCase();
+    if (/^(www\.)?omdbapi\.com$/i.test(url.hostname)) {
+      const omdbId = String(url.searchParams.get('i') || '').trim();
+      if (/^tt\d{5,12}$/i.test(omdbId)) return omdbId.toLowerCase();
+    }
+  } catch {
+    // Fall through to the validation error below.
+  }
+  throw new Error('OMDb override must be an IMDb ID like tt1234567 or an IMDb/OMDb URL containing one.');
+}
+
+function normalizePosterUrlOverride(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  try {
+    const url = new URL(text);
+    if (url.protocol !== 'https:' || !hostMatchesAllowed(url.hostname, ADMIN_SAFE_URL_HOSTS.poster)) {
+      throw new Error();
+    }
+    return url.href;
+  } catch {
+    throw new Error('Poster URL must be an https image URL from TMDb, Amazon Images, or Flixster.');
+  }
+}
+
+function slugifyForUrl(str) {
+  return String(str || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
+
+function getLetterboxdUrl(movie) {
+  const cached = blurbCache[getKey(movie)] || {};
+  const explicitUrl = cached.letterboxd_url_override || movie?.ratings?.letterboxdUrl || movie?.ratings?.letterboxd_url || '';
+  try {
+    const normalized = normalizeLetterboxdUrlOverride(explicitUrl);
+    if (normalized) return normalized;
+  } catch {
+    // Ignore invalid stored values and fall back.
+  }
+  const imdbId = String(cached.imdb_id_override || movie?.ratings?.imdbID || movie?.ratings?.imdbId || '').trim();
+  if (/^tt\d+$/i.test(imdbId)) return `https://letterboxd.com/imdb/${encodeURIComponent(imdbId)}/`;
+  const slug = slugifyForUrl(movie?.title || '');
+  if (slug) return `https://letterboxd.com/film/${slug}/`;
+  const query = encodeURIComponent(String(movie?.title || '').trim());
+  return `https://letterboxd.com/search/${query}/`;
+}
+
+function getPosterUrl(movie) {
+  const raw = blurbCache[getKey(movie)]?.poster_url_override || movie?.ratings?.poster || '';
+  try {
+    return normalizePosterUrlOverride(raw) || '';
+  } catch {
+    return '';
+  }
+}
+
 function getRTScore(movie) {
   const v = parseInt(movie?.ratings?.rt || '', 10);
   return Number.isFinite(v) ? v : null;
@@ -1033,29 +1114,7 @@ function getErrorMessage(error) {
   if (!error) return 'Unknown error';
   const code = error.code || error.status || '';
   const message = error.message || String(error);
-  const combined = [code, message].filter(Boolean).join(': ');
-  if (code === '42501' || message.includes('row-level security')) {
-    return 'Permission denied — run supabase/admin-dashboard-policies.sql in the Supabase SQL editor to grant write access.';
-  }
-  if (message.includes('JWT') || message.includes('token') || code === 'PGRST301') {
-    return 'Session expired — please sign out and sign back in.';
-  }
-  return combined;
-}
-
-function showWriteError(message) {
-  let banner = document.getElementById('admin-write-error');
-  if (!banner) {
-    banner = document.createElement('div');
-    banner.id = 'admin-write-error';
-    banner.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#2a0f0f;border:1px solid var(--skip);color:#e07070;font-family:var(--font-sans);font-size:0.78rem;font-weight:600;padding:10px 16px;border-radius:4px;z-index:9999;max-width:560px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.5);cursor:pointer;';
-    banner.title = 'Click to dismiss';
-    banner.addEventListener('click', () => banner.remove());
-    document.body.appendChild(banner);
-  }
-  banner.textContent = message;
-  clearTimeout(banner._timer);
-  banner._timer = setTimeout(() => banner.remove(), 15000);
+  return [code, message].filter(Boolean).join(': ');
 }
 
 async function loadHidden() {
@@ -1080,15 +1139,13 @@ async function toggleHidden(movie) {
   }
   const id = getMovieId(movie);
   if (siteHidden.has(id)) {
-    await fetchAuth(`site_hidden?movie_id=eq.${encodeURIComponent(id)}`, { method: 'DELETE' });
+    const { error } = await _sbAuth.from('site_hidden').delete().eq('movie_id', id);
+    if (error) throw error;
     siteHidden.delete(id);
     return false;
   } else {
-    await fetchAuth(`site_hidden?on_conflict=movie_id`, {
-      method: 'POST',
-      headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
-      body: JSON.stringify({ movie_id: id, title: movie.title || '' }),
-    });
+    const { error } = await _sbAuth.from('site_hidden').upsert({ movie_id: id, title: movie.title || '' }, { onConflict: 'movie_id' });
+    if (error) throw error;
     siteHidden.add(id);
     return true;
   }
@@ -1183,6 +1240,9 @@ function buildCard(movie) {
   const pickDisabled = canEditPicks ? '' : ' disabled title="Recommendations are unavailable for this account"';
 
   const hidden = isHidden(movie);
+  const letterboxdUrl = getLetterboxdUrl(movie);
+  const posterUrl = getPosterUrl(movie);
+  const imdbIdValue = cleanDisplayText(blurbCache[key]?.imdb_id_override || movie?.ratings?.imdbID || movie?.ratings?.imdbId);
   const card = document.createElement('div');
   card.className = `movie-card is-${source}${hidden ? ' is-hidden-movie' : ''}`;
   card.dataset.key = key;
@@ -1205,6 +1265,12 @@ function buildCard(movie) {
         </div>
       ` : ''}
       <div class="blurb-area">
+        <div class="consensus">
+          <span class="consensus-label">Match controls</span>
+          ${letterboxdUrl ? `<a href="${escapeHTML(letterboxdUrl)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Open Letterboxd</a>` : 'Letterboxd link unavailable'}
+          ${imdbIdValue ? ` · IMDb/OMDb: ${escapeHTML(imdbIdValue)}` : ''}
+          ${posterUrl ? ` · <a href="${escapeHTML(posterUrl)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Open poster</a>` : ''}
+        </div>
         <textarea
           rows="3"
           placeholder="Write a review… (leave blank to use AI-generated or consensus)"
@@ -1224,6 +1290,9 @@ function buildCard(movie) {
           <label class="score-override-field">CS <input class="score-override-input" type="text" placeholder="${escapeHTML(movie.ratings?.cinemaScore || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.cinema_score_override || '')}"${reviewDisabled}></label>
           <label class="score-override-field">LB <input class="score-override-input" type="number" min="0" max="5" step="0.1" placeholder="${escapeHTML(movie.ratings?.letterboxd || '—')}" value="${escapeHTML(blurbCache[getKey(movie)]?.lb_override || '')}"${reviewDisabled}></label>
           <label class="score-override-field">RT URL <input class="score-override-input is-url" type="url" inputmode="url" placeholder="https://www.rottentomatoes.com/m/..." value="${escapeHTML(blurbCache[getKey(movie)]?.rt_url_override || '')}"${reviewDisabled}></label>
+          <label class="score-override-field">LB URL <input class="score-override-input is-url" type="url" inputmode="url" placeholder="${escapeHTML(letterboxdUrl || 'https://letterboxd.com/film/.../')}" value="${escapeHTML(blurbCache[getKey(movie)]?.letterboxd_url_override || '')}"${reviewDisabled}></label>
+          <label class="score-override-field">OMDb ID <input class="score-override-input" type="text" placeholder="${escapeHTML(imdbIdValue || 'tt1234567')}" value="${escapeHTML(blurbCache[getKey(movie)]?.imdb_id_override || '')}"${reviewDisabled}></label>
+          <label class="score-override-field">Poster URL <input class="score-override-input is-url" type="url" inputmode="url" placeholder="${escapeHTML(posterUrl || 'https://image.tmdb.org/t/p/...')}" value="${escapeHTML(blurbCache[getKey(movie)]?.poster_url_override || '')}"${reviewDisabled}></label>
           <button class="btn-save-scores"${reviewDisabled}>Save ratings</button
           ><span class="saved-flash scores-flash">Saved</span>
         </div>
@@ -1272,9 +1341,7 @@ function buildCard(movie) {
       showFlash(flash, 'Saved');
     } catch (e) {
       console.error('save blurb error:', e);
-      const msg = getErrorMessage(e);
-      showFlash(flash, msg, true);
-      showWriteError(msg);
+      showFlash(flash, getErrorMessage(e), true);
       saveBtn.disabled = false;
     } finally {
       textarea.disabled = false;
@@ -1296,9 +1363,7 @@ function buildCard(movie) {
       btn.remove();
     } catch (e) {
       console.error('clear blurb error:', e);
-      const msg = getErrorMessage(e);
-      showFlash(flash, msg, true);
-      showWriteError(msg);
+      showFlash(flash, getErrorMessage(e), true);
       btn.disabled = false;
     }
   }
@@ -1317,10 +1382,8 @@ function buildCard(movie) {
       card.classList.toggle('is-hidden-movie', nowHidden);
     } catch (e) {
       console.error('hide error:', e);
-      const msg = getErrorMessage(e);
-      hideBtn.textContent = 'Error';
-      hideBtn.title = msg;
-      showWriteError(msg);
+      hideBtn.textContent = getErrorMessage(e);
+      hideBtn.title = getErrorMessage(e);
       setTimeout(() => {
         hideBtn.textContent = isHidden(movie) ? 'Hidden' : 'Hide';
         hideBtn.title = '';
@@ -1339,7 +1402,7 @@ function buildCard(movie) {
 
   const saveScoresBtn = card.querySelector('.btn-save-scores');
   const scoresFlash = card.querySelector('.scores-flash');
-  const [rtInput, csInput, lbInput, rtUrlInput] = card.querySelectorAll('.score-override-input');
+  const [rtInput, csInput, lbInput, rtUrlInput, lbUrlInput, imdbIdInput, posterUrlInput] = card.querySelectorAll('.score-override-input');
   if (canEditBlurbs) saveScoresBtn.addEventListener('click', async () => {
     saveScoresBtn.disabled = true;
     const key = getKey(movie);
@@ -1349,19 +1412,24 @@ function buildCard(movie) {
       const cs = normalizeCinemaScoreOverride(csInput.value);
       const lb = normalizeLetterboxdOverride(lbInput.value);
       const rtUrl = normalizeRottenTomatoesUrlOverride(rtUrlInput.value);
+      const lbUrl = normalizeLetterboxdUrlOverride(lbUrlInput.value);
+      const imdbId = normalizeImdbIdOverride(imdbIdInput.value);
+      const posterUrl = normalizePosterUrlOverride(posterUrlInput.value);
       await replaceBlurbRow(movie, {
         ...entry,
         rt_override: rt,
         cinema_score_override: cs || null,
         lb_override: lb,
         rt_url_override: rtUrl,
+        letterboxd_url_override: lbUrl,
+        imdb_id_override: imdbId,
+        poster_url_override: posterUrl,
       });
       showFlash(scoresFlash, 'Saved');
+      renderList();
     } catch (e) {
       console.error('score override error:', e);
-      const msg = getErrorMessage(e);
-      showFlash(scoresFlash, msg, true);
-      showWriteError(msg);
+      showFlash(scoresFlash, getErrorMessage(e), true);
     } finally {
       saveScoresBtn.disabled = false;
     }
@@ -1543,6 +1611,15 @@ async function renderAnalytics({ forceRefresh = false } = {}) {
   const actions = analyticsData?.actions || {};
   const top = analyticsData?.top || {};
   const generatedAt = analyticsData?.generated_at ? new Date(analyticsData.generated_at) : null;
+  const analyticsDiagnostic = readAnalyticsDiagnostic();
+  const diagnosticHtml = analyticsDiagnostic
+    ? `<div class="analytics-note" style="margin-top:12px;color:#d6b36a;">
+        Last client-side analytics issue on this browser:
+        <strong>${escapeHTML(String(analyticsDiagnostic.kind || 'unknown'))}</strong>
+        ${analyticsDiagnostic.at ? `at ${escapeHTML(new Date(analyticsDiagnostic.at).toLocaleString())}` : ''}
+        ${analyticsDiagnostic.details?.message ? `· ${escapeHTML(String(analyticsDiagnostic.details.message))}` : ''}
+      </div>`
+    : '';
 
   main.innerHTML = `
     <div class="analytics-dashboard">
@@ -1573,61 +1650,13 @@ async function renderAnalytics({ forceRefresh = false } = {}) {
         </div>
       </div>
 
-      <div class="analytics-section">
-        <div class="analytics-section-title">Visitor Map</div>
-        <div id="visitor-map"></div>
-        <div class="visitor-map-note">Country-level only. Circles sized by unique visitor count.</div>
-      </div>
-
       <div class="analytics-note">
-        Unique visitors are counted by anonymous browser IDs + IP. Signed-up user totals come from Supabase Auth.
+        Unique visitors are counted by anonymous browser IDs stored locally. Signed-up user totals come from Supabase Auth.
         ${generatedAt ? `Last refreshed ${escapeHTML(generatedAt.toLocaleString())}.` : ''}
       </div>
+      ${diagnosticHtml}
     </div>
   `;
-  renderVisitorMap();
-}
-
-let _visitorMap = null;
-
-async function renderVisitorMap() {
-  const mapEl = document.getElementById('visitor-map');
-  if (!mapEl) return;
-
-  if (_visitorMap) { _visitorMap.remove(); _visitorMap = null; }
-  _visitorMap = L.map('visitor-map', { zoomControl: true, scrollWheelZoom: true })
-    .setView([40.7128, -74.0060], 11);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 18,
-  }).addTo(_visitorMap);
-
-  try {
-    const { data, error } = await _sbAuth.rpc('get_visitor_locations');
-    if (error || !data?.length) {
-      mapEl.insertAdjacentHTML('beforeend', '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.8rem;pointer-events:none;z-index:1000;">No location data yet — visit data populates after next page load</div>');
-      return;
-    }
-
-    const max = Math.max(...data.map(d => d.count));
-    data.forEach(({ lat, lon, country, count }) => {
-      if (lat == null || lon == null) return;
-      const r = 5 + (count / max) * 18;
-      const label = country === 'US' ? `${count} visitor${count !== 1 ? 's' : ''}` : `${country} · ${count} visitor${count !== 1 ? 's' : ''}`;
-      L.circleMarker([lat, lon], {
-        radius: r,
-        fillColor: '#c8a96e',
-        color: '#8a6e3e',
-        weight: 1,
-        opacity: 0.9,
-        fillOpacity: 0.6,
-      }).bindTooltip(label, { direction: 'top' })
-        .addTo(_visitorMap);
-    });
-  } catch (e) {
-    console.warn('Visitor map error:', e);
-  }
 }
 
 async function init() {
@@ -1637,11 +1666,11 @@ async function init() {
     const res = await fetch('/data.json');
     if (!res.ok) throw new Error('Failed to load data.json');
     const data = await res.json();
-    const EXCLUDED = ['Museum of Modern Art'];
+    const EXCLUDED_THEATERS = new Set(['Museum of Modern Art']);
     allMovies = (data.movies || [])
       .map(m => ({
         ...m,
-        theaters: (m.theaters || []).filter(t => !EXCLUDED.includes(t.name)),
+        theaters: (m.theaters || []).filter(t => !EXCLUDED_THEATERS.has(t.name)),
       }))
       .filter(m => m.theaters.length > 0);
     renderList();

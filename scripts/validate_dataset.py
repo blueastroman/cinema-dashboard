@@ -2,6 +2,7 @@ import json
 import re
 import sys
 from collections import Counter
+from datetime import datetime, timedelta
 from pathlib import Path
 from cinema_backend.common import (
     extract_year_int,
@@ -53,8 +54,23 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
     if not isinstance(theaters, list) or not theaters:
         errors.append("Dataset has no theaters list.")
 
+    generated_at_raw = str(dataset.get("generated_at") or "").strip()
+    if not generated_at_raw:
+        errors.append("Dataset missing generated_at timestamp.")
+    else:
+        try:
+            generated_at = datetime.fromisoformat(generated_at_raw.replace("Z", "+00:00"))
+            compare_now = ny_now()
+            if generated_at.tzinfo is None:
+                compare_now = compare_now.replace(tzinfo=None)
+            if generated_at < compare_now - timedelta(days=2):
+                errors.append(f"Dataset is stale: generated_at={generated_at_raw}")
+        except ValueError:
+            errors.append(f"Dataset has invalid generated_at timestamp: {generated_at_raw}")
+
     seen_ids = Counter()
     seen_title_keys = Counter()
+    future_showtime_found = False
 
     for movie in movies:
         title = str(movie.get("title") or "").strip()
@@ -143,6 +159,8 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
                     errors.append(f"{title}: {theater_name} schedule entry missing day.")
                 if schedule_date and not re.fullmatch(r"(?:18|19|20)\d{2}-\d{2}-\d{2}", schedule_date):
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has invalid date ({schedule_date}).")
+                if schedule_date and schedule_date >= ny_now().date().isoformat():
+                    future_showtime_found = True
                 if not isinstance(times, list) or not times:
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has no times.")
 
@@ -166,6 +184,9 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
         samples = warning_samples.get(key) or []
         sample_text = f" Sample: {', '.join(samples)}" if samples else ""
         warnings.append(f"{warning_labels.get(key, key)}: {count}.{sample_text}")
+
+    if not future_showtime_found:
+        errors.append("All showtimes in the dataset are in the past.")
 
     return errors, warnings
 

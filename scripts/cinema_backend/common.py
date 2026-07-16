@@ -93,15 +93,6 @@ THEATER_CONFIG = {
         "official_url": "https://drafthouse.com/theater/staten-island",
         "aliases": ["alamo staten island", "staten island", "staten island alamo"],
     },
-    "Museum of Modern Art": {
-        "slug": "moma",
-        "short_name": "MoMA",
-        "sort_name": "MoMA",
-        "source_type": "moma",
-        "source_file": "moma_export.html",
-        "official_url": "https://www.moma.org/calendar/?happening_filter=Films&location=both",
-        "aliases": ["moma", "museum of modern art", "moma film"],
-    },
     "Paris Theater": {
         "slug": "paris",
         "short_name": "Paris",

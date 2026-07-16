@@ -1,6 +1,6 @@
 """
-NYC Cinema Dashboard - Weekly Scraper
-Runs every Wednesday via GitHub Actions
+NYC Cinema Dashboard - Scheduled Scraper
+Runs on a daily GitHub Actions schedule.
 Pulls showtimes via SerpAPI/AMC API and ratings via OMDb.
 """
 
@@ -70,12 +70,6 @@ PARIS_SITE_ID = "2001"
 PARIS_AUTH_URL = "https://auth.moviexchange.com/connect/token"
 PARIS_API_BASE = "https://digital-api.paristheaternyc.com/ocapi/v1"
 PARIS_TICKET_BASE = "https://tickets.paristheaternyc.com/order/showtimes"
-PARIS_AUTH_DATA = {
-    "grant_type": "password",
-    "username": "webhost-browsing-parisnyc",
-    "password": "HzaJe65EAPNto7sR5",
-    "client_id": "webhost-browsing-parisnyc",
-}
 LEGACY_FAKE_PLOTS = {
     "A sweeping portrait of ambition, sacrifice, and the cost of greatness.",
     "Two cousins reunite in Poland and confront the weight of their family history.",
@@ -1292,10 +1286,26 @@ def paris_text(value: object) -> str:
     return str(value or "").strip()
 
 
+def load_paris_auth_data() -> dict[str, str]:
+    username = os.environ.get("PARIS_API_USERNAME", "").strip()
+    password = os.environ.get("PARIS_API_PASSWORD", "").strip()
+    client_id = os.environ.get("PARIS_API_CLIENT_ID", "").strip() or username
+    if not username or not password or not client_id:
+        raise RuntimeError(
+            "Paris Theater credentials are missing. Set PARIS_API_USERNAME, PARIS_API_PASSWORD, and PARIS_API_CLIENT_ID."
+        )
+    return {
+        "grant_type": "password",
+        "username": username,
+        "password": password,
+        "client_id": client_id,
+    }
+
+
 def paris_token() -> str:
     response = requests.post(
         PARIS_AUTH_URL,
-        data=PARIS_AUTH_DATA,
+        data=load_paris_auth_data(),
         headers={"Content-Type": "application/x-www-form-urlencoded"},
         timeout=20,
     )
@@ -1597,7 +1607,9 @@ def omdb_request(ctx: ScrapeContext, params: dict) -> Optional[dict]:
 
 
 def rt_slug(title: str) -> str:
-    return normalize_title(title).replace(" ", "_")
+    # RT slugs usually collapse apostrophes instead of turning them into separators.
+    collapsed = str(title or "").replace("'", "").replace("\u2019", "")
+    return normalize_title(collapsed).replace(" ", "_")
 
 
 def title_lookup_aliases(title: str) -> list[str]:
@@ -2398,7 +2410,6 @@ REPERTORY_THEATERS = {
     "Film Forum",
     "Film at Lincoln Center",
     "Paris Theater",
-    "Museum of Modern Art",
 }
 
 def resolve_omdb_record(ctx: ScrapeContext, title: str, hint_year: Optional[int] = None, theater_name: Optional[str] = None) -> Optional[dict]:
@@ -2669,8 +2680,6 @@ def fetch_theater_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
         return fetch_ifc_showtimes(theater)
     if theater.get("source_type") == "filmforum":
         return fetch_film_forum_showtimes(theater)
-    if theater.get("source_type") == "moma":
-        return fetch_moma_showtimes(theater)
     if theater.get("source_type") == "alamo":
         return fetch_alamo_showtimes(theater)
     if theater.get("source_type") == "paris":

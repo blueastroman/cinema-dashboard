@@ -2932,7 +2932,6 @@ let memberships = {
   filmforum: false,
   metrograph: false,
   flc: false,
-  moma: false,
 };
 let membershipDefaults = {
   amc: 'AMC Lincoln Square 13',
@@ -2940,10 +2939,7 @@ let membershipDefaults = {
   regal: 'all',
 };
 const MOVIE_BLURB_STORAGE_KEY = 'cinema_movie_blurbs';
-const ANTHROPIC_API_KEY_STORAGE_KEY = 'cinema_anthropic_api_key';
 const POSTER_TINT_STORAGE_KEY = 'cinema_poster_tints';
-const BLURB_MODEL = 'claude-sonnet-4-20250514';
-const BLURB_SYSTEM_PROMPT = `You write brutally honest, specific one-liners about whether a movie is worth seeing in a NYC theater tonight. You have strong opinions. You are not promotional. You consider: critical score, director track record, genre, premise, and whether seeing it on a big screen adds anything. Your tone is that of a smart, opinionated film friend — not a critic, not a marketer. Never use the phrases "cinematic experience," "must-see," or "worth your time." Never hedge with "it depends." Take a stance. Max 2 sentences.`;
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
 const BLURB_MAX_VISIBLE_CHARS = 340;
 const PRESTIGE_TAG_PRIORITY = [
@@ -3199,7 +3195,6 @@ const DEFAULT_THEATER_META = {
   'Alamo Drafthouse Downtown Brooklyn': { slug: 'alamo-brooklyn', short_name: 'Alamo Brooklyn', sort_name: 'Alamo Brooklyn', official_url: 'https://drafthouse.com/theater/downtown-brooklyn', source_type: 'alamo', aliases: ['alamo brooklyn', 'downtown brooklyn', 'brooklyn alamo'] },
   'Alamo Drafthouse Staten Island': { slug: 'alamo-staten-island', short_name: 'Alamo Staten Island', sort_name: 'Alamo Staten Island', official_url: 'https://drafthouse.com/theater/staten-island', source_type: 'alamo', aliases: ['alamo staten island', 'staten island', 'staten island alamo'] },
   'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'paris', aliases: ['paris'] },
-  'Museum of Modern Art': { slug: 'moma', short_name: 'MoMA', sort_name: 'MoMA', official_url: 'https://www.moma.org/calendar/film/', source_type: 'serpapi', aliases: ['moma', 'museum of modern art', 'moma film'] },
 };
 
 function slugify(value) {
@@ -3359,6 +3354,7 @@ function isWithinCurrentWeekScope(dayLabel, dateISO = '') {
 function getAvailableDateBounds(data = null) {
   const movies = (data?.movies || allMovies) || [];
   const todayISO = toISODate(getNYNow());
+  let minISO = '';
   let maxISO = todayISO;
 
   for (const movie of movies) {
@@ -3366,12 +3362,17 @@ function getAvailableDateBounds(data = null) {
       for (const slot of (theater?.schedule || [])) {
         const iso = getShowtimeISO(slot?.day || '', slot?.date || '');
         if (!iso) continue;
+        if (iso >= todayISO && (!minISO || iso < minISO)) minISO = iso;
         if (iso >= todayISO && iso > maxISO) maxISO = iso;
       }
     }
   }
 
-  return { min: todayISO, max: maxISO };
+  return { min: minISO || todayISO, max: maxISO };
+}
+
+function getNextAvailableShowtimeISO(movies = allMovies) {
+  return getAvailableDateBounds({ movies }).min;
 }
 
 function getShowtimeDayLabel(dayLabel) {
@@ -4011,36 +4012,8 @@ function formatMovieBlurbText(text, maxChars = BLURB_MAX_VISIBLE_CHARS) {
   return trimmed ? `${trimmed}...` : `${clean.slice(0, maxChars).trimEnd()}...`;
 }
 
-function hasAnthropicApiKey() {
-  return Boolean(getAnthropicApiKey());
-}
-
-function getAnthropicApiKey() {
-  try {
-    return cleanDisplayText(
-      window.ANTHROPIC_API_KEY ||
-      window.__ANTHROPIC_API_KEY__ ||
-      localStorage.getItem(ANTHROPIC_API_KEY_STORAGE_KEY)
-    );
-  } catch {
-    return cleanDisplayText(window.ANTHROPIC_API_KEY || window.__ANTHROPIC_API_KEY__);
-  }
-}
-
-function getMovieBlurbUserPrompt(movie) {
-  const ratings = movie?.ratings || {};
-  const title = cleanDisplayText(movie?.title);
-  const year = cleanDisplayText(ratings.year);
-  const director = cleanDisplayText(ratings.director) || 'N/A';
-  const genre = cleanDisplayText(ratings.genre) || 'N/A';
-  const runtime = getRuntimeMinutes(cleanDisplayText(ratings.runtime));
-  const runtimeText = runtime ? String(runtime) : 'N/A';
-  const score = getRTScore(movie);
-  const scoreText = score === null ? 'N/A' : String(score);
-  const lb = cleanDisplayText(getLetterboxdScore(movie)) || 'N/A';
-  const premise = getMovieBlurbPremiseText(movie) || 'N/A';
-  const consensus = getMovieBlurbConsensusText(movie) || 'N/A';
-  return `Movie: ${title} (${year}). Director: ${director}. Genre: ${genre}. Runtime: ${runtimeText} min. RT Critics Score: ${scoreText}%. Letterboxd: ${lb}. Premise: ${premise}. Critics consensus: ${consensus}. Should someone see this in a NYC theater tonight?`;
+function canGenerateBlurbsServerSide() {
+  return window.location.protocol !== 'file:';
 }
 
 function normalizeGeneratedBlurb(text) {
@@ -4111,7 +4084,7 @@ function getMovieBlurbState(movie, { forceRefresh = false } = {}) {
   }
 
   const fallback = getMovieBlurbFallbackText(movie);
-  if (hasAnthropicApiKey()) {
+  if (canGenerateBlurbsServerSide()) {
     return { key, text: formatMovieBlurbText(fallback), loading: true, source: 'pending' };
   }
 
@@ -4134,7 +4107,7 @@ function fallbackMovieBlurbForSlots(movie) {
 }
 
 function scheduleMovieBlurbGeneration(movie, { forceRefresh = false } = {}) {
-  if (!hasAnthropicApiKey()) return;
+  if (!canGenerateBlurbsServerSide()) return;
   const key = getMovieBlurbKey(movie);
   if (!key) return;
   if (!forceRefresh && movieBlurbPendingKeys.has(key)) return;
@@ -4161,27 +4134,26 @@ function processMovieBlurbRequestQueue() {
 
   movieBlurbActiveRequests += 1;
   const { movie, key, token } = next;
-  const apiKey = getAnthropicApiKey();
   const slotState = getMovieBlurbState(movie, { forceRefresh: true });
   updateMovieBlurbSlots(key, renderMovieBlurbLoading);
 
-  fetch('https://api.anthropic.com/v1/messages', {
+  fetch('/api/blurbs', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: BLURB_MODEL,
-      max_tokens: 120,
-      system: BLURB_SYSTEM_PROMPT,
-      messages: [
-        {
-          role: 'user',
-          content: getMovieBlurbUserPrompt(movie),
-        },
-      ],
+      movie: {
+        title: cleanDisplayText(movie?.title),
+        year: cleanDisplayText(movie?.ratings?.year),
+        director: cleanDisplayText(movie?.ratings?.director),
+        genre: cleanDisplayText(movie?.ratings?.genre),
+        runtime_minutes: getRuntimeMinutes(cleanDisplayText(movie?.ratings?.runtime)) || 'N/A',
+        critics_score: getRTScore(movie) ?? 'N/A',
+        letterboxd: cleanDisplayText(getLetterboxdScore(movie)) || 'N/A',
+        premise: getMovieBlurbPremiseText(movie) || 'N/A',
+        consensus: getMovieBlurbConsensusText(movie) || 'N/A',
+      },
     }),
   })
     .then(async response => {
@@ -4189,7 +4161,7 @@ function processMovieBlurbRequestQueue() {
         throw new Error(`Anthropic request failed (${response.status})`);
       }
       const payload = await response.json();
-      const text = payload?.content?.[0]?.text || '';
+      const text = payload?.text || '';
       return normalizeGeneratedBlurb(text);
     })
     .then(text => {
@@ -5042,6 +5014,14 @@ function initDashboard(data) {
   applyScoreOverrides();
   primeMovieBlurbCache(allMovies);
   effectiveConfidenceThreshold = computeEffectiveConfidenceThreshold(allMovies);
+  if (dateScope === 'today' && !new URLSearchParams(window.location.search).has('date')) {
+    const nextAvailableISO = getNextAvailableShowtimeISO(allMovies);
+    const hasTodayResults = allMovies.some(movie => moviePlayingOn({ ...movie, theaters: getVisibleTheaters(movie) }, getTodayLabel()));
+    if (nextAvailableISO && !hasTodayResults) {
+      dateScope = 'custom';
+      selectedDateISO = nextAvailableISO;
+    }
+  }
   hasLoadedData = true;
 
   populateMembershipDefaultSelect('default-amc-select', getAvailableMembershipTheaters('amc', data), membershipDefaults.amc, 'All AMC');
@@ -6321,7 +6301,7 @@ function refreshRankingBlurb(btn, movieId) {
     renderMovieBlurbLoading(slot);
   }
 
-  if (hasAnthropicApiKey()) {
+  if (canGenerateBlurbsServerSide()) {
     scheduleMovieBlurbGeneration(movie, { forceRefresh: true });
     return;
   }
@@ -6883,6 +6863,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 */
 
 let _supabase = null;
+const ANALYTICS_DIAGNOSTIC_KEY = 'cinema_last_analytics_issue';
 let currentUser = null;
 let sitepicks = (() => {
   try { return new Set(JSON.parse(localStorage.getItem('cinema_picks') || '[]')); } catch { return new Set(); }
@@ -6909,7 +6890,7 @@ let cloudScoreOverrides = {};
 async function loadBlurbsFromCloud() {
   try {
     let res = await fetch(
-      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override,rt_url_override`,
+      `${SUPABASE_URL}/rest/v1/blurbs?select=movie_key,text,source,prestige_tag,rt_override,cinema_score_override,lb_override,rt_url_override,letterboxd_url_override,imdb_id_override,poster_url_override`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     );
     if (!res.ok) {
@@ -6930,12 +6911,15 @@ async function loadBlurbsFromCloud() {
       if (r.movie_key && r.prestige_tag) {
         cloudPrestigeTags[r.movie_key] = r.prestige_tag;
       }
-      if (r.movie_key && (r.rt_override || r.cinema_score_override || r.lb_override || r.rt_url_override)) {
+      if (r.movie_key && (r.rt_override || r.cinema_score_override || r.lb_override || r.rt_url_override || r.letterboxd_url_override || r.imdb_id_override || r.poster_url_override)) {
         cloudScoreOverrides[r.movie_key] = {
           rt: r.rt_override || null,
           cinemaScore: r.cinema_score_override || null,
           lb: r.lb_override || null,
           rtUrl: r.rt_url_override || null,
+          letterboxdUrl: r.letterboxd_url_override || null,
+          imdbID: r.imdb_id_override || null,
+          poster: r.poster_url_override || null,
         };
       }
     });
@@ -6952,6 +6936,9 @@ function applyScoreOverrides() {
     if (ov.cinemaScore) movie.ratings.cinemaScore = ov.cinemaScore;
     if (ov.lb) movie.ratings.letterboxd = ov.lb;
     if (ov.rtUrl) movie.ratings.rtUrl = ov.rtUrl;
+    if (ov.letterboxdUrl) movie.ratings.letterboxdUrl = ov.letterboxdUrl;
+    if (ov.imdbID) movie.ratings.imdbID = ov.imdbID;
+    if (ov.poster) movie.ratings.poster = ov.poster;
   });
 }
 
@@ -7001,59 +6988,62 @@ function getVisitVisitorId() {
   }
 }
 
-async function getVisitorGeo() {
-  const cached = sessionStorage.getItem('cinema_visitor_geo');
-  if (cached) try { return JSON.parse(cached); } catch {}
+function recordAnalyticsIssue(kind, details = {}) {
+  const payload = { kind, at: new Date().toISOString(), path: location.pathname || '/', details };
+  try { localStorage.setItem(ANALYTICS_DIAGNOSTIC_KEY, JSON.stringify(payload)); } catch {}
+  console.warn(`Analytics issue [${kind}]`, payload);
+}
+
+function clearAnalyticsIssue(kind = '') {
   try {
-    const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
-    if (!res.ok) return null;
-    const d = await res.json();
-    if (!d.ip) return null;
-    const geo = { ip: d.ip, country_code: d.country_code || null, lat: d.latitude || null, lon: d.longitude || null };
-    sessionStorage.setItem('cinema_visitor_geo', JSON.stringify(geo));
-    return geo;
-  } catch {
-    return null;
-  }
+    const raw = localStorage.getItem(ANALYTICS_DIAGNOSTIC_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (!kind || parsed?.kind === kind) localStorage.removeItem(ANALYTICS_DIAGNOSTIC_KEY);
+  } catch {}
 }
 
 async function trackSiteVisit(user = currentUser) {
   try {
-    if (!SUPABASE_URL || SUPABASE_URL === 'YOUR_SUPABASE_URL' || !SUPABASE_ANON_KEY) return;
     const visitorId = getVisitVisitorId();
     const visitDate = new Date().toISOString().slice(0, 10);
     const userKey = user?.id || 'anon';
     const sessionKey = `cinema_visit_${visitDate}_${userKey}_${location.pathname}`;
     if (sessionStorage.getItem(sessionKey)) return;
-    const geo = await getVisitorGeo();
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/site_visits`, {
+    const response = await fetch('/api/site-visit', {
       method: 'POST',
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal',
-      },
+      headers: { 'Content-Type': 'application/json' },
       keepalive: true,
       body: JSON.stringify({
         visitor_id: visitorId,
-        ip_address: geo?.ip || null,
-        country_code: geo?.country_code || null,
-        lat: geo?.lat || null,
-        lon: geo?.lon || null,
         user_id: user?.id || null,
         path: location.pathname || '/',
         referrer: document.referrer || null,
-        user_agent: navigator.userAgent || null,
       }),
     });
+    const payload = await response.json().catch(() => ({}));
     if (!response.ok) {
-      const details = await response.text().catch(() => '');
-      console.warn('Site visit tracking failed:', response.status, details || response.statusText);
+      recordAnalyticsIssue('site_visit', {
+        status: response.status,
+        message: payload?.error || response.statusText,
+        user_id: user?.id || null,
+      });
+      return;
+    }
+    if (payload?.accepted === false) {
+      if (payload.reason === 'already_recorded_today' || payload.reason === 'rate_limited') {
+        sessionStorage.setItem(sessionKey, '1');
+        clearAnalyticsIssue('site_visit');
+        return;
+      }
+      recordAnalyticsIssue('site_visit', { message: payload.reason || 'analytics rejected', user_id: user?.id || null });
       return;
     }
     sessionStorage.setItem(sessionKey, '1');
-  } catch (e) { /* silent */ }
+    clearAnalyticsIssue('site_visit');
+  } catch (e) {
+    recordAnalyticsIssue('site_visit', { message: e?.message || String(e), user_id: user?.id || null });
+  }
 }
 
 async function loadUserListsFromCloud() {
