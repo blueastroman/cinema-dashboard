@@ -147,6 +147,14 @@ def get_movie_premise_text(movie):
     )
 
 
+def has_reviewable_content(movie):
+    """Return True only if we have enough grounded information to write a real review."""
+    r = movie.get("ratings", {})
+    has_score = bool(r.get("rt") or r.get("metacritic"))
+    has_plot = bool(str(r.get("plot") or movie.get("plot") or "").strip())
+    return has_score or has_plot
+
+
 def build_film_block(movie):
     """Build the text description of a film for the API prompt."""
     r = movie.get("ratings", {})
