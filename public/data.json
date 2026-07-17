@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T09:12:54.503340-04:00",
+  "generated_at": "2026-07-17T09:33:28.461926-04:00",
   "week_of": "July 17, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -580,15 +580,15 @@
         "imdbID": "tt0093342",
         "rt": "100%",
         "imdb": "8.1",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMDFhMDg2NTEtMTgxMi00YmRjLWEyNGEtYmVmYjQ0ZmQxOGNkXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Adventure, Drama, Family",
         "runtime": "83 min",
         "plot": "Eight-year-old Ahmed has mistakenly taken his friend Mohammad's notebook. He wants to return it, or else his friend will be expelled from school. The boy determinedly sets out to find Mohammad's home in the neighbouring village.",
         "year": "1987",
-        "director": "Abbas Kiarostami"
+        "director": "Abbas Kiarostami",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -658,13 +658,13 @@
         "imdb": "8.1",
         "metacritic": "97",
         "letterboxd": "4.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNGVjMTMxZTQtMmVlNy00YmI0LWJjMDUtYTgyZWU1Njg5ZGRiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Film-Noir, Mystery",
         "runtime": "104 min",
         "plot": "Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.",
         "year": "1949",
-        "director": "Carol Reed"
+        "director": "Carol Reed",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -754,13 +754,13 @@
         "imdb": "7.8",
         "metacritic": "88",
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNTk1YzlhMTUtZmU5MC00NmRmLTlkZjItYzQ0NTY4Y2NiNzc4XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Adventure, Comedy, Family",
         "runtime": "103 min",
         "plot": "Paddington, now happily settled with the Brown family and a popular member of the local community, picks up a series of odd jobs to buy the perfect present for his Aunt Lucy's 100th birthday, only for the gift to be stolen.",
         "year": "2017",
-        "director": "Paul King"
+        "director": "Paul King",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -890,13 +890,13 @@
         "imdb": "7.6",
         "metacritic": "80",
         "letterboxd": "3.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMmVhYWEzMGEtZjhkYS00ZWE0LTlhOWQtZTRlODZlMTM0Y2JmXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Animation, Comedy, Drama",
         "runtime": "90 min",
         "plot": "A cash-strapped documentary maker decides to make his newest documentary about a mollusk shell he finds living in his Airbnb with his friends.",
         "year": "2021",
-        "director": "Dean Fleischer Camp"
+        "director": "Dean Fleischer Camp",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -958,176 +958,6 @@
       }
     },
     {
-      "id": "tt4772188",
-      "title": "Flow",
-      "ratings": {
-        "imdbID": "tt4772188",
-        "rt": "97%",
-        "imdb": "7.9",
-        "metacritic": "87",
-        "letterboxd": "4.0",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Adventure, Family",
-        "runtime": "85 min",
-        "plot": "Cat is a solitary animal, but as its home is devastated by a great flood, he finds refuge on a boat populated by various species, and will have to team up with them despite their differences.",
-        "year": "2024",
-        "director": "Gints Zilbalodis"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057",
-          "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057"
-              }
-            },
-            {
-              "day": "Mon Jul 20",
-              "times": [
-                "4:15pm"
-              ],
-              "date": "2026-07-20",
-              "ticket_urls": {
-                "4:15pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90058"
-              }
-            },
-            {
-              "day": "Tue Jul 21",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-21",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90059"
-              }
-            },
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-22",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90060"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231",
-          "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231"
-              }
-            },
-            {
-              "day": "Mon Jul 20",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-20",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130232"
-              }
-            },
-            {
-              "day": "Tue Jul 21",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-21",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130233"
-              }
-            },
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "3:30pm"
-              ],
-              "date": "2026-07-22",
-              "ticket_urls": {
-                "3:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130234"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838",
-          "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838"
-              }
-            },
-            {
-              "day": "Mon Jul 20",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-20",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41839"
-              }
-            },
-            {
-              "day": "Tue Jul 21",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-21",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41840"
-              }
-            },
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-22",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41841"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Rare wordless storytelling that succeeds entirely through visual language and deserves the largest screen possible. Zilbalodis crafts each frame with painterly precision that streaming compression would diminish."
-      },
-      "prestige_tags": [
-        "BEST ANIMATED FEATURE WINNER",
-        "CRITERION COLLECTION"
-      ]
-    },
-    {
       "id": "tt7999962",
       "title": "Infinite Football",
       "ratings": {
@@ -1136,13 +966,13 @@
         "imdb": "6.4",
         "metacritic": "75",
         "letterboxd": "3.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZWM0MDM3NzgtMzQwNS00M2M1LWExNzItMzczZmYwZGQ1MjI2XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Documentary, Sport",
         "runtime": "70 min",
         "plot": "They talk about the beautiful game, but for Laurentiu Ginghina, it's not enough. Football must be modified, streamlined, freed from restraints; corners are to be rounded off, players assigned to zones and subteams, norms revised. ...",
         "year": "2018",
-        "director": "Corneliu Porumboiu"
+        "director": "Corneliu Porumboiu",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -1178,13 +1008,13 @@
         "imdb": "7.8",
         "metacritic": "82",
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMjI0MzJjMjctNmQzZi00Y2U4LWEwZGItMmE3NDUzNzk1YzY3XkEyXkFqcGc@._V1_QL75_UX380_CR0,15,380,562_.jpg",
         "genre": "Comedy, Drama, Romance",
         "runtime": "107 min",
         "plot": "Joe and Angela's marriage is on thin ice. When they invite their enigmatic upstairs neighbors for a dinner party, the night spirals into unexpected places.",
         "year": "2026",
-        "director": "Olivia Wilde"
+        "director": "Olivia Wilde",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2175,13 +2005,13 @@
         "imdb": "7.3",
         "metacritic": "72",
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BM2IzNjdiNzUtNTJjMy00Mjk5LTg3MzItNzA2ZjYzOWE2MGIyXkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
         "genre": "Animation, Adventure, Fantasy",
         "runtime": "88 min",
         "plot": "In 2075, a girl witnesses a mysterious boy in a rainbow suit fall from the sky. He comes from an idyllic far future where time travel is possible. She shelters him and will do whatever it takes to help him return to his time.",
         "year": "2025",
-        "director": "Ugo Bienvenu"
+        "director": "Ugo Bienvenu",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2370,13 +2200,13 @@
         "imdb": "5.3",
         "metacritic": "83",
         "letterboxd": "2.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZjVkZjIxMzItMzYyMi00ODMwLWEwMWQtMjhhMTkwMGI5MWEyXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Horror, Romance, Sci-Fi",
         "runtime": "88 min",
         "plot": "Two teenage boys must escape a violent entity that takes the form of the person they desire most - each other.",
         "year": "2026",
-        "director": "Adrian Chiarella"
+        "director": "Adrian Chiarella",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2450,15 +2280,15 @@
         "imdbID": "tt0045810",
         "rt": "88%",
         "imdb": "7.1",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZjQ4MDJhZGMtNDliZS00ZTYwLWJmN2ItZWY3NDc2NTFjN2VmXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Musical, Romance",
         "runtime": "91 min",
         "plot": "Showgirls Lorelei Lee and Dorothy Shaw travel to Paris, pursued by a private detective hired by the suspicious father of Lorelei's fiancé, as well as a rich, enamored old man and many other doting admirers.",
         "year": "1953",
-        "director": "Howard Hawks"
+        "director": "Howard Hawks",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2494,13 +2324,13 @@
         "imdb": "6.7",
         "metacritic": "63",
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYTRlYzQwYjItNDljNC00YmI2LWEwYmEtMjhhM2NiMGFhNTYyXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Documentary, Comedy",
         "runtime": "92 min",
         "plot": "Follows the Jackass crew as they perform their final series of dangerous stunts and pranks, marking the end of the franchise.",
         "year": "2026",
-        "director": "Jeff Tremaine"
+        "director": "Jeff Tremaine",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2622,13 +2452,13 @@
         "imdb": "7.8",
         "metacritic": "79",
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYjVlNTk3NGYtOWE0OC00MDI4LThlZWItZGMwMTdmYzcwM2Y5XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Drama, Thriller",
         "runtime": "119 min",
         "plot": "During Prohibition, Treasury agent Eliot Ness sets out to stop ruthless Chicago gangster Al Capone, and assembles a small, incorruptible team to help him.",
         "year": "1987",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -2698,13 +2528,13 @@
         "imdb": "7.1",
         "metacritic": "75",
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNWE1ZTIzOWYtZjVmNC00NmQ2LWEyYmEtMGI4ZWE0YzU0M2IyXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Action, Crime, Drama",
         "runtime": "113 min",
         "plot": "During the Vietnam War, a soldier finds himself the outsider of his own squad when they unnecessarily kidnap a female villager, for their sexual enjoyment.",
         "year": "1989",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -3156,6 +2986,176 @@
       }
     },
     {
+      "id": "tt4772188",
+      "title": "Flow",
+      "ratings": {
+        "imdbID": "tt4772188",
+        "rt": "67%",
+        "imdb": "7.9",
+        "metacritic": "87",
+        "letterboxd": "4.0",
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Animation, Adventure, Family",
+        "runtime": "85 min",
+        "plot": "Cat is a solitary animal, but as its home is devastated by a great flood, he finds refuge on a boat populated by various species, and will have to team up with them despite their differences.",
+        "year": "2024",
+        "director": "Gints Zilbalodis",
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057",
+          "schedule": [
+            {
+              "day": "Fri Jul 17",
+              "times": [
+                "12:30pm"
+              ],
+              "date": "2026-07-17",
+              "ticket_urls": {
+                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057"
+              }
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "4:15pm"
+              ],
+              "date": "2026-07-20",
+              "ticket_urls": {
+                "4:15pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90058"
+              }
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-21",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90059"
+              }
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-22",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90060"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Downtown Brooklyn",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231",
+          "schedule": [
+            {
+              "day": "Fri Jul 17",
+              "times": [
+                "12:30pm"
+              ],
+              "date": "2026-07-17",
+              "ticket_urls": {
+                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231"
+              }
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-20",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130232"
+              }
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-21",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130233"
+              }
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "3:30pm"
+              ],
+              "date": "2026-07-22",
+              "ticket_urls": {
+                "3:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130234"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Staten Island",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838",
+          "schedule": [
+            {
+              "day": "Fri Jul 17",
+              "times": [
+                "12:30pm"
+              ],
+              "date": "2026-07-17",
+              "ticket_urls": {
+                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838"
+              }
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-20",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41839"
+              }
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-21",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41840"
+              }
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "4:00pm"
+              ],
+              "date": "2026-07-22",
+              "ticket_urls": {
+                "4:00pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41841"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Rare wordless storytelling that succeeds entirely through visual language and deserves the largest screen possible. Zilbalodis crafts each frame with painterly precision that streaming compression would diminish."
+      },
+      "prestige_tags": [
+        "BEST ANIMATED FEATURE WINNER",
+        "CRITERION COLLECTION"
+      ]
+    },
+    {
       "id": "tt37287335",
       "title": "Obsession (2026)",
       "ratings": {
@@ -3164,13 +3164,13 @@
         "imdb": "8.0",
         "metacritic": "77",
         "letterboxd": "4.0",
-        "cinemaScore": "A-",
         "poster": "https://m.media-amazon.com/images/M/MV5BYzc1NWUwMDgtNGZlMS00ZmYzLWIzMzktNmMxMmY1MTUzNWExXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Horror, Romance, Thriller",
         "runtime": "108 min",
         "plot": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
         "year": "2026",
-        "director": "Curry Barker"
+        "director": "Curry Barker",
+        "cinemaScore": "A-"
       },
       "theaters": [
         {
@@ -3685,13 +3685,13 @@
         "imdb": "6.6",
         "metacritic": "69",
         "letterboxd": "3.3",
-        "cinemaScore": "A-",
         "poster": "https://m.media-amazon.com/images/M/MV5BYzBjMDg4YjctYzg3ZS00ZDFmLWI1YjctM2RkZGVjZWEyYWQ0XkEyXkFqcGc@._V1_QL75_UX380_CR0,20,380,562_.jpg",
         "genre": "Animation, Adventure, Comedy",
         "runtime": "90 min",
         "plot": "Follows the Minions in 1920s Hollywood as they search for frightening creatures for their monster movie, partner with a green creature, and must save the planet after unleashing monsters.",
         "year": "2026",
-        "director": "Pierre Coffin"
+        "director": "Pierre Coffin",
+        "cinemaScore": "A-"
       },
       "theaters": [
         {
@@ -4675,13 +4675,13 @@
         "imdb": "7.5",
         "metacritic": "39",
         "letterboxd": "3.8",
-        "cinemaScore": "A-",
         "poster": "https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Biography, Drama, History",
         "runtime": "127 min",
         "plot": "The early life of musician Michael Jackson, from the discovery of his talent as the lead of the Jackson Five to the artist whose creative ambition fueled a pursuit to become the biggest entertainer in the world.",
         "year": "2026",
-        "director": "Antoine Fuqua"
+        "director": "Antoine Fuqua",
+        "cinemaScore": "A-"
       },
       "theaters": [
         {
@@ -4755,13 +4755,13 @@
         "imdb": "6.1",
         "metacritic": "49",
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMmJkOTE0MWUtY2E5OS00NzEyLWI4NjEtYzQzYzFmMjk5ODE3XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Action, Adventure, Drama",
         "runtime": "108 min",
         "plot": "Kara Zor-El, aka Supergirl, joins forces with an unlikely companion on an interstellar journey of vengeance and justice when an unexpected adversary strikes too close to home.",
         "year": "2026",
-        "director": "Craig Gillespie"
+        "director": "Craig Gillespie",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -5602,15 +5602,15 @@
         "imdbID": "tt0091943",
         "rt": "100%",
         "imdb": "7.2",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTI5OTEzNDcwOV5BMl5BanBnXkFtZTcwMjYzMjUyMQ@@._V1_SX300.jpg",
         "genre": "Documentary, Biography, Comedy",
         "runtime": "157 min",
         "plot": "Documentary filmmaker Ross McElwee sets out to make a movie about Union General Sherman's March to the Sea towards the end of the American Civil War, but keeps getting sidetracked by his own love life.",
         "year": "1985",
-        "director": "Ross McElwee"
+        "director": "Ross McElwee",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -5707,16 +5707,16 @@
       "ratings": {
         "imdbID": "tt38589433",
         "rt": "100%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://image.tmdb.org/t/p/w500/4rDgzOCBREeTaqZvTeFtEcnrju8.jpg",
         "genre": "Horror",
         "runtime": "105 min",
         "plot": "A traveling psychic who helps lost souls cross over encounters a powerful entity at a remote house. While investigating its origins, she uncovers dark secrets and faces a deadly threat from an unexpected source.",
         "year": "2026",
-        "director": "Dave Boyle"
+        "director": "Dave Boyle",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -5922,13 +5922,13 @@
         "imdb": "8.1",
         "metacritic": "98",
         "letterboxd": "4.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZDlkYjViMDAtYjkxNy00ZDk1LWE5MmUtNDc4NDU3ZWJmOTYzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Drama, Mystery",
         "runtime": "88 min",
         "plot": "Three parties and a witness have four versions of a rape/murder in ninth-century Japan.",
         "year": "1950",
-        "director": "Akira Kurosawa"
+        "director": "Akira Kurosawa",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -9172,61 +9172,6 @@
       "special_formats": []
     },
     {
-      "id": "tt0074285",
-      "title": "Carrie (1976)",
-      "ratings": {
-        "imdbID": "tt0074285",
-        "rt": "94%",
-        "imdb": "7.4",
-        "metacritic": "86",
-        "letterboxd": "3.7",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNjMwMDVlZjYtMWRlZS00OTU1LTlmYTQtOGViNTdmYTE0ZjRlXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Horror",
-        "runtime": "98 min",
-        "plot": "Carrie White, a shy, friendless teenage girl who is sheltered by her domineering, religious mother, unleashes her telekinetic powers after being humiliated by her classmates at her senior prom.",
-        "year": 1976,
-        "director": "Brian De Palma"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/carrie?cinemaId=2103&sessionId=93847",
-          "schedule": [
-            {
-              "day": "Wed Aug 26",
-              "times": [
-                "6:00pm"
-              ],
-              "date": "2026-08-26",
-              "ticket_urls": {
-                "6:00pm": "https://drafthouse.com/nyc/show/carrie?cinemaId=2103&sessionId=93847"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/carrie?cinemaId=2101&sessionId=134114",
-          "schedule": [
-            {
-              "day": "Wed Aug 26",
-              "times": [
-                "3:45pm"
-              ],
-              "date": "2026-08-26",
-              "ticket_urls": {
-                "3:45pm": "https://drafthouse.com/nyc/show/carrie?cinemaId=2101&sessionId=134114"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
       "id": "tt0054632",
       "title": "Last Year at Marienbad",
       "ratings": {
@@ -9276,13 +9221,13 @@
         "imdb": "5.9",
         "metacritic": "71",
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMmEyNzUwNmItOTI1Mi00ZmVlLTkxZWEtOGY0Y2Y2YzU0YzRkXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Horror, Mystery",
         "runtime": "94 min",
         "plot": "Alice, an ambitious camgirl, wakes up one day to discover she's been replaced on her show with an exact replica of herself.",
         "year": "2018",
-        "director": "Daniel Goldhaber"
+        "director": "Daniel Goldhaber",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -9312,15 +9257,15 @@
         "imdbID": "tt0077613",
         "rt": "93%",
         "imdb": "7.2",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZGM4MDU4ZjYtMWVmMC00ZjM2LTllN2MtYWFhNTMwY2RkZWQ4XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Drama",
         "runtime": "88 min",
         "plot": "A photographer and her girlfriend are roommates. She is stuck with small-change shooting jobs and dreams of success. When her roommate decides to get married and leave, she feels hurt and has to learn how to deal with living alone.",
         "year": "1978",
-        "director": "Claudia Weill"
+        "director": "Claudia Weill",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -9355,13 +9300,13 @@
         "imdb": "7.7",
         "metacritic": "84",
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTEwMTc3NDkzOTJeQTJeQWpwZ15BbWU3MDI4NTAwNzc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Adventure, Comedy, Drama",
         "runtime": "94 min",
         "plot": "Two 12-year-olds, who live on an island, fall in love with each other and elope into the wilderness. While people set out on a search mission, a violent storm approaching them catches their attention.",
         "year": "2012",
-        "director": "Wes Anderson"
+        "director": "Wes Anderson",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -9411,15 +9356,15 @@
         "imdbID": "tt0058379",
         "rt": "93%",
         "imdb": "6.5",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYmNmMGRhNjAtMTUyNS00NTAyLTgxMzQtNzk1ZGI2MzczYWUwXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Adventure, Fantasy, Sci-Fi",
         "runtime": "89 min",
         "plot": "When greedy tycoons refuse to return Mothra's egg to the people of Infant Island, they must decide if they are willing to answer Japan's own pleas for help when Godzilla arises near Nagoya.",
         "year": "1964",
-        "director": "Ishirô Honda"
+        "director": "Ishirô Honda",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -9500,21 +9445,269 @@
       ]
     },
     {
+      "id": "tt0059578",
+      "title": "For a Few Dollars More",
+      "ratings": {
+        "imdbID": "tt0059578",
+        "rt": "92%",
+        "imdb": "8.2",
+        "metacritic": "74",
+        "letterboxd": "4.1",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTRmOTcyYmYtMTIwNi00ZGYyLTk4YjYtZGJlZTgwZGY0NGQyXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg",
+        "genre": "Drama, Western",
+        "runtime": "132 min",
+        "plot": "Two bounty killers with similar intentions but different motivations team up to take down a psychotic Mexican outlaw before he and his gang can carry out an audacious bank robbery.",
+        "year": "1967",
+        "director": "Sergio Leone"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30474&visLang=1",
+          "schedule": [
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "3:50pm"
+              ],
+              "date": "2026-07-22",
+              "ticket_urls": {
+                "3:50pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30474&visLang=1"
+              }
+            }
+          ],
+          "special_formats": [
+            "35mm"
+          ]
+        }
+      ],
+      "special_formats": [
+        "35mm"
+      ]
+    },
+    {
+      "id": "tt0093776",
+      "title": "Prick Up Your Ears",
+      "ratings": {
+        "imdbID": "tt0093776",
+        "rt": "92%",
+        "imdb": "7.1",
+        "metacritic": "72",
+        "letterboxd": "3.5",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZmRmZjI0ZGEtMDlhMi00OWJhLWFiNTItMzcwYzNjZGZkMjE0XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Biography, Drama",
+        "runtime": "105 min",
+        "plot": "Biographer John Lahr is writing a book about playwright Joe Orton. Joe and Kenneth meet at drama school and live together for ten years as lovers and collaborators. Both want to be writers, but only one of them is successful.",
+        "year": "1987",
+        "director": "Stephen Frears"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30331&visLang=1",
+          "schedule": [
+            {
+              "day": "Sat Jul 18",
+              "times": [
+                "8:30pm"
+              ],
+              "date": "2026-07-18",
+              "ticket_urls": {
+                "8:30pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30331&visLang=1"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "tt3385524",
+      "title": "STAN & OLLIE",
+      "ratings": {
+        "imdbID": "tt3385524",
+        "rt": "92%",
+        "imdb": "7.2",
+        "metacritic": "75",
+        "letterboxd": "3.6",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMDU5ODI0MzktNjdhMy00MTcwLTljMzYtNzg3Njk5ZTgwMDgxXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Biography, Comedy, Drama",
+        "runtime": "98 min",
+        "plot": "Laurel and Hardy, the world's most famous comedy duo, attempt to reignite their film careers as they embark on what becomes their swan song: a grueling theatre tour of post-war Britain.",
+        "year": "2018",
+        "director": "Jon S. Baird",
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Film Forum",
+          "ticket_url": "https://filmforum.org/film/stan-ollie-laurel-hardy",
+          "schedule": [
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "7:50pm"
+              ],
+              "date": "2026-07-19",
+              "ticket_urls": {
+                "7:50pm": "https://filmforum.org/film/stan-ollie-laurel-hardy"
+              }
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "2:40pm"
+              ],
+              "date": "2026-07-20",
+              "ticket_urls": {
+                "2:40pm": "https://filmforum.org/film/stan-ollie-laurel-hardy"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "the-end-of-evangelion",
+      "title": "The End of Evangelion",
+      "ratings": {
+        "imdbID": null,
+        "rt": "92%",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": "https://image.tmdb.org/t/p/w500/9YM9UhTB6vow6IG1Qc5UDPw46Mw.jpg",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Village East by Angelika",
+          "ticket_url": "https://angelikafilmcenter.com/villageeast",
+          "schedule": [
+            {
+              "day": "mié 22 jul",
+              "times": [
+                "7:15p.m."
+              ]
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
+          "schedule": [
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "7:00pm",
+                "8:00pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
+          "schedule": [
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "7:00pm",
+                "7:30pm",
+                "8:30pm",
+                "9:30pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
+          "schedule": [
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "7:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "tt34440913",
+      "title": "Family Movie",
+      "ratings": {
+        "imdbID": "tt34440913",
+        "rt": "92%",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMDBlNDZmNTktN2UzYi00MzQzLThhYmEtODdjOTdhYzdmZTc4XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Comedy, Horror",
+        "runtime": "81 min",
+        "plot": "A filmmaking family finds themselves in a real-life horror movie when a body turns up on the set of their low-budget slasher, forcing them to cover up the murder to keep filming.",
+        "year": "2026",
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Film at Lincoln Center",
+          "ticket_url": "https://purchase.filmlinc.org/83547/83548",
+          "schedule": [
+            {
+              "day": "Wed Aug 19",
+              "times": [
+                "6:30pm"
+              ],
+              "date": "2026-08-19",
+              "ticket_urls": {
+                "6:30pm": "https://purchase.filmlinc.org/83547/83548"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
       "id": "tt29355505",
       "title": "Toy Story 5",
       "ratings": {
         "imdbID": "tt29355505",
-        "rt": "93%",
+        "rt": "92%",
         "imdb": "7.5",
         "metacritic": "73",
         "letterboxd": "3.8",
-        "cinemaScore": "A",
         "poster": "https://m.media-amazon.com/images/M/MV5BZTI1YTBiNmEtYWUxZi00YzFkLWIzNjMtMmZjMmY2NzM0ZWMzXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Animation, Adventure, Comedy",
         "runtime": "102 min",
         "plot": "Woody, Buzz, Jessie and the rest of the gang's jobs are challenged when they're introduced to electronics, a new threat to playtime.",
         "year": "2026",
-        "director": "McKenna Harris, Andrew Stanton"
+        "director": "McKenna Harris, Andrew Stanton",
+        "cinemaScore": "A"
       },
       "theaters": [
         {
@@ -10539,254 +10732,6 @@
       }
     },
     {
-      "id": "tt0059578",
-      "title": "For a Few Dollars More",
-      "ratings": {
-        "imdbID": "tt0059578",
-        "rt": "92%",
-        "imdb": "8.2",
-        "metacritic": "74",
-        "letterboxd": "4.1",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTRmOTcyYmYtMTIwNi00ZGYyLTk4YjYtZGJlZTgwZGY0NGQyXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg",
-        "genre": "Drama, Western",
-        "runtime": "132 min",
-        "plot": "Two bounty killers with similar intentions but different motivations team up to take down a psychotic Mexican outlaw before he and his gang can carry out an audacious bank robbery.",
-        "year": "1967",
-        "director": "Sergio Leone"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30474&visLang=1",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "3:50pm"
-              ],
-              "date": "2026-07-22",
-              "ticket_urls": {
-                "3:50pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30474&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "35mm"
-          ]
-        }
-      ],
-      "special_formats": [
-        "35mm"
-      ]
-    },
-    {
-      "id": "tt0093776",
-      "title": "Prick Up Your Ears",
-      "ratings": {
-        "imdbID": "tt0093776",
-        "rt": "92%",
-        "imdb": "7.1",
-        "metacritic": "72",
-        "letterboxd": "3.5",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZmRmZjI0ZGEtMDlhMi00OWJhLWFiNTItMzcwYzNjZGZkMjE0XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Biography, Drama",
-        "runtime": "105 min",
-        "plot": "Biographer John Lahr is writing a book about playwright Joe Orton. Joe and Kenneth meet at drama school and live together for ten years as lovers and collaborators. Both want to be writers, but only one of them is successful.",
-        "year": "1987",
-        "director": "Stephen Frears"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30331&visLang=1",
-          "schedule": [
-            {
-              "day": "Sat Jul 18",
-              "times": [
-                "8:30pm"
-              ],
-              "date": "2026-07-18",
-              "ticket_urls": {
-                "8:30pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30331&visLang=1"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "tt3385524",
-      "title": "STAN & OLLIE",
-      "ratings": {
-        "imdbID": "tt3385524",
-        "rt": "92%",
-        "imdb": "7.2",
-        "metacritic": "75",
-        "letterboxd": "3.6",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMDU5ODI0MzktNjdhMy00MTcwLTljMzYtNzg3Njk5ZTgwMDgxXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Biography, Comedy, Drama",
-        "runtime": "98 min",
-        "plot": "Laurel and Hardy, the world's most famous comedy duo, attempt to reignite their film careers as they embark on what becomes their swan song: a grueling theatre tour of post-war Britain.",
-        "year": "2018",
-        "director": "Jon S. Baird"
-      },
-      "theaters": [
-        {
-          "name": "Film Forum",
-          "ticket_url": "https://filmforum.org/film/stan-ollie-laurel-hardy",
-          "schedule": [
-            {
-              "day": "Sun Jul 19",
-              "times": [
-                "7:50pm"
-              ],
-              "date": "2026-07-19",
-              "ticket_urls": {
-                "7:50pm": "https://filmforum.org/film/stan-ollie-laurel-hardy"
-              }
-            },
-            {
-              "day": "Mon Jul 20",
-              "times": [
-                "2:40pm"
-              ],
-              "date": "2026-07-20",
-              "ticket_urls": {
-                "2:40pm": "https://filmforum.org/film/stan-ollie-laurel-hardy"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "the-end-of-evangelion",
-      "title": "The End of Evangelion",
-      "ratings": {
-        "imdbID": null,
-        "rt": "92%",
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/9YM9UhTB6vow6IG1Qc5UDPw46Mw.jpg",
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Village East by Angelika",
-          "ticket_url": "https://angelikafilmcenter.com/villageeast",
-          "schedule": [
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "7:15p.m."
-              ]
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC 34th Street 14",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "7:00pm",
-                "8:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-22"
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Empire 25",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "7:00pm",
-                "7:30pm",
-                "8:30pm",
-                "9:30pm",
-                "10:00pm"
-              ],
-              "date": "2026-07-22"
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "7:00pm"
-              ],
-              "date": "2026-07-22"
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "tt34440913",
-      "title": "Family Movie",
-      "ratings": {
-        "imdbID": "tt34440913",
-        "rt": "92%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMDBlNDZmNTktN2UzYi00MzQzLThhYmEtODdjOTdhYzdmZTc4XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy, Horror",
-        "runtime": "81 min",
-        "plot": "A filmmaking family finds themselves in a real-life horror movie when a body turns up on the set of their low-budget slasher, forcing them to cover up the murder to keep filming.",
-        "year": "2026",
-        "director": "N/A"
-      },
-      "theaters": [
-        {
-          "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/83547/83548",
-          "schedule": [
-            {
-              "day": "Wed Aug 19",
-              "times": [
-                "6:30pm"
-              ],
-              "date": "2026-08-19",
-              "ticket_urls": {
-                "6:30pm": "https://purchase.filmlinc.org/83547/83548"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
       "id": "tt4846232",
       "title": "Good Time",
       "ratings": {
@@ -10837,13 +10782,13 @@
         "imdb": "5.4",
         "metacritic": "78",
         "letterboxd": "2.7",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNDZhMTlkOWItZmI2ZC00MmNmLWI4ZTctNmNmZmIwNTYyYzQ4XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Horror",
         "runtime": "86 min",
         "plot": "Alone in her attic bedroom, teenager Casey becomes immersed in an online role-playing horror game, wherein she begins to document the changes that may or may not be happening to her.",
         "year": "2021",
-        "director": "Jane Schoenbrun"
+        "director": "Jane Schoenbrun",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11010,13 +10955,13 @@
         "imdb": "7.5",
         "metacritic": "89",
         "letterboxd": "3.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZGZiYTQ0MmEtY2RmYy00ZjRkLWI3NTctYTRhMGJlMzA4ZDg0XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Music, Romance",
         "runtime": "121 min",
         "plot": "In the mid-19th century a mute woman is sent to New Zealand along with her young daughter and prized piano for an arranged marriage to a farmer, but is soon lusted after by a farm worker.",
         "year": "1993",
-        "director": "Jane Campion"
+        "director": "Jane Campion",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11192,13 +11137,13 @@
         "imdb": "7.0",
         "metacritic": "80",
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BOGJjMzI2MmQtZTJmYS00OGI0LWE2MDktYWJmNmU0NTMxMjJkXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Biography, Crime, Drama",
         "runtime": "83 min",
         "plot": "Arriving in Chicago, Henry moves in with ex-con acquaintance Otis and starts schooling him in the ways of the serial killer.",
         "year": "1986",
-        "director": "John McNaughton"
+        "director": "John McNaughton",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11230,13 +11175,13 @@
         "imdb": "5.6",
         "metacritic": "63",
         "letterboxd": "2.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYTM4YmE0NDQtM2I4ZS00YTcyLTk5ZjEtMjdmOTYzYTYxY2RjXkEyXkFqcGc@._V1_QL75_UY562_CR32,0,380,562_.jpg",
         "genre": "Comedy, Drama, Romance",
         "runtime": "90 min",
         "plot": "Elliot lands a job for Erika Tracy as her sexual muse.",
         "year": "2026",
-        "director": "Gregg Araki"
+        "director": "Gregg Araki",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11361,13 +11306,13 @@
         "imdb": "7.1",
         "metacritic": "77",
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYzQyYjZmMjctMzIyZi00MDI0LWJhNGQtMzQ3MTFlNDgwNGM5XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Horror, Sci-Fi, Thriller",
         "runtime": "110 min",
         "plot": "After a therapist's patient disappears into a dimension beyond reality, she must venture into the unknown to save him.",
         "year": 2026,
-        "director": "Kane Parsons"
+        "director": "Kane Parsons",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11642,16 +11587,16 @@
       "ratings": {
         "imdbID": "tt32298494",
         "rt": "88%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://image.tmdb.org/t/p/w500/bcyXE0p4XmZUlcxvTDbvdG9lgsN.jpg",
-        "genre": "N/A",
+        "genre": null,
         "runtime": "90 min",
         "plot": "Legendary New York poet Ed Saxberger's forgotten works captivate an eccentric group of young creatives, reigniting his artistic passion. Their intrigue intertwines with the bewitching presence of actress Gloria.",
         "year": "2025",
-        "director": "Kent Jones"
+        "director": "Kent Jones",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11785,13 +11730,13 @@
         "imdb": "7.4",
         "metacritic": "86",
         "letterboxd": "3.7",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNTc0MTY2ZWMtOTY4NC00ZDUyLWI0MTUtMmYxYjA4MzJhYTk0XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Drama, Mystery",
         "runtime": "108 min",
         "plot": "A movie sound recordist accidentally records the evidence that proves that a car accident was actually murder and consequently finds himself in danger.",
         "year": "1981",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -11878,16 +11823,16 @@
       "ratings": {
         "imdbID": "tt27419466",
         "rt": "87%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTQ1OTQ2Y2UtMzllNS00ODFiLWFkNGItNGRjOWRlMjIwNTRlXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Action, Adventure, Comedy",
         "runtime": "115 min",
         "plot": "Live-action adaptation of the 2016 Disney animated film 'Moana.'",
         "year": "2026",
-        "director": "Thomas Kail"
+        "director": "Thomas Kail",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -13458,13 +13403,13 @@
         "imdb": "5.8",
         "metacritic": "86",
         "letterboxd": "2.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZTA2MGM5M2ItNDBjYi00OWJhLTk1MTMtMGIzMDZlYzg1N2Q3XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Horror, Mystery",
         "runtime": "100 min",
         "plot": "A teenager just trying to make it through life in the suburbs is introduced by a classmate to a mysterious late-night TV show.",
         "year": "2024",
-        "director": "Jane Schoenbrun"
+        "director": "Jane Schoenbrun",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -13568,13 +13513,13 @@
         "imdb": "6.9",
         "metacritic": "56",
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMjZjNjE5NDEtOWJjYS00Mjk2LWI1ZDYtOWI1ZWI3MzRjM2UzXkEyXkFqcGc@._V1_QL75_UX380_CR0,8,380,562_.jpg",
         "genre": "Action, Adventure, Comedy",
         "runtime": "110 min",
         "plot": "Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched, Team Sonic must seek out an unlikely alliance.",
         "year": "2024",
-        "director": "Jeff Fowler"
+        "director": "Jeff Fowler",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -13823,13 +13768,13 @@
         "imdb": "7.3",
         "metacritic": "67",
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZmRkNGJjNTAtMmQzNC00ZDc2LWI5MDItYWM1ZDliMTU5YzEzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Drama, Fantasy",
         "runtime": "91 min",
         "plot": "A disfigured composer sells his soul for the woman he loves so that she will perform his music, but an evil record tycoon betrays him and steals his music to open his rock palace, The Paradise.",
         "year": "1974",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -14219,15 +14164,15 @@
         "imdbID": "tt0371589",
         "rt": "80%",
         "imdb": "6.8",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMjAzMjIzMzkxOV5BMl5BanBnXkFtZTcwMDkzMjA0MQ@@._V1_SX300.jpg",
         "genre": "Comedy, Drama, Romance",
         "runtime": "100 min",
         "plot": "Kristoffer is a billboard hanger, 24 years old and carefree. When his girlfriend Elisabeth dumps him for the boss of her trend bureau, his life falls into pieces. He feels like a loser. By coincidence some of Kristoffer's video di...",
         "year": "2003",
-        "director": "Morten Tyldum"
+        "director": "Morten Tyldum",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -14259,13 +14204,13 @@
         "imdb": "6.6",
         "metacritic": "71",
         "letterboxd": "3.3",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNzgyNDczMjU4NV5BMl5BanBnXkFtZTgwMTUwMDI3NjE@._V1_SX300.jpg",
         "genre": "Drama, History, War",
         "runtime": "113 min",
         "plot": "Macbeth, the Thane of Glamis, receives a prophecy from a trio of witches that one day he will become King of Scotland. Consumed by ambition and spurred to action by his wife, Macbeth murders his king and takes the throne for himself.",
         "year": "2015",
-        "director": "Justin Kurzel"
+        "director": "Justin Kurzel",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -14425,13 +14370,13 @@
         "imdb": "6.2",
         "metacritic": "72",
         "letterboxd": "3.1",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNjIzODg0NDY5Nl5BMl5BanBnXkFtZTcwMDQyMzk5Mw@@._V1_SX300.jpg",
         "genre": "Comedy, Drama, Romance",
         "runtime": "98 min",
         "plot": "About a recent college grad who returns home while she tries to figure out what to do with her life.",
         "year": "2010",
-        "director": "Lena Dunham"
+        "director": "Lena Dunham",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -14536,15 +14481,15 @@
         "imdbID": "tt0169880",
         "rt": "78%",
         "imdb": "7.2",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMGRiOWQyOTAtZDQ0Ny00NGRiLWIyYTYtZWM1MjNjNzg0ZjE3XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Animation, Action, Drama",
         "runtime": "101 min",
         "plot": "A recap of the first 24 episodes of Neon Genesis Evangelion, followed by a 30-minute continuation of the plot that would later form the first third of The End of Evangelion.",
         "year": "1997",
-        "director": "Hideaki Anno, Ken Andô, Naoyasu Habu"
+        "director": "Hideaki Anno, Ken Andô, Naoyasu Habu",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -15381,15 +15326,15 @@
         "imdbID": "tt6315524",
         "rt": "74%",
         "imdb": "8.1",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYmEwZDRiODAtY2M2Mi00MWU5LWJhZDAtZGRjNTFiOTAwMzc5XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Action, Drama, Thriller",
         "runtime": "139 min",
         "plot": "In 2014, a group of Malayali nurses was captured when terrorists took over the city of Tikrit in Iraq. This movie recounts the ordeal suffered by the nurses following their capture.",
         "year": "2017",
-        "director": "Mahesh Narayanan"
+        "director": "Mahesh Narayanan",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -15592,16 +15537,16 @@
       "ratings": {
         "imdbID": "tt31170389",
         "rt": "71%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZTljMTZjZTItZjMzZi00NDBhLWFmMzAtOGNiNTlhY2MxMzg5XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Fantasy, Horror, Mystery",
         "runtime": "110 min",
         "plot": "After the loss of her husband, a woman seeks solace with her in-laws. As one by one they transform into deadites, she comes to discover that the vows she took in life - survive even in death.",
         "year": "2026",
-        "director": "Sébastien Vanicek"
+        "director": "Sébastien Vanicek",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -16477,59 +16422,21 @@
       "special_formats": []
     },
     {
-      "id": "tt0472458",
-      "title": "Dumplings",
-      "ratings": {
-        "imdbID": "tt0472458",
-        "rt": "70%",
-        "imdb": "6.7",
-        "metacritic": "N/A",
-        "letterboxd": "3.4",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOTQwYjM3NjItZjNmOC00YWVhLThlY2EtNWQwMWY3NTQ4MzRkXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Horror",
-        "runtime": "91 min",
-        "plot": "Aunt Mei's famous homemade dumplings provide amazing age-defying qualities popular with middle-aged women. But her latest customer - a fading actress - is determined to find out what the secret ingredient is.",
-        "year": "2004",
-        "director": "Fruit Chan"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30416&visLang=1",
-          "schedule": [
-            {
-              "day": "Sat Aug 1",
-              "times": [
-                "11:00pm"
-              ],
-              "date": "2026-08-01",
-              "ticket_urls": {
-                "11:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30416&visLang=1"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
       "id": "tt2012616",
       "title": "Motor City",
       "ratings": {
         "imdbID": "tt2012616",
-        "rt": "70%",
+        "rt": "71%",
         "imdb": "5.8",
         "metacritic": "55",
         "letterboxd": "2.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZGFmNTJkNzctNDc2Zi00ZWMxLWIzNzktNDQxMzU3ZGVkZTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Action, Crime, Drama",
         "runtime": "103 min",
         "plot": "In 1970s Detroit, John Miller falls for a local gangster's girl. In retaliation, the gangster enacts a frame job to send the innocent man to prison. Life ruined, Miller plots a revenge campaign against the man who took his girl away.",
         "year": "2026",
-        "director": "Potsy Ponciroli"
+        "director": "Potsy Ponciroli",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -16621,6 +16528,44 @@
       "special_formats": []
     },
     {
+      "id": "tt0472458",
+      "title": "Dumplings",
+      "ratings": {
+        "imdbID": "tt0472458",
+        "rt": "70%",
+        "imdb": "6.7",
+        "metacritic": "N/A",
+        "letterboxd": "3.4",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTQwYjM3NjItZjNmOC00YWVhLThlY2EtNWQwMWY3NTQ4MzRkXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, Horror",
+        "runtime": "91 min",
+        "plot": "Aunt Mei's famous homemade dumplings provide amazing age-defying qualities popular with middle-aged women. But her latest customer - a fading actress - is determined to find out what the secret ingredient is.",
+        "year": "2004",
+        "director": "Fruit Chan"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30416&visLang=1",
+          "schedule": [
+            {
+              "day": "Sat Aug 1",
+              "times": [
+                "11:00pm"
+              ],
+              "date": "2026-08-01",
+              "ticket_urls": {
+                "11:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30416&visLang=1"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
       "id": "tt0057193",
       "title": "IT'S A MAD, MAD, MAD, MAD WORLD",
       "ratings": {
@@ -16629,13 +16574,13 @@
         "imdb": "7.5",
         "metacritic": "59",
         "letterboxd": "3.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYzVhY2Y4MTUtMDJmYi00MmMyLWFhY2UtMzk4NjEyYWFlZWFkXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Action, Adventure, Comedy",
         "runtime": "210 min",
         "plot": "Several different motorists witness a single car crash in the California desert and, after the driver's dying words indicate the location of a hidden stash of loot, turn against each other in a mad dash across the state to get to it.",
         "year": "1963",
-        "director": "Stanley Kramer"
+        "director": "Stanley Kramer",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -16767,13 +16712,13 @@
         "imdb": "6.1",
         "metacritic": "42",
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYzNmZWEwM2MtMjYzMC00NTUzLThjN2YtZGJjYmViZjUwMjYxXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Drama, Horror",
         "runtime": "92 min",
         "plot": "The oncologist wife of a prominent child psychologist suspects her husband has an unhealthy scientific obsession with their child, unaware of what - or who - is really going on inside his head.",
         "year": "1992",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17048,13 +16993,13 @@
         "imdb": "5.3",
         "metacritic": "53",
         "letterboxd": "2.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNzhjM2Q5ZmItNzkyMC00YjU5LWI3N2QtM2E5OGJhMGMxOGEzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Action, Crime, Drama",
         "runtime": "104 min",
         "plot": "A grieving father enacts his long-awaited revenge against a ruthless gang on Christmas Eve.",
         "year": "2023",
-        "director": "John Woo"
+        "director": "John Woo",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17093,16 +17038,16 @@
       "ratings": {
         "imdbID": "tt29332321",
         "rt": "60%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZTM0MzVjY2ItM2I0Ni00NTQ4LWFiYmMtMDU4YzMzN2RlM2U0XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Horror",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "What seems to be the ideal setting for fun and relaxation quickly turns deadly when six vacationing college students encounter a cursed spirit with an insatiable appetite.",
         "year": "2011",
-        "director": "Tina Densmore Bell"
+        "director": "Tina Densmore Bell",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17134,13 +17079,13 @@
         "imdb": "6.1",
         "metacritic": "51",
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_SX300.jpg",
         "genre": "Horror, Thriller",
         "runtime": "117 min",
         "plot": "An aspiring model, Jesse, is new to Los Angeles. However, her beauty and youth, which generate intense fascination and jealousy within the fashion industry, may prove themselves sinister.",
         "year": "2016",
-        "director": "Nicolas Winding Refn"
+        "director": "Nicolas Winding Refn",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17255,13 +17200,13 @@
         "imdb": "6.4",
         "metacritic": "46",
         "letterboxd": "3.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BM2YwMzBmZjctZjc5OS00NGU5LTkyYTYtYTlmYjhhYmMzMDA5XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Drama, Music",
         "runtime": "116 min",
         "plot": "Newcomers to the country-music business seek love and stardom.",
         "year": "1993",
-        "director": "Peter Bogdanovich"
+        "director": "Peter Bogdanovich",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17327,13 +17272,13 @@
         "imdb": "7.3",
         "metacritic": "49",
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNTE3NDY5OWUtZmM5Ny00NDJiLTlkZDQtN2E5MWFjZWUyMDZkXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Action, Adventure, Biography",
         "runtime": "125 min",
         "plot": "A young George Washington faces war, betrayal, and impossible choices that will forge a leader.",
         "year": "2026",
-        "director": "Jon Erwin"
+        "director": "Jon Erwin",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17494,15 +17439,15 @@
         "imdbID": "tt0083365",
         "rt": "55%",
         "imdb": "6.7",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZDE3Y2VjZWYtZTc1Yi00OTRiLTk3OWQtMGM0MWUwNmExODBiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Musical",
         "runtime": "103 min",
         "plot": "When barrio leader Henry Reyna and his friends are unjustly convicted on circumstantial evidence, activist lawyers Alice Bloomfield and George Shearer fight the blatant racially motivated miscarriage of justice to win them their f...",
         "year": "1981",
-        "director": "Luis Valdez"
+        "director": "Luis Valdez",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17536,15 +17481,15 @@
         "imdbID": "tt0242527",
         "rt": "53%",
         "imdb": "6.2",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.1",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNmFmYTg0NDItMTA0ZS00NDUwLWIzNDctZmViMWIzMzRmZmEzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Mystery, Thriller",
         "runtime": "102 min",
         "plot": "Four teenagers discover an underground fallout shelter thanks to a friend, who agrees to have them hide there with the door locked for a few days to escape a school trip. Yet, time passes, and their friend doesn't come back to get...",
         "year": "2001",
-        "director": "Nick Hamm"
+        "director": "Nick Hamm",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17650,13 +17595,13 @@
         "imdb": "5.2",
         "metacritic": "38",
         "letterboxd": "2.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNTJjMDk1NzAtMGVmNS00NTFmLWFlOTQtZDk5M2I2NjZiZDdlXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Comedy, Horror",
         "runtime": "96 min",
         "plot": "Two friends find themselves caught up in mayhem involving killers, monsters and supernatural creatures once again.",
         "year": "2026",
-        "director": "Michael Tiddes"
+        "director": "Michael Tiddes",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17722,6 +17667,61 @@
       "special_formats": []
     },
     {
+      "id": "tt0074285",
+      "title": "Carrie (1976)",
+      "ratings": {
+        "imdbID": "tt0074285",
+        "rt": "51%",
+        "imdb": "7.4",
+        "metacritic": "86",
+        "letterboxd": "3.7",
+        "poster": "https://m.media-amazon.com/images/M/MV5BNjMwMDVlZjYtMWRlZS00OTU1LTlmYTQtOGViNTdmYTE0ZjRlXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Horror",
+        "runtime": "98 min",
+        "plot": "Carrie White, a shy, friendless teenage girl who is sheltered by her domineering, religious mother, unleashes her telekinetic powers after being humiliated by her classmates at her senior prom.",
+        "year": 1976,
+        "director": "Brian De Palma",
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc/show/carrie?cinemaId=2103&sessionId=93847",
+          "schedule": [
+            {
+              "day": "Wed Aug 26",
+              "times": [
+                "6:00pm"
+              ],
+              "date": "2026-08-26",
+              "ticket_urls": {
+                "6:00pm": "https://drafthouse.com/nyc/show/carrie?cinemaId=2103&sessionId=93847"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Downtown Brooklyn",
+          "ticket_url": "https://drafthouse.com/nyc/show/carrie?cinemaId=2101&sessionId=134114",
+          "schedule": [
+            {
+              "day": "Wed Aug 26",
+              "times": [
+                "3:45pm"
+              ],
+              "date": "2026-08-26",
+              "ticket_urls": {
+                "3:45pm": "https://drafthouse.com/nyc/show/carrie?cinemaId=2101&sessionId=134114"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
       "id": "tt15789472",
       "title": "Nowhere",
       "ratings": {
@@ -17776,15 +17776,15 @@
         "imdbID": "tt0022689",
         "rt": "50%",
         "imdb": "6.0",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTAzOTg4NDUyNDdeQTJeQWpwZ15BbWU4MDc5NDk3NjIx._V1_SX300.jpg",
         "genre": "Adventure, Drama, Romance",
         "runtime": "80 min",
         "plot": "A native girl falls for a visitor to her island, but she's chosen to be sacrificed to the volcano god.",
         "year": "1932",
-        "director": "King Vidor"
+        "director": "King Vidor",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -17814,15 +17814,15 @@
         "imdbID": "tt0041634",
         "rt": "50%",
         "imdb": "6.8",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BOTM2MzE2NzM2OF5BMl5BanBnXkFtZTgwODY3MTUyMjE@._V1_SX300.jpg",
         "genre": "Crime, Drama",
         "runtime": "100 min",
         "plot": "A classic tale about bitter relationships between a frivolous girl and a soldier is adapted for the post-World War II time.",
         "year": "1949",
-        "director": "Henri-Georges Clouzot"
+        "director": "Henri-Georges Clouzot",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18085,13 +18085,13 @@
         "imdb": "6.4",
         "metacritic": "45",
         "letterboxd": "3.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYjVkM2VmZDYtM2E2OS00NTIwLThlZjctM2NkM2QwYmIxMTFiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Romance, Sport",
         "runtime": "105 min",
         "plot": "When her brother decides to ditch for a couple weeks, Viola heads over to his elite boarding school, disguised as him, and proceeds to fall for his school's star soccer player, and soon learns she's not the only one with romantic ...",
         "year": "2006",
-        "director": "Andy Fickman"
+        "director": "Andy Fickman",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18372,17 +18372,17 @@
       "title": "Snake Eyes",
       "ratings": {
         "imdbID": "tt0120832",
-        "rt": "42%",
+        "rt": "43%",
         "imdb": "6.1",
         "metacritic": "52",
         "letterboxd": "3.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMWFhNWFhOTktZmY2ZS00OTAyLTg5MWMtYTY1OTkxYWMxMDRiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Mystery, Thriller",
         "runtime": "98 min",
         "plot": "Corrupt Atlantic City police officer Rick Santoro and Navy Commander Kevin Dunn join forces to investigate both the assassination of Secretary of Defense Charles Kirkland and the disappearance of a beautiful stranger.",
         "year": "1998",
-        "director": "Brian De Palma"
+        "director": "Brian De Palma",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18452,13 +18452,13 @@
         "imdb": "5.7",
         "metacritic": "37",
         "letterboxd": "2.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMzE5NzcxMTk5NF5BMl5BanBnXkFtZTcwNjE2MDg2OQ@@._V1_SX300.jpg",
         "genre": "Action, Crime, Drama",
         "runtime": "90 min",
         "plot": "Julian, a drug-smuggler thriving in Bangkok's criminal underworld, sees his life get even more complicated when his mother compels him to find and kill whoever is responsible for his brother's recent death.",
         "year": "2013",
-        "director": "Nicolas Winding Refn"
+        "director": "Nicolas Winding Refn",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18630,15 +18630,15 @@
         "imdbID": "tt0334226",
         "rt": "33%",
         "imdb": "7.7",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNDhlYTkyNzQtMzc3YS00MmNjLThhNjMtNjFkMjU1YzZiODFiXkEyXkFqcGdeQXVyNjczNzI5MzQ@._V1_SX300.jpg",
         "genre": "Drama, History, War",
         "runtime": "108 min",
         "plot": "The parallel coming-of-age stories of a father living in Sarajevo during World War II and his son living through the Siege of Sarajevo during the Bosnian War.",
         "year": "2003",
-        "director": "Dino Mustafic"
+        "director": "Dino Mustafic",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18747,16 +18747,16 @@
       "ratings": {
         "imdbID": "tt27844906",
         "rt": "23%",
-        "imdb": "N/A",
+        "imdb": null,
         "metacritic": "47",
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTBmYzRhNzgtZWM4MS00ZDEwLTgzYzAtNGQ5NzRlNjRlMjBhXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama, Thriller",
         "runtime": "97 min",
         "plot": "A family struggling with genetic illnesses lives on a country estate. Personal drama develops amongst them in this intimate portrait.",
         "year": "2026",
-        "director": "Karim Aïnouz"
+        "director": "Karim Aïnouz",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -18831,16 +18831,16 @@
       "ratings": {
         "imdbID": "tt27548557",
         "rt": "20%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://image.tmdb.org/t/p/w500/5d7hpbefNiuebl5eqP5cRrckVxs.jpg",
-        "genre": "N/A",
-        "runtime": "N/A",
-        "plot": "N/A",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
         "year": "2025",
-        "director": "Indra Kumar"
+        "director": "Indra Kumar",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -20372,13 +20372,13 @@
         "imdb": "7.0",
         "metacritic": "75",
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNjMyNWE4MTAtODhhMC00MTI4LWIwZTQtNjA5ZGNiNmZmZDI1XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Biography, Drama, Romance",
         "runtime": "114 min",
         "plot": "With her mother's diary in hand, Marina's search for official documents for university leads her to her biological family on the Atlantic coast. What starts as an administrative quest reveals long-buried family secrets.",
         "year": "2025",
-        "director": "Carla Simón"
+        "director": "Carla Simón",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22045,16 +22045,16 @@
       "ratings": {
         "imdbID": "tt38798617",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BN2E3YmFjYTItM2RiNy00N2I0LWJmNTgtMDIzOWFlNWVmMTQ5XkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
         "genre": "Drama",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "Follows a theatre director attempting to rebuild his career who finds himself caught between a former lover, his estranged wife and a newcomer actress, shifting between reality and his new play.",
         "year": "2026",
-        "director": "Keane T.K. Wong"
+        "director": "Keane T.K. Wong",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22083,16 +22083,16 @@
       "ratings": {
         "imdbID": "tt38589488",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMGMxZTFkOGEtMWY2ZC00NGQ0LTk5YzAtZmEyMTYzNDcwYmY2XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "N/A",
+        "genre": null,
         "runtime": "119 min",
-        "plot": "N/A",
+        "plot": null,
         "year": "2025",
-        "director": "Takashi Koyama"
+        "director": "Takashi Koyama",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22160,15 +22160,15 @@
         "imdbID": "tt36576750",
         "rt": null,
         "imdb": "6.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.3",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BM2I5MjNiYmMtNmMyYy00NzM4LWI1ODEtYzczM2RlYzUzNzU1XkEyXkFqcGc@._V1_QL75_UY562_CR5,0,380,562_.jpg",
         "genre": "Action, Thriller",
         "runtime": "117 min",
         "plot": "In 1994, a tycoon's kidnapping shook Hong Kong, threatening its financial standing. Police pursued personal gain while OCID Superintendent Li Wenbin risked everything to navigate conflicting interests and expose the truth.",
         "year": "2026",
-        "director": "Lok Man Leung"
+        "director": "Lok Man Leung",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22208,15 +22208,15 @@
         "imdbID": "tt0472300",
         "rt": null,
         "imdb": "8.1",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.0",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTU5ODg1NzA3OF5BMl5BanBnXkFtZTcwMDQ2NzMzMQ@@._V1_SX300.jpg",
         "genre": "Comedy, Musical, Romance",
         "runtime": "179 min",
-        "plot": "N/A",
+        "plot": null,
         "year": "2005",
-        "director": "Stéphane Metge"
+        "director": "Stéphane Metge",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22256,15 +22256,15 @@
         "imdbID": "tt0092812",
         "rt": null,
         "imdb": "4.4",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "2.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNzcwMmI2Y2ItMDFiZS00ZGJmLWI5NTEtN2I5ZGQzNmViNmRmXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Action, Drama, Sci-Fi",
         "runtime": "89 min",
         "plot": "A young woman must deliver a top-secret motorcycle to the US military after the man assigned to deliver it, her lover, is murdered by enemy agents.",
         "year": "1987",
-        "director": "Fred Olen Ray"
+        "director": "Fred Olen Ray",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22294,15 +22294,15 @@
         "imdbID": "tt0307034",
         "rt": null,
         "imdb": "6.7",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BOTg5ZDVlYzctY2U4NC00NzI2LTk3OTUtMDlmMDI0ZmMxNmUzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Romance",
         "runtime": "96 min",
         "plot": "Centres around a Mahjong master, Andy, and his dealings with his ex-girlfriend, estranged family and a local gang.",
         "year": "2002",
-        "director": "Johnnie To, Ka-Fai Wai"
+        "director": "Johnnie To, Ka-Fai Wai",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22369,16 +22369,16 @@
       "ratings": {
         "imdbID": "tt36304379",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTI4NjZmN2MtMjk3NS00NTNmLWFjY2UtNzFmYTA4MjE1ZjQ3XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "N/A",
-        "runtime": "N/A",
+        "genre": null,
+        "runtime": null,
         "plot": "This is a story of five passionate girls fighting hard in the gaming world, hoping to break the social stereotype. Yet this is more difficult than it seems, with all the unknown challenges ahead.",
         "year": "2025",
-        "director": "N/A"
+        "director": null,
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22407,16 +22407,16 @@
       "ratings": {
         "imdbID": "tt36958999",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://image.tmdb.org/t/p/w500/AqfICSOx9jBj8mcpIPqUINSNlT5.jpg",
         "genre": "Drama",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "The bonds between humans and animals following a stray dog named Gohan as it moves through life with temporary owners over a decade, through good times and bad times, joy and sorrow, hellos and goodbyes.",
         "year": "2026",
-        "director": "N/A"
+        "director": null,
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22445,16 +22445,16 @@
       "ratings": {
         "imdbID": "tt3631186",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "N/A",
+        "poster": null,
         "genre": "Comedy, History",
-        "runtime": "N/A",
-        "plot": "N/A",
+        "runtime": null,
+        "plot": null,
         "year": "2014",
-        "director": "Connor Hurley"
+        "director": "Connor Hurley",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22569,16 +22569,16 @@
       "ratings": {
         "imdbID": "tt37970522",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://image.tmdb.org/t/p/w500/eDLr6sTC6SqrMyM6YbuAwlVjMCh.jpg",
         "genre": "Drama",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "An elderly woman encounters strangers while grappling with profound grief after the sudden death of her husband.",
         "year": "2025",
-        "director": "Kim Jin-yu"
+        "director": "Kim Jin-yu",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22608,15 +22608,15 @@
         "imdbID": "tt4190550",
         "rt": null,
         "imdb": "4.8",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "2.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNjRmNzY5OTMtOWEyNy00NzVkLWE0Y2ItMjNjZTVjMmVjNzQzXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama",
         "runtime": "73 min",
         "plot": "A teacher is sexually involved with an underage student. She visits her father's home and discovers a boy who's been kept as a sex slave. The teacher continues harboring the boy out of fear and begins to feel sexually attracted to...",
         "year": "2014",
-        "director": "Kôtarô Wajima"
+        "director": "Kôtarô Wajima",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22683,16 +22683,16 @@
       "ratings": {
         "imdbID": "tt36616095",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BODc3Yzc5NWQtYzU2NC00M2U4LWE1N2UtOGY4MTZiZjE2YjU5XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Drama",
         "runtime": "140 min",
         "plot": "In post-war Saigon, a young translator and an older widow find comfort with each other.",
         "year": "2025",
-        "director": "Leon Le"
+        "director": "Leon Le",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22732,15 +22732,15 @@
         "imdbID": "tt0255160",
         "rt": null,
         "imdb": "7.8",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.9",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMjEzMDM4MDUwM15BMl5BanBnXkFtZTcwMDUyMjIyMQ@@._V1_SX300.jpg",
         "genre": "Drama, Music",
         "runtime": "143 min",
-        "plot": "N/A",
+        "plot": null,
         "year": "1991",
-        "director": "John Michael Phillips"
+        "director": "John Michael Phillips",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22817,16 +22817,16 @@
       "ratings": {
         "imdbID": "tt38162481",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZTg3MjFlZDctN2RmYi00MTg2LTgxZGMtMTkzYjJiNDUxZmQ5XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
         "genre": "Drama",
         "runtime": "87 min",
         "plot": "After arguing with her husband, Blanche meets ex-boyfriend Jake by chance. They join friend Axin, who's breaking up with Mao Mao. The group spends a night out as past feelings resurface.",
         "year": "2025",
-        "director": "Cheng-Chui Kuo"
+        "director": "Cheng-Chui Kuo",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -22942,15 +22942,15 @@
         "imdbID": "tt0084476",
         "rt": null,
         "imdb": "7.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZGIyZjRiMDAtMmYyOC00NzczLTliZDYtYTM4ZmEzYzVkZGMxXkEyXkFqcGdeQXVyMzIwNDY4NDI@._V1_SX300.jpg",
         "genre": "Drama, Music",
         "runtime": "255 min",
         "plot": "Richard Wagner's last opera has remained controversial since its first performance for its unique, and, for some, unsavory blending of religious and erotic themes and imagery. Based on one of the medieval epic romances of King Art...",
         "year": "1982",
-        "director": "Hans-Jürgen Syberberg"
+        "director": "Hans-Jürgen Syberberg",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23116,15 +23116,15 @@
         "imdbID": "tt0204610",
         "rt": null,
         "imdb": "6.7",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.4",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMjAyNjYxNjA3NF5BMl5BanBnXkFtZTcwOTIxODkxMQ@@._V1_SX300.jpg",
         "genre": "Drama, Music",
         "runtime": "122 min",
         "plot": "While the rest of the Hebrews bewail their fate, Samson alone trusts in God's promise of liberty. Abimelech, the Philistine satrap of Gaza, enters to mock the Hebrews' God, proclaiming the superiority of Dagon, and the Hebrews are...",
         "year": "1981",
-        "director": "Kirk Browning"
+        "director": "Kirk Browning",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23240,15 +23240,15 @@
         "imdbID": "tt0073762",
         "rt": null,
         "imdb": "6.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.3",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMDRlYWJjY2ItMzY2Mi00NmYyLWE0MGQtYTZjNGM4ZGUzNjM5XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Crime, Drama, Thriller",
         "runtime": "92 min",
         "plot": "After a terrible car accident, a man makes sure his wife dies as a result in order to get her inheritance, and will commit sabotage and murder so he can't get blamed for her death.",
         "year": "1975",
-        "director": "Brian Damude"
+        "director": "Brian Damude",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23316,15 +23316,15 @@
         "imdbID": "tt36205428",
         "rt": null,
         "imdb": "8.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.3",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BODM1NzAzMDQtZWI3NS00ZTg5LThjYzctNWVjYmM1YTc2YTZiXkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
         "genre": "Drama, Family, Mystery",
         "runtime": "129 min",
         "plot": "When a private detective is murdered, a former colleague and a trainee detective are sent to investigate.",
         "year": "2025",
-        "director": "Tetsuya Nakashima"
+        "director": "Tetsuya Nakashima",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23363,16 +23363,16 @@
       "ratings": {
         "imdbID": "tt34874865",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYTNiZDNiOWUtMTg2Mi00ZTE4LWE1MzgtMDdlNzVlMWI2ZmE4XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy, Drama, Mystery",
         "runtime": "83 min",
         "plot": "On a quest to prove his competency, an inert sound recordist finds himself inadvertently tangled in a nautical prophecy on the spectral island of Pincer Point.",
         "year": "2026",
-        "director": "N/A"
+        "director": null,
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23440,15 +23440,15 @@
         "imdbID": "tt1331074",
         "rt": null,
         "imdb": "5.0",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "2.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNzMzNjQxMzE1NF5BMl5BanBnXkFtZTcwMDk1NzY3Mg@@._V1_SX300.jpg",
         "genre": "Drama, Horror",
         "runtime": "78 min",
         "plot": "Keith and Kim Russell have just tied the knot and have set out on an adventure packed honeymoon in the wilderness. But much to their surprise, they find more action than they were looking for when they stumble upon a pair of cave ...",
         "year": "2008",
-        "director": "Lola Wallace"
+        "director": "Lola Wallace",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23477,16 +23477,16 @@
       "ratings": {
         "imdbID": "tt35667902",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYmFlMjc4N2ItNjNhYi00MTI1LTg4MDctYTZjMjkyOTdmNzg1XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Horror",
         "runtime": "80 min",
-        "plot": "N/A",
+        "plot": null,
         "year": "2025",
-        "director": "Callum Devlin"
+        "director": "Callum Devlin",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23525,16 +23525,16 @@
       "ratings": {
         "imdbID": "tt13044558",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BN2E3MjBhMDItN2MzMS00NzJlLTlkNjItMDc2YzgxOTNkMDNiXkEyXkFqcGdeQXVyMTA1NTc5ODM5._V1_SX300.jpg",
         "genre": "Short, Horror",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "A young woman struggles with completing a ritual centered around a menacing fertility plant in order to ensure that her bloodline continues.",
         "year": "2020",
-        "director": "Jordan Pfeifer"
+        "director": "Jordan Pfeifer",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23563,16 +23563,16 @@
       "ratings": {
         "imdbID": "tt37535198",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYmY5OTZjZGItYTM2Mi00NjEyLTllOTYtZjU1NmJlOGUzYzliXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "N/A",
-        "runtime": "N/A",
-        "plot": "N/A",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
         "year": "2025",
-        "director": "Herman Yau"
+        "director": "Herman Yau",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23709,15 +23709,15 @@
         "imdbID": "tt35391146",
         "rt": null,
         "imdb": "8.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "4.3",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNDM2NmIwMjctYmNjNi00YjFhLTg0OGEtZWZkYjkzNWEyYzMwXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Musical",
         "runtime": "95 min",
         "plot": "Tells the story of the six wives of Henry VIII, reimagining them as pop stars who reclaim their narratives from their infamous husband's shadow.",
         "year": "2025",
-        "director": "Liz Clare"
+        "director": "Liz Clare",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -23952,16 +23952,16 @@
       "ratings": {
         "imdbID": "tt8820258",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNzFiOGM1MDMtZjEyYy00YWNkLWJhMmYtZmFjYzlmOTcxZTJmXkEyXkFqcGc@._V1_QL75_UY562_CR232,0,380,562_.jpg",
         "genre": "Comedy, Crime, Mystery",
         "runtime": "100 min",
         "plot": "When Farva's over-the-top Indian engagement to Thorny's sister spirals into chaos, the Super Troopers must navigate Thorny's schemes to break up the relationship, all while trying to bring down a pernicious new drug ring",
         "year": "2026",
-        "director": "Jay Chandrasekhar"
+        "director": "Jay Chandrasekhar",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -24150,16 +24150,16 @@
       "ratings": {
         "imdbID": "tt22084616",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BOWNjYWM3NWItOGE0ZS00MWRjLThiZWEtYjc4ZmNmMmU5ZTVmXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Action, Adventure, Fantasy",
         "runtime": "145 min",
         "plot": "A forgotten Peter Parker lives alone as a full-time Spider-Man until mounting pressure triggers a dangerous change and a powerful new enemy emerges.",
         "year": "2026",
-        "director": "Destin Daniel Cretton"
+        "director": "Destin Daniel Cretton",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -25485,16 +25485,16 @@
       "ratings": {
         "imdbID": "tt27165187",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZGI0YmRjNWYtYTliYy00YzdjLTkzNzQtZWExNjA2ZDU5MzAwXkEyXkFqcGc@._V1_QL75_UY562_CR35,0,380,562_.jpg",
         "genre": "Action, Adventure, Mystery",
         "runtime": "99 min",
         "plot": "The Platt family bands together to navigate their new surroundings after a cosmic event transports their suburban neighborhood to someplace unknown.",
         "year": "2026",
-        "director": "David Robert Mitchell"
+        "director": "David Robert Mitchell",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -25551,15 +25551,15 @@
         "imdbID": "tt38266673",
         "rt": null,
         "imdb": "7.3",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNmY3NThiNzMtZDcyNC00MTZlLWE5NDYtMjE3ZDIzNjM4ZGFiXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Animation, Adventure, Drama",
         "runtime": "96 min",
         "plot": "A bullied girl transfers schools hoping for peace, but her past trauma isolates her-until she discovers a series of secret letters hidden around the school, leading her on a mysterious quest to uncover their sender's true intent.",
         "year": "2025",
-        "director": "Kim Yong-Hwan"
+        "director": "Kim Yong-Hwan",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -26651,15 +26651,15 @@
         "imdbID": "tt0122037",
         "rt": null,
         "imdb": "5.3",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "2.6",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMzk1ZTIxM2EtM2RhYi00NDFiLTliMDktMjcwMzI5MWMzOWJkXkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Horror",
         "runtime": "95 min",
         "plot": "The arrival of an amnesiac patient in a psychiatric hospital somehow frees a mad doctor, who was shot and entombed with his fiendish experiments in an abandoned wing of the asylum 20 years before.",
         "year": "1989",
-        "director": "Brett Leonard"
+        "director": "Brett Leonard",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -26688,16 +26688,16 @@
       "ratings": {
         "imdbID": "tt33095251",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNDc1NGEyMzAtZWNiNC00MDY0LTg2NmYtZWIxZmM0NTNhNjc0XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Biography, Drama",
         "runtime": "106 min",
         "plot": "A 19-year-old Anthony Bourdain travels to Provincetown and stumbles into the chaotic world of a restaurant kitchen, setting off a summer that will shape the course of his life.",
         "year": "2026",
-        "director": "Matt Johnson"
+        "director": "Matt Johnson",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -27203,15 +27203,15 @@
         "imdbID": "tt36307021",
         "rt": null,
         "imdb": "7.6",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.8",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMGFjMDFlNDMtMjBhNy00MjJkLWE5ZjktOWVmMTIyY2Q3YTM1XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Music, Musical",
         "runtime": "141 min",
         "plot": "A musical juxtaposition of the Orpheus/Eurydice and Hades/Persephone myths that examines the way real life can impact our quest for a perfect world.",
         "year": "2026",
-        "director": "Brett Sullivan"
+        "director": "Brett Sullivan",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -27792,16 +27792,16 @@
       "ratings": {
         "imdbID": "tt6633934",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BYzllZGZjMTAtNjJlZS00YmI5LTg0NjctOTA2MDA1MjI1YzU5XkEyXkFqcGc@._V1_QL75_UY562_CR35,0,380,562_.jpg",
         "genre": "Comedy, Family",
         "runtime": "100 min",
         "plot": "After committing a crime on campus, two frat-brats pretend to be Christian-camp counselors in order to fulfill the court-ordered community service.",
         "year": "2026",
-        "director": "Chris Dowling"
+        "director": "Chris Dowling",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -27855,16 +27855,16 @@
       "ratings": {
         "imdbID": "tt38907371",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BMzBlYWY1OTItYzMxNC00YzExLTllODQtZmI3YWYwZDA4NzcxXkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
         "genre": "Comedy, Romance",
-        "runtime": "N/A",
+        "runtime": null,
         "plot": "Follows an aspiring politician who falls in love with Sukumari, a beautiful and soft-natured woman, while her father conceals a secret that threatens their relationship.",
         "year": "2026",
-        "director": "Bharat Dharshan"
+        "director": "Bharat Dharshan",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -27933,16 +27933,16 @@
       "ratings": {
         "imdbID": "tt38286460",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZDJjOGU0YjMtYjNlOS00N2M1LTllY2EtNTE4MDdlZmZhNjI0XkEyXkFqcGc@._V1_QL75_UY562_CR35,0,380,562_.jpg",
         "genre": "Drama",
-        "runtime": "N/A",
-        "plot": "N/A",
+        "runtime": null,
+        "plot": null,
         "year": "2026",
-        "director": "Amar Hundal"
+        "director": "Amar Hundal",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -28008,16 +28008,16 @@
       "ratings": {
         "imdbID": "tt41874413",
         "rt": null,
-        "imdb": "N/A",
-        "metacritic": "N/A",
+        "imdb": null,
+        "metacritic": null,
         "letterboxd": null,
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BZDM3MGI5YjctZGIzMC00MWI4LWI1Y2ItYmFhN2FkZWZkMTJhXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
         "genre": "Drama, Thriller",
         "runtime": "130 min",
         "plot": "A seemingly perfect couple's life takes an unsettling turn when an unexpected presence enters their world. What begins as admiration slowly spirals into emotional chaos, blurring the lines between love, attachment, and obsession.",
         "year": "2026",
-        "director": "Vamsi Krishna Akella"
+        "director": "Vamsi Krishna Akella",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -28088,15 +28088,15 @@
         "imdbID": "tt34890565",
         "rt": null,
         "imdb": "6.5",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.2",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BNjgyNzFjODEtYTE0MC00ZWQ0LTg4NWMtZTU3Nzc2MWY5YWFhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
         "genre": "Comedy, Horror, Mystery",
         "runtime": "87 min",
         "plot": "Four estranged friends reunite at a house, where one plans to find a valuable antique by robbing it. However, the haunted house's ghosts force them to overcome differences to survive.",
         "year": "2026",
-        "director": "Lil Rel Howery"
+        "director": "Lil Rel Howery",
+        "cinemaScore": null
       },
       "theaters": [
         {
@@ -28280,15 +28280,15 @@
         "imdbID": "tt0073475",
         "rt": null,
         "imdb": "6.9",
-        "metacritic": "N/A",
+        "metacritic": null,
         "letterboxd": "3.5",
-        "cinemaScore": null,
         "poster": "https://m.media-amazon.com/images/M/MV5BODk3MzAyMzEtZWQwZi00NmU5LWExNGEtYjU2YjkwNzdiMmM4XkEyXkFqcGc@._V1_SX300.jpg",
         "genre": "Comedy",
         "runtime": "88 min",
         "plot": "Nino is a teenager who falls in love with his best friend's sister, a girl older than him, so his friend makes fun of him. But in the absence of a relationship with her, he will console himself with Angelines, a sixteen-year-old g...",
         "year": "1977",
-        "director": "Francisco Lara Polop"
+        "director": "Francisco Lara Polop",
+        "cinemaScore": null
       },
       "theaters": [
         {
