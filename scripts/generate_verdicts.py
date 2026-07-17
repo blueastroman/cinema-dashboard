@@ -147,6 +147,29 @@ def get_movie_premise_text(movie):
     )
 
 
+def build_film_block(movie):
+    """Build the text description of a film for the API prompt."""
+    r = movie.get("ratings", {})
+    lines = [f"Title: {movie['title']}"]
+
+    if r.get("year"):
+        lines.append(f"Year: {r['year']}")
+    if r.get("director"):
+        lines.append(f"Director: {r['director']}")
+    if r.get("genre"):
+        lines.append(f"Genre: {r['genre']}")
+    if r.get("runtime"):
+        lines.append(f"Runtime: {r['runtime']}")
+    if r.get("rt"):
+        lines.append(f"Critics Score: {r['rt']}")
+    if r.get("metacritic"):
+        lines.append(f"Metacritic: {r['metacritic']}")
+    if r.get("plot"):
+        lines.append(f"Plot: {r['plot']}")
+
+    return "\n".join(lines)
+
+
 def is_usable_cache_entry(entry):
     if not isinstance(entry, dict):
         return False
