@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T13:14:20.607494-04:00",
+  "generated_at": "2026-07-17T13:23:37.369959-04:00",
   "week_of": "July 17, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -4132,12 +4132,11 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43541",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43789",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:45pm",
                 "2:00pm",
                 "3:30pm",
                 "6:15pm",
@@ -4145,7 +4144,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:45pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43541",
                 "2:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43789",
                 "3:30pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43542",
                 "6:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43543",
@@ -7019,12 +7017,11 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93420",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93422",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:00pm",
                 "2:00pm",
                 "2:15pm",
                 "3:00pm",
@@ -7039,7 +7036,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93420",
                 "2:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93422",
                 "2:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90739",
                 "3:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93419",
@@ -10448,19 +10444,17 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133780",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133781",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:00pm",
                 "3:45pm",
                 "6:45pm",
                 "9:30pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:00pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133780",
                 "3:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133781",
                 "6:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133786",
                 "9:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=133789"
@@ -16456,12 +16450,11 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93411",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93410",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:00pm",
                 "4:00pm",
                 "7:00pm",
                 "9:45pm",
@@ -16469,7 +16462,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:00pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93411",
                 "4:00pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93410",
                 "7:00pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93397",
                 "9:45pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93438",
