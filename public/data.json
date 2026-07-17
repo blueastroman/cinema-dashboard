@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T13:04:52.819882-04:00",
+  "generated_at": "2026-07-17T13:14:20.607494-04:00",
   "week_of": "July 17, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -3155,18 +3155,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90058",
           "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2103&sessionId=90057"
-              }
-            },
             {
               "day": "Mon Jul 20",
               "times": [
@@ -3202,18 +3192,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130232",
           "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2101&sessionId=130231"
-              }
-            },
             {
               "day": "Mon Jul 20",
               "times": [
@@ -3249,18 +3229,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838",
+          "ticket_url": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41839",
           "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/event/kids-camp-flow?cinemaId=2102&sessionId=41838"
-              }
-            },
             {
               "day": "Mon Jul 20",
               "times": [
@@ -23531,18 +23501,16 @@
       "theaters": [
         {
           "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/82869/83580",
+          "ticket_url": "https://purchase.filmlinc.org/82869/83581",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:00pm",
                 "3:30pm",
                 "6:00pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:00pm": "https://purchase.filmlinc.org/82869/83580",
                 "3:30pm": "https://purchase.filmlinc.org/82869/83581",
                 "6:00pm": "https://purchase.filmlinc.org/82869/83594"
               }
@@ -27085,44 +27053,6 @@
                 "6:00pm"
               ],
               "date": "2026-07-23"
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "six-the-musical-live-early-screening-queens-intro",
-      "title": "Six: The Musical Live! Early Screening + Queens Intro",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": "98 min",
-        "plot": "Winner of over 35 awards, experience the best of British musical HER-story in a live capture of the must-see musical sensation, SIX the Musical . The original West End cast reunite at London’s Vaudeville Theatre in front of a sold-out audience to strut their stuff and rewrite their Tudor traumas in an unmissable cinematic recording of the show packed full of style, sass, and sensational songs. Watched by audiences of over 3.5 million, SIX the Musical has become a global theatre phenomenon since its 2017 debut at Edinburgh Festival Fringe, where it has redefined the boundaries of musical theatre. The show tells the extraordinary story of the six wives of King Henry VIII, who step out of the shadow of their infamous husband and reclaim their own narratives.",
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/event/advance-screening-six-the-musical-live-early-screening-queens-intro?cinemaId=2101&sessionId=134098",
-          "schedule": [
-            {
-              "day": "Tue Aug 11",
-              "times": [
-                "6:45pm"
-              ],
-              "date": "2026-08-11",
-              "ticket_urls": {
-                "6:45pm": "https://drafthouse.com/nyc/event/advance-screening-six-the-musical-live-early-screening-queens-intro?cinemaId=2101&sessionId=134098"
-              }
             }
           ],
           "special_formats": []
