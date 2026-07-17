@@ -53,7 +53,7 @@ jobs:
           else
             git commit -m "Update weekly cinema data"
             for attempt in 1 2 3; do
-              git pull --rebase -X ours origin main
+              git pull --strategy=recursive -X ours origin main
               if git push origin HEAD:main; then
                 exit 0
               fi
@@ -97,7 +97,7 @@ jobs:
           else
             git commit -m "Update Claude movie reviews"
             for attempt in 1 2 3; do
-              git pull --rebase -X ours origin main
+              git pull --strategy=recursive -X ours origin main
               if git push origin HEAD:main; then
                 exit 0
               fi
