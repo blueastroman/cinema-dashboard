@@ -23,6 +23,7 @@ from cinema_backend.common import (  # noqa: E402
     clean_title,
     date_iso,
     exact_title_identity_key,
+    extract_screening_attributes,
     extract_special_formats,
     extract_year_int,
     format_day_label,
@@ -304,7 +305,7 @@ def fetch_amc_showtimes(theater: dict[str, Any]) -> list[dict[str, Any]]:
         return []
 
     grouped: dict[str, dict[str, dict[str, Any]]] = defaultdict(
-        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}})
+        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}, "time_attributes": defaultdict(set)})
     )
     start = ny_now().replace(tzinfo=None)
 
@@ -344,6 +345,13 @@ def fetch_amc_showtimes(theater: dict[str, Any]) -> list[dict[str, Any]]:
                     showtime.get("experienceName"),
                     showtime.get("amenity"),
                 )
+                screening_attributes = extract_screening_attributes(
+                    raw_title,
+                    showtime.get("premiumOfferingName"),
+                    showtime.get("format"),
+                    showtime.get("experienceName"),
+                    showtime.get("amenity"),
+                )
 
                 try:
                     local_dt = datetime.fromisoformat(str(local_dt_raw))
@@ -360,6 +368,8 @@ def fetch_amc_showtimes(theater: dict[str, Any]) -> list[dict[str, Any]]:
                     day_bucket["ticket_urls"].setdefault(time_label, ticket_url)
                 if title_formats:
                     day_bucket.setdefault("special_formats", set()).update(title_formats)
+                if screening_attributes:
+                    day_bucket["time_attributes"][time_label].update(screening_attributes)
 
             page_size = int(data.get("pageSize") or 0)
             page_number = int(data.get("pageNumber") or page)
@@ -387,6 +397,11 @@ def fetch_amc_showtimes(theater: dict[str, Any]) -> list[dict[str, Any]]:
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
                 "special_formats": sorted(payload.get("special_formats") or []),
+                "time_attributes": {
+                    time_label: sorted(attributes)
+                    for time_label, attributes in (payload.get("time_attributes") or {}).items()
+                    if time_label in unique_times and attributes
+                },
             })
 
     return flattened
@@ -512,6 +527,7 @@ def merge_amc_entries(dataset: dict[str, Any], amc_theaters: list[dict[str, Any]
             "date": str(entry.get("date") or "").strip(),
             "times": set(),
             "ticket_urls": {},
+            "time_attributes": defaultdict(set),
         })
         slot["times"].update(str(time).strip() for time in (entry.get("times") or []) if str(time).strip())
         for time, url in (entry.get("ticket_urls") or {}).items():
@@ -519,6 +535,15 @@ def merge_amc_entries(dataset: dict[str, Any], amc_theaters: list[dict[str, Any]
             ticket_url = str(url).strip()
             if time_label and ticket_url:
                 slot["ticket_urls"][time_label] = ticket_url
+        for time, attributes in (entry.get("time_attributes") or {}).items():
+            time_label = str(time).strip()
+            if not time_label or not isinstance(attributes, list):
+                continue
+            slot["time_attributes"][time_label].update(
+                str(attribute).strip()
+                for attribute in attributes
+                if str(attribute).strip()
+            )
 
     for theater_name, by_movie in schedules.items():
         theater = amc_by_name.get(theater_name, {"name": theater_name})
@@ -537,6 +562,13 @@ def merge_amc_entries(dataset: dict[str, Any], amc_theaters: list[dict[str, Any]
                 }
                 if ticket_urls:
                     clean_slot["ticket_urls"] = ticket_urls
+                time_attributes = {
+                    time: sorted(attributes)
+                    for time, attributes in slot.get("time_attributes", {}).items()
+                    if time in times and attributes
+                }
+                if time_attributes:
+                    clean_slot["time_attributes"] = time_attributes
                 clean_schedule.append(clean_slot)
 
             clean_schedule.sort(key=lambda slot: (slot.get("date") or "", slot.get("day") or ""))

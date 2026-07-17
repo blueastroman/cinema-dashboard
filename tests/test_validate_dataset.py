@@ -39,6 +39,34 @@ class ValidateDatasetTests(unittest.TestCase):
         errors, _warnings = validate_dataset.validate_dataset(dataset)
         self.assertTrue(any("Dataset is stale" in error for error in errors))
 
+    def test_screening_variant_title_is_reported(self):
+        now = ny_now()
+        future_date = (now + timedelta(days=1)).date().isoformat()
+        dataset = {
+            "generated_at": now.isoformat(),
+            "week_of": "July 17, 2026",
+            "theaters": ["AMC Lincoln Square 13"],
+            "theater_meta": {"AMC Lincoln Square 13": {}},
+            "movies": [
+                {
+                    "id": "the-odyssey-premium",
+                    "title": "The Odyssey Premium",
+                    "ratings": {},
+                    "verdict": {},
+                    "theaters": [
+                        {
+                            "name": "AMC Lincoln Square 13",
+                            "ticket_url": "https://example.com",
+                            "schedule": [{"day": "Tomorrow", "date": future_date, "times": ["10:00pm"]}],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        _errors, warnings = validate_dataset.validate_dataset(dataset)
+        self.assertTrue(any("Uncanonicalized screening-variant titles" in warning for warning in warnings))
+
 
 if __name__ == "__main__":
     unittest.main()

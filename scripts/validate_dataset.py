@@ -5,6 +5,7 @@ from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
 from cinema_backend.common import (
+    clean_title,
     extract_year_int,
     normalize_title,
     ny_now,
@@ -33,6 +34,7 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
         "missing_theaters": [],
         "missing_ticket_url": [],
         "duplicate_titles": [],
+        "screening_variants": [],
     }
     warning_counts: Counter = Counter()
 
@@ -82,6 +84,11 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
         if not title:
             errors.append("Encountered movie without a title.")
             continue
+        canonical_title = clean_title(title)
+        if canonical_title and canonical_title != title:
+            warning_counts["screening_variants"] += 1
+            if len(warning_samples["screening_variants"]) < 10:
+                warning_samples["screening_variants"].append(f"{title} → {canonical_title}")
         if not movie_id:
             errors.append(f"{title}: missing id.")
         else:
@@ -155,6 +162,7 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
                 day = str(slot.get("day") or "").strip()
                 schedule_date = str(slot.get("date") or "").strip()
                 times = slot.get("times") or []
+                time_attributes = slot.get("time_attributes") or {}
                 if not day:
                     errors.append(f"{title}: {theater_name} schedule entry missing day.")
                 if schedule_date and not re.fullmatch(r"(?:18|19|20)\d{2}-\d{2}-\d{2}", schedule_date):
@@ -163,6 +171,14 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
                     future_showtime_found = True
                 if not isinstance(times, list) or not times:
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has no times.")
+                if not isinstance(time_attributes, dict):
+                    errors.append(f"{title}: {theater_name} {day or '[missing day]'} time_attributes is not an object.")
+                else:
+                    for time, attributes in time_attributes.items():
+                        if time not in times:
+                            errors.append(f"{title}: {theater_name} {day or '[missing day]'} has attributes for unknown time {time}.")
+                        if not isinstance(attributes, list) or not all(isinstance(attribute, str) and attribute.strip() for attribute in attributes):
+                            errors.append(f"{title}: {theater_name} {day or '[missing day]'} has invalid attributes for {time}.")
 
     duplicate_ids = [movie_id for movie_id, count in seen_ids.items() if count > 1]
     if duplicate_ids:
@@ -179,6 +195,7 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
         "missing_theaters": "Movies with no theaters attached",
         "missing_ticket_url": "Theater entries missing ticket_url",
         "duplicate_titles": "Duplicate normalized titles",
+        "screening_variants": "Uncanonicalized screening-variant titles",
     }
     for key, count in warning_counts.items():
         samples = warning_samples.get(key) or []

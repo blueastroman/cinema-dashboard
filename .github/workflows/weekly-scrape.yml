@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+concurrency:
+  group: cinema-data-writes
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:
@@ -19,6 +22,8 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Run tests
+        run: python -m unittest discover -s tests
       - name: Run scraper and validate dataset with retry
         shell: bash
         env:
@@ -91,6 +96,7 @@ jobs:
       - name: Generate Claude movie reviews
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VERDICT_ALLOW_INCOMPLETE: "1"
         run: python scripts/generate_verdicts.py
       - name: Validate dataset
         run: python scripts/validate_dataset.py

@@ -989,7 +989,19 @@
       border: 1px solid var(--mid-gray);
       color: var(--text-dim);
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .showtime-attribute {
+      padding-left: 5px;
+      border-left: 1px solid var(--mid-gray);
+      color: var(--accent);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     a.showtime-link:hover {
@@ -4916,39 +4928,59 @@ async function loadData() {
 
 // ── AMC FORMAT DEDUPLICATION ────────────────────────────────────────────────
 
-const AMC_FORMAT_SUFFIXES = [
-  /\s*[:\-–]\s*HDR by Barco Early Access\b/i,
-  /\s*[:\-–]\s*HDR by Barco\b/i,
-  /\s*[:\-–]\s*Premium Early Access Screening\b/i,
-  /\s*[:\-–]\s*Memorial Day Early Access\b/i,
-  /\s*[:\-–]\s*Early Access Event\b/i,
-  /\s*[:\-–]\s*Early Access\b/i,
-  /\s*[:\-–]\s*One Wish Movie Party\b/i,
-  /\s*[:\-–]\s*Movie Party\b/i,
-  /\s*[:\-–]\s*Open Captioning\b/i,
-  /\s*[:\-–]\s*Book Club Screening\b/i,
-  /\s*[:\-–]\s*Free Victory Screening\b/i,
-  /\s*[:\-–]\s*Fashion Forward Filanthropy Screening\b/i,
-  // Trailing parenthetical format labels
-  /\s+\(HDR by Barco\)\s*$/i,
-  /\s+\(Early Access\)\s*$/i,
-  /\s+\(Open Captioning\)\s*$/i,
+const SCREENING_TITLE_SUFFIXES = [
+  { label: 'HDR by Barco', pattern: /\s*(?:[:\-–—]\s*)?HDR\s+by\s+Barco(?:\s+Early\s+Access)?\s*$/i },
+  { label: 'Premium', pattern: /\s*(?:[:\-–—]\s*)?Premium(?:\s+Early\s+Access(?:\s+Screening)?)?\s*$/i },
+  { label: 'Early Access', pattern: /\s*(?:[:\-–—]\s*)?(?:Memorial\s+Day\s+)?Early\s+Access(?:\s+(?:Event|Screening))?\s*$/i },
+  { label: 'Movie Party', pattern: /\s*(?:[:\-–—]\s*)?(?:One\s+Wish\s+)?Movie\s+Party\s*$/i },
+  { label: 'Fan Event', pattern: /\s*(?:[:\-–—]\s*)?(?:Special\s+.+?\s+)?Fan\s+Event\s*$/i },
+  { label: 'Cereal Party', pattern: /\s*(?:[:\-–—]\s*)?Cereal\s+Party\s*$/i },
+  { label: 'Sing-Along', pattern: /\s*(?:[:\-–—]\s*)?Sing[\s-]*Along\s*$/i },
+  { label: 'Live Q&A', pattern: /\s*(?:[:\-–—]\s*)?(?:(?:w\/|with)\s*)?Live\s+Q\s*&\s*A\s*$/i },
+  { label: 'Open Caption', pattern: /\s*(?:[:\-–—]\s*)?Open\s+Caption(?:ed|ing)?\s*$/i },
+  { label: 'Anniversary', pattern: /\s*(?:[:\-–—]\s*)?(?:Celebrates\s+Its\s+)?\d+(?:st|nd|rd|th)\s+Anniversary(?:\s+Roadshow)?\s*$/i },
 ];
 
-function normalizeMovieTitle(title) {
-  let normalized = title;
-  for (const pattern of AMC_FORMAT_SUFFIXES) {
-    normalized = normalized.replace(pattern, '');
+function getScreeningTitleInfo(title) {
+  let normalized = String(title || '').trim();
+  const attributes = [];
+  let previous = null;
+  while (normalized && normalized !== previous) {
+    previous = normalized;
+    for (const { label, pattern } of SCREENING_TITLE_SUFFIXES) {
+      const candidate = normalized.replace(pattern, '').replace(/[\s:\-–—·]+$/, '').trim();
+      if (candidate && candidate !== normalized) {
+        normalized = candidate;
+        if (!attributes.includes(label)) attributes.push(label);
+        break;
+      }
+    }
   }
-  return normalized.trim();
+  return { title: normalized, attributes };
+}
+
+function normalizeMovieTitle(title) {
+  return getScreeningTitleInfo(title).title;
 }
 
 function deduplicateMovies(movies) {
-  // Group movies by normalized title + year
+  // If a title variant has no year, attach it to the sole known-year version
+  // of the canonical title. Keep remakes with distinct known years separate.
+  const knownYears = new Map();
+  for (const movie of movies) {
+    const normTitle = normalizeMovieTitle(movie.title);
+    const year = String(movie?.ratings?.year || '').trim();
+    if (!year) continue;
+    if (!knownYears.has(normTitle)) knownYears.set(normTitle, new Set());
+    knownYears.get(normTitle).add(year);
+  }
+
   const groups = new Map();
   for (const movie of movies) {
-    const year = movie?.ratings?.year || '';
+    const rawYear = String(movie?.ratings?.year || '').trim();
     const normTitle = normalizeMovieTitle(movie.title);
+    const possibleYears = knownYears.get(normTitle) || new Set();
+    const year = rawYear || (possibleYears.size === 1 ? [...possibleYears][0] : '');
     const key = `${normTitle}|||${year}`;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(movie);
@@ -4970,6 +5002,7 @@ function deduplicateMovies(movies) {
     // Merge all theater entries from variants into primary
     const allTheaterEntries = [];
     for (const variant of group) {
+      const variantAttributes = getScreeningTitleInfo(variant.title).attributes;
       for (const th of variant.theaters || []) {
         let te = allTheaterEntries.find(t => t.name === th.name);
         if (!te) {
@@ -4980,14 +5013,30 @@ function deduplicateMovies(movies) {
         for (const s of th.schedule || []) {
           const dayKey = `${s.date}|||${s.day}`;
           const existing = te.schedule.find(e => `${e.date}|||${e.day}` === dayKey);
+          const timeAttributes = { ...(s.time_attributes || {}) };
+          for (const time of (s.times || [])) {
+            timeAttributes[time] = [...new Set([...(timeAttributes[time] || []), ...variantAttributes])];
+          }
           if (!existing) {
-            te.schedule.push({ ...s, times: [...(s.times || [])], ticket_urls: { ...(s.ticket_urls || {}) } });
+            te.schedule.push({
+              ...s,
+              times: [...(s.times || [])],
+              ticket_urls: { ...(s.ticket_urls || {}) },
+              time_attributes: timeAttributes,
+            });
           } else {
             const seenTimes = new Set(existing.times || []);
             for (const t of s.times || []) {
               if (!seenTimes.has(t)) { seenTimes.add(t); existing.times.push(t); }
             }
             Object.assign(existing.ticket_urls, s.ticket_urls || {});
+            existing.time_attributes = existing.time_attributes || {};
+            for (const [time, attributes] of Object.entries(timeAttributes)) {
+              existing.time_attributes[time] = [...new Set([
+                ...(existing.time_attributes[time] || []),
+                ...(attributes || []),
+              ])];
+            }
           }
         }
       }
@@ -5490,10 +5539,21 @@ function mergeScheduleItems(existing = [], incoming = []) {
     const key = `${String(slot?.day || '').trim()}|${String(slot?.date || '').trim()}`;
     if (!key.trim()) return;
     if (!byDay.has(key)) {
-      byDay.set(key, { ...slot, times: [], ticket_urls: { ...(slot?.ticket_urls || {}) } });
+      byDay.set(key, {
+        ...slot,
+        times: [],
+        ticket_urls: { ...(slot?.ticket_urls || {}) },
+        time_attributes: { ...(slot?.time_attributes || {}) },
+      });
     }
     const merged = byDay.get(key);
     merged.ticket_urls = { ...(merged.ticket_urls || {}), ...(slot?.ticket_urls || {}) };
+    for (const [time, attributes] of Object.entries(slot?.time_attributes || {})) {
+      merged.time_attributes[time] = [...new Set([
+        ...(merged.time_attributes[time] || []),
+        ...(attributes || []),
+      ])];
+    }
     (slot?.times || []).forEach(time => {
       if (!merged.times.includes(time)) merged.times.push(time);
     });
@@ -6494,8 +6554,12 @@ function buildScheduleHTML(theaterData) {
       <div class="showtime-list">
         ${(s.times || []).map(t => {
           const label = formatShowtimeLabel(t);
+          const attributes = (s.time_attributes?.[t] || []).filter(Boolean);
+          const chipLabel = attributes.length
+            ? `${escapeHTML(label)}<span class="showtime-attribute">${escapeHTML(attributes.join(' · '))}</span>`
+            : escapeHTML(label);
           const chipUrl = getShowtimeTicketUrl(theaterData, s, t) || url;
-          return chipUrl ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${escapeHTML(label)}</a>` : `<span class="showtime-chip">${escapeHTML(label)}</span>`;
+          return chipUrl ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${chipLabel}</a>` : `<span class="showtime-chip">${chipLabel}</span>`;
         }).join('')}
       </div>
     </div>
@@ -6543,9 +6607,13 @@ function buildInlineShowtimeHTML(schedule, theaterData, limit = 8) {
     for (const item of group.times) {
       if (count >= limit) break;
       const chipUrl = getShowtimeTicketUrl(theaterData, item.scheduleItem, item.raw) || url;
+      const attributes = (item.scheduleItem?.time_attributes?.[item.raw] || []).filter(Boolean);
+      const chipLabel = attributes.length
+        ? `${escapeHTML(item.label)}<span class="showtime-attribute">${escapeHTML(attributes.join(' · '))}</span>`
+        : escapeHTML(item.label);
       chips.push(chipUrl
-        ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${escapeHTML(item.label)}</a>`
-        : `<span class="showtime-chip">${escapeHTML(item.label)}</span>`);
+        ? `<a href="${escapeHTML(chipUrl)}" target="_blank" rel="noopener" class="showtime-chip showtime-link">${chipLabel}</a>`
+        : `<span class="showtime-chip">${chipLabel}</span>`);
       count++;
     }
     if (!chips.length) return '';

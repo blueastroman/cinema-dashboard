@@ -26,6 +26,7 @@ from cinema_backend.common import (
     build_theater_meta,
     clean_title,
     date_iso,
+    extract_screening_attributes,
     extract_special_formats,
     extract_year_int,
     format_day_label,
@@ -236,6 +237,7 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                     except (ValueError, TypeError):
                         pass
                 raw_title = movie.get("name", "Unknown")
+                screening_attributes = extract_screening_attributes(raw_title)
                 movies.append({
                     "title": clean_title(raw_title),
                     "hint_year": hint_year,
@@ -245,6 +247,11 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                     "ticket_url": ticket_url,
                     "ticket_urls": ticket_urls,
                     "special_formats": extract_special_formats(raw_title),
+                    "time_attributes": {
+                        show_time: screening_attributes
+                        for show_time in times
+                        if screening_attributes
+                    },
                 })
         return movies
     except Exception as e:
@@ -877,6 +884,9 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
     grouped_formats: dict[str, set[str]] = defaultdict(set)
     grouped_metadata: dict[str, dict[str, str]] = {}
     grouped_dates: dict[str, dict[str, str]] = defaultdict(dict)
+    grouped_attributes: dict[str, dict[str, dict[str, set[str]]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(set))
+    )
 
     for slug in unique_slugs:
         try:
@@ -933,6 +943,14 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
                 show_data.get("title"),
                 event_data.get("title"),
             )
+            screening_attributes = extract_screening_attributes(
+                raw_title,
+                session.get("experienceName"),
+                session.get("presentationName"),
+                session.get("format"),
+                show_data.get("title"),
+                event_data.get("title"),
+            )
             if title not in grouped_metadata:
                 grouped_metadata[title] = extract_alamo_metadata(show_data, event_data)
 
@@ -949,6 +967,8 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
             bucket[time_label] = ticket_url
             if title_formats:
                 grouped_formats[title].update(title_formats)
+            if screening_attributes:
+                grouped_attributes[title][day_label][time_label].update(screening_attributes)
 
     flattened = []
     for title, days in grouped.items():
@@ -965,6 +985,11 @@ def fetch_alamo_showtimes(theater: dict) -> list[dict]:
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
                 "special_formats": sorted(grouped_formats.get(title, [])),
+                "time_attributes": {
+                    time_label: sorted(attributes)
+                    for time_label, attributes in grouped_attributes.get(title, {}).get(day_label, {}).items()
+                    if attributes
+                },
                 "source_metadata": grouped_metadata.get(title, {}),
             })
 
@@ -1184,7 +1209,7 @@ def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
         return []
 
     grouped: dict[str, dict[str, dict[str, object]]] = defaultdict(
-        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}})
+        lambda: defaultdict(lambda: {"times": [], "ticket_urls": {}, "time_attributes": defaultdict(set)})
     )
     start = ny_now().replace(tzinfo=None)
 
@@ -1225,6 +1250,13 @@ def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                     showtime.get("experienceName"),
                     showtime.get("amenity"),
                 )
+                screening_attributes = extract_screening_attributes(
+                    raw_title,
+                    showtime.get("premiumOfferingName"),
+                    showtime.get("format"),
+                    showtime.get("experienceName"),
+                    showtime.get("amenity"),
+                )
 
                 try:
                     local_dt = datetime.fromisoformat(str(local_dt_raw))
@@ -1241,6 +1273,8 @@ def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                     day_bucket["ticket_urls"].setdefault(time_label, ticket_url)
                 if title_formats:
                     day_bucket.setdefault("special_formats", set()).update(title_formats)
+                if screening_attributes:
+                    day_bucket["time_attributes"][time_label].update(screening_attributes)
 
             page_size = int(data.get("pageSize") or 0)
             page_number = int(data.get("pageNumber") or page)
@@ -1268,6 +1302,11 @@ def fetch_amc_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                 "ticket_url": ticket_url,
                 "ticket_urls": ticket_urls,
                 "special_formats": sorted(payload.get("special_formats") or []),
+                "time_attributes": {
+                    time_label: sorted(attributes)
+                    for time_label, attributes in (payload.get("time_attributes") or {}).items()
+                    if time_label in unique_times and attributes
+                },
             })
 
     return flattened
@@ -2754,6 +2793,21 @@ def resolve_movie_records(
             if str(time).strip() and str(url).strip()
         }
         special_formats = [fmt for fmt in (entry.get("special_formats") or []) if str(fmt).strip()]
+        entry_attributes = [
+            str(attribute).strip()
+            for attribute in (entry.get("screening_attributes") or [])
+            if str(attribute).strip()
+        ]
+        time_attributes = {
+            str(time): sorted({str(attribute).strip() for attribute in attributes if str(attribute).strip()})
+            for time, attributes in (entry.get("time_attributes") or {}).items()
+            if str(time).strip() and isinstance(attributes, list)
+        }
+        for time in times:
+            combined_attributes = set(time_attributes.get(str(time), []))
+            combined_attributes.update(entry_attributes)
+            if combined_attributes:
+                time_attributes[str(time)] = sorted(combined_attributes)
         source_metadata = entry.get("source_metadata") or {}
         hint_year = entry.get("hint_year") or title_year or extract_year_int(source_metadata.get("year"))
         movie_key = movie_group_key(title, hint_year=hint_year, source_metadata=source_metadata)
@@ -2881,6 +2935,7 @@ def resolve_movie_records(
             "times": times,
             "ticket_url": ticket_url,
             "ticket_urls": ticket_urls,
+            "time_attributes": time_attributes,
         })
         if special_formats:
             theater_formats[theater_name][movie_key].update(special_formats)
@@ -2931,6 +2986,8 @@ def attach_schedules_to_movies(
                     clean_slot["date"] = slot["date"]
                 if slot.get("ticket_urls"):
                     clean_slot["ticket_urls"] = slot["ticket_urls"]
+                if slot.get("time_attributes"):
+                    clean_slot["time_attributes"] = slot["time_attributes"]
                 clean_schedule.append(clean_slot)
             all_movies[key]["theaters"].append({
                 "name": theater_name,
