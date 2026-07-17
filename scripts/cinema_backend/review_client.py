@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-ANTHROPIC_VERSION = "2024-06-01"
+ANTHROPIC_VERSION = "2025-04-01"
 
 
 @dataclass
