@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T13:31:58.154167-04:00",
+  "generated_at": "2026-07-17T13:48:13.175501-04:00",
   "week_of": "July 17, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -1792,18 +1792,16 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568803~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568808~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30 am",
                 "4:20 pm",
                 "9:15 pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "11:30 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568803~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "4:20 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568808~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "9:15 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568814~8722a542-64c1-4c0b-af02-c3e8a239d769&"
               }
@@ -3807,19 +3805,17 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93432",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93431",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:15pm",
                 "4:15pm",
                 "7:15pm",
                 "10:00pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93432",
                 "4:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93431",
                 "7:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93403",
                 "10:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93430"
@@ -3920,19 +3916,17 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133797",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133798",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "1:15pm",
                 "4:00pm",
                 "7:00pm",
                 "9:45pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "1:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133797",
                 "4:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133798",
                 "7:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133799",
                 "9:45pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=133800"
@@ -13661,18 +13655,8 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2103&sessionId=93443",
+          "ticket_url": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2103&sessionId=93772",
           "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "1:15pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "1:15pm": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2103&sessionId=93443"
-              }
-            },
             {
               "day": "Sat Jul 18",
               "times": [
@@ -13738,18 +13722,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2101&sessionId=133783",
+          "ticket_url": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2101&sessionId=133829",
           "schedule": [
-            {
-              "day": "Fri Jul 17",
-              "times": [
-                "1:15pm"
-              ],
-              "date": "2026-07-17",
-              "ticket_urls": {
-                "1:15pm": "https://drafthouse.com/nyc/show/maddies-secret?cinemaId=2101&sessionId=133783"
-              }
-            },
             {
               "day": "Sat Jul 18",
               "times": [
@@ -17540,12 +17514,11 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568800~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568366~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "10:50 am",
                 "1:25 pm",
                 "4:05 pm",
                 "6:45 pm",
@@ -17553,7 +17526,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "10:50 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568800~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "1:25 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568366~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "4:05 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568367~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "6:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=563800~8722a542-64c1-4c0b-af02-c3e8a239d769&",
