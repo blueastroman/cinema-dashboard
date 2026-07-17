@@ -22,6 +22,7 @@ jobs:
       - name: Run scraper and validate dataset with retry
         shell: bash
         env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
           PARIS_API_USERNAME: ${{ secrets.PARIS_API_USERNAME }}
