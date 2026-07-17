@@ -155,29 +155,6 @@ def has_reviewable_content(movie):
     return has_score or has_plot
 
 
-def build_film_block(movie):
-    """Build the text description of a film for the API prompt."""
-    r = movie.get("ratings", {})
-    lines = [f"Title: {movie['title']}"]
-
-    if r.get("year"):
-        lines.append(f"Year: {r['year']}")
-    if r.get("director"):
-        lines.append(f"Director: {r['director']}")
-    if r.get("genre"):
-        lines.append(f"Genre: {r['genre']}")
-    if r.get("runtime"):
-        lines.append(f"Runtime: {r['runtime']}")
-    if r.get("rt"):
-        lines.append(f"Critics Score: {r['rt']}")
-    if r.get("metacritic"):
-        lines.append(f"Metacritic: {r['metacritic']}")
-    if r.get("plot"):
-        lines.append(f"Plot: {r['plot']}")
-
-    return "\n".join(lines)
-
-
 def is_usable_cache_entry(entry):
     if not isinstance(entry, dict):
         return False
@@ -190,7 +167,7 @@ def is_usable_cache_entry(entry):
     return True
 
 
-def existing_verdict_entry(movie, now=None):
+def existing_verdict_entry(movie, model, now=None):
     verdict = movie.get("verdict") or {}
     if not isinstance(verdict, dict):
         return None
@@ -206,7 +183,7 @@ def existing_verdict_entry(movie, now=None):
         "verdict": raw_verdict,
         "reason": reason,
         "generated_at": now.isoformat(),
-        "model": "seeded-from-data",
+        "model": model,
         "prompt_version": PROMPT_VERSION,
         "cache_schema_version": CACHE_SCHEMA_VERSION,
         "source_hash": build_movie_source_hash(movie),
@@ -270,6 +247,20 @@ def cache_entry_matches_movie(entry, movie, model):
     )
 
 
+def is_legacy_cache_entry(entry):
+    """Return True for usable entries written before cache versioning."""
+    if not is_usable_cache_entry(entry):
+        return False
+    return not all(
+        (
+            str(entry.get("model") or "").strip(),
+            str(entry.get("prompt_version") or "").strip(),
+            entry.get("cache_schema_version") is not None,
+            str(entry.get("source_hash") or "").strip(),
+        )
+    )
+
+
 def needs_verdict(movie, cache, model, force_refresh=False):
     """Determine if a film needs a new API call."""
     movie_id = movie.get("id")
@@ -290,6 +281,11 @@ def should_review_movie(movie, cache, model, force_refresh=False, only_placehold
     movie_id = movie.get("id")
     if not movie_id:
         return False if only_placeholder else True
+
+    # Do not ask Claude to invent an opinion when the scraper found no
+    # plot or critical score to ground it in.
+    if not force_refresh and not has_reviewable_content(movie):
+        return False
 
     if only_placeholder:
         movie_verdict = movie.get("verdict") or {}
@@ -467,8 +463,22 @@ def main(context: ReviewContext | None = None):
         movie_id = movie.get("id")
         if config.force_refresh and movie_id:
             cache.pop(movie_id, None)
-        if not only_placeholder and movie_id and not config.force_refresh and not is_usable_cache_entry(cache.get(movie_id)):
-            seeded = existing_verdict_entry(movie, now)
+        existing_entry = cache.get(movie_id) if movie_id else None
+        if (
+            not only_placeholder
+            and movie_id
+            and not config.force_refresh
+            and (not is_usable_cache_entry(existing_entry) or is_legacy_cache_entry(existing_entry))
+        ):
+            seeded = existing_verdict_entry(movie, config.model, now)
+            if seeded is None and is_usable_cache_entry(existing_entry):
+                seeded = build_cache_entry(
+                    movie,
+                    existing_entry["verdict"],
+                    existing_entry["reason"],
+                    now,
+                    config.model,
+                )
             if seeded and is_usable_cache_entry(seeded):
                 cache[movie_id] = seeded
 
@@ -539,18 +549,21 @@ def main(context: ReviewContext | None = None):
                     title = movie["title"]
                     movie_id = movie.get("id")
                     try:
-                        single_block = build_film_block(movie)
-                        single_verdicts = call_claude_strict(client, single_block, [title])
+                        single_payload = [build_movie_prompt_payload(movie)]
+                        single_verdicts = call_claude_strict(client, single_payload, [title])
                         v = single_verdicts[0]
                         if movie_id:
-                            cache[movie_id] = {
-                                "verdict": v["verdict"],
-                                "reason": v["reason"],
-                                "generated_at": now.isoformat(),
-                            }
+                            cache[movie_id] = build_cache_entry(
+                                movie,
+                                v["verdict"],
+                                v["reason"],
+                                now,
+                                config.model,
+                            )
                         print(f"  {v['verdict']:7s} {title} (fallback)")
                     except Exception as inner_e:
                         print(f"  SKIP    {title} ({inner_e})")
+                        failed_titles.append(title)
             except Exception as e:
                 print(f"  ERROR: {e}")
                 print("  Skipping batch, will retry next run")

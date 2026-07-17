@@ -226,6 +226,22 @@ SPECIAL_FORMAT_PATTERNS = {
     "35mm": re.compile(r"\b(?:in\s+)?35\s*mm\b", re.IGNORECASE),
 }
 
+# Exhibition and event qualifiers that vendors append to the actual movie
+# title. Patterns are deliberately end-anchored so real titles such as
+# "Premium Rush" are not rewritten.
+SCREENING_SUFFIX_PATTERNS = (
+    ("HDR by Barco", re.compile(r"\s*(?:[:\-–—]\s*)?HDR\s+by\s+Barco(?:\s+Early\s+Access)?\s*$", re.IGNORECASE)),
+    ("Premium", re.compile(r"\s*(?:[:\-–—]\s*)?Premium(?:\s+Early\s+Access(?:\s+Screening)?)?\s*$", re.IGNORECASE)),
+    ("Early Access", re.compile(r"\s*(?:[:\-–—]\s*)?(?:Memorial\s+Day\s+)?Early\s+Access(?:\s+(?:Event|Screening))?\s*$", re.IGNORECASE)),
+    ("Movie Party", re.compile(r"\s*(?:[:\-–—]\s*)?(?:One\s+Wish\s+)?Movie\s+Party\s*$", re.IGNORECASE)),
+    ("Fan Event", re.compile(r"\s*(?:[:\-–—]\s*)?(?:Special\s+.+?\s+)?Fan\s+Event\s*$", re.IGNORECASE)),
+    ("Cereal Party", re.compile(r"\s*(?:[:\-–—]\s*)?Cereal\s+Party\s*$", re.IGNORECASE)),
+    ("Sing-Along", re.compile(r"\s*(?:[:\-–—]\s*)?Sing[\s-]*Along\s*$", re.IGNORECASE)),
+    ("Live Q&A", re.compile(r"\s*(?:[:\-–—]\s*)?(?:(?:w/|with)\s*)?Live\s+Q\s*&\s*A\s*$", re.IGNORECASE)),
+    ("Open Caption", re.compile(r"\s*(?:[:\-–—]\s*)?Open\s+Caption(?:ed|ing)?\s*$", re.IGNORECASE)),
+    ("Anniversary", re.compile(r"\s*(?:[:\-–—]\s*)?(?:Celebrates\s+Its\s+)?\d+(?:st|nd|rd|th)\s+Anniversary(?:\s+Roadshow)?\s*$", re.IGNORECASE)),
+)
+
 NON_ALNUM = re.compile(r"[^a-z0-9]+")
 NY_TZ = ZoneInfo("America/New_York")
 
@@ -250,6 +266,14 @@ def slugify(value: str) -> str:
 
 def clean_title(raw: str) -> str:
     cleaned = FORMAT_TAGS.sub("", raw).strip(" -–—·")
+    previous = None
+    while cleaned and cleaned != previous:
+        previous = cleaned
+        for _label, pattern in SCREENING_SUFFIX_PATTERNS:
+            candidate = pattern.sub("", cleaned).strip(" -–—·:")
+            if candidate and candidate != cleaned:
+                cleaned = candidate
+                break
     article_match = re.match(r"^(.*),\s+(The|A|An)$", cleaned, re.IGNORECASE)
     if article_match:
         cleaned = f"{article_match.group(2)} {article_match.group(1)}"
@@ -293,6 +317,27 @@ def extract_special_formats(*values: object) -> list[str]:
     for label, pattern in SPECIAL_FORMAT_PATTERNS.items():
         if any(pattern.search(haystack) for haystack in haystacks):
             found.append(label)
+    return found
+
+
+def extract_screening_attributes(*values: object) -> list[str]:
+    """Extract per-showtime formats and event qualifiers from vendor labels."""
+    found = list(extract_special_formats(*values))
+    haystacks = [str(value or "").strip() for value in values if value]
+    for haystack in haystacks:
+        current = haystack
+        previous = None
+        while current and current != previous:
+            previous = current
+            for label, pattern in SCREENING_SUFFIX_PATTERNS:
+                if not pattern.search(current):
+                    continue
+                if label not in found:
+                    found.append(label)
+                candidate = pattern.sub("", current).strip(" -–—·:")
+                if candidate and candidate != current:
+                    current = candidate
+                break
     return found
 
 
