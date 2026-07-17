@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T11:45:03.566968-04:00",
+  "generated_at": "2026-07-17T13:04:52.819882-04:00",
   "week_of": "July 17, 2026",
   "theaters": [
     "AMC 19th St. East 6",
@@ -767,9 +767,8 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "11:00am",
                 "12:35pm",
                 "1:35pm",
                 "4:20pm",
@@ -781,7 +780,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:00am",
                 "11:00am",
@@ -993,12 +992,11 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133804",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133787",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:00pm",
                 "3:00pm",
                 "6:00pm",
                 "9:00pm",
@@ -1006,7 +1004,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133804",
                 "3:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133787",
                 "6:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133788",
                 "9:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=133790",
@@ -1216,6 +1213,80 @@
           "special_formats": []
         },
         {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:30am",
+                "2:15pm",
+                "5:00pm",
+                "7:45pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:30am",
+                "11:40am",
+                "2:20pm",
+                "5:00pm",
+                "7:45pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "10:45am",
+                "1:30pm",
+                "4:15pm",
+                "7:15pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "11:30am",
+                "12:45pm",
+                "3:30pm",
+                "6:15pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "11:15am",
+                "12:45pm",
+                "3:45pm",
+                "6:30pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC 34th Street 14",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
           "schedule": [
@@ -1293,9 +1364,8 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "11:45am",
                 "2:30pm",
                 "5:15pm",
                 "6:30pm",
@@ -1306,7 +1376,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:45am",
                 "2:30pm",
@@ -1318,7 +1388,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -1329,7 +1399,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:30am",
                 "1:15pm",
@@ -1340,7 +1410,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:15am",
                 "2:00pm",
@@ -1352,7 +1422,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "11:15am",
                 "2:00pm",
@@ -1373,7 +1443,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
                 "1:45pm",
                 "2:45pm",
                 "4:45pm",
@@ -1476,73 +1545,79 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
           "schedule": [
             {
-              "day": "الجمعة ١٧ يوليو",
+              "day": "Today",
               "times": [
-                "12:00م",
-                "2:45م",
-                "5:30م",
-                "8:15م",
-                "10:15م"
-              ]
+                "2:45pm",
+                "5:30pm",
+                "8:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-17"
             },
             {
-              "day": "السبت ١٨ يوليو",
+              "day": "Tomorrow",
               "times": [
-                "8:45ص",
-                "10:15ص",
-                "1:00م",
-                "4:15م",
-                "7:15م",
-                "10:15م"
-              ]
+                "8:45am",
+                "10:15am",
+                "1:00pm",
+                "4:15pm",
+                "7:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-18"
             },
             {
-              "day": "الأحد ١٩ يوليو",
+              "day": "Sun Jul 19",
               "times": [
-                "8:00ص",
-                "10:30ص",
-                "1:15م",
-                "4:15م",
-                "7:15م",
-                "10:15م"
-              ]
+                "8:00am",
+                "10:30am",
+                "1:15pm",
+                "4:15pm",
+                "7:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-19"
             },
             {
-              "day": "الاثنين ٢٠ يوليو",
+              "day": "Mon Jul 20",
               "times": [
-                "10:15ص",
-                "11:15ص",
-                "1:15م",
-                "4:15م",
-                "6:45م",
-                "9:45م"
-              ]
+                "10:15am",
+                "11:15am",
+                "1:15pm",
+                "4:15pm",
+                "6:45pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-20"
             },
             {
-              "day": "الثلاثاء ٢١ يوليو",
+              "day": "Tue Jul 21",
               "times": [
-                "10:15ص",
-                "1:15م",
-                "4:15م",
-                "7:15م",
-                "10:15م"
-              ]
+                "10:15am",
+                "1:15pm",
+                "4:15pm",
+                "7:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-21"
             },
             {
-              "day": "الأربعاء ٢٢ يوليو",
+              "day": "Wed Jul 22",
               "times": [
-                "10:15ص",
-                "1:15م",
-                "4:15م",
-                "7:15م",
-                "10:15م"
-              ]
+                "10:15am",
+                "1:15pm",
+                "4:15pm",
+                "7:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-22"
             },
             {
-              "day": "الخميس ٢٣ يوليو",
+              "day": "Thu Jul 23",
               "times": [
-                "11:00ص"
-              ]
+                "11:00am"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -1554,7 +1629,6 @@
             {
               "day": "Today",
               "times": [
-                "11:15am",
                 "2:15pm",
                 "5:00pm",
                 "7:45pm",
@@ -1622,61 +1696,67 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
           "schedule": [
             {
-              "day": "الجمعة ١٧ تموز",
+              "day": "Today",
               "times": [
-                "2:15م",
-                "4:05م",
-                "8:00م",
-                "10:50م"
-              ]
+                "2:15pm",
+                "4:05pm",
+                "8:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-17"
             },
             {
-              "day": "السبت ١٨ تموز",
+              "day": "Tomorrow",
               "times": [
-                "12:00م",
-                "2:55م",
-                "5:15م",
-                "8:00م",
-                "10:50م"
-              ]
+                "12:00pm",
+                "2:55pm",
+                "5:15pm",
+                "8:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-18"
             },
             {
-              "day": "الأحد ١٩ تموز",
+              "day": "Sun Jul 19",
               "times": [
-                "12:00م",
-                "2:55م",
-                "5:15م",
-                "8:00م",
-                "10:50م"
-              ]
+                "12:00pm",
+                "2:55pm",
+                "5:15pm",
+                "8:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-19"
             },
             {
-              "day": "الاثنين ٢٠ تموز",
+              "day": "Mon Jul 20",
               "times": [
-                "1:15م",
-                "4:00م",
-                "8:00م",
-                "10:50م"
-              ]
+                "1:15pm",
+                "4:00pm",
+                "8:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-20"
             },
             {
-              "day": "الثلاثاء ٢١ تموز",
+              "day": "Tue Jul 21",
               "times": [
-                "10:00ص",
-                "1:45م",
-                "4:20م",
-                "8:00م",
-                "10:40م"
-              ]
+                "10:00am",
+                "1:45pm",
+                "4:20pm",
+                "8:00pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-21"
             },
             {
-              "day": "الأربعاء ٢٢ تموز",
+              "day": "Wed Jul 22",
               "times": [
-                "1:15م",
-                "4:00م",
-                "8:00م",
-                "10:50م"
-              ]
+                "1:15pm",
+                "4:00pm",
+                "8:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
@@ -2220,7 +2300,7 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "3:30pm",
                 "5:45pm"
@@ -2228,7 +2308,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "3:25pm",
                 "5:40pm"
@@ -2350,7 +2430,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "6:00pm",
                 "8:30pm",
@@ -2359,7 +2439,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "6:30pm",
                 "9:00pm",
@@ -2369,7 +2449,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:00am",
                 "6:00pm",
@@ -2379,7 +2459,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "6:00pm",
                 "8:45pm",
@@ -2388,7 +2468,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "8:30pm",
                 "11:00pm"
@@ -2396,7 +2476,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "7:00pm",
                 "9:30pm"
@@ -2630,7 +2710,7 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "1:15pm",
                 "4:30pm"
@@ -2638,7 +2718,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:00am",
                 "1:15pm",
@@ -2877,14 +2957,14 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "7:00pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -2893,7 +2973,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -2902,7 +2982,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -2911,7 +2991,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -2920,7 +3000,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -2980,6 +3060,68 @@
               "times": [
                 "11:45am",
                 "6:45pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "11:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "11:00am",
+                "6:30pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:30am",
+                "6:30pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "12:15pm",
+                "3:15pm",
+                "6:15pm",
+                "9:30pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "12:15pm",
+                "3:15pm",
+                "6:15pm",
+                "9:30pm"
               ],
               "date": "2026-07-22"
             }
@@ -3394,13 +3536,61 @@
           "special_formats": []
         },
         {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "10:45pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:45pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:45pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "9:45pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC 34th Street 14",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
                 "2:15pm",
                 "4:45pm",
                 "7:30pm",
@@ -3471,7 +3661,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "1:00pm",
                 "4:00pm",
@@ -3484,7 +3674,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -3497,7 +3687,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -3510,7 +3700,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:15am",
                 "1:00pm",
@@ -3521,7 +3711,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:15am",
                 "1:00pm",
@@ -3532,7 +3722,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:15am",
                 "1:00pm",
@@ -3552,7 +3742,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "3:05pm",
                 "4:30pm",
                 "7:20pm",
@@ -3690,14 +3879,14 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri Jul 17",
               "times": [
                 "11:30pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat Jul 18",
               "times": [
                 "11:15pm"
               ],
@@ -4085,6 +4274,80 @@
           "special_formats": []
         },
         {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "4:00pm",
+                "6:30pm",
+                "9:00pm",
+                "2:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "4:50pm",
+                "7:15pm",
+                "9:30pm",
+                "9:00am",
+                "1:45pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "4:00pm",
+                "6:30pm",
+                "9:45pm",
+                "9:00am",
+                "11:30am",
+                "2:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "11:00am",
+                "1:30pm",
+                "4:00pm",
+                "6:15pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:15am",
+                "11:00am",
+                "4:15pm",
+                "6:45pm",
+                "9:15pm",
+                "2:15pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:45am",
+                "4:15pm",
+                "6:45pm",
+                "9:15pm",
+                "2:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC 34th Street 14",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
           "schedule": [
@@ -4165,7 +4428,6 @@
             {
               "day": "Today",
               "times": [
-                "11:15am",
                 "2:00pm",
                 "10:15pm",
                 "4:45pm",
@@ -4235,7 +4497,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "1:00pm",
                 "3:30pm",
@@ -4243,14 +4505,13 @@
                 "7:30pm",
                 "8:30pm",
                 "10:15pm",
-                "11:00am",
                 "1:30pm",
                 "4:00pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -4265,7 +4526,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -4280,7 +4541,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -4295,7 +4556,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -4310,7 +4571,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:30am",
                 "1:00pm",
@@ -4335,7 +4596,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:15am",
                 "12:45pm",
                 "3:15pm",
                 "6:15pm",
@@ -4420,7 +4680,6 @@
             {
               "day": "Today",
               "times": [
-                "11:05am",
                 "2:00pm",
                 "4:30pm",
                 "7:10pm",
@@ -4476,6 +4735,78 @@
                 "2:00pm",
                 "4:30pm",
                 "7:10pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:30pm",
+                "5:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "8:00am",
+                "11:45am",
+                "2:30pm",
+                "5:00pm",
+                "7:00pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "8:00am",
+                "10:15am",
+                "12:45pm",
+                "5:00pm",
+                "6:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "10:45am",
+                "2:15pm",
+                "4:45pm",
+                "7:30pm",
+                "9:15pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:45am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:45am",
+                "12:45pm",
+                "3:45pm",
+                "6:45pm",
                 "9:45pm"
               ],
               "date": "2026-07-22"
@@ -4490,7 +4821,6 @@
             {
               "day": "Today",
               "times": [
-                "11:30am",
                 "2:00pm",
                 "4:30pm",
                 "7:15pm",
@@ -4554,11 +4884,84 @@
           "special_formats": []
         },
         {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:40pm",
+                "5:40pm",
+                "9:45pm",
+                "8:10pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "9:45am",
+                "2:45pm",
+                "5:45pm",
+                "8:10pm",
+                "10:30pm",
+                "12:15pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "12:15pm",
+                "2:45pm",
+                "5:45pm",
+                "8:10pm",
+                "10:30pm",
+                "9:45am"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "12:30pm",
+                "3:00pm",
+                "5:30pm",
+                "8:15pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "11:10am",
+                "3:15pm",
+                "5:45pm",
+                "8:15pm",
+                "10:15pm",
+                "1:30pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "8:15pm",
+                "10:15pm",
+                "4:40pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC Village 7",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri Jul 17",
               "times": [
                 "12:35pm",
                 "3:30pm",
@@ -4569,7 +4972,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat Jul 18",
               "times": [
                 "2:45pm",
                 "5:00pm",
@@ -4658,7 +5061,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "3:45pm",
                 "7:00pm"
@@ -4666,7 +5069,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:45am",
                 "2:45pm"
@@ -4674,7 +5077,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:30am",
                 "2:45pm"
@@ -4682,7 +5085,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:30am",
                 "2:45pm"
@@ -4690,7 +5093,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:30am",
                 "1:45pm"
@@ -4698,7 +5101,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:30am",
                 "1:45pm"
@@ -4951,7 +5354,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "1:15pm",
                 "4:15pm",
@@ -4961,7 +5364,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:15am",
                 "2:00pm",
@@ -4972,7 +5375,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:30am",
                 "1:15pm",
@@ -4983,7 +5386,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:30am",
                 "2:15pm",
@@ -4994,7 +5397,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:15am",
                 "2:00pm",
@@ -5005,7 +5408,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "11:15am",
                 "2:00pm",
@@ -5115,6 +5518,59 @@
               "times": [
                 "12:30pm",
                 "7:20pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "10:45pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:15pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:15pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "9:30pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "11:00am",
+                "2:00pm",
+                "9:15pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "11:00am",
+                "2:00pm",
+                "9:15pm"
               ],
               "date": "2026-07-22"
             }
@@ -5434,9 +5890,8 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "11:30am",
                 "2:00pm",
                 "4:30pm",
                 "7:00pm",
@@ -5445,7 +5900,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "11:30am",
                 "2:00pm",
@@ -6069,9 +6524,8 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "11:45am",
                 "2:15pm",
                 "4:45pm",
                 "7:15pm",
@@ -6080,7 +6534,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "11:00am",
                 "12:40pm",
@@ -6248,18 +6702,16 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568801~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568805~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "10:35 am",
                 "2:05 pm",
                 "7:00 pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568801~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "2:05 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568805~8722a542-64c1-4c0b-af02-c3e8a239d769&",
                 "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568811~8722a542-64c1-4c0b-af02-c3e8a239d769&"
               }
@@ -6367,7 +6819,7 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "12:30pm",
                 "1:40pm",
@@ -6379,7 +6831,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "2:15pm",
                 "6:00pm",
@@ -6388,9 +6840,8 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "11:30am",
                 "3:10pm",
                 "7:00pm",
                 "10:40pm"
@@ -6398,7 +6849,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:00am",
                 "12:30pm",
@@ -6411,7 +6862,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:30am",
                 "2:15pm",
@@ -6421,7 +6872,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "11:30am",
                 "3:10pm",
@@ -6598,12 +7049,11 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90792",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93420",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:00pm",
                 "1:00pm",
                 "2:00pm",
                 "2:15pm",
@@ -6619,7 +7069,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90792",
                 "1:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93420",
                 "2:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=93422",
                 "2:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90739",
@@ -6971,12 +7420,11 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131547",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=130969",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "2:00pm",
                 "2:15pm",
                 "3:00pm",
@@ -6989,7 +7437,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131547",
                 "2:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=130969",
                 "2:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=133770",
                 "3:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=133807",
@@ -7302,13 +7749,11 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43807",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43539",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
-                "12:00pm",
                 "4:00pm",
                 "5:00pm",
                 "8:00pm",
@@ -7316,8 +7761,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "11:30am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43807",
-                "12:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43538",
                 "4:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43539",
                 "5:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43838",
                 "8:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43540",
@@ -7423,6 +7866,118 @@
               "ticket_urls": {
                 "6:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43311"
               }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC 19th St. East 6",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "9:15am",
+                "10:00am",
+                "11:00am",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "9:15am",
+                "10:00am",
+                "11:00am",
+                "1:00pm",
+                "2:00pm",
+                "3:00pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "12:00pm",
+                "2:00pm",
+                "3:00pm",
+                "3:45pm",
+                "6:00pm",
+                "7:30pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "11:15am",
+                "1:00pm",
+                "2:00pm",
+                "3:10pm",
+                "5:00pm",
+                "6:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "2:00pm",
+                "3:00pm",
+                "4:45pm",
+                "6:00pm",
+                "7:00pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "10:00am",
+                "11:00am",
+                "2:00pm",
+                "3:00pm",
+                "6:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -7622,7 +8177,6 @@
             {
               "day": "Today",
               "times": [
-                "11:00am",
                 "1:00pm",
                 "1:45pm",
                 "3:00pm",
@@ -7746,9 +8300,8 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "12:00pm",
                 "12:30pm",
                 "1:00pm",
                 "2:30pm",
@@ -7770,7 +8323,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "2:00pm",
                 "6:00pm",
@@ -7780,7 +8333,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:30am",
                 "12:00pm",
@@ -7804,7 +8357,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7815,7 +8368,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:30am",
                 "12:00pm",
@@ -7837,7 +8390,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7848,7 +8401,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "12:00pm",
                 "12:30pm",
@@ -7865,7 +8418,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7875,7 +8428,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "12:00pm",
                 "1:00pm",
@@ -7893,7 +8446,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7903,7 +8456,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "12:00pm",
                 "1:00pm",
@@ -7918,7 +8471,7 @@
               "date": "2026-07-22"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7928,7 +8481,7 @@
               "date": "2026-07-22"
             },
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "12:00pm",
                 "4:00pm",
@@ -7938,7 +8491,7 @@
               "date": "2026-07-23"
             },
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "10:00am",
                 "2:00pm",
@@ -7959,8 +8512,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:00am",
-                "12:00pm",
                 "12:30pm",
                 "1:00pm",
                 "2:30pm",
@@ -8201,7 +8752,6 @@
             {
               "day": "Today",
               "times": [
-                "11:00am",
                 "1:00pm",
                 "3:00pm",
                 "4:20pm",
@@ -8296,95 +8846,201 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
           "schedule": [
             {
-              "day": "الجمعة ١٧ يوليو",
+              "day": "Today",
               "times": [
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م",
-                "3:00ص",
-                "12:30م",
-                "4:30م",
-                "8:30م",
-                "12:30ص"
-              ]
+                "1:00pm",
+                "2:30pm",
+                "3:00pm",
+                "3:30pm",
+                "4:00pm",
+                "8:00pm",
+                "10:30pm",
+                "10:45pm",
+                "12:00am",
+                "1:00am"
+              ],
+              "date": "2026-07-17"
             },
             {
-              "day": "السبت ١٨ يوليو",
+              "day": "Today",
               "times": [
-                "7:00ص",
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م",
-                "3:00ص",
-                "8:30ص",
-                "12:30م",
-                "4:30م",
-                "8:30م",
-                "12:30ص"
-              ]
+                "3:00pm",
+                "7:00pm",
+                "11:00pm",
+                "3:00am",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm",
+                "12:30am"
+              ],
+              "date": "2026-07-17"
             },
             {
-              "day": "الأحد ١٩ يوليو",
+              "day": "Tomorrow",
               "times": [
-                "7:00ص",
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م",
-                "8:30ص",
-                "12:30م",
-                "4:30م",
-                "8:30م"
-              ]
+                "8:00am",
+                "9:15am",
+                "10:30am",
+                "11:30am",
+                "12:00pm",
+                "1:15pm",
+                "2:15pm",
+                "5:15pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:30pm",
+                "11:30pm"
+              ],
+              "date": "2026-07-18"
             },
             {
-              "day": "الاثنين ٢٠ يوليو",
+              "day": "Tomorrow",
               "times": [
-                "6:00م",
-                "10:00م",
-                "12:30م",
-                "4:30م",
-                "8:30م"
-              ]
+                "7:00am",
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm",
+                "3:00am",
+                "8:30am",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm",
+                "12:30am"
+              ],
+              "date": "2026-07-18"
             },
             {
-              "day": "الثلاثاء ٢١ يوليو",
+              "day": "Sun Jul 19",
               "times": [
-                "10:00ص",
-                "2:00م",
-                "6:00م",
-                "10:00م",
-                "12:30م",
-                "4:30م",
-                "8:30م"
-              ]
+                "8:00am",
+                "9:00am",
+                "10:45am",
+                "11:30am",
+                "12:00pm",
+                "1:00pm",
+                "2:00pm",
+                "4:00pm",
+                "6:45pm",
+                "7:30pm",
+                "8:00pm"
+              ],
+              "date": "2026-07-19"
             },
             {
-              "day": "الأربعاء ٢٢ يوليو",
+              "day": "Sun Jul 19",
               "times": [
-                "10:00ص",
-                "2:00م",
-                "6:00م",
-                "10:00م",
-                "12:30م",
-                "4:30م",
-                "8:30م"
-              ]
+                "7:00am",
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm",
+                "8:30am",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm"
+              ],
+              "date": "2026-07-19"
             },
             {
-              "day": "الخميس ٢٣ يوليو",
+              "day": "Mon Jul 20",
               "times": [
-                "10:00ص",
-                "2:00م",
-                "6:00م",
-                "10:00م",
-                "2:00ص",
-                "12:30م",
-                "4:30م",
-                "8:30م"
-              ]
+                "10:00am",
+                "11:30am",
+                "1:15pm",
+                "2:00pm",
+                "3:30pm",
+                "5:15pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "6:00pm",
+                "10:00pm",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:30am",
+                "11:30am",
+                "1:15pm",
+                "2:30pm",
+                "3:30pm",
+                "5:15pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "6:00pm",
+                "10:00pm",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:30am",
+                "11:30am",
+                "1:15pm",
+                "2:30pm",
+                "3:30pm",
+                "5:15pm",
+                "6:30pm",
+                "7:30pm",
+                "9:15pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "6:00pm",
+                "10:00pm",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "10:00am",
+                "2:00pm",
+                "6:00pm",
+                "10:00pm",
+                "2:00am",
+                "12:30pm",
+                "4:30pm",
+                "8:30pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": [
@@ -8399,7 +9055,6 @@
             {
               "day": "Today",
               "times": [
-                "12:00pm",
                 "4:00pm",
                 "8:00pm"
               ],
@@ -8463,13 +9118,109 @@
           "special_formats": []
         },
         {
-          "name": "AMC Village 7",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
           "schedule": [
             {
               "day": "Today",
               "times": [
-                "11:30am",
+                "12:40pm",
+                "2:00pm",
+                "3:40pm",
+                "6:00pm",
+                "7:00pm",
+                "10:00pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:00am",
+                "11:50am",
+                "2:00pm",
+                "3:40pm",
+                "6:00pm",
+                "7:00pm",
+                "10:00pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:00am",
+                "11:50am",
+                "2:00pm",
+                "3:40pm",
+                "6:00pm",
+                "7:00pm",
+                "10:00pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "12:40pm",
+                "2:00pm",
+                "4:20pm",
+                "6:00pm",
+                "6:45pm",
+                "9:45pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "11:20am",
+                "2:00pm",
+                "4:00pm",
+                "6:00pm",
+                "7:00pm",
+                "9:15pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "12:45pm",
+                "2:00pm",
+                "4:20pm",
+                "6:00pm",
+                "6:45pm",
+                "9:45pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "2:00pm",
+                "6:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
+          "schedule": [
+            {
+              "day": "Fri Jul 17",
+              "times": [
                 "1:00pm",
                 "2:15pm",
                 "3:30pm",
@@ -8484,7 +9235,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat Jul 18",
               "times": [
                 "10:00am",
                 "10:45am",
@@ -9538,7 +10289,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "7:00pm",
                 "7:30pm",
@@ -9626,19 +10377,17 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93429",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93428",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "3:30pm",
                 "6:45pm",
                 "9:30pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:15pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93429",
                 "3:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93428",
                 "6:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93402",
                 "9:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93427"
@@ -9842,12 +10591,11 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43688",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43795",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:45am",
                 "2:45pm",
                 "4:00pm",
                 "6:00pm",
@@ -9855,7 +10603,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "11:45am": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43688",
                 "2:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43795",
                 "4:00pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43700",
                 "6:00pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43690",
@@ -9962,65 +10709,70 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
           "schedule": [
             {
-              "day": "vie 17 jul",
+              "day": "Today",
               "times": [
-                "1:15p.m.",
-                "4:30p.m.",
-                "7:15p.m.",
-                "9:50p.m."
-              ]
-            },
-            {
-              "day": "sáb 18 jul",
-              "times": [
-                "9:00a.m.",
-                "11:35a.m.",
-                "2:15p.m.",
-                "4:10p.m.",
-                "9:40p.m.",
-                "6:45p.m."
-              ]
-            },
-            {
-              "day": "dom 19 jul",
-              "times": [
-                "9:00a.m.",
-                "1:15p.m.",
-                "9:00p.m.",
-                "4:30p.m.",
-                "7:10p.m."
-              ]
-            },
-            {
-              "day": "lun 20 jul",
-              "times": [
-                "6:30p.m.",
-                "9:15p.m.",
-                "10:00a.m.",
-                "12:45p.m.",
-                "3:30p.m."
-              ]
-            },
-            {
-              "day": "mar 21 jul",
-              "times": [
-                "10:00a.m.",
-                "1:30p.m.",
-                "4:40p.m.",
-                "7:20p.m.",
-                "9:00p.m."
+                "1:15pm",
+                "4:30pm",
+                "7:15pm",
+                "9:50pm"
               ],
-              "date": "2027-03-21"
+              "date": "2026-07-17"
             },
             {
-              "day": "mié 22 jul",
+              "day": "Tomorrow",
               "times": [
-                "10:15a.m.",
-                "1:30p.m.",
-                "4:30p.m.",
-                "7:15p.m.",
-                "9:30p.m."
-              ]
+                "9:00am",
+                "11:35am",
+                "2:15pm",
+                "4:10pm",
+                "9:40pm",
+                "6:45pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "9:00am",
+                "1:15pm",
+                "9:00pm",
+                "4:30pm",
+                "7:10pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "6:30pm",
+                "9:15pm",
+                "10:00am",
+                "12:45pm",
+                "3:30pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "1:30pm",
+                "4:40pm",
+                "7:20pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:15am",
+                "1:30pm",
+                "4:30pm",
+                "7:15pm",
+                "9:30pm"
+              ],
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
@@ -10032,7 +10784,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:00am",
                 "3:00pm",
                 "6:15pm",
                 "9:00pm"
@@ -10105,7 +10856,6 @@
             {
               "day": "Today",
               "times": [
-                "11:30am",
                 "2:15pm",
                 "10:45pm",
                 "5:00pm",
@@ -10175,23 +10925,21 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "12:20pm",
                 "12:45pm",
                 "1:15pm",
                 "3:30pm",
                 "6:15pm",
                 "9:00pm",
                 "11:00pm",
-                "11:15am",
                 "2:00pm",
                 "4:45pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -10207,7 +10955,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -10222,7 +10970,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -10236,7 +10984,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -10250,7 +10998,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:00am",
                 "12:45pm",
@@ -10274,7 +11022,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:45am",
                 "5:45pm",
                 "8:30pm",
                 "10:15pm",
@@ -10354,7 +11101,6 @@
             {
               "day": "Today",
               "times": [
-                "11:00am",
                 "7:40pm",
                 "10:15pm",
                 "1:10pm",
@@ -10411,6 +11157,77 @@
                 "7:40pm",
                 "10:15pm",
                 "1:10pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:45pm",
+                "3:30pm",
+                "11:15pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:30pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:30pm",
+                "9:30pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "11:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:30pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:30pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "12:45pm",
+                "3:30pm",
+                "6:30pm",
+                "10:00pm"
               ],
               "date": "2026-07-22"
             }
@@ -10487,11 +11304,81 @@
           "special_formats": []
         },
         {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "3:00pm",
+                "5:15pm",
+                "7:40pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:10am",
+                "12:50pm",
+                "4:15pm",
+                "7:20pm",
+                "10:10pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:10am",
+                "12:50pm",
+                "4:15pm",
+                "7:20pm",
+                "10:10pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "1:45pm",
+                "4:10pm",
+                "7:30pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:50am",
+                "1:15pm",
+                "3:40pm",
+                "7:15pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "1:45pm",
+                "4:10pm",
+                "7:30pm",
+                "10:40pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC Village 7",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri Jul 17",
               "times": [
                 "12:45pm",
                 "2:45pm",
@@ -10500,7 +11387,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat Jul 18",
               "times": [
                 "9:00am",
                 "11:30am",
@@ -11377,9 +12264,8 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "11:00am",
                 "1:35pm",
                 "4:10pm",
                 "6:45pm",
@@ -11388,7 +12274,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:40am",
                 "1:15pm",
@@ -11718,19 +12604,17 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93424",
+          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93414",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
                 "2:45pm",
                 "6:00pm",
                 "9:15pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "11:30am": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93424",
                 "2:45pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93414",
                 "6:00pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93399",
                 "9:15pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93426"
@@ -11823,19 +12707,17 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133765",
+          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133767",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
                 "2:45pm",
                 "6:15pm",
                 "9:15pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "11:30am": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133765",
                 "2:45pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133767",
                 "6:15pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133774",
                 "9:15pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=133777"
@@ -12123,7 +13005,6 @@
             {
               "day": "Today",
               "times": [
-                "12:15pm",
                 "9:45pm",
                 "3:30pm",
                 "6:45pm"
@@ -12202,9 +13083,8 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "12:00pm",
                 "6:00pm",
                 "1:00pm",
                 "4:00pm",
@@ -12214,7 +13094,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:00am",
                 "1:00pm",
@@ -12228,7 +13108,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:00am",
                 "1:00pm",
@@ -12242,7 +13122,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:00am",
                 "12:30pm",
@@ -12256,7 +13136,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:00am",
                 "12:30pm",
@@ -12270,7 +13150,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:00am",
                 "10:30am",
@@ -12284,7 +13164,7 @@
               "date": "2026-07-22"
             },
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "7:00pm",
                 "10:00pm",
@@ -12382,7 +13262,6 @@
             {
               "day": "Today",
               "times": [
-                "11:00am",
                 "12:30pm",
                 "3:30pm",
                 "6:40pm",
@@ -12442,6 +13321,79 @@
                 "6:40pm",
                 "1:50pm",
                 "9:40pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "8:15am",
+                "10:00am",
+                "1:00pm",
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm",
+                "7:00pm",
+                "10:00pm"
               ],
               "date": "2026-07-22"
             }
@@ -12518,21 +13470,90 @@
           "special_formats": []
         },
         {
-          "name": "AMC Village 7",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
           "schedule": [
             {
               "day": "Today",
               "times": [
-                "3:00pm",
-                "6:00pm",
-                "9:45pm",
-                "11:45am"
+                "1:00pm",
+                "6:50pm",
+                "10:15pm",
+                "4:00pm"
               ],
               "date": "2026-07-17"
             },
             {
               "day": "Tomorrow",
+              "times": [
+                "10:20am",
+                "1:15pm",
+                "3:30pm",
+                "9:30pm",
+                "6:30pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:20am",
+                "1:15pm",
+                "3:30pm",
+                "9:30pm",
+                "6:30pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "1:00pm",
+                "4:30pm",
+                "7:15pm",
+                "9:55pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:15am",
+                "12:45pm",
+                "6:20pm",
+                "10:40pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "1:00pm",
+                "7:20pm",
+                "9:55pm",
+                "5:00pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Village 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
+          "schedule": [
+            {
+              "day": "Fri Jul 17",
+              "times": [
+                "3:00pm",
+                "6:00pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Sat Jul 18",
               "times": [
                 "12:00pm",
                 "3:15pm",
@@ -13335,7 +14356,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:00am",
                 "2:00pm"
@@ -13343,7 +14364,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "11:00am",
                 "2:00pm"
@@ -13904,7 +14925,7 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:00pm"
               ],
@@ -14369,7 +15390,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "7:00pm",
                 "7:30pm",
@@ -14458,7 +15479,7 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "12:30pm",
                 "2:50pm",
@@ -14469,7 +15490,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "1:30pm",
                 "3:05pm",
@@ -14539,17 +15560,15 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/gail-daughtry-and-the-celebrity-sex-pass?cinemaId=2103&sessionId=93440",
+          "ticket_url": "https://drafthouse.com/nyc/show/gail-daughtry-and-the-celebrity-sex-pass?cinemaId=2103&sessionId=93439",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "3:15pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:15pm": "https://drafthouse.com/nyc/show/gail-daughtry-and-the-celebrity-sex-pass?cinemaId=2103&sessionId=93440",
                 "3:15pm": "https://drafthouse.com/nyc/show/gail-daughtry-and-the-celebrity-sex-pass?cinemaId=2103&sessionId=93439"
               }
             },
@@ -14734,7 +15753,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "1:00pm",
                 "3:30pm",
@@ -14745,7 +15764,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "1:30pm",
                 "4:00pm",
@@ -14756,7 +15775,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:45am",
                 "2:15pm",
@@ -14768,7 +15787,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:45am",
                 "2:15pm",
@@ -14779,7 +15798,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:45am",
                 "2:15pm",
@@ -14790,7 +15809,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "11:45am",
                 "2:15pm",
@@ -14863,117 +15882,49 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
           "schedule": [
             {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "11:15م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "8:00ص",
-                "7:30م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "8:00ص",
-                "7:30م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "5:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:00ص",
-                "5:00م",
-                "7:30م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "5:00م",
-                "7:30م"
-              ]
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "lenin",
-      "title": "Lenin",
-      "ratings": {
-        "imdbID": null,
-        "rt": "76%",
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/rAHQviBq8Fxi20hNtHPGLnr4L0f.jpg",
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
-          "schedule": [
-            {
               "day": "Today",
               "times": [
-                "2:00pm"
+                "11:15pm"
               ],
               "date": "2026-07-17"
             },
             {
               "day": "Tomorrow",
               "times": [
-                "2:00pm",
-                "11:30pm"
+                "8:00am",
+                "7:30pm"
               ],
               "date": "2026-07-18"
             },
             {
               "day": "Sun Jul 19",
               "times": [
-                "12:45pm",
-                "11:00pm"
+                "8:00am",
+                "7:30pm"
               ],
               "date": "2026-07-19"
             },
             {
               "day": "Mon Jul 20",
               "times": [
-                "11:15am",
-                "3:30pm"
+                "5:00pm"
               ],
               "date": "2026-07-20"
             },
             {
               "day": "Tue Jul 21",
               "times": [
-                "11:15am",
-                "3:30pm"
+                "10:00am",
+                "5:00pm",
+                "7:30pm"
               ],
               "date": "2026-07-21"
             },
             {
               "day": "Wed Jul 22",
               "times": [
-                "11:15am"
+                "5:00pm",
+                "7:30pm"
               ],
               "date": "2026-07-22"
             }
@@ -15104,6 +16055,80 @@
               "ticket_urls": {
                 "7:20 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568703~8722a542-64c1-4c0b-af02-c3e8a239d769&"
               }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "lenin",
+      "title": "Lenin",
+      "ratings": {
+        "imdbID": null,
+        "rt": "75%",
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": "https://image.tmdb.org/t/p/w500/rAHQviBq8Fxi20hNtHPGLnr4L0f.jpg",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
+          "schedule": [
+            {
+              "day": "Fri 17 Jul",
+              "times": [
+                "2:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Sat 18 Jul",
+              "times": [
+                "2:00pm",
+                "11:30pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun 19 Jul",
+              "times": [
+                "12:45pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon 20 Jul",
+              "times": [
+                "11:15am",
+                "3:30pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue 21 Jul",
+              "times": [
+                "11:15am",
+                "3:30pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed 22 Jul",
+              "times": [
+                "11:15am"
+              ],
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
@@ -15401,7 +16426,7 @@
           "ticket_url": "https://angelikafilmcenter.com/villageeast",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "7:50pm",
                 "10:30pm"
@@ -15409,7 +16434,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "7:50pm",
                 "10:30pm"
@@ -15578,19 +16603,17 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133801",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133771",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "3:15pm",
                 "6:30pm",
                 "9:45pm"
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:15pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133801",
                 "3:15pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133771",
                 "6:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133775",
                 "9:45pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=133778"
@@ -15691,12 +16714,11 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43545",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43546",
           "schedule": [
             {
               "day": "Fri Jul 17",
               "times": [
-                "12:15pm",
                 "3:15pm",
                 "6:30pm",
                 "9:30pm",
@@ -15704,7 +16726,6 @@
               ],
               "date": "2026-07-17",
               "ticket_urls": {
-                "12:15pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43545",
                 "3:15pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43546",
                 "6:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43547",
                 "9:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43552",
@@ -15795,7 +16816,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:30am",
                 "2:20pm",
                 "5:10pm",
                 "8:00pm",
@@ -15866,10 +16886,8 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "11:00am",
-                "12:15pm",
                 "1:45pm",
                 "4:30pm",
                 "5:30pm",
@@ -15882,7 +16900,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:00am",
                 "1:45pm",
@@ -15897,7 +16915,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:00am",
                 "1:45pm",
@@ -15912,7 +16930,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "11:00am",
                 "1:45pm",
@@ -15926,7 +16944,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:00am",
                 "12:45pm",
@@ -15941,7 +16959,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:30am",
                 "11:00am",
@@ -15956,7 +16974,7 @@
               "date": "2026-07-22"
             },
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "11:00am",
                 "1:45pm",
@@ -16124,11 +17142,158 @@
           "special_formats": []
         },
         {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "1:15pm",
+                "4:15pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:30am",
+                "1:15pm",
+                "7:45pm",
+                "9:15pm",
+                "10:45pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "8:45am",
+                "1:45pm",
+                "4:45pm",
+                "7:00pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "1:45pm",
+                "4:45pm",
+                "7:45pm",
+                "10:45pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "1:45pm",
+                "4:45pm",
+                "7:45pm",
+                "10:45pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "1:45pm",
+                "4:45pm",
+                "7:45pm",
+                "10:45pm"
+              ],
+              "date": "2026-07-22"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Orpheum 7",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
+          "schedule": [
+            {
+              "day": "Today",
+              "times": [
+                "12:50pm",
+                "4:30pm",
+                "7:20pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Tomorrow",
+              "times": [
+                "10:45am",
+                "1:40pm",
+                "4:30pm",
+                "7:40pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun Jul 19",
+              "times": [
+                "10:45am",
+                "1:40pm",
+                "4:30pm",
+                "7:40pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon Jul 20",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue Jul 21",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:40pm",
+                "7:30pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed Jul 22",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:00pm",
+                "10:50pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "1:30pm",
+                "4:30pm",
+                "7:20pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        },
+        {
           "name": "AMC Village 7",
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-village-7",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri Jul 17",
               "times": [
                 "1:30pm",
                 "4:15pm",
@@ -16139,7 +17304,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat Jul 18",
               "times": [
                 "9:15am",
                 "12:00pm",
@@ -16289,7 +17454,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "4:00pm",
                 "6:45pm"
@@ -16899,6 +18064,122 @@
       "special_formats": []
     },
     {
+      "id": "tt32104007",
+      "title": "Young Washington",
+      "ratings": {
+        "imdbID": "tt32104007",
+        "rt": "60%",
+        "imdb": "7.3",
+        "metacritic": "49",
+        "letterboxd": "3.6",
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTE3NDY5OWUtZmM5Ny00NDJiLTlkZDQtN2E5MWFjZWUyMDZkXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+        "genre": "Action, Adventure, Biography",
+        "runtime": "125 min",
+        "plot": "A young George Washington faces war, betrayal, and impossible choices that will forge a leader.",
+        "year": "2026",
+        "director": "Jon Erwin",
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "AMC 34th Street 14",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
+          "schedule": [
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "6:00pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
+          "schedule": [
+            {
+              "day": "Fri 17 Jul",
+              "times": [
+                "3:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-17"
+            },
+            {
+              "day": "Sat 18 Jul",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-18"
+            },
+            {
+              "day": "Sun 19 Jul",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-19"
+            },
+            {
+              "day": "Mon 20 Jul",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-20"
+            },
+            {
+              "day": "Tue 21 Jul",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-21"
+            },
+            {
+              "day": "Wed 22 Jul",
+              "times": [
+                "10:00am",
+                "1:00pm",
+                "4:00pm"
+              ],
+              "date": "2026-07-22"
+            },
+            {
+              "day": "Thu 23 Jul",
+              "times": [
+                "6:00pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
+          "schedule": [
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "6:00pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
       "id": "tt1974419",
       "title": "The Neon Demon",
       "ratings": {
@@ -16921,16 +18202,15 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
-                "10:50am",
                 "3:45pm",
                 "8:45pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "1:05pm",
                 "6:05pm"
@@ -17084,122 +18364,6 @@
               "ticket_urls": {
                 "12:30pm": "https://drafthouse.com/nyc/show/the-thing-called-love?cinemaId=2102&sessionId=42845"
               }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "tt32104007",
-      "title": "Young Washington",
-      "ratings": {
-        "imdbID": "tt32104007",
-        "rt": "59%",
-        "imdb": "7.3",
-        "metacritic": "49",
-        "letterboxd": "3.6",
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTE3NDY5OWUtZmM5Ny00NDJiLTlkZDQtN2E5MWFjZWUyMDZkXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-        "genre": "Action, Adventure, Biography",
-        "runtime": "125 min",
-        "plot": "A young George Washington faces war, betrayal, and impossible choices that will forge a leader.",
-        "year": "2026",
-        "director": "Jon Erwin",
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC 34th Street 14",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-34th-street-14",
-          "schedule": [
-            {
-              "day": "Thu Jul 23",
-              "times": [
-                "6:00pm"
-              ],
-              "date": "2026-07-23"
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Empire 25",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
-          "schedule": [
-            {
-              "day": "Today",
-              "times": [
-                "3:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-17"
-            },
-            {
-              "day": "Tomorrow",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-18"
-            },
-            {
-              "day": "Sun Jul 19",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-19"
-            },
-            {
-              "day": "Mon Jul 20",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-20"
-            },
-            {
-              "day": "Tue Jul 21",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-21"
-            },
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "10:00am",
-                "1:00pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-22"
-            },
-            {
-              "day": "Thu Jul 23",
-              "times": [
-                "6:00pm"
-              ],
-              "date": "2026-07-23"
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
-          "schedule": [
-            {
-              "day": "Thu Jul 23",
-              "times": [
-                "6:00pm"
-              ],
-              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -17471,7 +18635,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "10:30pm",
                 "11:15pm"
@@ -17479,7 +18643,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:30pm",
                 "1:15am"
@@ -17487,7 +18651,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "12:00pm",
                 "2:45pm",
@@ -17498,7 +18662,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "4:25pm",
                 "7:45pm",
@@ -17507,7 +18671,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "7:45pm",
                 "10:30pm"
@@ -17515,7 +18679,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "7:45pm",
                 "10:30pm"
@@ -17869,6 +19033,23 @@
             }
           ],
           "special_formats": []
+        },
+        {
+          "name": "AMC Lincoln Square 13",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
+          "schedule": [
+            {
+              "day": "Thu Jul 23",
+              "times": [
+                "5:00pm",
+                "7:15pm",
+                "8:00pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
         }
       ],
       "special_formats": []
@@ -18100,7 +19281,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "7:00pm",
                 "9:45pm"
@@ -18311,7 +19492,7 @@
           "ticket_url": "https://angelikafilmcenter.com/nyc",
           "schedule": [
             {
-              "day": "Fri Jul 17",
+              "day": "Today",
               "times": [
                 "1:30pm",
                 "6:30pm"
@@ -18319,7 +19500,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Sat Jul 18",
+              "day": "Tomorrow",
               "times": [
                 "10:45am",
                 "3:50pm",
@@ -18687,42 +19868,35 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
-              "times": [
-                "12:15pm"
-              ],
-              "date": "2026-07-17"
-            },
-            {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:15am"
               ],
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "4:15pm"
               ],
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "4:15pm"
               ],
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "4:15pm"
               ],
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "4:15pm"
               ],
@@ -19684,6 +20858,132 @@
               "date": "2026-07-22",
               "ticket_urls": {
                 "7:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=564716~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "lost-chapters",
+      "title": "Lost Chapters",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": "https://image.tmdb.org/t/p/w500/vylOXm8u3OhyrV9WrSTls5zFZC2.jpg",
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "IFC Center",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569424~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "schedule": [
+            {
+              "day": "Fri Jul 24",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-24",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569424~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569431~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569438~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Sat Jul 25",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-25",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569425~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569432~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569439~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Sun Jul 26",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-26",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569426~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569433~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569440~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Mon Jul 27",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-27",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569427~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569434~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569441~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Tue Jul 28",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-28",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569428~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569435~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569442~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569429~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569436~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569443~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            },
+            {
+              "day": "Thu Jul 30",
+              "times": [
+                "10:35 am",
+                "2:45 pm",
+                "7:00 pm"
+              ],
+              "date": "2026-07-30",
+              "ticket_urls": {
+                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569430~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569437~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569444~8722a542-64c1-4c0b-af02-c3e8a239d769&"
               }
             }
           ],
@@ -21146,12 +22446,13 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
           "schedule": [
             {
-              "day": "jue 23 jul",
+              "day": "Thu Jul 23",
               "times": [
-                "3:30p.m.",
-                "7:00p.m.",
-                "7:30p.m."
-              ]
+                "3:30pm",
+                "7:00pm",
+                "7:30pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -21181,7 +22482,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "3:30pm",
                 "4:00pm",
@@ -21219,14 +22520,15 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
           "schedule": [
             {
-              "day": "الخميس ٢٣ يوليو",
+              "day": "Thu Jul 23",
               "times": [
-                "3:30م",
-                "4:15م",
-                "6:00م",
-                "7:00م",
-                "9:30م"
-              ]
+                "3:30pm",
+                "4:15pm",
+                "6:00pm",
+                "7:00pm",
+                "9:30pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -21252,11 +22554,12 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
           "schedule": [
             {
-              "day": "الخميس ٢٣ تموز",
+              "day": "Thu Jul 23",
               "times": [
-                "3:30م",
-                "7:00م"
-              ]
+                "3:30pm",
+                "7:00pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -24842,8 +26145,8 @@
       "special_formats": []
     },
     {
-      "id": "six-the-musical-live-early-screening-queens-intro",
-      "title": "Six: The Musical Live! Early Screening + Queens Intro",
+      "id": "six-the-musical-live-early-screening",
+      "title": "Six: The Musical Live! Early Screening",
       "ratings": {
         "imdbID": null,
         "rt": null,
@@ -25763,7 +27066,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "6:00pm"
               ],
@@ -25782,6 +27085,44 @@
                 "6:00pm"
               ],
               "date": "2026-07-23"
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
+      "id": "six-the-musical-live-early-screening-queens-intro",
+      "title": "Six: The Musical Live! Early Screening + Queens Intro",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": "98 min",
+        "plot": "Winner of over 35 awards, experience the best of British musical HER-story in a live capture of the must-see musical sensation, SIX the Musical . The original West End cast reunite at London’s Vaudeville Theatre in front of a sold-out audience to strut their stuff and rewrite their Tudor traumas in an unmissable cinematic recording of the show packed full of style, sass, and sensational songs. Watched by audiences of over 3.5 million, SIX the Musical has become a global theatre phenomenon since its 2017 debut at Edinburgh Festival Fringe, where it has redefined the boundaries of musical theatre. The show tells the extraordinary story of the six wives of King Henry VIII, who step out of the shadow of their infamous husband and reclaim their own narratives.",
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Alamo Drafthouse Downtown Brooklyn",
+          "ticket_url": "https://drafthouse.com/nyc/event/advance-screening-six-the-musical-live-early-screening-queens-intro?cinemaId=2101&sessionId=134098",
+          "schedule": [
+            {
+              "day": "Tue Aug 11",
+              "times": [
+                "6:45pm"
+              ],
+              "date": "2026-08-11",
+              "ticket_urls": {
+                "6:45pm": "https://drafthouse.com/nyc/event/advance-screening-six-the-musical-live-early-screening-queens-intro?cinemaId=2101&sessionId=134098"
+              }
             }
           ],
           "special_formats": []
@@ -26548,8 +27889,8 @@
       "special_formats": []
     },
     {
-      "id": "la-odisea",
-      "title": "La Odisea",
+      "id": "the-merry-widow-met-summer-encore-2026",
+      "title": "The Merry Widow: Met Summer Encore 2026",
       "ratings": {
         "imdbID": null,
         "rt": null,
@@ -26570,385 +27911,41 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
           "schedule": [
             {
-              "day": "vie 17 jul",
+              "day": "Wed Jul 22",
               "times": [
-                "11:00a.m.",
-                "1:00p.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "5:00p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "9:00p.m.",
-                "10:00p.m."
-              ]
-            },
-            {
-              "day": "sáb 18 jul",
-              "times": [
-                "9:15a.m.",
-                "10:00a.m.",
-                "11:00a.m.",
-                "1:00p.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "5:00p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "9:00p.m.",
-                "10:00p.m."
-              ]
-            },
-            {
-              "day": "dom 19 jul",
-              "times": [
-                "9:15a.m.",
-                "10:00a.m.",
-                "11:00a.m.",
-                "1:00p.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "5:00p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "9:00p.m.",
-                "10:00p.m."
-              ]
-            },
-            {
-              "day": "lun 20 jul",
-              "times": [
-                "10:00a.m.",
-                "11:00a.m.",
-                "12:00p.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "3:45p.m.",
-                "6:00p.m.",
-                "7:30p.m.",
-                "10:00p.m."
-              ]
-            },
-            {
-              "day": "mar 21 jul",
-              "times": [
-                "10:00a.m.",
-                "11:15a.m.",
-                "1:00p.m.",
-                "2:00p.m.",
-                "3:10p.m.",
-                "5:00p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "10:00p.m."
+                "1:00pm"
               ],
-              "date": "2027-03-21"
-            },
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "10:00a.m.",
-                "11:00a.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "4:45p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "9:45p.m."
-              ]
-            },
-            {
-              "day": "jue 23 jul",
-              "times": [
-                "10:00a.m.",
-                "11:00a.m.",
-                "2:00p.m.",
-                "3:00p.m.",
-                "6:00p.m.",
-                "7:00p.m.",
-                "10:00p.m."
-              ]
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "minions-monstruos",
-      "title": "Minions & monstruos",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
+        },
         {
-          "name": "AMC 19th St. East 6",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "name": "AMC Empire 25",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "vie 17 jul",
+              "day": "Wed 22 Jul",
               "times": [
-                "4:00p.m.",
-                "6:30p.m.",
-                "9:00p.m.",
-                "11:35a.m.",
-                "2:00p.m."
-              ]
-            },
-            {
-              "day": "sáb 18 jul",
-              "times": [
-                "4:50p.m.",
-                "7:15p.m.",
-                "9:30p.m.",
-                "9:00a.m.",
-                "1:45p.m."
-              ]
-            },
-            {
-              "day": "dom 19 jul",
-              "times": [
-                "4:00p.m.",
-                "6:30p.m.",
-                "9:45p.m.",
-                "9:00a.m.",
-                "11:30a.m.",
-                "2:00p.m."
-              ]
-            },
-            {
-              "day": "lun 20 jul",
-              "times": [
-                "11:00a.m.",
-                "1:30p.m.",
-                "4:00p.m.",
-                "6:15p.m.",
-                "9:00p.m."
-              ]
-            },
-            {
-              "day": "mar 21 jul",
-              "times": [
-                "10:15a.m.",
-                "11:00a.m.",
-                "4:15p.m.",
-                "6:45p.m.",
-                "9:15p.m.",
-                "2:15p.m."
+                "1:00pm",
+                "6:30pm"
               ],
-              "date": "2027-03-21"
-            },
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "10:45a.m.",
-                "4:15p.m.",
-                "6:45p.m.",
-                "9:15p.m.",
-                "2:00p.m."
-              ]
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "la-invitaci-n",
-      "title": "La invitación",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/AhWBAGatknutLHVvAd3Lv147LsO.jpg",
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
+        },
         {
-          "name": "AMC 19th St. East 6",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
+          "name": "AMC Kips Bay 15",
+          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
           "schedule": [
             {
-              "day": "vie 17 jul",
+              "day": "Wed Jul 22",
               "times": [
-                "11:30a.m.",
-                "2:15p.m.",
-                "5:00p.m.",
-                "7:45p.m.",
-                "10:30p.m."
-              ]
-            },
-            {
-              "day": "sáb 18 jul",
-              "times": [
-                "11:30a.m.",
-                "2:15p.m.",
-                "5:00p.m.",
-                "7:45p.m.",
-                "10:30p.m."
-              ]
-            },
-            {
-              "day": "dom 19 jul",
-              "times": [
-                "10:30a.m.",
-                "11:40a.m.",
-                "2:20p.m.",
-                "5:00p.m.",
-                "7:45p.m.",
-                "10:30p.m."
-              ]
-            },
-            {
-              "day": "lun 20 jul",
-              "times": [
-                "10:45a.m.",
-                "1:30p.m.",
-                "4:15p.m.",
-                "7:15p.m.",
-                "10:00p.m."
-              ]
-            },
-            {
-              "day": "mar 21 jul",
-              "times": [
-                "11:30a.m.",
-                "12:45p.m.",
-                "3:30p.m.",
-                "6:15p.m.",
-                "9:00p.m."
+                "1:00pm",
+                "6:30pm"
               ],
-              "date": "2027-03-21"
-            },
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "10:00a.m.",
-                "11:15a.m.",
-                "12:45p.m.",
-                "3:45p.m.",
-                "6:30p.m.",
-                "9:00p.m."
-              ]
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "obsesi-n",
-      "title": "Obsesión",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/d9fMYfL0V78KdLJrMdnTWB37527.jpg",
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC 19th St. East 6",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
-          "schedule": [
-            {
-              "day": "vie 17 jul",
-              "times": [
-                "10:45p.m."
-              ]
-            },
-            {
-              "day": "sáb 18 jul",
-              "times": [
-                "10:45p.m."
-              ]
-            },
-            {
-              "day": "dom 19 jul",
-              "times": [
-                "10:45p.m."
-              ]
-            },
-            {
-              "day": "lun 20 jul",
-              "times": [
-                "9:45p.m."
-              ]
-            },
-            {
-              "day": "mar 21 jul",
-              "times": [
-                "10:00p.m."
-              ],
-              "date": "2027-03-21"
-            },
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "10:00p.m."
-              ]
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "la-viuda-alegre",
-      "title": "La viuda alegre",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/4wWXWHBjylYtSFFjfMjOBRxVTqC.jpg",
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC 19th St. East 6",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-19th-st-east-6",
-          "schedule": [
-            {
-              "day": "mié 22 jul",
-              "times": [
-                "1:00p.m."
-              ]
+              "date": "2026-07-22"
             }
           ],
           "special_formats": []
@@ -26981,7 +27978,6 @@
             {
               "day": "Fri Jul 17",
               "times": [
-                "11:00am",
                 "3:00pm",
                 "7:00pm",
                 "10:50pm"
@@ -27055,13 +28051,11 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
-                "11:30am",
                 "3:30pm",
                 "7:30pm",
                 "11:30pm",
-                "11:00am",
                 "3:00pm",
                 "7:00pm",
                 "11:00pm"
@@ -27069,7 +28063,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:30am",
                 "3:30pm",
@@ -27083,7 +28077,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "10:30am",
                 "2:30pm",
@@ -27097,7 +28091,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:30am",
                 "2:30pm",
@@ -27111,7 +28105,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "10:30am",
                 "2:30pm",
@@ -27125,7 +28119,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "10:30am",
                 "2:30pm",
@@ -27139,7 +28133,7 @@
               "date": "2026-07-22"
             },
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "6:30pm",
                 "10:30pm",
@@ -27158,64 +28152,71 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
           "schedule": [
             {
-              "day": "الجمعة ١٧ يوليو",
+              "day": "Today",
               "times": [
-                "2:00م",
-                "10:00م",
-                "2:00ص"
-              ]
+                "2:00pm",
+                "10:00pm",
+                "2:00am"
+              ],
+              "date": "2026-07-17"
             },
             {
-              "day": "السبت ١٨ يوليو",
+              "day": "Tomorrow",
               "times": [
-                "10:00ص",
-                "6:00م",
-                "10:00م"
-              ]
+                "10:00am",
+                "6:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-18"
             },
             {
-              "day": "الأحد ١٩ يوليو",
+              "day": "Sun Jul 19",
               "times": [
-                "10:00ص",
-                "6:00م",
-                "10:00م"
-              ]
+                "10:00am",
+                "6:00pm",
+                "10:00pm"
+              ],
+              "date": "2026-07-19"
             },
             {
-              "day": "الاثنين ٢٠ يوليو",
+              "day": "Mon Jul 20",
               "times": [
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م"
-              ]
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-20"
             },
             {
-              "day": "الثلاثاء ٢١ يوليو",
+              "day": "Tue Jul 21",
               "times": [
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م"
-              ]
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-21"
             },
             {
-              "day": "الأربعاء ٢٢ يوليو",
+              "day": "Wed Jul 22",
               "times": [
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م"
-              ]
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-22"
             },
             {
-              "day": "الخميس ٢٣ يوليو",
+              "day": "Thu Jul 23",
               "times": [
-                "11:00ص",
-                "3:00م",
-                "7:00م",
-                "11:00م"
-              ]
+                "11:00am",
+                "3:00pm",
+                "7:00pm",
+                "11:00pm"
+              ],
+              "date": "2026-07-23"
             }
           ],
           "special_formats": []
@@ -27333,7 +28334,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "7:00pm",
                 "10:00pm"
@@ -27383,7 +28384,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "7:00pm"
               ],
@@ -27432,14 +28433,14 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "7:15pm"
               ],
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -27449,7 +28450,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "7:15pm",
                 "10:45pm"
@@ -27457,7 +28458,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "1:25pm",
                 "9:45pm"
@@ -27465,7 +28466,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "11:00am",
                 "2:30pm",
@@ -27474,7 +28475,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "4:30pm",
                 "10:00pm"
@@ -27510,7 +28511,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Today",
+              "day": "Fri 17 Jul",
               "times": [
                 "9:15pm",
                 "12:00am"
@@ -27518,7 +28519,7 @@
               "date": "2026-07-17"
             },
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "11:15am",
                 "9:45pm",
@@ -27527,7 +28528,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "6:30pm",
                 "9:15pm"
@@ -27535,7 +28536,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "2:45pm",
                 "4:45pm",
@@ -27544,7 +28545,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "2:45pm",
                 "9:15pm"
@@ -27552,7 +28553,7 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "1:45pm",
                 "2:45pm",
@@ -27589,7 +28590,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Tomorrow",
+              "day": "Sat 18 Jul",
               "times": [
                 "10:00am",
                 "11:00pm"
@@ -27597,7 +28598,7 @@
               "date": "2026-07-18"
             },
             {
-              "day": "Sun Jul 19",
+              "day": "Sun 19 Jul",
               "times": [
                 "11:00pm",
                 "11:50pm"
@@ -27605,7 +28606,7 @@
               "date": "2026-07-19"
             },
             {
-              "day": "Mon Jul 20",
+              "day": "Mon 20 Jul",
               "times": [
                 "10:00am",
                 "12:45pm"
@@ -27613,7 +28614,7 @@
               "date": "2026-07-20"
             },
             {
-              "day": "Tue Jul 21",
+              "day": "Tue 21 Jul",
               "times": [
                 "12:45pm",
                 "5:00pm"
@@ -27621,61 +28622,10 @@
               "date": "2026-07-21"
             },
             {
-              "day": "Wed Jul 22",
+              "day": "Wed 22 Jul",
               "times": [
                 "12:45pm",
                 "5:00pm"
-              ],
-              "date": "2026-07-22"
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "the-merry-widow-met-summer-encore-2026",
-      "title": "The Merry Widow: Met Summer Encore 2026",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC Empire 25",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "1:00pm",
-                "6:30pm"
-              ],
-              "date": "2026-07-22"
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Kips Bay 15",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-kips-bay-15",
-          "schedule": [
-            {
-              "day": "Wed Jul 22",
-              "times": [
-                "1:00pm",
-                "6:30pm"
               ],
               "date": "2026-07-22"
             }
@@ -27708,7 +28658,7 @@
           "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25",
           "schedule": [
             {
-              "day": "Thu Jul 23",
+              "day": "Thu 23 Jul",
               "times": [
                 "7:00pm",
                 "9:30pm"
@@ -27784,827 +28734,6 @@
                 "3:00pm"
               ],
               "date": "2026-07-19"
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "movie",
-      "title": "الأوديسة",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC Lincoln Square 13",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
-          "schedule": [
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "11:30ص",
-                "1:00م",
-                "2:30م",
-                "3:00م",
-                "3:30م",
-                "4:00م",
-                "8:00م",
-                "10:30م",
-                "10:45م",
-                "12:00ص",
-                "1:00ص"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "1:30م",
-                "4:30م",
-                "7:30م",
-                "10:30م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "1:30م",
-                "5:00م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "1:15م",
-                "4:15م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "10:45م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "11:15ص",
-                "11:00م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "8:00ص",
-                "9:15ص",
-                "10:30ص",
-                "11:30ص",
-                "12:00م",
-                "1:15م",
-                "2:15م",
-                "5:15م",
-                "6:30م",
-                "7:30م",
-                "9:15م",
-                "10:30م",
-                "11:30م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "8:15ص",
-                "10:00ص",
-                "1:00م",
-                "4:00م",
-                "7:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "8:00ص",
-                "11:45ص",
-                "2:30م",
-                "5:00م",
-                "7:00م",
-                "10:15م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "10:30ص",
-                "1:15م",
-                "7:45م",
-                "9:15م",
-                "10:45م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "10:15م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "11:00ص",
-                "6:30م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "8:00ص",
-                "9:00ص",
-                "10:45ص",
-                "11:30ص",
-                "12:00م",
-                "1:00م",
-                "2:00م",
-                "4:00م",
-                "6:45م",
-                "7:30م",
-                "8:00م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "10:00ص",
-                "1:00م",
-                "4:00م",
-                "7:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "8:00ص",
-                "10:15ص",
-                "12:45م",
-                "5:00م",
-                "6:15م",
-                "10:15م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "8:45ص",
-                "1:45م",
-                "4:45م",
-                "7:00م",
-                "9:45م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "10:15م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "10:30ص",
-                "6:30م",
-                "9:00م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "10:00ص",
-                "11:30ص",
-                "1:15م",
-                "2:00م",
-                "3:30م",
-                "5:15م",
-                "6:30م",
-                "7:30م",
-                "9:15م",
-                "10:30م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "10:00ص",
-                "1:00م",
-                "4:00م",
-                "7:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "10:45ص",
-                "2:15م",
-                "4:45م",
-                "7:30م",
-                "9:15م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "1:45م",
-                "4:45م",
-                "7:45م",
-                "10:45م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "9:30م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "10:00ص",
-                "1:30م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:30ص",
-                "11:30ص",
-                "1:15م",
-                "2:30م",
-                "3:30م",
-                "5:15م",
-                "6:30م",
-                "7:30م",
-                "9:15م",
-                "10:30م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:00ص",
-                "1:00م",
-                "4:00م",
-                "7:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:45ص",
-                "12:45م",
-                "3:45م",
-                "6:45م",
-                "9:45م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "1:45م",
-                "4:45م",
-                "7:45م",
-                "10:45م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "11:00ص",
-                "2:00م",
-                "9:15م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:00ص",
-                "12:15م",
-                "3:15م",
-                "6:15م",
-                "9:30م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "10:30ص",
-                "11:30ص",
-                "1:15م",
-                "2:30م",
-                "3:30م",
-                "5:15م",
-                "6:30م",
-                "7:30م",
-                "9:15م",
-                "10:30م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "10:00ص",
-                "1:00م",
-                "4:00م",
-                "7:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "10:45ص",
-                "12:45م",
-                "3:45م",
-                "6:45م",
-                "9:45م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "1:45م",
-                "4:45م",
-                "7:45م",
-                "10:45م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "11:00ص",
-                "2:00م",
-                "9:15م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "10:00ص",
-                "12:15م",
-                "3:15م",
-                "6:15م",
-                "9:30م"
-              ]
-            },
-            {
-              "day": "الخميس ٢٣ يوليو",
-              "times": [
-                "5:00م",
-                "7:15م",
-                "8:00م",
-                "10:15م"
-              ]
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Orpheum 7",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
-          "schedule": [
-            {
-              "day": "الجمعة ١٧ تموز",
-              "times": [
-                "12:40م",
-                "2:00م",
-                "3:40م",
-                "6:00م",
-                "7:00م",
-                "10:00م",
-                "10:40م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ تموز",
-              "times": [
-                "11:20ص",
-                "1:00م",
-                "6:50م",
-                "10:15م",
-                "4:00م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ تموز",
-              "times": [
-                "1:40م",
-                "5:40م",
-                "9:45م",
-                "8:10م"
-              ]
-            },
-            {
-              "day": "الجمعة ١٧ تموز",
-              "times": [
-                "10:50ص",
-                "12:50م",
-                "4:30م",
-                "7:20م",
-                "11:00م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ تموز",
-              "times": [
-                "10:00ص",
-                "11:50ص",
-                "2:00م",
-                "3:40م",
-                "6:00م",
-                "7:00م",
-                "10:00م",
-                "10:40م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ تموز",
-              "times": [
-                "10:20ص",
-                "1:15م",
-                "3:30م",
-                "9:30م",
-                "6:30م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ تموز",
-              "times": [
-                "9:45ص",
-                "2:45م",
-                "5:45م",
-                "8:10م",
-                "10:30م",
-                "12:15م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ تموز",
-              "times": [
-                "10:45ص",
-                "1:40م",
-                "4:30م",
-                "7:40م",
-                "11:00م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ تموز",
-              "times": [
-                "10:00ص",
-                "11:50ص",
-                "2:00م",
-                "3:40م",
-                "6:00م",
-                "7:00م",
-                "10:00م",
-                "10:40م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ تموز",
-              "times": [
-                "10:20ص",
-                "1:15م",
-                "3:30م",
-                "9:30م",
-                "6:30م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ تموز",
-              "times": [
-                "12:15م",
-                "2:45م",
-                "5:45م",
-                "8:10م",
-                "10:30م",
-                "9:45ص"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ تموز",
-              "times": [
-                "10:45ص",
-                "1:40م",
-                "4:30م",
-                "7:40م",
-                "11:00م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ تموز",
-              "times": [
-                "12:40م",
-                "2:00م",
-                "4:20م",
-                "6:00م",
-                "6:45م",
-                "9:45م",
-                "10:15م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ تموز",
-              "times": [
-                "1:00م",
-                "4:30م",
-                "7:15م",
-                "9:55م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ تموز",
-              "times": [
-                "12:30م",
-                "3:00م",
-                "5:30م",
-                "8:15م",
-                "10:15م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ تموز",
-              "times": [
-                "1:30م",
-                "4:30م",
-                "10:50م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ تموز",
-              "times": [
-                "10:00ص",
-                "11:20ص",
-                "2:00م",
-                "4:00م",
-                "6:00م",
-                "7:00م",
-                "9:15م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ تموز",
-              "times": [
-                "10:15ص",
-                "12:45م",
-                "6:20م",
-                "10:40م",
-                "4:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ تموز",
-              "times": [
-                "11:10ص",
-                "3:15م",
-                "5:45م",
-                "8:15م",
-                "10:15م",
-                "1:30م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ تموز",
-              "times": [
-                "10:30ص",
-                "1:30م",
-                "4:40م",
-                "7:30م",
-                "10:50م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ تموز",
-              "times": [
-                "12:45م",
-                "2:00م",
-                "4:20م",
-                "6:00م",
-                "6:45م",
-                "9:45م",
-                "10:15م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ تموز",
-              "times": [
-                "1:00م",
-                "7:20م",
-                "9:55م",
-                "5:00م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ تموز",
-              "times": [
-                "8:15م",
-                "10:15م",
-                "4:40م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ تموز",
-              "times": [
-                "1:30م",
-                "4:30م",
-                "7:00م",
-                "10:50م"
-              ]
-            },
-            {
-              "day": "الخميس ٢٣ تموز",
-              "times": [
-                "2:00م",
-                "6:00م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الخميس ٢٣ تموز",
-              "times": [
-                "1:30م",
-                "4:30م",
-                "7:20م",
-                "10:15م"
-              ]
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": []
-    },
-    {
-      "id": "5",
-      "title": "حكاية لعبة 5",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "AMC Lincoln Square 13",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-lincoln-square-13",
-          "schedule": [
-            {
-              "day": "الجمعة ١٧ يوليو",
-              "times": [
-                "12:45م",
-                "3:30م",
-                "11:15م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ يوليو",
-              "times": [
-                "10:00ص",
-                "12:45م",
-                "3:30م",
-                "6:30م",
-                "9:45م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ يوليو",
-              "times": [
-                "10:00ص",
-                "12:45م",
-                "3:30م",
-                "6:30م",
-                "9:30م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ يوليو",
-              "times": [
-                "11:00ص",
-                "12:45م",
-                "3:30م",
-                "6:30م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ يوليو",
-              "times": [
-                "10:00ص",
-                "12:45م",
-                "3:30م",
-                "6:30م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ يوليو",
-              "times": [
-                "10:00ص",
-                "12:45م",
-                "3:30م",
-                "6:30م",
-                "10:00م"
-              ]
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "AMC Orpheum 7",
-          "ticket_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-orpheum-7",
-          "schedule": [
-            {
-              "day": "الجمعة ١٧ تموز",
-              "times": [
-                "12:20م",
-                "3:00م",
-                "5:15م",
-                "7:40م",
-                "10:30م"
-              ]
-            },
-            {
-              "day": "السبت ١٨ تموز",
-              "times": [
-                "10:10ص",
-                "12:50م",
-                "4:15م",
-                "7:20م",
-                "10:10م"
-              ]
-            },
-            {
-              "day": "الأحد ١٩ تموز",
-              "times": [
-                "10:10ص",
-                "12:50م",
-                "4:15م",
-                "7:20م",
-                "10:10م"
-              ]
-            },
-            {
-              "day": "الاثنين ٢٠ تموز",
-              "times": [
-                "1:45م",
-                "4:10م",
-                "7:30م",
-                "10:40م"
-              ]
-            },
-            {
-              "day": "الثلاثاء ٢١ تموز",
-              "times": [
-                "10:50ص",
-                "1:15م",
-                "3:40م",
-                "7:15م",
-                "10:00م"
-              ]
-            },
-            {
-              "day": "الأربعاء ٢٢ تموز",
-              "times": [
-                "1:45م",
-                "4:10م",
-                "7:30م",
-                "10:40م"
-              ]
             }
           ],
           "special_formats": []
