@@ -22,13 +22,11 @@ jobs:
       - name: Run scraper and validate dataset with retry
         shell: bash
         env:
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
           PARIS_API_USERNAME: ${{ secrets.PARIS_API_USERNAME }}
           PARIS_API_PASSWORD: ${{ secrets.PARIS_API_PASSWORD }}
           PARIS_API_CLIENT_ID: ${{ secrets.PARIS_API_CLIENT_ID }}
-          AMC_FORCE_SERPAPI_FALLBACK: "1"
         run: |
           set -euo pipefail
           for attempt in 1 2 3; do
@@ -55,7 +53,7 @@ jobs:
           else
             git commit -m "Update weekly cinema data"
             for attempt in 1 2 3; do
-              git pull --rebase origin main
+              git pull --rebase -X ours origin main
               if git push origin HEAD:main; then
                 exit 0
               fi
@@ -99,7 +97,7 @@ jobs:
           else
             git commit -m "Update Claude movie reviews"
             for attempt in 1 2 3; do
-              git pull --rebase origin main
+              git pull --rebase -X ours origin main
               if git push origin HEAD:main; then
                 exit 0
               fi
