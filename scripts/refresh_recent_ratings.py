@@ -1,23 +1,23 @@
 """
 refresh_recent_ratings.py
 
-Refreshes Rotten Tomatoes and OMDB ratings for recently-added movies in data.json.
+Refreshes Rotten Tomatoes and OMDB ratings for recently-released movies in data.json.
 Unlike scrape.py, this does NOT re-scrape theater showtimes — it only updates ratings
-for movies that were recently added to the dataset.
+for movies that were recently released.
 
-This is meant to run daily to keep ratings fresh for new releases without re-fetching
-all theater data.
+This is meant to run periodically (e.g., every 3 days) to keep ratings fresh for new
+releases without re-fetching all theater data.
 
 Usage:
   cd scripts
-  OMDB_KEY=<key> python refresh_recent_ratings.py [--days N] [--dry-run]
+  OMDB_KEY=<key> python refresh_recent_ratings.py [--release-days N] [--dry-run]
 
 Env:
   OMDB_KEY  - OMDb API key (required for OMDB lookups; RT scrape works without it)
 
 Flags:
-  --days N  - Only refresh movies added in the last N days (default: 7)
-  --dry-run - Print what would change without writing
+  --release-days N  - Only refresh movies released in the last N days (default: 30)
+  --dry-run         - Print what would change without writing
 """
 
 from __future__ import annotations
@@ -48,25 +48,26 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def get_movie_added_date(movie: dict[str, Any]) -> Optional[datetime]:
-    """Extract the date a movie was added to the dataset."""
-    metadata = movie.get("metadata") or {}
-    added_at = metadata.get("addedAt")
-    if added_at:
+def get_movie_release_date(movie: dict[str, Any]) -> Optional[datetime]:
+    """Extract the movie's release date."""
+    ratings = movie.get("ratings") or {}
+    release_date = ratings.get("releaseDate")
+    if release_date:
         try:
-            return datetime.fromisoformat(added_at)
+            # Handle ISO date format (YYYY-MM-DD)
+            return datetime.fromisoformat(release_date)
         except (ValueError, TypeError):
             pass
     return None
 
 
-def is_recent_movie(movie: dict[str, Any], days_threshold: int) -> bool:
-    """Check if a movie was added within the last N days."""
-    added_date = get_movie_added_date(movie)
-    if not added_date:
+def is_recent_release(movie: dict[str, Any], days_threshold: int) -> bool:
+    """Check if a movie was released within the last N days."""
+    release_date = get_movie_release_date(movie)
+    if not release_date:
         return False
     cutoff = datetime.now() - timedelta(days=days_threshold)
-    return added_date >= cutoff
+    return release_date >= cutoff
 
 
 def should_refresh_ratings(movie: dict[str, Any]) -> bool:
@@ -128,7 +129,7 @@ def refresh_movie_ratings(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--days", type=int, default=7, help="Days threshold for recent movies")
+    parser.add_argument("--release-days", type=int, default=30, help="Days threshold for recently-released movies (default: 30)")
     parser.add_argument("--dry-run", action="store_true", help="Print changes without writing")
     args = parser.parse_args()
 
@@ -147,9 +148,9 @@ def main() -> None:
 
     print(f"Total movies: {len(movies)}")
 
-    # Filter to recent movies
-    recent_movies = [m for m in movies if is_recent_movie(m, args.days)]
-    print(f"Recent movies (added in last {args.days} days): {len(recent_movies)}")
+    # Filter to recently-released movies
+    recent_movies = [m for m in movies if is_recent_release(m, args.release_days)]
+    print(f"Recently-released movies (released in last {args.release_days} days): {len(recent_movies)}")
 
     # Filter to those needing refresh
     to_refresh = [m for m in recent_movies if should_refresh_ratings(m)]
