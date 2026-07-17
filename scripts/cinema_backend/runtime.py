@@ -167,7 +167,7 @@ def build_review_context(*, data_file: Path, cache_file: Path, now: Optional[dat
     return ReviewContext(
         config=ReviewConfig(
             api_key=os.environ.get("ANTHROPIC_API_KEY", ""),
-            model=os.environ.get("ANTHROPIC_REVIEW_MODEL", "claude-sonnet-4-6"),
+            model=os.environ.get("ANTHROPIC_REVIEW_MODEL", "claude-opus-4-8"),
             data_file=data_file,
             cache_file=cache_file,
             force_refresh=os.environ.get("VERDICT_FORCE_REFRESH", "").strip().lower() in {"1", "true", "yes"},
