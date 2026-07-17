@@ -54,7 +54,14 @@ jobs:
             git commit -m "Update weekly cinema data"
             for attempt in 1 2 3; do
               git fetch origin main
-              git merge -X ours origin/main
+              if git merge -X ours origin/main 2>/dev/null; then
+                true
+              else
+                # If merge conflicts occur, take our version and complete the merge
+                git checkout --ours public/data.json scripts/rating_cache.json
+                git add public/data.json scripts/rating_cache.json
+                git commit -m "Merge origin/main (keeping local changes)"
+              fi
               if git push origin HEAD:main; then
                 exit 0
               fi
@@ -99,7 +106,14 @@ jobs:
             git commit -m "Update Claude movie reviews"
             for attempt in 1 2 3; do
               git fetch origin main
-              git merge -X ours origin/main
+              if git merge -X ours origin/main 2>/dev/null; then
+                true
+              else
+                # If merge conflicts occur, take our version and complete the merge
+                git checkout --ours public/data.json scripts/verdicts_cache.json
+                git add public/data.json scripts/verdicts_cache.json
+                git commit -m "Merge origin/main (keeping local changes)"
+              fi
               if git push origin HEAD:main; then
                 exit 0
               fi
