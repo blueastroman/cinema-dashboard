@@ -2883,6 +2883,7 @@
         <div class="control-group">
           <span class="control-label">Lists</span>
           <select class="genre-select show-select" id="show-select" onchange="setShowMode(this.value)">
+            <option value="for-you">For You</option>
             <option value="all">All Movies</option>
             <option value="saved">Saved</option>
             <option value="watched">Watched</option>
@@ -2925,7 +2926,7 @@ let activeFormat = 'all';
 let activeDaypart = 'all';
 let searchQuery = '';
 let activeSort = 'rating';
-let showMode = 'all';
+let showMode = 'for-you';
 let viewMode = 'rankings';
 let hasLoadedData = false;
 let theaterMeta = {};
@@ -3272,13 +3273,10 @@ function readFiltersFromUrl() {
   if (time === 'all' || time === 'morning' || time === 'evening' || time === 'night') activeDaypart = time;
   if (typeof search === 'string') searchQuery = search;
   if (sort === 'day' || sort === 'rating') activeSort = sort;
-  if (show === 'saved' || show === 'watched' || show === 'hidden' || show === 'all') {
-    if (show === 'saved' && !getWatched().length) showMode = 'all';
-    else if (show === 'watched' && !getSeen().length) showMode = 'all';
-    else if (show === 'hidden' && !getHidden().length) showMode = 'all';
-    else showMode = show;
+  if (show === 'for-you' || show === 'saved' || show === 'watched' || show === 'hidden' || show === 'all') {
+    showMode = show;
   }
-  if ((saved === '1' || saved === 'true') && showMode === 'all' && getWatched().length) showMode = 'saved';
+  if ((saved === '1' || saved === 'true') && showMode === 'for-you' && getWatched().length) showMode = 'saved';
 }
 
 function updateUrlFromState() {
@@ -3292,7 +3290,7 @@ function updateUrlFromState() {
   if (activeDaypart !== 'all') params.set('time', activeDaypart);
   if (searchQuery) params.set('q', searchQuery);
   if (activeSort !== 'rating') params.set('sort', activeSort);
-  if (showMode !== 'all') params.set('show', showMode);
+  if (showMode !== 'for-you') params.set('show', showMode);
 
   const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
   window.history.replaceState({}, '', next);
@@ -4823,7 +4821,7 @@ function getEmptyStateMessage() {
 function getEmptyStateHint() {
   if (showMode === 'saved') {
     if (!getWatched().length) return 'Your saved list is personal and stored on this device — it won\'t appear on other browsers or shared links. Tap the ♥ on any film to save it.';
-    return 'Try switching Status back to All or broadening the date range.';
+    return 'Try switching to All Movies or broadening the date range.';
   }
   if (showMode === 'watched') {
     if (!getSeen().length) return 'Your watched list is personal and stored on this device — it won\'t appear on other browsers or shared links.';
@@ -4831,11 +4829,14 @@ function getEmptyStateHint() {
   }
   if (showMode === 'hidden') {
     if (!getHidden().length) return 'Your hidden list is personal and stored on this device — it won\'t appear on other browsers or shared links.';
-    return 'Try switching Status back to All or clearing one of the other filters.';
+    return 'Try switching to All Movies or clearing one of the other filters.';
   }
   if (activeFormat !== 'all') return 'Try clearing the format filter or switching theaters.';
   if (activeGenre !== 'all') return 'Try clearing the genre filter or switching theaters.';
   if (activeTheater !== 'all') return 'Try All Theaters or move from Today to This Week.';
+  if (showMode === 'for-you' && (getSeen().length || getHidden().length)) {
+    return 'Try All Movies to include films you have watched or hidden.';
+  }
   return 'Try a wider date range or clear one of the filters.';
 }
 
@@ -5248,16 +5249,10 @@ function getFiltered() {
     const isHidden = hasStoredMovie(hidden, movie);
     const isSaved = hasStoredMovie(watched, movie);
     const isSeen = hasStoredMovie(seen, movie);
-    if (showMode === 'watched') {
-      if (!isSeen) return false;
-    } else if (showMode === 'hidden') {
-      if (!isHidden) return false;
-      if (isSeen) return false;
-    } else {
-      if (isHidden) return false;
-      if (isSeen) return false;
-      if (showMode === 'saved' && !isSaved) return false;
-    }
+    if (showMode === 'for-you' && (isHidden || isSeen)) return false;
+    if (showMode === 'saved' && !isSaved) return false;
+    if (showMode === 'watched' && !isSeen) return false;
+    if (showMode === 'hidden' && !isHidden) return false;
     if (!hasUpcomingShowtimes({ ...movie, theaters: visibleTheaters })) return false;
     if (dateScope === 'today') {
       if (!moviePlayingOn({ ...movie, theaters: visibleTheaters }, today)) return false;
