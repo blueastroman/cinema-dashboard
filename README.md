@@ -41,6 +41,12 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - Alamo Drafthouse Lower Manhattan
 - Alamo Drafthouse Downtown Brooklyn
 - Alamo Drafthouse Staten Island
+- Regal Union Square
+- Regal Essex Crossing
+- Regal Battery Park
+- Regal Times Square
+- Regal UA Sheepshead Bay
+- Regal Bricktown Charleston
 - AMC theaters returned by the configured AMC filters
 
 ## Environment

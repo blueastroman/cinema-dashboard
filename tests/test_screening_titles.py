@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import scrape  # noqa: E402
-from cinema_backend.common import clean_title, extract_screening_attributes  # noqa: E402
+from cinema_backend.common import THEATER_CONFIG, clean_title, extract_screening_attributes  # noqa: E402
 from cinema_backend.runtime import ScrapeConfig, ScrapeContext, ScrapeState  # noqa: E402
 
 
@@ -35,6 +35,7 @@ class ScreeningTitleTests(unittest.TestCase):
         self.assertEqual(clean_title("The Substance Movie Party"), "The Substance")
         self.assertEqual(clean_title("Tinsman Road with Live Q&A"), "Tinsman Road")
         self.assertEqual(clean_title("The Fast and the Furious: 25th Anniversary"), "The Fast and the Furious")
+        self.assertEqual(clean_title("The Odyssey: RPX"), "The Odyssey")
 
     def test_real_title_with_non_suffix_premium_is_preserved(self):
         self.assertEqual(clean_title("Premium Rush"), "Premium Rush")
@@ -76,6 +77,76 @@ class ScreeningTitleTests(unittest.TestCase):
 
         self.assertEqual(entries[0]["title"], "The Odyssey")
         self.assertEqual(entries[0]["time_attributes"], {"10:00pm": ["Premium"]})
+
+    def test_serpapi_showtime_request_forces_english_new_york_locale(self):
+        response = mock.Mock()
+        response.json.return_value = {"showtimes": []}
+
+        with mock.patch.object(scrape.requests, "get", return_value=response) as request:
+            scrape.fetch_showtimes(
+                {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
+                self.make_context(),
+            )
+
+        params = request.call_args.kwargs["params"]
+        self.assertEqual(params["location"], "New York, New York, United States")
+        self.assertEqual(params["gl"], "us")
+        self.assertEqual(params["hl"], "en")
+
+    def test_regal_theaters_use_serpapi_with_brand_metadata(self):
+        regal_theaters = {
+            name: config
+            for name, config in THEATER_CONFIG.items()
+            if config.get("source_type") == "regal"
+        }
+
+        self.assertEqual(
+            set(regal_theaters),
+            {
+                "Regal Union Square",
+                "Regal Essex Crossing",
+                "Regal Battery Park",
+                "Regal Times Square",
+                "Regal UA Sheepshead Bay",
+                "Regal Bricktown Charleston",
+            },
+        )
+        self.assertEqual(len({config["slug"] for config in regal_theaters.values()}), 6)
+        for config in regal_theaters.values():
+            self.assertTrue(config["serpapi_id"])
+            self.assertIn("regmovies.com/theatres/", config["official_url"])
+
+    def test_serpapi_regal_formats_are_preserved_per_showtime(self):
+        response = mock.Mock()
+        response.json.return_value = {
+            "showtimes": [
+                {
+                    "day": "Fri",
+                    "date": "Jul 17",
+                    "movies": [
+                        {
+                            "name": "The Odyssey",
+                            "showing": [
+                                {"time": ["7:00pm"], "type": "RPX", "link": "https://tickets.example/rpx"},
+                                {"time": ["10:00pm"], "type": "4DX", "link": "https://tickets.example/4dx"},
+                            ],
+                        }
+                    ],
+                }
+            ]
+        }
+
+        with mock.patch.object(scrape.requests, "get", return_value=response):
+            entries = scrape.fetch_showtimes(
+                THEATER_CONFIG["Regal Union Square"] | {"name": "Regal Union Square"},
+                self.make_context(),
+            )
+
+        self.assertEqual(entries[0]["title"], "The Odyssey")
+        self.assertEqual(entries[0]["special_formats"], ["4DX", "RPX"])
+        self.assertEqual(entries[0]["time_attributes"]["7:00pm"], ["RPX"])
+        self.assertEqual(entries[0]["time_attributes"]["10:00pm"], ["4DX"])
+        self.assertEqual(entries[0]["ticket_urls"]["10:00pm"], "https://tickets.example/4dx")
 
     def test_canonical_variants_merge_before_rating_lookup(self):
         theater = {

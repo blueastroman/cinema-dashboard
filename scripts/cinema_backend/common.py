@@ -93,6 +93,60 @@ THEATER_CONFIG = {
         "official_url": "https://drafthouse.com/theater/staten-island",
         "aliases": ["alamo staten island", "staten island", "staten island alamo"],
     },
+    "Regal Union Square": {
+        "slug": "regal-union-square",
+        "short_name": "Regal Union Square",
+        "sort_name": "Regal Union Square",
+        "source_type": "regal",
+        "serpapi_id": "regal union square new york",
+        "official_url": "https://www.regmovies.com/theatres/regal-union-square-screenx-4dx-1320",
+        "aliases": ["regal union square", "union square regal"],
+    },
+    "Regal Essex Crossing": {
+        "slug": "regal-essex-crossing",
+        "short_name": "Regal Essex Crossing",
+        "sort_name": "Regal Essex Crossing",
+        "source_type": "regal",
+        "serpapi_id": "regal essex crossing new york",
+        "official_url": "https://www.regmovies.com/theatres/regal-essex-crossing-rpx-1412",
+        "aliases": ["regal essex crossing", "essex crossing regal"],
+    },
+    "Regal Battery Park": {
+        "slug": "regal-battery-park",
+        "short_name": "Regal Battery Park",
+        "sort_name": "Regal Battery Park",
+        "source_type": "regal",
+        "serpapi_id": "regal battery park new york",
+        "official_url": "https://www.regmovies.com/theatres/regal-battery-park-1335",
+        "aliases": ["regal battery park", "battery park regal"],
+    },
+    "Regal Times Square": {
+        "slug": "regal-times-square",
+        "short_name": "Regal Times Square",
+        "sort_name": "Regal Times Square",
+        "source_type": "regal",
+        "serpapi_id": "regal times square new york",
+        "official_url": "https://www.regmovies.com/theatres/regal-times-square-1929",
+        "aliases": ["regal times square", "times square regal", "regal e-walk"],
+    },
+    "Regal UA Sheepshead Bay": {
+        "slug": "regal-ua-sheepshead-bay",
+        "short_name": "Regal Sheepshead Bay",
+        "sort_name": "Regal UA Sheepshead Bay",
+        "source_type": "regal",
+        "serpapi_id": "regal ua sheepshead bay brooklyn",
+        "official_url": "https://www.regmovies.com/theatres/regal-ua-sheepshead-bay-1159",
+        "aliases": ["regal sheepshead bay", "ua sheepshead bay", "sheepshead bay regal"],
+    },
+    "Regal Bricktown Charleston": {
+        "slug": "regal-bricktown-charleston",
+        "short_name": "Regal Bricktown",
+        "sort_name": "Regal Bricktown Charleston",
+        "source_type": "regal",
+        "serpapi_id": "regal bricktown charleston staten island",
+        "official_url": "https://www.regmovies.com/theatres/regal-bricktown-charleston-1419",
+        "aliases": ["regal bricktown", "bricktown charleston", "bricktown regal"],
+    },
     "Paris Theater": {
         "slug": "paris",
         "short_name": "Paris",
@@ -198,7 +252,7 @@ THEATER_CONFIG = {
 SERPAPI_THEATERS = [
     {"name": name, **config}
     for name, config in THEATER_CONFIG.items()
-    if config.get("source_type") == "serpapi"
+    if config.get("source_type") in {"serpapi", "regal"}
 ]
 
 STATIC_THEATERS = [
@@ -215,13 +269,18 @@ AMC_ALLOWED_CITIES_BY_STATE = {
 AMC_EXCLUDED_THEATRES: set[str] = set()
 
 FORMAT_TAGS = re.compile(
-    r'\b(70mm|35mm|imax|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
-    r'|\s*[\(\[]?(70mm|35mm|imax|4k|dcp)[\)\]]?',
+    r'\b(70mm|35mm|imax|rpx|4dx|screenx|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
+    r'|\s*[\(\[]?(70mm|35mm|imax|rpx|4dx|screenx|4k|dcp)[\)\]]?',
     re.IGNORECASE
 )
 
 SPECIAL_FORMAT_PATTERNS = {
     "IMAX": re.compile(r"\bimax\b", re.IGNORECASE),
+    "RPX": re.compile(r"\brpx\b", re.IGNORECASE),
+    "4DX": re.compile(r"\b4dx\b", re.IGNORECASE),
+    "ScreenX": re.compile(r"\bscreen\s*x\b", re.IGNORECASE),
+    "HDR by Barco": re.compile(r"\bhdr\s+by\s+barco\b", re.IGNORECASE),
+    "Laser": re.compile(r"\blaser\b", re.IGNORECASE),
     "70mm": re.compile(r"\b(?:in\s+)?70\s*mm\b", re.IGNORECASE),
     "35mm": re.compile(r"\b(?:in\s+)?35\s*mm\b", re.IGNORECASE),
 }
@@ -265,7 +324,7 @@ def slugify(value: str) -> str:
 
 
 def clean_title(raw: str) -> str:
-    cleaned = FORMAT_TAGS.sub("", raw).strip(" -–—·")
+    cleaned = FORMAT_TAGS.sub("", raw).strip(" -–—·:")
     previous = None
     while cleaned and cleaned != previous:
         previous = cleaned

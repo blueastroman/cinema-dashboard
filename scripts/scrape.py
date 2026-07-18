@@ -197,6 +197,9 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     params = {
         "engine": "google",
         "q": f"showtimes {theater['serpapi_id']}",
+        "location": "New York, New York, United States",
+        "gl": "us",
+        "hl": "en",
         "api_key": ctx.config.serpapi_key,
     }
     try:
@@ -207,7 +210,16 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
             for movie in day.get("movies", []):
                 times = []
                 ticket_urls = {}
+                time_attributes: dict[str, list[str]] = {}
+                special_formats = set(extract_special_formats(movie.get("name", "")))
                 for showing in movie.get("showing", []):
+                    showing_labels = [
+                        showing.get("type"),
+                        showing.get("format"),
+                        showing.get("name"),
+                    ]
+                    showing_attributes = extract_screening_attributes(*showing_labels)
+                    special_formats.update(extract_special_formats(*showing_labels))
                     show_url = next(
                         (
                             str(showing.get(key) or "").strip()
@@ -220,6 +232,11 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                         times.append(show_time)
                         if show_url and show_time not in ticket_urls:
                             ticket_urls[show_time] = show_url
+                        if showing_attributes:
+                            existing = time_attributes.setdefault(show_time, [])
+                            for attribute in showing_attributes:
+                                if attribute not in existing:
+                                    existing.append(attribute)
                 ticket_url = next(
                     (
                         str(showing.get(key) or "").strip()
@@ -238,6 +255,14 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                         pass
                 raw_title = movie.get("name", "Unknown")
                 screening_attributes = extract_screening_attributes(raw_title)
+                special_formats.update(extract_special_formats(raw_title))
+                for show_time in times:
+                    if not screening_attributes:
+                        continue
+                    existing = time_attributes.setdefault(show_time, [])
+                    for attribute in screening_attributes:
+                        if attribute not in existing:
+                            existing.append(attribute)
                 movies.append({
                     "title": clean_title(raw_title),
                     "hint_year": hint_year,
@@ -246,12 +271,8 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
                     "times": times,
                     "ticket_url": ticket_url,
                     "ticket_urls": ticket_urls,
-                    "special_formats": extract_special_formats(raw_title),
-                    "time_attributes": {
-                        show_time: screening_attributes
-                        for show_time in times
-                        if screening_attributes
-                    },
+                    "special_formats": sorted(special_formats),
+                    "time_attributes": time_attributes,
                 })
         return movies
     except Exception as e:
