@@ -1,7 +1,7 @@
 import json
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from cinema_backend.common import (
@@ -19,6 +19,30 @@ ROOT = Path(__file__).resolve().parent.parent
 DATASET_PATH = ROOT / "public" / "data.json"
 CURRENT_YEAR = ny_now().year
 MAX_REASONABLE_FUTURE_YEAR = CURRENT_YEAR + 2
+ENGLISH_WEEKDAY_PREFIXES = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"}
+ENGLISH_MONTH_PATTERN = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?"
+
+
+def is_parseable_schedule_day(day: str, schedule_date: str = "") -> bool:
+    if schedule_date and re.fullmatch(r"(?:18|19|20)\d{2}-\d{2}-\d{2}", schedule_date):
+        return True
+    normalized = str(day or "").strip()
+    if not normalized:
+        return False
+    if normalized.lower() in {"today", "tomorrow", "yesterday"}:
+        return True
+    if normalized[:3].lower() in ENGLISH_WEEKDAY_PREFIXES:
+        return True
+    if re.search(rf"\b{ENGLISH_MONTH_PATTERN}\s+\d{{1,2}}\b", normalized, re.IGNORECASE):
+        return True
+    return bool(re.search(rf"\b\d{{1,2}}\s+{ENGLISH_MONTH_PATTERN}\b", normalized, re.IGNORECASE))
+
+
+def is_parseable_showtime(value: str) -> bool:
+    normalized = str(value or "").strip()
+    if re.fullmatch(r"(?:0?[1-9]|1[0-2])(?::[0-5]\d)?\s*(?:AM|PM)", normalized, re.IGNORECASE):
+        return True
+    return bool(re.fullmatch(r"(?:[01]?\d|2[0-3]):[0-5]\d", normalized))
 
 
 def load_dataset(path: Path) -> dict:
@@ -73,6 +97,8 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
     seen_ids = Counter()
     seen_title_keys = Counter()
     future_showtime_found = False
+    unparseable_days: dict[str, set[str]] = defaultdict(set)
+    unparseable_times: dict[str, set[str]] = defaultdict(set)
 
     for movie in movies:
         title = str(movie.get("title") or "").strip()
@@ -169,8 +195,14 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has invalid date ({schedule_date}).")
                 if schedule_date and schedule_date >= ny_now().date().isoformat():
                     future_showtime_found = True
+                if day and not is_parseable_schedule_day(day, schedule_date):
+                    unparseable_days[theater_name].add(day)
                 if not isinstance(times, list) or not times:
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} has no times.")
+                elif isinstance(times, list):
+                    for time in times:
+                        if not is_parseable_showtime(str(time or "")):
+                            unparseable_times[theater_name].add(str(time or "").strip() or "[empty]")
                 if not isinstance(time_attributes, dict):
                     errors.append(f"{title}: {theater_name} {day or '[missing day]'} time_attributes is not an object.")
                 else:
@@ -179,6 +211,13 @@ def validate_dataset(dataset: dict) -> tuple[list[str], list[str]]:
                             errors.append(f"{title}: {theater_name} {day or '[missing day]'} has attributes for unknown time {time}.")
                         if not isinstance(attributes, list) or not all(isinstance(attribute, str) and attribute.strip() for attribute in attributes):
                             errors.append(f"{title}: {theater_name} {day or '[missing day]'} has invalid attributes for {time}.")
+
+    for theater_name, days in sorted(unparseable_days.items()):
+        samples = ", ".join(sorted(days)[:5])
+        errors.append(f"{theater_name}: unparseable schedule day label(s): {samples}.")
+    for theater_name, times in sorted(unparseable_times.items()):
+        samples = ", ".join(sorted(times)[:5])
+        errors.append(f"{theater_name}: unparseable showtime value(s): {samples}.")
 
     duplicate_ids = [movie_id for movie_id, count in seen_ids.items() if count > 1]
     if duplicate_ids:

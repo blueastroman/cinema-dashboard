@@ -77,6 +77,21 @@ class ScreeningTitleTests(unittest.TestCase):
         self.assertEqual(entries[0]["title"], "The Odyssey")
         self.assertEqual(entries[0]["time_attributes"], {"10:00pm": ["Premium"]})
 
+    def test_serpapi_showtime_request_forces_english_new_york_locale(self):
+        response = mock.Mock()
+        response.json.return_value = {"showtimes": []}
+
+        with mock.patch.object(scrape.requests, "get", return_value=response) as request:
+            scrape.fetch_showtimes(
+                {"name": "Village East by Angelika", "serpapi_id": "village east cinema new york"},
+                self.make_context(),
+            )
+
+        params = request.call_args.kwargs["params"]
+        self.assertEqual(params["location"], "New York, New York, United States")
+        self.assertEqual(params["gl"], "us")
+        self.assertEqual(params["hl"], "en")
+
     def test_canonical_variants_merge_before_rating_lookup(self):
         theater = {
             "name": "AMC Lincoln Square 13",

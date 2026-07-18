@@ -67,6 +67,35 @@ class ValidateDatasetTests(unittest.TestCase):
         _errors, warnings = validate_dataset.validate_dataset(dataset)
         self.assertTrue(any("Uncanonicalized screening-variant titles" in warning for warning in warnings))
 
+    def test_localized_schedule_formats_fail_validation(self):
+        now = ny_now()
+        dataset = {
+            "generated_at": now.isoformat(),
+            "week_of": "July 17, 2026",
+            "theaters": ["Village East by Angelika"],
+            "theater_meta": {"Village East by Angelika": {}},
+            "movies": [
+                {
+                    "id": "localized-showtimes",
+                    "title": "Example",
+                    "ratings": {"year": "2026", "runtime": "100 min", "genre": "Drama", "director": "Jane Doe"},
+                    "verdict": {},
+                    "theaters": [
+                        {
+                            "name": "Village East by Angelika",
+                            "ticket_url": "https://example.com",
+                            "schedule": [{"day": "السبت 18 يوليو", "times": ["10:00ص"]}],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        errors, _warnings = validate_dataset.validate_dataset(dataset)
+
+        self.assertTrue(any("unparseable schedule day" in error for error in errors))
+        self.assertTrue(any("unparseable showtime" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

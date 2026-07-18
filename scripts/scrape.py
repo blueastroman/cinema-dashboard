@@ -197,6 +197,9 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     params = {
         "engine": "google",
         "q": f"showtimes {theater['serpapi_id']}",
+        "location": "New York, New York, United States",
+        "gl": "us",
+        "hl": "en",
         "api_key": ctx.config.serpapi_key,
     }
     try:
