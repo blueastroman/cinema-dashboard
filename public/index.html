@@ -2788,6 +2788,7 @@
       <div class="settings-section" id="membership-list">
         <label class="membership-item"><input type="checkbox" value="amc"> AMC A-List</label>
         <label class="membership-item"><input type="checkbox" value="alamo"> Alamo Season Pass</label>
+        <label class="membership-item"><input type="checkbox" value="regal"> Regal Unlimited</label>
         <label class="membership-item"><input type="checkbox" value="filmforum"> Film Forum Member</label>
         <label class="membership-item"><input type="checkbox" value="metrograph"> Metrograph Member</label>
         <label class="membership-item"><input type="checkbox" value="flc"> FLC Member</label>
@@ -2804,6 +2805,12 @@
           <span class="settings-default-label">Choose default Alamo</span>
           <select class="settings-default-select" id="default-alamo-select" data-membership-kind="alamo">
             <option value="all">All Alamo</option>
+          </select>
+        </label>
+        <label class="settings-default-row" id="default-regal-row" hidden>
+          <span class="settings-default-label">Choose default Regal</span>
+          <select class="settings-default-select" id="default-regal-select" data-membership-kind="regal">
+            <option value="all">All Regal</option>
           </select>
         </label>
       </div>
@@ -3194,6 +3201,19 @@ function buildMembershipPanel() {
     alamoSelect.value = options.includes(membershipDefaults.alamo) ? membershipDefaults.alamo : 'all';
   }
 
+  const regalSelect = panel.querySelector('#default-regal-select');
+  if (regalSelect instanceof HTMLSelectElement) {
+    const options = hasLoadedData ? getAvailableMembershipTheaters('regal', { movies: allMovies }) : [];
+    regalSelect.innerHTML = '<option value="all">All Regal</option>';
+    options.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = getMembershipDefaultOptionLabel('regal', name);
+      regalSelect.appendChild(option);
+    });
+    regalSelect.value = options.includes(membershipDefaults.regal) ? membershipDefaults.regal : 'all';
+  }
+
   return panel;
 }
 const DEFAULT_THEATER_META = {
@@ -3206,6 +3226,12 @@ const DEFAULT_THEATER_META = {
   'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo Lower Manhattan', sort_name: 'Alamo Lower Manhattan', official_url: 'https://drafthouse.com/nyc', source_type: 'alamo', aliases: ['alamo'] },
   'Alamo Drafthouse Downtown Brooklyn': { slug: 'alamo-brooklyn', short_name: 'Alamo Brooklyn', sort_name: 'Alamo Brooklyn', official_url: 'https://drafthouse.com/theater/downtown-brooklyn', source_type: 'alamo', aliases: ['alamo brooklyn', 'downtown brooklyn', 'brooklyn alamo'] },
   'Alamo Drafthouse Staten Island': { slug: 'alamo-staten-island', short_name: 'Alamo Staten Island', sort_name: 'Alamo Staten Island', official_url: 'https://drafthouse.com/theater/staten-island', source_type: 'alamo', aliases: ['alamo staten island', 'staten island', 'staten island alamo'] },
+  'Regal Union Square': { slug: 'regal-union-square', short_name: 'Regal Union Square', sort_name: 'Regal Union Square', official_url: 'https://www.regmovies.com/theatres/regal-union-square-screenx-4dx-1320', source_type: 'regal', aliases: ['regal union square', 'union square regal'] },
+  'Regal Essex Crossing': { slug: 'regal-essex-crossing', short_name: 'Regal Essex Crossing', sort_name: 'Regal Essex Crossing', official_url: 'https://www.regmovies.com/theatres/regal-essex-crossing-rpx-1412', source_type: 'regal', aliases: ['regal essex crossing', 'essex crossing regal'] },
+  'Regal Battery Park': { slug: 'regal-battery-park', short_name: 'Regal Battery Park', sort_name: 'Regal Battery Park', official_url: 'https://www.regmovies.com/theatres/regal-battery-park-1335', source_type: 'regal', aliases: ['regal battery park', 'battery park regal'] },
+  'Regal Times Square': { slug: 'regal-times-square', short_name: 'Regal Times Square', sort_name: 'Regal Times Square', official_url: 'https://www.regmovies.com/theatres/regal-times-square-1929', source_type: 'regal', aliases: ['regal times square', 'times square regal', 'regal e-walk'] },
+  'Regal UA Sheepshead Bay': { slug: 'regal-ua-sheepshead-bay', short_name: 'Regal Sheepshead Bay', sort_name: 'Regal UA Sheepshead Bay', official_url: 'https://www.regmovies.com/theatres/regal-ua-sheepshead-bay-1159', source_type: 'regal', aliases: ['regal sheepshead bay', 'ua sheepshead bay', 'sheepshead bay regal'] },
+  'Regal Bricktown Charleston': { slug: 'regal-bricktown-charleston', short_name: 'Regal Bricktown', sort_name: 'Regal Bricktown Charleston', official_url: 'https://www.regmovies.com/theatres/regal-bricktown-charleston-1419', source_type: 'regal', aliases: ['regal bricktown', 'bricktown charleston', 'bricktown regal'] },
   'Paris Theater': { slug: 'paris', short_name: 'Paris', sort_name: 'Paris', official_url: 'https://www.paristheaternyc.com/', source_type: 'paris', aliases: ['paris'] },
 };
 
@@ -3552,10 +3578,12 @@ function getVisibleTheaters(movie) {
   const observedTheaters = theaters.map(t => getCanonicalTheaterName(t?.name)).filter(Boolean);
   const effectiveAmc = getEffectiveMembershipDefault('amc', observedTheaters);
   const effectiveAlamo = getEffectiveMembershipDefault('alamo', observedTheaters);
+  const effectiveRegal = getEffectiveMembershipDefault('regal', observedTheaters);
   const visible = theaters.filter(t => {
     const canonical = getCanonicalTheaterName(t?.name);
     const isAmc = /^AMC\b/i.test(canonical);
     const isAlamo = getTheaterMeta(canonical)?.source_type === 'alamo';
+    const isRegal = getTheaterMeta(canonical)?.source_type === 'regal' || /^Regal\b/i.test(canonical);
     const formatPinned = activeFormat !== 'all'
       && theaterMatchesFormat(t, movie);
 
@@ -3575,6 +3603,14 @@ function getVisibleTheaters(movie) {
       if (activeTheater === 'all') {
         if (formatPinned) return true;
         return effectiveAlamo === 'all' ? true : canonical === effectiveAlamo;
+      }
+      return canonical === activeTheater;
+    }
+
+    if (isRegal) {
+      if (activeTheater === 'all') {
+        if (formatPinned) return true;
+        return effectiveRegal === 'all' ? true : canonical === effectiveRegal;
       }
       return canonical === activeTheater;
     }
@@ -3700,6 +3736,10 @@ function normalizeFormat(format) {
   if (!raw) return '';
   const slug = slugify(raw);
   if (slug === 'imax') return 'IMAX';
+  if (slug === 'rpx') return 'RPX';
+  if (slug === '4dx') return '4DX';
+  if (slug === 'screenx' || slug === 'screen-x') return 'ScreenX';
+  if (slug === 'hdr-by-barco') return 'HDR by Barco';
   if (slug === '70mm' || slug === '70-mm') return '70mm';
   if (slug === '35mm' || slug === '35-mm') return '35mm';
   return raw;
@@ -6765,12 +6805,11 @@ document.addEventListener('change', e => {
     setStoredMembershipDefaults({ alamo: target.value || 'all' });
     render();
   }
-});
 
-document.getElementById('default-regal-select')?.addEventListener('change', e => {
-  const target = e.target;
-  if (!(target instanceof HTMLSelectElement)) return;
-  setStoredMembershipDefaults({ regal: target.value || 'all' });
+  if (target instanceof HTMLSelectElement && target.id === 'default-regal-select') {
+    setStoredMembershipDefaults({ regal: target.value || 'all' });
+    render();
+  }
 });
 
 readFiltersFromUrl();
