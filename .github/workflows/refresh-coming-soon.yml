@@ -1,0 +1,63 @@
+name: Refresh Coming Soon Movies
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: cinema-data-writes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh coming-soon feed
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: python scripts/refresh_coming_soon.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests
+
+      - name: Commit refreshed feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --local user.email "daniel@dannymora.com"
+          git config --local user.name "Daniel Mora"
+          git add public/coming-soon.json
+          if git diff --cached --quiet; then
+            echo "No coming-soon changes to commit."
+          else
+            git commit -m "Refresh coming soon movies"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Push failed on attempt ${attempt}; retrying after remote update."
+              sleep 5
+            done
+            echo "Failed to push coming-soon data after 3 attempts."
+            exit 1
+          fi

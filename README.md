@@ -5,12 +5,15 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 ## What Is In This Repo
 
 - `scripts/scrape.py`: showtime aggregation, metadata matching, verdict generation, and dataset assembly
+- `scripts/refresh_coming_soon.py`: rolling six-month theatrical release discovery and metadata enrichment
 - `scripts/rating_overrides.json`: hard overrides for title identity edge cases
 - `scripts/cinemascore_overrides.json`: manual CinemaScore values for current releases
 - `scripts/rating_cache.json`: resolved OMDb matches cached for stability
 - `public/index.html`: production frontend
 - `public/data.json`: live dataset consumed by the frontend
+- `public/coming-soon.json`: upcoming wide and specialty theatrical releases
 - `.github/workflows/weekly-scrape.yml`: daily scheduled scrape and commit
+- `.github/workflows/refresh-coming-soon.yml`: coming-soon refresh on the first day of each month
 - `.github/workflows/deploy.yml`: deploys production when `public/**` changes on `main`
 
 ## Data Sources
@@ -21,6 +24,8 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - direct theater scraping for Metrograph, IFC, and Alamo
 - Metadata:
   - OMDb as primary source
+  - Box Office Mojo for upcoming U.S. theatrical dates, studios, scale, and genres
+  - TMDB public movie pages as a fallback for upcoming posters, synopses, and directors
   - Rotten Tomatoes and Letterboxd fallbacks where OMDb is incomplete
   - manual overrides for ambiguous titles
 - Audience signal:
@@ -81,6 +86,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/scrape.py
+python scripts/refresh_coming_soon.py --dry-run
 ```
 
 Production scrapes fail loudly when `SERPAPI_KEY`, `OMDB_KEY`, or `ANTHROPIC_API_KEY` is missing. For local layout work without API keys, run `ALLOW_MOCK_DATA=1 python scripts/scrape.py` and do not commit the generated mock dataset.
@@ -97,6 +103,10 @@ Production deploys should follow one path:
 2. The scraper updates `public/data.json` and `scripts/rating_cache.json`.
 3. The workflow commits and pushes to `main`.
 4. `deploy.yml` deploys production when `public/**` changes on `main`.
+
+The separate `refresh-coming-soon.yml` workflow runs at 09:00 UTC on the first
+day of every month. It updates `public/coming-soon.json`, commits changes to
+`main`, and triggers the same production deployment flow.
 
 ## Maintenance Notes
 

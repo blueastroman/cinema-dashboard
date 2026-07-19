@@ -1784,17 +1784,18 @@
       transition: background 0.15s ease, border-color 0.15s ease;
     }
 
-    .coming-soon-card::before {
-      content: '';
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 5px;
-      background: var(--accent);
-    }
-
     .coming-soon-card:hover {
       background: var(--charcoal);
       border-color: var(--mid-gray);
+    }
+
+    .coming-soon-card.is-saved {
+      background: var(--saved-card-bg);
+      box-shadow: var(--saved-card-shadow);
+    }
+
+    .coming-soon-card.is-hidden {
+      border-color: var(--hide-soft-border);
     }
 
     .coming-soon-poster-wrap {
@@ -1830,6 +1831,24 @@
       line-height: 1.65;
     }
 
+    .coming-soon-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .coming-soon-meta-item:not(:last-child)::after {
+      content: '·';
+      margin-left: 14px;
+      color: var(--accent-dim);
+    }
+
     .coming-soon-release {
       align-self: center;
       padding: 14px 16px;
@@ -1855,7 +1874,31 @@
       line-height: 1.35;
     }
 
-    body.coming-soon-mode .mobile-filter-bar,
+    .coming-soon-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--dark-gray);
+    }
+
+    .coming-soon-action {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .coming-soon-action.active-save {
+      border-color: var(--star-solid);
+      background: var(--star-solid);
+      color: var(--star-ink);
+    }
+
+    .coming-soon-action.active-hide {
+      border-color: var(--skip);
+      background: var(--skip-bg);
+      color: var(--skip);
+    }
+
     body.coming-soon-mode .stats-row:first-child,
     body.coming-soon-mode .stats-row:nth-child(2) > :not(.seg-toggle) {
       display: none;
@@ -2359,6 +2402,13 @@
     }
     body.filters-open .stats-bar {
       display: block;
+    }
+
+    @media (min-width: 769px) {
+      .mobile-filter-bar { display: block; }
+      .stats-bar { display: block; }
+      .mobile-filter-toggle,
+      .mobile-filter-summary { display: none; }
     }
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
@@ -2953,6 +3003,7 @@
     <div class="mobile-filter-inner">
       <div class="date-tabs">
         <button class="date-tab active" id="today-btn">Today</button>
+        <button class="date-tab" id="tomorrow-btn">Tomorrow</button>
         <button class="date-tab" id="thisweek-btn">This Week</button>
         <div class="date-picker-wrap">
           <button class="date-tab" id="pickdate-btn" type="button">Select Date</button>
@@ -5022,9 +5073,9 @@ function getSeen() { try { return JSON.parse(localStorage.getItem('cinema_seen')
 function getHidden()  { try { return JSON.parse(localStorage.getItem('cinema_hidden')  || '[]'); } catch { return []; } }
 function getMovieStorageKeys(movieOrId, fallbackTitle = '') {
   if (typeof movieOrId === 'object' && movieOrId) {
-    return [movieOrId.id, movieOrId.title].filter(Boolean);
+    return [...new Set([movieOrId.id, movieOrId.title].filter(Boolean))];
   }
-  return [movieOrId, fallbackTitle].filter(Boolean);
+  return [...new Set([movieOrId, fallbackTitle].filter(Boolean))];
 }
 function hasStoredMovie(list, movieOrId, fallbackTitle = '') {
   return getMovieStorageKeys(movieOrId, fallbackTitle).some(key => list.includes(key));
@@ -5032,13 +5083,11 @@ function hasStoredMovie(list, movieOrId, fallbackTitle = '') {
 function toggleWatched(movieId, fallbackTitle = '') {
   const list = getWatched();
   const keys = getMovieStorageKeys(movieId, fallbackTitle);
-  const existingIdx = list.findIndex(item => keys.includes(item));
-  if (existingIdx > -1) {
-    list.splice(existingIdx, 1);
-  } else if (movieId) {
-    list.push(movieId);
-  }
-  localStorage.setItem('cinema_watched', JSON.stringify(list));
+  const isStored = keys.some(key => list.includes(key));
+  const next = isStored
+    ? list.filter(item => !keys.includes(item))
+    : [...new Set([...list, ...keys])];
+  localStorage.setItem('cinema_watched', JSON.stringify(next));
 }
 function toggleSeen(movieId, fallbackTitle = '') {
   const list = getSeen();
@@ -5054,13 +5103,11 @@ function toggleSeen(movieId, fallbackTitle = '') {
 function toggleHidden(movieId, fallbackTitle = '') {
   const list = getHidden();
   const keys = getMovieStorageKeys(movieId, fallbackTitle);
-  const existingIdx = list.findIndex(item => keys.includes(item));
-  if (existingIdx > -1) {
-    list.splice(existingIdx, 1);
-  } else if (movieId) {
-    list.push(movieId);
-  }
-  localStorage.setItem('cinema_hidden', JSON.stringify(list));
+  const isStored = keys.some(key => list.includes(key));
+  const next = isStored
+    ? list.filter(item => !keys.includes(item))
+    : [...new Set([...list, ...keys])];
+  localStorage.setItem('cinema_hidden', JSON.stringify(next));
 }
 
 // ── DATA LOAD ──────────────────────────────────────────────────────────────
@@ -5758,10 +5805,17 @@ function isRankingEligible(movie) {
   return cinemaWeight !== null && cinemaWeight >= 100; // B and above
 }
 
+function hasShowtimesReview(movie) {
+  const review = cleanDisplayText(movie?.verdict?.reason);
+  if (!review) return false;
+  return !/^showtimes review pending\.?$/i.test(review);
+}
+
 function getRankingEntries() {
   const byMovie = new Map();
   getFiltered().forEach(movie => {
     if (siteHidden.has(movie.id)) return;
+    if (!hasShowtimesReview(movie)) return;
     if (!hasCriticRating(movie)) return;
     if (!isRankingEligible(movie)) return;
     const genreLower = (movie.ratings?.genre || '').toLowerCase();
@@ -6048,8 +6102,20 @@ function renderComingSoonView() {
 }
 
 function buildComingSoonCard(movie, idx) {
+  const releaseYear = movie._releaseDate.getFullYear();
+  const movieId = movie.id || slugify(`${movie.title}-${releaseYear}`);
+  const saved = hasStoredMovie(getWatched(), movieId, movie.title);
+  const hidden = hasStoredMovie(getHidden(), movieId, movie.title);
+  const safeId = escapeJSString(movieId);
+  const safeTitle = escapeJSString(movie.title);
+  const genres = Array.isArray(movie.genres) ? movie.genres.join(', ') : String(movie.genres || '');
+  const metadata = [
+    movie.director ? `Directed by ${movie.director}` : '',
+    genres,
+    movie.studio || '',
+  ].filter(Boolean);
   const card = document.createElement('article');
-  card.className = 'coming-soon-card';
+  card.className = `coming-soon-card${saved ? ' is-saved' : ''}${hidden ? ' is-hidden' : ''}`;
   card.style.animationDelay = `${idx * 30}ms`;
   card.innerHTML = `
     <div class="coming-soon-poster-wrap">
@@ -6057,14 +6123,36 @@ function buildComingSoonCard(movie, idx) {
     </div>
     <div class="coming-soon-main">
       <h2 class="coming-soon-title">${escapeHTML(movie.title)}</h2>
+      ${metadata.length ? `<div class="coming-soon-meta">${metadata.map(item => `<span class="coming-soon-meta-item">${escapeHTML(item)}</span>`).join('')}</div>` : ''}
       <p class="coming-soon-synopsis">${escapeHTML(movie.synopsis)}</p>
     </div>
     <div class="coming-soon-release">
       <span class="coming-soon-release-label">In theaters</span>
       <time class="coming-soon-release-date" datetime="${escapeHTML(movie.release_date)}">${escapeHTML(formatReleaseDate(movie._releaseDate))}</time>
+      <div class="coming-soon-actions">
+        <button class="action-btn coming-soon-action${saved ? ' active-save' : ''}" type="button" aria-pressed="${saved ? 'true' : 'false'}" onclick="setComingSoonPreference(${safeId}, ${safeTitle}, 'save')">${saved ? '★ Saved' : 'Save'}</button>
+        <button class="action-btn coming-soon-action${hidden ? ' active-hide' : ''}" type="button" aria-pressed="${hidden ? 'true' : 'false'}" onclick="setComingSoonPreference(${safeId}, ${safeTitle}, 'hide')">${hidden ? '× Hidden' : 'Hide'}</button>
+      </div>
     </div>
   `;
   return card;
+}
+
+function setComingSoonPreference(movieId, title, preference) {
+  if (preference === 'save') {
+    const wasSaved = hasStoredMovie(getWatched(), movieId, title);
+    toggleWatched(movieId, title);
+    if (!wasSaved && hasStoredMovie(getHidden(), movieId, title)) {
+      toggleHidden(movieId, title);
+    }
+  } else if (preference === 'hide') {
+    const wasHidden = hasStoredMovie(getHidden(), movieId, title);
+    toggleHidden(movieId, title);
+    if (!wasHidden && hasStoredMovie(getWatched(), movieId, title)) {
+      toggleWatched(movieId, title);
+    }
+  }
+  renderComingSoonView();
 }
 
 function buildRankingRow(movie, idx) {
@@ -6927,19 +7015,31 @@ function openDatePicker() {
   dateInput.click();
 }
 
+function activateDateScopedView() {
+  if (viewMode !== 'coming') return;
+  viewMode = 'rankings';
+  document.body.classList.remove('coming-soon-mode');
+  activeSort = 'rating';
+  syncViewButtons();
+  syncSortButtons();
+}
+
 document.getElementById('today-btn')?.addEventListener('click', () => {
+  activateDateScopedView();
   dateScope = 'today';
   syncDateScopeButtons();
   render();
 });
 
 document.getElementById('tomorrow-btn')?.addEventListener('click', () => {
+  activateDateScopedView();
   dateScope = 'tomorrow';
   syncDateScopeButtons();
   render();
 });
 
 document.getElementById('thisweek-btn')?.addEventListener('click', () => {
+  activateDateScopedView();
   dateScope = 'week';
   syncDateScopeButtons();
   render();
@@ -6962,6 +7062,7 @@ document.getElementById('date-picker')?.addEventListener('blur', () => {
 document.getElementById('date-picker')?.addEventListener('change', (e) => {
   selectedDateISO = e.target.value || '';
   if (!selectedDateISO) return;
+  activateDateScopedView();
   dateScope = 'custom';
   syncDateScopeButtons();
   render();
@@ -7357,12 +7458,12 @@ async function loadUserListsFromCloud() {
   if (!sb || !currentUser) return;
   try {
     const [{ data: hidden }, { data: watched }, { data: seen }] = await Promise.all([
-      sb.from('hidden_movies').select('movie_id').eq('user_id', currentUser.id),
-      sb.from('watched_movies').select('movie_id').eq('user_id', currentUser.id),
+      sb.from('hidden_movies').select('movie_id,title').eq('user_id', currentUser.id),
+      sb.from('watched_movies').select('movie_id,title').eq('user_id', currentUser.id),
       sb.from('seen_movies').select('movie_id').eq('user_id', currentUser.id),
     ]);
     if (hidden) {
-      const remoteIds = new Set(hidden.map(r => r.movie_id));
+      const remoteIds = new Set(hidden.flatMap(r => [r.movie_id, r.title]).filter(Boolean));
       const local = getHidden();
       const localOnly = local.filter(id => !remoteIds.has(id));
       if (localOnly.length) {
@@ -7375,7 +7476,7 @@ async function loadUserListsFromCloud() {
       localStorage.setItem('cinema_hidden', JSON.stringify(merged));
     }
     if (watched) {
-      const remoteIds = new Set(watched.map(r => r.movie_id));
+      const remoteIds = new Set(watched.flatMap(r => [r.movie_id, r.title]).filter(Boolean));
       const local = getWatched();
       const localOnly = local.filter(id => !remoteIds.has(id));
       if (localOnly.length) {
