@@ -55,10 +55,27 @@ create table if not exists public.site_visits (
   visit_date date default current_date
 );
 
+create table if not exists public.coming_soon_overrides (
+  movie_key text primary key,
+  source_title text not null default '',
+  disabled boolean not null default false,
+  title_override text,
+  release_date_override date,
+  poster_override text,
+  synopsis_override text,
+  director_override text,
+  genres_override text[],
+  studio_override text,
+  release_scale_override text,
+  letterboxd_url_override text,
+  updated_at timestamptz not null default now()
+);
+
 alter table public.hidden_movies enable row level security;
 alter table public.watched_movies enable row level security;
 alter table public.seen_movies enable row level security;
 alter table public.site_visits enable row level security;
+alter table public.coming_soon_overrides enable row level security;
 alter table public.site_visits add column if not exists referrer_host text;
 alter table public.site_visits add column if not exists client_hint text;
 alter table public.site_visits add column if not exists visit_fingerprint text;
@@ -97,6 +114,8 @@ grant insert, update, delete on table public.site_hidden to authenticated;
 grant select, insert, update, delete on table public.hidden_movies to authenticated;
 grant select, insert, update, delete on table public.watched_movies to authenticated;
 grant select, insert, update, delete on table public.seen_movies to authenticated;
+grant select on table public.coming_soon_overrides to anon, authenticated;
+grant insert, update, delete on table public.coming_soon_overrides to authenticated;
 revoke insert on table public.site_visits from anon, authenticated;
 revoke usage, select on sequence public.site_visits_id_seq from anon, authenticated;
 
@@ -140,6 +159,21 @@ using (true);
 drop policy if exists "admin write site_hidden" on public.site_hidden;
 create policy "admin write site_hidden"
 on public.site_hidden
+for all
+to authenticated
+using (public.is_cinema_admin())
+with check (public.is_cinema_admin());
+
+drop policy if exists "public read coming soon overrides" on public.coming_soon_overrides;
+create policy "public read coming soon overrides"
+on public.coming_soon_overrides
+for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "admin write coming soon overrides" on public.coming_soon_overrides;
+create policy "admin write coming soon overrides"
+on public.coming_soon_overrides
 for all
 to authenticated
 using (public.is_cinema_admin())

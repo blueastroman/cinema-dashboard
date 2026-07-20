@@ -36,6 +36,7 @@ OUTPUT_PATH = ROOT / "public" / "coming-soon.json"
 BOX_OFFICE_MOJO_CALENDAR = "https://www.boxofficemojo.com/calendar/{year}-{month:02d}-01/"
 TMDB_SEARCH = "https://www.themoviedb.org/search/movie?query={query}"
 TMDB_ROOT = "https://www.themoviedb.org"
+LETTERBOXD_FILM = "https://letterboxd.com/film/{slug}/"
 
 SPECIALTY_DISTRIBUTORS = {
     "a24",
@@ -91,6 +92,11 @@ def build_session() -> requests.Session:
 def normalize_title(value: str) -> str:
     ascii_value = unicodedata.normalize("NFKD", value or "").encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]", "", ascii_value.lower())
+
+
+def title_slug(value: str) -> str:
+    ascii_value = unicodedata.normalize("NFKD", value or "").encode("ascii", "ignore").decode()
+    return re.sub(r"^-+|-+$", "", re.sub(r"[^a-z0-9]+", "-", ascii_value.lower()))
 
 
 def add_months(value: date, months: int) -> date:
@@ -269,6 +275,33 @@ def fetch_tmdb_metadata(session: requests.Session, title: str, year: int) -> dic
     return metadata
 
 
+def parse_letterboxd_match(html: str, title: str, year: int) -> bool:
+    soup = BeautifulSoup(html, "html.parser")
+    title_node = soup.find("meta", property="og:title")
+    if not title_node:
+        return False
+    display_title = title_node.get("content", "").strip()
+    match = re.match(r"^(.*?)\s*\((\d{4})\)$", display_title)
+    if not match:
+        return False
+    return normalize_title(match.group(1)) == normalize_title(title) and int(match.group(2)) == year
+
+
+def fetch_letterboxd_url(session: requests.Session, title: str, year: int) -> str:
+    slug = title_slug(title)
+    if not slug:
+        return ""
+    for candidate in (slug, f"{slug}-{year}"):
+        url = LETTERBOXD_FILM.format(slug=candidate)
+        response = session.get(url, timeout=20)
+        if response.status_code == 404:
+            continue
+        response.raise_for_status()
+        if parse_letterboxd_match(response.text, title, year):
+            return url
+    return ""
+
+
 def merge_movies(existing: list[dict[str, Any]], discovered: list[dict[str, Any]]) -> list[dict[str, Any]]:
     merged = {normalize_title(movie.get("title", "")): dict(movie) for movie in existing if movie.get("title")}
     for movie in discovered:
@@ -287,7 +320,7 @@ def merge_movies(existing: list[dict[str, Any]], discovered: list[dict[str, Any]
 
 def enrich_movies(session: requests.Session, movies: list[dict[str, Any]], omdb_key: str) -> None:
     for index, movie in enumerate(movies, 1):
-        missing = [key for key in ("director", "genres", "studio", "synopsis", "poster") if not movie.get(key)]
+        missing = [key for key in ("director", "genres", "studio", "synopsis", "poster", "letterboxd_url") if not movie.get(key)]
         if not missing:
             continue
         year = date.fromisoformat(movie["release_date"]).year
@@ -307,6 +340,12 @@ def enrich_movies(session: requests.Session, movies: list[dict[str, Any]], omdb_
         for key, value in metadata.items():
             if value and not movie.get(key):
                 movie[key] = value
+        if not movie.get("letterboxd_url"):
+            try:
+                time.sleep(0.1)
+                movie["letterboxd_url"] = fetch_letterboxd_url(session, movie["title"], year)
+            except requests.RequestException as exc:
+                print(f"    Letterboxd unavailable: {exc}")
 
 
 def clean_movie(movie: dict[str, Any]) -> dict[str, Any]:
@@ -319,6 +358,7 @@ def clean_movie(movie: dict[str, Any]) -> dict[str, Any]:
         "genres": movie.get("genres", []),
         "studio": movie.get("studio", ""),
         "release_scale": movie.get("release_scale", ""),
+        "letterboxd_url": movie.get("letterboxd_url", ""),
     }
 
 

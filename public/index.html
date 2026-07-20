@@ -68,6 +68,8 @@
       --grain-opacity: 0.35;
       --saved-card-bg: linear-gradient(180deg, rgba(92, 72, 18, 0.34), rgba(28, 24, 14, 0.92));
       --saved-card-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.40), 0 0 0 1px rgba(212, 175, 55, 0.14);
+      --seen-card-bg: linear-gradient(180deg, rgba(38, 112, 70, 0.34), rgba(13, 31, 21, 0.94));
+      --seen-card-shadow: inset 0 0 0 1px rgba(74, 158, 107, 0.48), 0 0 0 1px rgba(74, 158, 107, 0.16);
       --confidence-bg: rgba(200, 169, 110, 0.08);
       --prestige-chip-bg: rgba(200, 169, 110, 0.12);
       --prestige-chip-border: rgba(200, 169, 110, 0.40);
@@ -122,6 +124,8 @@
       --grain-opacity: 0.16;
       --saved-card-bg: linear-gradient(180deg, rgba(212, 175, 55, 0.13), rgba(255, 253, 248, 0.94));
       --saved-card-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.44), 0 0 0 1px rgba(212, 175, 55, 0.14);
+      --seen-card-bg: linear-gradient(180deg, rgba(74, 158, 107, 0.17), rgba(249, 253, 249, 0.96));
+      --seen-card-shadow: inset 0 0 0 1px rgba(46, 123, 78, 0.44), 0 0 0 1px rgba(46, 123, 78, 0.13);
       --confidence-bg: rgba(200, 169, 110, 0.12);
       --prestige-chip-bg: rgba(182, 139, 60, 0.10);
       --prestige-chip-border: rgba(182, 139, 60, 0.38);
@@ -1097,6 +1101,17 @@
       color: var(--star-solid);
       font-weight: 700;
     }
+    .movie-card.is-seen {
+      background: var(--seen-card-bg);
+      box-shadow: var(--seen-card-shadow);
+    }
+    .movie-card.is-seen .movie-title::after {
+      content: ' ✓';
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--watch);
+      font-weight: 800;
+    }
 
     /* Hidden card */
     .movie-card.is-hidden {
@@ -1365,6 +1380,10 @@
     .theater-film-row.is-watched {
       background: var(--saved-card-bg);
       box-shadow: var(--saved-card-shadow);
+    }
+    .theater-film-row.is-seen {
+      background: var(--seen-card-bg);
+      box-shadow: var(--seen-card-shadow);
     }
 
     .theater-film-info {
@@ -1823,6 +1842,18 @@
       overflow-wrap: anywhere;
     }
 
+    .coming-soon-title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .coming-soon-title-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
     .coming-soon-synopsis {
       max-width: 820px;
       margin-top: 12px;
@@ -1847,6 +1878,16 @@
       content: '·';
       margin-left: 14px;
       color: var(--accent-dim);
+    }
+
+    .coming-soon-letterboxd {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .coming-soon-letterboxd:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .coming-soon-release {
@@ -1964,6 +2005,10 @@
     .ranking-row.is-watched {
       background: var(--poster-bg, var(--saved-card-bg));
       box-shadow: var(--saved-card-shadow);
+    }
+    .ranking-row.is-seen {
+      background: var(--seen-card-bg);
+      box-shadow: var(--seen-card-shadow);
     }
 
     .movie-card.is-completing,
@@ -5124,6 +5169,7 @@ async function loadData() {
       loadBlurbsFromCloud(),
       loadSiteHidden(),
       loadPicks(),
+      loadComingSoonOverrides(),
     ]);
     if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
     if (!comingSoonRes.ok) throw new Error(`Failed to load coming-soon.json (${comingSoonRes.status})`);
@@ -5131,7 +5177,7 @@ async function loadData() {
     const comingSoonData = await comingSoonRes.json();
     if (!data || !Array.isArray(data.movies)) throw new Error('Invalid dashboard payload');
     if (!comingSoonData || !Array.isArray(comingSoonData.movies)) throw new Error('Invalid coming soon payload');
-    comingSoonMovies = comingSoonData.movies;
+    comingSoonMovies = applyComingSoonOverrides(comingSoonData.movies);
     initDashboard(data);
   } catch (e) {
     renderLoadError(e);
@@ -6069,9 +6115,15 @@ function formatReleaseDate(date) {
 
 function renderComingSoonView() {
   const { start, end } = getComingSoonWindow();
+  const hiddenMovies = getHidden();
   const movies = comingSoonMovies
     .map(movie => ({ ...movie, _releaseDate: parseReleaseDate(movie.release_date) }))
     .filter(movie => movie._releaseDate && movie._releaseDate >= start && movie._releaseDate <= end)
+    .filter(movie => {
+      const releaseYear = movie._releaseDate.getFullYear();
+      const movieId = movie.id || slugify(`${movie.title}-${releaseYear}`);
+      return !hasStoredMovie(hiddenMovies, movieId, movie.title);
+    })
     .sort((a, b) => a._releaseDate - b._releaseDate || a.title.localeCompare(b.title));
 
   const main = document.getElementById('main-content');
@@ -6114,6 +6166,9 @@ function buildComingSoonCard(movie, idx) {
     genres,
     movie.studio || '',
   ].filter(Boolean);
+  const titleMarkup = movie.letterboxd_url
+    ? `<a class="coming-soon-title-link" href="${escapeHTML(movie.letterboxd_url)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>`
+    : escapeHTML(movie.title);
   const card = document.createElement('article');
   card.className = `coming-soon-card${saved ? ' is-saved' : ''}${hidden ? ' is-hidden' : ''}`;
   card.style.animationDelay = `${idx * 30}ms`;
@@ -6122,37 +6177,50 @@ function buildComingSoonCard(movie, idx) {
       <img class="coming-soon-poster" src="${escapeHTML(movie.poster)}" alt="${escapeHTML(movie.title)} poster" loading="lazy">
     </div>
     <div class="coming-soon-main">
-      <h2 class="coming-soon-title">${escapeHTML(movie.title)}</h2>
-      ${metadata.length ? `<div class="coming-soon-meta">${metadata.map(item => `<span class="coming-soon-meta-item">${escapeHTML(item)}</span>`).join('')}</div>` : ''}
+      <h2 class="coming-soon-title">${titleMarkup}</h2>
+      ${(metadata.length || movie.letterboxd_url) ? `<div class="coming-soon-meta">${metadata.map(item => `<span class="coming-soon-meta-item">${escapeHTML(item)}</span>`).join('')}${movie.letterboxd_url ? `<a class="coming-soon-letterboxd" href="${escapeHTML(movie.letterboxd_url)}" target="_blank" rel="noopener">Letterboxd ↗</a>` : ''}</div>` : ''}
       <p class="coming-soon-synopsis">${escapeHTML(movie.synopsis)}</p>
     </div>
     <div class="coming-soon-release">
       <span class="coming-soon-release-label">In theaters</span>
       <time class="coming-soon-release-date" datetime="${escapeHTML(movie.release_date)}">${escapeHTML(formatReleaseDate(movie._releaseDate))}</time>
       <div class="coming-soon-actions">
-        <button class="action-btn coming-soon-action${saved ? ' active-save' : ''}" type="button" aria-pressed="${saved ? 'true' : 'false'}" onclick="setComingSoonPreference(${safeId}, ${safeTitle}, 'save')">${saved ? '★ Saved' : 'Save'}</button>
-        <button class="action-btn coming-soon-action${hidden ? ' active-hide' : ''}" type="button" aria-pressed="${hidden ? 'true' : 'false'}" onclick="setComingSoonPreference(${safeId}, ${safeTitle}, 'hide')">${hidden ? '× Hidden' : 'Hide'}</button>
+        <button class="action-btn coming-soon-action${saved ? ' active-save' : ''}" type="button" aria-pressed="${saved ? 'true' : 'false'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'save')">${saved ? '★ Saved' : 'Save'}</button>
+        <button class="action-btn coming-soon-action${hidden ? ' active-hide' : ''}" type="button" aria-pressed="${hidden ? 'true' : 'false'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'hide')">${hidden ? '× Hidden' : 'Hide'}</button>
       </div>
     </div>
   `;
   return card;
 }
 
-function setComingSoonPreference(movieId, title, preference) {
+function setComingSoonPreference(trigger, movieId, title, preference) {
+  const card = trigger?.closest('.coming-soon-card');
   if (preference === 'save') {
     const wasSaved = hasStoredMovie(getWatched(), movieId, title);
     toggleWatched(movieId, title);
     if (!wasSaved && hasStoredMovie(getHidden(), movieId, title)) {
       toggleHidden(movieId, title);
     }
+    const isSaved = hasStoredMovie(getWatched(), movieId, title);
+    card?.classList.toggle('is-saved', isSaved);
+    trigger.classList.toggle('active-save', isSaved);
+    trigger.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
+    trigger.textContent = isSaved ? '★ Saved' : 'Save';
   } else if (preference === 'hide') {
     const wasHidden = hasStoredMovie(getHidden(), movieId, title);
     toggleHidden(movieId, title);
     if (!wasHidden && hasStoredMovie(getWatched(), movieId, title)) {
       toggleWatched(movieId, title);
     }
+    const isHidden = hasStoredMovie(getHidden(), movieId, title);
+    if (isHidden) {
+      animateRemoveMovieElement(card, 220, 0.985, updateComingSoonVisibleCount);
+    } else {
+      trigger.classList.remove('active-hide');
+      trigger.setAttribute('aria-pressed', 'false');
+      trigger.textContent = 'Hide';
+    }
   }
-  renderComingSoonView();
 }
 
 function buildRankingRow(movie, idx) {
@@ -6175,7 +6243,7 @@ function buildRankingRow(movie, idx) {
   const safeTitle = escapeJSString(movie.title);
 
   const row = document.createElement('div');
-  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}`;
+  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
   row.style.animationDelay = `${idx * 30}ms`;
   row.dataset.title = movie.title || '';
   row.dataset.year = year || '';
@@ -6208,9 +6276,9 @@ function buildRankingRow(movie, idx) {
     </div>
     <div class="ranking-actions">
       ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-      <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, ${safeId}, ${safeTitle})">★</button>
-      <button class="theater-action-btn seen${seen ? ' active' : ''}" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="event.stopPropagation(); onRankingSeen(this, ${safeId}, ${safeTitle})">✓</button>
-      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, ${safeId}, ${safeTitle})">×</button>
+      <button class="theater-action-btn star${watched ? ' active' : ''}" type="button" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="event.stopPropagation(); onRankingWatched(this, ${safeId}, ${safeTitle})">★</button>
+      <button class="theater-action-btn seen${seen ? ' active' : ''}" type="button" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="event.stopPropagation(); onRankingSeen(this, ${safeId}, ${safeTitle})">✓</button>
+      <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" type="button" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="event.stopPropagation(); onRankingHide(this, ${safeId}, ${safeTitle})">×</button>
     </div>
     <div class="ranking-times-panel">${buildRankingShowtimesHTML(movie)}</div>
   `;
@@ -6367,7 +6435,7 @@ function renderTheaterView() {
       const safeMovieId = escapeJSString(movie.id);
       const safeMovieTitle = escapeJSString(movie.title);
       const row = document.createElement('div');
-      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}`;
+      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
 
       row.innerHTML = `
         <div class="theater-poster-wrap">
@@ -6396,9 +6464,9 @@ function renderTheaterView() {
         <div class="theater-film-times">${scheduleHTML}</div>
         <div class="theater-film-actions">
           ${watched ? `<span class="theater-saved-chip">Saved</span>` : ''}
-          <button class="theater-action-btn star${watched ? ' active' : ''}" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="onTheaterWatched(this, ${safeMovieId}, ${safeMovieTitle})">★</button>
-          <button class="theater-action-btn seen${seen ? ' active' : ''}" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="onTheaterSeen(this, ${safeMovieId}, ${safeMovieTitle})">✓</button>
-          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, ${safeMovieId}, ${safeMovieTitle})">×</button>
+          <button class="theater-action-btn star${watched ? ' active' : ''}" type="button" aria-label="Save movie" aria-pressed="${watched ? 'true' : 'false'}" title="Save movie" onclick="onTheaterWatched(this, ${safeMovieId}, ${safeMovieTitle})">★</button>
+          <button class="theater-action-btn seen${seen ? ' active' : ''}" type="button" aria-label="${seen ? 'Mark movie unwatched' : 'Mark movie watched'}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Mark unwatched' : 'Mark watched'}" onclick="onTheaterSeen(this, ${safeMovieId}, ${safeMovieTitle})">✓</button>
+          <button class="theater-action-btn hide${isHiddenRow ? ' active' : ''}" type="button" aria-label="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" title="${isHiddenRow ? 'Unhide movie' : 'Hide movie'}" onclick="onTheaterHide(this, ${safeMovieId}, ${safeMovieTitle})">×</button>
         </div>
       `;
       const blurbSlot = row.querySelector('.movie-blurb');
@@ -6474,7 +6542,7 @@ function buildCard(movie, idx) {
   `).join('');
 
   const card = document.createElement('div');
-  card.className = `movie-card ${verdict}${watched ? ' is-watched' : ''}`;
+  card.className = `movie-card ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
@@ -6530,13 +6598,13 @@ function buildCard(movie, idx) {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn${watched ? ' active-watched' : ''}" aria-pressed="${watched ? 'true' : 'false'}" onclick="onWatched(this, ${safeMovieId}, ${safeMovieTitle})">
+      <button class="action-btn${watched ? ' active-watched' : ''}" type="button" aria-pressed="${watched ? 'true' : 'false'}" onclick="onWatched(this, ${safeMovieId}, ${safeMovieTitle})">
         ${watched ? '★ Saved' : 'Save'}
       </button>
-      <button class="action-btn${seen ? ' active-seen' : ''}" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Marked watched' : 'Mark watched'}" onclick="onSeen(this, ${safeMovieId}, ${safeMovieTitle})">
+      <button class="action-btn${seen ? ' active-seen' : ''}" type="button" aria-pressed="${seen ? 'true' : 'false'}" title="${seen ? 'Marked watched' : 'Mark watched'}" onclick="onSeen(this, ${safeMovieId}, ${safeMovieTitle})">
         ✓ Watched
       </button>
-      <button class="action-btn" onclick="onHide(this, ${safeMovieId}, ${safeMovieTitle})">
+      <button class="action-btn" type="button" onclick="onHide(this, ${safeMovieId}, ${safeMovieTitle})">
         Not Interested
       </button>
     </div>
@@ -6551,6 +6619,48 @@ function buildCard(movie, idx) {
   return card;
 }
 
+function animateRemoveMovieElement(element, duration = 220, scale = 0.985, onRemoved = null) {
+  if (!element || element.dataset.removing === 'true') return;
+  element.dataset.removing = 'true';
+  element.style.pointerEvents = 'none';
+  element.style.transition = `opacity ${duration}ms ease, transform ${duration}ms ease`;
+  element.style.opacity = '0';
+  element.style.transform = `scale(${scale})`;
+  setTimeout(() => {
+    const theaterSection = element.closest('.theater-view-section');
+    element.remove();
+    if (theaterSection && !theaterSection.querySelector('.theater-film-row')) theaterSection.remove();
+    if (typeof onRemoved === 'function') onRemoved();
+    queueMobileStickyOffsets();
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : duration);
+}
+
+function updateComingSoonVisibleCount() {
+  const main = document.getElementById('main-content');
+  const count = main?.querySelectorAll('.coming-soon-card').length || 0;
+  const countLabel = main?.querySelector('.rankings-page-count');
+  if (countLabel) countLabel.textContent = `${count} film${count !== 1 ? 's' : ''}`;
+  const list = main?.querySelector('.coming-soon-list');
+  if (list && count === 0 && !main.querySelector('.empty-state')) {
+    list.insertAdjacentHTML('afterend', '<div class="empty-state"><p>No announced releases remain in your Coming Soon list.</p></div>');
+  }
+}
+
+function syncSavedChip(container, saveButton, isSaved) {
+  const actions = saveButton?.parentElement;
+  if (!actions) return;
+  const chip = actions.querySelector('.theater-saved-chip');
+  if (isSaved && !chip) {
+    const next = document.createElement('span');
+    next.className = 'theater-saved-chip';
+    next.textContent = 'Saved';
+    actions.insertBefore(next, saveButton);
+  } else if (!isSaved) {
+    chip?.remove();
+  }
+  container?.classList.toggle('is-watched', isSaved);
+}
+
 function onWatched(btn, movieId, title) {
   toggleWatched(movieId, title);
   const card = btn.closest('.movie-card');
@@ -6559,6 +6669,7 @@ function onWatched(btn, movieId, title) {
   btn.classList.toggle('active-watched', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.textContent = isNowWatched ? '★ Saved' : 'Save';
+  if (!isNowWatched && showMode === 'saved') animateRemoveMovieElement(card);
 }
 
 function hideWatchedRowAfterToggle(element, triggerButton = null) {
@@ -6583,6 +6694,7 @@ function hideWatchedRowAfterToggle(element, triggerButton = null) {
 function onSeen(btn, movieId, title) {
   toggleSeen(movieId, title);
   const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.closest('.movie-card')?.classList.toggle('is-seen', isNowSeen);
   btn.classList.toggle('active-seen', isNowSeen);
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('title', isNowSeen ? 'Marked watched' : 'Mark watched');
@@ -6593,25 +6705,24 @@ function onSeen(btn, movieId, title) {
 function onHide(btn, movieId, title) {
   toggleHidden(movieId, title);
   const card = btn.closest('.movie-card');
-  card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-  card.style.opacity = '0';
-  card.style.transform = 'scale(0.97)';
-  setTimeout(() => render(), 320);
+  animateRemoveMovieElement(card, 260, 0.97);
 }
 
 function onTheaterWatched(btn, movieId, title) {
   toggleWatched(movieId, title);
   const row = btn.closest('.theater-film-row');
   const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
-  row?.classList.toggle('is-watched', isNowWatched);
+  syncSavedChip(row, btn, isNowWatched);
   btn.classList.toggle('active', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
+  if (!isNowWatched && showMode === 'saved') animateRemoveMovieElement(row);
 }
 
 function onTheaterSeen(btn, movieId, title) {
   toggleSeen(movieId, title);
   const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.closest('.theater-film-row')?.classList.toggle('is-seen', isNowSeen);
   btn.classList.toggle('active', isNowSeen);
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
@@ -6626,28 +6737,24 @@ function onTheaterHide(btn, movieId, title) {
   btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.theater-film-row');
-  if (row && !isStillHidden) {
-    row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
-    row.style.opacity = '0';
-    row.style.transform = 'scale(0.98)';
-  }
-  setTimeout(() => render(), 220);
+  animateRemoveMovieElement(row, 220, 0.98);
 }
 
 function onRankingWatched(btn, movieId, title) {
   toggleWatched(movieId, title);
   const row = btn.closest('.ranking-row');
   const isNowWatched = hasStoredMovie(getWatched(), movieId, title);
-  row?.classList.toggle('is-watched', isNowWatched);
+  syncSavedChip(row, btn, isNowWatched);
   btn.classList.toggle('active', isNowWatched);
   btn.setAttribute('aria-pressed', isNowWatched ? 'true' : 'false');
   btn.setAttribute('title', isNowWatched ? 'Saved' : 'Save movie');
-  setTimeout(() => render(), 80);
+  if (!isNowWatched && showMode === 'saved') animateRemoveMovieElement(row);
 }
 
 function onRankingSeen(btn, movieId, title) {
   toggleSeen(movieId, title);
   const isNowSeen = hasStoredMovie(getSeen(), movieId, title);
+  btn.closest('.ranking-row')?.classList.toggle('is-seen', isNowSeen);
   btn.classList.toggle('active', isNowSeen);
   btn.setAttribute('aria-pressed', isNowSeen ? 'true' : 'false');
   btn.setAttribute('aria-label', isNowSeen ? 'Mark movie unwatched' : 'Mark movie watched');
@@ -6662,12 +6769,7 @@ function onRankingHide(btn, movieId, title) {
   btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.ranking-row');
-  if (row) {
-    row.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
-    row.style.opacity = '0';
-    row.style.transform = 'scale(0.985)';
-  }
-  setTimeout(() => render(), 220);
+  animateRemoveMovieElement(row, 220, 0.985);
 }
 
 function refreshRankingBlurb(btn, movieId) {
@@ -7277,6 +7379,7 @@ let sitepicks = (() => {
 })();
 
 let siteHidden = new Set();
+let cloudComingSoonOverrides = {};
 
 async function loadSiteHidden() {
   try {
@@ -7289,6 +7392,50 @@ async function loadSiteHidden() {
     if (!Array.isArray(data) || !data.length) return;
     siteHidden = new Set(data.map(r => r.movie_id));
   } catch (e) { /* silent */ }
+}
+
+function getComingSoonOverrideKey(movie) {
+  const year = String(movie?.release_date || '').slice(0, 4);
+  return movie?._comingSoonKey || slugify(`${movie?.title || ''}-${year}`);
+}
+
+async function loadComingSoonOverrides() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/coming_soon_overrides?select=*`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    );
+    if (!res.ok) return;
+    const rows = await res.json();
+    if (!Array.isArray(rows)) return;
+    cloudComingSoonOverrides = Object.fromEntries(rows.filter(row => row.movie_key).map(row => [row.movie_key, row]));
+  } catch (e) { /* silent */ }
+}
+
+function applyComingSoonOverrides(movies) {
+  const fieldMap = {
+    title_override: 'title',
+    release_date_override: 'release_date',
+    poster_override: 'poster',
+    synopsis_override: 'synopsis',
+    director_override: 'director',
+    genres_override: 'genres',
+    studio_override: 'studio',
+    release_scale_override: 'release_scale',
+    letterboxd_url_override: 'letterboxd_url',
+  };
+  return movies.map(movie => {
+    const key = getComingSoonOverrideKey(movie);
+    const override = cloudComingSoonOverrides[key];
+    const next = { ...movie, id: movie.id || key, _comingSoonKey: key, disabled: !!override?.disabled };
+    if (override) {
+      Object.entries(fieldMap).forEach(([overrideField, movieField]) => {
+        const value = override[overrideField];
+        if (value !== null && value !== undefined) next[movieField] = value;
+      });
+    }
+    return next;
+  }).filter(movie => !movie.disabled);
 }
 
 let cloudPrestigeTags = {};

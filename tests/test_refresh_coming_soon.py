@@ -12,9 +12,11 @@ from refresh_coming_soon import (  # noqa: E402
     add_months,
     merge_movies,
     parse_calendar_page,
+    parse_letterboxd_match,
     parse_tmdb_details,
     parse_tmdb_search,
     should_include,
+    title_slug,
 )
 
 
@@ -92,6 +94,12 @@ class ComingSoonRefreshTests(unittest.TestCase):
         self.assertEqual(search["synopsis"], "Overview.")
         self.assertEqual(details["director"], "Jane Director")
         self.assertEqual(details["genres"], ["Drama", "Thriller"])
+
+    def test_letterboxd_slug_and_match_are_verified(self):
+        self.assertEqual(title_slug("Coyote vs. Acme"), "coyote-vs-acme")
+        html = '<meta property="og:title" content="Coyote vs. Acme (2026)">'
+        self.assertTrue(parse_letterboxd_match(html, "Coyote vs. Acme", 2026))
+        self.assertFalse(parse_letterboxd_match(html, "Coyote vs. Acme", 1996))
 
 
 if __name__ == "__main__":

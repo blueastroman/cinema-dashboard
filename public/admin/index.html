@@ -278,6 +278,78 @@
     .movie-card.is-hidden-movie { opacity: 0.45; }
     .movie-card.is-hidden-movie:hover { opacity: 0.75; }
 
+    .coming-admin-card {
+      grid-template-columns: 72px minmax(0, 1fr);
+    }
+    .coming-admin-card.is-disabled-movie {
+      opacity: 0.58;
+      border-left: 3px solid var(--skip);
+    }
+    .coming-admin-poster {
+      width: 72px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border-radius: 2px;
+      background: var(--charcoal);
+    }
+    .coming-admin-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .coming-admin-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .coming-admin-field.is-wide { grid-column: 1 / -1; }
+    .coming-admin-field input,
+    .coming-admin-field select,
+    .coming-admin-field textarea {
+      width: 100%;
+      background: var(--charcoal);
+      border: 1px solid var(--mid-gray);
+      border-radius: 3px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 1.45;
+      padding: 7px 9px;
+      text-transform: none;
+    }
+    .coming-admin-field textarea { min-height: 92px; }
+    .coming-admin-field input:focus,
+    .coming-admin-field select:focus,
+    .coming-admin-field textarea:focus { border-color: var(--accent); outline: none; }
+    .coming-admin-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+    .coming-admin-actions .btn-disable.is-disabled {
+      color: var(--watch);
+      border-color: rgba(74,158,107,0.4);
+    }
+    .coming-admin-edited {
+      color: var(--accent);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-left: auto;
+      text-transform: uppercase;
+    }
+
     .btn-pick { color: var(--accent); border-color: rgba(200,169,110,0.3); }
     .btn-pick:hover { border-color: var(--accent); }
     .btn-pick.is-pick { color: #111; background: var(--accent); border-color: var(--accent); font-weight: 700; }
@@ -493,6 +565,11 @@
       .top-list-grid {
         grid-template-columns: 1fr;
       }
+      .header-inner { height: auto; min-height: 56px; flex-wrap: wrap; padding: 10px 0; }
+      .controls { order: 3; flex-basis: 100%; max-width: none; }
+      main { padding: 18px 16px 60px; }
+      .coming-admin-form { grid-template-columns: 1fr; }
+      .coming-admin-field.is-wide { grid-column: auto; }
     }
 
     .loading-state {
@@ -589,8 +666,8 @@
   <div class="header-inner">
     <div class="logo">Showtimes <span>NYC</span> · Review Editor</div>
     <div class="controls">
-      <input type="text" id="search" placeholder="Search films…" oninput="renderList()">
-      <select id="filter" onchange="renderList()">
+      <input type="text" id="search" placeholder="Search films…" oninput="renderActiveList()">
+      <select id="filter" onchange="renderActiveList()">
         <option value="all">All films</option>
         <option value="manual">Manual</option>
         <option value="ai">AI generated</option>
@@ -600,6 +677,7 @@
     <div class="stats" id="stats"></div>
     <div class="view-toggle">
       <button id="btn-editor" class="view-btn active" onclick="setView('editor')">Editor</button>
+      <button id="btn-coming" class="view-btn" onclick="setView('coming')">Coming Soon</button>
       <button id="btn-rankings" class="view-btn" onclick="setView('rankings')">Rankings</button>
       <button id="btn-analytics" class="view-btn" onclick="setView('analytics')">Analytics</button>
     </div>
@@ -617,7 +695,7 @@ const HIDDEN_KEY = 'cinema_hidden';
 const MAX_CHARS = 340;
 const ADMIN_SAFE_URL_HOSTS = {
   letterboxd: ['letterboxd.com'],
-  poster: ['image.tmdb.org', 'm.media-amazon.com', 'resizing.flixster.com'],
+  poster: ['image.tmdb.org', 'media.themoviedb.org', 'm.media-amazon.com', 'resizing.flixster.com'],
 };
 
 const SUPABASE_URL      = 'https://dsvhzhjcmvsiuokrpuci.supabase.co';
@@ -653,6 +731,9 @@ let blurbCache = {};
 let canEditBlurbs = true;
 let siteHidden = new Set();
 let canEditSiteHidden = true;
+let comingSoonMovies = [];
+let comingSoonOverrides = {};
+let canEditComingSoon = true;
 let adminWarnings = [];
 let analyticsData = null;
 let analyticsError = '';
@@ -1180,6 +1261,264 @@ async function clearBlurb(movie) {
   });
 }
 
+const COMING_SOON_OVERRIDE_FIELDS = [
+  'title_override',
+  'release_date_override',
+  'poster_override',
+  'synopsis_override',
+  'director_override',
+  'genres_override',
+  'studio_override',
+  'release_scale_override',
+  'letterboxd_url_override',
+];
+
+function getComingSoonKey(movie) {
+  if (movie?._comingSoonKey) return movie._comingSoonKey;
+  const year = String(movie?.release_date || '').slice(0, 4);
+  return slugify(`${movie?.title || ''}-${year}`);
+}
+
+function getComingSoonOverride(movie) {
+  return comingSoonOverrides[getComingSoonKey(movie)] || null;
+}
+
+function hasComingSoonEdits(override) {
+  return !!override && COMING_SOON_OVERRIDE_FIELDS.some(field => override[field] !== null && override[field] !== undefined);
+}
+
+function applyComingSoonOverride(movie) {
+  const override = getComingSoonOverride(movie);
+  if (!override) return { ...movie, disabled: false };
+  const next = { ...movie, disabled: !!override.disabled };
+  const fieldMap = {
+    title_override: 'title',
+    release_date_override: 'release_date',
+    poster_override: 'poster',
+    synopsis_override: 'synopsis',
+    director_override: 'director',
+    genres_override: 'genres',
+    studio_override: 'studio',
+    release_scale_override: 'release_scale',
+    letterboxd_url_override: 'letterboxd_url',
+  };
+  Object.entries(fieldMap).forEach(([overrideField, movieField]) => {
+    const value = override[overrideField];
+    if (value !== null && value !== undefined) next[movieField] = value;
+  });
+  return next;
+}
+
+async function loadComingSoonOverrides() {
+  const { data, error } = await _sb.from('coming_soon_overrides').select('*');
+  if (error) {
+    canEditComingSoon = false;
+    addAdminWarning('Coming Soon editing needs the latest Supabase SQL setup. Run supabase/admin-dashboard-policies.sql, then reload.');
+    console.warn('coming_soon_overrides unavailable:', error);
+    return;
+  }
+  (data || []).forEach(row => {
+    if (row.movie_key) comingSoonOverrides[row.movie_key] = row;
+  });
+}
+
+function normalizeComingSoonDate(value) {
+  const text = String(value || '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(text) || Number.isNaN(new Date(`${text}T12:00:00`).getTime())) {
+    throw new Error('Release date must be a valid date.');
+  }
+  return text;
+}
+
+function normalizeComingSoonGenres(value) {
+  return [...new Set(String(value || '').split(',').map(item => item.trim()).filter(Boolean))];
+}
+
+function sameStringArray(left, right) {
+  return JSON.stringify(left || []) === JSON.stringify(right || []);
+}
+
+function overrideValue(value, sourceValue) {
+  return value === sourceValue ? null : value;
+}
+
+function buildComingSoonOverrideRow(movie, card) {
+  const value = field => card.querySelector(`[data-field="${field}"]`)?.value ?? '';
+  const title = String(value('title')).trim();
+  if (!title) throw new Error('Title cannot be blank.');
+  const releaseDate = normalizeComingSoonDate(value('release_date'));
+  const poster = String(value('poster')).trim();
+  const synopsis = String(value('synopsis')).trim().slice(0, 3000);
+  const director = String(value('director')).trim();
+  const genres = normalizeComingSoonGenres(value('genres'));
+  const studio = String(value('studio')).trim();
+  const releaseScale = String(value('release_scale')).trim();
+  const letterboxdUrl = String(value('letterboxd_url')).trim();
+  if (poster) normalizePosterUrlOverride(poster);
+  if (letterboxdUrl) normalizeLetterboxdUrlOverride(letterboxdUrl);
+
+  const current = getComingSoonOverride(movie) || {};
+  return {
+    movie_key: getComingSoonKey(movie),
+    source_title: movie.title || '',
+    disabled: !!current.disabled,
+    title_override: overrideValue(title, movie.title || ''),
+    release_date_override: overrideValue(releaseDate, movie.release_date || ''),
+    poster_override: overrideValue(poster, movie.poster || ''),
+    synopsis_override: overrideValue(synopsis, movie.synopsis || ''),
+    director_override: overrideValue(director, movie.director || ''),
+    genres_override: sameStringArray(genres, movie.genres || []) ? null : genres,
+    studio_override: overrideValue(studio, movie.studio || ''),
+    release_scale_override: overrideValue(releaseScale, movie.release_scale || ''),
+    letterboxd_url_override: overrideValue(letterboxdUrl, movie.letterboxd_url || ''),
+    updated_at: new Date().toISOString(),
+  };
+}
+
+async function persistComingSoonOverride(row) {
+  await requireAuth();
+  if (!canEditComingSoon) throw new Error('Coming Soon editing is unavailable until its Supabase table is installed.');
+  const hasEdits = hasComingSoonEdits(row);
+  if (!row.disabled && !hasEdits) {
+    const { error } = await _sbAuth.from('coming_soon_overrides').delete().eq('movie_key', row.movie_key);
+    if (error) throw error;
+    delete comingSoonOverrides[row.movie_key];
+    return;
+  }
+  const { error } = await _sbAuth.from('coming_soon_overrides').upsert(row, { onConflict: 'movie_key' });
+  if (error) throw error;
+  comingSoonOverrides[row.movie_key] = row;
+}
+
+async function resetComingSoonOverride(movie) {
+  await requireAuth();
+  if (!canEditComingSoon) throw new Error('Coming Soon editing is unavailable until its Supabase table is installed.');
+  const key = getComingSoonKey(movie);
+  const { error } = await _sbAuth.from('coming_soon_overrides').delete().eq('movie_key', key);
+  if (error) throw error;
+  delete comingSoonOverrides[key];
+}
+
+function renderComingSoonAdmin() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const filter = document.getElementById('filter').value;
+  const main = document.getElementById('main');
+  const entries = comingSoonMovies
+    .map(source => ({ source, movie: applyComingSoonOverride(source), override: getComingSoonOverride(source) }))
+    .filter(({ movie, override }) => {
+      const haystack = `${movie.title} ${movie.director || ''} ${(movie.genres || []).join(' ')} ${movie.studio || ''} ${movie.release_date || ''}`.toLowerCase();
+      if (query && !haystack.includes(query)) return false;
+      if (filter === 'enabled' && movie.disabled) return false;
+      if (filter === 'disabled' && !movie.disabled) return false;
+      if (filter === 'edited' && !hasComingSoonEdits(override)) return false;
+      return true;
+    })
+    .sort((a, b) => String(a.movie.release_date).localeCompare(String(b.movie.release_date)) || a.movie.title.localeCompare(b.movie.title));
+
+  const disabledCount = comingSoonMovies.filter(movie => applyComingSoonOverride(movie).disabled).length;
+  const editedCount = comingSoonMovies.filter(movie => hasComingSoonEdits(getComingSoonOverride(movie))).length;
+  document.getElementById('stats').innerHTML = `<strong>${comingSoonMovies.length - disabledCount}</strong> enabled &nbsp;·&nbsp; <strong>${editedCount}</strong> edited`;
+  main.innerHTML = '';
+  adminWarnings.forEach(message => {
+    const warning = document.createElement('div');
+    warning.className = 'admin-warning';
+    warning.innerHTML = `<strong>Limited Access</strong><br>${escapeHTML(message)}`;
+    main.appendChild(warning);
+  });
+  if (!entries.length) {
+    main.innerHTML += '<div class="empty-state"><h2>No upcoming films match</h2><p>Try adjusting the search or status filter.</p></div>';
+    return;
+  }
+  entries.forEach(entry => main.appendChild(buildComingSoonAdminCard(entry.source, entry.movie, entry.override)));
+}
+
+function buildComingSoonAdminCard(source, movie, override) {
+  const disabled = !!movie.disabled;
+  const edited = hasComingSoonEdits(override);
+  const controlsDisabled = canEditComingSoon ? '' : ' disabled';
+  const card = document.createElement('div');
+  card.className = `movie-card coming-admin-card${disabled ? ' is-disabled-movie' : ''}`;
+  card.dataset.key = getComingSoonKey(source);
+  card.innerHTML = `
+    <div>${movie.poster ? `<img class="coming-admin-poster" src="${escapeHTML(movie.poster)}" alt="">` : ''}</div>
+    <div class="movie-body">
+      <div class="movie-head">
+        <span class="movie-title">${escapeHTML(movie.title)}</span>
+        <span class="movie-meta">${escapeHTML(movie.release_date)} · ${escapeHTML(movie.release_scale || 'Unspecified')}</span>
+        <span class="source-badge ${disabled ? 'none' : edited ? 'manual' : 'ai'}">${disabled ? 'Disabled' : edited ? 'Edited' : 'Scraped'}</span>
+      </div>
+      <div class="coming-admin-form">
+        <label class="coming-admin-field">Title<input data-field="title" type="text" value="${escapeHTML(movie.title)}"${controlsDisabled}></label>
+        <label class="coming-admin-field">Release date<input data-field="release_date" type="date" value="${escapeHTML(movie.release_date)}"${controlsDisabled}></label>
+        <label class="coming-admin-field">Director<input data-field="director" type="text" value="${escapeHTML(movie.director || '')}"${controlsDisabled}></label>
+        <label class="coming-admin-field">Genres<input data-field="genres" type="text" value="${escapeHTML((movie.genres || []).join(', '))}" placeholder="Drama, Thriller"${controlsDisabled}></label>
+        <label class="coming-admin-field">Studio<input data-field="studio" type="text" value="${escapeHTML(movie.studio || '')}"${controlsDisabled}></label>
+        <label class="coming-admin-field">Release scale<select data-field="release_scale"${controlsDisabled}>
+          ${['', 'Wide', 'Limited', 'Platform', 'Festival'].map(option => `<option value="${option}"${movie.release_scale === option ? ' selected' : ''}>${option || 'Unspecified'}</option>`).join('')}
+        </select></label>
+        <label class="coming-admin-field is-wide">Poster URL<input data-field="poster" type="url" value="${escapeHTML(movie.poster || '')}"${controlsDisabled}></label>
+        <label class="coming-admin-field is-wide">Letterboxd URL<input data-field="letterboxd_url" type="url" value="${escapeHTML(movie.letterboxd_url || '')}"${controlsDisabled}></label>
+        <label class="coming-admin-field is-wide">Synopsis<textarea data-field="synopsis" maxlength="3000"${controlsDisabled}>${escapeHTML(movie.synopsis || '')}</textarea></label>
+      </div>
+      <div class="coming-admin-actions">
+        <button class="btn-save coming-save"${controlsDisabled}>Save changes</button>
+        <button class="btn-clear coming-reset"${(!override || !canEditComingSoon) ? ' disabled' : ''}>Reset overrides</button>
+        <button class="btn-disable${disabled ? ' is-disabled' : ''}"${controlsDisabled}>${disabled ? 'Enable movie' : 'Disable movie'}</button>
+        <span class="saved-flash coming-flash">Saved</span>
+        ${edited ? '<span class="coming-admin-edited">Custom metadata</span>' : ''}
+      </div>
+    </div>`;
+
+  const saveBtn = card.querySelector('.coming-save');
+  const resetBtn = card.querySelector('.coming-reset');
+  const disableBtn = card.querySelector('.btn-disable');
+  const flash = card.querySelector('.coming-flash');
+
+  if (canEditComingSoon) saveBtn.addEventListener('click', async () => {
+    saveBtn.disabled = true;
+    try {
+      const row = buildComingSoonOverrideRow(source, card);
+      await persistComingSoonOverride(row);
+      showFlash(flash, 'Saved');
+      setTimeout(() => { if (adminView === 'coming') renderComingSoonAdmin(); }, 500);
+    } catch (error) {
+      showFlash(flash, getErrorMessage(error), true);
+      saveBtn.disabled = false;
+    }
+  });
+
+  if (canEditComingSoon && override) resetBtn.addEventListener('click', async () => {
+    resetBtn.disabled = true;
+    try {
+      await resetComingSoonOverride(source);
+      renderComingSoonAdmin();
+    } catch (error) {
+      showFlash(flash, getErrorMessage(error), true);
+      resetBtn.disabled = false;
+    }
+  });
+
+  if (canEditComingSoon) disableBtn.addEventListener('click', async () => {
+    disableBtn.disabled = true;
+    try {
+      const current = getComingSoonOverride(source) || Object.fromEntries(COMING_SOON_OVERRIDE_FIELDS.map(field => [field, null]));
+      await persistComingSoonOverride({
+        ...current,
+        movie_key: getComingSoonKey(source),
+        source_title: source.title || '',
+        disabled: !disabled,
+        updated_at: new Date().toISOString(),
+      });
+      renderComingSoonAdmin();
+    } catch (error) {
+      showFlash(flash, getErrorMessage(error), true);
+      disableBtn.disabled = false;
+    }
+  });
+
+  return card;
+}
+
 function renderList() {
   const query = document.getElementById('search').value.toLowerCase();
   const filter = document.getElementById('filter').value;
@@ -1464,15 +1803,45 @@ function renderAdminError(error) {
 
 let adminView = 'editor';
 
+function configureListControls(view) {
+  const search = document.getElementById('search');
+  const filter = document.getElementById('filter');
+  if (!search || !filter) return;
+  search.value = '';
+  if (view === 'coming') {
+    search.placeholder = 'Search upcoming films…';
+    filter.innerHTML = `
+      <option value="all">All upcoming</option>
+      <option value="enabled">Enabled</option>
+      <option value="disabled">Disabled</option>
+      <option value="edited">Edited</option>`;
+  } else {
+    search.placeholder = 'Search films…';
+    filter.innerHTML = `
+      <option value="all">All films</option>
+      <option value="manual">Manual</option>
+      <option value="ai">AI generated</option>
+      <option value="none">No review</option>`;
+  }
+}
+
+function renderActiveList() {
+  if (adminView === 'coming') renderComingSoonAdmin();
+  else if (adminView === 'editor') renderList();
+}
+
 function setView(v) {
   adminView = v;
   document.getElementById('btn-editor').classList.toggle('active', v === 'editor');
+  document.getElementById('btn-coming').classList.toggle('active', v === 'coming');
   document.getElementById('btn-rankings').classList.toggle('active', v === 'rankings');
   document.getElementById('btn-analytics').classList.toggle('active', v === 'analytics');
   const controls = document.querySelector('.controls');
-  if (controls) controls.style.visibility = v === 'editor' ? '' : 'hidden';
+  if (controls) controls.style.visibility = (v === 'editor' || v === 'coming') ? '' : 'hidden';
+  if (v === 'editor' || v === 'coming') configureListControls(v);
   if (v === 'analytics') renderAnalytics({ forceRefresh: true });
   else if (v === 'rankings') renderRankings();
+  else if (v === 'coming') renderComingSoonAdmin();
   else renderList();
 }
 
@@ -1662,10 +2031,12 @@ async function renderAnalytics({ forceRefresh = false } = {}) {
 async function init() {
   try {
     if (!await checkAuth()) { showLoginScreen(); return; }
-    await Promise.allSettled([loadBlurbs(), loadPicks(), loadHidden()]);
-    const res = await fetch('/data.json');
+    await Promise.allSettled([loadBlurbs(), loadPicks(), loadHidden(), loadComingSoonOverrides()]);
+    const [res, comingSoonRes] = await Promise.all([fetch('/data.json'), fetch('/coming-soon.json')]);
     if (!res.ok) throw new Error('Failed to load data.json');
-    const data = await res.json();
+    if (!comingSoonRes.ok) throw new Error('Failed to load coming-soon.json');
+    const [data, comingSoonData] = await Promise.all([res.json(), comingSoonRes.json()]);
+    if (!Array.isArray(comingSoonData?.movies)) throw new Error('Invalid coming-soon.json');
     const EXCLUDED_THEATERS = new Set(['Museum of Modern Art']);
     allMovies = (data.movies || [])
       .map(m => ({
@@ -1673,6 +2044,10 @@ async function init() {
         theaters: (m.theaters || []).filter(t => !EXCLUDED_THEATERS.has(t.name)),
       }))
       .filter(m => m.theaters.length > 0);
+    comingSoonMovies = comingSoonData.movies.map(movie => ({
+      ...movie,
+      _comingSoonKey: getComingSoonKey(movie),
+    }));
     renderList();
   } catch (e) {
     renderAdminError(e);

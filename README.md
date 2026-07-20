@@ -26,6 +26,7 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
   - OMDb as primary source
   - Box Office Mojo for upcoming U.S. theatrical dates, studios, scale, and genres
   - TMDB public movie pages as a fallback for upcoming posters, synopses, and directors
+  - verified Letterboxd film pages for optional outgoing links
   - Rotten Tomatoes and Letterboxd fallbacks where OMDb is incomplete
   - manual overrides for ambiguous titles
 - Audience signal:
@@ -107,6 +108,13 @@ Production deploys should follow one path:
 The separate `refresh-coming-soon.yml` workflow runs at 09:00 UTC on the first
 day of every month. It updates `public/coming-soon.json`, commits changes to
 `main`, and triggers the same production deployment flow.
+
+The authenticated `/admin` dashboard has a Coming Soon editor for disabling
+titles and overriding release dates, posters, synopses, directors, genres,
+studios, release scale, and Letterboxd links. Run
+`supabase/admin-dashboard-policies.sql` in the Supabase SQL editor after schema
+changes; these overrides live separately from the generated JSON and survive
+monthly refreshes.
 
 ## Maintenance Notes
 
