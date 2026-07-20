@@ -389,6 +389,12 @@
     "title": "ASCO: Without Permission",
     "year": "2025"
   },
+  "avengers: doomsday|2026": {
+    "imdbID": "tt21357150",
+    "source": "exact_year",
+    "title": "Avengers: Doomsday",
+    "year": "2026"
+  },
   "baahubali: the epic|2025": {
     "imdbID": "tt37893389",
     "source": "exact_year",
@@ -4162,6 +4168,12 @@
     "source": "search",
     "title": "The Fast and the Furious",
     "year": "2001"
+  },
+  "the fifth element|1997": {
+    "imdbID": "tt0119116",
+    "source": "exact",
+    "title": "The Fifth Element",
+    "year": "1997"
   },
   "the goalie's anxiety at the penalty kick|1972": {
     "imdbID": "tt0066773",
