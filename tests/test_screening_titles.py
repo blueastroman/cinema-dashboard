@@ -23,7 +23,11 @@ class ScreeningTitleTests(unittest.TestCase):
                 amc_theatre_ids=[],
                 allow_mock_data=False,
             ),
-            state=ScrapeState(),
+            state=ScrapeState(
+                serpapi_quota_checked=True,
+                serpapi_month_usage=0,
+                serpapi_effective_limit=200,
+            ),
             now=datetime(2026, 7, 17, 12, 0, 0),
             output_data_path=ROOT / "public" / "data.json",
             rating_cache_path=ROOT / "scripts" / "rating_cache.json",
@@ -92,6 +96,58 @@ class ScreeningTitleTests(unittest.TestCase):
         self.assertEqual(params["location"], "New York, New York, United States")
         self.assertEqual(params["gl"], "us")
         self.assertEqual(params["hl"], "en")
+
+    def test_serpapi_budget_guard_uses_live_account_usage(self):
+        ctx = self.make_context()
+        ctx.state.serpapi_quota_checked = False
+        account_response = mock.Mock()
+        account_response.json.return_value = {
+            "this_month_usage": 199,
+            "searches_per_month": 250,
+        }
+
+        with mock.patch.object(scrape.requests, "get", return_value=account_response) as request:
+            scrape.reserve_serpapi_search(ctx)
+
+        self.assertEqual(ctx.state.serpapi_month_usage, 200)
+        self.assertEqual(ctx.state.serpapi_effective_limit, 200)
+        self.assertEqual(request.call_args.args[0], scrape.SERPAPI_ACCOUNT_URL)
+        with self.assertRaises(scrape.SerpApiBudgetExhausted):
+            scrape.reserve_serpapi_search(ctx)
+        self.assertEqual(request.call_count, 1)
+
+    def test_serpapi_venue_reuses_future_schedule_between_refresh_days(self):
+        ctx = self.make_context()
+        ctx.now = datetime(2026, 7, 16, 12, 0, 0)  # Thursday
+        ctx.state.existing_movie_records = {
+            "cached movie": {
+                "title": "Cached Movie",
+                "ratings": {"year": "2026"},
+                "theaters": [{
+                    "name": "Angelika Film Center",
+                    "ticket_url": "https://tickets.example/cached",
+                    "schedule": [{
+                        "day": "Fri Jul 17",
+                        "date": "2026-07-17",
+                        "times": ["7:00pm"],
+                    }],
+                }],
+            }
+        }
+
+        with mock.patch.object(scrape, "fetch_showtimes") as live_fetch:
+            entries = scrape.fetch_theater_showtimes(
+                {
+                    "name": "Angelika Film Center",
+                    "source_type": "serpapi",
+                    "serpapi_id": "angelika film center new york",
+                },
+                ctx,
+            )
+
+        live_fetch.assert_not_called()
+        self.assertEqual(entries[0]["title"], "Cached Movie")
+        self.assertEqual(entries[0]["date"], "2026-07-17")
 
     def test_regal_theaters_use_serpapi_with_brand_metadata(self):
         regal_theaters = {

@@ -33,3 +33,16 @@ def test_movie_action_buttons_are_non_submit_buttons():
     assert 'class="action-btn${watched ? \' active-watched\' : \'\'}" type="button"' in INDEX
     assert 'class="action-btn coming-soon-action${saved ? \' active-save\' : \'\'}" type="button"' in INDEX
 
+
+def test_hidden_movies_receive_red_card_state_in_every_view():
+    assert "--hidden-card-bg:" in INDEX
+    assert ".movie-card.is-hidden-state" in INDEX
+    assert ".theater-film-row.is-hidden-state" in INDEX
+    assert ".ranking-row.is-hidden-state" in INDEX
+    assert INDEX.count("isHiddenRow ? ' is-hidden-state' : ''") == 2
+    assert "hidden ? ' is-hidden-state' : ''" in INDEX
+
+
+def test_coming_soon_uses_movie_title_for_letterboxd_link():
+    assert 'class="coming-soon-title-link"' in INDEX
+    assert 'Letterboxd ↗' not in INDEX

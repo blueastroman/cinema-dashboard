@@ -70,6 +70,8 @@
       --saved-card-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.40), 0 0 0 1px rgba(212, 175, 55, 0.14);
       --seen-card-bg: linear-gradient(180deg, rgba(38, 112, 70, 0.34), rgba(13, 31, 21, 0.94));
       --seen-card-shadow: inset 0 0 0 1px rgba(74, 158, 107, 0.48), 0 0 0 1px rgba(74, 158, 107, 0.16);
+      --hidden-card-bg: linear-gradient(180deg, rgba(126, 45, 45, 0.32), rgba(35, 15, 15, 0.94));
+      --hidden-card-shadow: inset 0 0 0 1px rgba(184, 80, 80, 0.48), 0 0 0 1px rgba(184, 80, 80, 0.16);
       --confidence-bg: rgba(200, 169, 110, 0.08);
       --prestige-chip-bg: rgba(200, 169, 110, 0.12);
       --prestige-chip-border: rgba(200, 169, 110, 0.40);
@@ -126,6 +128,8 @@
       --saved-card-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.44), 0 0 0 1px rgba(212, 175, 55, 0.14);
       --seen-card-bg: linear-gradient(180deg, rgba(74, 158, 107, 0.17), rgba(249, 253, 249, 0.96));
       --seen-card-shadow: inset 0 0 0 1px rgba(46, 123, 78, 0.44), 0 0 0 1px rgba(46, 123, 78, 0.13);
+      --hidden-card-bg: linear-gradient(180deg, rgba(184, 80, 80, 0.15), rgba(255, 250, 249, 0.96));
+      --hidden-card-shadow: inset 0 0 0 1px rgba(182, 82, 82, 0.44), 0 0 0 1px rgba(182, 82, 82, 0.13);
       --confidence-bg: rgba(200, 169, 110, 0.12);
       --prestige-chip-bg: rgba(182, 139, 60, 0.10);
       --prestige-chip-border: rgba(182, 139, 60, 0.38);
@@ -357,6 +361,51 @@
     .theme-btn.active {
       background: var(--accent);
       color: var(--accent-ink);
+    }
+
+    .profile-theme {
+      padding: 10px 8px 12px;
+      border-bottom: 1px solid var(--mid-gray);
+      margin-bottom: 6px;
+    }
+
+    .profile-theme .theme-switch {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--panel);
+    }
+
+    .profile-theme .theme-btn {
+      padding: 9px 12px;
+    }
+
+    .header-coming-soon-btn {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--mid-gray);
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .header-coming-soon-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .header-coming-soon-btn.active {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
     }
 
     .logo {
@@ -1112,6 +1161,18 @@
       color: var(--watch);
       font-weight: 800;
     }
+    .movie-card.is-hidden-state {
+      display: grid;
+      background: var(--hidden-card-bg);
+      box-shadow: var(--hidden-card-shadow);
+    }
+    .movie-card.is-hidden-state .movie-title::after {
+      content: ' ×';
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--skip);
+      font-weight: 800;
+    }
 
     /* Hidden card */
     .movie-card.is-hidden {
@@ -1384,6 +1445,10 @@
     .theater-film-row.is-seen {
       background: var(--seen-card-bg);
       box-shadow: var(--seen-card-shadow);
+    }
+    .theater-film-row.is-hidden-state {
+      background: var(--hidden-card-bg);
+      box-shadow: var(--hidden-card-shadow);
     }
 
     .theater-film-info {
@@ -1880,16 +1945,6 @@
       color: var(--accent-dim);
     }
 
-    .coming-soon-letterboxd {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .coming-soon-letterboxd:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
     .coming-soon-release {
       align-self: center;
       padding: 14px 16px;
@@ -2009,6 +2064,10 @@
     .ranking-row.is-seen {
       background: var(--seen-card-bg);
       box-shadow: var(--seen-card-shadow);
+    }
+    .ranking-row.is-hidden-state {
+      background: var(--hidden-card-bg);
+      box-shadow: var(--hidden-card-shadow);
     }
 
     .movie-card.is-completing,
@@ -2984,10 +3043,7 @@
         <div class="logo">Showtimes <span>NYC</span></div>
       </div>
       <div class="header-actions">
-        <div class="theme-switch" role="group" aria-label="Color mode">
-          <button class="theme-btn" id="theme-dark-btn" type="button" onclick="setTheme('dark')">Dark</button>
-          <button class="theme-btn" id="theme-light-btn" type="button" onclick="setTheme('light')">Light</button>
-        </div>
+        <button class="header-coming-soon-btn" id="header-coming-soon-btn" type="button" onclick="setView('coming')">Coming Soon</button>
         <div id="profile-wrap" style="position:relative;">
           <button class="profile-btn" id="profile-btn" type="button" onclick="openAuthModal()">Sign in</button>
         </div>
@@ -3096,7 +3152,6 @@
         <div class="seg-toggle">
           <button class="seg-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
           <button class="seg-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
-          <button class="seg-btn" id="view-coming-soon" onclick="setView('coming')">Coming Soon</button>
         </div>
         <select class="genre-select sort-select" id="sort-select" onchange="setSort(this.value)">
           <option value="rating">Best first</option>
@@ -3432,6 +3487,20 @@ function buildMembershipPanel() {
 
   return panel;
 }
+
+function buildProfileThemeControl() {
+  const wrap = document.createElement('div');
+  wrap.className = 'profile-theme';
+  wrap.innerHTML = `
+    <div class="profile-dropdown-section-title">Appearance</div>
+    <div class="theme-switch" role="group" aria-label="Color mode">
+      <button class="theme-btn" data-theme-choice="dark" type="button" onclick="setTheme('dark')">Dark</button>
+      <button class="theme-btn" data-theme-choice="light" type="button" onclick="setTheme('light')">Light</button>
+    </div>
+  `;
+  return wrap;
+}
+
 const DEFAULT_THEATER_META = {
   'Metrograph': { slug: 'metrograph', short_name: 'Metrograph', sort_name: 'Metrograph', official_url: 'https://metrograph.com', source_type: 'metrograph', aliases: ['metro'] },
   'IFC Center': { slug: 'ifc', short_name: 'IFC', sort_name: 'IFC', official_url: 'https://www.ifccenter.com', source_type: 'ifc', aliases: ['ifc'] },
@@ -3442,6 +3511,10 @@ const DEFAULT_THEATER_META = {
   'Alamo Drafthouse Lower Manhattan': { slug: 'alamo', short_name: 'Alamo Lower Manhattan', sort_name: 'Alamo Lower Manhattan', official_url: 'https://drafthouse.com/nyc', source_type: 'alamo', aliases: ['alamo'] },
   'Alamo Drafthouse Downtown Brooklyn': { slug: 'alamo-brooklyn', short_name: 'Alamo Brooklyn', sort_name: 'Alamo Brooklyn', official_url: 'https://drafthouse.com/theater/downtown-brooklyn', source_type: 'alamo', aliases: ['alamo brooklyn', 'downtown brooklyn', 'brooklyn alamo'] },
   'Alamo Drafthouse Staten Island': { slug: 'alamo-staten-island', short_name: 'Alamo Staten Island', sort_name: 'Alamo Staten Island', official_url: 'https://drafthouse.com/theater/staten-island', source_type: 'alamo', aliases: ['alamo staten island', 'staten island', 'staten island alamo'] },
+  'BAM Rose Cinemas': { slug: 'bam', short_name: 'BAM', sort_name: 'BAM Rose Cinemas', official_url: 'https://www.bam.org/film', source_type: 'bam', aliases: ['bam', 'bam rose', 'bam rose cinemas'] },
+  'Nitehawk Cinema Williamsburg': { slug: 'nitehawk-williamsburg', short_name: 'Nitehawk Williamsburg', sort_name: 'Nitehawk Williamsburg', official_url: 'https://nitehawkcinema.com/williamsburg/', source_type: 'nitehawk', aliases: ['nitehawk', 'nitehawk williamsburg', 'williamsburg nitehawk'] },
+  'Nitehawk Cinema Prospect Park': { slug: 'nitehawk-prospect-park', short_name: 'Nitehawk Prospect Park', sort_name: 'Nitehawk Prospect Park', official_url: 'https://nitehawkcinema.com/prospectpark/', source_type: 'nitehawk', aliases: ['nitehawk prospect park', 'prospect park nitehawk'] },
+  'Anthology Film Archives': { slug: 'anthology', short_name: 'Anthology', sort_name: 'Anthology Film Archives', official_url: 'https://www.anthologyfilmarchives.org/film_screenings/calendar?view=list', source_type: 'anthology', aliases: ['anthology', 'anthology film archives'] },
   'Regal Union Square': { slug: 'regal-union-square', short_name: 'Regal Union Square', sort_name: 'Regal Union Square', official_url: 'https://www.regmovies.com/theatres/regal-union-square-screenx-4dx-1320', source_type: 'regal', aliases: ['regal union square', 'union square regal'] },
   'Regal Essex Crossing': { slug: 'regal-essex-crossing', short_name: 'Regal Essex Crossing', sort_name: 'Regal Essex Crossing', official_url: 'https://www.regmovies.com/theatres/regal-essex-crossing-rpx-1412', source_type: 'regal', aliases: ['regal essex crossing', 'essex crossing regal'] },
   'Regal Battery Park': { slug: 'regal-battery-park', short_name: 'Regal Battery Park', sort_name: 'Regal Battery Park', official_url: 'https://www.regmovies.com/theatres/regal-battery-park-1335', source_type: 'regal', aliases: ['regal battery park', 'battery park regal'] },
@@ -3460,13 +3533,14 @@ function slugify(value) {
 }
 
 function syncThemeButtons() {
-  const darkBtn = document.getElementById('theme-dark-btn');
-  const lightBtn = document.getElementById('theme-light-btn');
-  if (!darkBtn || !lightBtn) return;
-  darkBtn.classList.toggle('active', currentTheme === 'dark');
-  lightBtn.classList.toggle('active', currentTheme === 'light');
-  darkBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-  lightBtn.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+  document.querySelectorAll('[data-theme-choice="dark"]').forEach(btn => {
+    btn.classList.toggle('active', currentTheme === 'dark');
+    btn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+  });
+  document.querySelectorAll('[data-theme-choice="light"]').forEach(btn => {
+    btn.classList.toggle('active', currentTheme === 'light');
+    btn.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+  });
 }
 
 function setTheme(theme) {
@@ -5632,7 +5706,7 @@ function syncShowButtons() {
 function syncViewButtons() {
   document.getElementById('view-rankings')?.classList.toggle('active', viewMode === 'rankings');
   document.getElementById('view-grid')?.classList.toggle('active', viewMode === 'grid');
-  document.getElementById('view-coming-soon')?.classList.toggle('active', viewMode === 'coming');
+  document.getElementById('header-coming-soon-btn')?.classList.toggle('active', viewMode === 'coming');
   updateMobileFilterSummary();
 }
 
@@ -6165,7 +6239,7 @@ function buildComingSoonCard(movie, idx) {
     movie.director ? `Directed by ${movie.director}` : '',
     genres,
     movie.studio || '',
-  ].filter(Boolean);
+  ].filter(item => item && !/\bletterboxd\b/i.test(String(item)));
   const titleMarkup = movie.letterboxd_url
     ? `<a class="coming-soon-title-link" href="${escapeHTML(movie.letterboxd_url)}" target="_blank" rel="noopener">${escapeHTML(movie.title)}</a>`
     : escapeHTML(movie.title);
@@ -6178,7 +6252,7 @@ function buildComingSoonCard(movie, idx) {
     </div>
     <div class="coming-soon-main">
       <h2 class="coming-soon-title">${titleMarkup}</h2>
-      ${(metadata.length || movie.letterboxd_url) ? `<div class="coming-soon-meta">${metadata.map(item => `<span class="coming-soon-meta-item">${escapeHTML(item)}</span>`).join('')}${movie.letterboxd_url ? `<a class="coming-soon-letterboxd" href="${escapeHTML(movie.letterboxd_url)}" target="_blank" rel="noopener">Letterboxd ↗</a>` : ''}</div>` : ''}
+      ${metadata.length ? `<div class="coming-soon-meta">${metadata.map(item => `<span class="coming-soon-meta-item">${escapeHTML(item)}</span>`).join('')}</div>` : ''}
       <p class="coming-soon-synopsis">${escapeHTML(movie.synopsis)}</p>
     </div>
     <div class="coming-soon-release">
@@ -6243,7 +6317,7 @@ function buildRankingRow(movie, idx) {
   const safeTitle = escapeJSString(movie.title);
 
   const row = document.createElement('div');
-  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
+  row.className = `ranking-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}${isHiddenRow ? ' is-hidden-state' : ''}`;
   row.style.animationDelay = `${idx * 30}ms`;
   row.dataset.title = movie.title || '';
   row.dataset.year = year || '';
@@ -6435,7 +6509,7 @@ function renderTheaterView() {
       const safeMovieId = escapeJSString(movie.id);
       const safeMovieTitle = escapeJSString(movie.title);
       const row = document.createElement('div');
-      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
+      row.className = `theater-film-row ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}${isHiddenRow ? ' is-hidden-state' : ''}`;
 
       row.innerHTML = `
         <div class="theater-poster-wrap">
@@ -6513,6 +6587,7 @@ function buildCard(movie, idx) {
   const theaters = getVisibleTheaters(movie);
   const watched = hasStoredMovie(getWatched(), movie);
   const seen = hasStoredMovie(getSeen(), movie);
+  const hidden = hasStoredMovie(getHidden(), movie);
 
   // Genre tags
   const tags = [...new Set([
@@ -6542,7 +6617,7 @@ function buildCard(movie, idx) {
   `).join('');
 
   const card = document.createElement('div');
-  card.className = `movie-card ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}`;
+  card.className = `movie-card ${verdict}${watched ? ' is-watched' : ''}${seen ? ' is-seen' : ''}${hidden ? ' is-hidden-state' : ''}`;
   card.style.animationDelay = `${idx * 40}ms`;
   card.dataset.title = movie.title;
 
@@ -6705,6 +6780,7 @@ function onSeen(btn, movieId, title) {
 function onHide(btn, movieId, title) {
   toggleHidden(movieId, title);
   const card = btn.closest('.movie-card');
+  card?.classList.add('is-hidden-state');
   animateRemoveMovieElement(card, 260, 0.97);
 }
 
@@ -6737,6 +6813,7 @@ function onTheaterHide(btn, movieId, title) {
   btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.theater-film-row');
+  row?.classList.toggle('is-hidden-state', isStillHidden);
   animateRemoveMovieElement(row, 220, 0.98);
 }
 
@@ -6769,6 +6846,7 @@ function onRankingHide(btn, movieId, title) {
   btn.setAttribute('title', isStillHidden ? 'Unhide movie' : 'Hide movie');
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.ranking-row');
+  row?.classList.toggle('is-hidden-state', isStillHidden);
   animateRemoveMovieElement(row, 220, 0.985);
 }
 
@@ -7676,6 +7754,7 @@ function updateProfileUI() {
   const wrap = document.getElementById('profile-wrap');
   if (!wrap) return;
   const membershipPanel = buildMembershipPanel();
+  const themeControl = buildProfileThemeControl();
   if (currentUser) {
     const email = currentUser.email || '';
     const initial = (email || 'U')[0].toUpperCase();
@@ -7701,8 +7780,8 @@ function updateProfileUI() {
     signOutBtn.textContent = 'Sign out';
     signOutBtn.onclick = handleSignOut;
 
-    if (membershipPanel) dropdown.append(emailDiv, membershipPanel, signOutBtn);
-    else dropdown.append(emailDiv, signOutBtn);
+    if (membershipPanel) dropdown.append(emailDiv, themeControl, membershipPanel, signOutBtn);
+    else dropdown.append(emailDiv, themeControl, signOutBtn);
     wrap.replaceChildren(avatarBtn, dropdown);
   } else {
     const profileBtn = document.createElement('button');
@@ -7722,10 +7801,11 @@ function updateProfileUI() {
     signInBtn.textContent = 'Sign in';
     signInBtn.onclick = openAuthModal;
 
-    if (membershipPanel) dropdown.append(signInBtn, membershipPanel);
-    else dropdown.append(signInBtn);
+    if (membershipPanel) dropdown.append(themeControl, signInBtn, membershipPanel);
+    else dropdown.append(themeControl, signInBtn);
     wrap.replaceChildren(profileBtn, dropdown);
   }
+  syncThemeButtons();
   syncMembershipCheckboxes();
   syncMembershipDrivenControls();
   syncMembershipDefaultSelects();

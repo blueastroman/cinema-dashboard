@@ -21,7 +21,7 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - Showtimes:
   - SerpAPI for some theaters
   - AMC API for AMC theaters
-- direct theater scraping for Metrograph, IFC, and Alamo
+  - direct theater scraping for Metrograph, IFC, Film Forum, Film at Lincoln Center, Paris Theater, Alamo, BAM, Nitehawk, and Anthology
 - Metadata:
   - OMDb as primary source
   - Box Office Mojo for upcoming U.S. theatrical dates, studios, scale, and genres
@@ -47,6 +47,10 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 - Alamo Drafthouse Lower Manhattan
 - Alamo Drafthouse Downtown Brooklyn
 - Alamo Drafthouse Staten Island
+- BAM Rose Cinemas
+- Nitehawk Cinema Williamsburg
+- Nitehawk Cinema Prospect Park
+- Anthology Film Archives
 - Regal Union Square
 - Regal Essex Crossing
 - Regal Battery Park
@@ -60,6 +64,8 @@ Static movie dashboard for New York repertory and selected commercial theaters. 
 The scraper reads these environment variables:
 
 - `SERPAPI_KEY`
+- `SERPAPI_MONTHLY_BUDGET` optional hard safety cap, defaults to `200`
+- `SERPAPI_REFRESH_WEEKDAYS` optional comma-separated live refresh days, defaults to `wed,sat`
 - `OMDB_KEY`
 - `ANTHROPIC_API_KEY`
 - `AMC_VENDOR_KEY`
@@ -91,6 +97,22 @@ python scripts/refresh_coming_soon.py --dry-run
 ```
 
 Production scrapes fail loudly when `SERPAPI_KEY`, `OMDB_KEY`, or `ANTHROPIC_API_KEY` is missing. For local layout work without API keys, run `ALLOW_MOCK_DATA=1 python scripts/scrape.py` and do not commit the generated mock dataset.
+
+SerpAPI-backed theaters refresh live every Wednesday and Saturday by default. On the
+other days the scraper carries forward still-future showtimes from the previous
+dataset. Before spending a search, it checks SerpAPI's free Account API and
+stops at the configured monthly safety cap. With eight SerpAPI-backed venues,
+the default cadence uses 64–80 searches per month instead of up to 248. The cap
+leaves 50 searches of headroom on the 250-search free plan.
+
+To refresh direct/API sources without spending SerpAPI quota, run:
+
+```bash
+AMC_VENDOR_KEY=... python scripts/refresh_direct_sources.py
+```
+
+This live-fetches direct venue scrapers and AMC API, while carrying forward
+still-future Angelika, Village East, and Regal schedules from `public/data.json`.
 
 If Paris Theater credentials were previously committed, rotate them in the upstream provider before the next scrape or deploy.
 

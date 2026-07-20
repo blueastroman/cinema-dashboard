@@ -151,7 +151,6 @@ RT_PATTERNS = [
     r'"tomatometerScoreAll"\s*:\s*\{"score"\s*:\s*(\d{1,3})',
     r'"criticsScore"\s*:\s*(\d{1,3})',
     r'"criticsScore"\s*:\s*\{[^{}]{0,240}"score"\s*:\s*"(\d{1,3})"',
-    r'"scorePercent"\s*:\s*"(\d{1,3})%"',
     r'"Tomatometer","ratingCount":\d+,"ratingValue":"(\d{1,3})"',
 ]
 

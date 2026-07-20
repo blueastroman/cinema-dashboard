@@ -94,6 +94,20 @@ class AlamoMetadataTests(unittest.TestCase):
         self.assertEqual(merged["director"], "Michael Tiddes")
         self.assertEqual(merged["runtime"], "95 min")
 
+    def test_rt_fallback_ignores_audience_score_percent(self):
+        response = mock.Mock()
+        response.text = '{"audienceScore":{"scorePercent":"33%"}}'
+
+        with mock.patch.object(scrape.requests, "get", return_value=response):
+            self.assertIsNone(scrape.fetch_rt_fallback("Remake", query_year=2003))
+
+    def test_rt_fallback_accepts_explicit_tomatometer_score(self):
+        response = mock.Mock()
+        response.text = '<score-board tomatometerscore="91"></score-board>'
+
+        with mock.patch.object(scrape.requests, "get", return_value=response):
+            self.assertEqual(scrape.fetch_rt_fallback("Some Movie"), "91%")
+
     def test_fetch_ratings_reverifies_recent_rt_score_three_days_after_release(self):
         ctx = ScrapeContext(
             config=ScrapeConfig(

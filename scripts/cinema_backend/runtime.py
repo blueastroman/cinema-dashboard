@@ -72,6 +72,8 @@ class ScrapeConfig:
     amc_theatre_page_size: int = 100
     amc_force_serpapi_fallback: bool = False
     allow_mock_data: bool = False
+    serpapi_monthly_budget: int = 200
+    serpapi_refresh_weekdays: frozenset[int] = frozenset({2, 5})
 
 
 @dataclass
@@ -83,6 +85,9 @@ class ScrapeState:
     existing_movie_metadata: dict[str, dict[str, Any]] = field(default_factory=dict)
     existing_movie_records: dict[str, dict[str, Any]] = field(default_factory=dict)
     collected_issues: list[dict[str, Any]] = field(default_factory=list)
+    serpapi_quota_checked: bool = False
+    serpapi_month_usage: int = 0
+    serpapi_effective_limit: int = 0
 
 
 @dataclass
@@ -121,6 +126,30 @@ def build_scrape_context(
     rating_cache_path: Path,
     now: Optional[datetime] = None,
 ) -> ScrapeContext:
+    weekday_numbers = {
+        "mon": 0,
+        "tue": 1,
+        "wed": 2,
+        "thu": 3,
+        "fri": 4,
+        "sat": 5,
+        "sun": 6,
+    }
+    raw_refresh_days = os.environ.get("SERPAPI_REFRESH_WEEKDAYS", "wed,sat")
+    refresh_weekdays = frozenset(
+        weekday_numbers[token.strip().lower()[:3]]
+        for token in raw_refresh_days.split(",")
+        if token.strip().lower()[:3] in weekday_numbers
+    )
+    try:
+        monthly_budget = int(os.environ.get("SERPAPI_MONTHLY_BUDGET", "200"))
+    except ValueError as exc:
+        raise ValueError("SERPAPI_MONTHLY_BUDGET must be a positive integer.") from exc
+    if monthly_budget <= 0:
+        raise ValueError("SERPAPI_MONTHLY_BUDGET must be a positive integer.")
+    if not refresh_weekdays:
+        raise ValueError("SERPAPI_REFRESH_WEEKDAYS must contain at least one weekday.")
+
     config = ScrapeConfig(
         serpapi_key=os.environ.get("SERPAPI_KEY", ""),
         omdb_key=os.environ.get("OMDB_KEY", ""),
@@ -129,6 +158,8 @@ def build_scrape_context(
         amc_theatre_ids=[token.strip() for token in os.environ.get("AMC_THEATRE_IDS", "").split(",") if token.strip()],
         amc_force_serpapi_fallback=os.environ.get("AMC_FORCE_SERPAPI_FALLBACK", "").strip().lower() in {"1", "true", "yes"},
         allow_mock_data=os.environ.get("ALLOW_MOCK_DATA", "").strip().lower() in {"1", "true", "yes"},
+        serpapi_monthly_budget=monthly_budget,
+        serpapi_refresh_weekdays=refresh_weekdays,
     )
     state = ScrapeState(
         rating_overrides=load_json_dict(rating_overrides_path),

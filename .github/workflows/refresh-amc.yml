@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       theatre_ids:
-        description: "Optional comma-separated AMC theatre IDs. Leave blank to use configured NYC/Stamford filters."
+        description: "Optional comma-separated AMC theatre IDs. Leave blank to use configured NYC filters."
         required: false
         default: ""
 
@@ -35,7 +35,6 @@ jobs:
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           AMC_THEATRE_IDS: ${{ inputs.theatre_ids }}
-          AMC_FORCE_SERPAPI_FALLBACK: "1"
         run: python scripts/refresh_amc.py
 
       - name: Validate dataset

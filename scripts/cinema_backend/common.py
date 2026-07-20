@@ -93,6 +93,44 @@ THEATER_CONFIG = {
         "official_url": "https://drafthouse.com/theater/staten-island",
         "aliases": ["alamo staten island", "staten island", "staten island alamo"],
     },
+    "BAM Rose Cinemas": {
+        "slug": "bam",
+        "short_name": "BAM",
+        "sort_name": "BAM Rose Cinemas",
+        "source_type": "bam",
+        "source_url": "https://www.bam.org/film",
+        "official_url": "https://www.bam.org/film",
+        "aliases": ["bam", "bam rose", "bam rose cinemas"],
+    },
+    "Nitehawk Cinema Williamsburg": {
+        "slug": "nitehawk-williamsburg",
+        "short_name": "Nitehawk Williamsburg",
+        "sort_name": "Nitehawk Williamsburg",
+        "source_type": "nitehawk",
+        "source_url": "https://nitehawkcinema.com/williamsburg/",
+        "official_url": "https://nitehawkcinema.com/williamsburg/",
+        "location_slug": "williamsburg",
+        "aliases": ["nitehawk", "nitehawk williamsburg", "williamsburg nitehawk"],
+    },
+    "Nitehawk Cinema Prospect Park": {
+        "slug": "nitehawk-prospect-park",
+        "short_name": "Nitehawk Prospect Park",
+        "sort_name": "Nitehawk Prospect Park",
+        "source_type": "nitehawk",
+        "source_url": "https://nitehawkcinema.com/prospectpark/",
+        "official_url": "https://nitehawkcinema.com/prospectpark/",
+        "location_slug": "prospectpark",
+        "aliases": ["nitehawk prospect park", "prospect park nitehawk"],
+    },
+    "Anthology Film Archives": {
+        "slug": "anthology",
+        "short_name": "Anthology",
+        "sort_name": "Anthology Film Archives",
+        "source_type": "anthology",
+        "source_url": "https://www.anthologyfilmarchives.org/film_screenings/calendar?view=list",
+        "official_url": "https://www.anthologyfilmarchives.org/film_screenings/calendar?view=list",
+        "aliases": ["anthology", "anthology film archives"],
+    },
     "Regal Union Square": {
         "slug": "regal-union-square",
         "short_name": "Regal Union Square",
@@ -156,24 +194,6 @@ THEATER_CONFIG = {
         "source_url": "https://www.paristheaternyc.com/",
         "official_url": "https://www.paristheaternyc.com/",
         "aliases": ["paris"],
-    },
-    "AMC Landmark 8": {
-        "slug": "amc-landmark-8",
-        "short_name": "AMC Landmark 8",
-        "sort_name": "AMC Landmark 8",
-        "source_type": "amc",
-        "serpapi_id": "amc landmark 8 stamford ct",
-        "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-landmark-8",
-        "aliases": [],
-    },
-    "AMC Majestic 6": {
-        "slug": "amc-majestic-6",
-        "short_name": "AMC Majestic 6",
-        "sort_name": "AMC Majestic 6",
-        "source_type": "amc",
-        "serpapi_id": "amc majestic 6 stamford ct",
-        "official_url": "https://www.amctheatres.com/movie-theatres/new-york-city/amc-majestic-6",
-        "aliases": [],
     },
     "AMC 19th St. East 6": {
         "slug": "amc-19th-st-east-6",
@@ -263,14 +283,13 @@ STATIC_THEATERS = [
 
 AMC_ALLOWED_CITIES_BY_STATE = {
     "NY": {"NEW YORK", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"},
-    "CT": {"STAMFORD"},
 }
 
 AMC_EXCLUDED_THEATRES: set[str] = set()
 
 FORMAT_TAGS = re.compile(
-    r'\b(70mm|35mm|imax|rpx|4dx|screenx|4k|dcp|digital|in\s+70mm|in\s+35mm|presented\s+in\s+\w+)\b'
-    r'|\s*[\(\[]?(70mm|35mm|imax|rpx|4dx|screenx|4k|dcp)[\)\]]?',
+    r'\b(70mm|35mm|16mm|imax|rpx|4dx|screenx|4k|dcp|digital|restoration|restored|in\s+70mm|in\s+35mm|in\s+16mm|presented\s+in\s+\w+)\b'
+    r'|\s*[\(\[]?(70mm|35mm|16mm|imax|rpx|4dx|screenx|4k|dcp)[\)\]]?',
     re.IGNORECASE
 )
 
@@ -283,6 +302,9 @@ SPECIAL_FORMAT_PATTERNS = {
     "Laser": re.compile(r"\blaser\b", re.IGNORECASE),
     "70mm": re.compile(r"\b(?:in\s+)?70\s*mm\b", re.IGNORECASE),
     "35mm": re.compile(r"\b(?:in\s+)?35\s*mm\b", re.IGNORECASE),
+    "16mm": re.compile(r"\b(?:in\s+)?16\s*mm\b", re.IGNORECASE),
+    "DCP": re.compile(r"\bdcp\b", re.IGNORECASE),
+    "Restoration": re.compile(r"\b(?:restoration|restored|newly\s+restored|4k\s+restoration)\b", re.IGNORECASE),
 }
 
 # Exhibition and event qualifiers that vendors append to the actual movie

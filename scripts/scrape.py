@@ -50,6 +50,9 @@ from cinema_backend.providers.alamo import (
     ALAMO_ALGOLIA_QUERY_URL,
     alamo_presentation_url,
 )
+from cinema_backend.providers.anthology import fetch_anthology_showtimes
+from cinema_backend.providers.bam import fetch_bam_showtimes
+from cinema_backend.providers.nitehawk import fetch_nitehawk_showtimes
 from cinema_backend.runtime import (
     ScrapeContext,
     build_scrape_context,
@@ -84,6 +87,7 @@ MONTH_INDEX = {
 }
 RT_REVERIFY_DAY_OFFSETS = {3, 5, 7, 30}
 RT_REVERIFY_WINDOW_DAYS = 31
+SERPAPI_ACCOUNT_URL = "https://serpapi.com/account.json"
 
 
 @dataclass
@@ -186,6 +190,50 @@ def should_reverify_recent_rt(
 
 # ─── SHOWTIMES ────────────────────────────────────────────────────────────────
 
+class SerpApiBudgetExhausted(RuntimeError):
+    """Raised before a search when the configured monthly safety cap is reached."""
+
+
+def reserve_serpapi_search(ctx: ScrapeContext) -> None:
+    """Check SerpAPI's free Account API and reserve one search locally."""
+    if not ctx.state.serpapi_quota_checked:
+        try:
+            response = requests.get(
+                SERPAPI_ACCOUNT_URL,
+                params={"api_key": ctx.config.serpapi_key},
+                timeout=15,
+            )
+            response.raise_for_status()
+            account = response.json()
+            usage = int(account["this_month_usage"])
+            plan_limit = int(account["searches_per_month"])
+        except Exception as exc:
+            raise RuntimeError(
+                "Could not verify SerpAPI quota; refusing to spend searches without the budget guard."
+            ) from exc
+
+        ctx.state.serpapi_month_usage = usage
+        ctx.state.serpapi_effective_limit = min(
+            plan_limit,
+            ctx.config.serpapi_monthly_budget,
+        )
+        ctx.state.serpapi_quota_checked = True
+        print(
+            "  SerpAPI usage: "
+            f"{usage}/{plan_limit}; safety cap {ctx.state.serpapi_effective_limit}"
+        )
+
+    if ctx.state.serpapi_month_usage >= ctx.state.serpapi_effective_limit:
+        raise SerpApiBudgetExhausted(
+            "SerpAPI monthly safety cap reached "
+            f"({ctx.state.serpapi_month_usage}/{ctx.state.serpapi_effective_limit}); "
+            "using cached showtimes until the quota renews."
+        )
+
+    # Reserve before issuing the request so retries in this process cannot
+    # accidentally overspend after a network or response-parsing failure.
+    ctx.state.serpapi_month_usage += 1
+
 def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     """Pull showtimes from Google via SerpAPI for a given theater."""
     if not ctx.config.serpapi_key:
@@ -193,6 +241,8 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
             print(f"  [MOCK] No SerpAPI key - using mock data for {theater['name']}")
             return mock_showtimes(theater["name"])
         raise RuntimeError(f"SERPAPI_KEY is required for {theater['name']}")
+
+    reserve_serpapi_search(ctx)
 
     params = {
         "engine": "google",
@@ -204,7 +254,10 @@ def fetch_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     }
     try:
         r = requests.get("https://serpapi.com/search", params=params, timeout=30)
+        r.raise_for_status()
         data = r.json()
+        if data.get("error"):
+            raise RuntimeError(str(data["error"]))
         movies = []
         for day in data.get("showtimes", []):
             for movie in day.get("movies", []):
@@ -1802,7 +1855,6 @@ def fetch_rt_fallback(title: str, query_year: Optional[int] = None) -> Optional[
         r'"tomatometerScoreAll"\s*:\s*\{"score"\s*:\s*(\d{1,3})',
         r'"criticsScore"\s*:\s*(\d{1,3})',
         r'"criticsScore"\s*:\s*\{[^{}]{0,240}"score"\s*:\s*"(\d{1,3})"',
-        r'"scorePercent"\s*:\s*"(\d{1,3})%"',
         r'"Tomatometer","ratingCount":\d+,"ratingValue":"(\d{1,3})"',
     ]
 
@@ -2731,6 +2783,57 @@ def validate_runtime_configuration(ctx: ScrapeContext) -> None:
         raise RuntimeError(f"Missing required scraper environment variable(s): {joined}. Set ALLOW_MOCK_DATA=1 for local mock runs.")
 
 
+def existing_showtime_entries(theater: dict, ctx: ScrapeContext) -> list[dict]:
+    """Recover still-current showtimes for a venue from the previous dataset."""
+    theater_name = str(theater.get("name") or "").strip()
+    today = ctx.now.date().isoformat()
+    entries: list[dict] = []
+
+    for movie in ctx.state.existing_movie_records.values():
+        title = str(movie.get("title") or "").strip()
+        ratings = movie.get("ratings") or {}
+        for existing_theater in movie.get("theaters") or []:
+            if str(existing_theater.get("name") or "").strip() != theater_name:
+                continue
+            formats = sorted(set(
+                (movie.get("special_formats") or [])
+                + (existing_theater.get("special_formats") or [])
+            ))
+            for slot in existing_theater.get("schedule") or []:
+                slot_date = str(slot.get("date") or "").strip()
+                if slot_date and slot_date < today:
+                    continue
+                day_label = str(slot.get("day") or slot_date).strip()
+                if slot_date:
+                    try:
+                        scheduled_date = datetime.strptime(slot_date, "%Y-%m-%d").date()
+                        days_away = (scheduled_date - ctx.now.date()).days
+                        if days_away == 0:
+                            day_label = "Today"
+                        elif days_away == 1:
+                            day_label = "Tomorrow"
+                        else:
+                            day_label = scheduled_date.strftime("%a %b %d").replace(" 0", " ")
+                    except ValueError:
+                        pass
+                times = [str(value).strip() for value in slot.get("times") or [] if str(value).strip()]
+                if not times:
+                    continue
+                entries.append({
+                    "title": title,
+                    "hint_year": extract_year_int(ratings.get("year")),
+                    "theater": theater_name,
+                    "day": day_label,
+                    "date": slot_date or None,
+                    "times": times,
+                    "ticket_url": str(existing_theater.get("ticket_url") or "").strip(),
+                    "ticket_urls": dict(slot.get("ticket_urls") or {}),
+                    "special_formats": formats,
+                    "time_attributes": dict(slot.get("time_attributes") or {}),
+                })
+    return entries
+
+
 def fetch_theater_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
     if theater.get("source") == "amc":
         return fetch_amc_showtimes(theater, ctx)
@@ -2746,6 +2849,28 @@ def fetch_theater_showtimes(theater: dict, ctx: ScrapeContext) -> list[dict]:
         return fetch_paris_showtimes(theater)
     if theater.get("source_type") == "flc":
         return fetch_flc_showtimes(theater)
+    if theater.get("source_type") == "anthology":
+        return fetch_anthology_showtimes(theater, ctx)
+    if theater.get("source_type") == "nitehawk":
+        return fetch_nitehawk_showtimes(theater, ctx)
+    if theater.get("source_type") == "bam":
+        return fetch_bam_showtimes(theater, ctx)
+    if theater.get("source_type") in {"serpapi", "regal"}:
+        cached = existing_showtime_entries(theater, ctx)
+        refresh_today = ctx.now.weekday() in ctx.config.serpapi_refresh_weekdays
+        if cached and not refresh_today:
+            print(
+                f"  Reusing {len(cached)} cached SerpAPI schedule entries "
+                "(live refreshes run on configured weekdays)."
+            )
+            return cached
+        try:
+            return fetch_showtimes(theater, ctx)
+        except Exception as exc:
+            if cached:
+                print(f"  [WARN] Live SerpAPI refresh unavailable; using cached schedule: {exc}")
+                return cached
+            raise
     return fetch_showtimes(theater, ctx)
 
 

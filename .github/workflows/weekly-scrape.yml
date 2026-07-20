@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: python -m unittest discover -s tests
-      - name: Run scraper and validate dataset with retry
+      - name: Run scraper and validate dataset
         shell: bash
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
@@ -35,18 +35,8 @@ jobs:
           PARIS_API_CLIENT_ID: ${{ secrets.PARIS_API_CLIENT_ID }}
         run: |
           set -euo pipefail
-          for attempt in 1 2 3; do
-            echo "Scrape attempt ${attempt}/3"
-            if python scripts/scrape.py && python scripts/validate_dataset.py; then
-              exit 0
-            fi
-            if [ "$attempt" -lt 3 ]; then
-              echo "Scrape/validation failed on attempt ${attempt}; retrying in 60 seconds."
-              sleep 60
-            fi
-          done
-          echo "Scrape/validation failed after 3 attempts."
-          exit 1
+          python scripts/scrape.py
+          python scripts/validate_dataset.py
       - name: Commit updated data
         shell: bash
         run: |
