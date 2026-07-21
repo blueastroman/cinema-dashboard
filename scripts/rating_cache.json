@@ -389,6 +389,12 @@
     "title": "ASCO: Without Permission",
     "year": "2025"
   },
+  "avatar aang: the last airbender|2026": {
+    "imdbID": "tt18259538",
+    "source": "exact_year",
+    "title": "Avatar Aang: The Last Airbender",
+    "year": "2026"
+  },
   "avengers: doomsday|2026": {
     "imdbID": "tt21357150",
     "source": "exact_year",
@@ -887,6 +893,12 @@
     "title": "Clockwatchers",
     "year": "1997"
   },
+  "cloud atlas|2012": {
+    "imdbID": "tt1371111",
+    "source": "exact",
+    "title": "Cloud Atlas",
+    "year": "2012"
+  },
   "clouds of sils maria": {
     "imdbID": "tt2452254",
     "source": "exact",
@@ -1321,7 +1333,7 @@
   },
   "elephant|2003": {
     "imdbID": "tt0363589",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Elephant",
     "year": "2003"
   },
@@ -1819,7 +1831,7 @@
   },
   "gummo|1997": {
     "imdbID": "tt0119237",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Gummo",
     "year": "1997"
   },
@@ -1871,6 +1883,12 @@
     "title": "Haunted Heist",
     "year": "2026"
   },
+  "heat|1995": {
+    "imdbID": "tt0113277",
+    "source": "exact",
+    "title": "Heat",
+    "year": "1995"
+  },
   "heaven can wait|1943": {
     "imdbID": "tt0035979",
     "source": "exact_year",
@@ -1912,6 +1930,12 @@
     "source": "exact_year",
     "title": "Hokum",
     "year": "2026"
+  },
+  "holes|2003": {
+    "imdbID": "tt0311289",
+    "source": "exact",
+    "title": "Holes",
+    "year": "2003"
   },
   "holy motors|2012": {
     "imdbID": "tt2076220",
@@ -2309,6 +2333,12 @@
     "title": "Les femmes bonnes",
     "year": "2006"
   },
+  "let it ride|1989": {
+    "imdbID": "tt0097731",
+    "source": "exact",
+    "title": "Let It Ride",
+    "year": "1989"
+  },
   "let the sunshine in|2017": {
     "imdbID": "tt6423776",
     "source": "exact",
@@ -2339,6 +2369,12 @@
     "title": "Linda Linda Linda",
     "year": "2005"
   },
+  "little shop of horrors|1986": {
+    "imdbID": "tt0091419",
+    "source": "exact_year",
+    "title": "Little Shop of Horrors",
+    "year": "1986"
+  },
   "living the land|2025": {
     "imdbID": "tt32110302",
     "source": "search",
@@ -2350,6 +2386,18 @@
     "source": "exact_year",
     "title": "Lonely Are the Brave",
     "year": "1962"
+  },
+  "lonesome cowboys|1968": {
+    "imdbID": "tt0063236",
+    "source": "exact",
+    "title": "Lonesome Cowboys",
+    "year": "1968"
+  },
+  "looper|2012": {
+    "imdbID": "tt1276104",
+    "source": "exact",
+    "title": "Looper",
+    "year": "2012"
   },
   "losing ground|1982": {
     "imdbID": "tt0084269",
@@ -2557,7 +2605,7 @@
   },
   "miami vice|2006": {
     "imdbID": "tt0430357",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Miami Vice",
     "year": "2006"
   },
@@ -2590,6 +2638,12 @@
     "source": "exact_year",
     "title": "Millionaires' Express",
     "year": "1986"
+  },
+  "mimosas|2016": {
+    "imdbID": "tt5606268",
+    "source": "exact",
+    "title": "Mimosas",
+    "year": "2016"
   },
   "minions & monsters|2026": {
     "imdbID": "tt32890033",
@@ -2758,6 +2812,12 @@
     "source": "exact_year",
     "title": "My Night at Maud's",
     "year": "1969"
+  },
+  "mysterious skin )|2004": {
+    "imdbID": "tt0370986",
+    "source": "exact_year",
+    "title": "Mysterious Skin",
+    "year": "2004"
   },
   "mysterious skin|2004": {
     "imdbID": "tt0370986",
@@ -3082,6 +3142,12 @@
     "source": "exact",
     "title": "Past Lives",
     "year": "2023"
+  },
+  "paw patrol: the dino movie|2026": {
+    "imdbID": "tt29356163",
+    "source": "exact_year",
+    "title": "PAW Patrol: The Dino Movie",
+    "year": "2026"
   },
   "peppermint candy|1999": {
     "imdbID": "tt0247613",
@@ -3671,6 +3737,12 @@
     "title": "Six: The Musical Live!",
     "year": "2025"
   },
+  "slc punk|1998": {
+    "imdbID": "tt0133189",
+    "source": "exact",
+    "title": "SLC Punk!",
+    "year": "1998"
+  },
   "smithereens|1982": {
     "imdbID": "tt0084698",
     "source": "exact",
@@ -3916,6 +3988,12 @@
     "source": "exact_year",
     "title": "Teen Wolf",
     "year": "1985"
+  },
+  "terminator 2: judgement day|2017": {
+    "imdbID": "tt11890320",
+    "source": "search",
+    "title": "Terminator 2: Judgement Day Sweded!",
+    "year": "2017"
   },
   "terminator 2: judgment day|1991": {
     "imdbID": "tt0103064",
@@ -4613,6 +4691,12 @@
     "title": "The Silence",
     "year": "2025"
   },
+  "the sky trembles and the earth is afraid and the two eyes are not brothers|2015": {
+    "imdbID": "tt4881172",
+    "source": "exact",
+    "title": "The Sky Trembles and the Earth Is Afraid and the Two Eyes Are Not Brothers",
+    "year": "2015"
+  },
   "the snake girl and the silver-haired witch|1968": {
     "imdbID": "tt0142360",
     "source": "exact_year",
@@ -4840,6 +4924,12 @@
     "source": "exact_year",
     "title": "Throw Down",
     "year": "2004"
+  },
+  "ticks|1993": {
+    "imdbID": "tt0108339",
+    "source": "exact_year",
+    "title": "Ticks",
+    "year": "1993"
   },
   "tie me up, tie me down!|1989": {
     "imdbID": "tt0101026",
@@ -5284,6 +5374,12 @@
     "source": "exact_year",
     "title": "White Material",
     "year": "2009"
+  },
+  "white nights|1957": {
+    "imdbID": "tt0050782",
+    "source": "exact_year",
+    "title": "White Nights",
+    "year": "1957"
   },
   "who moves america|2026": {
     "imdbID": "tt28303275",
