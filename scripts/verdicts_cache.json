@@ -186,12 +186,12 @@
   },
   "tt37287335": {
     "verdict": "WATCH",
-    "reason": "Curry Barker delivers genuine horror-romance tension in a sharp 108 minutes that respects both genres. The setup—a broken wish with romantic consequences—has teeth, and Metrograph's print ensures the visual language lands on a real screen.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "reason": "Barker delivers a sharp horror-romance that earns its high marks with genuine craft and a premise that actually lands. The Metrograph screening on DCP gives the film's visual language the clarity it needs.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b66ef2b579b654185775fe7926399a9dda1c98b5c8ba2da62d54dc0713f377fe"
+    "source_hash": "f55b8d8d2da627578989dd7f07ffe035903c0731d48b313f7c486f5aba945e80"
   },
   "tt32565993": {
     "verdict": "SKIP",
@@ -3621,22 +3621,22 @@
     "generated_at": "2026-05-27T16:07:46.447362"
   },
   "tt29355505": {
-    "verdict": "WATCH",
-    "reason": "Pixar's core franchise still delivers the goods when it matters. Stanton's touch on the ending and Harris's direction of the middle act prove the story has somewhere genuine left to go.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "verdict": "SKIP",
+    "reason": "Skip it; the theatrical experience adds nothing to what you'll get at home in a few months. Pixar's toy box is running on fumes after four films already told this story, and 102 minutes of familiar beats won't justify the ticket price.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "88a280914e67e1855f3e704056ad1eedb67f39bb8a0c335a58ab067adf405800"
+    "source_hash": "5a81b39c248c10713700af6438aa58b911a543944ba35be332b98b30f6617379"
   },
   "tt15047880": {
     "verdict": "DEPENDS",
-    "reason": "Spielberg's latest has the scale and craft you want on a theater screen, but the premise collapses under its own weight once the initial shock wears off. The 145 minutes test your patience with repetitive conversations about whether humanity is ready for the truth.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Spielberg working at feature length with a UFO premise has theatrical appeal, but the runtime and mystery-box structure demand patience on opening weekend. The 145-minute runtime tests whether the revelation justifies the buildup, and that's a gamble better taken when you're fully committed.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "c6f7d81864a12b426f08b26bb371f8c9b8826987a36d18175a037a60523c3e80"
+    "source_hash": "15bfa1c85ad24be9c5f25960a490cf67eaea6e525b4364178928f444ec86241d"
   },
   "find-your-friends-w-live-q-a": {
     "verdict": "DEPENDS",
@@ -4062,12 +4062,12 @@
   },
   "tt8814476": {
     "verdict": "SKIP",
-    "reason": "Skip it; this is a low-stakes superhero entry that Craig Gillespie cannot salvage with style alone. The theatrical experience offers nothing that justifies the runtime or ticket price over a streaming release in three months.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Skip it; Craig Gillespie's track record with superhero material is uneven, and this lands as disposable franchise work without theatrical necessity. The 108-minute runtime and lack of special format screenings signal that this is built for streaming comfort, not the big screen.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "5dba4025392ebdafc5601fdfde84294637966b15a73294f693d74d71f76a80c0"
+    "source_hash": "d98c08e295c952b0080c73266c1dcfa3e0a2ebd7f674b591b5901c8e087fd28a"
   },
   "tt1366409": {
     "verdict": "SKIP",
@@ -4075,13 +4075,13 @@
     "generated_at": "2026-06-03T17:09:22.943668"
   },
   "tt36543744": {
-    "verdict": "DEPENDS",
-    "reason": "A tender animated documentary about motherhood and distance that earns its runtime, but the intimate phone-call structure works better in solitude than in a theater full of strangers. The hand-drawn animation captures the texture of voices and memory with genuine warmth, making this a film that rewards a quiet viewing at home or a late-night screening where you can sit alone.",
-    "generated_at": "2026-07-18T13:19:04.517518",
+    "verdict": "WATCH",
+    "reason": "A tender animated film about mother and daughter separated by an ocean, made with real affection for its characters and their fractured intimacy. The hand-drawn work captures the texture of long-distance love in ways live-action cannot, and Metrograph's presentation honors the filmmakers' visual specificity.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "30031a750c415cc15e68711562b322b2aaa70694cc952d0f3af787f22be91cfe"
+    "source_hash": "25b281a1b6ed0703472dc8f5449496eb82ea366fcbfb5f1484526ed0831a45ce"
   },
   "hb-studio-presents-cleopatra": {
     "verdict": "DEPENDS",
@@ -4124,13 +4124,13 @@
     "generated_at": "2026-06-03T17:09:22.943668"
   },
   "tt32890033": {
-    "verdict": "DEPENDS",
-    "reason": "Skip the multiplex unless you have kids in tow; it's lightweight Minions formula with decent animation but no reason to catch it tonight instead of streaming later. Pierre Coffin's direction is competent but the 90-minute runtime and formulaic plot suggest this plays just fine on a smaller screen at home.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "verdict": "SKIP",
+    "reason": "Skip it; the Minions formula has exhausted itself, and a 90-minute spin-off about creature-hunting in 1920s Hollywood stretches the bit too thin. The runtime and premise suggest a film designed to occupy children during a weekend matinee, not to justify a subway trip for anyone over twelve.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "0aa4e23a6f69389e6716da35c418f267540361aa84731f0889ecd522d7681525"
+    "source_hash": "e8e2f58ed9bfc47e0f8d0481a53529ba9400d1cf2bbe88f18e8c9647443f1d06"
   },
   "alamo-crafthouse-toy-story-5": {
     "verdict": "DEPENDS",
@@ -4467,12 +4467,12 @@
   },
   "tt14173636": {
     "verdict": "WATCH",
-    "reason": "Olivia Wilde directs a sharp comedy-drama about marriage and desire that lands its tonal shifts without losing sight of the characters' real stakes. The dinner-party setup becomes a pressure cooker for genuine emotional revelation, not just plot mechanics.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "reason": "Olivia Wilde delivers sharp, grown-up comedy about marriage and desire with real bite and momentum. The dinner-party setup lets the tension build naturally across a brisk runtime that respects your time.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "7b19d7736d86c468e3695f6b2298a39d8ec89e38a0ee07b98b450af565bc6aa9"
+    "source_hash": "b6fc59f8899413acec3ba3b98fb72eccc9c40b4371294348fadf4d04502ef59e"
   },
   "the-invite-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -4916,12 +4916,12 @@
   },
   "tt27419466": {
     "verdict": "SKIP",
-    "reason": "This live-action remake fails to justify its existence and squanders the theatrical medium on a hollow retread of superior source material. The execution is flat enough that you're better off rewatching the 2016 animated film at home.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Skip it; the live-action remake strips away the animated film's visual invention and cultural specificity for a generic action vehicle. Thomas Kail's direction has not earned the benefit of the doubt on a project this creatively hollow.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "c9458447d824a5aac04fa70778c45bf67aef88cbc3b2fef8705df9755be558a8"
+    "source_hash": "0bf57a5bb621564b1b708de727593184d031429bfc3abcfc122585b07e8b9fe8"
   },
   "tt0369339": {
     "verdict": "WATCH",
@@ -5177,12 +5177,12 @@
   },
   "tt36834010": {
     "verdict": "DEPENDS",
-    "reason": "David Wain knows how to land a joke, but the premise wears thin fast and this plays better as a rental than a full-price ticket. The 93-minute runtime suggests even the film itself doesn't trust the concept to sustain a feature.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "David Wain's comedic timing can salvage thin premises, but this one runs short enough that a misfire feels like wasted potential rather than a risk worth taking. The 93-minute runtime suggests the studio already knew it didn't have enough material to sustain the joke.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "54c37671850b39576e88292a15d2f67fd921d901f2566e708aaf96bd13322989"
+    "source_hash": "0205f39ac7ba9550f0e77a476e64753e4041f5ade257480402aa0783a31f98d5"
   },
   "la-collectionneuse": {
     "verdict": "DEPENDS",
@@ -5236,12 +5236,12 @@
   },
   "tt31170389": {
     "verdict": "DEPENDS",
-    "reason": "Vanicek's sequel has enough craft to justify a theater trip, but the 4DX gimmick across most venues suggests the studio is compensating for an uneven film. Skip the motion seats and catch it at Nitehawk or Alamo if the premise intrigues you on its own.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "reason": "Skip the 4DX gimmick and catch this at a regular theater if the premise interests you. Vanicek's direction has moments of style, but the film doesn't justify the trip unless you're committed to franchise horror tonight.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "05724d742baea5b23aa049dd8fae7355545fe859740533ebfae31d6f9bf05f53"
+    "source_hash": "9c6f19e8eee3b63b030f05029f313ed70520508572528e26b3dcddef13b83bbc"
   },
   "tt0472458": {
     "verdict": "WATCH",
@@ -5322,12 +5322,12 @@
   },
   "tt32104007": {
     "verdict": "SKIP",
-    "reason": "Skip it; this is a formulaic biographical action film that hits the familiar beats of the prestige biopic without adding anything new to the genre. Jon Erwin's direction prioritizes spectacle over insight, and the 125-minute runtime stretches a thin premise across two hours that feel longer.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Skip it; Jon Erwin's biographical action film fails to justify the theatrical trip on craft or conviction. At 125 minutes and distributed to standard multiplexes, there's no format, venue, or directorial signature that makes the big screen essential.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "176df72be05e2eaac9c653065dc15dcdb5d83f43846394cbd010b79ba829a7da"
+    "source_hash": "72e05bbdd0c5457fa37cd77050d9e6900c2e6f374e4d9058218f6f0bb9d501e3"
   },
   "tt0108327": {
     "verdict": "SKIP",
@@ -5408,12 +5408,12 @@
   },
   "tt36629665": {
     "verdict": "DEPENDS",
-    "reason": "Refn's stylistic control over image and sound design can redeem weak material, but this one tests patience before it rewards it. The 109-minute runtime is punishing for a film that doesn't justify its own excess.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Refn's visual obsessions can carry a film even when the script falters, but this one tests that proposition hard. The 109 minutes demand patience for a premise that sounds more disposable than the director's best work.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "0791f996c148eb750037006945c2ac21bf283f13da624e24b5d31abad8c27fa8"
+    "source_hash": "41d43075dcbb92fa0b0fde334f6be907ee1b4c892443913001b7fbd9ac077b12"
   },
   "tt1135092": {
     "verdict": "DEPENDS",
@@ -7169,12 +7169,12 @@
   },
   "tt34383465": {
     "verdict": "DEPENDS",
-    "reason": "Bergholm builds genuine dread from maternal paranoia, but the premise stretches thin across 92 minutes and asks you to sit with ambiguity that may frustrate more than unsettle. The Finnish setting and claustrophobic family dynamics give the film texture, though it works better as a home viewing where you can pause and breathe.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Bergholm's follow-up to Eerie has real unease but stumbles when it should grip hardest. The paranoia works until the film settles for psychological realism over the horror it keeps threatening to become.",
+    "generated_at": "2026-07-23T14:01:11.841573",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "aedad5f6e76939a7f63d787b202f3a1fb0830ed26a462be4f5df4e379138d1bd"
+    "source_hash": "8017dfb72994de74def32a9827b95c1bab37ce80e17b646f3e1c2618fdcdef37"
   },
   "tt0108339": {
     "verdict": "SKIP",
@@ -7238,5 +7238,14 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "e72521b45aff06c5eb3e46578919dc448a97293e69c430a223a3bf7a770dcec6"
+  },
+  "tt0164181": {
+    "verdict": "DEPENDS",
+    "reason": "Skip the trip unless you want a solid late-90s haunted-house thriller that holds up better than its reputation suggests. Koepp's direction is workmanlike, but the film earns its scares through atmosphere and a committed performance, making it worth a home viewing over the subway ride.",
+    "generated_at": "2026-07-23T14:01:11.841573",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "9d216b6a9e86222a3de8d5129db2a2d9e7fa4aea95f2677c1a1f308197c96845"
   }
 }
