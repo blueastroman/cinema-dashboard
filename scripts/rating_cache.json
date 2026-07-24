@@ -1007,6 +1007,12 @@
     "title": "Cosi Fan Tutte",
     "year": "2005"
   },
+  "coyote vs. acme|2026": {
+    "imdbID": "tt1756855",
+    "source": "search",
+    "title": "Coyote vs. Acme",
+    "year": "2026"
+  },
   "crack in the mirror|1960": {
     "imdbID": "tt0053735",
     "source": "exact_year",
@@ -1588,6 +1594,12 @@
     "source": "exact_year",
     "title": "Frances Ha",
     "year": "2012"
+  },
+  "franz|1972": {
+    "imdbID": "tt0205073",
+    "source": "exact",
+    "title": "Franz",
+    "year": "1972"
   },
   "fright night|1985": {
     "imdbID": "tt0089175",
@@ -3142,6 +3154,12 @@
     "source": "exact",
     "title": "Paranoid Park",
     "year": "2007"
+  },
+  "parisienne|2015": {
+    "imdbID": "tt4223366",
+    "source": "exact",
+    "title": "Parisienne",
+    "year": "2015"
   },
   "parsifal|1982": {
     "imdbID": "tt0084476",
