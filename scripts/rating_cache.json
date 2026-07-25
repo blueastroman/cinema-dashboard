@@ -145,7 +145,7 @@
   },
   "aferim!|2015": {
     "imdbID": "tt4374460",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Aferim!",
     "year": "2015"
   },
@@ -161,15 +161,9 @@
     "title": "Afrotopia",
     "year": "2025"
   },
-  "after hours": {
-    "imdbID": "tt37751185",
-    "source": "exact_year",
-    "title": "After Hours",
-    "year": "2025"
-  },
   "after hours|1985": {
     "imdbID": "tt0088680",
-    "source": "search",
+    "source": "exact",
     "title": "After Hours",
     "year": "1985"
   },
@@ -325,7 +319,7 @@
   },
   "angel heart|1987": {
     "imdbID": "tt0092563",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Angel Heart",
     "year": "1987"
   },
@@ -677,6 +671,12 @@
     "title": "Boyfriends and Girlfriends",
     "year": "1987"
   },
+  "bram stoker's dracula|2007": {
+    "imdbID": "tt13629658",
+    "source": "search",
+    "title": "Bram Stoker's Dracula: A Documentary",
+    "year": "2007"
+  },
   "breaking the waves|1996": {
     "imdbID": "tt0115751",
     "source": "exact_year",
@@ -826,6 +826,12 @@
     "source": "exact_year",
     "title": "ChaO",
     "year": "2025"
+  },
+  "chasing butterflies|2009": {
+    "imdbID": "tt0871857",
+    "source": "exact",
+    "title": "Chasing Butterflies",
+    "year": "2009"
   },
   "child of divorce|1946": {
     "imdbID": "tt0038411",
@@ -1279,7 +1285,7 @@
   },
   "e.t. the extra-terrestrial|1982": {
     "imdbID": "tt0083866",
-    "source": "exact_year",
+    "source": "exact",
     "title": "E.T. the Extra-Terrestrial",
     "year": "1982"
   },
@@ -1393,7 +1399,7 @@
   },
   "europa|1991": {
     "imdbID": "tt0101829",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Europa",
     "year": "1991"
   },
@@ -1759,7 +1765,7 @@
   },
   "good time|2017": {
     "imdbID": "tt4846232",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Good Time",
     "year": "2017"
   },
@@ -1870,6 +1876,12 @@
     "source": "exact_year",
     "title": "Happy as Lazzaro",
     "year": "2018"
+  },
+  "happy hour|2015": {
+    "imdbID": "tt4780662",
+    "source": "search",
+    "title": "Happy Hour",
+    "year": "2015"
   },
   "happy together|1997": {
     "imdbID": "tt0118845",
@@ -2062,6 +2074,12 @@
     "source": "exact_year",
     "title": "Imitation of Life",
     "year": "1959"
+  },
+  "in my skin|2002": {
+    "imdbID": "tt0337961",
+    "source": "exact",
+    "title": "In My Skin",
+    "year": "2002"
   },
   "in the grey|2026": {
     "imdbID": "tt27681354",
@@ -2269,7 +2287,7 @@
   },
   "la haine|1995": {
     "imdbID": "tt0113247",
-    "source": "exact_year",
+    "source": "exact",
     "title": "La haine",
     "year": "1995"
   },
@@ -2815,7 +2833,7 @@
   },
   "my heart is that eternal rose|1989": {
     "imdbID": "tt0093944",
-    "source": "exact_year",
+    "source": "exact",
     "title": "My Heart Is That Eternal Rose",
     "year": "1989"
   },
@@ -2827,13 +2845,13 @@
   },
   "my name ain't suzie|1985": {
     "imdbID": "tt0089651",
-    "source": "exact_year",
+    "source": "exact",
     "title": "My Name Ain't Suzie",
     "year": "1985"
   },
   "my night at maud's|1969": {
     "imdbID": "tt0064612",
-    "source": "exact_year",
+    "source": "exact",
     "title": "My Night at Maud's",
     "year": "1969"
   },
@@ -3065,6 +3083,12 @@
     "title": "Orlando",
     "year": "1992"
   },
+  "orphan|2009": {
+    "imdbID": "tt1148204",
+    "source": "exact",
+    "title": "Orphan",
+    "year": "2009"
+  },
   "otello|1986": {
     "imdbID": "tt0091699",
     "source": "exact_year",
@@ -3179,6 +3203,12 @@
     "title": "Past Lives",
     "year": "2023"
   },
+  "pastorale|1975": {
+    "imdbID": "tt0124046",
+    "source": "exact",
+    "title": "Pastorale",
+    "year": "1975"
+  },
   "paw patrol: the dino movie|2026": {
     "imdbID": "tt29356163",
     "source": "exact_year",
@@ -3202,6 +3232,12 @@
     "source": "exact",
     "title": "Peter Pan",
     "year": "1953"
+  },
+  "petite maman|2021": {
+    "imdbID": "tt13204490",
+    "source": "exact",
+    "title": "Petite Maman",
+    "year": "2021"
   },
   "phantom beirut|1998": {
     "imdbID": "tt0185605",
@@ -3406,6 +3442,12 @@
     "source": "exact",
     "title": "Rate It X",
     "year": "1986"
+  },
+  "raw|2016": {
+    "imdbID": "tt4954522",
+    "source": "exact",
+    "title": "Raw",
+    "year": "2016"
   },
   "razor|2026": {
     "imdbID": "tt39286108",
@@ -4015,7 +4057,7 @@
   },
   "tampopo|1985": {
     "imdbID": "tt0092048",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Tampopo",
     "year": "1985"
   },
@@ -5153,6 +5195,12 @@
     "title": "True North",
     "year": "2006"
   },
+  "true romance|1993": {
+    "imdbID": "tt0108399",
+    "source": "exact",
+    "title": "True Romance",
+    "year": "1993"
+  },
   "turtle vision|1991": {
     "imdbID": "tt0103142",
     "source": "exact_year",
@@ -5315,6 +5363,12 @@
     "title": "Wake in Fright",
     "year": "1971"
   },
+  "walk the walk|1970": {
+    "imdbID": "tt0235011",
+    "source": "exact",
+    "title": "Walk the Walk",
+    "year": "1970"
+  },
   "walkabout|1971": {
     "imdbID": "tt0067959",
     "source": "exact",
@@ -5338,6 +5392,12 @@
     "source": "exact_year",
     "title": "We're Nothing at All",
     "year": "2025"
+  },
+  "welcome ii the terrordome|1995": {
+    "imdbID": "tt0111681",
+    "source": "exact",
+    "title": "Welcome II the Terrordome",
+    "year": "1995"
   },
   "wendigo|2011": {
     "imdbID": "tt29332321",
@@ -5381,6 +5441,12 @@
     "title": "What Ever Happened to Baby Jane?",
     "year": "1962"
   },
+  "what lies beneath|2000": {
+    "imdbID": "tt0161081",
+    "source": "exact",
+    "title": "What Lies Beneath",
+    "year": "2000"
+  },
   "what time is it there?|2001": {
     "imdbID": "tt0269746",
     "source": "exact",
@@ -5395,7 +5461,7 @@
   },
   "when marnie was there|2014": {
     "imdbID": "tt3398268",
-    "source": "exact_year",
+    "source": "exact",
     "title": "When Marnie Was There",
     "year": "2014"
   },
@@ -5453,6 +5519,12 @@
     "title": "Wild Style",
     "year": "1982"
   },
+  "withnail and i|1987": {
+    "imdbID": "tt0094336",
+    "source": "exact",
+    "title": "Withnail and I",
+    "year": "1987"
+  },
   "wolf children|2012": {
     "imdbID": "tt2140203",
     "source": "exact_year",
@@ -5464,6 +5536,12 @@
     "source": "exact",
     "title": "Woman of Fire",
     "year": "1971"
+  },
+  "women on the verge of a nervous breakdown|1988": {
+    "imdbID": "tt0095675",
+    "source": "exact",
+    "title": "Women on the Verge of a Nervous Breakdown",
+    "year": "1988"
   },
   "yes": {
     "imdbID": "tt39328163",
