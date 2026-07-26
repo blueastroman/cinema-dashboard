@@ -3875,6 +3875,12 @@
     "title": "Soylent Green",
     "year": "1973"
   },
+  "space jam|1996": {
+    "imdbID": "tt0117705",
+    "source": "exact",
+    "title": "Space Jam",
+    "year": "1996"
+  },
   "spider-man: brand new day|2026": {
     "imdbID": "tt22084616",
     "source": "exact_year",
@@ -5397,6 +5403,12 @@
     "imdbID": "tt0111681",
     "source": "exact",
     "title": "Welcome II the Terrordome",
+    "year": "1995"
+  },
+  "welcome to the dollhouse|1995": {
+    "imdbID": "tt0114906",
+    "source": "exact",
+    "title": "Welcome to the Dollhouse",
     "year": "1995"
   },
   "wendigo|2011": {
