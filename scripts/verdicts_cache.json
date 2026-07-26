@@ -104,7 +104,11 @@
   "tt32252801": {
     "verdict": "WATCH",
     "reason": "See this intimate family portrait while it has theatrical momentum. Romvari shoots through a child's perspective with uncommon sensitivity to how kids actually process adult tensions.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "5d75b381a7d8bd58561572ab4d4fd7666b20a7be22e15f1a9f397060c00f7846"
   },
   "tt0047396": {
     "verdict": "WATCH",
@@ -2744,7 +2748,11 @@
   "tt0114906": {
     "verdict": "DEPENDS",
     "reason": "Solondz nails suburban adolescent hell with uncomfortable precision that many will find too harsh. Heather Matarazzo's fearless performance anchors the cringe comedy perfectly.",
-    "generated_at": "2026-05-20T15:58:01.122784"
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "7e2dfb289e6e50193fcd4d06b0d9530ee27f18371ce8ad0594600f008518b0a5"
   },
   "tt0256009": {
     "verdict": "WATCH",
@@ -3674,7 +3682,11 @@
   "tt0415306": {
     "verdict": "DEPENDS",
     "reason": "Skip the anniversary lap unless you need the big screen energy for McKay's NASCAR satire. The theatrical experience adds little that streaming cannot deliver for this comedy.",
-    "generated_at": "2026-05-27T16:07:46.447362"
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "43945fa1319894375d7209adc68c22cad7267b6477c13c1fc2bc2bbcbc399c6a"
   },
   "masters-of-the-universe-2026-hdr-by-barco-early-access": {
     "verdict": "SKIP",
@@ -4503,12 +4515,12 @@
   },
   "tt33764258": {
     "verdict": "WATCH",
-    "reason": "Nolan's 172-minute epic demands the theatrical scale he designed for—catch it in 70mm or IMAX before the window closes. The scope of this story needs the screen size that only a cinema can give you.",
-    "generated_at": "2026-07-24T13:47:40.000885",
+    "reason": "Nolan's epic scope demands the theatrical scale this story requires. Catch it on 35mm at Nitehawk Prospect Park if you can—film stock gives classical material the weight it deserves.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "0c29e12df9a0a49287d2771414f577ae113b3538732527c6f21239ac557b7be3"
+    "source_hash": "836051c1c49d29eae0bed1e2d9d102eeec0660a4054629b82b4f507be665a1ab"
   },
   "the-phantom-of-liberty-le-fantome-de-la-liberte": {
     "verdict": "WATCH",
@@ -5230,12 +5242,12 @@
   },
   "tt0095562": {
     "verdict": "WATCH",
-    "reason": "See this restored 1988 Lino Brocka film on the big screen—it's a rare chance to experience a major work of Philippine cinema about survival and shame in Manila's sex trade. The restoration at IFC Center brings back the texture and detail of Brocka's unflinching mise-en-scène that streaming cannot match.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "reason": "Lino Brocka's late masterwork on survival and exploitation in Manila deserves a theater trip, especially in restoration. The 136-minute runtime demands a big screen to feel the weight of its social realism and the texture of its 1988 Manila setting.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "eae68e756e5bc110f55847cb9d9a902f4ae975ed4bddd3b45faa76b989545b92"
+    "source_hash": "0c48f6143c80de3494c8b18f50bb150f9d578ac3664d8ff2f9ac175dc3ae6e8d"
   },
   "tt0099871": {
     "verdict": "WATCH",
@@ -5402,12 +5414,12 @@
   },
   "tt38551209": {
     "verdict": "DEPENDS",
-    "reason": "Koreeda's experiment with grief and artificial companionship has real emotional weight, but the execution is uneven and the premise asks more of the viewer than the film earns. The humanoid concept works best as metaphor rather than plot device, and the 126 minutes feel stretched.",
-    "generated_at": "2026-07-25T13:27:41.274056",
+    "reason": "Koreeda's first science fiction film explores grief through an unsettling premise, but the execution feels thin and the emotional payoff is uneven. The 126-minute runtime asks patience for a film that works better as a thought experiment than as lived drama.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "41ecbb6433a778d27cc4427cabad275e7e94f3f6a66b028987ae881e2e77cb83"
+    "source_hash": "2e9b1a4863c641060d4396608c652adc56f7654f19ffe779ab3b40cf456ab0f9"
   },
   "tt0430357": {
     "verdict": "DEPENDS",
@@ -5419,13 +5431,13 @@
     "source_hash": "39ac4ce95e57092a1998e86e8fc7997d1152ea9aed340fe9e7f885c5a838fc8c"
   },
   "tt36629665": {
-    "verdict": "SKIP",
-    "reason": "Skip it; Refn's recent work has lost the visual discipline that made his style work, and this plays like an uncontrolled descent into empty provocation. At 109 minutes, you're watching a director indulge every instinct without an editor willing to say no.",
-    "generated_at": "2026-07-25T13:27:41.274056",
+    "verdict": "DEPENDS",
+    "reason": "Skip it unless you're committed to Refn's sensory excess over narrative coherence. The film is uneven and slight, but if you trust his eye for image and color, a theatrical screening at Nitehawk or Alamo Drafthouse beats waiting for streaming.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "061c4d34fd81c02969299cfaf836f4f13f1a49279c985e0a6e5258d2b8dc86dd"
+    "source_hash": "aa8fc3dc807823bd6a93e698d92ec2770cfbc894d08be6017a5f670bd3e5817f"
   },
   "tt1135092": {
     "verdict": "DEPENDS",
@@ -5532,13 +5544,13 @@
     "source_hash": "d8e631818d5a39414deb8217a08d5ec160aa82c0f3ef30f203ce4eb196698e10"
   },
   "tt0089651": {
-    "verdict": "SKIP",
-    "reason": "Skip it; a 1985 independent drama about sex work lacks the directorial vision or historical weight that would justify the archival hunt. Angela Chan's sole feature has no theatrical availability or restoration that would make tonight special.",
-    "generated_at": "2026-07-18T13:19:04.517518",
+    "verdict": "DEPENDS",
+    "reason": "A rare 1985 drama from Angela Chan that deserves rediscovery, but the 96-minute runtime and modest theatrical footprint make this more suited to a dedicated evening than a casual outing. Metrograph's DCP restoration gives the image clarity that a smaller independent film from this era rarely receives in revival.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "bf4321ee4c1af53af1bdbe15af4c07118e9d078eefd5250dd23dcf00b82f36ec"
+    "source_hash": "90fd69d7ae2e1530aea48c783584e0876abd60dd10e9152c0808652c922dda1d"
   },
   "once-upon-a-time-in-beirut": {
     "verdict": "SKIP",
@@ -6623,12 +6635,12 @@
   },
   "tt0319343": {
     "verdict": "WATCH",
-    "reason": "A Christmas movie that actually earns its warmth without sentimentality, and Favreau keeps the energy high enough that the runtime flies by. Will Ferrell's commitment to the bit makes the fish-out-of-water setup work better in a theater full of people who already know every line.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "A genuinely funny Christmas film that earns its warmth through sharp writing and Will Ferrell's committed performance as an adult man with the earnestness of a child. Favreau directs with enough visual wit to make the fish-out-of-water premise work for repeat viewings, and the NYC setting gives it theatrical texture that streaming flattens.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f5c6007a4edb0233e758e68f8c6218c6870fbba124210baefd1d66456b3b302a"
+    "source_hash": "9591682958a89c4d0cc4b3d68c454d17b362ce608c8546716d795500d7d945ce"
   },
   "tt0054130": {
     "verdict": "WATCH",
@@ -6704,12 +6716,12 @@
   },
   "tt2012616": {
     "verdict": "DEPENDS",
-    "reason": "Skip it if you need a tight revenge script, but Ponciroli brings enough grit to a familiar setup that fans of 70s crime cinema should catch it in theaters. The Detroit setting and period detail work harder than the plot itself.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Skip unless you're in the mood for straightforward revenge pulp with a solid genre setup. Potsy Ponciroli's 1970s Detroit noir has the bones of a B-movie that works on mood and period detail more than narrative surprises.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f8b0d7faf48d81b4d253ef2825a1469bca9e646a6df1cc3f2ab596db4af0a48d"
+    "source_hash": "ac809b3e75fbe7d42132d9168dcf585f2baba3a59a6da895e2b1cdfa05dce044"
   },
   "tt0337563": {
     "verdict": "SKIP",
@@ -6929,12 +6941,12 @@
   },
   "mary-oliver-saved-by-the-beauty-of-the-world": {
     "verdict": "WATCH",
-    "reason": "A luminous film about a poet who found the sacred in ordinary nature and refused to apologize for it. The IFC Center screening captures the quiet intensity of Oliver's life and work in a way that rewards full attention on the big screen.",
-    "generated_at": "2026-07-20T14:08:58.425357",
+    "reason": "Skip the streaming queue and catch this at IFC Center while it plays—a rare theatrical chance to sit with Oliver's voice in a room full of people who need it. The film moves through her life with the same attention to detail she brought to watching the world, letting silence do half the work.",
+    "generated_at": "2026-07-26T13:25:19.491441",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "90e04a760924f1028b16df2bd9a5dcdb7d4863d8145f9f35f1ccbb9a760638eb"
+    "source_hash": "4e9736b3c73cf38acf260ec8946325c8da0a1cbb9955099f7b9e2e66632b05b4"
   },
   "tt0230600": {
     "verdict": "WATCH",
@@ -7466,5 +7478,32 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "4d49d4f07379165ac13a7c1bb346c384649ab061a96ab6a77caf584a0780df72"
+  },
+  "tt33045418": {
+    "verdict": "WATCH",
+    "reason": "Watch it; a tight 91-minute thriller that wrings genuine dread from a single premise without overstaying its welcome. Brock Bodell sustains tension through constraint—most of the film happens in and around a moving trailer, which forces the camera and sound design to do the real work.",
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "0ad38c01da02622c575535d137bebe401ae1fe3e944fe2f4a11d229180e29298"
+  },
+  "tt0117705": {
+    "verdict": "SKIP",
+    "reason": "Skip it; the live-action-animation hybrid feels dated and the basketball sequences don't justify the runtime. Michael Jordan's acting abilities haven't improved in thirty years, and the Looney Tunes are sidelined in their own movie.",
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "b902e6b68df3557c78e7444f915564ee5162ac85231ce5006b67d85d3eb8a127"
+  },
+  "saw-v-on": {
+    "verdict": "DEPENDS",
+    "reason": "Skip it unless you're deep in the franchise or want to see practical gore effects on 35mm film. The archival print at Alamo Drafthouse is the only reason to leave home for this one.",
+    "generated_at": "2026-07-26T13:25:19.491441",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "df5f85bba8d9419d9858f168ff40992b3ffe9ac0d34ec0e85e775e2ffb589fc2"
   }
 }
