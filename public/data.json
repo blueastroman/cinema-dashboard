@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T09:25:03.447597-04:00",
+  "generated_at": "2026-07-27T10:37:14.471358-04:00",
   "week_of": "July 31, 2026",
   "theaters": [
     "Alamo Drafthouse Downtown Brooklyn",
@@ -733,16 +733,6 @@
           "ticket_url": "https://filmforum.org/film/remake",
           "schedule": [
             {
-              "day": "Sun Jul 26",
-              "times": [
-                "8:50pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "8:50pm": "https://filmforum.org/film/remake"
-              }
-            },
-            {
               "day": "Mon Jul 27",
               "times": [
                 "8:50pm"
@@ -818,16 +808,6 @@
           "name": "Film Forum",
           "ticket_url": "https://filmforum.org/film/shermans-march",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "6:40pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "6:40pm": "https://filmforum.org/film/shermans-march"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -1025,20 +1005,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/hadestown-the-musical?cinemaId=2102&sessionId=42651",
+          "ticket_url": "https://drafthouse.com/nyc/show/hadestown-the-musical?cinemaId=2102&sessionId=42652",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "4:00pm",
-                "7:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "4:00pm": "https://drafthouse.com/nyc/show/hadestown-the-musical?cinemaId=2102&sessionId=42651",
-                "7:30pm": "https://drafthouse.com/nyc/show/hadestown-the-musical?cinemaId=2102&sessionId=42650"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -1149,16 +1117,6 @@
           "name": "Film Forum",
           "ticket_url": "https://filmforum.org/film/the-third-man-2026",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:50pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:50pm": "https://filmforum.org/film/the-third-man-2026"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -1347,52 +1305,6 @@
       "verdict": {
         "verdict": "WATCH",
         "reason": "A family film with the visual precision and emotional intelligence of a great animated feature, executed in live action. Paul King's framing, blocking, and color sense elevate every frame beyond what the premise demands."
-      }
-    },
-    {
-      "id": "tt0055254",
-      "title": "One Hundred and One Dalmatians",
-      "ratings": {
-        "imdbID": "tt0055254",
-        "rt": "98%",
-        "imdb": "7.3",
-        "metacritic": "83",
-        "letterboxd": "3.6",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZTIyMzVmNmItYWFkNS00YWJkLTk3YTEtNTVhMmQ0ODFjYmY1XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Adventure, Comedy",
-        "runtime": "79 min",
-        "plot": "When a litter of Dalmatian puppies are abducted by the minions of Cruella De Vil, the owners must find them before she uses them for a diabolical fashion statement.",
-        "year": "1961",
-        "director": "Clyde Geronimi, Hamilton Luske, Wolfgang Reitherman"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30387&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:10am"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:10am": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30387&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "35mm"
-          ]
-        }
-      ],
-      "special_formats": [
-        "35mm"
-      ],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "A foundational Disney film that still works as pure entertainment on the big screen. Cruella remains one of animation's most magnetic villains, and the hand-drawn chase sequences have a kinetic energy that streaming flattens."
       }
     },
     {
@@ -1597,18 +1509,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2103&sessionId=92148",
+          "ticket_url": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2103&sessionId=94149",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2103&sessionId=92148"
-              }
-            },
             {
               "day": "Tue Jul 28",
               "times": [
@@ -1624,20 +1526,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2101&sessionId=132455",
+          "ticket_url": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2101&sessionId=134614",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:30pm",
-                "6:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2101&sessionId=132455",
-                "6:15pm": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2101&sessionId=134508"
-              }
-            },
             {
               "day": "Tue Jul 28",
               "times": [
@@ -1646,23 +1536,6 @@
               "date": "2026-07-28",
               "ticket_urls": {
                 "1:15pm": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2101&sessionId=134614"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2102&sessionId=42846",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://drafthouse.com/nyc/show/rashomon?cinemaId=2102&sessionId=42846"
               }
             }
           ],
@@ -1677,6 +1550,58 @@
       "prestige_tags": [
         "CRITERION COLLECTION"
       ]
+    },
+    {
+      "id": "tt32252801",
+      "title": "Blue Heron",
+      "ratings": {
+        "imdbID": "tt32252801",
+        "rt": "98%",
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGFiNGNmY2YtMmZkNS00NzkwLWFlNGYtNzYzMjI1ZTM0NmJlXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama",
+        "runtime": "90 min",
+        "plot": "A family of six settles into their new home on Vancouver Island as internal dynamics are slowly revealed through the eyes of the youngest child.",
+        "year": "2025",
+        "director": "Sophy Romvari"
+      },
+      "theaters": [
+        {
+          "name": "Nitehawk Cinema Williamsburg",
+          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23558903/",
+          "schedule": [
+            {
+              "day": "Sat Aug 1",
+              "times": [
+                "11:15am"
+              ],
+              "date": "2026-08-01",
+              "ticket_urls": {
+                "11:15am": "https://nitehawkcinema.com/williamsburg/purchase/23558903/"
+              }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:15am"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:15am": "https://nitehawkcinema.com/williamsburg/purchase/23558964/"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "See this intimate family portrait while it has theatrical momentum. Romvari shoots through a child's perspective with uncommon sensitivity to how kids actually process adult tensions."
+      }
     },
     {
       "id": "tt0085180",
@@ -1698,18 +1623,8 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30396&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30407&visLang=1",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "8:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "8:15pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30396&visLang=1"
-              }
-            },
             {
               "day": "Sat Aug 1",
               "times": [
@@ -1859,20 +1774,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569666~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569683~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "2:50 pm",
-                "8:45 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "2:50 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569666~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "8:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569672~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -1957,28 +1860,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94061",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94128",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:00pm",
-                "12:45pm",
-                "3:00pm",
-                "3:45pm",
-                "6:45pm",
-                "9:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94061",
-                "12:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94071",
-                "3:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94062",
-                "3:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94074",
-                "6:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94072",
-                "9:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2103&sessionId=94075"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -2044,34 +1927,11 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134543",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134563",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:30am",
-                "10:30am",
-                "1:30pm",
-                "2:30pm",
-                "4:30pm",
-                "7:45pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:30am": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134543",
-                "10:30am": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134528",
-                "1:30pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134527",
-                "2:30pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134682",
-                "4:30pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134526",
-                "7:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134531",
-                "10:30pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134540"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
-                "9:45am",
                 "10:30am",
                 "1:15pm",
                 "1:30pm",
@@ -2081,7 +1941,6 @@
               ],
               "date": "2026-07-27",
               "ticket_urls": {
-                "9:45am": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134579",
                 "10:30am": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134563",
                 "1:15pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134668",
                 "1:30pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2101&sessionId=134564",
@@ -2135,24 +1994,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=43986",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=44059",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:45pm",
-                "3:55pm",
-                "7:00pm",
-                "10:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:45pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=43986",
-                "3:55pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=43987",
-                "7:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=43988",
-                "10:00pm": "https://drafthouse.com/nyc/show/the-invite?cinemaId=2102&sessionId=44090"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -2200,24 +2043,8 @@
         },
         {
           "name": "BAM Rose Cinemas",
-          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57090",
+          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57094",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:40pm",
-                "4:20pm",
-                "6:50pm",
-                "9:20pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:40pm": "https://commerce.bam.org/booking/production/bestavailable/57090",
-                "4:20pm": "https://commerce.bam.org/booking/production/bestavailable/57091",
-                "6:50pm": "https://commerce.bam.org/booking/production/bestavailable/57092",
-                "9:20pm": "https://commerce.bam.org/booking/production/bestavailable/57093"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -2257,35 +2084,40 @@
                 "6:50pm": "https://commerce.bam.org/booking/production/bestavailable/57100",
                 "9:20pm": "https://commerce.bam.org/booking/production/bestavailable/57101"
               }
+            },
+            {
+              "day": "Fri Jul 31",
+              "times": [
+                "1:40pm",
+                "4:20pm",
+                "6:50pm",
+                "9:20pm"
+              ],
+              "date": "2026-07-31",
+              "ticket_urls": {
+                "1:40pm": "https://commerce.bam.org/booking/production/bestavailable/57355",
+                "4:20pm": "https://commerce.bam.org/booking/production/bestavailable/57356",
+                "6:50pm": "https://commerce.bam.org/booking/production/bestavailable/57357",
+                "9:20pm": "https://commerce.bam.org/booking/production/bestavailable/57358"
+              }
+            },
+            {
+              "day": "Sat Aug 1",
+              "times": [
+                "1:40pm"
+              ],
+              "date": "2026-08-01",
+              "ticket_urls": {
+                "1:40pm": "https://commerce.bam.org/booking/production/bestavailable/57359"
+              }
             }
           ],
           "special_formats": []
         },
         {
           "name": "Nitehawk Cinema Williamsburg",
-          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23535267/",
+          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23535371/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "2:50pm",
-                "5:20pm",
-                "7:50pm",
-                "10:20pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "2:50pm": "https://nitehawkcinema.com/williamsburg/purchase/23535267/",
-                "5:20pm": "https://nitehawkcinema.com/williamsburg/purchase/23535268/",
-                "7:50pm": "https://nitehawkcinema.com/williamsburg/purchase/23535272/",
-                "10:20pm": "https://nitehawkcinema.com/williamsburg/purchase/23535274/"
-              },
-              "time_attributes": {
-                "10:20pm": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -2355,29 +2187,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23539977/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538186/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "2:00pm",
-                "5:35pm",
-                "8:05pm",
-                "9:25pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "2:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23539977/",
-                "5:35pm": "https://nitehawkcinema.com/prospectpark/purchase/23539995/",
-                "8:05pm": "https://nitehawkcinema.com/prospectpark/purchase/23539991/",
-                "9:25pm": "https://nitehawkcinema.com/prospectpark/purchase/23539999/"
-              },
-              "time_attributes": {
-                "2:00pm": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -2661,64 +2472,11 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90776",
+          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90780",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:15am",
-                "10:45am",
-                "11:00am",
-                "11:30am",
-                "12:00pm",
-                "12:30pm",
-                "1:00pm",
-                "2:15pm",
-                "2:45pm",
-                "3:00pm",
-                "3:30pm",
-                "4:00pm",
-                "4:30pm",
-                "5:00pm",
-                "6:15pm",
-                "6:30pm",
-                "6:45pm",
-                "7:00pm",
-                "8:00pm",
-                "8:30pm",
-                "9:00pm",
-                "10:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:15am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90776",
-                "10:45am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94115",
-                "11:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94122",
-                "11:30am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94001",
-                "12:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90821",
-                "12:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94094",
-                "1:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94070",
-                "2:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90775",
-                "2:45pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94114",
-                "3:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94121",
-                "3:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94000",
-                "4:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90819",
-                "4:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94095",
-                "5:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94073",
-                "6:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90774",
-                "6:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94118",
-                "6:45pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94113",
-                "7:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94120",
-                "8:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90820",
-                "8:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94096",
-                "9:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94076",
-                "10:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90777"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
-                "10:00am",
                 "10:15am",
                 "11:00am",
                 "11:30am",
@@ -2742,7 +2500,6 @@
               ],
               "date": "2026-07-27",
               "ticket_urls": {
-                "10:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94131",
                 "10:15am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=90780",
                 "11:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94126",
                 "11:30am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2103&sessionId=94019",
@@ -2864,67 +2621,11 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134666",
+          "ticket_url": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2101&sessionId=133253",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:45am",
-                "10:00am",
-                "10:15am",
-                "11:15am",
-                "12:15pm",
-                "1:00pm",
-                "2:00pm",
-                "3:15pm",
-                "4:15pm",
-                "5:00pm",
-                "5:30pm",
-                "6:00pm",
-                "7:15pm",
-                "8:30pm",
-                "9:00pm",
-                "9:45pm",
-                "10:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:45am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134666",
-                "10:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131003",
-                "10:15am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134519",
-                "11:15am": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2101&sessionId=133250",
-                "12:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134521",
-                "1:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134509",
-                "2:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131004",
-                "3:15pm": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2101&sessionId=133251",
-                "4:15pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134525",
-                "5:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134518",
-                "5:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134515",
-                "6:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131005",
-                "7:15pm": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2101&sessionId=133249",
-                "8:30pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134532",
-                "9:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134512",
-                "9:45pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134655",
-                "10:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131006"
-              },
-              "time_attributes": {
-                "11:15am": [
-                  "HDR by Barco"
-                ],
-                "3:15pm": [
-                  "HDR by Barco"
-                ],
-                "7:15pm": [
-                  "HDR by Barco"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
-                "9:00am",
-                "9:15am",
-                "10:00am",
                 "11:15am",
                 "11:30am",
                 "12:00pm",
@@ -2943,9 +2644,6 @@
               ],
               "date": "2026-07-27",
               "ticket_urls": {
-                "9:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134546",
-                "9:15am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134550",
-                "10:00am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=131007",
                 "11:15am": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2101&sessionId=133253",
                 "11:30am": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134669",
                 "12:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2101&sessionId=134556",
@@ -3138,43 +2836,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2102&sessionId=43321",
+          "ticket_url": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2102&sessionId=43317",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:30am",
-                "1:00pm",
-                "2:00pm",
-                "3:30pm",
-                "5:00pm",
-                "6:00pm",
-                "7:30pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:30am": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2102&sessionId=43321",
-                "1:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43970",
-                "2:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43968",
-                "3:30pm": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2102&sessionId=43322",
-                "5:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43971",
-                "6:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43969",
-                "7:30pm": "https://drafthouse.com/nyc/event/hdr-by-barco-the-odyssey?cinemaId=2102&sessionId=43323",
-                "9:00pm": "https://drafthouse.com/nyc/show/the-odyssey?cinemaId=2102&sessionId=43972"
-              },
-              "time_attributes": {
-                "11:30am": [
-                  "HDR by Barco"
-                ],
-                "3:30pm": [
-                  "HDR by Barco"
-                ],
-                "7:30pm": [
-                  "HDR by Barco"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -3277,22 +2940,8 @@
         },
         {
           "name": "BAM Rose Cinemas",
-          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57072",
+          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57074",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm",
-                "4:40pm",
-                "8:20pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://commerce.bam.org/booking/production/bestavailable/57072",
-                "4:40pm": "https://commerce.bam.org/booking/production/bestavailable/57073",
-                "8:20pm": "https://commerce.bam.org/booking/production/bestavailable/57237"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -3340,41 +2989,56 @@
                 "4:00pm": "https://commerce.bam.org/booking/production/bestavailable/57080",
                 "7:30pm": "https://commerce.bam.org/booking/production/bestavailable/57081"
               }
+            },
+            {
+              "day": "Fri Jul 31",
+              "times": [
+                "1:00pm",
+                "4:40pm",
+                "8:20pm"
+              ],
+              "date": "2026-07-31",
+              "ticket_urls": {
+                "1:00pm": "https://commerce.bam.org/booking/production/bestavailable/57337",
+                "4:40pm": "https://commerce.bam.org/booking/production/bestavailable/57338",
+                "8:20pm": "https://commerce.bam.org/booking/production/bestavailable/57339"
+              }
+            },
+            {
+              "day": "Sat Aug 1",
+              "times": [
+                "1:00pm",
+                "4:40pm",
+                "8:20pm"
+              ],
+              "date": "2026-08-01",
+              "ticket_urls": {
+                "1:00pm": "https://commerce.bam.org/booking/production/bestavailable/57340",
+                "4:40pm": "https://commerce.bam.org/booking/production/bestavailable/57342",
+                "8:20pm": "https://commerce.bam.org/booking/production/bestavailable/57343"
+              }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "1:00pm",
+                "4:40pm",
+                "8:20pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "1:00pm": "https://commerce.bam.org/booking/production/bestavailable/57344",
+                "4:40pm": "https://commerce.bam.org/booking/production/bestavailable/57345",
+                "8:20pm": "https://commerce.bam.org/booking/production/bestavailable/57346"
+              }
             }
           ],
           "special_formats": []
         },
         {
           "name": "Nitehawk Cinema Williamsburg",
-          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23535266/",
+          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23535376/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:00am",
-                "2:00pm",
-                "2:35pm",
-                "5:35pm",
-                "6:10pm",
-                "9:10pm",
-                "9:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:00am": "https://nitehawkcinema.com/williamsburg/purchase/23535266/",
-                "2:00pm": "https://nitehawkcinema.com/williamsburg/purchase/23535264/",
-                "2:35pm": "https://nitehawkcinema.com/williamsburg/purchase/23535265/",
-                "5:35pm": "https://nitehawkcinema.com/williamsburg/purchase/23535269/",
-                "6:10pm": "https://nitehawkcinema.com/williamsburg/purchase/23535270/",
-                "9:10pm": "https://nitehawkcinema.com/williamsburg/purchase/23535271/",
-                "9:45pm": "https://nitehawkcinema.com/williamsburg/purchase/23535273/"
-              },
-              "time_attributes": {
-                "2:00pm": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -3456,37 +3120,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23540057/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23533129/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:30am",
-                "1:00pm",
-                "2:45pm",
-                "4:45pm",
-                "5:20pm",
-                "6:30pm",
-                "8:30pm",
-                "9:10pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:30am": "https://nitehawkcinema.com/prospectpark/purchase/23540057/",
-                "1:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23539971/",
-                "2:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23539982/",
-                "4:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23539981/",
-                "5:20pm": "https://nitehawkcinema.com/prospectpark/purchase/23539987/",
-                "6:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23539994/",
-                "8:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23539989/",
-                "9:10pm": "https://nitehawkcinema.com/prospectpark/purchase/23539998/"
-              },
-              "time_attributes": {
-                "11:30am": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -3537,16 +3172,14 @@
                 "5:00pm",
                 "6:00pm",
                 "8:00pm",
-                "8:45pm",
-                "9:45pm"
+                "8:45pm"
               ],
               "date": "2026-07-29",
               "ticket_urls": {
                 "5:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23538361/",
                 "6:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23538358/",
                 "8:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23538369/",
-                "8:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538371/",
-                "9:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538374/"
+                "8:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538371/"
               }
             },
             {
@@ -3820,52 +3453,6 @@
       }
     },
     {
-      "id": "tt0286244",
-      "title": "The Triplets of Belleville",
-      "ratings": {
-        "imdbID": "tt0286244",
-        "rt": "94%",
-        "imdb": "7.7",
-        "metacritic": "91",
-        "letterboxd": "3.9",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNGJhNjk2NjctZDdlOC00ZjUxLTljNGItMjI5MTBlZDc1NjViXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Adventure, Comedy",
-        "runtime": "80 min",
-        "plot": "When her grandson is kidnapped during the Tour de France, Madame Souza and her beloved pooch Bruno team up with the Belleville Sisters--an aged song-and-dance team from the days of Fred Astaire--to rescue him.",
-        "year": "2003",
-        "director": "Sylvain Chomet"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30392&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:15am"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:15am": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30392&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "One of the great hand-drawn comedies—a film that moves, sings, and surprises without a single line of dialogue for the first twenty minutes. Metrograph's DCP screening honors Chomet's intricate frame-by-frame animation work, where every background gag and sight line matters."
-      }
-    },
-    {
       "id": "tt0053134",
       "title": "Good Morning",
       "ratings": {
@@ -3915,6 +3502,52 @@
       ]
     },
     {
+      "id": "tt0286244",
+      "title": "The Triplets of Belleville",
+      "ratings": {
+        "imdbID": "tt0286244",
+        "rt": "94%",
+        "imdb": "7.7",
+        "metacritic": "91",
+        "letterboxd": "3.9",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGJhNjk2NjctZDdlOC00ZjUxLTljNGItMjI5MTBlZDc1NjViXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Animation, Adventure, Comedy",
+        "runtime": "80 min",
+        "plot": "When her grandson is kidnapped during the Tour de France, Madame Souza and her beloved pooch Bruno team up with the Belleville Sisters--an aged song-and-dance team from the days of Fred Astaire--to rescue him.",
+        "year": "2003",
+        "director": "Sylvain Chomet"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30423&visLang=1",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:15am"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:15am": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30423&visLang=1"
+              }
+            }
+          ],
+          "special_formats": [
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "DCP"
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "One of the great hand-drawn comedies—a film that moves, sings, and surprises without a single line of dialogue for the first twenty minutes. Metrograph's DCP screening honors Chomet's intricate frame-by-frame animation work, where every background gag and sight line matters."
+      }
+    },
+    {
       "id": "tt37287335",
       "title": "Obsession",
       "ratings": {
@@ -3953,18 +3586,8 @@
         },
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2103&sessionId=94002",
+          "ticket_url": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2103&sessionId=94020",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "7:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "7:30pm": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2103&sessionId=94002"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -4000,22 +3623,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2101&sessionId=134665",
+          "ticket_url": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2101&sessionId=134560",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "2:00pm",
-                "5:00pm",
-                "8:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "2:00pm": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2101&sessionId=134665",
-                "5:00pm": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2101&sessionId=134664",
-                "8:00pm": "https://drafthouse.com/nyc/show/obsession-2026?cinemaId=2101&sessionId=134667"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -4076,18 +3685,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23541313/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538193/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:55pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:55pm": "https://nitehawkcinema.com/prospectpark/purchase/23541313/"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -4791,6 +4390,48 @@
       }
     },
     {
+      "id": "tt8361028",
+      "title": "Cam",
+      "ratings": {
+        "imdbID": "tt8361028",
+        "rt": "93%",
+        "imdb": "5.9",
+        "metacritic": "71",
+        "letterboxd": "3.0",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMmEyNzUwNmItOTI1Mi00ZmVlLTkxZWEtOGY0Y2Y2YzU0YzRkXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama, Horror, Mystery",
+        "runtime": "94 min",
+        "plot": "Alice, an ambitious camgirl, wakes up one day to discover she's been replaced on her show with an exact replica of herself.",
+        "year": "2018",
+        "director": "Daniel Goldhaber"
+      },
+      "theaters": [
+        {
+          "name": "Film at Lincoln Center",
+          "ticket_url": "https://purchase.filmlinc.org/83545/83546",
+          "schedule": [
+            {
+              "day": "Thu Aug 13",
+              "times": [
+                "9:00pm"
+              ],
+              "date": "2026-08-13",
+              "ticket_urls": {
+                "9:00pm": "https://purchase.filmlinc.org/83545/83546"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A smart horror film about identity and digital labor that uses its premise to say something true about performance and violation. Goldhaber sustains the tension through tight 94 minutes and finds real dread in the uncanny—the double isn't a jump-scare trick but a slowly darkening mirror."
+      }
+    },
+    {
       "id": "tt35674521",
       "title": "Rose of Nevada",
       "ratings": {
@@ -4809,40 +4450,9 @@
       },
       "theaters": [
         {
-          "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569669~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "4:55 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "4:55 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569669~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
           "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/83007/83686",
+          "ticket_url": "https://purchase.filmlinc.org/83007/83689",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:15pm",
-                "3:45pm",
-                "8:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:15pm": "https://purchase.filmlinc.org/83007/83686",
-                "3:45pm": "https://purchase.filmlinc.org/83007/83687",
-                "8:45pm": "https://purchase.filmlinc.org/83007/83688"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -4899,48 +4509,6 @@
       "verdict": {
         "verdict": "WATCH",
         "reason": "Mark Jenkin makes films that burrow under your skin through image and sound alone, and a 114-minute time-slip story is exactly the kind of formal puzzle he excels at. IFC and Lincoln Center are the right venues for work this deliberate."
-      }
-    },
-    {
-      "id": "tt8361028",
-      "title": "Cam",
-      "ratings": {
-        "imdbID": "tt8361028",
-        "rt": "93%",
-        "imdb": "5.9",
-        "metacritic": "71",
-        "letterboxd": "3.0",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMmEyNzUwNmItOTI1Mi00ZmVlLTkxZWEtOGY0Y2Y2YzU0YzRkXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Horror, Mystery",
-        "runtime": "94 min",
-        "plot": "Alice, an ambitious camgirl, wakes up one day to discover she's been replaced on her show with an exact replica of herself.",
-        "year": "2018",
-        "director": "Daniel Goldhaber"
-      },
-      "theaters": [
-        {
-          "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/83545/83546",
-          "schedule": [
-            {
-              "day": "Thu Aug 13",
-              "times": [
-                "9:00pm"
-              ],
-              "date": "2026-08-13",
-              "ticket_urls": {
-                "9:00pm": "https://purchase.filmlinc.org/83545/83546"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "A smart horror film about identity and digital labor that uses its premise to say something true about performance and violation. Goldhaber sustains the tension through tight 94 minutes and finds real dread in the uncanny—the double isn't a jump-scare trick but a slowly darkening mirror."
       }
     },
     {
@@ -5435,26 +5003,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93987",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=94005",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:45am",
-                "1:45pm",
-                "4:45pm",
-                "7:45pm",
-                "10:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:45am": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93987",
-                "1:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93996",
-                "4:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93994",
-                "7:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93992",
-                "10:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2103&sessionId=93989"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -5514,26 +5064,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134539",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134574",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:45am",
-                "1:45pm",
-                "4:45pm",
-                "7:30pm",
-                "10:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:45am": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134539",
-                "1:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134538",
-                "4:45pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134537",
-                "7:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134536",
-                "10:15pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2101&sessionId=134542"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -5593,24 +5125,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43977",
+          "ticket_url": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=44003",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:30pm",
-                "3:30pm",
-                "6:30pm",
-                "9:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43977",
-                "3:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43978",
-                "6:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43979",
-                "9:30pm": "https://drafthouse.com/nyc/show/toy-story-5?cinemaId=2102&sessionId=43980"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -5658,27 +5174,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23539974/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538178/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:00am",
-                "4:15pm",
-                "6:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:00am": "https://nitehawkcinema.com/prospectpark/purchase/23539974/",
-                "4:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23539984/",
-                "6:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23539990/"
-              },
-              "time_attributes": {
-                "11:00am": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -5761,22 +5258,8 @@
       "theaters": [
         {
           "name": "BAM Rose Cinemas",
-          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57155",
+          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57158",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:15pm",
-                "6:40pm",
-                "9:10pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:15pm": "https://commerce.bam.org/booking/production/bestavailable/57155",
-                "6:40pm": "https://commerce.bam.org/booking/production/bestavailable/57156",
-                "9:10pm": "https://commerce.bam.org/booking/production/bestavailable/57157"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -5831,48 +5314,6 @@
       "verdict": {
         "verdict": "WATCH",
         "reason": "Riley delivers his sharpest social satire yet with perfect tonal control. The fashion industry backdrop gives him fresh material to skewer capitalism with his signature wit."
-      }
-    },
-    {
-      "id": "tt0063462",
-      "title": "The Producers",
-      "ratings": {
-        "imdbID": "tt0063462",
-        "rt": "92%",
-        "imdb": "7.5",
-        "metacritic": "96",
-        "letterboxd": "3.8",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZWMyNThmZDgtNDZlMy00N2RiLWJlM2QtZTAzNjUxZDM5YmM0XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Comedy, Music",
-        "runtime": "88 min",
-        "plot": "A stage-play producer devises a plan to make money by producing a sure-fire flop.",
-        "year": "1967",
-        "director": "Mel Brooks"
-      },
-      "theaters": [
-        {
-          "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23113110/",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23113110/"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Go to Nitehawk; Mel Brooks's debut is a comedy machine that plays better with an audience laughing together. The timing and invention require a room full of people."
       }
     },
     {
@@ -5943,24 +5384,6 @@
           "name": "Film Forum",
           "ticket_url": "https://filmforum.org/film/white-nights",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:30pm",
-                "2:40pm",
-                "4:50pm",
-                "7:00pm",
-                "9:10pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:30pm": "https://filmforum.org/film/white-nights",
-                "2:40pm": "https://filmforum.org/film/white-nights",
-                "4:50pm": "https://filmforum.org/film/white-nights",
-                "7:00pm": "https://filmforum.org/film/white-nights",
-                "9:10pm": "https://filmforum.org/film/white-nights"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -6362,24 +5785,8 @@
       "theaters": [
         {
           "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/83310/83319",
+          "ticket_url": "https://purchase.filmlinc.org/83310/83323",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm",
-                "3:30pm",
-                "6:00pm",
-                "8:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://purchase.filmlinc.org/83310/83319",
-                "3:30pm": "https://purchase.filmlinc.org/83310/83320",
-                "6:00pm": "https://purchase.filmlinc.org/83310/83321",
-                "8:30pm": "https://purchase.filmlinc.org/83310/83322"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -6579,6 +5986,48 @@
       ]
     },
     {
+      "id": "tt33045418",
+      "title": "Hellcat",
+      "ratings": {
+        "imdbID": "tt33045418",
+        "rt": "89%",
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZmY4ZjhhNjYtYmNhMi00MDljLWE1OWYtMjVmNTdhOGJiY2FjXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Horror, Thriller",
+        "runtime": "91 min",
+        "plot": "A woman wakes in the back of a moving camper trailer with a badly infected wound. A voice from the truck towing it tells her they must reach a doctor within the hour or she'll suffer a horrific fate.",
+        "year": "2025",
+        "director": "Brock Bodell"
+      },
+      "theaters": [
+        {
+          "name": "IFC Center",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569618~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "schedule": [
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "8:30 pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "8:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569618~8722a542-64c1-4c0b-af02-c3e8a239d769&"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Watch it; a tight 91-minute thriller that wrings genuine dread from a single premise without overstaying its welcome. Brock Bodell sustains tension through constraint—most of the film happens in and around a moving trailer, which forces the camera and sound design to do the real work."
+      }
+    },
+    {
       "id": "tt0099763",
       "title": "Henry: Portrait Serial Killer",
       "ratings": {
@@ -6775,18 +6224,8 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30394&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30504&visLang=1",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "3:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "3:30pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30394&visLang=1"
-              }
-            },
             {
               "day": "Tue Jul 28",
               "times": [
@@ -7342,16 +6781,16 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30395&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30509&visLang=1",
           "schedule": [
             {
-              "day": "Sun Jul 26",
+              "day": "Tue Jul 28",
               "times": [
-                "5:50pm"
+                "7:45pm"
               ],
-              "date": "2026-07-26",
+              "date": "2026-07-28",
               "ticket_urls": {
-                "5:50pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30395&visLang=1"
+                "7:45pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30509&visLang=1"
               }
             }
           ],
@@ -8751,48 +8190,6 @@
       }
     },
     {
-      "id": "tt0311289",
-      "title": "Holes",
-      "ratings": {
-        "imdbID": "tt0311289",
-        "rt": "78%",
-        "imdb": "7.0",
-        "metacritic": "71",
-        "letterboxd": "3.5",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTg0MTU5ODkwM15BMl5BanBnXkFtZTYwMzgxNzY3._V1_SX300.jpg",
-        "genre": "Adventure, Comedy, Drama",
-        "runtime": "117 min",
-        "plot": "A wrongfully convicted boy is sent to a brutal desert detention camp where he joins the job of digging holes for some mysterious reason.",
-        "year": "2003",
-        "director": "Andrew Davis"
-      },
-      "theaters": [
-        {
-          "name": "Nitehawk Cinema Williamsburg",
-          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23110364/",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:15am"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:15am": "https://nitehawkcinema.com/williamsburg/purchase/23110364/"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "A rare theatrical screening of a genuinely smart adventure film that works for both kids and adults. Andrew Davis brings real visual wit to the desert setting, and the editing snaps at a pace that justifies watching it large."
-      }
-    },
-    {
       "id": "tt0842929",
       "title": "Paranoid Park",
       "ratings": {
@@ -8914,18 +8311,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569660~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569675~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:15 am"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:15 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569660~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -9184,18 +8571,8 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30391&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30506&visLang=1",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:15pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30391&visLang=1"
-              }
-            },
             {
               "day": "Tue Jul 28",
               "times": [
@@ -9506,52 +8883,6 @@
       }
     },
     {
-      "id": "solaris-preceded-by-the-working-end",
-      "title": "Solaris preceded by The Working End",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30389&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "3:35pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "3:35pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30389&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Tarkovsky's three-hour masterpiece demands the big screen and the complete theatrical experience, especially paired with a short that deepens its themes. The restoration brings out the luminous cinematography that defines the film's power to isolate and haunt."
-      }
-    },
-    {
       "id": "the-bakery-girl-of-monceau-suzanne-s-career",
       "title": "The Bakery Girl of Monceau + Suzanne's Career",
       "ratings": {
@@ -9598,6 +8929,52 @@
       }
     },
     {
+      "id": "tt0086606",
+      "title": "The Eight Diagram Pole Fighter",
+      "ratings": {
+        "imdbID": "tt0086606",
+        "rt": null,
+        "imdb": "7.4",
+        "metacritic": "N/A",
+        "letterboxd": "3.7",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOGM4MGJlZTUtZDNkMC00NzczLThkZDUtNzQ3NjgxZDE2ZTJmXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Action, Drama",
+        "runtime": "98 min",
+        "plot": "Mongols with the help of an insider, ambush the influential Yang Family, defenders of the dynasty. The Mongols must hunt down all Yang survivors so their insidious plot to overthrow the dynasty will not be uncovered.",
+        "year": "1984",
+        "director": "Chia-Liang Liu"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30421&visLang=1",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "7:35pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "7:35pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30421&visLang=1"
+              }
+            }
+          ],
+          "special_formats": [
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "DCP"
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Liu Chia-liang's martial arts masterpiece justifies the trip for its kinetic fight choreography and compositional rigor. The Metrograph screening restores a film that rewards big-screen viewing for its spatial clarity and balletic violence."
+      }
+    },
+    {
       "id": "the-hole-newly-struck-print",
       "title": "The Hole [Newly Struck Print]",
       "ratings": {
@@ -9617,18 +8994,8 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30390&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30498&visLang=1",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "7:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "7:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30390&visLang=1"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -9651,52 +9018,6 @@
       "verdict": {
         "verdict": "WATCH",
         "reason": "A newly struck print of Tsai Ming-liang's masterpiece deserves the big screen, and this is likely your only chance to see it projected as intended. The image restoration restores the film's glacial compositions and deadpan color palette to their full, agonizing power."
-      }
-    },
-    {
-      "id": "tt0144782",
-      "title": "The Red Light Bandit",
-      "ratings": {
-        "imdbID": "tt0144782",
-        "rt": null,
-        "imdb": "7.3",
-        "metacritic": "N/A",
-        "letterboxd": "3.6",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BY2QxNWVjN2ItNGI2ZS00YmU4LTk3NTUtMDEzYzAwZTc1OTRjXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Crime, Thriller",
-        "runtime": "92 min",
-        "plot": "The story of a famous Brazilian criminal, called The Red Light Bandit because he always used a red flashlight to break in the houses during the night. Working alone, he also used to rape his female victims.",
-        "year": "1968",
-        "director": "Rogério Sganzerla"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30397&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30397&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "A rare screening of a crucial Brazilian Cinema Novo film that redefined crime cinema through formal audacity. Sganzerla's debut is a restoration event at Metrograph, where a restored DCP of this formally radical 1968 work demands to be seen on a theater screen."
       }
     },
     {
@@ -9838,52 +9159,6 @@
       }
     },
     {
-      "id": "tt0086606",
-      "title": "The Eight Diagram Pole Fighter",
-      "ratings": {
-        "imdbID": "tt0086606",
-        "rt": null,
-        "imdb": "7.4",
-        "metacritic": "N/A",
-        "letterboxd": "3.7",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOGM4MGJlZTUtZDNkMC00NzczLThkZDUtNzQ3NjgxZDE2ZTJmXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Action, Drama",
-        "runtime": "98 min",
-        "plot": "Mongols with the help of an insider, ambush the influential Yang Family, defenders of the dynasty. The Mongols must hunt down all Yang survivors so their insidious plot to overthrow the dynasty will not be uncovered.",
-        "year": "1984",
-        "director": "Chia-Liang Liu"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30421&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Aug 2",
-              "times": [
-                "7:35pm"
-              ],
-              "date": "2026-08-02",
-              "ticket_urls": {
-                "7:35pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30421&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Liu Chia-liang's martial arts masterpiece justifies the trip for its kinetic fight choreography and compositional rigor. The Metrograph screening restores a film that rewards big-screen viewing for its spatial clarity and balletic violence."
-      }
-    },
-    {
       "id": "tt0163324",
       "title": "Tally Brown, New York",
       "ratings": {
@@ -9903,18 +9178,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569663~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569678~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "2:10 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "2:10 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569663~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -10047,23 +9312,6 @@
               "date": "2026-07-27",
               "ticket_urls": {
                 "9:00pm": "https://drafthouse.com/nyc/event/agfadrome-mystery-voyage-july-2026?cinemaId=2103&sessionId=92149"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/event/agfadrome-mystery-voyage-july-2026?cinemaId=2101&sessionId=132454",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:00pm": "https://drafthouse.com/nyc/event/agfadrome-mystery-voyage-july-2026?cinemaId=2101&sessionId=132454"
               }
             }
           ],
@@ -10556,48 +9804,6 @@
       }
     },
     {
-      "id": "sia-nostalgic-for-the-present",
-      "title": "Sia: Nostalgic for the Present",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": "https://image.tmdb.org/t/p/w500/tJrqV5b12HbpNNDrA7Trc5mErGJ.jpg",
-        "genre": null,
-        "runtime": "75 min",
-        "plot": "One voice. One unforgettable spectacle. SIA: NOSTALGIC FOR THE PRESENT is a bold, genre-defying experience that trades pop pageantry for pure artistry. Awe-inspiring vocals, breathtaking choreography, and iconic performances, captured cinematically and soundtracked by an unmatched catalog of hits. In 2016, Sia toured the world, mirroring this film live on stage, frame for frame. Remastered for its tenth anniversary, it stands alone for the first time – not as a concert film, but as a visual masterpiece unlike anything in music since. Starring Maddie Ziegler, Kristen Wiig, Paul Dano, Ben Mendelsohn, Gaby Hoffmann, and Tig Notaro. Choreographed by Ryan Heffington. Directed by Sia and Daniel Askill.",
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/sia-nostalgic-for-the-present?cinemaId=2101&sessionId=132405",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "3:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "3:30pm": "https://drafthouse.com/nyc/show/sia-nostalgic-for-the-present?cinemaId=2101&sessionId=132405"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "A remastered tenth-anniversary release of a visionary pop film that functions as pure visual theater, not a concert documentary. Ryan Heffington's choreography and Daniel Askill's direction create a singular work that belongs on the big screen with an audience."
-      }
-    },
-    {
       "id": "mystery-transmission-038",
       "title": "Mystery Transmission 038",
       "ratings": {
@@ -10814,6 +10020,22 @@
                 "7:00pm": "https://commerce.bam.org/booking/production/bestavailable/55702",
                 "9:30pm": "https://commerce.bam.org/booking/production/bestavailable/55703"
               }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "2:00pm",
+                "4:30pm",
+                "7:00pm",
+                "9:00pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "2:00pm": "https://commerce.bam.org/booking/production/bestavailable/55704",
+                "4:30pm": "https://commerce.bam.org/booking/production/bestavailable/55705",
+                "7:00pm": "https://commerce.bam.org/booking/production/bestavailable/55706",
+                "9:00pm": "https://commerce.bam.org/booking/production/bestavailable/55707"
+              }
             }
           ],
           "special_formats": []
@@ -10897,24 +10119,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93998",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=94016",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:30am",
-                "1:15pm",
-                "4:00pm",
-                "6:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93998",
-                "1:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93995",
-                "4:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93993",
-                "6:45pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2103&sessionId=93991"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -10968,26 +10174,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134510",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134547",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:15am",
-                "2:15pm",
-                "5:15pm",
-                "8:00pm",
-                "11:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:15am": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134510",
-                "2:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134520",
-                "5:15pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134516",
-                "8:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134514",
-                "11:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2101&sessionId=134513"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -11047,24 +10235,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43993",
+          "ticket_url": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=44007",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:45am",
-                "2:45pm",
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:45am": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43993",
-                "2:45pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=44089",
-                "6:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43990",
-                "9:00pm": "https://drafthouse.com/nyc/show/minions-and-monsters?cinemaId=2102&sessionId=43991"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -11112,29 +10284,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23539975/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538225/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:45am",
-                "2:00pm",
-                "3:15pm",
-                "4:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:45am": "https://nitehawkcinema.com/prospectpark/purchase/23539975/",
-                "2:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23539978/",
-                "3:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23539986/",
-                "4:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23539983/"
-              },
-              "time_attributes": {
-                "11:45am": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -11273,22 +10424,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569661~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569677~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:50 am",
-                "4:30 pm",
-                "7:25 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:50 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569661~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "4:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569665~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "7:25 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569671~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -11789,270 +10926,45 @@
       }
     },
     {
-      "id": "tt36629665",
-      "title": "Her Private Hell",
+      "id": "tt0117705",
+      "title": "Space Jam",
       "ratings": {
-        "imdbID": "tt36629665",
-        "rt": "43%",
-        "imdb": "3.8",
-        "metacritic": "38",
-        "letterboxd": "1.9",
+        "imdbID": "tt0117705",
+        "rt": "46%",
+        "imdb": "6.5",
+        "metacritic": "57",
+        "letterboxd": "3.2",
         "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNjkwNTUwZTAtZmNjNS00OTlkLTg3ZTEtNjVkMmRmYjIzZWM5XkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
-        "genre": "Crime, Drama, Horror",
-        "runtime": "109 min",
-        "plot": "A hypnotic, unhinged thriller with an original story promising plenty of glamour, sex, and violence.",
-        "year": "2026",
-        "director": "Nicolas Winding Refn"
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGQ3ZDk0M2MtZDNmNi00OWE3LThiODUtMTU3NmVjMTA0ZGQyXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Animation, Adventure, Comedy",
+        "runtime": "88 min",
+        "plot": "In a desperate attempt to win a basketball match and earn their freedom, the Looney Tunes seek the aid of retired basketball champion, Michael Jordan.",
+        "year": "1996",
+        "director": "Joe Pytka"
       },
       "theaters": [
         {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93261",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93261",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93262",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93263",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93264",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93265"
-              }
-            },
-            {
-              "day": "Mon Jul 27",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-27",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93270",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93269",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93268",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93267",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93266"
-              }
-            },
-            {
-              "day": "Tue Jul 28",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-28",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93275",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93274",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93273",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93272",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93271"
-              }
-            },
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93280",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93279",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93278",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93277",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93276"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
-          "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133693",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133693",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133694",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133692",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133691",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133690"
-              }
-            },
-            {
-              "day": "Mon Jul 27",
-              "times": [
-                "10:30am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-27",
-              "ticket_urls": {
-                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133698",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133699",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133697",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133696",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133695"
-              }
-            },
-            {
-              "day": "Tue Jul 28",
-              "times": [
-                "10:15am",
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-28",
-              "ticket_urls": {
-                "10:15am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133703",
-                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133704",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133702",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133701",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133700"
-              }
-            },
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "10:15am",
-                "1:15pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "10:15am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133708",
-                "1:15pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133709",
-                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133707",
-                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133706",
-                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133705"
-              }
-            }
-          ],
-          "special_formats": []
-        },
-        {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23539976/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23610216/",
           "schedule": [
             {
-              "day": "Sun Jul 26",
+              "day": "Sat Aug 1",
               "times": [
-                "1:25pm",
-                "7:15pm",
-                "8:55pm",
-                "10:15pm"
+                "12:45pm"
               ],
-              "date": "2026-07-26",
+              "date": "2026-08-01",
               "ticket_urls": {
-                "1:25pm": "https://nitehawkcinema.com/prospectpark/purchase/23539976/",
-                "7:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23539992/",
-                "8:55pm": "https://nitehawkcinema.com/prospectpark/purchase/23539993/",
-                "10:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23540000/"
-              },
-              "time_attributes": {
-                "1:25pm": [
-                  "Open Caption"
-                ]
+                "12:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23610216/"
               }
             },
             {
-              "day": "Mon Jul 27",
+              "day": "Sun Aug 2",
               "times": [
-                "2:45pm",
-                "7:55pm",
-                "9:45pm"
+                "12:45pm"
               ],
-              "date": "2026-07-27",
+              "date": "2026-08-02",
               "ticket_urls": {
-                "2:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538179/",
-                "7:55pm": "https://nitehawkcinema.com/prospectpark/purchase/23538190/",
-                "9:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538192/"
-              },
-              "time_attributes": {
-                "9:45pm": [
-                  "Open Caption"
-                ]
-              }
-            },
-            {
-              "day": "Tue Jul 28",
-              "times": [
-                "2:30pm",
-                "7:50pm",
-                "9:45pm"
-              ],
-              "date": "2026-07-28",
-              "ticket_urls": {
-                "2:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23538335/",
-                "7:50pm": "https://nitehawkcinema.com/prospectpark/purchase/23538348/",
-                "9:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538351/"
-              },
-              "time_attributes": {
-                "2:30pm": [
-                  "Open Caption"
-                ]
-              }
-            },
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "2:45pm",
-                "8:15pm",
-                "9:30pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "2:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538356/",
-                "8:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538370/",
-                "9:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23538373/"
-              }
-            },
-            {
-              "day": "Thu Jul 30",
-              "times": [
-                "5:15pm",
-                "8:45pm",
-                "10:15pm"
-              ],
-              "date": "2026-07-30",
-              "ticket_urls": {
-                "5:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538378/",
-                "8:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538390/",
-                "10:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538394/"
+                "12:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23610218/"
               }
             }
           ],
@@ -12061,8 +10973,8 @@
       ],
       "special_formats": [],
       "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "Skip it unless you're committed to Refn's sensory excess over narrative coherence. The film is uneven and slight, but if you trust his eye for image and color, a theatrical screening at Nitehawk or Alamo Drafthouse beats waiting for streaming."
+        "verdict": "SKIP",
+        "reason": "Skip it; the live-action-animation hybrid feels dated and the basketball sequences don't justify the runtime. Michael Jordan's acting abilities haven't improved in thirty years, and the Looney Tunes are sidelined in their own movie."
       }
     },
     {
@@ -12085,24 +10997,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93988",
+          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=94006",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:00pm",
-                "3:15pm",
-                "6:30pm",
-                "9:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:00pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93988",
-                "3:15pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93997",
-                "6:30pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=93990",
-                "9:45pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2103&sessionId=94004"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12156,24 +11052,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134530",
+          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134568",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:00am",
-                "2:30pm",
-                "6:00pm",
-                "9:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:00am": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134530",
-                "2:30pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134535",
-                "6:00pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134534",
-                "9:15pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2101&sessionId=134533"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12227,24 +11107,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=43973",
+          "ticket_url": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=44001",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:30am",
-                "2:45pm",
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:30am": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=43973",
-                "2:45pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=43974",
-                "6:00pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=43975",
-                "9:00pm": "https://drafthouse.com/nyc/show/moana-2026?cinemaId=2102&sessionId=44092"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12292,29 +11156,8 @@
         },
         {
           "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23539972/",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538180/",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:15am",
-                "2:30pm",
-                "4:30pm",
-                "6:15pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:15am": "https://nitehawkcinema.com/prospectpark/purchase/23539972/",
-                "2:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23539980/",
-                "4:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23539985/",
-                "6:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23539988/"
-              },
-              "time_attributes": {
-                "11:15am": [
-                  "Open Caption"
-                ]
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12438,6 +11281,52 @@
       }
     },
     {
+      "id": "fc-live-jonah-who-will-be-25-in-the-year-2000",
+      "title": "FC Live: Jonah Who Will Be 25 in the Year 2000",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30420&visLang=1",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "5:00pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "5:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30420&visLang=1"
+              }
+            }
+          ],
+          "special_formats": [
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "DCP"
+      ],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "This is a concert film, not a narrative work, and the theatrical value depends entirely on your relationship to the artist. Unless you're already a devoted FC fan willing to pay for a big-screen experience of a live performance, this belongs at home where you can pause and rewind."
+      }
+    },
+    {
       "id": "private-event-today-in-theater-commissary",
       "title": "PRIVATE EVENT TODAY IN THEATER & COMMISSARY",
       "ratings": {
@@ -12536,98 +11425,6 @@
       }
     },
     {
-      "id": "fc-live-jonah-who-will-be-25-in-the-year-2000",
-      "title": "FC Live: Jonah Who Will Be 25 in the Year 2000",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30420&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Aug 2",
-              "times": [
-                "5:00pm"
-              ],
-              "date": "2026-08-02",
-              "ticket_urls": {
-                "5:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30420&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "This is a concert film, not a narrative work, and the theatrical value depends entirely on your relationship to the artist. Unless you're already a devoted FC fan willing to pay for a big-screen experience of a live performance, this belongs at home where you can pause and rewind."
-      }
-    },
-    {
-      "id": "tt0089651",
-      "title": "My Name Ain't Suzie",
-      "ratings": {
-        "imdbID": "tt0089651",
-        "rt": null,
-        "imdb": "6.5",
-        "metacritic": "N/A",
-        "letterboxd": "3.2",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZDYwN2MzZjYtODc3OC00NGRmLTkyN2YtNmM0ZTI1ZTVhMDM5XkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "96 min",
-        "plot": "The tale of fisher-girl turned bar-girl.",
-        "year": "1985",
-        "director": "Angela Chan"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30622&visLang=1",
-          "schedule": [
-            {
-              "day": "Tue Aug 4",
-              "times": [
-                "8:00pm"
-              ],
-              "date": "2026-08-04",
-              "ticket_urls": {
-                "8:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30622&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A rare 1985 drama from Angela Chan that deserves rediscovery, but the 96-minute runtime and modest theatrical footprint make this more suited to a dedicated evening than a casual outing. Metrograph's DCP restoration gives the image clarity that a smaller independent film from this era rarely receives in revival."
-      }
-    },
-    {
       "id": "tt7033396",
       "title": "Lost Chapters",
       "ratings": {
@@ -12647,22 +11444,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569426~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569427~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:45 am",
-                "2:45 pm",
-                "7:00 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:45 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569426~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "2:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569433~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "7:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569440~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12877,20 +11660,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569659~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569676~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:40 am",
-                "9:45 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:40 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569659~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "9:45 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569674~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -12965,20 +11736,6 @@
           "name": "Film Forum",
           "ticket_url": "https://filmforum.org/film/american-pachuco",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:15pm",
-                "4:40pm",
-                "6:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:15pm": "https://filmforum.org/film/american-pachuco",
-                "4:40pm": "https://filmforum.org/film/american-pachuco",
-                "6:45pm": "https://filmforum.org/film/american-pachuco"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -13159,22 +11916,8 @@
       "theaters": [
         {
           "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/82869/83667",
+          "ticket_url": "https://purchase.filmlinc.org/82869/83672",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm",
-                "3:30pm",
-                "6:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://purchase.filmlinc.org/82869/83667",
-                "3:30pm": "https://purchase.filmlinc.org/82869/83668",
-                "6:00pm": "https://purchase.filmlinc.org/82869/83671"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -15414,6 +14157,22 @@
                 "6:00pm": "https://nitehawkcinema.com/williamsburg/purchase/23553267/",
                 "9:15pm": "https://nitehawkcinema.com/williamsburg/purchase/23553393/"
               }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:30am",
+                "2:45pm",
+                "6:00pm",
+                "9:15pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:30am": "https://nitehawkcinema.com/williamsburg/purchase/23567602/",
+                "2:45pm": "https://nitehawkcinema.com/williamsburg/purchase/23567605/",
+                "6:00pm": "https://nitehawkcinema.com/williamsburg/purchase/23567609/",
+                "9:15pm": "https://nitehawkcinema.com/williamsburg/purchase/23567612/"
+              }
             }
           ],
           "special_formats": []
@@ -15468,6 +14227,22 @@
                 "2:25pm": "https://nitehawkcinema.com/prospectpark/purchase/23475797/",
                 "5:50pm": "https://nitehawkcinema.com/prospectpark/purchase/23475798/",
                 "9:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23475800/"
+              }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:00am",
+                "2:25pm",
+                "5:50pm",
+                "9:15pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:00am": "https://nitehawkcinema.com/prospectpark/purchase/23504179/",
+                "2:25pm": "https://nitehawkcinema.com/prospectpark/purchase/23504181/",
+                "5:50pm": "https://nitehawkcinema.com/prospectpark/purchase/23504186/",
+                "9:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23504189/"
               }
             }
           ],
@@ -15816,48 +14591,6 @@
       }
     },
     {
-      "id": "tt32252801",
-      "title": "Blue Heron",
-      "ratings": {
-        "imdbID": "tt32252801",
-        "rt": "98%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGFiNGNmY2YtMmZkNS00NzkwLWFlNGYtNzYzMjI1ZTM0NmJlXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama",
-        "runtime": "90 min",
-        "plot": "A family of six settles into their new home on Vancouver Island as internal dynamics are slowly revealed through the eyes of the youngest child.",
-        "year": "2025",
-        "director": "Sophy Romvari"
-      },
-      "theaters": [
-        {
-          "name": "Nitehawk Cinema Williamsburg",
-          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23558903/",
-          "schedule": [
-            {
-              "day": "Sat Aug 1",
-              "times": [
-                "11:15am"
-              ],
-              "date": "2026-08-01",
-              "ticket_urls": {
-                "11:15am": "https://nitehawkcinema.com/williamsburg/purchase/23558903/"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "See this intimate family portrait while it has theatrical momentum. Romvari shoots through a child's perspective with uncommon sensitivity to how kids actually process adult tensions."
-      }
-    },
-    {
       "id": "union-county",
       "title": "Union County",
       "ratings": {
@@ -15972,48 +14705,6 @@
       }
     },
     {
-      "id": "tt33045418",
-      "title": "Hellcat",
-      "ratings": {
-        "imdbID": "tt33045418",
-        "rt": "89%",
-        "imdb": "N/A",
-        "metacritic": "N/A",
-        "letterboxd": null,
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZmY4ZjhhNjYtYmNhMi00MDljLWE1OWYtMjVmNTdhOGJiY2FjXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Horror, Thriller",
-        "runtime": "91 min",
-        "plot": "A woman wakes in the back of a moving camper trailer with a badly infected wound. A voice from the truck towing it tells her they must reach a doctor within the hour or she'll suffer a horrific fate.",
-        "year": "2025",
-        "director": "Brock Bodell"
-      },
-      "theaters": [
-        {
-          "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569618~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-          "schedule": [
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "8:30 pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "8:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569618~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "WATCH",
-        "reason": "Watch it; a tight 91-minute thriller that wrings genuine dread from a single premise without overstaying its welcome. Brock Bodell sustains tension through constraint—most of the film happens in and around a moving trailer, which forces the camera and sound design to do the real work."
-      }
-    },
-    {
       "id": "tt26657236",
       "title": "Backrooms Everything Must Go Edition",
       "ratings": {
@@ -16121,24 +14812,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569662~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569679~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:25 pm",
-                "4:35 pm",
-                "7:05 pm",
-                "9:25 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:25 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569662~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "4:35 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569667~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "7:05 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569668~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "9:25 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569670~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16232,52 +14907,6 @@
         }
       ],
       "special_formats": []
-    },
-    {
-      "id": "tt4555426",
-      "title": "Darkest Hour",
-      "ratings": {
-        "imdbID": "tt4555426",
-        "rt": "84%",
-        "imdb": "7.4",
-        "metacritic": "75",
-        "letterboxd": "3.7",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMjIyNDkyMTgzMV5BMl5BanBnXkFtZTgwNTQwNjg2MzI@._V1_SX300.jpg",
-        "genre": "Biography, Drama, History",
-        "runtime": "125 min",
-        "plot": "In May 1940, the fate of World War II hangs on Winston Churchill, who must decide whether to negotiate with Adolf Hitler, or fight on knowing that it could mean the end of the British Empire.",
-        "year": "2017",
-        "director": "Joe Wright"
-      },
-      "theaters": [
-        {
-          "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30393&visLang=1",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30393&visLang=1"
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "Gary Oldman's performance is the entire film, and Joe Wright's theatrical flourishes occasionally undercut the script rather than strengthen it. The DCP at Metrograph is clean, but this is better suited to a home viewing where you can pace the two-hour runtime on your own terms."
-      }
     },
     {
       "id": "tt0371589",
@@ -16429,16 +15058,16 @@
       "theaters": [
         {
           "name": "Metrograph",
-          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30388&visLang=1",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30618&visLang=1",
           "schedule": [
             {
-              "day": "Sun Jul 26",
+              "day": "Tue Aug 4",
               "times": [
-                "1:00pm"
+                "5:00pm"
               ],
-              "date": "2026-07-26",
+              "date": "2026-08-04",
               "ticket_urls": {
-                "1:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30388&visLang=1"
+                "5:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30618&visLang=1"
               }
             }
           ],
@@ -16475,18 +15104,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/disclosure-day?cinemaId=2103&sessionId=94003",
+          "ticket_url": "https://drafthouse.com/nyc/show/disclosure-day?cinemaId=2103&sessionId=94021",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "9:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "9:30pm": "https://drafthouse.com/nyc/show/disclosure-day?cinemaId=2103&sessionId=94003"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16522,22 +15141,8 @@
         },
         {
           "name": "BAM Rose Cinemas",
-          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57134",
+          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57137",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:30pm",
-                "4:30pm",
-                "7:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:30pm": "https://commerce.bam.org/booking/production/bestavailable/57134",
-                "4:30pm": "https://commerce.bam.org/booking/production/bestavailable/57135",
-                "7:30pm": "https://commerce.bam.org/booking/production/bestavailable/57136"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16729,6 +15334,44 @@
       }
     },
     {
+      "id": "tt35615464",
+      "title": "Scream",
+      "ratings": {
+        "imdbID": "tt35615464",
+        "rt": "76%",
+        "imdb": "N/A",
+        "metacritic": "N/A",
+        "letterboxd": null,
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZTMzM2U4NzktNWI0Ni00YjZmLWE1Y2YtZjA2ZWU1Y2UyNDdkXkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "N/A",
+        "runtime": "N/A",
+        "plot": "N/A",
+        "year": "2025",
+        "director": "Mohammad Reza Ardalan"
+      },
+      "theaters": [
+        {
+          "name": "Nitehawk Cinema Williamsburg",
+          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23560777/",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:00am"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:00am": "https://nitehawkcinema.com/williamsburg/purchase/23560777/"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": []
+    },
+    {
       "id": "tt31170389",
       "title": "Evil Dead Burn",
       "ratings": {
@@ -16748,18 +15391,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93999",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=94017",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2103&sessionId=93999"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16795,18 +15428,8 @@
         },
         {
           "name": "Alamo Drafthouse Downtown Brooklyn",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=134663",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=134571",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "11:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "11:00pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2101&sessionId=134663"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16842,24 +15465,8 @@
         },
         {
           "name": "Alamo Drafthouse Staten Island",
-          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43981",
+          "ticket_url": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=44006",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:30pm",
-                "4:30pm",
-                "7:30pm",
-                "10:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43981",
-                "4:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43982",
-                "7:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=44091",
-                "10:30pm": "https://drafthouse.com/nyc/show/evil-dead-burn?cinemaId=2102&sessionId=43984"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -16913,86 +15520,6 @@
       }
     },
     {
-      "id": "tt2012616",
-      "title": "Motor City",
-      "ratings": {
-        "imdbID": "tt2012616",
-        "rt": "72%",
-        "imdb": "5.8",
-        "metacritic": "55",
-        "letterboxd": "2.9",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGFmNTJkNzctNDc2Zi00ZWMxLWIzNzktNDQxMzU3ZGVkZTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-        "genre": "Action, Crime, Drama",
-        "runtime": "103 min",
-        "plot": "In 1970s Detroit, John Miller falls for a local gangster's girl. In retaliation, the gangster enacts a frame job to send the innocent man to prison. Life ruined, Miller plots a revenge campaign against the man who took his girl away.",
-        "year": "2026",
-        "director": "Potsy Ponciroli"
-      },
-      "theaters": [
-        {
-          "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92948",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92948",
-                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92951"
-              }
-            },
-            {
-              "day": "Mon Jul 27",
-              "times": [
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-27",
-              "ticket_urls": {
-                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92955",
-                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92952"
-              }
-            },
-            {
-              "day": "Tue Jul 28",
-              "times": [
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-28",
-              "ticket_urls": {
-                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92959",
-                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92956"
-              }
-            },
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "6:00pm",
-                "9:00pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92963",
-                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92960"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "Skip unless you're in the mood for straightforward revenge pulp with a solid genre setup. Potsy Ponciroli's 1970s Detroit noir has the bones of a B-movie that works on mood and period detail more than narrative surprises."
-      }
-    },
-    {
       "id": "tt0415306",
       "title": "Talladega Nights: The Ballad of Ricky Bobby",
       "ratings": {
@@ -17022,6 +15549,16 @@
               "date": "2026-08-01",
               "ticket_urls": {
                 "11:30am": "https://nitehawkcinema.com/prospectpark/purchase/23390607/"
+              }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "11:30am"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "11:30am": "https://nitehawkcinema.com/prospectpark/purchase/23390608/"
               }
             }
           ],
@@ -17188,18 +15725,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569664~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569680~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:50 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:50 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569664~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -17251,35 +15778,61 @@
       }
     },
     {
-      "id": "tt1371111",
-      "title": "Cloud Atlas",
+      "id": "tt2012616",
+      "title": "Motor City",
       "ratings": {
-        "imdbID": "tt1371111",
-        "rt": "65%",
-        "imdb": "7.3",
+        "imdbID": "tt2012616",
+        "rt": "64%",
+        "imdb": "5.8",
         "metacritic": "55",
-        "letterboxd": "3.6",
+        "letterboxd": "2.9",
         "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTczMTgxMjc4NF5BMl5BanBnXkFtZTcwNjM5MTA2OA@@._V1_SX300.jpg",
-        "genre": "Drama, Mystery, Sci-Fi",
-        "runtime": "172 min",
-        "plot": "As souls are born and reborn, they renew their connections to one another throughout the ages.",
-        "year": "2012",
-        "director": "Tom Tykwer, Lana Wachowski, Lilly Wachowski"
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGFmNTJkNzctNDc2Zi00ZWMxLWIzNzktNDQxMzU3ZGVkZTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+        "genre": "Action, Crime, Drama",
+        "runtime": "103 min",
+        "plot": "In 1970s Detroit, John Miller falls for a local gangster's girl. In retaliation, the gangster enacts a frame job to send the innocent man to prison. Life ruined, Miller plots a revenge campaign against the man who took his girl away.",
+        "year": "2026",
+        "director": "Potsy Ponciroli"
       },
       "theaters": [
         {
-          "name": "Nitehawk Cinema Williamsburg",
-          "ticket_url": "https://nitehawkcinema.com/williamsburg/purchase/23533898/",
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92955",
           "schedule": [
             {
-              "day": "Sun Jul 26",
+              "day": "Mon Jul 27",
               "times": [
-                "11:00am"
+                "6:00pm",
+                "9:00pm"
               ],
-              "date": "2026-07-26",
+              "date": "2026-07-27",
               "ticket_urls": {
-                "11:00am": "https://nitehawkcinema.com/williamsburg/purchase/23533898/"
+                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92955",
+                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92952"
+              }
+            },
+            {
+              "day": "Tue Jul 28",
+              "times": [
+                "6:00pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-28",
+              "ticket_urls": {
+                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92959",
+                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92956"
+              }
+            },
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "6:00pm",
+                "9:00pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "6:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92963",
+                "9:00pm": "https://drafthouse.com/nyc/show/motor-city?cinemaId=2103&sessionId=92960"
               }
             }
           ],
@@ -17289,7 +15842,7 @@
       "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
-        "reason": "Three hours of ambitious structural ambition that swings wildly between transcendent and exhausting, best approached as a theatrical endurance test rather than a polished narrative. The Wachowskis and Tykwer's visual reach across six timelines demands a big screen, but the uneven execution and runtime make this a commitment that pays off only if you're willing to surrender to formal experimentation."
+        "reason": "Skip unless you're in the mood for straightforward revenge pulp with a solid genre setup. Potsy Ponciroli's 1970s Detroit noir has the bones of a B-movie that works on mood and period detail more than narrative surprises."
       }
     },
     {
@@ -17555,50 +16108,6 @@
       }
     },
     {
-      "id": "tt0242527",
-      "title": "The Hole",
-      "ratings": {
-        "imdbID": "tt0242527",
-        "rt": "53%",
-        "imdb": "6.2",
-        "metacritic": "N/A",
-        "letterboxd": "3.1",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNmFmYTg0NDItMTA0ZS00NDUwLWIzNDctZmViMWIzMzRmZmEzXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Drama, Mystery, Thriller",
-        "runtime": "102 min",
-        "plot": "Four teenagers discover an underground fallout shelter thanks to a friend, who agrees to have them hide there with the door locked for a few days to escape a school trip. Yet, time passes, and their friend doesn't come back to get...",
-        "year": "2001",
-        "director": "Nick Hamm"
-      },
-      "theaters": [
-        {
-          "name": "Film at Lincoln Center",
-          "ticket_url": "https://purchase.filmlinc.org/83288/83701",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "6:15pm",
-                "8:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "6:15pm": "https://purchase.filmlinc.org/83288/83701",
-                "8:30pm": "https://purchase.filmlinc.org/83288/83702"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "DEPENDS",
-        "reason": "A tense chamber piece about confinement and teenage psychology that works best as a locked-room thriller, though the execution is uneven and the runtime drags in the second half. Nick Hamm's direction squeezes real dread from the premise, but the payoff doesn't justify sitting through 102 minutes of escalating claustrophobia."
-      }
-    },
-    {
       "id": "tt0193253",
       "title": "Jin-Roh: The Wolf Brigade",
       "ratings": {
@@ -17785,48 +16294,6 @@
       }
     },
     {
-      "id": "tt0117705",
-      "title": "Space Jam",
-      "ratings": {
-        "imdbID": "tt0117705",
-        "rt": "46%",
-        "imdb": "6.5",
-        "metacritic": "57",
-        "letterboxd": "3.2",
-        "cinemaScore": null,
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGQ3ZDk0M2MtZDNmNi00OWE3LThiODUtMTU3NmVjMTA0ZGQyXkEyXkFqcGc@._V1_SX300.jpg",
-        "genre": "Animation, Adventure, Comedy",
-        "runtime": "88 min",
-        "plot": "In a desperate attempt to win a basketball match and earn their freedom, the Looney Tunes seek the aid of retired basketball champion, Michael Jordan.",
-        "year": "1996",
-        "director": "Joe Pytka"
-      },
-      "theaters": [
-        {
-          "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23302812/",
-          "schedule": [
-            {
-              "day": "Sat Aug 1",
-              "times": [
-                "12:45pm"
-              ],
-              "date": "2026-08-01",
-              "ticket_urls": {
-                "12:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23302812/"
-              }
-            }
-          ],
-          "special_formats": []
-        }
-      ],
-      "special_formats": [],
-      "verdict": {
-        "verdict": "SKIP",
-        "reason": "Skip it; the live-action-animation hybrid feels dated and the basketball sequences don't justify the runtime. Michael Jordan's acting abilities haven't improved in thirty years, and the Looney Tunes are sidelined in their own movie."
-      }
-    },
-    {
       "id": "tt0120832",
       "title": "Snake Eyes",
       "ratings": {
@@ -17846,18 +16313,8 @@
       "theaters": [
         {
           "name": "Alamo Drafthouse Lower Manhattan",
-          "ticket_url": "https://drafthouse.com/nyc/show/snake-eyes?cinemaId=2103&sessionId=94117",
+          "ticket_url": "https://drafthouse.com/nyc/show/snake-eyes?cinemaId=2103&sessionId=90427",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "3:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "3:30pm": "https://drafthouse.com/nyc/show/snake-eyes?cinemaId=2103&sessionId=94117"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -17952,24 +16409,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569447~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569448~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:30 pm",
-                "3:30 pm",
-                "6:30 pm",
-                "9:30 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569447~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "3:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569454~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "6:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569461~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "9:30 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=569470~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -18194,6 +16635,22 @@
                 "6:40pm": "https://commerce.bam.org/booking/production/bestavailable/57178",
                 "9:15pm": "https://commerce.bam.org/booking/production/bestavailable/57179"
               }
+            },
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "1:10pm",
+                "3:50pm",
+                "6:40pm",
+                "9:15pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "1:10pm": "https://commerce.bam.org/booking/production/bestavailable/57180",
+                "3:50pm": "https://commerce.bam.org/booking/production/bestavailable/57181",
+                "6:40pm": "https://commerce.bam.org/booking/production/bestavailable/57182",
+                "9:15pm": "https://commerce.bam.org/booking/production/bestavailable/57183"
+              }
             }
           ],
           "special_formats": []
@@ -18203,6 +16660,226 @@
       "verdict": {
         "verdict": "DEPENDS",
         "reason": "Koreeda's first science fiction film explores grief through an unsettling premise, but the execution feels thin and the emotional payoff is uneven. The 126-minute runtime asks patience for a film that works better as a thought experiment than as lived drama."
+      }
+    },
+    {
+      "id": "tt36629665",
+      "title": "Her Private Hell",
+      "ratings": {
+        "imdbID": "tt36629665",
+        "rt": "42%",
+        "imdb": "3.8",
+        "metacritic": "38",
+        "letterboxd": "1.9",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNjkwNTUwZTAtZmNjNS00OTlkLTg3ZTEtNjVkMmRmYjIzZWM5XkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
+        "genre": "Crime, Drama, Horror",
+        "runtime": "109 min",
+        "plot": "A hypnotic, unhinged thriller with an original story promising plenty of glamour, sex, and violence.",
+        "year": "2026",
+        "director": "Nicolas Winding Refn"
+      },
+      "theaters": [
+        {
+          "name": "Alamo Drafthouse Lower Manhattan",
+          "ticket_url": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93270",
+          "schedule": [
+            {
+              "day": "Mon Jul 27",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-27",
+              "ticket_urls": {
+                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93270",
+                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93269",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93268",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93267",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93266"
+              }
+            },
+            {
+              "day": "Tue Jul 28",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-28",
+              "ticket_urls": {
+                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93275",
+                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93274",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93273",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93272",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93271"
+              }
+            },
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93280",
+                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93279",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93278",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93277",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2103&sessionId=93276"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Alamo Drafthouse Downtown Brooklyn",
+          "ticket_url": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133698",
+          "schedule": [
+            {
+              "day": "Mon Jul 27",
+              "times": [
+                "10:30am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-27",
+              "ticket_urls": {
+                "10:30am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133698",
+                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133699",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133697",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133696",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133695"
+              }
+            },
+            {
+              "day": "Tue Jul 28",
+              "times": [
+                "10:15am",
+                "1:30pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-28",
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133703",
+                "1:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133704",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133702",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133701",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133700"
+              }
+            },
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "10:15am",
+                "1:15pm",
+                "4:30pm",
+                "7:30pm",
+                "10:30pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "10:15am": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133708",
+                "1:15pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133709",
+                "4:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133707",
+                "7:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133706",
+                "10:30pm": "https://drafthouse.com/nyc/show/her-private-hell?cinemaId=2101&sessionId=133705"
+              }
+            }
+          ],
+          "special_formats": []
+        },
+        {
+          "name": "Nitehawk Cinema Prospect Park",
+          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23538179/",
+          "schedule": [
+            {
+              "day": "Mon Jul 27",
+              "times": [
+                "2:45pm",
+                "7:55pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-27",
+              "ticket_urls": {
+                "2:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538179/",
+                "7:55pm": "https://nitehawkcinema.com/prospectpark/purchase/23538190/",
+                "9:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538192/"
+              },
+              "time_attributes": {
+                "9:45pm": [
+                  "Open Caption"
+                ]
+              }
+            },
+            {
+              "day": "Tue Jul 28",
+              "times": [
+                "2:30pm",
+                "7:50pm",
+                "9:45pm"
+              ],
+              "date": "2026-07-28",
+              "ticket_urls": {
+                "2:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23538335/",
+                "7:50pm": "https://nitehawkcinema.com/prospectpark/purchase/23538348/",
+                "9:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538351/"
+              },
+              "time_attributes": {
+                "2:30pm": [
+                  "Open Caption"
+                ]
+              }
+            },
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "2:45pm",
+                "8:15pm",
+                "9:30pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "2:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538356/",
+                "8:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538370/",
+                "9:30pm": "https://nitehawkcinema.com/prospectpark/purchase/23538373/"
+              }
+            },
+            {
+              "day": "Thu Jul 30",
+              "times": [
+                "5:15pm",
+                "8:45pm",
+                "10:15pm"
+              ],
+              "date": "2026-07-30",
+              "ticket_urls": {
+                "5:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538378/",
+                "8:45pm": "https://nitehawkcinema.com/prospectpark/purchase/23538390/",
+                "10:15pm": "https://nitehawkcinema.com/prospectpark/purchase/23538394/"
+              }
+            }
+          ],
+          "special_formats": []
+        }
+      ],
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "Skip it unless you're committed to Refn's sensory excess over narrative coherence. The film is uneven and slight, but if you trust his eye for image and color, a theatrical screening at Nitehawk or Alamo Drafthouse beats waiting for streaming."
       }
     },
     {
@@ -18429,10 +17106,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "and-then-there-was-light",
@@ -18474,10 +17148,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "falling-leaves",
@@ -18519,10 +17190,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "favorites-of-the-moon",
@@ -18564,10 +17232,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "lebanon-in-turmoil-preceded-by-south-lebanon",
@@ -18609,10 +17274,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "tt0093944",
@@ -18661,6 +17323,52 @@
       }
     },
     {
+      "id": "tt0089651",
+      "title": "My Name Ain't Suzie",
+      "ratings": {
+        "imdbID": "tt0089651",
+        "rt": null,
+        "imdb": "6.5",
+        "metacritic": "N/A",
+        "letterboxd": "3.2",
+        "cinemaScore": null,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZDYwN2MzZjYtODc3OC00NGRmLTkyN2YtNmM0ZTI1ZTVhMDM5XkEyXkFqcGc@._V1_SX300.jpg",
+        "genre": "Drama",
+        "runtime": "96 min",
+        "plot": "The tale of fisher-girl turned bar-girl.",
+        "year": "1985",
+        "director": "Angela Chan"
+      },
+      "theaters": [
+        {
+          "name": "Metrograph",
+          "ticket_url": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30622&visLang=1",
+          "schedule": [
+            {
+              "day": "Tue Aug 4",
+              "times": [
+                "8:00pm"
+              ],
+              "date": "2026-08-04",
+              "ticket_urls": {
+                "8:00pm": "https://t.metrograph.com/Ticketing/visSelectTickets.aspx?cinemacode=9999&txtSessionId=30622&visLang=1"
+              }
+            }
+          ],
+          "special_formats": [
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "DCP"
+      ],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "A rare 1985 drama from Angela Chan that deserves rediscovery, but the 96-minute runtime and modest theatrical footprint make this more suited to a dedicated evening than a casual outing. Metrograph's DCP restoration gives the image clarity that a smaller independent film from this era rarely receives in revival."
+      }
+    },
+    {
       "id": "otar-iosseliani-early-shorts-program",
       "title": "Otar Iosseliani Early Shorts Program",
       "ratings": {
@@ -18700,10 +17408,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "the-razor-s-edge-lebanese-hostage-of-their-city",
@@ -18745,10 +17450,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "two-by-robb-moss",
@@ -18790,10 +17492,7 @@
       ],
       "special_formats": [
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "from-presence-to-power-book-launch-rashad-robinson-in-conversation-with-jane-fonda",
@@ -18831,10 +17530,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "the-great-experiment",
@@ -18872,10 +17568,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "tt1376205",
@@ -18930,14 +17623,10 @@
               }
             }
           ],
-          "special_formats": [
-            "16mm"
-          ]
+          "special_formats": []
         }
       ],
-      "special_formats": [
-        "16mm"
-      ],
+      "special_formats": [],
       "verdict": {
         "verdict": "DEPENDS",
         "reason": "A rare 16mm screening at IFC Center has real charm, but the film itself is minor and the runtime is short enough to catch at home. Go if you love the format and venue, skip otherwise."
@@ -19052,24 +17741,6 @@
           "ticket_url": "https://filmforum.org/film/dread-beat-an-blood",
           "schedule": [
             {
-              "day": "Sun Jul 26",
-              "times": [
-                "1:00pm",
-                "2:50pm",
-                "4:40pm",
-                "6:30pm",
-                "8:20pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "1:00pm": "https://filmforum.org/film/dread-beat-an-blood",
-                "2:50pm": "https://filmforum.org/film/dread-beat-an-blood",
-                "4:40pm": "https://filmforum.org/film/dread-beat-an-blood",
-                "6:30pm": "https://filmforum.org/film/dread-beat-an-blood",
-                "8:20pm": "https://filmforum.org/film/dread-beat-an-blood"
-              }
-            },
-            {
               "day": "Mon Jul 27",
               "times": [
                 "1:00pm",
@@ -19145,10 +17816,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "speedy-and-in-the-footsteps-of-speedy",
@@ -19190,10 +17858,7 @@
       ],
       "special_formats": [
         "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "tt0472300",
@@ -19927,26 +18592,8 @@
       "theaters": [
         {
           "name": "IFC Center",
-          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568662~8722a542-64c1-4c0b-af02-c3e8a239d769&",
+          "ticket_url": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568675~8722a542-64c1-4c0b-af02-c3e8a239d769&",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "10:35 am",
-                "1:10 pm",
-                "4:00 pm",
-                "6:50 pm",
-                "9:40 pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "10:35 am": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568662~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "1:10 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568665~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "4:00 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568668~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "6:50 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568671~8722a542-64c1-4c0b-af02-c3e8a239d769&",
-                "9:40 pm": "https://tickets.ifccenter.com/websales/pages/ticketsearchcriteria.aspx?evtinfo=568674~8722a542-64c1-4c0b-af02-c3e8a239d769&"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -20836,18 +19483,8 @@
       "theaters": [
         {
           "name": "BAM Rose Cinemas",
-          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57145",
+          "ticket_url": "https://commerce.bam.org/booking/production/bestavailable/57146",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "4:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "4:00pm": "https://commerce.bam.org/booking/production/bestavailable/57145"
-              }
-            },
             {
               "day": "Mon Jul 27",
               "times": [
@@ -20882,10 +19519,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "tt4223366",
@@ -20930,51 +19564,6 @@
       }
     },
     {
-      "id": "sundays-on-fire-secret-hong-kong-feature",
-      "title": "Sundays on Fire: Secret Hong Kong Feature",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Nitehawk Cinema Prospect Park",
-          "ticket_url": "https://nitehawkcinema.com/prospectpark/purchase/23069990/",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "12:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "12:00pm": "https://nitehawkcinema.com/prospectpark/purchase/23069990/"
-              }
-            }
-          ],
-          "special_formats": [
-            "35mm"
-          ]
-        }
-      ],
-      "special_formats": [
-        "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
-    },
-    {
       "id": "nobudge-live-51",
       "title": "NoBudge Live 51",
       "ratings": {
@@ -21010,10 +19599,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "wham-10-days-in-china",
@@ -21051,140 +19637,7 @@
           "special_formats": []
         }
       ],
-      "special_formats": [],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
-    },
-    {
-      "id": "ec-a-man-escaped-or-the-wind-blows-where-it-listeth",
-      "title": "EC: A MAN ESCAPED, OR THE WIND BLOWS WHERE IT LISTETH",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Anthology Film Archives",
-          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "5:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "5:00pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "5:00pm": [
-                  "35mm"
-                ]
-              }
-            },
-            {
-              "day": "Wed Jul 29",
-              "times": [
-                "8:30pm"
-              ],
-              "date": "2026-07-29",
-              "ticket_urls": {
-                "8:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "8:30pm": [
-                  "35mm"
-                ]
-              }
-            },
-            {
-              "day": "Thu Jul 30",
-              "times": [
-                "6:30pm"
-              ],
-              "date": "2026-07-30",
-              "ticket_urls": {
-                "6:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "6:30pm": [
-                  "35mm"
-                ]
-              }
-            }
-          ],
-          "special_formats": [
-            "35mm"
-          ]
-        }
-      ],
-      "special_formats": [
-        "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
-    },
-    {
-      "id": "cremaster-2-arabesque",
-      "title": "CREMASTER 2 + ARABESQUE",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Anthology Film Archives",
-          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "5:45pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "5:45pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "5:45pm": [
-                  "DCP"
-                ]
-              }
-            }
-          ],
-          "special_formats": [
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": []
     },
     {
       "id": "ec-pickpocket",
@@ -21208,21 +19661,6 @@
           "name": "Anthology Film Archives",
           "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
           "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "7:30pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "7:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "7:30pm": [
-                  "35mm"
-                ]
-              }
-            },
             {
               "day": "Wed Jul 29",
               "times": [
@@ -21261,64 +19699,7 @@
       ],
       "special_formats": [
         "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
-    },
-    {
-      "id": "moustapha-alassane-kevin-jerome-everson",
-      "title": "MOUSTAPHA ALASSANE + KEVIN JEROME EVERSON",
-      "ratings": {
-        "imdbID": null,
-        "rt": null,
-        "imdb": null,
-        "metacritic": null,
-        "letterboxd": null,
-        "poster": null,
-        "genre": null,
-        "runtime": null,
-        "plot": null,
-        "year": null,
-        "director": null,
-        "cinemaScore": null
-      },
-      "theaters": [
-        {
-          "name": "Anthology Film Archives",
-          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
-          "schedule": [
-            {
-              "day": "Sun Jul 26",
-              "times": [
-                "8:00pm"
-              ],
-              "date": "2026-07-26",
-              "ticket_urls": {
-                "8:00pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
-              },
-              "time_attributes": {
-                "8:00pm": [
-                  "16mm",
-                  "DCP",
-                  "Double Feature"
-                ]
-              }
-            }
-          ],
-          "special_formats": [
-            "16mm",
-            "DCP"
-          ]
-        }
-      ],
-      "special_formats": [
-        "16mm",
-        "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "in-the-battlefields-maarek-hob",
@@ -21367,10 +19748,69 @@
       ],
       "special_formats": [
         "DCP"
+      ]
+    },
+    {
+      "id": "ec-a-man-escaped-or-the-wind-blows-where-it-listeth",
+      "title": "EC: A MAN ESCAPED, OR THE WIND BLOWS WHERE IT LISTETH",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Wed Jul 29",
+              "times": [
+                "8:30pm"
+              ],
+              "date": "2026-07-29",
+              "ticket_urls": {
+                "8:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "8:30pm": [
+                  "35mm"
+                ]
+              }
+            },
+            {
+              "day": "Thu Jul 30",
+              "times": [
+                "6:30pm"
+              ],
+              "date": "2026-07-30",
+              "ticket_urls": {
+                "6:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "6:30pm": [
+                  "35mm"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "35mm"
+          ]
+        }
       ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": [
+        "35mm"
+      ]
     },
     {
       "id": "duchamp-pgm-1-duchamp-in-on-film",
@@ -21423,10 +19863,7 @@
         "16mm",
         "35mm",
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "tt0235011",
@@ -21534,10 +19971,7 @@
         "16mm",
         "35mm",
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "ec-bu-uel-dal",
@@ -21585,10 +20019,7 @@
       ],
       "special_formats": [
         "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "ec-l-ge-d-or",
@@ -21635,10 +20066,7 @@
       ],
       "special_formats": [
         "35mm"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "duchamp-pgm-3-ready-made-films",
@@ -21689,10 +20117,7 @@
       "special_formats": [
         "16mm",
         "Restoration"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "the-salamander-la-salamandre",
@@ -21743,10 +20168,7 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      ]
     },
     {
       "id": "duchamp-pgm-4-nudes-descending",
@@ -21793,10 +20215,256 @@
       ],
       "special_formats": [
         "16mm"
+      ]
+    },
+    {
+      "id": "ec-los-olvidados",
+      "title": "EC: LOS OLVIDADOS",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "3:30pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "3:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "3:30pm": [
+                  "35mm",
+                  "Double Feature"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "35mm"
+          ]
+        }
       ],
-      "verdict": {
-        "reason": "Showtimes review pending."
-      }
+      "special_formats": [
+        "35mm"
+      ]
+    },
+    {
+      "id": "duchamp-pgm-5-an-mic-cin-ma",
+      "title": "DUCHAMP PGM 5: ANÉMIC CINÉMA",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "5:15pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "5:15pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "5:15pm": [
+                  "16mm",
+                  "35mm",
+                  "DCP",
+                  "Double Feature"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "16mm",
+            "35mm",
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "16mm",
+        "35mm",
+        "DCP"
+      ]
+    },
+    {
+      "id": "ec-the-gold-rush",
+      "title": "EC: THE GOLD RUSH",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "6:00pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "6:00pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "6:00pm": [
+                  "35mm"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "35mm"
+          ]
+        }
+      ],
+      "special_formats": [
+        "35mm"
+      ]
+    },
+    {
+      "id": "duchamp-pgm-6-homage",
+      "title": "DUCHAMP PGM 6: HOMAGE",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "7:30pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "7:30pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "7:30pm": [
+                  "16mm",
+                  "DCP"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "16mm",
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "16mm",
+        "DCP"
+      ]
+    },
+    {
+      "id": "pig-earth-parting-shots-from-animals",
+      "title": "PIG EARTH + PARTING SHOTS FROM ANIMALS",
+      "ratings": {
+        "imdbID": null,
+        "rt": null,
+        "imdb": null,
+        "metacritic": null,
+        "letterboxd": null,
+        "poster": null,
+        "genre": null,
+        "runtime": null,
+        "plot": null,
+        "year": null,
+        "director": null,
+        "cinemaScore": null
+      },
+      "theaters": [
+        {
+          "name": "Anthology Film Archives",
+          "ticket_url": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr",
+          "schedule": [
+            {
+              "day": "Sun Aug 2",
+              "times": [
+                "8:00pm"
+              ],
+              "date": "2026-08-02",
+              "ticket_urls": {
+                "8:00pm": "https://ticketing.us.veezi.com/sessions/?siteToken=bsrxtagjxmgh2qy0b6p646xdcr"
+              },
+              "time_attributes": {
+                "8:00pm": [
+                  "16mm",
+                  "DCP"
+                ]
+              }
+            }
+          ],
+          "special_formats": [
+            "16mm",
+            "DCP"
+          ]
+        }
+      ],
+      "special_formats": [
+        "16mm",
+        "DCP"
+      ]
     }
   ],
   "scrape_errors": [
