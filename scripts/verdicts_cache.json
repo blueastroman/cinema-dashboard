@@ -4437,12 +4437,12 @@
   },
   "tt35674521": {
     "verdict": "WATCH",
-    "reason": "Mark Jenkin makes films that burrow under your skin through image and sound alone, and a 114-minute time-slip story is exactly the kind of formal puzzle he excels at. IFC and Lincoln Center are the right venues for work this deliberate.",
-    "generated_at": "2026-07-22T13:58:16.047350",
+    "reason": "Mark Jenkin's time-slip fantasy demands the big screen and his control of mood is worth experiencing in a theater. Lincoln Center is showing a filmmaker working at the height of his powers in a film built on texture, strangeness, and the uncanny.",
+    "generated_at": "2026-07-27T14:37:30.101136",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "c0101ebd4d0e4077d6d8d93ca5bbe40c592a06111f109934ba378e1281799822"
+    "source_hash": "b4ab433ef0d0c572c9751e26c17eb09d040bef42232d748b3d9598884cc917b1"
   },
   "simon-of-the-desert-with-land-without-bread": {
     "verdict": "WATCH",
@@ -4719,12 +4719,12 @@
   },
   "tt0042876": {
     "verdict": "WATCH",
-    "reason": "One of cinema's essential films about the nature of truth itself—see it on the big screen where Kurosawa's compositions in the forest have maximum impact. The four conflicting accounts of a single crime remain as structurally innovative and philosophically unsettling as they were in 1950.",
-    "generated_at": "2026-07-18T13:19:04.517518",
+    "reason": "One of cinema's foundational films about truth and perspective—see it on a big screen where Kurosawa's compositions and the editing rhythm that defines modern storytelling hit hardest. The 88-minute runtime and clean restoration make this the ideal entry point to a masterpiece that invented its own genre.",
+    "generated_at": "2026-07-27T14:37:30.101136",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "6bfd8ddef56b9259b9cd1695e6376d0230d1e71528bc5836e5535cd1521faf64"
+    "source_hash": "ae7a3586c15ed870c03e664c4ae4a6bc8f1c51bf902aa70e4380b0120f61d4f9"
   },
   "tt0085180": {
     "verdict": "WATCH",
@@ -5432,12 +5432,12 @@
   },
   "tt36629665": {
     "verdict": "DEPENDS",
-    "reason": "Skip it unless you're committed to Refn's sensory excess over narrative coherence. The film is uneven and slight, but if you trust his eye for image and color, a theatrical screening at Nitehawk or Alamo Drafthouse beats waiting for streaming.",
-    "generated_at": "2026-07-26T13:25:19.491441",
+    "reason": "Refn's stylistic control can redeem weak material, but this one tests that claim hard. The 109-minute runtime and pulpy premise suggest he's chasing sensation over substance, which lands differently on a big screen than it reads on paper.",
+    "generated_at": "2026-07-27T14:37:30.101136",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "aa8fc3dc807823bd6a93e698d92ec2770cfbc894d08be6017a5f670bd3e5817f"
+    "source_hash": "05f5a68c72eba9807d5dad1aae5528ae7c683e85a6186f1b27f252f955088848"
   },
   "tt1135092": {
     "verdict": "DEPENDS",
@@ -5684,13 +5684,13 @@
     "source_hash": "2c53e1a42f72123bc2928f8e9c89517190f8c89f50b47819f471b0f913bcaf4f"
   },
   "tt1376205": {
-    "verdict": "DEPENDS",
-    "reason": "A rare 16mm screening at IFC Center has real charm, but the film itself is minor and the runtime is short enough to catch at home. Go if you love the format and venue, skip otherwise.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "verdict": "SKIP",
+    "reason": "Skip it; a 95-minute indie drama about a teenager and supernatural beings has little theatrical urgency and plays better at home. The single-theater placement and minimal theatrical infrastructure suggest this is a specialized screening rather than a film that demands the big screen.",
+    "generated_at": "2026-07-27T14:37:30.101136",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b32569eec66910ef1e1c82d558708e832bb0e6afc96ee2e50df2796bc4b4b798"
+    "source_hash": "252add90c7bcbecf62d9efd5f4d0b2575dbea097e6fb2b4e3e3e0819da2f057a"
   },
   "american-pachuco": {
     "verdict": "SKIP",
@@ -6142,12 +6142,12 @@
   },
   "mystery-voyage-july-2026": {
     "verdict": "WATCH",
-    "reason": "A rare 35mm restoration of a Hong Kong kung fu film from the vaults demands the big screen. The 89-minute runtime and blend of action, comedy, and cooking make this a singular theatrical experience that justifies the trip.",
-    "generated_at": "2026-07-18T13:19:04.517518",
+    "reason": "A 35mm restoration of a Hong Kong kung fu film mixing action, comedy, and cooking is a rare theatrical event that demands the big screen. The print itself is the reason to go tonight—AGFA vault discoveries in pristine format don't come around often.",
+    "generated_at": "2026-07-27T14:37:30.101136",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "242d23a7d71f4fcfc3ceba1613a576199217f626ae213cf81ac9af6a983c10a2"
+    "source_hash": "e4671aec9381b1fa71d802e225b16b57354a1120ba777d79ab39348b58c60918"
   },
   "alamo-crafthouse-catvideofest-2026": {
     "verdict": "WATCH",
@@ -7505,5 +7505,14 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "df5f85bba8d9419d9858f168ff40992b3ffe9ac0d34ec0e85e775e2ffb589fc2"
+  },
+  "tt35615464": {
+    "verdict": "DEPENDS",
+    "reason": "Skip it unless you're committed to catching a rare Iranian film in theatrical distribution. The Nitehawk screening is the main draw here, not the film itself.",
+    "generated_at": "2026-07-27T14:37:30.101136",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "9a150e816ac2e27af1b7fabb29efc5e72e8f5be417d30e62b1762b3f45f433b9"
   }
 }
