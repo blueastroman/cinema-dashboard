@@ -2645,6 +2645,12 @@
     "title": "Marriage Story",
     "year": "2019"
   },
+  "mars attacks!|1996": {
+    "imdbID": "tt0116996",
+    "source": "exact",
+    "title": "Mars Attacks!",
+    "year": "1996"
+  },
   "martin eden|2019": {
     "imdbID": "tt4516162",
     "source": "exact_year",
@@ -4501,7 +4507,7 @@
   },
   "the kid|1921": {
     "imdbID": "tt0012349",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Kid",
     "year": "1921"
   },
@@ -4612,6 +4618,12 @@
     "source": "exact_year",
     "title": "The Misfits",
     "year": "1961"
+  },
+  "the naked city|1948": {
+    "imdbID": "tt0040636",
+    "source": "exact_year",
+    "title": "The Naked City",
+    "year": "1948"
   },
   "the narrow margin|1952": {
     "imdbID": "tt0044954",
@@ -4738,6 +4750,12 @@
     "source": "exact_year",
     "title": "The Rider",
     "year": "2017"
+  },
+  "the rivals of amziah king|2025": {
+    "imdbID": "tt27706593",
+    "source": "exact_year",
+    "title": "The Rivals of Amziah King",
+    "year": "2025"
   },
   "the rocky horror picture show|1975": {
     "imdbID": "tt0073629",
