@@ -3032,6 +3032,421 @@
     @media (max-width: 600px) {
       .auth-modal { margin: 0 16px; padding: 28px 20px 24px; }
     }
+
+    /* ── MOBILE LAYOUT RESET ─────────────────────────────────
+       Keep the phone experience intentionally linear. These rules live last
+       so they replace the older, overlapping responsive experiments above. */
+    @media (max-width: 700px) {
+      html { font-size: 16px; }
+
+      .header-inner,
+      .stats-inner,
+      main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .header-inner {
+        min-height: 60px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 8px;
+      }
+
+      .logo {
+        font-size: 0.92rem;
+        letter-spacing: 0.015em;
+      }
+
+      .header-actions { gap: 6px; }
+
+      .header-coming-soon-btn,
+      .profile-btn {
+        height: 36px;
+        padding: 0 10px;
+        font-size: 0.63rem;
+        letter-spacing: 0.04em;
+      }
+
+      .profile-avatar-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .profile-dropdown {
+        top: calc(var(--safe-top) + 54px);
+        right: 12px;
+        width: calc(100vw - 24px);
+        max-height: calc(100dvh - var(--safe-top) - 66px);
+      }
+
+      .mobile-filter-bar {
+        position: sticky;
+        top: var(--mobile-header-height, 0px);
+        z-index: 109;
+      }
+
+      .mobile-filter-inner {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 8px 10px;
+        padding: 8px 16px 9px;
+        overflow: visible;
+      }
+
+      .date-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .date-tabs .date-picker-wrap {
+        display: block;
+        min-width: 0;
+      }
+
+      .date-tab,
+      .date-picker-wrap #pickdate-btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        padding: 7px 3px;
+        justify-content: center;
+        font-size: 0.64rem;
+        letter-spacing: 0.025em;
+      }
+
+      .mobile-filter-toggle {
+        min-height: 38px;
+        padding: 7px 12px;
+      }
+
+      .mobile-filter-summary {
+        align-self: center;
+        line-height: 1.35;
+      }
+
+      /* Expanded filters join the document flow instead of covering the feed. */
+      .stats-bar,
+      body.filters-open .stats-bar {
+        position: static;
+        top: auto;
+      }
+
+      .stats-inner {
+        padding-top: 14px;
+        padding-bottom: 16px;
+        gap: 12px;
+      }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stats-row .control-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: start;
+        gap: 5px;
+        min-width: 0;
+      }
+
+      .stats-row .control-label { margin: 0; }
+
+      .stats-row .genre-select,
+      .stats-row .theater-select,
+      .stats-row .sort-select,
+      .stats-row .show-select,
+      .stats-row .daypart-select {
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+      }
+
+      .stats-row .search-wrap {
+        grid-column: 1 / -1;
+        min-width: 0;
+      }
+
+      .search-input { min-height: 42px; }
+
+      .stats-row .seg-toggle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .seg-btn {
+        min-height: 42px;
+        padding: 7px 8px;
+      }
+
+      .daypart-filter {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: 0;
+      }
+
+      main {
+        padding-top: 28px;
+        padding-bottom: 56px;
+      }
+
+      .rankings-page-header {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+      }
+
+      .rankings-list { gap: 10px; }
+
+      .ranking-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-rows: auto auto auto auto auto auto;
+        column-gap: 14px;
+        row-gap: 10px;
+        padding: 14px 14px 16px 14px;
+        cursor: default;
+        overflow: hidden;
+      }
+
+      .ranking-poster-wrap {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 72px;
+      }
+
+      .ranking-main { display: contents; }
+
+      .ranking-title-row {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        gap: 6px;
+      }
+
+      .ranking-title {
+        font-size: 1.18rem;
+        line-height: 1.15;
+      }
+
+      .ranking-meta {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0;
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      .ranking-score {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        flex-wrap: wrap;
+        width: auto;
+        gap: 4px 8px;
+        padding: 10px 0 0;
+        border-top: 1px solid var(--dark-gray);
+      }
+
+      .ranking-rt {
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .ranking-score-label,
+      .ranking-lb,
+      .ranking-cs {
+        width: auto;
+        margin: 0;
+        font-size: 0.6rem;
+        line-height: 1.2;
+      }
+
+      .ranking-score-label { margin-right: 3px; }
+
+      .ranking-blurb {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        margin-top: 0;
+        padding-left: 10px;
+        font-size: 0.9rem;
+        line-height: 1.52;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .ranking-next {
+        grid-column: 1 / -1;
+        grid-row: 5;
+        padding-top: 0;
+      }
+
+      .next-showtime-pill {
+        width: 100%;
+        min-height: 42px;
+        justify-content: center;
+      }
+
+      .ranking-actions {
+        grid-column: 1 / -1;
+        grid-row: 6;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .theater-action-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .ranking-times-panel {
+        grid-column: 1 / -1;
+        grid-row: 7;
+      }
+
+      .ranking-row.open .ranking-times-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .ranking-row-verdict {
+        grid-column: 1 / -1;
+        margin: -14px -14px 0;
+      }
+
+      .theater-view-header {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: start;
+      }
+
+      .theater-view-header-side { justify-content: flex-start; }
+
+      .theater-film-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-rows: auto auto auto auto auto auto;
+        column-gap: 14px;
+        row-gap: 10px;
+        padding: 14px 14px 16px;
+      }
+
+      .theater-poster-wrap {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 72px;
+      }
+
+      .theater-film-info { display: contents; }
+
+      .theater-film-title-row {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        margin: 0;
+      }
+
+      .theater-film-title {
+        font-size: 1.15rem;
+        line-height: 1.18;
+      }
+
+      .theater-film-meta {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0;
+        font-size: 0.76rem;
+      }
+
+      .theater-film-row .ranking-score {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: auto;
+        margin: 0;
+        padding: 10px 0 0;
+      }
+
+      .confidence-note {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        margin-top: 0;
+      }
+
+      .theater-film-review {
+        grid-column: 1 / -1;
+        grid-row: 5;
+        margin-top: 0;
+        padding-left: 10px;
+        font-size: 0.88rem;
+        line-height: 1.52;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .theater-film-times {
+        grid-column: 1 / -1;
+        grid-row: 6;
+        padding-top: 2px;
+      }
+
+      .theater-film-actions {
+        grid-column: 1 / -1;
+        grid-row: 7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .coming-soon-card {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .coming-soon-poster-wrap { width: 64px; }
+      .coming-soon-title { font-size: 1.05rem; }
+
+      .coming-soon-synopsis {
+        grid-column: 1 / -1;
+        margin-top: 2px;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .coming-soon-release { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 360px) {
+      .header-inner,
+      main {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .logo { font-size: 0.82rem; }
+
+      .header-coming-soon-btn,
+      .profile-btn {
+        padding: 0 8px;
+        font-size: 0.58rem;
+      }
+
+      .mobile-filter-inner { padding-left: 12px; padding-right: 12px; }
+      .date-tab, .date-picker-wrap #pickdate-btn { font-size: 0.58rem; }
+    }
   </style>
 </head>
 <body>
@@ -6748,6 +7163,7 @@ function onWatched(btn, movieId, title) {
 }
 
 function hideWatchedRowAfterToggle(element, triggerButton = null) {
+  if (showMode === 'all') return;
   if (!element) {
     render();
     return;
@@ -6781,7 +7197,7 @@ function onHide(btn, movieId, title) {
   toggleHidden(movieId, title);
   const card = btn.closest('.movie-card');
   card?.classList.add('is-hidden-state');
-  animateRemoveMovieElement(card, 260, 0.97);
+  if (showMode !== 'all') animateRemoveMovieElement(card, 260, 0.97);
 }
 
 function onTheaterWatched(btn, movieId, title) {
@@ -6814,7 +7230,7 @@ function onTheaterHide(btn, movieId, title) {
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.theater-film-row');
   row?.classList.toggle('is-hidden-state', isStillHidden);
-  animateRemoveMovieElement(row, 220, 0.98);
+  if (showMode !== 'all') animateRemoveMovieElement(row, 220, 0.98);
 }
 
 function onRankingWatched(btn, movieId, title) {
@@ -6847,7 +7263,7 @@ function onRankingHide(btn, movieId, title) {
   btn.setAttribute('aria-label', isStillHidden ? 'Unhide movie' : 'Hide movie');
   const row = btn.closest('.ranking-row');
   row?.classList.toggle('is-hidden-state', isStillHidden);
-  animateRemoveMovieElement(row, 220, 0.985);
+  if (showMode !== 'all') animateRemoveMovieElement(row, 220, 0.985);
 }
 
 function refreshRankingBlurb(btn, movieId) {
