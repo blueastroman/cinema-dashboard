@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import relay from "../public/api/amc-relay.js";
+import relay from "../api/amc-relay.js";
 
 function responseRecorder() {
   return {
