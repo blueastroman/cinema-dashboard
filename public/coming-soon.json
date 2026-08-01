@@ -1,90 +1,13 @@
 {
-  "updated_at": "2026-07-19",
-  "window_end": "2027-01-19",
+  "updated_at": "2026-08-01",
+  "window_end": "2027-02-01",
   "movies": [
-    {
-      "title": "Haunted Heist",
-      "release_date": "2026-07-24",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjgyNzFjODEtYTE0MC00ZWQ0LTg4NWMtZTU3Nzc2MWY5YWFhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
-      "genres": [
-        "Comedy",
-        "Horror",
-        "Mystery"
-      ],
-      "studio": "Variance Films",
-      "release_scale": "Limited",
-      "letterboxd_url": ""
-    },
-    {
-      "title": "Her Private Hell",
-      "release_date": "2026-07-24",
-      "poster": "https://m.media-amazon.com/images/M/MV5BM2NlMzRhNWItYzQ4MC00MDIwLWJlNDctMWUzNzYwYzgwZWJhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "When a mysterious mist engulfs a futuristic metropolis, unleashing a deadly and elusive entity, a troubled young woman searches for her father. Her quest collides with an American GI on a harrowing odyssey to rescue his daughter from Hell.",
-      "director": "Nicolas Winding Refn",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Horror",
-        "Sci-Fi",
-        "Thriller"
-      ],
-      "studio": "Neon",
-      "release_scale": "Limited",
-      "letterboxd_url": "https://letterboxd.com/film/her-private-hell-2026/"
-    },
-    {
-      "title": "Once Upon a Time in a Cinema",
-      "release_date": "2026-07-30",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDUxOTM1ZTQtNGE5NC00ZjIwLTkxYjEtOTI5NjY2NzVlNjA1XkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "Earl Clancy, a cinema owner on the edge, battles a series of disasters while juggling personal turmoil and the chaos of a packed Friday night crowd. Told in real time over the course of the movie playing in the cinema (Breathless, starring Richard Gere).",
-      "director": "David Gleeson",
-      "genres": [
-        "Drama"
-      ],
-      "studio": "Myriad Pictures",
-      "release_scale": "Wide",
-      "letterboxd_url": "https://letterboxd.com/film/once-upon-a-time-in-a-cinema/"
-    },
-    {
-      "title": "I Want Your Sex",
-      "release_date": "2026-07-31",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTM4YmE0NDQtM2I4ZS00YTcyLTk5ZjEtMjdmOTYzYTYxY2RjXkEyXkFqcGc@._V1_SY222_CR12,0,150,222_.jpg",
-      "synopsis": "When fresh-faced Elliot lands an exciting job for renowned artist, icon and provocateur Erika Tracy, his fantasies come true as Erika taps him to become her sexual muse. But Elliot soon finds himself out of his depth as Erika takes him on a journey more profound than he ever could have imagined, into a world of sex, obsession, power, betrayal and murder.",
-      "director": "Gregg Araki",
-      "genres": [
-        "Comedy",
-        "Drama",
-        "Romance",
-        "Thriller"
-      ],
-      "studio": "Magnolia Pictures",
-      "release_scale": "Wide",
-      "letterboxd_url": "https://letterboxd.com/film/i-want-your-sex/"
-    },
-    {
-      "title": "Spider-Man: Brand New Day",
-      "release_date": "2026-07-31",
-      "poster": "https://media.themoviedb.org/t/p/w500/yyB2VJEW3an2xCdcYCPQhn9QERR.jpg",
-      "synopsis": "Fighting crime full-time in a world that no longer remembers Peter Parker, Spider-Man faces mounting pressure, a dangerous transformation, and a powerful new threat no one can see.",
-      "director": "Destin Daniel Cretton",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Sci-Fi"
-      ],
-      "studio": "Sony Pictures Releasing",
-      "release_scale": "Wide",
-      "letterboxd_url": "https://letterboxd.com/film/spider-man-brand-new-day/"
-    },
     {
       "title": "CatVideoFest 2026",
       "release_date": "2026-08-07",
       "poster": "https://m.media-amazon.com/images/M/MV5BMWEzZDkyNzQtYzVkNC00MGU4LTkzZGMtMWU2M2QzMTkxNmZhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
       "synopsis": "Our fuzzy overlords return to the big screen! Each year, CatVideoFest curates a compilation reel of the latest, best cat videos culled from countless hours of unique submissions and sourced animations, music videos, and, of course, classic internet powerhouses (Keyboard Cat, we’re looking at you).",
-      "director": "",
+      "director": "Will Braden",
       "genres": [
         "Family"
       ],
@@ -194,6 +117,20 @@
       "studio": "MUBI",
       "release_scale": "Limited",
       "letterboxd_url": "https://letterboxd.com/film/teenage-sex-and-death-at-camp-miasma/"
+    },
+    {
+      "title": "Namaslay",
+      "release_date": "2026-08-13",
+      "poster": "https://m.media-amazon.com/images/M/MV5BM2Y3NDE0ODYtMGJmMS00NThiLTllYzYtYjk2ZDI1ODFmYzZjXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "A reimagining of masala cinema, Namaslay is a pyroclastic, genre-smashing horror satire that eviscerates the appropriation of Yoga in the West—proving culture is the blood that keeps the dead alive.",
+      "director": "Kanish Arhant-Sudhir, Rish Arhant-Sudhir",
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "studio": "",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/namaslay/"
     },
     {
       "title": "PAW Patrol: The Dino Movie",
@@ -320,6 +257,23 @@
       "letterboxd_url": "https://letterboxd.com/film/insidious-out-of-the-further/"
     },
     {
+      "title": "It Ends",
+      "release_date": "2026-08-21",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjI5MDU4YjktNDkwYi00ODk4LThiY2ItMDE5ZjdhZjIzNzkzXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "At the last party before the end of school, a shy young man drifts into a daydream and in a moment between life and death, finds the courage to reach out for love in real life.",
+      "director": "Matthias Wörz",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "studio": "Neon",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
+    },
+    {
       "title": "Mutiny",
       "release_date": "2026-08-21",
       "poster": "https://media.themoviedb.org/t/p/w500/aAnTt6KpmbbHbd6xH3FQFlppZjc.jpg",
@@ -359,7 +313,7 @@
         "Fantasy"
       ],
       "studio": "Vertical Entertainment",
-      "release_scale": "Wide",
+      "release_scale": "Limited",
       "letterboxd_url": "https://letterboxd.com/film/the-magic-faraway-tree/"
     },
     {
@@ -375,6 +329,37 @@
       "studio": "A24",
       "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/tony-2026/"
+    },
+    {
+      "title": "Pulp: What Do You Do for an Encore?",
+      "release_date": "2026-08-23",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYWUxNjVjMWMtMWNmZi00ZDY0LTkyNWQtYTg1MmUzNWQ0MTExXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "A fusion of the brilliantly choreographed stage spectacle of Pulp’s biggest ever arena show — part of the global tour for More, the band’s first album in 24 years — with four decades of colorful, never-seen-before archival material.",
+      "director": "Garth Jennings",
+      "genres": [
+        "Documentary",
+        "Music"
+      ],
+      "studio": "MUBI",
+      "release_scale": "Limited",
+      "letterboxd_url": "https://letterboxd.com/film/pulp-what-do-you-do-for-an-encore/"
+    },
+    {
+      "title": "Toxic",
+      "release_date": "2026-08-26",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYWJhYjI3MjktMDRhZS00ZjU1LThiN2UtYjc2ZGQzZDNmMjQ4XkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "Set in a bygone era, this gripping tale unfolds in the coastal paradise of Goa, where a powerful drug cartel pulls the strings behind a facade of sun-soaked beaches and vibrant culture.",
+      "director": "Geethu Mohandas",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "studio": "Variance Films",
+      "release_scale": "Limited",
+      "letterboxd_url": "https://letterboxd.com/film/toxic-2026/"
     },
     {
       "title": "Buddy",
@@ -394,8 +379,8 @@
       "title": "Cliffhanger",
       "release_date": "2026-08-28",
       "poster": "https://m.media-amazon.com/images/M/MV5BNTNlOGUxYjAtMTZhNi00Yjg1LWI0ZGYtY2Q0ZmI4OGQ3ZjAxXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "A mountain guide and his daughter's alpine climbing business in the Italian Alps faces a tragic event, forcing them to confront and overcome adversity as dangerous foes emerge, unleashing chaos.",
+      "director": "Jaume Collet-Serra",
       "genres": [
         "Action",
         "Adventure",
@@ -490,8 +475,8 @@
       "title": "The Cycle of Love",
       "release_date": "2026-08-28",
       "poster": "https://m.media-amazon.com/images/M/MV5BMzEzOTRlMmEtOWQ0My00ZjgwLTkzMmMtMjQzN2M3MGRkNjI3XkEyXkFqcGc@._V1_SY222_CR14,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "Explores the romantic journey of PK Mahanandia, a Delhi street artist who trekked 6,000 miles by bicycle in 1977, venturing across continents to reunite with the woman he loved.",
+      "director": "Orlando von Einsiedel",
       "genres": [
         "Action",
         "Adventure",
@@ -610,6 +595,20 @@
       "letterboxd_url": ""
     },
     {
+      "title": "Dear You",
+      "release_date": "2026-09-04",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTAwZDgxNWQtYjRhMC00MzRiLTgxOGEtMjJjMGU4YTc1NjIxXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "Xiaowei travels to Thailand to find his \"billionaire grandfather\" who out of contact due to debt problems, but unexpectedly find the one who has been corresponding with his grandmother for years is not her husband.",
+      "director": "Hongchun Lan",
+      "genres": [
+        "Drama",
+        "Family"
+      ],
+      "studio": "Well Go USA Entertainment",
+      "release_scale": "Limited",
+      "letterboxd_url": "https://letterboxd.com/film/dear-you-2026/"
+    },
+    {
       "title": "Filipiñana",
       "release_date": "2026-09-04",
       "poster": "https://m.media-amazon.com/images/M/MV5BMDA0OTcwOGUtZmY3OC00NjEyLTgzMTEtYmM0N2QwZjUwZWRkXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
@@ -667,21 +666,6 @@
       "studio": "IFC Films",
       "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/the-sun-never-sets-2026/"
-    },
-    {
-      "title": "You Had to Be There: How the Toronto Godspell Ignited the Comedy Revolution, Spread Love & Overalls, and Created a Community That Changed the World (in a Canadian Kind of Way)",
-      "release_date": "2026-09-08",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNGNjMTA5YTAtOWZlMS00MTYwLWI1NDUtMmM4NDA4YjBmNDY4XkEyXkFqcGc@._V1_SY222_CR122,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
-      "genres": [
-        "Comedy",
-        "Documentary",
-        "Music"
-      ],
-      "studio": "Greenwich Entertainment",
-      "release_scale": "Limited",
-      "letterboxd_url": ""
     },
     {
       "title": "Hope",
@@ -752,8 +736,8 @@
       "title": "The Fix",
       "release_date": "2026-09-11",
       "poster": "https://m.media-amazon.com/images/M/MV5BZDBmZGQ3ZWUtYzQzZC00Yjg1LTkzMGQtYmI4MmNkNjFiNDZhXkEyXkFqcGc@._V1_SY222_CR192,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "Disillusioned by the end of the war in Afghanistan, a group of disgraced, war-torn ex-CIA operatives set out to Tehran to take down a life-changing score.",
+      "director": "Guy Moshe",
       "genres": [
         "Action",
         "Thriller"
@@ -882,20 +866,6 @@
       "letterboxd_url": ""
     },
     {
-      "title": "Crawlers",
-      "release_date": "2026-09-25",
-      "poster": "/film-173410679.png",
-      "synopsis": "When a man returns from a trip unwittingly harboring a new breed of arachnid, the people in an apartment block are quarantined and left to fend for themselves against a plague of venomous spiders.",
-      "director": "Ángel Gómez Hernández",
-      "genres": [
-        "Horror",
-        "Thriller"
-      ],
-      "studio": "Roadside Attractions",
-      "release_scale": "Wide",
-      "letterboxd_url": "https://letterboxd.com/film/crawlers-2026/"
-    },
-    {
       "title": "Forgotten Island",
       "release_date": "2026-09-25",
       "poster": "https://m.media-amazon.com/images/M/MV5BMWJlY2JiNTMtYTAwYy00NGFiLTkwYTEtM2VmNDc4MzM5YmJiXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
@@ -916,6 +886,22 @@
       "letterboxd_url": "https://letterboxd.com/film/forgotten-island-2026/"
     },
     {
+      "title": "Ha-Chan, Shake Your Booty!",
+      "release_date": "2026-09-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjM2YTUzNzgtNWQ0MC00Y2EyLWFjZWEtNTkyNTdkNDlkNzdiXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "Haru and Luis love competing in Tokyo's ballroom dance scene, but after tragedy strikes, Haru withdraws into isolation. When friends coax her back to the studio, she develops an infatuation with the new instructor.",
+      "director": "Josef Kubota Wladyka",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Sci-Fi"
+      ],
+      "studio": "Sony Pictures Classics",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/ha-chan-shake-your-booty/"
+    },
+    {
       "title": "Heart of the Beast",
       "release_date": "2026-09-25",
       "poster": "https://m.media-amazon.com/images/M/MV5BMDVlMTRhMjgtMjdmZi00NjJhLWExMmYtODExNWJkZGZjNjdhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
@@ -932,17 +918,64 @@
       "letterboxd_url": "https://letterboxd.com/film/heart-of-the-beast-2026/"
     },
     {
-      "title": "The Scout",
+      "title": "No Limbs, No Limits: The NickV Story",
       "release_date": "2026-09-25",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZWZmZjdjNzQtZGFjNi00MjNhLTkwZmQtZmFhMzFmMWE4MjhiXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "Sofia is a location scout for a TV show in New York City. Over the course of one day, she is invited into homes, businesses, and lives across the city, witnessing the private spaces and dramas of countless strangers, until her work takes a sudden, personal turn.",
-      "director": "Paula Andrea Gonzalez-Nasser",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzFhY2VlODQtOGJiZC00MmI4LTgxODQtZTk1YjdkMzcyYzMxXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "",
+      "director": "",
       "genres": [
-        "Comedy",
+        "Documentary",
         "Drama"
       ],
+      "studio": "",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
+    },
+    {
+      "title": "Primetime",
+      "release_date": "2026-09-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZGM5MjUyMmMtY2Y5Zi00NGViLTg3MTctZjAwMzY4MTE2MTBhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "A journalist investigates and exposes a criminal underworld, leading to a major shift in television.",
+      "director": "Lance Oppenheim",
+      "genres": [
+        "Action",
+        "Biography",
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "studio": "A24",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/primetime-2026/"
+    },
+    {
+      "title": "Victorian Psycho",
+      "release_date": "2026-09-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZmIyMDdkMGYtMjQ2My00YzAwLWI0YWUtZjMyOTg3NTlmMWZhXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "In 1858, an eccentric young governess, Winifred Notty, arrives at the remote gothic manor Ensor House. As Winifred assimilates, staff begin to inexplicably disappear, and the owners wonder if something is amiss about this new gove...",
+      "director": "Zachary Wigon",
+      "genres": [
+        "Comedy",
+        "Horror",
+        "Thriller"
+      ],
+      "studio": "Bleecker Street Media",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/victorian-psycho/"
+    },
+    {
+      "title": "You Had to Be There: How the Toronto Godspell Ignited the Comedy Revolution, Spread Love & Overalls, and Created a Community That Changed the World (in a Canadian Kind of Way)",
+      "release_date": "2026-09-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGNjMTA5YTAtOWZlMS00MTYwLWI1NDUtMmM4NDA4YjBmNDY4XkEyXkFqcGc@._V1_SY222_CR122,0,150,222_.jpg",
+      "synopsis": "",
+      "director": "",
+      "genres": [
+        "Comedy",
+        "Documentary",
+        "Music"
+      ],
       "studio": "Greenwich Entertainment",
-      "release_scale": "Limited",
+      "release_scale": "Wide",
       "letterboxd_url": ""
     },
     {
@@ -973,6 +1006,20 @@
       "studio": "Warner Bros.",
       "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/digger-2026/"
+    },
+    {
+      "title": "The Scout",
+      "release_date": "2026-10-02",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZWZmZjdjNzQtZGFjNi00MjNhLTkwZmQtZmFhMzFmMWE4MjhiXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "Sofia is a location scout for a TV show in New York City. Over the course of one day, she is invited into homes, businesses, and lives across the city, witnessing the private spaces and dramas of countless strangers, until her work takes a sudden, personal turn.",
+      "director": "Paula Andrea Gonzalez-Nasser",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "studio": "Greenwich Entertainment",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
     },
     {
       "title": "Verity",
@@ -1024,6 +1071,20 @@
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/"
     },
     {
+      "title": "Misty Green",
+      "release_date": "2026-10-09",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOThmYThlYTktYmRiYi00NTgzLWI5ZmEtMTAxNjgyYjkyMWY5XkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "Years after her Hollywood breakthrough, a talented actress whose career has stalled fights for her second act.",
+      "director": "Chris Rock",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "studio": "A24",
+      "release_scale": "Limited",
+      "letterboxd_url": "https://letterboxd.com/film/misty-green/"
+    },
+    {
       "title": "Other Mommy",
       "release_date": "2026-10-09",
       "poster": "/film-173410679.png",
@@ -1066,11 +1127,25 @@
       "letterboxd_url": "https://letterboxd.com/film/your-mother-your-mother-your-mother/"
     },
     {
+      "title": "Crawlers",
+      "release_date": "2026-10-16",
+      "poster": "/film-173410679.png",
+      "synopsis": "When a man returns from a trip unwittingly harboring a new breed of arachnid, the people in an apartment block are quarantined and left to fend for themselves against a plague of venomous spiders.",
+      "director": "Ángel Gómez Hernández",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "studio": "Roadside Attractions",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/crawlers-2026/"
+    },
+    {
       "title": "Flywheel: Ignition of the Soul",
       "release_date": "2026-10-16",
       "poster": "https://m.media-amazon.com/images/M/MV5BYjhmODI4ZDItYzQ5NC00YjE2LTg1YzktYTMwYTExZjcwNTc2XkEyXkFqcGc@._V1_SY222_CR122,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "Follows Noah Silva, a used-car salesman whose unethical approach to business unravels at home and work. After wake-up calls, he begins a difficult journey to restore his integrity and win back his wife and son.",
+      "director": "Alessandro Barros",
       "genres": [
         "Drama"
       ],
@@ -1162,8 +1237,8 @@
         "Thriller",
         "Science Fiction"
       ],
-      "studio": "",
-      "release_scale": "",
+      "studio": "Warner Bros.",
+      "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/clayface/"
     },
     {
@@ -1204,7 +1279,7 @@
       "release_date": "2026-10-30",
       "poster": "https://m.media-amazon.com/images/M/MV5BZDYwNTJmZWUtMTgxMi00NzRhLTkxNWQtNTk4YmIyMjdkYjA2XkEyXkFqcGc@._V1_SY222_CR9,0,150,222_.jpg",
       "synopsis": "Journey alongside the people of Israel as they navigate their newfound freedom in an unforgiving wilderness and under a new leader, Joshua. Captured in front of a live audience, JOSHUA LIVE! combines the energy of stage performance with the immersive experience of the cinema, bringing this unforgettable story of faith, courage and redemption to movie theaters.",
-      "director": "",
+      "director": "Chris Wert",
       "genres": [
         "Drama",
         "Family",
@@ -1233,6 +1308,19 @@
       "letterboxd_url": "https://letterboxd.com/film/wicker/"
     },
     {
+      "title": "Naughty",
+      "release_date": "2026-11-05",
+      "poster": "/film-173410679.png",
+      "synopsis": "A bold romantic comedy about Shiva, a charming college student juggling three different relationships. As he tries to keep them secret, love, lust, and chaos collide in a playful mix of adult humor, romance, and comedy.",
+      "director": "Rajasekhar G",
+      "genres": [
+        "Comedy"
+      ],
+      "studio": "Universal Pictures International (UPI)",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
+    },
+    {
       "title": "Club Kid",
       "release_date": "2026-11-06",
       "poster": "https://media.themoviedb.org/t/p/w500/6vAp5qyxvgh1g937AqXi30Rt9UE.jpg",
@@ -1250,8 +1338,8 @@
       "title": "Godzilla Minus Zero",
       "release_date": "2026-11-06",
       "poster": "https://m.media-amazon.com/images/M/MV5BYzY2OWFhMTgtODJhMi00NDIyLWIzNTQtYjc4MjE4YTBjYzllXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "Direct continuation of Takashi Yamazaki's Godzilla Minus One.",
+      "director": "Takashi Yamazaki",
       "genres": [
         "Action",
         "Adventure",
@@ -1297,11 +1385,26 @@
       "letterboxd_url": "https://letterboxd.com/film/wild-horse-nine/"
     },
     {
+      "title": "Ebenezer",
+      "release_date": "2026-11-13",
+      "poster": "https://m.media-amazon.com/images/M/MV5BY2Y0NWM2N2EtMjdkMS00NTc0LTg4NDctZmUyYTA4YWZlY2EwXkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "A thrilling ghost story set in Dickens' London, following one man's supernatural journey to face his past, present and future as he fights for a second chance at redemption.",
+      "director": "Ti West",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Fantasy"
+      ],
+      "studio": "Paramount Pictures",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/ebenezer-2026/"
+    },
+    {
       "title": "Ebenezer: A Christmas Carol",
       "release_date": "2026-11-13",
       "poster": "/film-173410679.png",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "A thrilling ghost story set in Dickens' London, following one man's supernatural journey to face his past, present and future as he fights for a second chance at redemption.",
+      "director": "Ti West",
       "genres": [
         "Drama",
         "Fantasy"
@@ -1356,6 +1459,20 @@
       "studio": "Lionsgate",
       "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/the-hunger-games-sunrise-on-the-reaping/"
+    },
+    {
+      "title": "Elsinore",
+      "release_date": "2026-11-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZGI1MjAzNGEtYjYyNy00MGNlLWIzOTktN2E1YzUyNDNkMWM1XkEyXkFqcGc@._V1_SY222_CR91,0,150,222_.jpg",
+      "synopsis": "A powerful, deeply moving and inspiring story of the actor Ian Charleson who faced incredible odds while preparing to give the performance of his life in Hamlet at the National Theatre in London.",
+      "director": "Simon Stone",
+      "genres": [
+        "Biography",
+        "Drama"
+      ],
+      "studio": "Focus Features",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/elsinore/"
     },
     {
       "title": "Focker-in-Law",
@@ -1494,6 +1611,21 @@
       "letterboxd_url": "https://letterboxd.com/film/jumanji-open-world/"
     },
     {
+      "title": "Mr. Irrelevant",
+      "release_date": "2026-12-25",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjllOWE3OWQtNmVhYS00MzM0LTk2NTEtZjQzNTEzNTc2MTc3XkEyXkFqcGc@._V1_SY222_CR91,0,150,222_.jpg",
+      "synopsis": "The heartfelt story of the inspiring, enduring impact John Tuggle had on his team and teammates after being drafted by the New York Giants.",
+      "director": "Jonathan Levine",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Sport"
+      ],
+      "studio": "Paramount Pictures",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
+    },
+    {
       "title": "Mr. Irrelevant: The John Tuggle Story",
       "release_date": "2026-12-25",
       "poster": "https://m.media-amazon.com/images/M/MV5BNjllOWE3OWQtNmVhYS00MzM0LTk2NTEtZjQzNTEzNTc2MTc3XkEyXkFqcGc@._V1_SY222_CR91,0,150,222_.jpg",
@@ -1540,8 +1672,8 @@
       "title": "The Beekeeper 2",
       "release_date": "2027-01-15",
       "poster": "/film-173410679.png",
-      "synopsis": "",
-      "director": "",
+      "synopsis": "Now a wanted man, former government assassin Adam Clay continues his vendetta against those who wronged him.",
+      "director": "Timo Tjahjanto",
       "genres": [
         "Action",
         "Crime",
@@ -1550,6 +1682,52 @@
       "studio": "Amazon MGM Studios",
       "release_scale": "Wide",
       "letterboxd_url": "https://letterboxd.com/film/the-beekeeper-2/"
+    },
+    {
+      "title": "Air Bud Returns",
+      "release_date": "2027-01-22",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjIzM2Q3NzEtN2E3MS00ZTkyLWFmOTUtMGRjNjdmZTdjYTJmXkEyXkFqcGc@._V1_SY222_CR0,0,150,222_.jpg",
+      "synopsis": "A grieving 12-year-old boy finds his dad's old VHS tape and befriends a stray golden retriever in his new town. Together, they chase basketball dreams, rally a team of underdogs, and discover what it means to play with heart.",
+      "director": "Robert Vince",
+      "genres": [
+        "Comedy",
+        "Family",
+        "Sport"
+      ],
+      "studio": "Cineverse",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/air-bud-returns/"
+    },
+    {
+      "title": "Drag",
+      "release_date": "2027-01-29",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDcxNDZmMTUtZjE1Ni00NmNkLWFjNmUtMTU2NDIzYjY4NTA0XkEyXkFqcGc@._V1_SX150_CR0,0,150,222_.jpg",
+      "synopsis": "A routine robbery at a rural house turns into a nightmare for two amateur burglars when one of them throws their back out. Things spiral out of control as they try to make it out before the homeowner returns.",
+      "director": "Raviv Ullman, Greg Yagolnitzer",
+      "genres": [
+        "Comedy",
+        "Horror",
+        "Thriller"
+      ],
+      "studio": "Briarcliff Entertainment",
+      "release_scale": "Wide",
+      "letterboxd_url": ""
+    },
+    {
+      "title": "The Rescue",
+      "release_date": "2027-01-29",
+      "poster": "/film-173410679.png",
+      "synopsis": "A rodeo cowboy and his dog search for his missing daughter.",
+      "director": "Potsy Ponciroli",
+      "genres": [
+        "Action",
+        "Drama",
+        "Thriller",
+        "Western"
+      ],
+      "studio": "Paramount Pictures",
+      "release_scale": "Wide",
+      "letterboxd_url": "https://letterboxd.com/film/the-rescue-2027/"
     }
   ]
 }
