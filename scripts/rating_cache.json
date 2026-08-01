@@ -35,6 +35,12 @@
     "title": "2001: A Space Odyssey",
     "year": "1968"
   },
+  "2046|2004": {
+    "imdbID": "tt0212712",
+    "source": "exact",
+    "title": "2046",
+    "year": "2004"
+  },
   "3 women|1977": {
     "imdbID": "tt0075612",
     "source": "exact_year",
@@ -925,7 +931,7 @@
   },
   "claire's knee|1970": {
     "imdbID": "tt0065772",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Claire's Knee",
     "year": "1970"
   },
@@ -1229,6 +1235,12 @@
     "title": "Desperate Living",
     "year": "1977"
   },
+  "desperately seeking susan|1985": {
+    "imdbID": "tt0089017",
+    "source": "exact",
+    "title": "Desperately Seeking Susan",
+    "year": "1985"
+  },
   "despicable me 4|2024": {
     "imdbID": "tt7510222",
     "source": "exact",
@@ -1291,7 +1303,7 @@
   },
   "do you love me|1946": {
     "imdbID": "tt0038484",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Do You Love Me",
     "year": "1946"
   },
@@ -1504,6 +1516,12 @@
     "source": "exact",
     "title": "Europa",
     "year": "1991"
+  },
+  "eve's bayou|1997": {
+    "imdbID": "tt0119080",
+    "source": "exact",
+    "title": "Eve's Bayou",
+    "year": "1997"
   },
   "everyone is lying to you for money|2025": {
     "imdbID": "tt36733913",
@@ -1879,7 +1897,7 @@
   },
   "goodbye dragon inn|2003": {
     "imdbID": "tt0377556",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Goodbye, Dragon Inn",
     "year": "2003"
   },
@@ -2309,6 +2327,12 @@
     "title": "Jaws",
     "year": "1975"
   },
+  "jennifer's body|2009": {
+    "imdbID": "tt1131734",
+    "source": "exact",
+    "title": "Jennifer's Body",
+    "year": "2009"
+  },
   "jfk|1991": {
     "imdbID": "tt0102138",
     "source": "exact_year",
@@ -2434,6 +2458,12 @@
     "source": "exact_year",
     "title": "Labyrinth",
     "year": "2026"
+  },
+  "lady in the water|2006": {
+    "imdbID": "tt0452637",
+    "source": "exact",
+    "title": "Lady in the Water",
+    "year": "2006"
   },
   "landscape in the mist|1988": {
     "imdbID": "tt0096288",
@@ -2605,7 +2635,7 @@
   },
   "love in the afternoon|1957": {
     "imdbID": "tt0050658",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Love in the Afternoon",
     "year": "1957"
   },
@@ -2860,6 +2890,12 @@
     "source": "exact_year",
     "title": "Mission: Impossible",
     "year": "1996"
+  },
+  "mississippi mermaid|1969": {
+    "imdbID": "tt0064990",
+    "source": "exact",
+    "title": "Mississippi Mermaid",
+    "year": "1969"
   },
   "moana|2026": {
     "imdbID": "tt27419466",
@@ -3184,6 +3220,12 @@
     "source": "exact_year",
     "title": "Oh..! Sukumari",
     "year": "2026"
+  },
+  "old joy|2006": {
+    "imdbID": "tt0468526",
+    "source": "exact",
+    "title": "Old Joy",
+    "year": "2006"
   },
   "oliver!|1968": {
     "imdbID": "tt0063385",
@@ -4025,6 +4067,12 @@
     "title": "So This Is New York",
     "year": "1948"
   },
+  "solaris|1972": {
+    "imdbID": "tt0069293",
+    "source": "exact",
+    "title": "Solaris",
+    "year": "1972"
+  },
   "some kind of heaven|2020": {
     "imdbID": "tt11358166",
     "source": "exact_year",
@@ -4085,6 +4133,12 @@
     "title": "Spirited Away",
     "year": "2003"
   },
+  "splash city|2026": {
+    "imdbID": "tt27666105",
+    "source": "exact_year",
+    "title": "Splash City",
+    "year": "2026"
+  },
   "spy": {
     "imdbID": "tt35522920",
     "source": "exact_year",
@@ -4120,6 +4174,12 @@
     "source": "exact_year",
     "title": "Stan & Ollie",
     "year": "2018"
+  },
+  "stand by me|1986": {
+    "imdbID": "tt0092005",
+    "source": "exact",
+    "title": "Stand by Me",
+    "year": "1986"
   },
   "state of firsts|2026": {
     "imdbID": "tt36589618",
@@ -4225,7 +4285,7 @@
   },
   "take care of my cat|2001": {
     "imdbID": "tt0296658",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Take Care of My Cat",
     "year": "2001"
   },
@@ -4591,7 +4651,7 @@
   },
   "the great silence|1968": {
     "imdbID": "tt0063032",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Great Silence",
     "year": "1968"
   },
@@ -4909,7 +4969,7 @@
   },
   "the red light bandit|1968": {
     "imdbID": "tt0144782",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Red Light Bandit",
     "year": "1968"
   },
@@ -5002,6 +5062,12 @@
     "source": "exact",
     "title": "The Seventh Seal",
     "year": "1957"
+  },
+  "the shooting|1966": {
+    "imdbID": "tt0062262",
+    "source": "exact",
+    "title": "The Shooting",
+    "year": "1966"
   },
   "the shop around the corner|1940": {
     "imdbID": "tt0033045",
@@ -5101,7 +5167,7 @@
   },
   "the traveler|2010": {
     "imdbID": "tt1533084",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Traveler",
     "year": "2010"
   },
@@ -5383,7 +5449,7 @@
   },
   "toute une nuit|1999": {
     "imdbID": "tt0411991",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Toute une nuit",
     "year": "1999"
   },
