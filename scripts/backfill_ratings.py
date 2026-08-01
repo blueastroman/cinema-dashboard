@@ -257,6 +257,39 @@ def clean_val(v) -> str:
     return "" if str(v or "").strip().upper() in ("", "N/A") else str(v).strip()
 
 
+def fetch_rt_rating(title: str, year: Optional[object] = None) -> Optional[str]:
+    """Compatibility wrapper used by the recent-ratings refresh workflow."""
+    score, _consensus = fetch_rt(title, extract_year_int(year))
+    return score
+
+
+def fetch_omdb_rating(title: str, omdb_key: str, year: Optional[object] = None) -> Optional[str]:
+    """Fetch a movie's Metascore from OMDb by title/year."""
+    if not title or not omdb_key:
+        return None
+    params = {
+        "apikey": omdb_key,
+        "t": title,
+        "tomatoes": "true",
+    }
+    query_year = extract_year_int(year)
+    if query_year:
+        params["y"] = str(query_year)
+    try:
+        response = requests.get(
+            "https://www.omdbapi.com/",
+            params=params,
+            timeout=10,
+            headers=DEFAULT_HEADERS,
+        )
+        data = response.json()
+    except Exception:
+        return None
+    if data.get("Response") == "False":
+        return None
+    return clean_val(parse_omdb(data).get("metacritic")) or None
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
