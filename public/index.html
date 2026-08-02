@@ -644,6 +644,9 @@
       margin-right: 2px;
     }
 
+    .sort-control { display: contents; }
+    .sort-control-label { display: none; }
+
     .saved-toggle.active {
       background: var(--watch-bg);
       border-color: var(--watch);
@@ -3233,6 +3236,16 @@
 
       .stats-row .control-label { margin: 0; }
 
+      .stats-row .sort-control {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: start;
+        gap: 5px;
+        min-width: 0;
+      }
+
+      .sort-control-label { display: block; }
+
       .stats-row .genre-select,
       .stats-row .theater-select,
       .stats-row .sort-select,
@@ -3761,10 +3774,13 @@
           <button class="seg-btn active" id="view-rankings" onclick="setView('rankings')">Rankings</button>
           <button class="seg-btn" id="view-grid" onclick="setView('grid')">Theaters</button>
         </div>
-        <select class="genre-select sort-select" id="sort-select" onchange="setSort(this.value)">
-          <option value="rating">Best first</option>
-          <option value="day">Soonest first</option>
-        </select>
+        <div class="control-group sort-control">
+          <label class="control-label sort-control-label" for="sort-select">Sort</label>
+          <select class="genre-select sort-select" id="sort-select" onchange="setSort(this.value)">
+            <option value="rating">Best first</option>
+            <option value="day">Soonest first</option>
+          </select>
+        </div>
         <div class="control-group">
           <span class="control-label">Lists</span>
           <select class="genre-select show-select" id="show-select" onchange="setShowMode(this.value)">

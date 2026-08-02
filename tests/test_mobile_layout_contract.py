@@ -38,3 +38,10 @@ def test_coming_soon_mobile_controls_are_simplified():
     assert "body.coming-soon-mode .mobile-filter-bar { display: none; }" in INDEX
     assert 'class="coming-soon-more"' in INDEX
     assert "function toggleComingSoonSynopsis(button)" in INDEX
+
+
+def test_mobile_sort_control_has_an_aligned_visible_label():
+    assert 'class="control-group sort-control"' in INDEX
+    assert '<label class="control-label sort-control-label" for="sort-select">Sort</label>' in INDEX
+    assert ".stats-row .sort-control" in INDEX
+    assert ".sort-control-label { display: block; }" in INDEX
