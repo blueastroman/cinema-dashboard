@@ -61,3 +61,12 @@ def test_mobile_showtime_sheet_covers_translucent_safari_toolbar():
     assert "inset: auto 0 -144px;" in INDEX
     assert "max-height: min(calc(82dvh + 144px), 844px);" in INDEX
     assert "calc(168px + env(safe-area-inset-bottom, 0px))" in INDEX
+
+
+def test_coming_soon_actions_share_the_compact_release_row():
+    mobile_css = INDEX.split("/* ── MOBILE EXPERIENCE", 1)[1].split("</style>", 1)[0]
+    assert "grid-template-columns: minmax(0, 1fr) auto;" in mobile_css
+    assert ".coming-soon-actions" in mobile_css
+    assert "grid-row: 1 / span 2;" in mobile_css
+    assert "grid-template-columns: repeat(2, 48px);" in mobile_css
+    assert "width: 48px;" in mobile_css
