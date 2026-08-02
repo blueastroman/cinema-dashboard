@@ -25,7 +25,10 @@ def test_mobile_sheets_are_bounded_and_lock_background_scroll():
 
 def test_mobile_showtimes_use_a_dedicated_sheet():
     assert 'class="mobile-showtimes-header"' in INDEX
-    assert "document.body.classList.toggle('mobile-showtimes-open', open)" in INDEX
+    assert "panel.classList.add('mobile-active')" in INDEX
+    assert "document.body.appendChild(panel)" in INDEX
+    assert "row.appendChild(panel)" in INDEX
+    assert ".ranking-times-panel.mobile-active" in INDEX
     assert "function closeMobileShowtimes()" in INDEX
 
 

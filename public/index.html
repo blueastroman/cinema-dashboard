@@ -3413,11 +3413,11 @@
       /* Ranking showtimes use their own sheet so one film cannot turn into an
          800px accordion in the middle of the feed. */
       .ranking-times-panel,
-      .ranking-row.open .ranking-times-panel {
+      .ranking-row.open > .ranking-times-panel {
         display: none;
       }
 
-      .ranking-row.open .ranking-times-panel {
+      .ranking-times-panel.mobile-active {
         position: fixed;
         inset: auto 0 0;
         z-index: 303;
@@ -3831,6 +3831,7 @@ let searchQuery = '';
 let activeSort = 'rating';
 let showMode = 'for-you';
 let viewMode = 'rankings';
+let activeMobileShowtimesRow = null;
 let comingSoonMovies = [];
 let hasLoadedData = false;
 let theaterMeta = {};
@@ -7031,14 +7032,24 @@ function buildRankingRow(movie, idx) {
 }
 
 function toggleRankingRow(row) {
-  const open = !row.classList.contains('open');
   if (window.matchMedia('(max-width: 700px)').matches) {
-    document.querySelectorAll('.ranking-row.open').forEach(openRow => {
-      openRow.classList.remove('open');
-      openRow.querySelector('.next-showtime-pill')?.setAttribute('aria-expanded', 'false');
-    });
-    document.body.classList.toggle('mobile-showtimes-open', open);
+    if (activeMobileShowtimesRow === row) {
+      closeMobileShowtimes();
+      return;
+    }
+    closeMobileShowtimes();
+    const panel = row.querySelector('.ranking-times-panel');
+    if (!panel) return;
+    row.classList.add('open');
+    row.querySelector('.next-showtime-pill')?.setAttribute('aria-expanded', 'true');
+    panel.classList.add('mobile-active');
+    document.body.appendChild(panel);
+    activeMobileShowtimesRow = row;
+    document.body.classList.add('mobile-showtimes-open');
+    return;
   }
+
+  const open = !row.classList.contains('open');
   row.classList.toggle('open', open);
   const toggle = row.querySelector('.next-showtime-pill');
   if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -7046,10 +7057,18 @@ function toggleRankingRow(row) {
 
 function closeMobileShowtimes() {
   document.body.classList.remove('mobile-showtimes-open');
-  document.querySelectorAll('.ranking-row.open').forEach(row => {
+  const panel = document.querySelector('body > .ranking-times-panel.mobile-active');
+  const row = activeMobileShowtimesRow;
+  if (panel) {
+    panel.classList.remove('mobile-active');
+    if (row) row.appendChild(panel);
+    else panel.remove();
+  }
+  if (row) {
     row.classList.remove('open');
     row.querySelector('.next-showtime-pill')?.setAttribute('aria-expanded', 'false');
-  });
+  }
+  activeMobileShowtimesRow = null;
 }
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────
