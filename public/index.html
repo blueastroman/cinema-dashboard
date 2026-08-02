@@ -3418,15 +3418,18 @@
 
       .ranking-times-panel.mobile-active {
         position: fixed;
-        inset: auto 0 0;
+        /* Mobile Safari's translucent bottom toolbar samples page pixels below
+           the visual viewport. Extend the sheet into that area while adding
+           matching padding so the visible content stays in the same place. */
+        inset: auto 0 -144px;
         z-index: 303;
         display: grid;
         grid-template-columns: 1fr;
         gap: 0;
-        max-height: min(82dvh, 700px);
+        max-height: min(calc(82dvh + 144px), 844px);
         overflow-y: auto;
         overscroll-behavior: contain;
-        padding: 0 18px calc(24px + env(safe-area-inset-bottom, 0px));
+        padding: 0 18px calc(168px + env(safe-area-inset-bottom, 0px));
         border: 1px solid var(--mid-gray);
         border-bottom: none;
         border-radius: 16px 16px 0 0;

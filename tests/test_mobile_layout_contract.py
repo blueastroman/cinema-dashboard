@@ -55,3 +55,9 @@ def test_mobile_movie_synopses_are_not_line_clamped():
     assert ".ranking-blurb" in mobile_css
     assert ".theater-film-review" in mobile_css
     assert mobile_css.count("-webkit-line-clamp: unset;") >= 2
+
+
+def test_mobile_showtime_sheet_covers_translucent_safari_toolbar():
+    assert "inset: auto 0 -144px;" in INDEX
+    assert "max-height: min(calc(82dvh + 144px), 844px);" in INDEX
+    assert "calc(168px + env(safe-area-inset-bottom, 0px))" in INDEX
