@@ -3205,8 +3205,17 @@
         cursor: pointer;
       }
 
-      body.filters-open .mobile-sheet-backdrop,
-      body.mobile-showtimes-open .mobile-sheet-backdrop { display: block; }
+      body.filters-open .mobile-sheet-backdrop { display: block; }
+
+      body.mobile-showtimes-open .mobile-sheet-backdrop {
+        display: block;
+        animation: mobileShowtimesBackdropIn 320ms ease-out both;
+      }
+
+      body.mobile-showtimes-closing .mobile-sheet-backdrop {
+        display: block;
+        animation: mobileShowtimesBackdropOut 240ms ease-in both;
+      }
 
       .stats-row {
         display: grid;
@@ -3416,6 +3425,7 @@
         gap: 0;
         max-height: min(calc(82dvh + 144px), 844px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
         padding: 0 18px calc(168px + env(safe-area-inset-bottom, 0px));
         border: 1px solid var(--mid-gray);
@@ -3423,6 +3433,34 @@
         border-radius: 16px 16px 0 0;
         background: var(--off-black);
         box-shadow: 0 -18px 55px rgba(0, 0, 0, 0.55);
+        transform-origin: bottom center;
+        will-change: transform;
+        animation: mobileShowtimesSheetIn 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .ranking-times-panel.mobile-active.mobile-closing {
+        pointer-events: none;
+        animation: mobileShowtimesSheetOut 240ms cubic-bezier(0.4, 0, 1, 1) both;
+      }
+
+      @keyframes mobileShowtimesSheetIn {
+        from { transform: translate3d(0, 100%, 0); }
+        to { transform: translate3d(0, 0, 0); }
+      }
+
+      @keyframes mobileShowtimesSheetOut {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(0, 100%, 0); }
+      }
+
+      @keyframes mobileShowtimesBackdropIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes mobileShowtimesBackdropOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
       }
 
       .mobile-showtimes-header {
@@ -3670,6 +3708,15 @@
       .stats-row .search-wrap,
       .stats-row .seg-toggle { grid-column: 1; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ranking-times-panel.mobile-active,
+      .ranking-times-panel.mobile-active.mobile-closing,
+      body.mobile-showtimes-open .mobile-sheet-backdrop,
+      body.mobile-showtimes-closing .mobile-sheet-backdrop {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3853,6 +3900,7 @@ let activeSort = 'rating';
 let showMode = 'for-you';
 let viewMode = 'rankings';
 let activeMobileShowtimesRow = null;
+let mobileShowtimesCloseTimer = null;
 let comingSoonMovies = [];
 let hasLoadedData = false;
 let theaterMeta = {};
@@ -4339,6 +4387,7 @@ function getAvailableDateBounds(data = null) {
         if (iso >= todayISO && iso > maxISO) maxISO = iso;
       }
     }
+
   }
 
   return { min: minISO || todayISO, max: maxISO };
@@ -7070,7 +7119,7 @@ function toggleRankingRow(row) {
       closeMobileShowtimes();
       return;
     }
-    closeMobileShowtimes();
+    closeMobileShowtimes({ immediate: true });
     const panel = row.querySelector('.ranking-times-panel');
     if (!panel) return;
     row.classList.add('open');
@@ -7088,20 +7137,36 @@ function toggleRankingRow(row) {
   if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
-function closeMobileShowtimes() {
-  document.body.classList.remove('mobile-showtimes-open');
+function closeMobileShowtimes({ immediate = false } = {}) {
   const panel = document.querySelector('body > .ranking-times-panel.mobile-active');
   const row = activeMobileShowtimesRow;
-  if (panel) {
-    panel.classList.remove('mobile-active');
-    if (row) row.appendChild(panel);
-    else panel.remove();
+  const finishClose = () => {
+    if (mobileShowtimesCloseTimer !== null) {
+      window.clearTimeout(mobileShowtimesCloseTimer);
+      mobileShowtimesCloseTimer = null;
+    }
+    document.body.classList.remove('mobile-showtimes-open', 'mobile-showtimes-closing');
+    if (panel) {
+      panel.classList.remove('mobile-active', 'mobile-closing');
+      if (row) row.appendChild(panel);
+      else panel.remove();
+    }
+    if (row) {
+      row.classList.remove('open');
+      row.querySelector('.next-showtime-pill')?.setAttribute('aria-expanded', 'false');
+    }
+    if (activeMobileShowtimesRow === row) activeMobileShowtimesRow = null;
+  };
+
+  if (!panel || immediate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    finishClose();
+    return;
   }
-  if (row) {
-    row.classList.remove('open');
-    row.querySelector('.next-showtime-pill')?.setAttribute('aria-expanded', 'false');
-  }
-  activeMobileShowtimesRow = null;
+
+  document.body.classList.remove('mobile-showtimes-open');
+  document.body.classList.add('mobile-showtimes-closing');
+  panel.classList.add('mobile-closing');
+  mobileShowtimesCloseTimer = window.setTimeout(finishClose, 260);
 }
 
 // ── THEATERS VIEW ───────────────────────────────────────────────────────────

@@ -29,7 +29,18 @@ def test_mobile_showtimes_use_a_dedicated_sheet():
     assert "document.body.appendChild(panel)" in INDEX
     assert "row.appendChild(panel)" in INDEX
     assert ".ranking-times-panel.mobile-active" in INDEX
-    assert "function closeMobileShowtimes()" in INDEX
+    assert "function closeMobileShowtimes(" in INDEX
+
+
+def test_mobile_showtime_sheet_slides_smoothly_from_the_bottom():
+    assert "@keyframes mobileShowtimesSheetIn" in INDEX
+    assert "transform: translate3d(0, 100%, 0);" in INDEX
+    assert "animation: mobileShowtimesSheetIn 360ms cubic-bezier(0.22, 1, 0.36, 1) both;" in INDEX
+    assert ".ranking-times-panel.mobile-active.mobile-closing" in INDEX
+    assert "animation: mobileShowtimesSheetOut 240ms cubic-bezier(0.4, 0, 1, 1) both;" in INDEX
+    assert "body.mobile-showtimes-closing .mobile-sheet-backdrop" in INDEX
+    assert "mobileShowtimesCloseTimer = window.setTimeout(finishClose, 260);" in INDEX
+    assert "@media (prefers-reduced-motion: reduce)" in INDEX
 
 
 def test_mobile_primary_targets_are_at_least_44_pixels():
