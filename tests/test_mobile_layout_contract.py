@@ -52,9 +52,13 @@ def test_mobile_sort_control_has_an_aligned_visible_label():
 
 def test_mobile_movie_synopses_are_not_line_clamped():
     mobile_css = INDEX.split("/* ── MOBILE EXPERIENCE", 1)[1].split("</style>", 1)[0]
-    assert ".ranking-blurb" in mobile_css
-    assert ".theater-film-review" in mobile_css
-    assert mobile_css.count("-webkit-line-clamp: unset;") >= 2
+    ranking_rule = mobile_css.split(".ranking-blurb {", 1)[1].split("}", 1)[0]
+    theater_rule = mobile_css.split(".theater-film-review {", 1)[1].split("}", 1)[0]
+    assert "display: block;" in ranking_rule
+    assert "-webkit-line-clamp: unset;" in ranking_rule
+    assert "overflow: visible;" in ranking_rule
+    assert "-webkit-line-clamp: unset;" in theater_rule
+    assert "overflow: visible;" in theater_rule
 
 
 def test_mobile_showtime_sheet_covers_translucent_safari_toolbar():
