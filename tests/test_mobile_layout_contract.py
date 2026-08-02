@@ -70,3 +70,11 @@ def test_coming_soon_actions_share_the_compact_release_row():
     assert "grid-row: 1 / span 2;" in mobile_css
     assert "grid-template-columns: repeat(2, 48px);" in mobile_css
     assert "width: 48px;" in mobile_css
+
+
+def test_coming_soon_header_control_returns_to_rankings():
+    assert 'onclick="toggleComingSoonView()"' in INDEX
+    assert "function toggleComingSoonView()" in INDEX
+    assert "setView(viewMode === 'coming' ? 'rankings' : 'coming')" in INDEX
+    assert "comingSoonButton.textContent = isComingSoon ? '← Movies' : 'Coming Soon'" in INDEX
+    assert "Back to movie rankings" in INDEX

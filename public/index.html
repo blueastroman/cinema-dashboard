@@ -3696,7 +3696,7 @@
         <div class="logo">Showtimes <span>NYC</span></div>
       </div>
       <div class="header-actions">
-        <button class="header-coming-soon-btn" id="header-coming-soon-btn" type="button" onclick="setView('coming')">Coming Soon</button>
+        <button class="header-coming-soon-btn" id="header-coming-soon-btn" type="button" aria-label="View coming soon movies" onclick="toggleComingSoonView()">Coming Soon</button>
         <div id="profile-wrap" style="position:relative;">
           <button class="profile-btn" id="profile-btn" type="button" onclick="openAuthModal()">Sign in</button>
         </div>
@@ -6379,8 +6379,18 @@ function syncShowButtons() {
 function syncViewButtons() {
   document.getElementById('view-rankings')?.classList.toggle('active', viewMode === 'rankings');
   document.getElementById('view-grid')?.classList.toggle('active', viewMode === 'grid');
-  document.getElementById('header-coming-soon-btn')?.classList.toggle('active', viewMode === 'coming');
+  const comingSoonButton = document.getElementById('header-coming-soon-btn');
+  const isComingSoon = viewMode === 'coming';
+  if (comingSoonButton) {
+    comingSoonButton.classList.toggle('active', isComingSoon);
+    comingSoonButton.textContent = isComingSoon ? '← Movies' : 'Coming Soon';
+    comingSoonButton.setAttribute('aria-label', isComingSoon ? 'Back to movie rankings' : 'View coming soon movies');
+  }
   updateMobileFilterSummary();
+}
+
+function toggleComingSoonView() {
+  setView(viewMode === 'coming' ? 'rankings' : 'coming');
 }
 
 function setView(mode) {
