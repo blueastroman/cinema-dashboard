@@ -48,3 +48,10 @@ def test_mobile_sort_control_has_an_aligned_visible_label():
     assert '<label class="control-label sort-control-label" for="sort-select">Sort</label>' in INDEX
     assert ".stats-row .sort-control" in INDEX
     assert ".sort-control-label { display: block; }" in INDEX
+
+
+def test_mobile_movie_synopses_are_not_line_clamped():
+    mobile_css = INDEX.split("/* ── MOBILE EXPERIENCE", 1)[1].split("</style>", 1)[0]
+    assert ".ranking-blurb" in mobile_css
+    assert ".theater-film-review" in mobile_css
+    assert mobile_css.count("-webkit-line-clamp: unset;") >= 2
