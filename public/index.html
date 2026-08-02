@@ -1976,26 +1976,14 @@
     .coming-soon-actions {
       display: flex;
       gap: 8px;
+      justify-content: flex-start;
       margin-top: 12px;
       padding-top: 12px;
       border-top: 1px solid var(--dark-gray);
     }
 
     .coming-soon-action {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .coming-soon-action.active-save {
-      border-color: var(--star-solid);
-      background: var(--star-solid);
-      color: var(--star-ink);
-    }
-
-    .coming-soon-action.active-hide {
-      border-color: var(--skip);
-      background: var(--skip-bg);
-      color: var(--skip);
+      flex: 0 0 auto;
     }
 
     body.coming-soon-mode .stats-row:first-child,
@@ -3648,7 +3636,7 @@
         grid-column: 2;
         grid-row: 1 / span 2;
         display: grid;
-        grid-template-columns: repeat(2, 48px);
+        grid-template-columns: repeat(2, 44px);
         gap: 6px;
         margin-top: 0;
         padding-top: 0;
@@ -3656,11 +3644,8 @@
       }
 
       .coming-soon-action {
-        width: 48px;
-        min-width: 48px;
-        min-height: 44px;
-        padding: 5px 4px;
-        font-size: 0.62rem;
+        width: 44px;
+        min-width: 44px;
       }
     }
 
@@ -6945,8 +6930,8 @@ function buildComingSoonCard(movie, idx) {
       <span class="coming-soon-release-label">In theaters</span>
       <time class="coming-soon-release-date" datetime="${escapeHTML(movie.release_date)}">${escapeHTML(formatReleaseDate(movie._releaseDate))}</time>
       <div class="coming-soon-actions">
-        <button class="action-btn coming-soon-action${saved ? ' active-save' : ''}" type="button" aria-pressed="${saved ? 'true' : 'false'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'save')">${saved ? '★ Saved' : 'Save'}</button>
-        <button class="action-btn coming-soon-action${hidden ? ' active-hide' : ''}" type="button" aria-pressed="${hidden ? 'true' : 'false'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'hide')">${hidden ? '× Hidden' : 'Hide'}</button>
+        <button class="theater-action-btn star coming-soon-action${saved ? ' active' : ''}" type="button" aria-label="${saved ? 'Remove movie from saved' : 'Save movie'}" aria-pressed="${saved ? 'true' : 'false'}" title="${saved ? 'Saved' : 'Save movie'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'save')">★</button>
+        <button class="theater-action-btn hide coming-soon-action${hidden ? ' active' : ''}" type="button" aria-label="${hidden ? 'Unhide movie' : 'Hide movie'}" aria-pressed="${hidden ? 'true' : 'false'}" title="${hidden ? 'Unhide movie' : 'Hide movie'}" onclick="setComingSoonPreference(this, ${safeId}, ${safeTitle}, 'hide')">×</button>
       </div>
     </div>
   `;
@@ -6971,9 +6956,10 @@ function setComingSoonPreference(trigger, movieId, title, preference) {
     }
     const isSaved = hasStoredMovie(getWatched(), movieId, title);
     card?.classList.toggle('is-saved', isSaved);
-    trigger.classList.toggle('active-save', isSaved);
+    trigger.classList.toggle('active', isSaved);
     trigger.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
-    trigger.textContent = isSaved ? '★ Saved' : 'Save';
+    trigger.setAttribute('aria-label', isSaved ? 'Remove movie from saved' : 'Save movie');
+    trigger.setAttribute('title', isSaved ? 'Saved' : 'Save movie');
   } else if (preference === 'hide') {
     const wasHidden = hasStoredMovie(getHidden(), movieId, title);
     toggleHidden(movieId, title);
@@ -6984,9 +6970,10 @@ function setComingSoonPreference(trigger, movieId, title, preference) {
     if (isHidden) {
       animateRemoveMovieElement(card, 220, 0.985, updateComingSoonVisibleCount);
     } else {
-      trigger.classList.remove('active-hide');
+      trigger.classList.remove('active');
       trigger.setAttribute('aria-pressed', 'false');
-      trigger.textContent = 'Hide';
+      trigger.setAttribute('aria-label', 'Hide movie');
+      trigger.setAttribute('title', 'Hide movie');
     }
   }
 }

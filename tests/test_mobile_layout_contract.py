@@ -68,8 +68,8 @@ def test_coming_soon_actions_share_the_compact_release_row():
     assert "grid-template-columns: minmax(0, 1fr) auto;" in mobile_css
     assert ".coming-soon-actions" in mobile_css
     assert "grid-row: 1 / span 2;" in mobile_css
-    assert "grid-template-columns: repeat(2, 48px);" in mobile_css
-    assert "width: 48px;" in mobile_css
+    assert "grid-template-columns: repeat(2, 44px);" in mobile_css
+    assert "width: 44px;" in mobile_css
 
 
 def test_coming_soon_header_control_returns_to_rankings():

@@ -31,7 +31,15 @@ def test_movie_action_buttons_are_non_submit_buttons():
     assert 'class="theater-action-btn star${watched' in INDEX
     assert 'class="theater-action-btn star${watched ? \' active\' : \'\'}" type="button"' in INDEX
     assert 'class="action-btn${watched ? \' active-watched\' : \'\'}" type="button"' in INDEX
-    assert 'class="action-btn coming-soon-action${saved ? \' active-save\' : \'\'}" type="button"' in INDEX
+    assert 'class="theater-action-btn star coming-soon-action${saved ? \' active\' : \'\'}" type="button"' in INDEX
+
+
+def test_coming_soon_reuses_the_standard_star_and_hide_icons():
+    assert 'class="theater-action-btn star coming-soon-action${saved' in INDEX
+    assert '>★</button>' in INDEX
+    assert 'class="theater-action-btn hide coming-soon-action${hidden' in INDEX
+    assert '>×</button>' in INDEX
+    assert "trigger.textContent = isSaved ? '★ Saved' : 'Save'" not in INDEX
 
 
 def test_hidden_movies_receive_red_card_state_in_every_view():
