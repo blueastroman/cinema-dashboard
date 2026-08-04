@@ -4491,7 +4491,11 @@
   "tt33311069": {
     "verdict": "WATCH",
     "reason": "See this revenge thriller on the biggest screen you can find. Tanigaki's stunt choreography background delivers car chases and fight sequences that demand theatrical sound and scale.",
-    "generated_at": "2026-06-10T14:39:30.709832"
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "5cf80c0fff3882cb43a688de8736677ec1d1c8e0341d8dd94d128fe0908f89c4"
   },
   "tt14173636": {
     "verdict": "WATCH",
@@ -4641,12 +4645,12 @@
   },
   "tt39676060": {
     "verdict": "DEPENDS",
-    "reason": "Skip the trip unless you need a communal laugh break with strangers who love cats as much as you do. The festival format works best as a theater event where the absurdity lands harder in a crowd, but seventy minutes of internet clips plays fine at home on your own time.",
-    "generated_at": "2026-08-02T13:24:30.371903",
+    "reason": "Skip the trip unless you want 70 minutes of curated internet cat content on a theater screen with friends. The Alamo Drafthouse venues let you drink while watching, which is the only reason this works as a theatrical outing.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "4bc5636f8ff26078ec6f1eba773dbecb612448cc65fe304f6d8abefc57fff394"
+    "source_hash": "e7841ae57e3c5f9b8ad6788b7f9cfa41adc5544725ba83535e4f9bd524eeecd7"
   },
   "tt0112471": {
     "verdict": "WATCH",
@@ -4935,12 +4939,12 @@
   },
   "tt32298494": {
     "verdict": "WATCH",
-    "reason": "Kent Jones brings his gift for intimate character study to a film about artistic resurrection that earns its emotional stakes without sentimentality. The 90-minute runtime moves with the precision of poetry itself, and watching a forgotten artist find new life through unexpected connection is the kind of small, true thing cinema does best.",
-    "generated_at": "2026-07-18T13:19:04.517518",
+    "reason": "Kent Jones makes films about art and obsession with the clarity of a poet himself, and this one earns its 90 minutes by letting each scene breathe. The Film Forum and Lincoln Center screenings matter because Jones's visual precision and the ensemble's intimacy need a room full of people paying attention.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "3850db3b8c36d27f7306e4fc43c3a6ea59b93912bbef7bf6a14b8a92efc5e5c5"
+    "source_hash": "fd0ae50130960359cf42f995b2ea4996cc30f6c068a3647f1cd969b13f0effc6"
   },
   "tt27419466": {
     "verdict": "SKIP",
@@ -5417,13 +5421,13 @@
     "source_hash": "5347236ce443617b32d20791656199542b6317556695c5ec0c690038eaffff4f"
   },
   "tt38551209": {
-    "verdict": "WATCH",
-    "reason": "Koreeda's first science fiction film is a genuine departure that uses the humanoid premise to excavate grief in ways only he knows how. The 126-minute runtime and Japanese dialogue demand full attention, but that commitment pays off in a filmmaker working at the edges of his own style.",
-    "generated_at": "2026-08-03T14:42:42.830766",
+    "verdict": "DEPENDS",
+    "reason": "Koreeda's first science fiction film has genuine emotional stakes, but the premise strains credulity and the execution falters in the second half. The IFC Center screening offers the best chance to engage with his formal control on a proper screen, though streaming won't sacrifice much.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "11a7c72d0dcd2efbb34efa13cc6cde6ec322c1ffb97c4c790c298777d6693a5a"
+    "source_hash": "54789901afef0952ef268867667a50cec6b054add8ed9848d6713496adddb7c0"
   },
   "tt0430357": {
     "verdict": "DEPENDS",
@@ -5435,13 +5439,13 @@
     "source_hash": "39ac4ce95e57092a1998e86e8fc7997d1152ea9aed340fe9e7f885c5a838fc8c"
   },
   "tt36629665": {
-    "verdict": "SKIP",
-    "reason": "Skip it; Refn's execution here is incoherent rather than hypnotic, and the runtime compounds the problem by sustaining a thin premise without payoff. The film arrives gutted by its own excess, offering style without the narrative spine or visual rigor that made his earlier work worth the provocation.",
-    "generated_at": "2026-08-03T14:42:42.830766",
+    "verdict": "DEPENDS",
+    "reason": "Refn's worst instincts are on full display here, but his visual command and appetite for transgression still make this worth seeing if you trust his sensibility. The 109-minute runtime means you can bail without losing the whole night, and the glamour-and-violence premise plays better in a theater than it will streaming.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f99b962f93d1a97a96c1a737e330d3d2d3b2ca8762c53bba4dcca35bfddaad9a"
+    "source_hash": "a481b5b76265285ccbbd824b2623422a01bd354328a80032c3759cae015d8464"
   },
   "tt1135092": {
     "verdict": "DEPENDS",
@@ -6172,13 +6176,13 @@
     "source_hash": "179b0376d53fee4e1de4421035080d506c462c8b3999b28a2c142e923a4dba1a"
   },
   "tt22084616": {
-    "verdict": "WATCH",
-    "reason": "Destin Daniel Cretton has proven he can balance character work with spectacle, and this premise—a Spider-Man stripped of everything but the suit—offers real dramatic weight. Catch it in 4DX or RPX to justify the theatrical investment on a 145-minute superhero film.",
-    "generated_at": "2026-08-03T14:42:42.830766",
+    "verdict": "DEPENDS",
+    "reason": "Destin Daniel Cretton brings real directorial weight to the Spider-Man formula, but a two-hour-twenty-five-minute runtime and an untested premise about isolation and transformation make this a wait-and-see rather than a first-night essential. Catch it in 4DX or RPX if you commit, but streaming will do just fine in two weeks.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "545b2c80b6ba8317ffaa6e21d97b69599a678082e325888cca6fc0ac789f105e"
+    "source_hash": "16403def74d88a4044aa59eea568ba8df641d4d3752d3a268473844554d1b320"
   },
   "tinsman-road-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -6308,12 +6312,12 @@
   },
   "tt33095251": {
     "verdict": "WATCH",
-    "reason": "Matt Johnson turns Bourdain's formative summer into a film about ambition, kitchen chaos, and sexual awakening that moves with real energy. The performances crackle and the period detail feels lived-in rather than studied.",
-    "generated_at": "2026-08-01T13:24:07.618806",
+    "reason": "Matt Johnson captures Bourdain's formative summer with the visual precision and emotional clarity that made him essential as a filmmaker. The 106-minute runtime respects the story's momentum, and watching a young man discover his voice in a kitchen is the kind of character work that demands the big screen.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "a096148aa46f33a881e413d31d936db5dfce0f3d4499f14897f88830e35d4e2e"
+    "source_hash": "5f478226fa839f8efa448b27904f3cb4231810f962dccdd5fd9612e354246936"
   },
   "mystery-transmission-039": {
     "verdict": "DEPENDS",
@@ -6720,12 +6724,12 @@
   },
   "tt2012616": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise is familiar revenge-plot material with a runtime that outstays its welcome at 103 minutes. There's nothing about Potsy Ponciroli's execution or the cast that makes this essential viewing on the big screen.",
-    "generated_at": "2026-08-01T13:24:07.618806",
+    "reason": "Skip it; the premise is familiar crime revenge material that doesn't justify a theatrical trip to a multiplex. Potsy Ponciroli hasn't built a reputation that elevates this kind of story, and the runtime doesn't suggest anything ambitious enough to demand a big screen.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "01137af640be8ad48281123f719c9fb6ee997cb119d4f0623be5a552bcdbe38d"
+    "source_hash": "52485ee7fa54dbffa8d283f175d3f25680d284ba48182e9bb121214d924990de"
   },
   "tt0337563": {
     "verdict": "SKIP",
@@ -7610,13 +7614,13 @@
     "source_hash": "9bcdd63c83b5c9000c7f7c8a3e21c74a67dc29b77db3b518595fbe5a07b5eb85"
   },
   "tt0372321": {
-    "verdict": "DEPENDS",
-    "reason": "A sharp, focused documentary that works best if you're in the mood for niche film history and camp spectacle. The subject—instructional gore as public safety—has novelty value, but the 91 minutes will feel slack if you're not already fascinated by the genre itself.",
-    "generated_at": "2026-07-29T14:15:00.465459",
+    "verdict": "WATCH",
+    "reason": "Skip the streaming rerun and catch this cult documentary at Alamo Drafthouse, where its lurid 16mm safety film clips belong on the big screen. Bret Wood's deadpan assembly of vehicular carnage and moral panic is a theatrical experience, not a background watch.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "914f23a1379259085bc8fc2ec8313aed0bbe21155f7b38687d0324d92065e5c9"
+    "source_hash": "ee4dd4076192fc0c3268a28410559a274d5b10ca5e3c094207b20f06fcf74a52"
   },
   "tt0116996": {
     "verdict": "DEPENDS",
@@ -7926,12 +7930,12 @@
   },
   "tt36893729": {
     "verdict": "SKIP",
-    "reason": "Skip it; Eli Roth's track record with premise-driven horror is uneven, and a straightforward slasher about a corrupted ice cream vendor lacks the craft or originality to justify a theater trip. The runtime and AMC multiplex setting suggest this is disposable studio horror designed to clear in two weeks.",
-    "generated_at": "2026-08-01T13:24:07.618806",
+    "reason": "Skip it; Eli Roth's track record with horror-comedy is uneven, and a premise this thin needs a sharper directorial hand to justify the trip. Standard multiplex screening with no format advantage makes this a streaming wait.",
+    "generated_at": "2026-08-04T14:19:47.222828",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f96914992b5a87a821032fce294e154928811a484b8bcc7e1795d6aa0e21591e"
+    "source_hash": "2020546bbc2df5dc47eb5d156aa4b8c8602c6bc453cfc8bf5d0ea2518a29de92"
   },
   "tt40047746": {
     "verdict": "DEPENDS",
@@ -8085,5 +8089,86 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "8515f2e04ced5e48b421fccbc7b577ad13caafb549e0f68239cbc7072aa7f953"
+  },
+  "tt0102816": {
+    "verdict": "WATCH",
+    "reason": "Stanley Kwan's 1991 masterpiece about Lingyu Ruan uses fragmented narrative and layered performance to interrogate cinema, stardom, and historical truth itself. Film Forum's repertory screening of this restored print is essential viewing for anyone serious about film history or the power of biographical cinema.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "7399c921f8d373b211d742839d05485a6a95d9d2524f1f33f6cc609220a985ef"
+  },
+  "tt0106220": {
+    "verdict": "WATCH",
+    "reason": "A sequel sharper and funnier than the original, worth catching on the big screen for Sonnenfeld's visual invention and the entire cast firing at full strength. Joan Cusack's performance as Debbie Jellinsky alone justifies the trip.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "bb2c88aeb6a18039702a1d12616bb7e37cf34eb1cd4d4d6da2db5ab7987c45ee"
+  },
+  "tt15253488": {
+    "verdict": "DEPENDS",
+    "reason": "A scrappy '80s revenge romp with enough period charm and street-level energy to justify a look, but the 94-minute runtime suggests lean execution rather than depth. William Stone's direction on a council estate carries more conviction than the premise alone would promise, though this lands as a fun night out rather than a necessity.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "883bbd6dffe1af4d95a21dc340ed103f0daaba1fcac328a5c0f360401a00d0f4"
+  },
+  "tt0115641": {
+    "verdict": "DEPENDS",
+    "reason": "A fun theatrical outing for the format's fans, but the theatrical cut is thin and the runtime is merciful only because it ends quickly. The Nitehawk screening offers communal laughs that a home viewing won't match, so go if you want to sit in a room full of people laughing at stupidity in real time.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "4804d8e396e3bcef546f79c57c69d067f993148d07101d87be1e13fcbd102b2b"
+  },
+  "tt1219827": {
+    "verdict": "SKIP",
+    "reason": "Skip it; the 1995 anime original is the essential version and remains superior on every technical level. This live-action remake adds nothing except hollow spectacle and arrives a quarter-century too late.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "9249f5956c3991fd61ef3e0827af4ba348e572683a4f7da0933160e304cb16e7"
+  },
+  "tt21285562": {
+    "verdict": "SKIP",
+    "reason": "Ridley Scott's post-apocalyptic adaptation arrives untested and unreleased elsewhere, making this a risky $18 bet on a filmmaker whose recent output has been uneven. A two-hour survival slog about grief and isolation is better experienced at home where you can pause it.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "226f3661a889cec85529d53ea8b85e9ca38978e68e2472345b347876c16a05a9"
+  },
+  "the-wrong-girls-best-buds-screening": {
+    "verdict": "DEPENDS",
+    "reason": "A lightweight stoner comedy with charm in its cast chemistry, but 100 minutes of mistaken-identity hijinks wears thin fast. The talking cats bit suggests the film knows how to lean into absurdity, which saves it from total disposability—catch it at Alamo Drafthouse if you want low-stakes fun and the social experience of the venue.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "1f5bb5ba79dc6009399e4b8abe459cf5c3b1bdd9900b2f6979eb3fba7b50cc67"
+  },
+  "practical-magic-reissue": {
+    "verdict": "WATCH",
+    "reason": "A witchy ensemble film that works as both romantic comedy and genuine fantasy—rare enough in the '90s and worth revisiting on a big screen. Dunne's direction finds real warmth in the supernatural, and Bullock and Kidman have the chemistry to carry a curse across decades.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "69fd4c770f9c76b2a63d0043b83c8120c3e2708aafa06d40fba66d10fb2f6106"
+  },
+  "advance-screening-the-dog-stars": {
+    "verdict": "WATCH",
+    "reason": "Ridley Scott's post-apocalyptic vision with Josh Brolin and Margaret Qualley deserves a big screen and an audience. The early access and ensemble cast suggest Scott is taking a genuine creative swing, not chasing spectacle.",
+    "generated_at": "2026-08-04T14:19:47.222828",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "4a93c76a6e25932f78fed4fd00e780e0190c3e7943234566264fb4011ddc626c"
   }
 }
