@@ -155,6 +155,12 @@
     "title": "Adaptation.",
     "year": "2002"
   },
+  "addams family values|1993": {
+    "imdbID": "tt0106220",
+    "source": "exact",
+    "title": "Addams Family Values",
+    "year": "1993"
+  },
   "aferim!|2015": {
     "imdbID": "tt4374460",
     "source": "exact",
@@ -490,6 +496,12 @@
     "source": "exact_year",
     "title": "Ice Beast",
     "year": "2026"
+  },
+  "beavis and butt-head do america|1996": {
+    "imdbID": "tt0115641",
+    "source": "exact",
+    "title": "Beavis and Butt-Head Do America",
+    "year": "1996"
   },
   "beetlejuice": {
     "imdbID": "tt0094721",
@@ -850,6 +862,12 @@
     "source": "exact",
     "title": "Cave of Forgotten Dreams",
     "year": "2026"
+  },
+  "center stage|1991": {
+    "imdbID": "tt0102816",
+    "source": "exact_year",
+    "title": "Center Stage",
+    "year": "1991"
   },
   "chan is missing|1982": {
     "imdbID": "tt0083728",
@@ -1667,6 +1685,12 @@
     "title": "Find Your Friends",
     "year": "2025"
   },
+  "finding emily|2026": {
+    "imdbID": "tt32499466",
+    "source": "exact_year",
+    "title": "Finding Emily",
+    "year": "2026"
+  },
   "first blood|1982": {
     "imdbID": "tt0083944",
     "source": "exact_year",
@@ -1822,6 +1846,12 @@
     "source": "exact_year",
     "title": "Gentlemen Prefer Blondes",
     "year": "1953"
+  },
+  "ghost in the shell|2017": {
+    "imdbID": "tt1219827",
+    "source": "exact",
+    "title": "Ghost in the Shell",
+    "year": "2017"
   },
   "ghost world|2001": {
     "imdbID": "tt0162346",
@@ -2057,12 +2087,6 @@
     "title": "Heavenly Homecoming to Stars",
     "year": "1974"
   },
-  "hell's highway: the true story of highway safety films|2003": {
-    "imdbID": "tt0372321",
-    "source": "exact_year",
-    "title": "Hell's Highway: The True Story of Highway Safety Films",
-    "year": "2003"
-  },
   "hellcat|2025": {
     "imdbID": "tt33045418",
     "source": "exact",
@@ -2199,12 +2223,6 @@
     "imdbID": "tt32332915",
     "source": "exact_year",
     "title": "I Want Your Sex",
-    "year": "2026"
-  },
-  "ice cream man|2026": {
-    "imdbID": "tt36893729",
-    "source": "exact_year",
-    "title": "Ice Cream Man",
     "year": "2026"
   },
   "if on a winter s night|1999": {
@@ -3587,12 +3605,6 @@
     "title": "Psycho",
     "year": "2026"
   },
-  "pure scum|2025": {
-    "imdbID": "tt32677155",
-    "source": "exact_year",
-    "title": "Pure Scum",
-    "year": "2025"
-  },
   "purple rain|1984": {
     "imdbID": "tt0087957",
     "source": "exact_year",
@@ -4157,12 +4169,6 @@
     "title": "My Spy: The Eternal City",
     "year": "2024"
   },
-  "srinivasa mangapuram|2026": {
-    "imdbID": "tt37537340",
-    "source": "exact_year",
-    "title": "Srinivasa Mangapuram",
-    "year": "2026"
-  },
   "st. michael had a rooster|1972": {
     "imdbID": "tt0069215",
     "source": "search",
@@ -4553,6 +4559,12 @@
     "title": "The Discreet Charm of the Bourgeoisie",
     "year": "1972"
   },
+  "the dog stars|2026": {
+    "imdbID": "tt21285562",
+    "source": "exact_year",
+    "title": "The Dog Stars",
+    "year": "2026"
+  },
   "the double life of veronique|1991": {
     "imdbID": "tt0101765",
     "source": "exact_year",
@@ -4619,11 +4631,23 @@
     "title": "The Fast and the Furious",
     "year": "2001"
   },
+  "the fence|2022": {
+    "imdbID": "tt15253488",
+    "source": "exact",
+    "title": "The Fence",
+    "year": "2022"
+  },
   "the fifth element|1997": {
     "imdbID": "tt0119116",
     "source": "exact",
     "title": "The Fifth Element",
     "year": "1997"
+  },
+  "the furious|2026": {
+    "imdbID": "tt33311069",
+    "source": "exact_year",
+    "title": "The Furious",
+    "year": "2026"
   },
   "the goalie's anxiety at the penalty kick|1972": {
     "imdbID": "tt0066773",
@@ -5734,12 +5758,6 @@
     "source": "exact_year",
     "title": "War Horse",
     "year": "2011"
-  },
-  "we're all going to the world's fair|2021": {
-    "imdbID": "tt13648224",
-    "source": "exact_year",
-    "title": "We're All Going to the World's Fair",
-    "year": "2021"
   },
   "we're nothing at all|2025": {
     "imdbID": "tt37535198",
