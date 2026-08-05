@@ -925,7 +925,7 @@
   },
   "chronovisor|2026": {
     "imdbID": "tt39196981",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Chronovisor",
     "year": "2026"
   },
@@ -1198,6 +1198,12 @@
     "source": "exact_year",
     "title": "Daylight",
     "year": "1996"
+  },
+  "dc|2026": {
+    "imdbID": "tt37501035",
+    "source": "exact_year",
+    "title": "DC",
+    "year": "2026"
   },
   "de palma|2015": {
     "imdbID": "tt1683048",
@@ -1655,6 +1661,12 @@
     "title": "Fat Choi Spirit",
     "year": "2002"
   },
+  "fear|1996": {
+    "imdbID": "tt0116287",
+    "source": "exact",
+    "title": "Fear",
+    "year": "1996"
+  },
   "female trouble|1974": {
     "imdbID": "tt0072979",
     "source": "exact_year",
@@ -2069,6 +2081,12 @@
     "title": "Haunted Heist",
     "year": "2026"
   },
+  "heat lightning|1934": {
+    "imdbID": "tt0025228",
+    "source": "exact",
+    "title": "Heat Lightning",
+    "year": "1934"
+  },
   "heat|1995": {
     "imdbID": "tt0113277",
     "source": "exact",
@@ -2086,6 +2104,12 @@
     "source": "exact",
     "title": "Heavenly Homecoming to Stars",
     "year": "1974"
+  },
+  "hell's highway: the true story of highway safety films|2003": {
+    "imdbID": "tt0372321",
+    "source": "exact_year",
+    "title": "Hell's Highway: The True Story of Highway Safety Films",
+    "year": "2003"
   },
   "hellcat|2025": {
     "imdbID": "tt33045418",
@@ -2225,6 +2249,12 @@
     "title": "I Want Your Sex",
     "year": "2026"
   },
+  "ice cream man|2026": {
+    "imdbID": "tt36893729",
+    "source": "exact_year",
+    "title": "Ice Cream Man",
+    "year": "2026"
+  },
   "if on a winter s night|1999": {
     "imdbID": "tt0217561",
     "source": "exact",
@@ -2290,6 +2320,12 @@
     "source": "exact",
     "title": "Inland Empire",
     "year": "2006"
+  },
+  "insidious: out of the further|2026": {
+    "imdbID": "tt32393988",
+    "source": "exact_year",
+    "title": "Insidious: Out of the Further",
+    "year": "2026"
   },
   "iron maiden: burning ambition|2026": {
     "imdbID": "tt36163614",
@@ -2422,6 +2458,12 @@
     "source": "exact_year",
     "title": "Kontinental '25",
     "year": "2025"
+  },
+  "korean kanakaraju|2026": {
+    "imdbID": "tt32474264",
+    "source": "exact_year",
+    "title": "Korean Kanakaraju",
+    "year": "2026"
   },
   "kpop demon hunters|2025": {
     "imdbID": "tt14205554",
@@ -3035,6 +3077,18 @@
     "title": "Mulholland Drive",
     "year": "2001"
   },
+  "muppet treasure island|1996": {
+    "imdbID": "tt0117110",
+    "source": "exact",
+    "title": "Muppet Treasure Island",
+    "year": "1996"
+  },
+  "mutiny|2026": {
+    "imdbID": "tt32338669",
+    "source": "exact_year",
+    "title": "Mutiny",
+    "year": "2026"
+  },
   "my heart is that eternal rose|1989": {
     "imdbID": "tt0093944",
     "source": "exact",
@@ -3256,6 +3310,12 @@
     "source": "exact_year",
     "title": "Oliver!",
     "year": "1968"
+  },
+  "olmo|2025": {
+    "imdbID": "tt30441926",
+    "source": "exact_year",
+    "title": "Olmo",
+    "year": "2025"
   },
   "once upon a time in china|1991": {
     "imdbID": "tt0103285",
@@ -3539,6 +3599,12 @@
     "title": "Pompei: Below the Clouds",
     "year": "2025"
   },
+  "ponyo|2008": {
+    "imdbID": "tt0876563",
+    "source": "exact",
+    "title": "Ponyo",
+    "year": "2008"
+  },
   "possessions": {
     "imdbID": "tt3080074",
     "source": "exact",
@@ -3550,6 +3616,12 @@
     "source": "exact_year",
     "title": "Possession",
     "year": "1981"
+  },
+  "practical magic|1998": {
+    "imdbID": "tt0120791",
+    "source": "exact",
+    "title": "Practical Magic",
+    "year": "1998"
   },
   "premarital|2016": {
     "imdbID": "tt6918652",
@@ -3604,6 +3676,12 @@
     "source": "exact_year",
     "title": "Psycho",
     "year": "2026"
+  },
+  "pure scum|2025": {
+    "imdbID": "tt32677155",
+    "source": "exact_year",
+    "title": "Pure Scum",
+    "year": "2025"
   },
   "purple rain|1984": {
     "imdbID": "tt0087957",
@@ -4055,6 +4133,12 @@
     "title": "Sisters",
     "year": "1972"
   },
+  "six the musical live!|2025": {
+    "imdbID": "tt35391146",
+    "source": "exact_year",
+    "title": "Six: The Musical Live!",
+    "year": "2025"
+  },
   "six: the musical live!|2025": {
     "imdbID": "tt35391146",
     "source": "exact_year",
@@ -4168,6 +4252,12 @@
     "source": "exact_year",
     "title": "My Spy: The Eternal City",
     "year": "2024"
+  },
+  "srinivasa mangapuram|2026": {
+    "imdbID": "tt37537340",
+    "source": "exact_year",
+    "title": "Srinivasa Mangapuram",
+    "year": "2026"
   },
   "st. michael had a rooster|1972": {
     "imdbID": "tt0069215",
@@ -4357,7 +4447,7 @@
   },
   "terminator 2: judgment day|1991": {
     "imdbID": "tt0103064",
-    "source": "exact_year",
+    "source": "search",
     "title": "Terminator 2: Judgment Day",
     "year": "1991"
   },
@@ -4643,6 +4733,12 @@
     "title": "The Fifth Element",
     "year": "1997"
   },
+  "the french connection|1971": {
+    "imdbID": "tt0067116",
+    "source": "exact_year",
+    "title": "The French Connection",
+    "year": "1971"
+  },
   "the furious|2026": {
     "imdbID": "tt33311069",
     "source": "exact_year",
@@ -4828,6 +4924,12 @@
     "source": "exact",
     "title": "The Love Parade",
     "year": "1929"
+  },
+  "the magic faraway tree|2026": {
+    "imdbID": "tt7734244",
+    "source": "exact_year",
+    "title": "The Magic Faraway Tree",
+    "year": "2026"
   },
   "the man i love|1946": {
     "imdbID": "tt0038721",
@@ -5041,7 +5143,7 @@
   },
   "the sandlot|1993": {
     "imdbID": "tt0108037",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Sandlot",
     "year": "1993"
   },
