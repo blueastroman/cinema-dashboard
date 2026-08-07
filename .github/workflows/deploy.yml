@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
+      - 'api/**'
       - 'public/**'
+      - 'vercel.json'
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -23,4 +25,4 @@ jobs:
 
       - name: Deploy to Vercel
         if: ${{ env.VERCEL_TOKEN != '' }}
-        run: vercel deploy public/ --prod --yes --token $VERCEL_TOKEN
+        run: vercel deploy --prod --yes --token $VERCEL_TOKEN
