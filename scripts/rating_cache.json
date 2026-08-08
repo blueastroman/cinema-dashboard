@@ -5,6 +5,12 @@
     "title": "...and the Pursuit of Happiness",
     "year": "1986"
   },
+  "10 kilos|2025": {
+    "imdbID": "tt7450390",
+    "source": "exact_year",
+    "title": "10 KILOS",
+    "year": "2025"
+  },
   "10 rillington place|1971": {
     "imdbID": "tt0066730",
     "source": "exact_year",
@@ -1511,6 +1517,12 @@
     "title": "Elf",
     "year": "2003"
   },
+  "elijah peel|2026": {
+    "imdbID": "tt37442781",
+    "source": "exact_year",
+    "title": "Elijah Peel",
+    "year": "2026"
+  },
   "elisa|2025": {
     "imdbID": "tt37660578",
     "source": "exact",
@@ -2795,6 +2807,12 @@
     "title": "Made in U.S.A.",
     "year": "1987"
   },
+  "madonna: truth or dare|1991": {
+    "imdbID": "tt0102370",
+    "source": "exact",
+    "title": "Madonna: Truth or Dare",
+    "year": "1991"
+  },
   "magic hour|2015": {
     "imdbID": "tt2302701",
     "source": "exact",
@@ -3076,6 +3094,12 @@
     "source": "exact",
     "title": "Mr. Nobody Against Putin",
     "year": "2025"
+  },
+  "mr. hero|2024": {
+    "imdbID": "tt31788827",
+    "source": "search",
+    "title": "Mr Hero",
+    "year": "2024"
   },
   "mr. majestyk|1974": {
     "imdbID": "tt0071866",
@@ -4583,6 +4607,12 @@
     "title": "The Brightest Sun",
     "year": "2025"
   },
+  "the brink of war|2026": {
+    "imdbID": "tt33070884",
+    "source": "exact_year",
+    "title": "The Brink of War",
+    "year": "2026"
+  },
   "the changeling|1980": {
     "imdbID": "tt0080516",
     "source": "exact",
@@ -4654,6 +4684,12 @@
     "source": "exact_year",
     "title": "The Decameron",
     "year": "1971"
+  },
+  "the descent|2005": {
+    "imdbID": "tt0435625",
+    "source": "exact",
+    "title": "The Descent",
+    "year": "2005"
   },
   "the designated mourner|1997": {
     "imdbID": "tt0118964",
@@ -5039,6 +5075,12 @@
     "title": "The Night Is Short, Walk on Girl",
     "year": "2017"
   },
+  "the nutty professor|1996": {
+    "imdbID": "tt0117218",
+    "source": "exact_year",
+    "title": "The Nutty Professor",
+    "year": "1996"
+  },
   "the odyssey|2016": {
     "imdbID": "tt1659619",
     "source": "search",
@@ -5296,6 +5338,12 @@
     "source": "exact_year",
     "title": "The Substance",
     "year": "2024"
+  },
+  "the sun never sets|1939": {
+    "imdbID": "tt0022448",
+    "source": "exact",
+    "title": "The Sun Never Sets",
+    "year": "1939"
   },
   "the taste of tea|2004": {
     "imdbID": "tt0413893",
@@ -5987,6 +6035,12 @@
     "title": "Where Is the Friend's House?",
     "year": "1987"
   },
+  "whisper of the heart|1995": {
+    "imdbID": "tt0113824",
+    "source": "exact",
+    "title": "Whisper of the Heart",
+    "year": "1995"
+  },
   "whistle stop|1946": {
     "imdbID": "tt0039101",
     "source": "exact",
@@ -6094,5 +6148,11 @@
     "source": "exact_year",
     "title": "Your Letter",
     "year": "2025"
+  },
+  "your name.|2016": {
+    "imdbID": "tt5311514",
+    "source": "exact",
+    "title": "Your Name.",
+    "year": "2016"
   }
 }
