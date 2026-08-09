@@ -167,6 +167,12 @@
     "title": "Addams Family Values",
     "year": "1993"
   },
+  "adiós cuba|2025": {
+    "imdbID": "tt32411327",
+    "source": "exact_year",
+    "title": "Adiós Cuba",
+    "year": "2025"
+  },
   "aferim!|2015": {
     "imdbID": "tt4374460",
     "source": "exact",
@@ -700,6 +706,12 @@
     "source": "exact_year",
     "title": "Boogie Nights",
     "year": "1997"
+  },
+  "bottle rocket|1996": {
+    "imdbID": "tt0115734",
+    "source": "exact",
+    "title": "Bottle Rocket",
+    "year": "1996"
   },
   "bouchra|2026": {
     "imdbID": "tt36543744",
@@ -1423,7 +1435,7 @@
   },
   "drunken master ii|1994": {
     "imdbID": "tt0111512",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Drunken Master II",
     "year": "1994"
   },
@@ -2401,7 +2413,7 @@
   },
   "jacob's ladder|1990": {
     "imdbID": "tt0099871",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Jacob's Ladder",
     "year": "1990"
   },
@@ -3139,7 +3151,7 @@
   },
   "my little loves|1974": {
     "imdbID": "tt0071833",
-    "source": "exact_year",
+    "source": "exact",
     "title": "My Little Loves",
     "year": "1974"
   },
@@ -3184,6 +3196,12 @@
     "source": "exact_year",
     "title": "Namaslay",
     "year": "2026"
+  },
+  "national theatre live: all my sons|2019": {
+    "imdbID": "tt9382224",
+    "source": "search",
+    "title": "National Theatre Live: All My Sons",
+    "year": "2019"
   },
   "nausica of the valley of the wind|1984": {
     "imdbID": "tt0087544",
@@ -3655,7 +3673,7 @@
   },
   "possession|1981": {
     "imdbID": "tt0082933",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Possession",
     "year": "1981"
   },
@@ -4105,7 +4123,7 @@
   },
   "sholay|1975": {
     "imdbID": "tt0073707",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Sholay",
     "year": "1975"
   },
@@ -4339,7 +4357,7 @@
   },
   "stavisky|1974": {
     "imdbID": "tt0072204",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Stavisky",
     "year": "1974"
   },
@@ -4570,6 +4588,12 @@
     "source": "exact",
     "title": "The Bird with the Crystal Plumage",
     "year": "1970"
+  },
+  "the birdcage|1996": {
+    "imdbID": "tt0115685",
+    "source": "exact",
+    "title": "The Birdcage",
+    "year": "1996"
   },
   "the bone collector|1999": {
     "imdbID": "tt0145681",
@@ -5369,6 +5393,12 @@
     "title": "The Tin Drum",
     "year": "1979"
   },
+  "the transformers: the movie|1986": {
+    "imdbID": "tt0092106",
+    "source": "exact_year",
+    "title": "The Transformers: The Movie",
+    "year": "1986"
+  },
   "the trap": {
     "imdbID": "tt39093784",
     "source": "exact_year",
@@ -5422,6 +5452,12 @@
     "source": "exact_year",
     "title": "The Vikings",
     "year": "1958"
+  },
+  "the walker|2007": {
+    "imdbID": "tt0783608",
+    "source": "exact",
+    "title": "The Walker",
+    "year": "2007"
   },
   "the warriors|1979": {
     "imdbID": "tt0080120",
@@ -5530,6 +5566,12 @@
     "source": "exact",
     "title": "This Island",
     "year": "1970"
+  },
+  "three bewildered people in the night|1987": {
+    "imdbID": "tt0094134",
+    "source": "exact",
+    "title": "Three Bewildered People in the Night",
+    "year": "1987"
   },
   "three colors: blue|1993": {
     "imdbID": "tt0108394",
@@ -6049,7 +6091,7 @@
   },
   "white material|2009": {
     "imdbID": "tt1135952",
-    "source": "exact_year",
+    "source": "exact",
     "title": "White Material",
     "year": "2009"
   },
