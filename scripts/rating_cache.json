@@ -155,6 +155,12 @@
     "title": "A Wedding",
     "year": "1978"
   },
+  "a woman’s torment|1977": {
+    "imdbID": "tt0076930",
+    "source": "exact",
+    "title": "A Woman's Torment",
+    "year": "1977"
+  },
   "adaptation.|2002": {
     "imdbID": "tt0268126",
     "source": "exact_year",
@@ -502,6 +508,12 @@
     "source": "exact_year",
     "title": "Basic Instinct",
     "year": "1992"
+  },
+  "battle royale|2000": {
+    "imdbID": "tt0266308",
+    "source": "exact",
+    "title": "Battle Royale",
+    "year": "2000"
   },
   "beast|2026": {
     "imdbID": "tt39391389",
@@ -877,7 +889,7 @@
   },
   "catvideofest 2026|2026": {
     "imdbID": "tt39676060",
-    "source": "exact_year",
+    "source": "exact",
     "title": "CatVideoFest 2026",
     "year": "2026"
   },
@@ -1817,6 +1829,12 @@
     "title": "Franz",
     "year": "1972"
   },
+  "freefall: a reckoning for boeing|2026": {
+    "imdbID": "tt32889884",
+    "source": "exact",
+    "title": "Freefall: A Reckoning for Boeing",
+    "year": "2026"
+  },
   "friday foster|1975": {
     "imdbID": "tt0073019",
     "source": "exact_year",
@@ -2398,6 +2416,12 @@
     "source": "exact",
     "title": "It Doesn't Get Any Better Than This",
     "year": "2023"
+  },
+  "it ends|2025": {
+    "imdbID": "tt35519455",
+    "source": "exact",
+    "title": "It Ends",
+    "year": "2025"
   },
   "it's a mad, mad, mad, mad world|1963": {
     "imdbID": "tt0057193",
@@ -5140,6 +5164,12 @@
     "source": "exact_year",
     "title": "The Outwaters",
     "year": "2022"
+  },
+  "the panic in needle park|1971": {
+    "imdbID": "tt0067549",
+    "source": "exact",
+    "title": "The Panic in Needle Park",
+    "year": "1971"
   },
   "the peril at pincer point|2026": {
     "imdbID": "tt34874865",
