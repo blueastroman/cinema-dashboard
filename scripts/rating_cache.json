@@ -611,6 +611,12 @@
     "title": "Billie Eilish: Hit Me Hard and Soft - The Tour Live in 3D",
     "year": "2026"
   },
+  "billy liar|1963": {
+    "imdbID": "tt0056868",
+    "source": "exact_year",
+    "title": "Billy Liar",
+    "year": "1963"
+  },
   "billy preston that s the way god planned it": {
     "imdbID": "tt15845614",
     "source": "exact",
@@ -1277,6 +1283,12 @@
     "title": "Death in Venice",
     "year": "1971"
   },
+  "death proof|2007": {
+    "imdbID": "tt1028528",
+    "source": "exact",
+    "title": "Death Proof",
+    "year": "2007"
+  },
   "death valley|2021": {
     "imdbID": "tt14623762",
     "source": "search",
@@ -1330,6 +1342,12 @@
     "source": "exact",
     "title": "Despicable Me 4",
     "year": "2024"
+  },
+  "destroy all monsters|1968": {
+    "imdbID": "tt0063172",
+    "source": "exact_year",
+    "title": "Destroy All Monsters",
+    "year": "1968"
   },
   "detective bureau 2-3: go to hell bastards!|1963": {
     "imdbID": "tt0056989",
@@ -1937,6 +1955,12 @@
     "title": "Ghost World",
     "year": "2001"
   },
+  "girl 6|1996": {
+    "imdbID": "tt0116414",
+    "source": "exact",
+    "title": "Girl 6",
+    "year": "1996"
+  },
   "girlfriends|1978": {
     "imdbID": "tt0077613",
     "source": "exact_year",
@@ -2207,6 +2231,12 @@
     "title": "High Society",
     "year": "1956"
   },
+  "his girl friday|1940": {
+    "imdbID": "tt0032599",
+    "source": "exact",
+    "title": "His Girl Friday",
+    "year": "1940"
+  },
   "hokum|2026": {
     "imdbID": "tt35672862",
     "source": "exact_year",
@@ -2319,6 +2349,12 @@
     "imdbID": "tt36893729",
     "source": "exact_year",
     "title": "Ice Cream Man",
+    "year": "2026"
+  },
+  "idiots|2026": {
+    "imdbID": "tt6628920",
+    "source": "exact_year",
+    "title": "Idiots",
     "year": "2026"
   },
   "if on a winter s night|1999": {
@@ -2584,6 +2620,12 @@
     "source": "exact",
     "title": "La haine",
     "year": "1995"
+  },
+  "la la land|2016": {
+    "imdbID": "tt3783958",
+    "source": "exact",
+    "title": "La La Land",
+    "year": "2016"
   },
   "la notte|1961": {
     "imdbID": "tt0054130",
@@ -3659,6 +3701,12 @@
     "title": "Love Point Blank",
     "year": "2025"
   },
+  "point break|1991": {
+    "imdbID": "tt0102685",
+    "source": "exact",
+    "title": "Point Break",
+    "year": "1991"
+  },
   "police story|1985": {
     "imdbID": "tt0089374",
     "source": "exact",
@@ -4229,6 +4277,12 @@
     "title": "Six: The Musical Live!",
     "year": "2025"
   },
+  "six the musical live!|2026": {
+    "imdbID": "tt35391146",
+    "source": "exact_year",
+    "title": "Six: The Musical Live!",
+    "year": "2026"
+  },
   "six: the musical live!|2025": {
     "imdbID": "tt35391146",
     "source": "exact_year",
@@ -4288,6 +4342,12 @@
     "source": "exact_year",
     "title": "Sorry to Bother You",
     "year": "2018"
+  },
+  "soul patrol|2026": {
+    "imdbID": "tt38952225",
+    "source": "exact",
+    "title": "Soul Patrol",
+    "year": "2026"
   },
   "southland tales|2006": {
     "imdbID": "tt0405336",
@@ -4583,6 +4643,12 @@
     "title": "The Aviator's Wife",
     "year": "1981"
   },
+  "the bend in the river|2025": {
+    "imdbID": "tt37969239",
+    "source": "exact",
+    "title": "The Bend in the River",
+    "year": "2025"
+  },
   "the best man|1999": {
     "imdbID": "tt0168501",
     "source": "exact_year",
@@ -4828,6 +4894,12 @@
     "source": "exact_year",
     "title": "The Faculty",
     "year": "1998"
+  },
+  "the fan|1996": {
+    "imdbID": "tt0116277",
+    "source": "exact",
+    "title": "The Fan",
+    "year": "1996"
   },
   "the fast and the furious|2001": {
     "imdbID": "tt0232500",
@@ -5404,6 +5476,12 @@
     "source": "exact",
     "title": "The Sun Never Sets",
     "year": "1939"
+  },
+  "the taking of pelham 123|2009": {
+    "imdbID": "tt1111422",
+    "source": "exact",
+    "title": "The Taking of Pelham 123",
+    "year": "2009"
   },
   "the taste of tea|2004": {
     "imdbID": "tt0413893",
@@ -6238,5 +6316,11 @@
     "source": "exact",
     "title": "Your Name.",
     "year": "2016"
+  },
+  "zachariah|1971": {
+    "imdbID": "tt0068011",
+    "source": "exact",
+    "title": "Zachariah",
+    "year": "1971"
   }
 }
