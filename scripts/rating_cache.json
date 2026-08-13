@@ -1097,6 +1097,12 @@
     "title": "The Colony",
     "year": "2013"
   },
+  "colony|2026": {
+    "imdbID": "tt34385135",
+    "source": "search",
+    "title": "Colony",
+    "year": "2026"
+  },
   "color book|2026": {
     "imdbID": "tt32150360",
     "source": "exact_year",
@@ -1276,6 +1282,12 @@
     "source": "exact",
     "title": "Dead Mountaineer's Hotel",
     "year": "1979"
+  },
+  "deadlock|2021": {
+    "imdbID": "tt10957044",
+    "source": "exact",
+    "title": "Deadlock",
+    "year": "2021"
   },
   "death in venice|1971": {
     "imdbID": "tt0067445",
@@ -1900,6 +1912,12 @@
     "source": "exact",
     "title": "Fuori",
     "year": "2025"
+  },
+  "future future|2011": {
+    "imdbID": "tt1235170",
+    "source": "search",
+    "title": "The Future",
+    "year": "2011"
   },
   "fuze|2026": {
     "imdbID": "tt31189814",
@@ -3754,6 +3772,12 @@
     "source": "exact",
     "title": "Possession",
     "year": "1981"
+  },
+  "practical magic 2|2026": {
+    "imdbID": "tt32588798",
+    "source": "exact_year",
+    "title": "Practical Magic 2",
+    "year": "2026"
   },
   "practical magic|1998": {
     "imdbID": "tt0120791",
