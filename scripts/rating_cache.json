@@ -437,6 +437,12 @@
     "title": "Avengers: Doomsday",
     "year": "2026"
   },
+  "awarapan 2|2026": {
+    "imdbID": "tt36300841",
+    "source": "exact_year",
+    "title": "Awarapan 2",
+    "year": "2026"
+  },
   "baahubali: the epic|2025": {
     "imdbID": "tt37893389",
     "source": "exact_year",
@@ -1463,6 +1469,12 @@
     "title": "Dracula: Pages from a Virgin's Diary",
     "year": "2002"
   },
+  "dreams in nightmares|2024": {
+    "imdbID": "tt32765596",
+    "source": "exact",
+    "title": "Dreams in Nightmares",
+    "year": "2024"
+  },
   "dressed to kill|1980": {
     "imdbID": "tt0080661",
     "source": "exact_year",
@@ -1877,6 +1889,12 @@
     "title": "Fright Night",
     "year": "1985"
   },
+  "from up on poppy hill|2011": {
+    "imdbID": "tt1798188",
+    "source": "exact",
+    "title": "From Up on Poppy Hill",
+    "year": "2011"
+  },
   "fruitvale station|2013": {
     "imdbID": "tt2334649",
     "source": "exact_year",
@@ -2283,6 +2301,12 @@
     "imdbID": "tt13652006",
     "source": "exact_year",
     "title": "Horsegirls",
+    "year": "2026"
+  },
+  "hot spot|2026": {
+    "imdbID": "tt14119302",
+    "source": "exact_year",
+    "title": "Hot Spot",
     "year": "2026"
   },
   "how to divorce during the war|2026": {
@@ -2710,6 +2734,12 @@
     "source": "search",
     "title": "Le bonheur",
     "year": "1934"
+  },
+  "learning to fly|2026": {
+    "imdbID": "tt38066316",
+    "source": "exact_year",
+    "title": "Learning to Fly",
+    "year": "2026"
   },
   "leaving las vegas|1995": {
     "imdbID": "tt0113627",
@@ -3623,6 +3653,12 @@
     "title": "Panic Room",
     "year": "2002"
   },
+  "paper flowers|1959": {
+    "imdbID": "tt0052954",
+    "source": "exact",
+    "title": "Paper Flowers",
+    "year": "1959"
+  },
   "paprika|2007": {
     "imdbID": "tt0851578",
     "source": "exact",
@@ -4403,6 +4439,12 @@
     "title": "Soylent Green",
     "year": "1973"
   },
+  "spa weekend|2026": {
+    "imdbID": "tt33305867",
+    "source": "exact_year",
+    "title": "Spa Weekend",
+    "year": "2026"
+  },
   "space jam|1996": {
     "imdbID": "tt0117705",
     "source": "exact",
@@ -4528,6 +4570,12 @@
     "source": "search",
     "title": "River God Water Strange Story",
     "year": "2023"
+  },
+  "strangers on a train|1951": {
+    "imdbID": "tt0044079",
+    "source": "exact",
+    "title": "Strangers on a Train",
+    "year": "1951"
   },
   "sudden fury|1975": {
     "imdbID": "tt0073762",
@@ -5176,6 +5224,12 @@
     "source": "exact",
     "title": "The March of Fools",
     "year": "1975"
+  },
+  "the marching band|2024": {
+    "imdbID": "tt30327451",
+    "source": "exact",
+    "title": "The Marching Band",
+    "year": "2024"
   },
   "the master 2012|2012": {
     "imdbID": "tt27701660",
@@ -6121,7 +6175,7 @@
   },
   "wake in fright|1971": {
     "imdbID": "tt0067541",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Wake in Fright",
     "year": "1971"
   },
