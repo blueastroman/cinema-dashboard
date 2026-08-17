@@ -4507,12 +4507,12 @@
   },
   "tt14173636": {
     "verdict": "WATCH",
-    "reason": "Wilde directs a taut dinner-party comedy that mines real marital tension without sacrificing laughs. The single-night setting and confined space force the ensemble to earn every awkward moment and emotional beat.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Wilde executes a high-wire act between comedy and marital dread that lands throughout the full runtime. The dinner-party setup turns claustrophobic and hilarious in equal measure, with the ensemble dynamics doing the heavy lifting that most scripts would hand to plot.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b7ba04acf9021a355e26b9e5e5e502223ca6491cfdd1c8d9445b26dfce365dba"
+    "source_hash": "0bd5ae5e9481b7c32bd438c32becaa61a130ab174f07a22ccc70346e4817a196"
   },
   "the-invite-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -4897,12 +4897,12 @@
   },
   "tt0107822": {
     "verdict": "WATCH",
-    "reason": "One of the essential films of the 1990s demands to be seen on a theater screen, not streamed at home. Campion's control of image, sound, and performance—particularly Holly Hunter's wordless intensity—defines what cinema can do that no other medium can match.",
-    "generated_at": "2026-07-21T13:53:28.830701",
+    "reason": "A masterwork of cinema that demands the big screen—Campion's control of image, sound, and performance has only deepened with time. The piano itself becomes a character through texture and intimacy that flat reproduction cannot match.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "571fd919dc3ca4e99b069fb9c17f9011825f1b9faf647195ed57f285da35b02b"
+    "source_hash": "57ca6ee790c919b3d91f83d4012a1ab1c74b398cae18d2e738f53408c827b8ea"
   },
   "tt0383216": {
     "verdict": "SKIP",
@@ -6176,12 +6176,12 @@
   },
   "tt8820258": {
     "verdict": "SKIP",
-    "reason": "Skip it; the franchise lost its edge two films ago, and this third entry relies on rehashed bit mechanics rather than finding new angles on the cast. The runtime clocks in at two hours for what amounts to a extended sketch, which tests patience when the laughs dry up before the midpoint.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Skip it; the original's charm relied on novelty and the sequels have stretched that premise thin. This one doubles down on plot mechanics that have already worn out their welcome.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "9bd5ac74704d54d44ed6c43934b3b7e9939d6216fd75808670f629ce8af5ee4c"
+    "source_hash": "f12c11ea837cf2afc90a397bbb57f57632e3a76f77f55be6afe3b18c8776643e"
   },
   "tt22084616": {
     "verdict": "WATCH",
@@ -6242,12 +6242,12 @@
   },
   "tt27165187": {
     "verdict": "WATCH",
-    "reason": "David Robert Mitchell knows how to build dread from the mundane, and a cosmic displacement film about suburban resilience is exactly his territory. The 99-minute runtime keeps the premise tight, and IMAX will make the disorientation land harder.",
-    "generated_at": "2026-08-16T12:42:20.738146",
+    "reason": "David Robert Mitchell has earned the trust to pull off ambitious genre work that balances family drama with cosmic mystery. The IMAX presentations across the city are built for this kind of spectacle and will amplify what Mitchell does best—turning intimate character moments against large, disorienting backdrops.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "325bc1314c549c3227083447515f6f3d109d5a8cfd0a18100aa708aef41b07e4"
+    "source_hash": "e6a691e420705fdf76c7ce277c401c52b899dc785988328293e4a14092268649"
   },
   "tt38266673": {
     "verdict": "SKIP",
@@ -6284,12 +6284,12 @@
   },
   "katseye-wild-hearts": {
     "verdict": "SKIP",
-    "reason": "Skip it; this is a vanity project masquerading as cinema, designed to sell an EP to an existing fanbase. Unless you're already invested in the group, there's nothing here that justifies a theater ticket over watching behind-the-scenes content on social media.",
-    "generated_at": "2026-08-16T12:42:20.738146",
+    "reason": "Skip it; this is a 80-minute promotional film masquerading as cinema, designed to sell an EP and deepen fandom rather than stand as a work worth your ticket money. The theatrical experience adds nothing that fandom content, behind-the-scenes clips, and social media cannot deliver better and free.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "8f5e6ce147052d8343b664fad2ac7f92aac8ba6cc4dd8b395bee769c9b8de521"
+    "source_hash": "b19ec74db457f3e648a8bcb406dcd56f00d19534fd000f66366d2bdae69ada2b"
   },
   "sia-nostalgic-for-the-present": {
     "verdict": "WATCH",
@@ -6794,13 +6794,13 @@
     "source_hash": "5796a15bb4e95b1b00a66075a55afbf5d438fce72b10888d32e22b19ecee6420"
   },
   "tt0243655": {
-    "verdict": "WATCH",
-    "reason": "Skip the streaming version and catch this cult comedy on a big screen with an audience that gets the joke. David Wain's absurdist ensemble timing lands harder in a theater full of people laughing at the same ridiculous moments.",
-    "generated_at": "2026-08-12T13:14:10.369763",
+    "verdict": "DEPENDS",
+    "reason": "Skip the theatrical rerun unless you need to see David Wain's absurdist comedy on a big screen with a crowd. The joke density and ensemble timing work better in a theater, but streaming is nearly as good and won't eat your evening.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "898cb343ab8676895042eb7422ef983a7dddfcd53c910eb9c19ac65d6bddf74a"
+    "source_hash": "b3f2a7357dabe2fe53c055855860c57cd5ee93c0c8c3c5059973c8df3e0aa772"
   },
   "tt22469068": {
     "verdict": "WATCH",
@@ -7587,12 +7587,12 @@
   },
   "tt37887501": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise collapses under its own contrivance and Gluck's lightweight touch has worn thin since ANYONE BUT YOU. Barbaro and Turner deserve better material than a rom-com built on a gimmick that actively works against genuine connection.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Skip it; the premised gimmick collapses under weak execution and the cast cannot salvage a derivative romantic comedy that mistakes concept for character. Will Gluck's formula of pretty people and missed connections has worn thin, and neither Barbaro nor Turner have the script or direction to make strangers-searching-for-connection feel urgent rather than inevitable.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "5d1273796057f80cb957ad6c0ce955a2e9dbefb1be6bec67cd36b408bee8f627"
+    "source_hash": "cff34f46183a5b888f725a01cccd280241b0b105e38741cc0c6ad0afda443273"
   },
   "tt37670940": {
     "verdict": "DEPENDS",
@@ -7604,13 +7604,13 @@
     "source_hash": "33339ca86a3a41e80e87ff2e6e6300836ca8895f192cf038b9bfe2bd1da17aae"
   },
   "tt35060353": {
-    "verdict": "SKIP",
-    "reason": "Skip it; the premise is fun but the execution is uneven and the runtime drags. Dylan Meyer's direction can't quite hold together a comedy-crime hybrid that asks for both laughs and stakes.",
-    "generated_at": "2026-08-16T12:42:20.738146",
+    "verdict": "DEPENDS",
+    "reason": "Dylan Meyer's directorial debut has an appealing high-concept premise and energetic cast chemistry, but the execution wavers between genuine laughs and tonal whiplash. It's a matinee option if you want lightweight fun, though the script's seams show under theatrical scrutiny.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "5a01aabdd32ed30b85057a34cf13b8ff8f39a5c7f94a82ee9382aa246212c408"
+    "source_hash": "7ad65f08d4e3665b7ef4d597709e2f5481a12ea1acf4e82225cd4df4a76c1bfe"
   },
   "tt27706593": {
     "verdict": "WATCH",
@@ -8379,12 +8379,12 @@
   },
   "tt5311514": {
     "verdict": "WATCH",
-    "reason": "See this tonight if you want proof that animation can move you as deeply as live action. Shinkai's control of mood, color, and the architecture of coincidence makes the body-swap premise feel like destiny rather than gimmick.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Watch it—Shinkai's control of mood and image makes the body-swap premise feel genuinely moving rather than gimmicky. The animation is precise enough to carry emotional weight through small gestures and Tokyo light, which demands a theater screen.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "6be7b78e545eb0e598dc181bcc53075c544b2d50a7c0764ed881ecafa48dce2b"
+    "source_hash": "287147a1f741ca91d00b604653cab30fd91f07441dad8877b5d476367f386ba9"
   },
   "tt0113824": {
     "verdict": "WATCH",
@@ -8406,12 +8406,12 @@
   },
   "tt7734244": {
     "verdict": "DEPENDS",
-    "reason": "Ben Gregor's adaptation captures the charm of Enid Blyton's source material, but the film aims squarely at younger audiences and doesn't offer much for adults watching alone. The 110-minute runtime feels bloated for a family adventure that works best as a theatrical outing with children who will respond to the whimsy.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Skip the multiplex and catch this at Alamo Drafthouse if you're taking kids tonight—the theatre's food and drink service makes the two-hour runtime feel less grinding. Ben Gregor directs a family film that works better as a communal experience than as a solo viewing on a regular screen.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f1b4de5f28bea8ca92614169ae25cb388306480f5cfe9f212c5422ecdda12716"
+    "source_hash": "33ab2cd016628bc9de232d13fa5a69934896d987cbd7cecaf2997d5578d40965"
   },
   "tt0117218": {
     "verdict": "DEPENDS",
@@ -8460,12 +8460,12 @@
   },
   "tt33070884": {
     "verdict": "DEPENDS",
-    "reason": "Skip the multiplex unless you want to see a competent political thriller on a big screen tonight. The 117-minute runtime and conventional staging make this better suited to home viewing, where you can pause through the slower stretches without feeling trapped in a theater seat.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Skip the multiplex unless you're invested in Reagan-era Cold War drama; the stakes are real but the execution doesn't demand a theatrical seat. Russell Gunn's direction plays it safer than the material warrants, treating historical tension like a conventional thriller rather than a nail-biter.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "474b2f36c50b6e124a723674c09e2e3d2d1acac17635fe3490f109243e4c56d4"
+    "source_hash": "9983ad1f1a00e687b8d40ff334a7bcb6e50ba4be5bfda040c7dbe76c9cd87e65"
   },
   "tt37442781": {
     "verdict": "SKIP",
@@ -8766,12 +8766,12 @@
   },
   "tt34385135": {
     "verdict": "DEPENDS",
-    "reason": "Yeon Sang-ho brings kinetic action chops to a virus-outbreak premise, but the film splits focus between spectacle and coherence in ways that undercut both. The set pieces have real visceral impact on a theater screen, which is the only reason to show up.",
-    "generated_at": "2026-08-13T13:13:24.472279",
+    "reason": "Yeon Sang-ho brings kinetic action craft to a virus-outbreak scenario, but the runtime drags and the premise never coheres into something urgent enough to justify the theater seat. The IFC Center screening offers no restoration or format advantage that makes the theatrical experience necessary.",
+    "generated_at": "2026-08-17T12:45:23.694871",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "cc813fd2a3c0c8a92b95f3f9b337f3f9e7070844d7a0768e22436d9e8ef79cfb"
+    "source_hash": "3e837a736fc78a38c5bcfa15be03d8bcbc3657f1aecfefb1f6e53fb68e31616e"
   },
   "tt37969239": {
     "verdict": "WATCH",
@@ -8970,5 +8970,23 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "1a83cd919710aeb45a17c2d00ea6e73ab7e0836708a4b5f3e1229a5990a5490a"
+  },
+  "tt38503564": {
+    "verdict": "WATCH",
+    "reason": "A sharp documentary about capitalism, childhood, and ambition disguised as a film about Girl Scout cookies. Nahmias finds real comedy and edge in the collision between innocence and an $800 million industrial machine.",
+    "generated_at": "2026-08-17T12:45:23.694871",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "ca518e2692210f612e30ec75c41072c9a3c74595fd0d58a352517c0cb06bc936"
+  },
+  "tt34379051": {
+    "verdict": "DEPENDS",
+    "reason": "Elegance Bratton's first narrative feature has an intriguing setup but arrives without critical consensus to anchor the call. The pairing of a mafia hitman and Black FBI agent in 1966 Mississippi has real potential, but that premise alone does not justify the subway ride—wait for word on execution.",
+    "generated_at": "2026-08-17T12:45:23.694871",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "abe73a30a29b3ee6fe259c0bbaaf62888088e8d3d3ef4fd450fbe904bdd63936"
   }
 }
