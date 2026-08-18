@@ -2549,6 +2549,12 @@
     "title": "Jana Nayagan",
     "year": "2026"
   },
+  "jawbreaker|1999": {
+    "imdbID": "tt0155776",
+    "source": "exact",
+    "title": "Jawbreaker",
+    "year": "1999"
+  },
   "jaws|1975": {
     "imdbID": "tt0073195",
     "source": "exact",
@@ -3329,6 +3335,12 @@
     "title": "Mysterious Skin",
     "year": "2004"
   },
+  "nacho libre|2006": {
+    "imdbID": "tt0457510",
+    "source": "exact_year",
+    "title": "Nacho Libre",
+    "year": "2006"
+  },
   "nadja|1994": {
     "imdbID": "tt0110620",
     "source": "exact_year",
@@ -4043,6 +4055,12 @@
     "title": "Remake",
     "year": "2003"
   },
+  "remake|2026": {
+    "imdbID": "tt37660544",
+    "source": "exact_year",
+    "title": "Remake",
+    "year": "2026"
+  },
   "remarkably bright creatures|2026": {
     "imdbID": "tt33100314",
     "source": "exact_year",
@@ -4510,6 +4528,12 @@
     "source": "exact_year",
     "title": "Spy High",
     "year": "2025"
+  },
+  "spy kids|2001": {
+    "imdbID": "tt0227538",
+    "source": "exact_year",
+    "title": "Spy Kids",
+    "year": "2001"
   },
   "spy|2024": {
     "imdbID": "tt12930350",
@@ -5458,6 +5482,12 @@
     "source": "exact",
     "title": "The Rocky Horror Picture Show",
     "year": "1975"
+  },
+  "the rock|1996": {
+    "imdbID": "tt0117500",
+    "source": "exact",
+    "title": "The Rock",
+    "year": "1996"
   },
   "the root": {
     "imdbID": "tt19063048",
