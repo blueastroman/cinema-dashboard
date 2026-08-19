@@ -71,6 +71,12 @@
     "title": "A Bigger Splash",
     "year": "2015"
   },
+  "a brighter summer day|1991": {
+    "imdbID": "tt0101985",
+    "source": "exact",
+    "title": "A Brighter Summer Day",
+    "year": "1991"
+  },
   "a clockwork orange": {
     "imdbID": "tt0066921",
     "source": "exact",
@@ -346,6 +352,12 @@
     "source": "exact",
     "title": "American Dream",
     "year": "1990"
+  },
+  "american job|1996": {
+    "imdbID": "tt0112345",
+    "source": "exact",
+    "title": "American Job",
+    "year": "1996"
   },
   "amoeba|2016": {
     "imdbID": "tt5162390",
@@ -785,6 +797,12 @@
     "title": "Bram Stoker's Dracula: A Documentary",
     "year": "2007"
   },
+  "brazil|1985": {
+    "imdbID": "tt0088846",
+    "source": "exact",
+    "title": "Brazil",
+    "year": "1985"
+  },
   "breaking the waves|1996": {
     "imdbID": "tt0115751",
     "source": "exact_year",
@@ -899,11 +917,23 @@
     "title": "Castle in the Sky",
     "year": "1986"
   },
+  "castle in the sky|2025": {
+    "imdbID": "tt37016430",
+    "source": "exact_year",
+    "title": "Castle in the Sky",
+    "year": "2025"
+  },
   "castration movie anthology i traps": {
     "imdbID": "tt35022825",
     "source": "search",
     "title": "Castration Movie Anthology i. Traps",
     "year": "2024"
+  },
+  "castration movie anthology ii. the best of both worlds|2025": {
+    "imdbID": "tt36158276",
+    "source": "exact_year",
+    "title": "Castration Movie Anthology ii. The Best of Both Worlds",
+    "year": "2025"
   },
   "casualties of war|1989": {
     "imdbID": "tt0097027",
@@ -1024,6 +1054,12 @@
     "source": "exact_year",
     "title": "Clash by Night",
     "year": "1952"
+  },
+  "clash of the titans|2010": {
+    "imdbID": "tt0800320",
+    "source": "exact",
+    "title": "Clash of the Titans",
+    "year": "2010"
   },
   "class of 1984|1982": {
     "imdbID": "tt0083739",
@@ -1259,6 +1295,12 @@
     "title": "Dastaar",
     "year": "2026"
   },
+  "daughter of the nile|1987": {
+    "imdbID": "tt0093633",
+    "source": "exact",
+    "title": "Daughter of the Nile",
+    "year": "1987"
+  },
   "daughters of darkness|1971": {
     "imdbID": "tt0067690",
     "source": "exact_year",
@@ -1330,6 +1372,12 @@
     "source": "exact_year",
     "title": "Decision to Leave",
     "year": "2022"
+  },
+  "delicatessen|1991": {
+    "imdbID": "tt0101700",
+    "source": "exact",
+    "title": "Delicatessen",
+    "year": "1991"
   },
   "deliverance|1972": {
     "imdbID": "tt0068473",
@@ -1522,6 +1570,12 @@
     "source": "exact_year",
     "title": "Dumplings",
     "year": "2004"
+  },
+  "dune: part three|2026": {
+    "imdbID": "tt31378509",
+    "source": "exact_year",
+    "title": "Dune: Part Three",
+    "year": "2026"
   },
   "dune|1984": {
     "imdbID": "tt0087182",
@@ -2020,6 +2074,12 @@
     "source": "exact",
     "title": "Girlhood",
     "year": "2014"
+  },
+  "give it up|2025": {
+    "imdbID": "tt37199854",
+    "source": "exact_year",
+    "title": "Give It Up",
+    "year": "2025"
   },
   "goat|2026": {
     "imdbID": "tt27613895",
@@ -2548,6 +2608,12 @@
     "source": "exact_year",
     "title": "Jana Nayagan",
     "year": "2026"
+  },
+  "jason and the argonauts|1963": {
+    "imdbID": "tt0057197",
+    "source": "exact",
+    "title": "Jason and the Argonauts",
+    "year": "1963"
   },
   "jawbreaker|1999": {
     "imdbID": "tt0155776",
@@ -3115,7 +3181,7 @@
   },
   "millennium mambo|2001": {
     "imdbID": "tt0283283",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Millennium Mambo",
     "year": "2001"
   },
@@ -3322,6 +3388,12 @@
     "source": "exact",
     "title": "My Night at Maud's",
     "year": "1969"
+  },
+  "my sassy girl|2001": {
+    "imdbID": "tt0293715",
+    "source": "exact_year",
+    "title": "My Sassy Girl",
+    "year": "2001"
   },
   "mysterious skin )|2004": {
     "imdbID": "tt0370986",
@@ -3563,6 +3635,12 @@
     "title": "Once Upon a Time in China",
     "year": "1991"
   },
+  "one from the heart: reprise|2024": {
+    "imdbID": "tt30767670",
+    "source": "exact",
+    "title": "One from the Heart: Reprise",
+    "year": "2024"
+  },
   "one hour with you|1932": {
     "imdbID": "tt0023303",
     "source": "exact_year",
@@ -3634,6 +3712,12 @@
     "source": "exact_year",
     "title": "Out of Sight",
     "year": "2025"
+  },
+  "out of the blue|1980": {
+    "imdbID": "tt0081291",
+    "source": "exact",
+    "title": "Out of the Blue",
+    "year": "1980"
   },
   "outcome|2023": {
     "imdbID": "tt23724682",
@@ -3749,6 +3833,12 @@
     "title": "PAW Patrol: The Dino Movie",
     "year": "2026"
   },
+  "peking opera blues|1986": {
+    "imdbID": "tt0090952",
+    "source": "exact",
+    "title": "Peking Opera Blues",
+    "year": "1986"
+  },
   "peppermint candy|1999": {
     "imdbID": "tt0247613",
     "source": "exact_year",
@@ -3808,6 +3898,12 @@
     "source": "override",
     "title": "Planet of the Apes",
     "year": "1968"
+  },
+  "playtime|1967": {
+    "imdbID": "tt0062136",
+    "source": "exact",
+    "title": "Playtime",
+    "year": "1967"
   },
   "point blank": {
     "imdbID": "tt32525217",
@@ -4151,6 +4247,12 @@
     "title": "Rumba Royale",
     "year": "2025"
   },
+  "rumble fish|1983": {
+    "imdbID": "tt0086216",
+    "source": "exact_year",
+    "title": "Rumble Fish",
+    "year": "1983"
+  },
   "s t ntang": {
     "imdbID": "tt0111341",
     "source": "exact",
@@ -4288,6 +4390,12 @@
     "source": "exact",
     "title": "Sex, Lies, and Videotape",
     "year": "1989"
+  },
+  "shanghai blues|1984": {
+    "imdbID": "tt0088097",
+    "source": "exact",
+    "title": "Shanghai Blues",
+    "year": "1984"
   },
   "shanghai triad": {
     "imdbID": "tt0115012",
@@ -4775,6 +4883,12 @@
     "title": "The Age of Innocence",
     "year": "1993"
   },
+  "the apartment|1960": {
+    "imdbID": "tt0053604",
+    "source": "exact",
+    "title": "The Apartment",
+    "year": "1960"
+  },
   "the asphalt jungle|1950": {
     "imdbID": "tt0042208",
     "source": "exact_year",
@@ -4853,6 +4967,12 @@
     "title": "The Brady Bunch Movie",
     "year": "1995"
   },
+  "the breakfast club|1985": {
+    "imdbID": "tt0088847",
+    "source": "exact",
+    "title": "The Breakfast Club",
+    "year": "1985"
+  },
   "the bridges of madison county|1995": {
     "imdbID": "tt0112579",
     "source": "exact_year",
@@ -4895,11 +5015,23 @@
     "title": "The Christophers",
     "year": "2026"
   },
+  "the city of lost children|1995": {
+    "imdbID": "tt0112682",
+    "source": "exact",
+    "title": "The City of Lost Children",
+    "year": "1995"
+  },
   "the conformist|1970": {
     "imdbID": "tt0065571",
     "source": "exact_year",
     "title": "The Conformist",
     "year": "1970"
+  },
+  "the conversation|1974": {
+    "imdbID": "tt0071360",
+    "source": "exact_year",
+    "title": "The Conversation",
+    "year": "1974"
   },
   "the cook the thief his wife her lover": {
     "imdbID": "tt0097108",
@@ -4949,6 +5081,12 @@
     "title": "The Decameron",
     "year": "1971"
   },
+  "the departed|2006": {
+    "imdbID": "tt0407887",
+    "source": "exact",
+    "title": "The Departed",
+    "year": "2006"
+  },
   "the descent|2005": {
     "imdbID": "tt0435625",
     "source": "exact",
@@ -4978,6 +5116,12 @@
     "source": "exact_year",
     "title": "The Dog Stars",
     "year": "2026"
+  },
+  "the doors|1991": {
+    "imdbID": "tt0101761",
+    "source": "exact_year",
+    "title": "The Doors",
+    "year": "1991"
   },
   "the double life of veronique|1991": {
     "imdbID": "tt0101765",
@@ -5079,6 +5223,18 @@
     "imdbID": "tt0066773",
     "source": "exact_year",
     "title": "The Goalie's Anxiety at the Penalty Kick",
+    "year": "1972"
+  },
+  "the godfather part ii|1974": {
+    "imdbID": "tt0071562",
+    "source": "exact",
+    "title": "The Godfather Part II",
+    "year": "1974"
+  },
+  "the godfather|1972": {
+    "imdbID": "tt0068646",
+    "source": "exact_year",
+    "title": "The Godfather",
     "year": "1972"
   },
   "the good the bad and the ugly|1967": {
@@ -5453,6 +5609,12 @@
     "title": "The Queen",
     "year": "1968"
   },
+  "the rain people|1969": {
+    "imdbID": "tt0064873",
+    "source": "exact_year",
+    "title": "The Rain People",
+    "year": "1969"
+  },
   "the red light bandit|1968": {
     "imdbID": "tt0144782",
     "source": "exact",
@@ -5596,6 +5758,12 @@
     "source": "exact_year",
     "title": "The Snake Girl and the Silver-Haired Witch",
     "year": "1968"
+  },
+  "the son of the sheik|1926": {
+    "imdbID": "tt0017416",
+    "source": "exact_year",
+    "title": "The Son of the Sheik",
+    "year": "1926"
   },
   "the spongebob movie: search for squarepants|2025": {
     "imdbID": "tt23572848",
@@ -5987,6 +6155,12 @@
     "title": "Tow",
     "year": "2022"
   },
+  "toxic|2026": {
+    "imdbID": "tt27530512",
+    "source": "exact_year",
+    "title": "Toxic",
+    "year": "2026"
+  },
   "toy story 5|2026": {
     "imdbID": "tt29355505",
     "source": "exact_year",
@@ -6023,6 +6197,12 @@
     "title": "Travis",
     "year": "2009"
   },
+  "treasure of the bitch islands|1990": {
+    "imdbID": "tt0098531",
+    "source": "exact",
+    "title": "Treasure of the Bitch Islands",
+    "year": "1990"
+  },
   "trees lounge|1996": {
     "imdbID": "tt0117958",
     "source": "exact_year",
@@ -6053,6 +6233,12 @@
     "title": "Trouble in Paradise",
     "year": "1932"
   },
+  "troy|2004": {
+    "imdbID": "tt0332452",
+    "source": "exact",
+    "title": "Troy",
+    "year": "2004"
+  },
   "true lies|1994": {
     "imdbID": "tt0111503",
     "source": "exact",
@@ -6070,6 +6256,12 @@
     "source": "exact",
     "title": "True Romance",
     "year": "1993"
+  },
+  "tucker: the man and his dream|1988": {
+    "imdbID": "tt0096316",
+    "source": "exact_year",
+    "title": "Tucker: The Man and His Dream",
+    "year": "1988"
   },
   "turtle vision|1991": {
     "imdbID": "tt0103142",
@@ -6454,6 +6646,12 @@
     "source": "exact_year",
     "title": "Yojimbo",
     "year": "1961"
+  },
+  "you're a big boy now|1966": {
+    "imdbID": "tt0061209",
+    "source": "exact_year",
+    "title": "You're a Big Boy Now",
+    "year": "1966"
   },
   "young frankenstein|1974": {
     "imdbID": "tt0072431",
