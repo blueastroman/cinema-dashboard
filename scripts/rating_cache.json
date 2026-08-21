@@ -1343,6 +1343,12 @@
     "title": "Dead Lover",
     "year": "2025"
   },
+  "dead man|1995": {
+    "imdbID": "tt0112817",
+    "source": "exact",
+    "title": "Dead Man",
+    "year": "1995"
+  },
   "dead mountaineer's hotel|1979": {
     "imdbID": "tt0204526",
     "source": "exact",
@@ -1763,6 +1769,12 @@
     "title": "Exit 8",
     "year": "2025"
   },
+  "exorcist iii|1990": {
+    "imdbID": "tt0099528",
+    "source": "exact_year",
+    "title": "The Exorcist III",
+    "year": "1990"
+  },
   "extreme prejudice|1987": {
     "imdbID": "tt0092997",
     "source": "exact_year",
@@ -1865,6 +1877,12 @@
     "title": "Fight Club",
     "year": "1999"
   },
+  "filipiñana|2026": {
+    "imdbID": "tt38268539",
+    "source": "exact_year",
+    "title": "Filipiñana",
+    "year": "2026"
+  },
   "find your friends|2025": {
     "imdbID": "tt32275326",
     "source": "exact",
@@ -1876,6 +1894,12 @@
     "source": "exact_year",
     "title": "Finding Emily",
     "year": "2026"
+  },
+  "finian's rainbow|1968": {
+    "imdbID": "tt0062974",
+    "source": "exact_year",
+    "title": "Finian's Rainbow",
+    "year": "1968"
   },
   "first blood|1982": {
     "imdbID": "tt0083944",
@@ -2681,6 +2705,12 @@
     "title": "Johnny Guitar",
     "year": "1954"
   },
+  "ju-on: the curse|2000": {
+    "imdbID": "tt0330500",
+    "source": "exact_year",
+    "title": "Ju-on: The Curse",
+    "year": "2000"
+  },
   "kangaroo island|2024": {
     "imdbID": "tt26669836",
     "source": "exact",
@@ -3040,6 +3070,12 @@
     "source": "exact_year",
     "title": "Maddie's Secret",
     "year": "2025"
+  },
+  "maddie’s secret|2026": {
+    "imdbID": "tt37675037",
+    "source": "exact",
+    "title": "Maddie's Secret",
+    "year": "2026"
   },
   "made in hong kong|1997": {
     "imdbID": "tt0123328",
@@ -4408,6 +4444,12 @@
     "source": "exact",
     "title": "Serpent's Path",
     "year": "1998"
+  },
+  "set it off|1996": {
+    "imdbID": "tt0117603",
+    "source": "exact",
+    "title": "Set It Off",
+    "year": "1996"
   },
   "sex, lies, and videotape|1989": {
     "imdbID": "tt0098724",
