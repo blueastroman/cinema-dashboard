@@ -4535,12 +4535,12 @@
   },
   "tt33764258": {
     "verdict": "WATCH",
-    "reason": "Nolan's epic scope demands the theatrical experience, and this is the kind of event film that justifies a trip to the theater. Catch it in 70mm or IMAX at one of the multiple venues showing it in premium formats.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Nolan's adaptation demands the theatrical scale he shot for, particularly in 70mm. Catch it in the largest format available before it cycles out of premium screens.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "952131cbf86e892c5284e5958fabbcd0056fb597b260770ff044bb04d7c12ff3"
+    "source_hash": "3733513b4ecd399e527bcbb94e703c4111a4d6afc58b930794473759ce2c7125"
   },
   "the-phantom-of-liberty-le-fantome-de-la-liberte": {
     "verdict": "WATCH",
@@ -4951,12 +4951,12 @@
   },
   "tt32298494": {
     "verdict": "WATCH",
-    "reason": "Kent Jones makes films about art and obsession with the clarity of a poet himself, and this one earns its 90 minutes by letting each scene breathe. The Film Forum and Lincoln Center screenings matter because Jones's visual precision and the ensemble's intimacy need a room full of people paying attention.",
-    "generated_at": "2026-08-04T14:19:47.222828",
+    "reason": "Kent Jones made one of the best films about art and obsession in recent memory, and this 90-minute work about a poet's rediscovery has the focused intensity of a director at his best. Catch it at Film Forum or Lincoln Center before it vanishes — this is exactly the kind of intimate, intelligent cinema those venues exist to champion.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "fd0ae50130960359cf42f995b2ea4996cc30f6c068a3647f1cd969b13f0effc6"
+    "source_hash": "e38e7f6aeb1f203b4e3cc3c6504d5913f0db79364a0669791a415518c47b5ae5"
   },
   "tt27419466": {
     "verdict": "SKIP",
@@ -6189,12 +6189,12 @@
   },
   "tt22084616": {
     "verdict": "WATCH",
-    "reason": "Cretton brings real character work to the superhero formula, and this isolation angle feels like a genuine departure from the usual web-slinging spectacle. Catch it in IMAX at a theater like Regal Union Square or AMC Lincoln Square where the action design will hit hardest.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Destin Daniel Cretton has made a Spider-Man film that actually works as character drama, not just spectacle. The IMAX presentation at Union Square or Times Square will justify the theatrical ticket over waiting for streaming.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "0f3ec2772c765601ad04e602c862cae1750e060b49ac28f7a321f318919916bb"
+    "source_hash": "f82cdf8ee81b87cfebd070fcf847b4d45aad058c442dc8f5bb3fb7c220247ecb"
   },
   "tinsman-road-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -7294,12 +7294,12 @@
   },
   "tt0205073": {
     "verdict": "DEPENDS",
-    "reason": "Jacques Brel's only film is a curious artifact of 1970s European cinema with genuine warmth, but the 91 minutes sag under thin plotting and uneven tonal control. Lincoln Center's screening makes it worth considering if you're already exploring the venue's calendar, though it plays better as a historical footnote than as a living work.",
-    "generated_at": "2026-07-24T13:47:40.000885",
+    "reason": "Jacques Brel's only narrative film is a curiosity worth exploring if you're at Lincoln Center, but the 91 minutes meander through bedroom comedy that hasn't aged as freely as it imagined. The sexual liberation angle plays quaint now, and Brel's direction lacks the bite his songs carried.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "7bbd5cf80beec46efa8543a46ecf3145c5b74321b2fc55fe5cba98dc5a3c6290"
+    "source_hash": "a1cde4a6600fb9e992abe2ef594e0cf1188e2101305a063e48b903e29e5fbb91"
   },
   "tt0193253": {
     "verdict": "DEPENDS",
@@ -7617,13 +7617,13 @@
     "source_hash": "512ae8fe412ea7b4e6d38a6f70946fafedeae2607e06137f03133d55187e14cd"
   },
   "tt27706593": {
-    "verdict": "WATCH",
-    "reason": "Andrew Patterson has made something rare: a crime drama that treats community bonds and honest work with the same weight as violence and betrayal. The 130-minute runtime earns its length through character accumulation rather than plot mechanics.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "verdict": "DEPENDS",
+    "reason": "Andrew Patterson's follow-up has real craft but the 130-minute runtime and uneven reviews suggest wait for streaming unless you're committed to seeing it in theaters. The specificity of a beekeeper-musician protagonist anchoring a community thriller is distinctive enough to catch on a big screen if the mood hits.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "2e28335e5444f9bf7c6f8a90181d7c939fccbd5ea68dcd4eb73dc817a5b8affe"
+    "source_hash": "718e5a511be99b413c4eefaa588b944bb5e31ffdedb71a6701d7be9841617723"
   },
   "tt0372321": {
     "verdict": "WATCH",
@@ -8275,21 +8275,21 @@
   },
   "tt32393988": {
     "verdict": "SKIP",
-    "reason": "Skip it; the franchise has exhausted its scares and this entry adds nothing but a gimmick premise. The 4DX option only amplifies a hollow experience that doesn't justify the subway trip.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip it; the franchise has run out of fresh scares and this entry relies on jump cuts and noise rather than actual dread. The 4DX gimmick at most theaters turns a thin horror premise into an expensive theme park ride.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "28e5660e959d05dea9016f9eeccedacb39781f494c95ab48c038bfab8bc58184"
+    "source_hash": "2be7e878eb2dc1e5d8acf584581daec94c4396b99a7958fd29029e8d091bdb6d"
   },
   "tt32338669": {
     "verdict": "SKIP",
-    "reason": "Skip it; Jean-François Richet's action thrillers have lost momentum, and a 95-minute conspiracy plot with a low critical baseline doesn't justify the trip. The generic setup and lean runtime suggest a streaming-grade thriller that won't benefit from the theatrical experience.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip it; this is routine thriller mechanics without the craft to justify a theater trip. Jean-François Richet has made better action films, and 95 minutes of setup-and-chase doesn't land hard enough to demand a big screen.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "a7186e1eefeab108d3826fd01b249d609e6b614e7a56bed96f88cd04abbac563"
+    "source_hash": "9cd5d23d07d649c450fb3be4d8e19aa36cb8007a44aa0ee3e1cc8c2c76a6fcd8"
   },
   "tt0025228": {
     "verdict": "DEPENDS",
@@ -8598,13 +8598,13 @@
     "source_hash": "89aa27aac31679304ff9e9943f51b9569b361fdd0dd964937a33e117a4afe589"
   },
   "tt35519455": {
-    "verdict": "WATCH",
-    "reason": "Alex Ullom traps four friends in a Jeep on an infinite highway and wrings genuine dread from the premise through sound design and claustrophobic framing. At 89 minutes it respects your time while delivering real unease.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "verdict": "DEPENDS",
+    "reason": "A high-concept trap film that works best as a midnight screening experience, but the 89-minute runtime and confined setting limit its theatrical pull. The gimmick—an infinite highway and a Jeep—is visual enough for the big screen, but only if you're ready for claustrophobic genre work.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "4cd8bce8509f79b16d20252a9217f3d8287ff3c3c9a730a5e3fb3e17a11000d3"
+    "source_hash": "a2c8d21da7f08efb93252ed034f20413a189b6b1d195bb83c008bd14ea5181ca"
   },
   "tt0266308": {
     "verdict": "WATCH",
@@ -8770,12 +8770,12 @@
   },
   "tt34385135": {
     "verdict": "DEPENDS",
-    "reason": "Yeon Sang-ho delivers kinetic action set-pieces in a confined outbreak scenario, but the film stretches its premise thin across two hours and loses momentum in the second half. The opening biotech catastrophe plays better than the repetitive survival mechanics that follow.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Yeon Sang-ho brings visual invention to a virus-outbreak thriller, but the film splits its focus between action and mutation body horror without fully committing to either. The 122-minute runtime stretches a familiar premise past the point where spectacle alone sustains interest.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b7a5be15b45acc872a5b0454221343e153e38bfc8571443b5603a6d13013ac11"
+    "source_hash": "d798612209fa251a5b64593a21eaa7329058195b3aeeb4a4fdd31e6ef4461991"
   },
   "tt37969239": {
     "verdict": "WATCH",
@@ -8815,12 +8815,12 @@
   },
   "tt34895535": {
     "verdict": "DEPENDS",
-    "reason": "The setup has charm and the 102-minute runtime respects your time, but this is a streaming-friendly road-comedy that doesn't gain much from the AMC multiplex experience. Lee Kirk's direction has worked best in smaller, character-driven moments rather than broad ensemble chaos spread across a two-hour van ride.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Skip it unless you want a loose comedy about friendship and failure that never quite lands its jokes. Lee Kirk's direction lacks the energy required to make a van-bound road movie sing, and the ensemble chemistry can't overcome the thin premise.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "fa102e6e01acbbd792ac53cd3804f13f2bd5c8f099ea9dbca55506ed13a9954d"
+    "source_hash": "2a234311e2e2a73f9fefec96ce29b37ffd88f4782db3458fc5bebcf66305e1bc"
   },
   "tt30345011": {
     "verdict": "WATCH",
@@ -8869,12 +8869,12 @@
   },
   "tt14119302": {
     "verdict": "SKIP",
-    "reason": "Skip it; Agnieszka Smoczynska's sci-fi murder mystery landed poorly and the 21st-century refugee-camp setting cannot compensate for incoherent plotting. The film does not know what it wants to be.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Skip it; the execution fails to justify the premise, and Smoczynska's vision dissolves into incoherence across 101 minutes. The film plays as a confused collision of genres that never settle into anything compelling enough to warrant a theater trip.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "c055e6d0d92a96b707024db250afacd3bbff4745d2d5f063229464b967bcea69"
+    "source_hash": "9dcba4ddf172cdafa82df89331e8c401ca9720846fce08423c8834239cb081e8"
   },
   "tt38066316": {
     "verdict": "DEPENDS",
@@ -8887,12 +8887,12 @@
   },
   "tt32765596": {
     "verdict": "DEPENDS",
-    "reason": "Shatara Michelle Ford's debut feature has genuine craft, but a two-hour road movie about missing persons works better as a streaming watch than a theater commitment. The intimate character work pays off on any screen, and Village East's standard projection won't add theatrical value that justifies the trip.",
-    "generated_at": "2026-08-18T12:47:47.288762",
+    "reason": "Shatara Michelle Ford's debut feature has real emotional depth, but two hours of Midwestern driving and interpersonal tension works better in a living room than a theater seat. The intimate ensemble drama and conversational pacing reward attention but don't demand the big screen.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "63ae466f764a389462eb3a5f7d76d0395791cd4fd7b3d2b2a86ca0fdc8394d2e"
+    "source_hash": "cc72e46cbf516a4cb93c4606265a72d55903fffc418caf875e7d94495f1789a5"
   },
   "amyl-and-the-sniffers-present-truth-or-consequence": {
     "verdict": "DEPENDS",
@@ -8905,12 +8905,12 @@
   },
   "tt33305867": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise collapses under weak execution and the 97-minute runtime cannot rescue a thin setup. Lucas and Moore have delivered better comedies, and this one relies on the chaos-friend trope without the writing to make it land.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip it; the premise relies on familiar chaos-comedy beats that the execution doesn't elevate. At 97 minutes, this is a tight runtime for a film that needs something sharper than trainwreck antics to justify a theater ticket.",
+    "generated_at": "2026-08-24T12:52:18.507963",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "aa16a9598cacd317157135579bb92c8676eebcf8695dd547b62e005e6c4ba1fe"
+    "source_hash": "78e0ea02e7db9548d7bfb999d171707a6e69d5b6d80d4945cdb226bbd001f732"
   },
   "tt36300841": {
     "verdict": "SKIP",
@@ -9973,5 +9973,14 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "680e992dbe86a43d2a812d5edeae2b2f68f7b245595acec61dc847a3f99b2b75"
+  },
+  "tt37405791": {
+    "verdict": "DEPENDS",
+    "reason": "A real-time rescue thriller with genuine stakes, but the 98-minute runtime and single-location setup work better as a taut TV special than a theatrical event. Naqvi's documentary approach gives the film credibility, though the theatrical release feels more suited to streaming.",
+    "generated_at": "2026-08-24T12:52:18.507963",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "94bb7cd5614ae1b2d444c5dd6fbd24af7ff91cd4893d67eb2840a2f28dfdccf2"
   }
 }
