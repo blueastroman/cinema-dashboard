@@ -2170,12 +2170,12 @@
   },
   "tt0103064": {
     "verdict": "WATCH",
-    "reason": "James Cameron's 1991 masterpiece demands the big screen, and this restoration showcases the practical effects and liquid-metal innovation that still outclass modern digital spectacle. The T-1000 remains the gold standard for action villainy.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "This is essential cinema—Cameron's action filmmaking at its peak, with practical effects and editing that still outpace modern blockbusters. The liquid-metal T-1000 remains a technical marvel that demands a theater screen and sound system to land with full impact.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "61b6c3cd0f3609a08fb40051224f910e608288e29a639953cf60a93d46889e9a"
+    "source_hash": "b8e0fdbc1a36a6d78cd057d73d8368cffb733359165ae91bdac7545dfc230a3b"
   },
   "tt0084516": {
     "verdict": "WATCH",
@@ -2896,12 +2896,12 @@
   },
   "tt0080120": {
     "verdict": "WATCH",
-    "reason": "Hill's stylized action and color-coded gangs belong on the big screen, and the 35mm at Metrograph restores the neon reds and blues that define the film's nocturnal New York. A crowd film that still moves like a ballet.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Walter Hill's 1979 street symphony demands a theater and a crowd, especially now. Metrograph is showing a restored 35mm print that makes the neon and violence sing like they were meant to.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "03ac32af10f7a951ac3b4f0a324fc7b02e4e026aa2cc268d311c226c1ad9b9f9"
+    "source_hash": "a1faaf62996a1e97c412d3bc64d2601fde0bc67014b1d55d0c4596867d7d227a"
   },
   "tt0062755": {
     "verdict": "WATCH",
@@ -4515,12 +4515,12 @@
   },
   "tt14173636": {
     "verdict": "WATCH",
-    "reason": "Wilde has made a sharp comedy about marriage and desire that justifies a theatrical night out. The dinner-party setting gives the film real momentum, and the ensemble dynamic rewards the full theatrical experience over streaming.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Wilde directs a sharp ensemble comedy about marriage and desire with real bite and specificity. The dinner-party setup explodes into genuine unpredictability rather than retreading predictable relationship-drama beats.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "3107f78c4725304e11b4822df0102db81b6465bd63aab09de4908d840b7a9d4c"
+    "source_hash": "4e751f2e9daf1ebbecb39cf96206b730ab785c8645697214d0ba82ef74fab267"
   },
   "the-invite-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -4539,12 +4539,12 @@
   },
   "tt33764258": {
     "verdict": "WATCH",
-    "reason": "Nolan's adaptation demands the theatrical scale he shot for, particularly in 70mm. Catch it in the largest format available before it cycles out of premium screens.",
-    "generated_at": "2026-08-24T12:52:18.507963",
+    "reason": "Nolan on a classical epic with nearly three hours of runtime demands the biggest screen you can find. Catch it in 70mm at Village East or AMC Lincoln Square—the format was made for this.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "3733513b4ecd399e527bcbb94e703c4111a4d6afc58b930794473759ce2c7125"
+    "source_hash": "941205ba2a917c77796090e4d31cbea3baf5c25a006e2dacc45155e039f91b20"
   },
   "the-phantom-of-liberty-le-fantome-de-la-liberte": {
     "verdict": "WATCH",
@@ -6193,12 +6193,12 @@
   },
   "tt22084616": {
     "verdict": "WATCH",
-    "reason": "Destin Daniel Cretton has made a Spider-Man film that actually works as character drama, not just spectacle. The IMAX presentation at Union Square or Times Square will justify the theatrical ticket over waiting for streaming.",
-    "generated_at": "2026-08-24T12:52:18.507963",
+    "reason": "Destin Daniel Cretton steers the character into unexplored territory with real emotional stakes instead of formula. The 145-minute runtime and isolation-to-breakdown arc suggest this is a Spider-Man film that actually trusts its premise rather than drowning it in cameos and fan service.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f82cdf8ee81b87cfebd070fcf847b4d45aad058c442dc8f5bb3fb7c220247ecb"
+    "source_hash": "bbb7b297e7ab0303d707774e12d58cb7dcd73c2ff55a70d5640fd8988230eac1"
   },
   "tinsman-road-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -6776,12 +6776,12 @@
   },
   "tt0232500": {
     "verdict": "SKIP",
-    "reason": "Skip it; the theatrical cut offers nothing you won't get better from streaming, and 4DX noise does not redeem a thin undercover plot from 2001. The franchise found its rhythm later—start there instead.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip it; the theatrical cut offers nothing that justifies the subway ride over streaming at home. The 2001 original has been eclipsed by its sequels and lacks the spectacle that made the franchise essential.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "30d14a2772fb4a07fedbabf983015b8b82cc8e1e359699771771a304582e23b9"
+    "source_hash": "378cc3e3e7fb080afd65656b25630b34191ba61cef4f2c54f7aaaa93fd6a955f"
   },
   "tt0041847": {
     "verdict": "DEPENDS",
@@ -7208,12 +7208,12 @@
   },
   "tt35298123": {
     "verdict": "WATCH",
-    "reason": "Jane Schoenbrun makes films that burrow into the psychology of obsession and desire with formal precision, and this one demands the 35mm print to feel the grain of her images. See it projected before the streaming version flattens it into something safer.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Schoenbrun's follow-up to We're All Going to the World's Fair arrives on 35mm at the Angelika—a rare theatrical opportunity for a director working at the intersection of horror and psychological dissection. The film's obsession with performance, desire, and the violence of rewatching makes it essential on the big screen.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "530c0635379581dd346a591c012068bd52b89d982f8963f1276275cbeda06a46"
+    "source_hash": "fe19a0e87913682290e18c509fd2ef398cc44046b61a274ea7cc1d36183d815c"
   },
   "tt34383465": {
     "verdict": "DEPENDS",
@@ -7270,13 +7270,13 @@
     "source_hash": "f2d8cf220408b10e24ed214c9b2d72dea827d837b0cde38fc76936623925031d"
   },
   "ghost-2-big-to-rig": {
-    "verdict": "WATCH",
-    "reason": "Catch this on IMAX if you care about the band—it's the only pro-shot footage of the Skeletour and the 16mm transfer looks better than any bootleg. Two hours of Ghost in a theater with decent sound beats watching clips online.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "verdict": "DEPENDS",
+    "reason": "Worth seeing on IMAX if you're committed to the band, but a phone-free live show captured on 16mm is a strange thing to watch in a theater full of phones. The Alamo locations offer the better vibe for this kind of document, though streaming will capture the same material without the room's distractions.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "ebfb53ba8165a1de26ca459846d280a8a5f16acd6f08297858a97c5e4d20189b"
+    "source_hash": "17589e96ba62cbfd4fd96ceb99e87143cb74c11dc155e3a69e7de39c68d78f82"
   },
   "grateful-dead-meet-up-at-the-movies-2026": {
     "verdict": "DEPENDS",
@@ -7316,12 +7316,12 @@
   },
   "tt1756855": {
     "verdict": "WATCH",
-    "reason": "Skip the 4DX gimmick and catch this at BAM or an Alamo Drafthouse, where the animation can breathe without the seats shaking. Dave Green's direction and the theatrical animation format justify the trip over streaming.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "A genuine Looney Tunes film made for the big screen is rare enough to justify the trip. Dave Green directs a 98-minute comedy that swings for the theatrical fences instead of settling for streaming comfort.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "9cd498d18a6cc045b86ca165cbccf11184d2aa5fa3d2af6552799e5f3c24b714"
+    "source_hash": "37a44bcb593ab73dea19f7e4327fdd94fa25b96e37819472f7f846b5e71ff67c"
   },
   "tt4223366": {
     "verdict": "DEPENDS",
@@ -7415,12 +7415,12 @@
   },
   "tt13629658": {
     "verdict": "DEPENDS",
-    "reason": "A compact documentary on Stoker's life and Dracula's cultural reach, worth an hour at Metrograph if you're curious about the novel's origins and film legacy. The DCP presentation is clean, but fifty-six minutes of talking heads and adaptation clips works just as well at home.",
-    "generated_at": "2026-07-25T13:27:41.274056",
+    "reason": "A slim documentary about a canonical novel and its afterlife has real value, but the 56-minute runtime feels slight for a theater trip. Film Forum's 35mm print offers the best argument to go—that format choice matters when the alternative is streaming.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "2375fc91a4edec069aff43b95eab049acce7ec54f4edb12ff2cf9b7838d110aa"
+    "source_hash": "0a8d3235a9eaba6d2fd07f957c19654f58c923969717e2f368a8504fcde03a8d"
   },
   "tt0337961": {
     "verdict": "WATCH",
@@ -7613,21 +7613,21 @@
   },
   "tt35060353": {
     "verdict": "DEPENDS",
-    "reason": "Dylan Meyer's debut feature has genuine charm and chemistry between its leads, but the tone veers erratically between crime thriller and buddy comedy without committing fully to either. The telepathy hook is fun in bursts, though the script doesn't mine enough mileage from the premise to justify a full theatrical trip if streaming arrives soon.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Dylan Meyer's debut feature has an absurd high-concept hook and charm to spare, but the execution falters in the second half and the runtime feels padded. The telepathy gimmick works best in the early scenes when the chemistry between the leads still carries the film.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "512ae8fe412ea7b4e6d38a6f70946fafedeae2607e06137f03133d55187e14cd"
+    "source_hash": "0548c1d6be7ddc8a686689866031f8c2926da6f180e2f71f17df73148acfa9b5"
   },
   "tt27706593": {
-    "verdict": "DEPENDS",
-    "reason": "Andrew Patterson's follow-up has real craft but the 130-minute runtime and uneven reviews suggest wait for streaming unless you're committed to seeing it in theaters. The specificity of a beekeeper-musician protagonist anchoring a community thriller is distinctive enough to catch on a big screen if the mood hits.",
-    "generated_at": "2026-08-24T12:52:18.507963",
+    "verdict": "WATCH",
+    "reason": "Andrew Patterson makes a rare film about ordinary decency under pressure, and it holds together because the performances—especially the quiet authority between Amziah and Kateri—earn every moment. Shot with real light and real locations, this is the kind of thriller that trusts its audience to care about a man protecting his bees and his people.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "718e5a511be99b413c4eefaa588b944bb5e31ffdedb71a6701d7be9841617723"
+    "source_hash": "e7989e08a8a144fa64a0343e61d70457569c977c13238935f31f8558b9ef4e28"
   },
   "tt0372321": {
     "verdict": "WATCH",
@@ -8152,13 +8152,13 @@
     "source_hash": "349824dc9464b3a4878fdef27de56aa69d00ec4c5d7ad9f3ffd4e70acfbbbb1f"
   },
   "tt21285562": {
-    "verdict": "DEPENDS",
-    "reason": "Skip the regular format; this post-apocalyptic action film needs IMAX or 4DX to justify the theatrical trip. Ridley Scott's wide-canvas filmmaking demands the immersive scale those screens provide.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "verdict": "SKIP",
+    "reason": "Skip it; Ridley Scott's post-apocalyptic adaptation arrives DOA with a hollow premise and no theatrical compensation for the runtime. The IMAX option at AMC 34th Street cannot salvage a film that collapses under its own weight.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "f7eac2b79b2ef119d35760e5aefb4e52bb39624530038e9622df383d5dc1f63e"
+    "source_hash": "c47abedd9279f3fb0cb455f5632462fe85447f77804b1856ef3d8d355762ee60"
   },
   "the-wrong-girls-best-buds-screening": {
     "verdict": "DEPENDS",
@@ -8189,12 +8189,12 @@
   },
   "tt32499466": {
     "verdict": "DEPENDS",
-    "reason": "A likable rom-com with enough energy to justify a night out, but not urgent enough to rush—the premise is familiar and the runtime drags for what should be light material. See it if you want a date-night laugh and don't mind sitting through predictable beat-hits.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "A lightweight romantic comedy that works best if you're in the mood for formulaic charm and don't mind the runtime. Alicia MacDonald directs with a steady hand but nothing here transcends the genre machinery.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "d9f073787e91810974fd1b2f5456a8561c785825d9e565df6ef2e0eebaf8d8cd"
+    "source_hash": "9164eaa8f558b840778f1ec093c62ee328efbdb265cf2c3dfe5ec65994c32f87"
   },
   "tt30441926": {
     "verdict": "WATCH",
@@ -8279,21 +8279,21 @@
   },
   "tt32393988": {
     "verdict": "SKIP",
-    "reason": "Skip it; the franchise has run out of fresh scares and this entry relies on jump cuts and noise rather than actual dread. The 4DX gimmick at most theaters turns a thin horror premise into an expensive theme park ride.",
-    "generated_at": "2026-08-24T12:52:18.507963",
+    "reason": "Skip it; the franchise has lost its grip and this entry adds nothing but a muddled premise about bringing supernatural threats into the real world. A 106-minute runtime does not justify sitting through another installment that the filmmaking itself cannot hold together.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "2be7e878eb2dc1e5d8acf584581daec94c4396b99a7958fd29029e8d091bdb6d"
+    "source_hash": "8c9721dcc7e5af9561e7a4332d8f1a6a6443ea350c2aa082d88375d913482e79"
   },
   "tt32338669": {
     "verdict": "SKIP",
-    "reason": "Skip it; a 95-minute thriller with a familiar fugitive setup needs sharper execution than this delivers. Jean-François Richet can stage action, but the premise doesn't justify the subway ride when better conspiracy thrillers are a click away.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "Skip it; a 95-minute thriller with a half-baked premise and no directorial distinction does not justify leaving home. Richet has made sharper action films, and this setup—framed protagonist chasing a conspiracy—is executed without urgency or style.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "a7186e1eefeab108d3826fd01b249d609e6b614e7a56bed96f88cd04abbac563"
+    "source_hash": "9cd5d23d07d649c450fb3be4d8e19aa36cb8007a44aa0ee3e1cc8c2c76a6fcd8"
   },
   "tt0025228": {
     "verdict": "DEPENDS",
@@ -8693,12 +8693,12 @@
   },
   "tt6628920": {
     "verdict": "DEPENDS",
-    "reason": "Macon Blair's debut feature has enough comedic momentum and crime-caper energy to justify a theater trip, but the tonal whiplash and thin character work mean it lands better as a rental. The 98-minute runtime keeps the chaos moving, which is the film's only real asset.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "Macon Blair has a sharp eye for small-scale chaos, but the premise relies on familiar road-trip dysfunction and a 98-minute runtime suggests he knows not to overstay the joke. It's a solid rental in two weeks, worth seeing now only if you want the theater energy and don't mind an uneven ride.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b090fa1c80ad2f14bd2da34bb2a69308928de98ebe983ae7dac9582c31689b62"
+    "source_hash": "1acdb507f881f88282ee349ffc66db436df69b012762368ea7617ea4458bb8c2"
   },
   "tt0102685": {
     "verdict": "DEPENDS",
@@ -8873,21 +8873,21 @@
   },
   "tt14119302": {
     "verdict": "SKIP",
-    "reason": "Skip it; the execution fails to justify the premise, and Smoczynska's vision dissolves into incoherence across 101 minutes. The film plays as a confused collision of genres that never settle into anything compelling enough to warrant a theater trip.",
-    "generated_at": "2026-08-24T12:52:18.507963",
+    "reason": "Skip it; the premise collapses under its own weight and Smoczynska's direction cannot salvage the muddled tonal shifts between noir and allegory. The 101-minute runtime feels like padding for a film that mistakes atmosphere for coherence.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "9dcba4ddf172cdafa82df89331e8c401ca9720846fce08423c8834239cb081e8"
+    "source_hash": "01b799d5bc785a7fa947cefeb77de0b3029c2069b6b0d2c43153b0ecf8f97806"
   },
   "tt38066316": {
     "verdict": "DEPENDS",
-    "reason": "A genuine story about an athlete finding her way back through ultra-running, but a 102-minute runtime makes this feel longer than it needs to be for a film that works best as intimate portraiture rather than spectacle. Max Lowe's eye for landscape and human endurance is real, though the self-documentation premise occasionally tips into navel-gazing when the external narrative is stronger.",
-    "generated_at": "2026-08-15T12:41:59.514205",
+    "reason": "Max Lowe's documentary about endurance and return has genuine stakes, but a 102-minute runtime and limited theatrical footprint suggest this works just as well on a smaller screen later. The personal arc of an athlete documenting her own comeback has heart, yet the film needs to earn its place over streaming convenience.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "c158c7716aabc847e84d9e545f1dedbf8ca851d0339ae00e40f9541af88afeb0"
+    "source_hash": "0325afc0e2a7143b0a5187dbab0f545232446853fc0179266c8447515673fe50"
   },
   "tt32765596": {
     "verdict": "DEPENDS",
@@ -8909,12 +8909,12 @@
   },
   "tt33305867": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise is thin and the execution has earned no goodwill from anyone paying attention. At 97 minutes, there's no room for a comedy this slack to find its footing.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "Skip it; the premise relies on tired ensemble chaos and the runtime cannot rescue thin material. The directors have not made a film worth your time in years.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "53666a7507010a0f07c0c3982f8942ab6f6c641d6f4b20c5acfee85747fb765e"
+    "source_hash": "cb7f9653c7a03a17fd0a3059f07aab21d7dfc801ef6d0e99c1d7d8d046dd9215"
   },
   "tt36300841": {
     "verdict": "SKIP",
@@ -9323,12 +9323,12 @@
   },
   "tt27530512": {
     "verdict": "DEPENDS",
-    "reason": "A three-hour crime drama from an unconventional director demands patience, but Geethu Mohandas brings visual ambition and the Goa setting offers genuine atmospheric texture. RPX screening at Times Square or Village East sharpens the image if you're willing to commit to the runtime.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip tonight unless you have three hours to spare and want to see Geethu Mohandas work in unfamiliar genre territory. The runtime and lack of theatrical urgency make this a better fit for home viewing once reviews land.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "e2784fe4d9203248e45e59e9208751a13f3390f7daad662e4a4d5e5cf6fad376"
+    "source_hash": "f48d1ed8085f90a4c982e1e6c7c58ace6d60f3331824c83082e2696476e8a40b"
   },
   "deathgasm-2-goremageddon": {
     "verdict": "WATCH",
@@ -9611,12 +9611,12 @@
   },
   "tt0304141": {
     "verdict": "WATCH",
-    "reason": "Cuarón elevated the franchise with visual maturity and thematic depth; this one still stands as essential filmmaking for younger viewers and proof that blockbusters can have style. Catch it theatrically while you can.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Cuarón's reinvention of the franchise is the best film in the series and holds up perfectly on the big screen. The visual language—darker palette, dynamic camera work, inventive creature design—makes this essential theatrical viewing and impossible to fully appreciate at home.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "d156de14ef3cc2247625c531db6832ea33da811422eecab6288f797b8d5b10eb"
+    "source_hash": "e7bbc19e09f0e45f0bd40b5a499a740e4e6d0052119ba603188a040c7bd5bca5"
   },
   "tt0061613": {
     "verdict": "WATCH",
@@ -9638,12 +9638,12 @@
   },
   "tt0330373": {
     "verdict": "DEPENDS",
-    "reason": "Newell's film is workmanlike but not inspired, and at 157 minutes it feels every one of them in the multiplex. Watch it if you're obligated to finish the series; otherwise, the theatrical cut offers nothing you cannot get at home.",
-    "generated_at": "2026-08-22T12:43:46.141582",
+    "reason": "Skip the 4DX gimmick unless you're revisiting the series on a big screen tonight. Newell's darker turn in the franchise is best served straight, without motion seats distracting from the tournament sequences and genuinely unsettling final act.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "400308552361a8aa6f2a775f1b924f5729ed25254f6c2d4273831c2caceed9ca"
+    "source_hash": "e6d27842dceb5f0e5fc6a7e9c9d733ddf090a92d12eee183120dc5db221f791c"
   },
   "tt0851578": {
     "verdict": "WATCH",
@@ -9683,12 +9683,12 @@
   },
   "tt37281055": {
     "verdict": "WATCH",
-    "reason": "Skip the streaming version and catch this on a theater sound system where the horror-comedy premise lands harder. Casper Kelly's direction turns a kids' TV show into genuine dread, and 95 minutes is the right length to let the premise breathe without overstaying.",
-    "generated_at": "2026-08-25T12:50:41.690325",
+    "reason": "A smart horror premise executed by a director working at the top of his form deserves the theatrical commitment. Casper Kelly's control of tone and image in a 95-minute runtime that doesn't waste a second makes this a rare thing—genre work that respects both the audience and the material.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "1a4fddb37f27d7f5605991816ae9f518e1fb57f98cb7fec6662304fb230cc5e7"
+    "source_hash": "4642992fe3a8b086b637b198c5c5266da5429277a68da4f66b2b921c74f31522"
   },
   "tt0151804": {
     "verdict": "WATCH",
@@ -9701,21 +9701,21 @@
   },
   "tt0295297": {
     "verdict": "DEPENDS",
-    "reason": "Skip the 4DX gimmick and catch this on a regular screen if you need a rewatch, but it's not essential theater. Columbus's direction is workmanlike, and the film hasn't aged as well as the later entries in the series.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "Skip the 4DX gimmick and catch this on a standard screen if nostalgia or a kid's first viewing demands it tonight. Columbus's direction is safe but competent, and the theatrical experience adds nothing that matters to a film that works just as well at home.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "b2fc2cf68dd239b5a21a7a3d087e1ec58cd551b6ce943859948c7e9f7668a29b"
+    "source_hash": "2f8a1bf3f8cf0e08475b1783908d97d9bfc579001b57602e1865c63227fade7e"
   },
   "tt39345955": {
     "verdict": "DEPENDS",
-    "reason": "A franchise remake with new directors lands on 4DX screens across the city, but the theatrical novelty of motion seats cannot substitute for the original's charm. Wait for word on whether this actually improves on Colombus's version before committing to the premium format.",
-    "generated_at": "2026-08-23T12:47:06.469487",
+    "reason": "A remake of a beloved classic that lands somewhere between unnecessary and competent, worth seeing only if you're invested in comparing visions. The 4DX format at Regal Union Square or Times Square adds spectacle that the story itself doesn't earn.",
+    "generated_at": "2026-08-26T12:58:50.983853",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
-    "source_hash": "689597d54b04ab422f4e52f84c99ce47ca61c57759e94da95f8fafb1b840265d"
+    "source_hash": "4426098dcb8c5cee2991f0e43b004cf5f77ad4924a744eae5ab60d172820c976"
   },
   "tt0066065": {
     "verdict": "WATCH",
@@ -10049,5 +10049,122 @@
     "prompt_version": "2026-07-05",
     "cache_schema_version": 2,
     "source_hash": "87b8c4db6e169e43a124db33102724ec1180eb3fe3f677e01636f17028536031"
+  },
+  "tt37654454": {
+    "verdict": "WATCH",
+    "reason": "Essential viewing for anyone who cares how great directors fail on studio assignments and what that failure cost them. Kittredge has assembled the definitive account of a legendary misfire, told by Boorman himself and the people who lived through the wreckage.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "4a646645b2bfdaa505121b69a1bee6d0808bffb14480a6926bbf3d1b9b7ac8bf"
+  },
+  "tt1201607": {
+    "verdict": "SKIP",
+    "reason": "This is a 2011 blockbuster available on every streaming service and cable On Demand menu, so there's no theatrical urgency tonight. The 130-minute runtime and standard digital projection at a multiplex offer no advantage over watching at home on your own schedule.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "494871b73343cca43215e8593ff0bb6ca9cf213e69832dfef2cbbd2383874b63"
+  },
+  "tt0050212": {
+    "verdict": "WATCH",
+    "reason": "David Lean's epic command of scale, tension, and moral ambiguity remains undiminished on the big screen. The final twenty minutes are worth the two-hour-forty-minute commitment alone.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "b2ce13b5c63aa82d577d0661d8e42eb24a2f733b6fb125e470222f93ddab6f21"
+  },
+  "tt0119978": {
+    "verdict": "WATCH",
+    "reason": "Coppola at his most direct and energetic, mining real legal drama from a John Grisham adaptation without the bloat. The 135 minutes moves like a thriller, and Film Forum's print will show you the craftsmanship in every frame.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "ac49ed2e55e20fce0719e0e74f6da18bbe595f2f2cc039abc5161cff533d1dcd"
+  },
+  "tt0373889": {
+    "verdict": "DEPENDS",
+    "reason": "Skip the 4DX gimmick and catch it in standard format if you want to revisit Yates' tighter direction and the political intrigue that separates this from the earlier films. The 138-minute runtime rewards patience, but the theatrical reissue is not essential unless you need the big-screen escape.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "965c793db41887a1cd71e409c0f6cc78f7d43d205f489ad1d1c1b1472edb8379"
+  },
+  "tt0926084": {
+    "verdict": "SKIP",
+    "reason": "This 14-year-old franchise installment plays better at home on a streaming service where you can pause and rewatch exposition. The theatrical experience adds nothing that a television cannot provide, and 146 minutes of setup for a conclusion is a slog on the big screen.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "7804fac8fe1e8f705db4b76cd770705fd169ae94e317b58e8956d8278f84f9d5"
+  },
+  "tt36410167": {
+    "verdict": "DEPENDS",
+    "reason": "A debut feature about street justice in Delhi has real stakes, but without knowing the runtime or seeing it first, this is a theater call based on mood and patience for an unfamiliar director. Khan's first film plays at IFC Center, where venue and programming merit alone can justify the trip if you trust the theater's curation.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "df937a74712dcb6bd1790eb76bb20593e19d652d1d7c6d75c93eb18e87a94502"
+  },
+  "tt0964185": {
+    "verdict": "WATCH",
+    "reason": "Coppola made this in Buenos Aires on 16mm as a deliberate return to cinema as personal statement, and Film Forum is showing it as the director intended. The black-and-white cinematography and theatrical staging of the play-within-the-film justify the big screen.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "1c332cae926612e0c3cc9057e66f2f7e698ffb4ebc53d451b9807cde3e0a25e8"
+  },
+  "tt36983905": {
+    "verdict": "DEPENDS",
+    "reason": "Greengrass brings kinetic momentum to medieval class warfare, but 128 minutes of his handheld syntax can exhaust patience even when the material justifies it. The Alamo's standard presentation won't add theatrical value to a film that lives or dies on whether you trust the director's particular brand of urgent filmmaking.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "031e9bc3638a45481fee21d3b08bac1ce11f3665dabbdc492bb8800d619fcca1"
+  },
+  "toxic-a-fairy-tale-for-grown-ups": {
+    "verdict": "DEPENDS",
+    "reason": "Skip it unless you're committed to a 168-minute action spectacle with stylized violence and a redemption arc in a colonial Goa setting. The runtime and genre execution matter more than the premise, and this plays better as a theatrical experience than a home viewing.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "68f9088c481fb77520e3cb6960220734a4cf5ee1b3ebdb4d8e8f4e87e1690fb4"
+  },
+  "tt0061448": {
+    "verdict": "DEPENDS",
+    "reason": "Skip the hype around the premise and commit only if you're interested in Metzger's formal style in 1967 erotic cinema. The 87-minute runtime is mercifully brief, but this is a footnote in his career, not essential viewing.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "0b0dfbb9298c4832813349cebed3b40d2479bbdc388ef74b8098f331d731d610"
+  },
+  "tt2557406": {
+    "verdict": "SKIP",
+    "reason": "A 2011 Korean melodrama about family strain and Alzheimer's caregiving lacks the directorial distinction or performance depth needed to justify a multiplex trip to Regal or AMC. The film plays smaller and more effectively on a home screen where its emotional beats won't feel diluted by the theatrical setting.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "d2eaf89c07d47ad66653ed3bcdd163d087ceaf57d0b9af205c6d0eabd5d19b68"
+  },
+  "tt39382936": {
+    "verdict": "SKIP",
+    "reason": "A short film about spiritual awakening plays better as a streaming discovery than as a theater trip. Without runtime, format details, or venue distinction, there's no reason to leave home for this.",
+    "generated_at": "2026-08-26T12:58:50.983853",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-07-05",
+    "cache_schema_version": 2,
+    "source_hash": "6ea5b756cb977e0c6951c0f32aaec7742b37ae548779770dac2dddf4cba2f993"
   }
 }
