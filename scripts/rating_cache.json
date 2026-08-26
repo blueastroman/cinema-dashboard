@@ -767,6 +767,12 @@
     "title": "Boogie Nights",
     "year": "1997"
   },
+  "boorman and the devil|2025": {
+    "imdbID": "tt37654454",
+    "source": "exact_year",
+    "title": "Boorman and the Devil",
+    "year": "2025"
+  },
   "bottle rocket|1996": {
     "imdbID": "tt0115734",
     "source": "exact",
@@ -2393,17 +2399,53 @@
     "title": "Harry and Tonto",
     "year": "1974"
   },
+  "harry potter & the goblet of fire|2005": {
+    "imdbID": "tt0330373",
+    "source": "search",
+    "title": "Harry Potter and the Goblet of Fire",
+    "year": "2005"
+  },
+  "harry potter & the prisoner of azkaban|2004": {
+    "imdbID": "tt0304141",
+    "source": "search",
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "year": "2004"
+  },
   "harry potter and the chamber of secrets|2002": {
     "imdbID": "tt0295297",
     "source": "exact",
     "title": "Harry Potter and the Chamber of Secrets",
     "year": "2002"
   },
+  "harry potter and the deathly hallows – part 2|2011": {
+    "imdbID": "tt1201607",
+    "source": "exact",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": "2011"
+  },
+  "harry potter and the deathly hallows: part 1|2010": {
+    "imdbID": "tt0926084",
+    "source": "exact",
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "year": "2010"
+  },
   "harry potter and the goblet of fire|2005": {
     "imdbID": "tt0330373",
     "source": "exact",
     "title": "Harry Potter and the Goblet of Fire",
     "year": "2005"
+  },
+  "harry potter and the half-blood prince|2009": {
+    "imdbID": "tt0417741",
+    "source": "exact",
+    "title": "Harry Potter and the Half-Blood Prince",
+    "year": "2009"
+  },
+  "harry potter and the order of the phoenix|2007": {
+    "imdbID": "tt0373889",
+    "source": "exact",
+    "title": "Harry Potter and the Order of the Phoenix",
+    "year": "2007"
   },
   "harry potter and the prisoner of azkaban|2004": {
     "imdbID": "tt0304141",
@@ -2494,6 +2536,12 @@
     "source": "exact",
     "title": "His Girl Friday",
     "year": "1940"
+  },
+  "hi|2025": {
+    "imdbID": "tt39382936",
+    "source": "exact_year",
+    "title": "Hi",
+    "year": "2025"
   },
   "hokum|2026": {
     "imdbID": "tt35672862",
@@ -5159,6 +5207,12 @@
     "title": "Terminator 2: Judgment Day",
     "year": "1991"
   },
+  "tetro|2009": {
+    "imdbID": "tt0964185",
+    "source": "exact_year",
+    "title": "Tetro",
+    "year": "2009"
+  },
   "tha rae: the exorcist|2025": {
     "imdbID": "tt37741473",
     "source": "exact_year",
@@ -5284,6 +5338,12 @@
     "source": "exact",
     "title": "The Breakfast Club",
     "year": "1985"
+  },
+  "the bridge on the river kwai|1957": {
+    "imdbID": "tt0050212",
+    "source": "exact",
+    "title": "The Bridge on the River Kwai",
+    "year": "1957"
   },
   "the bridges of madison county|1995": {
     "imdbID": "tt0112579",
@@ -5687,6 +5747,12 @@
     "title": "The Kid",
     "year": "1921"
   },
+  "the last blossom|2011": {
+    "imdbID": "tt2557406",
+    "source": "exact",
+    "title": "The Last Blossom",
+    "year": "2011"
+  },
   "the last one for the road|2025": {
     "imdbID": "tt36491632",
     "source": "exact",
@@ -5950,6 +6016,12 @@
     "source": "exact_year",
     "title": "The Rain People",
     "year": "1969"
+  },
+  "the rainmaker|1997": {
+    "imdbID": "tt0119978",
+    "source": "exact_year",
+    "title": "The Rainmaker",
+    "year": "1997"
   },
   "the red light bandit|1968": {
     "imdbID": "tt0144782",
@@ -6238,6 +6310,12 @@
     "source": "exact_year",
     "title": "The Untouchables",
     "year": "1987"
+  },
+  "the uprising|2026": {
+    "imdbID": "tt36983905",
+    "source": "exact_year",
+    "title": "The Uprising",
+    "year": "2026"
   },
   "the vikings|1958": {
     "imdbID": "tt0052365",
