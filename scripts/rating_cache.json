@@ -185,6 +185,12 @@
     "title": "A Statement",
     "year": "2014"
   },
+  "a streetcar named desire|1951": {
+    "imdbID": "tt0044081",
+    "source": "exact",
+    "title": "A Streetcar Named Desire",
+    "year": "1951"
+  },
   "a wedding|1978": {
     "imdbID": "tt0078481",
     "source": "exact_year",
@@ -274,6 +280,12 @@
     "source": "exact",
     "title": "Agon",
     "year": "2012"
+  },
+  "akira|1988": {
+    "imdbID": "tt0094625",
+    "source": "exact",
+    "title": "Akira",
+    "year": "1988"
   },
   "ali: fear eats the soul|1974": {
     "imdbID": "tt0071141",
@@ -495,12 +507,6 @@
     "imdbID": "tt21357150",
     "source": "exact_year",
     "title": "Avengers: Doomsday",
-    "year": "2026"
-  },
-  "awarapan 2|2026": {
-    "imdbID": "tt36300841",
-    "source": "exact_year",
-    "title": "Awarapan 2",
     "year": "2026"
   },
   "baahubali: the epic|2025": {
@@ -875,6 +881,12 @@
     "title": "Bram Stoker's Dracula: A Documentary",
     "year": "2007"
   },
+  "braveheart|1995": {
+    "imdbID": "tt0112573",
+    "source": "exact",
+    "title": "Braveheart",
+    "year": "1995"
+  },
   "brazil|1985": {
     "imdbID": "tt0088846",
     "source": "exact",
@@ -1000,6 +1012,12 @@
     "source": "override",
     "title": "Carrie",
     "year": "1976"
+  },
+  "cars|2006": {
+    "imdbID": "tt0317219",
+    "source": "exact",
+    "title": "Cars",
+    "year": "2006"
   },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
@@ -1469,6 +1487,12 @@
     "title": "Deadlock",
     "year": "2021"
   },
+  "dear you|2026": {
+    "imdbID": "tt41791573",
+    "source": "exact_year",
+    "title": "Dear You",
+    "year": "2026"
+  },
   "death in venice|1971": {
     "imdbID": "tt0067445",
     "source": "exact_year",
@@ -1618,6 +1642,12 @@
     "source": "exact_year",
     "title": "Dog Man",
     "year": "2025"
+  },
+  "dolly parton: a musicares tribute|2021": {
+    "imdbID": "tt14299926",
+    "source": "exact",
+    "title": "Dolly Parton: A MusiCares Tribute",
+    "year": "2021"
   },
   "don't change hands|1975": {
     "imdbID": "tt0122430",
@@ -2483,6 +2513,12 @@
     "title": "Hairspray",
     "year": "2007"
   },
+  "halloween|1978": {
+    "imdbID": "tt0077651",
+    "source": "exact",
+    "title": "Halloween",
+    "year": "1978"
+  },
   "hanabi|1988": {
     "imdbID": "tt1984167",
     "source": "exact",
@@ -2680,12 +2716,6 @@
     "source": "exact",
     "title": "His Girl Friday",
     "year": "1940"
-  },
-  "hi|2025": {
-    "imdbID": "tt39382936",
-    "source": "exact_year",
-    "title": "Hi",
-    "year": "2025"
   },
   "hokum|2026": {
     "imdbID": "tt35672862",
@@ -3076,6 +3106,12 @@
     "source": "exact",
     "title": "Kangaroo Island",
     "year": "2024"
+  },
+  "katy perry: the lifetimes tour - live from paris|2026": {
+    "imdbID": "tt38882652",
+    "source": "exact_year",
+    "title": "Katy Perry: The Lifetimes Tour - Live from Paris",
+    "year": "2026"
   },
   "khalifa|2026": {
     "imdbID": "tt22797990",
@@ -4157,12 +4193,6 @@
     "title": "One More Time",
     "year": "2015"
   },
-  "one night only|2026": {
-    "imdbID": "tt37887501",
-    "source": "exact_year",
-    "title": "One Night Only",
-    "year": "2026"
-  },
   "one spoon of chocolate|2026": {
     "imdbID": "tt32192973",
     "source": "exact_year",
@@ -4883,6 +4913,12 @@
     "title": "Samson et Dalila",
     "year": "1981"
   },
+  "sara bareilles: good grief|2026": {
+    "imdbID": "tt41840175",
+    "source": "exact_year",
+    "title": "Sara Bareilles: Good Grief",
+    "year": "2026"
+  },
   "saw iii|2006": {
     "imdbID": "tt0489270",
     "source": "exact_year",
@@ -5531,6 +5567,12 @@
     "title": "The Aviator's Wife",
     "year": "1981"
   },
+  "the bad seed|1956": {
+    "imdbID": "tt0048977",
+    "source": "exact",
+    "title": "The Bad Seed",
+    "year": "1956"
+  },
   "the ballad of little jo|1993": {
     "imdbID": "tt0106350",
     "source": "exact",
@@ -5602,6 +5644,12 @@
     "source": "exact_year",
     "title": "The Boston Strangler",
     "year": "1968"
+  },
+  "the boy and the heron|2023": {
+    "imdbID": "tt6587046",
+    "source": "exact",
+    "title": "The Boy and the Heron",
+    "year": "2023"
   },
   "the brady bunch movie|1995": {
     "imdbID": "tt0112572",
@@ -6035,6 +6083,18 @@
     "title": "The Hunchback of Notre Dame",
     "year": "1996"
   },
+  "the hunger games: catching fire|2013": {
+    "imdbID": "tt1951264",
+    "source": "exact",
+    "title": "The Hunger Games: Catching Fire",
+    "year": "2013"
+  },
+  "the hunger games|2012": {
+    "imdbID": "tt1392170",
+    "source": "exact",
+    "title": "The Hunger Games",
+    "year": "2012"
+  },
   "the hunger|1983": {
     "imdbID": "tt0085701",
     "source": "exact",
@@ -6430,6 +6490,12 @@
     "source": "exact_year",
     "title": "The Scar",
     "year": "1976"
+  },
+  "the searchers|1956": {
+    "imdbID": "tt0049730",
+    "source": "exact",
+    "title": "The Searchers",
+    "year": "1956"
   },
   "the seasons in quincy: four portraits of john berger|2016": {
     "imdbID": "tt5298558",
