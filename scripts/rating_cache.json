@@ -413,6 +413,12 @@
     "title": "American Job",
     "year": "1996"
   },
+  "american summer|2025": {
+    "imdbID": "tt6523546",
+    "source": "exact_year",
+    "title": "American Summer",
+    "year": "2025"
+  },
   "amoeba|2016": {
     "imdbID": "tt5162390",
     "source": "exact_year",
@@ -507,6 +513,12 @@
     "imdbID": "tt21357150",
     "source": "exact_year",
     "title": "Avengers: Doomsday",
+    "year": "2026"
+  },
+  "awarapan 2|2026": {
+    "imdbID": "tt36300841",
+    "source": "exact_year",
+    "title": "Awarapan 2",
     "year": "2026"
   },
   "baahubali: the epic|2025": {
@@ -1078,6 +1090,12 @@
     "source": "exact_year",
     "title": "Chand Mera Dil",
     "year": "2026"
+  },
+  "changeling|2008": {
+    "imdbID": "tt0824747",
+    "source": "exact",
+    "title": "Changeling",
+    "year": "2008"
   },
   "chao|2025": {
     "imdbID": "tt36592916",
@@ -2717,6 +2735,12 @@
     "title": "His Girl Friday",
     "year": "1940"
   },
+  "hi|2025": {
+    "imdbID": "tt39382936",
+    "source": "exact_year",
+    "title": "Hi",
+    "year": "2025"
+  },
   "hokum|2026": {
     "imdbID": "tt35672862",
     "source": "exact_year",
@@ -4193,6 +4217,12 @@
     "title": "One More Time",
     "year": "2015"
   },
+  "one night only|2026": {
+    "imdbID": "tt37853455",
+    "source": "exact_year",
+    "title": "One Night Only",
+    "year": "2026"
+  },
   "one spoon of chocolate|2026": {
     "imdbID": "tt32192973",
     "source": "exact_year",
@@ -4468,6 +4498,12 @@
     "source": "exact",
     "title": "Playtime",
     "year": "1967"
+  },
+  "poetic justice|1993": {
+    "imdbID": "tt0107840",
+    "source": "exact",
+    "title": "Poetic Justice",
+    "year": "1993"
   },
   "point blank": {
     "imdbID": "tt32525217",
@@ -4840,6 +4876,12 @@
     "source": "exact",
     "title": "Rose",
     "year": "2011"
+  },
+  "roy cohn/jack smith|1994": {
+    "imdbID": "tt0111025",
+    "source": "exact",
+    "title": "Roy Cohn/Jack Smith",
+    "year": "1994"
   },
   "rumba royale|2025": {
     "imdbID": "tt32660062",
@@ -5341,7 +5383,7 @@
   },
   "steel magnolias|1989": {
     "imdbID": "tt0098384",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Steel Magnolias",
     "year": "1989"
   },
@@ -5584,6 +5626,12 @@
     "source": "exact",
     "title": "The Bend in the River",
     "year": "2025"
+  },
+  "the best little whorehouse in texas|1982": {
+    "imdbID": "tt0083642",
+    "source": "exact",
+    "title": "The Best Little Whorehouse in Texas",
+    "year": "1982"
   },
   "the best man|1999": {
     "imdbID": "tt0168501",
@@ -6136,6 +6184,12 @@
     "source": "exact",
     "title": "The Last One for the Road",
     "year": "2025"
+  },
+  "the last picture show|1971": {
+    "imdbID": "tt0067328",
+    "source": "exact",
+    "title": "The Last Picture Show",
+    "year": "1971"
   },
   "the last run|1971": {
     "imdbID": "tt0067329",
@@ -6941,6 +6995,12 @@
     "title": "Tokyo Pop",
     "year": "1988"
   },
+  "tom and jerry: forbidden compass|2026": {
+    "imdbID": "tt37185884",
+    "source": "exact_year",
+    "title": "Tom and Jerry: Forbidden Compass",
+    "year": "2026"
+  },
   "tommy|1975": {
     "imdbID": "tt0073812",
     "source": "exact",
@@ -7433,6 +7493,12 @@
     "title": "White Nights",
     "year": "1957"
   },
+  "who framed roger rabbit|1988": {
+    "imdbID": "tt0096438",
+    "source": "exact",
+    "title": "Who Framed Roger Rabbit",
+    "year": "1988"
+  },
   "who moves america|2026": {
     "imdbID": "tt28303275",
     "source": "exact",
@@ -7558,5 +7624,11 @@
     "source": "exact",
     "title": "Zu: Warriors from the Magic Mountain",
     "year": "1983"
+  },
+  "¡three amigos!|1986": {
+    "imdbID": "tt0092086",
+    "source": "exact",
+    "title": "Three Amigos!",
+    "year": "1986"
   }
 }
