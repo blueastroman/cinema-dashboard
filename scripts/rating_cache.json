@@ -2657,6 +2657,12 @@
     "title": "Haunted Heist",
     "year": "2026"
   },
+  "heart of the beast|2026": {
+    "imdbID": "tt7526136",
+    "source": "exact_year",
+    "title": "Heart of the Beast",
+    "year": "2026"
+  },
   "heat lightning|1934": {
     "imdbID": "tt0025228",
     "source": "exact",
@@ -6724,6 +6730,12 @@
     "source": "exact",
     "title": "The Traveler",
     "year": "2010"
+  },
+  "the treasure of bitch islands|1990": {
+    "imdbID": "tt0098531",
+    "source": "search",
+    "title": "Treasure of the Bitch Islands",
+    "year": "1990"
   },
   "the trek|2008": {
     "imdbID": "tt1331074",
