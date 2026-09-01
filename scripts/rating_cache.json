@@ -413,12 +413,6 @@
     "title": "American Job",
     "year": "1996"
   },
-  "american summer|2025": {
-    "imdbID": "tt6523546",
-    "source": "exact_year",
-    "title": "American Summer",
-    "year": "2025"
-  },
   "amoeba|2016": {
     "imdbID": "tt5162390",
     "source": "exact_year",
@@ -515,12 +509,6 @@
     "title": "Avengers: Doomsday",
     "year": "2026"
   },
-  "awarapan 2|2026": {
-    "imdbID": "tt36300841",
-    "source": "exact_year",
-    "title": "Awarapan 2",
-    "year": "2026"
-  },
   "baahubali: the epic|2025": {
     "imdbID": "tt37893389",
     "source": "exact_year",
@@ -568,6 +556,12 @@
     "source": "exact_year",
     "title": "Barabbas",
     "year": "1961"
+  },
+  "barbara forever|2026": {
+    "imdbID": "tt39150008",
+    "source": "exact_year",
+    "title": "Barbara Forever",
+    "year": "2026"
   },
   "bardi|2018": {
     "imdbID": "tt3295220",
@@ -669,12 +663,6 @@
     "imdbID": "tt37535100",
     "source": "exact_year",
     "title": "Bethlehem Kudumba Unit",
-    "year": "2026"
-  },
-  "beyond belief|2026": {
-    "imdbID": "tt32331539",
-    "source": "exact_year",
-    "title": "Beyond Belief",
     "year": "2026"
   },
   "beyond silence": {
@@ -947,6 +935,12 @@
     "title": "Buddy",
     "year": "2026"
   },
+  "bully|2001": {
+    "imdbID": "tt0242193",
+    "source": "exact",
+    "title": "Bully",
+    "year": "2001"
+  },
   "bumming in beijing: the last dreamers|1990": {
     "imdbID": "tt5673218",
     "source": "search",
@@ -1090,12 +1084,6 @@
     "source": "exact_year",
     "title": "Chand Mera Dil",
     "year": "2026"
-  },
-  "changeling|2008": {
-    "imdbID": "tt0824747",
-    "source": "exact",
-    "title": "Changeling",
-    "year": "2008"
   },
   "chao|2025": {
     "imdbID": "tt36592916",
@@ -2231,6 +2219,12 @@
     "title": "Fright Night",
     "year": "1985"
   },
+  "from dusk till dawn|1996": {
+    "imdbID": "tt0116367",
+    "source": "exact",
+    "title": "From Dusk Till Dawn",
+    "year": "1996"
+  },
   "from up on poppy hill|2011": {
     "imdbID": "tt1798188",
     "source": "exact",
@@ -2308,6 +2302,12 @@
     "source": "exact_year",
     "title": "The Garden of the Finzi-Continis",
     "year": "1970"
+  },
+  "gardens of stone|1987": {
+    "imdbID": "tt0093073",
+    "source": "exact_year",
+    "title": "Gardens of Stone",
+    "year": "1987"
   },
   "gaslight|1944": {
     "imdbID": "tt0036855",
@@ -2740,12 +2740,6 @@
     "source": "exact",
     "title": "His Girl Friday",
     "year": "1940"
-  },
-  "hi|2025": {
-    "imdbID": "tt39382936",
-    "source": "exact_year",
-    "title": "Hi",
-    "year": "2025"
   },
   "hokum|2026": {
     "imdbID": "tt35672862",
@@ -3658,6 +3652,12 @@
     "source": "exact_year",
     "title": "Medea",
     "year": "1969"
+  },
+  "megalopolis|2024": {
+    "imdbID": "tt10128846",
+    "source": "exact_year",
+    "title": "Megalopolis",
+    "year": "2024"
   },
   "memento|2001": {
     "imdbID": "tt0209144",
@@ -5387,12 +5387,6 @@
     "title": "Stealing Beauty",
     "year": "1996"
   },
-  "steel magnolias|1989": {
-    "imdbID": "tt0098384",
-    "source": "exact",
-    "title": "Steel Magnolias",
-    "year": "1989"
-  },
   "stir of echoes|1999": {
     "imdbID": "tt0164181",
     "source": "exact",
@@ -5404,6 +5398,12 @@
     "source": "exact_year",
     "title": "Stolen Kingdom",
     "year": "2026"
+  },
+  "stop making sense|1984": {
+    "imdbID": "tt0088178",
+    "source": "exact",
+    "title": "Stop Making Sense",
+    "year": "1984"
   },
   "story of mother|1973": {
     "imdbID": "tt4036064",
@@ -5632,12 +5632,6 @@
     "source": "exact",
     "title": "The Bend in the River",
     "year": "2025"
-  },
-  "the best little whorehouse in texas|1982": {
-    "imdbID": "tt0083642",
-    "source": "exact",
-    "title": "The Best Little Whorehouse in Texas",
-    "year": "1982"
   },
   "the best man|1999": {
     "imdbID": "tt0168501",
@@ -6677,12 +6671,6 @@
     "title": "The Substance",
     "year": "2024"
   },
-  "the sun never sets|1939": {
-    "imdbID": "tt0022448",
-    "source": "exact",
-    "title": "The Sun Never Sets",
-    "year": "1939"
-  },
   "the taking of pelham 123|2009": {
     "imdbID": "tt1111422",
     "source": "exact",
@@ -6820,6 +6808,12 @@
     "source": "exact_year",
     "title": "The Weed Eaters",
     "year": "2025"
+  },
+  "the weight|2012": {
+    "imdbID": "tt2384688",
+    "source": "search",
+    "title": "The Weight",
+    "year": "2012"
   },
   "the wife|2017": {
     "imdbID": "tt3750872",
@@ -7007,12 +7001,6 @@
     "title": "Tokyo Pop",
     "year": "1988"
   },
-  "tom and jerry: forbidden compass|2026": {
-    "imdbID": "tt37185884",
-    "source": "exact_year",
-    "title": "Tom and Jerry: Forbidden Compass",
-    "year": "2026"
-  },
   "tommy|1975": {
     "imdbID": "tt0073812",
     "source": "exact",
@@ -7078,12 +7066,6 @@
     "source": "exact",
     "title": "Tow",
     "year": "2022"
-  },
-  "toxic|2026": {
-    "imdbID": "tt27530512",
-    "source": "exact_year",
-    "title": "Toxic",
-    "year": "2026"
   },
   "toy story 5|2026": {
     "imdbID": "tt29355505",
@@ -7624,6 +7606,12 @@
     "source": "exact",
     "title": "Your Name.",
     "year": "2016"
+  },
+  "youth without youth|2007": {
+    "imdbID": "tt0481797",
+    "source": "exact_year",
+    "title": "Youth Without Youth",
+    "year": "2007"
   },
   "zachariah|1971": {
     "imdbID": "tt0068011",
