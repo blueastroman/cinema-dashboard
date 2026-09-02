@@ -83,6 +83,12 @@
     "title": "A Bigger Splash",
     "year": "2015"
   },
+  "a bittersweet life|2005": {
+    "imdbID": "tt0456912",
+    "source": "exact",
+    "title": "A Bittersweet Life",
+    "year": "2005"
+  },
   "a brighter summer day|1991": {
     "imdbID": "tt0101985",
     "source": "exact",
@@ -185,12 +191,6 @@
     "title": "A Statement",
     "year": "2014"
   },
-  "a streetcar named desire|1951": {
-    "imdbID": "tt0044081",
-    "source": "exact",
-    "title": "A Streetcar Named Desire",
-    "year": "1951"
-  },
   "a wedding|1978": {
     "imdbID": "tt0078481",
     "source": "exact_year",
@@ -280,12 +280,6 @@
     "source": "exact",
     "title": "Agon",
     "year": "2012"
-  },
-  "akira|1988": {
-    "imdbID": "tt0094625",
-    "source": "exact",
-    "title": "Akira",
-    "year": "1988"
   },
   "ali: fear eats the soul|1974": {
     "imdbID": "tt0071141",
@@ -1019,12 +1013,6 @@
     "title": "Carrie",
     "year": "1976"
   },
-  "cars|2006": {
-    "imdbID": "tt0317219",
-    "source": "exact",
-    "title": "Cars",
-    "year": "2006"
-  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -1270,12 +1258,6 @@
     "source": "exact_year",
     "title": "The Colony",
     "year": "2013"
-  },
-  "colony|2026": {
-    "imdbID": "tt34385135",
-    "source": "search",
-    "title": "Colony",
-    "year": "2026"
   },
   "color book|2026": {
     "imdbID": "tt32150360",
@@ -1691,6 +1673,12 @@
     "title": "Double Freedom",
     "year": "2026"
   },
+  "double indemnity|1944": {
+    "imdbID": "tt0036775",
+    "source": "exact",
+    "title": "Double Indemnity",
+    "year": "1944"
+  },
   "dr jack|1922": {
     "imdbID": "tt0013075",
     "source": "exact",
@@ -1774,6 +1762,12 @@
     "source": "exact",
     "title": "E.T. the Extra-Terrestrial",
     "year": "1982"
+  },
+  "east side, west side|1927": {
+    "imdbID": "tt0017841",
+    "source": "exact_year",
+    "title": "East Side, West Side",
+    "year": "1927"
   },
   "eastern promises": {
     "imdbID": "tt0765443",
@@ -2591,15 +2585,9 @@
     "title": "Harry and Tonto",
     "year": "1974"
   },
-  "harry potter & the goblet of fire|2005": {
-    "imdbID": "tt0330373",
-    "source": "search",
-    "title": "Harry Potter and the Goblet of Fire",
-    "year": "2005"
-  },
   "harry potter & the prisoner of azkaban|2004": {
     "imdbID": "tt0304141",
-    "source": "search",
+    "source": "exact",
     "title": "Harry Potter and the Prisoner of Azkaban",
     "year": "2004"
   },
@@ -2608,18 +2596,6 @@
     "source": "exact",
     "title": "Harry Potter and the Chamber of Secrets",
     "year": "2002"
-  },
-  "harry potter and the deathly hallows – part 2|2011": {
-    "imdbID": "tt1201607",
-    "source": "exact",
-    "title": "Harry Potter and the Deathly Hallows: Part 2",
-    "year": "2011"
-  },
-  "harry potter and the deathly hallows: part 1|2010": {
-    "imdbID": "tt0926084",
-    "source": "exact",
-    "title": "Harry Potter and the Deathly Hallows: Part 1",
-    "year": "2010"
   },
   "harry potter and the goblet of fire|2005": {
     "imdbID": "tt0330373",
@@ -2644,12 +2620,6 @@
     "source": "exact",
     "title": "Harry Potter and the Prisoner of Azkaban",
     "year": "2004"
-  },
-  "harry potter and the sorcerer's stone|2026": {
-    "imdbID": "tt39345955",
-    "source": "exact_year",
-    "title": "Harry Potter and the Sorcerer's Stone in Shared Reality",
-    "year": "2026"
   },
   "haunted heist|2026": {
     "imdbID": "tt34890565",
@@ -3131,12 +3101,6 @@
     "title": "Kangaroo Island",
     "year": "2024"
   },
-  "katy perry: the lifetimes tour - live from paris|2026": {
-    "imdbID": "tt38882652",
-    "source": "exact_year",
-    "title": "Katy Perry: The Lifetimes Tour - Live from Paris",
-    "year": "2026"
-  },
   "khalifa|2026": {
     "imdbID": "tt22797990",
     "source": "exact_year",
@@ -3160,6 +3124,12 @@
     "source": "exact_year",
     "title": "Kiss Me Deadly",
     "year": "1955"
+  },
+  "knife: the attempted murder of salman rushdie|2026": {
+    "imdbID": "tt32534849",
+    "source": "exact",
+    "title": "Knife: The Attempted Murder of Salman Rushdie",
+    "year": "2026"
   },
   "knock off|1998": {
     "imdbID": "tt0120724",
@@ -3669,6 +3639,18 @@
     "imdbID": "tt37670940",
     "source": "exact_year",
     "title": "Memory of Princess Mumbi",
+    "year": "2025"
+  },
+  "merrily we go to hell|1932": {
+    "imdbID": "tt0023213",
+    "source": "exact",
+    "title": "Merrily We Go to Hell",
+    "year": "1932"
+  },
+  "metropolis|2025": {
+    "imdbID": "tt36721004",
+    "source": "exact_year",
+    "title": "Metropolis",
     "year": "2025"
   },
   "miami vice|2006": {
@@ -4222,12 +4204,6 @@
     "source": "exact",
     "title": "One More Time",
     "year": "2015"
-  },
-  "one night only|2026": {
-    "imdbID": "tt37853455",
-    "source": "exact_year",
-    "title": "One Night Only",
-    "year": "2026"
   },
   "one spoon of chocolate|2026": {
     "imdbID": "tt32192973",
@@ -4961,12 +4937,6 @@
     "title": "Samson et Dalila",
     "year": "1981"
   },
-  "sara bareilles: good grief|2026": {
-    "imdbID": "tt41840175",
-    "source": "exact_year",
-    "title": "Sara Bareilles: Good Grief",
-    "year": "2026"
-  },
   "saw iii|2006": {
     "imdbID": "tt0489270",
     "source": "exact_year",
@@ -5152,6 +5122,12 @@
     "source": "exact_year",
     "title": "Silent Night",
     "year": "2023"
+  },
+  "singin' in the rain|1952": {
+    "imdbID": "tt0045152",
+    "source": "exact",
+    "title": "Singin' in the Rain",
+    "year": "1952"
   },
   "single white female|1992": {
     "imdbID": "tt0105414",
@@ -5357,6 +5333,18 @@
     "title": "Stand by Me",
     "year": "1986"
   },
+  "star trek iii: the search for spock|1984": {
+    "imdbID": "tt0088170",
+    "source": "exact",
+    "title": "Star Trek III: The Search for Spock",
+    "year": "1984"
+  },
+  "star trek iv: the voyage home|1986": {
+    "imdbID": "tt0092007",
+    "source": "exact",
+    "title": "Star Trek IV: The Voyage Home",
+    "year": "1986"
+  },
   "state of firsts|2026": {
     "imdbID": "tt36589618",
     "source": "exact_year",
@@ -5386,6 +5374,12 @@
     "source": "exact",
     "title": "Stealing Beauty",
     "year": "1996"
+  },
+  "steel magnolias|1989": {
+    "imdbID": "tt0098384",
+    "source": "exact_year",
+    "title": "Steel Magnolias",
+    "year": "1989"
   },
   "stir of echoes|1999": {
     "imdbID": "tt0164181",
@@ -5489,6 +5483,12 @@
     "title": "Sweet Movie",
     "year": "1974"
   },
+  "sympathy for mr. vengeance|2002": {
+    "imdbID": "tt0310775",
+    "source": "exact",
+    "title": "Sympathy for Mr. Vengeance",
+    "year": "2002"
+  },
   "take care of my cat|2001": {
     "imdbID": "tt0296658",
     "source": "exact",
@@ -5563,7 +5563,7 @@
   },
   "terminator 2: judgment day|1991": {
     "imdbID": "tt0103064",
-    "source": "search",
+    "source": "exact",
     "title": "Terminator 2: Judgment Day",
     "year": "1991"
   },
@@ -5632,6 +5632,12 @@
     "source": "exact",
     "title": "The Bend in the River",
     "year": "2025"
+  },
+  "the best little whorehouse in texas|1982": {
+    "imdbID": "tt0083642",
+    "source": "exact_year",
+    "title": "The Best Little Whorehouse in Texas",
+    "year": "1982"
   },
   "the best man|1999": {
     "imdbID": "tt0168501",
@@ -5981,12 +5987,6 @@
     "title": "The Fan",
     "year": "1996"
   },
-  "the fast and the furious|2001": {
-    "imdbID": "tt0232500",
-    "source": "search",
-    "title": "The Fast and the Furious",
-    "year": "2001"
-  },
   "the fence|2022": {
     "imdbID": "tt15253488",
     "source": "exact",
@@ -5998,6 +5998,12 @@
     "source": "exact",
     "title": "The Fifth Element",
     "year": "1997"
+  },
+  "the foul king|2000": {
+    "imdbID": "tt0261552",
+    "source": "exact",
+    "title": "The Foul King",
+    "year": "2000"
   },
   "the french connection|1971": {
     "imdbID": "tt0067116",
@@ -6137,17 +6143,23 @@
     "title": "The Hunger Games: Catching Fire",
     "year": "2013"
   },
-  "the hunger games|2012": {
-    "imdbID": "tt1392170",
+  "the hunger games: mockingjay – part 1|2014": {
+    "imdbID": "tt1951265",
     "source": "exact",
-    "title": "The Hunger Games",
-    "year": "2012"
+    "title": "The Hunger Games: Mockingjay - Part 1",
+    "year": "2014"
   },
   "the hunger|1983": {
     "imdbID": "tt0085701",
     "source": "exact",
     "title": "The Hunger",
     "year": "1983"
+  },
+  "the incomer|2026": {
+    "imdbID": "tt36980182",
+    "source": "exact",
+    "title": "The Incomer",
+    "year": "2026"
   },
   "the invite|2026": {
     "imdbID": "tt14173636",
@@ -6545,12 +6557,6 @@
     "title": "The Scar",
     "year": "1976"
   },
-  "the searchers|1956": {
-    "imdbID": "tt0049730",
-    "source": "exact",
-    "title": "The Searchers",
-    "year": "1956"
-  },
   "the seasons in quincy: four portraits of john berger|2016": {
     "imdbID": "tt5298558",
     "source": "exact",
@@ -6671,6 +6677,18 @@
     "title": "The Substance",
     "year": "2024"
   },
+  "the sun never sets|1939": {
+    "imdbID": "tt0022448",
+    "source": "exact_year",
+    "title": "The Sun Never Sets",
+    "year": "1939"
+  },
+  "the sun never sets|2026": {
+    "imdbID": "tt37818327",
+    "source": "exact_year",
+    "title": "The Sun Never Sets",
+    "year": "2026"
+  },
   "the taking of pelham 123|2009": {
     "imdbID": "tt1111422",
     "source": "exact",
@@ -6779,6 +6797,12 @@
     "title": "The Vikings",
     "year": "1958"
   },
+  "the wailing|2016": {
+    "imdbID": "tt5215952",
+    "source": "exact",
+    "title": "The Wailing",
+    "year": "2016"
+  },
   "the walker|2007": {
     "imdbID": "tt0783608",
     "source": "exact",
@@ -6862,6 +6886,12 @@
     "source": "exact",
     "title": "The Yellow Canary",
     "year": "1963"
+  },
+  "the yellow sea|2010": {
+    "imdbID": "tt1230385",
+    "source": "exact",
+    "title": "The Yellow Sea",
+    "year": "2010"
   },
   "the yeti|2026": {
     "imdbID": "tt14500286",
@@ -7075,7 +7105,7 @@
   },
   "train to busan|2016": {
     "imdbID": "tt5700672",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Train to Busan",
     "year": "2016"
   },
@@ -7156,6 +7186,12 @@
     "source": "exact_year",
     "title": "True North",
     "year": "2006"
+  },
+  "true north|2025": {
+    "imdbID": "tt36294021",
+    "source": "exact_year",
+    "title": "True North",
+    "year": "2025"
   },
   "true romance|1993": {
     "imdbID": "tt0108399",
