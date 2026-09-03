@@ -191,6 +191,12 @@
     "title": "A Statement",
     "year": "2014"
   },
+  "a streetcar named desire|1951": {
+    "imdbID": "tt0044081",
+    "source": "exact_year",
+    "title": "A Streetcar Named Desire",
+    "year": "1951"
+  },
   "a wedding|1978": {
     "imdbID": "tt0078481",
     "source": "exact_year",
@@ -280,6 +286,12 @@
     "source": "exact",
     "title": "Agon",
     "year": "2012"
+  },
+  "akira|1988": {
+    "imdbID": "tt0094625",
+    "source": "exact_year",
+    "title": "Akira",
+    "year": "1988"
   },
   "ali: fear eats the soul|1974": {
     "imdbID": "tt0071141",
@@ -1013,6 +1025,12 @@
     "title": "Carrie",
     "year": "1976"
   },
+  "cars|2006": {
+    "imdbID": "tt0317219",
+    "source": "exact_year",
+    "title": "Cars",
+    "year": "2006"
+  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -1258,6 +1276,12 @@
     "source": "exact_year",
     "title": "The Colony",
     "year": "2013"
+  },
+  "colony|2026": {
+    "imdbID": "tt34385135",
+    "source": "exact_year",
+    "title": "Colony",
+    "year": "2026"
   },
   "color book|2026": {
     "imdbID": "tt32150360",
@@ -2291,6 +2315,12 @@
     "title": "Gandahar",
     "year": "1987"
   },
+  "gang related|1997": {
+    "imdbID": "tt0118900",
+    "source": "exact",
+    "title": "Gang Related",
+    "year": "1997"
+  },
   "garden of the finzi-continis|1970": {
     "imdbID": "tt0065777",
     "source": "exact_year",
@@ -2525,6 +2555,18 @@
     "title": "Hairspray",
     "year": "2007"
   },
+  "halloween iii: season of the witch|1982": {
+    "imdbID": "tt0085636",
+    "source": "exact",
+    "title": "Halloween III: Season of the Witch",
+    "year": "1982"
+  },
+  "halloween ii|1981": {
+    "imdbID": "tt0082495",
+    "source": "exact",
+    "title": "Halloween II",
+    "year": "1981"
+  },
   "halloween|1978": {
     "imdbID": "tt0077651",
     "source": "exact",
@@ -2585,6 +2627,12 @@
     "title": "Harry and Tonto",
     "year": "1974"
   },
+  "harry potter & the goblet of fire|2005": {
+    "imdbID": "tt0330373",
+    "source": "exact_year",
+    "title": "Harry Potter and the Goblet of Fire",
+    "year": "2005"
+  },
   "harry potter & the prisoner of azkaban|2004": {
     "imdbID": "tt0304141",
     "source": "exact",
@@ -2596,6 +2644,18 @@
     "source": "exact",
     "title": "Harry Potter and the Chamber of Secrets",
     "year": "2002"
+  },
+  "harry potter and the deathly hallows – part 2|2011": {
+    "imdbID": "tt1201607",
+    "source": "exact_year",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": "2011"
+  },
+  "harry potter and the deathly hallows: part 1|2010": {
+    "imdbID": "tt0926084",
+    "source": "exact_year",
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "year": "2010"
   },
   "harry potter and the goblet of fire|2005": {
     "imdbID": "tt0330373",
@@ -2620,6 +2680,12 @@
     "source": "exact",
     "title": "Harry Potter and the Prisoner of Azkaban",
     "year": "2004"
+  },
+  "harry potter and the sorcerer's stone|2026": {
+    "imdbID": "tt39345955",
+    "source": "exact_year",
+    "title": "Harry Potter and the Sorcerer's Stone in Shared Reality",
+    "year": "2026"
   },
   "haunted heist|2026": {
     "imdbID": "tt34890565",
@@ -2776,6 +2842,12 @@
     "source": "exact",
     "title": "Hundreds of Beavers",
     "year": "2022"
+  },
+  "hunger games: the ballad of songbirds and snakes|2023": {
+    "imdbID": "tt10545296",
+    "source": "exact",
+    "title": "The Hunger Games: The Ballad of Songbirds & Snakes",
+    "year": "2023"
   },
   "hungry|2026": {
     "imdbID": "tt34494076",
@@ -3101,6 +3173,12 @@
     "title": "Kangaroo Island",
     "year": "2024"
   },
+  "katy perry: the lifetimes tour - live from paris|2026": {
+    "imdbID": "tt38882652",
+    "source": "exact_year",
+    "title": "Katy Perry: The Lifetimes Tour - Live from Paris",
+    "year": "2026"
+  },
   "khalifa|2026": {
     "imdbID": "tt22797990",
     "source": "exact_year",
@@ -3352,6 +3430,12 @@
     "source": "exact_year",
     "title": "Light of Day",
     "year": "1987"
+  },
+  "lightning bug|2004": {
+    "imdbID": "tt0363768",
+    "source": "exact",
+    "title": "Lightning Bug",
+    "year": "2004"
   },
   "linda linda linda|2005": {
     "imdbID": "tt0468795",
@@ -3950,6 +4034,12 @@
   "nausica of the valley of the wind|1984": {
     "imdbID": "tt0087544",
     "source": "exact",
+    "title": "Nausicaä of the Valley of the Wind",
+    "year": "1984"
+  },
+  "nausicaa of the valley of the wind|1984": {
+    "imdbID": "tt0087544",
+    "source": "search",
     "title": "Nausicaä of the Valley of the Wind",
     "year": "1984"
   },
@@ -4594,6 +4684,12 @@
     "source": "exact",
     "title": "Primavera",
     "year": "2016"
+  },
+  "primetime|2026": {
+    "imdbID": "tt34206385",
+    "source": "exact_year",
+    "title": "Primetime",
+    "year": "2026"
   },
   "prince of darkness|1987": {
     "imdbID": "tt0093777",
@@ -5429,6 +5525,12 @@
     "title": "Stray Dogs",
     "year": "2013"
   },
+  "stuart little|1999": {
+    "imdbID": "tt0164912",
+    "source": "exact_year",
+    "title": "Stuart Little",
+    "year": "1999"
+  },
   "sudden fury|1975": {
     "imdbID": "tt0073762",
     "source": "exact_year",
@@ -5987,6 +6089,12 @@
     "title": "The Fan",
     "year": "1996"
   },
+  "the fast and the furious|2001": {
+    "imdbID": "tt0232500",
+    "source": "exact_year",
+    "title": "The Fast and the Furious",
+    "year": "2001"
+  },
   "the fence|2022": {
     "imdbID": "tt15253488",
     "source": "exact",
@@ -6148,6 +6256,18 @@
     "source": "exact",
     "title": "The Hunger Games: Mockingjay - Part 1",
     "year": "2014"
+  },
+  "the hunger games: mockingjay – part 2|2015": {
+    "imdbID": "tt1951266",
+    "source": "exact",
+    "title": "The Hunger Games: Mockingjay - Part 2",
+    "year": "2015"
+  },
+  "the hunger games|2012": {
+    "imdbID": "tt1392170",
+    "source": "exact_year",
+    "title": "The Hunger Games",
+    "year": "2012"
   },
   "the hunger|1983": {
     "imdbID": "tt0085701",
@@ -6557,6 +6677,12 @@
     "title": "The Scar",
     "year": "1976"
   },
+  "the searchers|1956": {
+    "imdbID": "tt0049730",
+    "source": "exact_year",
+    "title": "The Searchers",
+    "year": "1956"
+  },
   "the seasons in quincy: four portraits of john berger|2016": {
     "imdbID": "tt5298558",
     "source": "exact",
@@ -6760,6 +6886,12 @@
     "source": "search",
     "title": "The True Story of Tamara de Lempicka and the Art of Survival",
     "year": "2024"
+  },
+  "the truman show|1998": {
+    "imdbID": "tt0120382",
+    "source": "exact",
+    "title": "The Truman Show",
+    "year": "1998"
   },
   "the umbrellas of cherbourg|1964": {
     "imdbID": "tt0058450",
