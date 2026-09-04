@@ -419,6 +419,12 @@
     "title": "American Job",
     "year": "1996"
   },
+  "american summer|2025": {
+    "imdbID": "tt6523546",
+    "source": "exact_year",
+    "title": "American Summer",
+    "year": "2025"
+  },
   "amoeba|2016": {
     "imdbID": "tt5162390",
     "source": "exact_year",
@@ -1090,6 +1096,12 @@
     "source": "exact_year",
     "title": "Chand Mera Dil",
     "year": "2026"
+  },
+  "changeling|2008": {
+    "imdbID": "tt0824747",
+    "source": "exact_year",
+    "title": "Changeling",
+    "year": "2008"
   },
   "chao|2025": {
     "imdbID": "tt36592916",
@@ -4031,6 +4043,12 @@
     "title": "National Theatre Live: Inter Alia",
     "year": "2025"
   },
+  "national theatre live: les liaisons dangereuses|2016": {
+    "imdbID": "tt5536316",
+    "source": "exact",
+    "title": "National Theatre Live: Les Liaisons Dangereuses",
+    "year": "2016"
+  },
   "nausica of the valley of the wind|1984": {
     "imdbID": "tt0087544",
     "source": "exact",
@@ -4973,6 +4991,12 @@
     "title": "Rumble Fish",
     "year": "1983"
   },
+  "runner|2026": {
+    "imdbID": "tt31349844",
+    "source": "exact_year",
+    "title": "Runner",
+    "year": "2026"
+  },
   "ryuichi sakamoto | opus|2023": {
     "imdbID": "tt28490873",
     "source": "exact",
@@ -5118,6 +5142,12 @@
     "year": "2016"
   },
   "serpent s path": {
+    "imdbID": "tt0241588",
+    "source": "exact",
+    "title": "Serpent's Path",
+    "year": "1998"
+  },
+  "serpent’s path|1998": {
     "imdbID": "tt0241588",
     "source": "exact",
     "title": "Serpent's Path",
@@ -5461,7 +5491,7 @@
   },
   "steal this story, please!|2025": {
     "imdbID": "tt36748956",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Steal This Story, Please!",
     "year": "2025"
   },
@@ -5626,6 +5656,12 @@
     "source": "exact",
     "title": "Tampopo",
     "year": "1985"
+  },
+  "tarzan and his mate|1934": {
+    "imdbID": "tt0025862",
+    "source": "exact",
+    "title": "Tarzan and His Mate",
+    "year": "1934"
   },
   "taxi driver|1976": {
     "imdbID": "tt0075314",
@@ -7163,6 +7199,12 @@
     "title": "Tokyo Pop",
     "year": "1988"
   },
+  "tom and jerry: forbidden compass|2026": {
+    "imdbID": "tt37185884",
+    "source": "exact_year",
+    "title": "Tom and Jerry: Forbidden Compass",
+    "year": "2026"
+  },
   "tommy|1975": {
     "imdbID": "tt0073812",
     "source": "exact",
@@ -7480,6 +7522,12 @@
     "source": "exact_year",
     "title": "Vengeance Is Mine",
     "year": "1984"
+  },
+  "verity|2026": {
+    "imdbID": "tt32261958",
+    "source": "exact_year",
+    "title": "Verity",
+    "year": "2026"
   },
   "vermiglio|2025": {
     "imdbID": "tt28618488",
