@@ -419,17 +419,17 @@
     "title": "American Job",
     "year": "1996"
   },
-  "american summer|2025": {
-    "imdbID": "tt6523546",
-    "source": "exact_year",
-    "title": "American Summer",
-    "year": "2025"
-  },
   "amoeba|2016": {
     "imdbID": "tt5162390",
     "source": "exact_year",
     "title": "Amoeba",
     "year": "2016"
+  },
+  "amour|2012": {
+    "imdbID": "tt1602620",
+    "source": "exact",
+    "title": "Amour",
+    "year": "2012"
   },
   "amélie|2002": {
     "imdbID": "tt0211915",
@@ -2069,6 +2069,12 @@
     "title": "Fantasy",
     "year": "2022"
   },
+  "farewell home sweet home|1999": {
+    "imdbID": "tt0205725",
+    "source": "exact",
+    "title": "Farewell, Home Sweet Home",
+    "year": "1999"
+  },
   "farewell my concubine|1993": {
     "imdbID": "tt0106332",
     "source": "exact_year",
@@ -2134,12 +2140,6 @@
     "source": "exact",
     "title": "Find Your Friends",
     "year": "2025"
-  },
-  "finding emily|2026": {
-    "imdbID": "tt32499466",
-    "source": "exact_year",
-    "title": "Finding Emily",
-    "year": "2026"
   },
   "finian's rainbow|1968": {
     "imdbID": "tt0062974",
@@ -2771,6 +2771,12 @@
     "title": "Hercules in the Haunted World",
     "year": "1961"
   },
+  "high and low|1963": {
+    "imdbID": "tt0057565",
+    "source": "exact",
+    "title": "High and Low",
+    "year": "1963"
+  },
   "high life|2018": {
     "imdbID": "tt4827558",
     "source": "exact",
@@ -3017,6 +3023,12 @@
     "title": "Insidious: Out of the Further",
     "year": "2026"
   },
+  "invisible adversaries|1977": {
+    "imdbID": "tt0076204",
+    "source": "exact",
+    "title": "Invisible Adversaries",
+    "year": "1977"
+  },
   "iphigenia|1977": {
     "imdbID": "tt0076208",
     "source": "exact",
@@ -3184,12 +3196,6 @@
     "source": "exact",
     "title": "Kangaroo Island",
     "year": "2024"
-  },
-  "katy perry: the lifetimes tour - live from paris|2026": {
-    "imdbID": "tt38882652",
-    "source": "exact_year",
-    "title": "Katy Perry: The Lifetimes Tour - Live from Paris",
-    "year": "2026"
   },
   "khalifa|2026": {
     "imdbID": "tt22797990",
@@ -3761,6 +3767,12 @@
     "title": "Michael",
     "year": "2026"
   },
+  "midnight in paris|2011": {
+    "imdbID": "tt1605783",
+    "source": "exact",
+    "title": "Midnight in Paris",
+    "year": "2011"
+  },
   "midnight run": {
     "imdbID": "tt0095631",
     "source": "exact",
@@ -4055,12 +4067,6 @@
     "title": "Nausicaä of the Valley of the Wind",
     "year": "1984"
   },
-  "nausicaa of the valley of the wind|1984": {
-    "imdbID": "tt0087544",
-    "source": "search",
-    "title": "Nausicaä of the Valley of the Wind",
-    "year": "1984"
-  },
   "nausicaä of the valley of the wind|1984": {
     "imdbID": "tt0087544",
     "source": "exact_year",
@@ -4205,6 +4211,12 @@
     "title": "325 Noroi - The Curse (2005)",
     "year": "2005"
   },
+  "nostos: the return|1989": {
+    "imdbID": "tt0100271",
+    "source": "exact",
+    "title": "Nostos: The Return",
+    "year": "1989"
+  },
   "notturno|2020": {
     "imdbID": "tt7945450",
     "source": "exact_year",
@@ -4216,6 +4228,12 @@
     "source": "exact_year",
     "title": "Nowhere",
     "year": "2023"
+  },
+  "o brother where art thou?|2000": {
+    "imdbID": "tt0190590",
+    "source": "exact",
+    "title": "O Brother, Where Art Thou?",
+    "year": "2000"
   },
   "obsession|2026": {
     "imdbID": "tt37287335",
@@ -4661,6 +4679,12 @@
     "title": "Love Possible",
     "year": "2012"
   },
+  "powwow people|2025": {
+    "imdbID": "tt28730655",
+    "source": "exact_year",
+    "title": "Powwow People",
+    "year": "2025"
+  },
   "practical magic 2|2026": {
     "imdbID": "tt32588798",
     "source": "exact_year",
@@ -4991,12 +5015,6 @@
     "title": "Rumble Fish",
     "year": "1983"
   },
-  "runner|2026": {
-    "imdbID": "tt31349844",
-    "source": "exact_year",
-    "title": "Runner",
-    "year": "2026"
-  },
   "ryuichi sakamoto | opus|2023": {
     "imdbID": "tt28490873",
     "source": "exact",
@@ -5308,6 +5326,12 @@
     "source": "exact",
     "title": "SLC Punk!",
     "year": "1998"
+  },
+  "small change|1976": {
+    "imdbID": "tt0074152",
+    "source": "exact",
+    "title": "Small Change",
+    "year": "1976"
   },
   "smithereens|1982": {
     "imdbID": "tt0084698",
@@ -5627,6 +5651,12 @@
     "title": "Take Care of My Cat",
     "year": "2001"
   },
+  "take me home|2011": {
+    "imdbID": "tt1261954",
+    "source": "exact",
+    "title": "Take Me Home",
+    "year": "2011"
+  },
   "takeover|2020": {
     "imdbID": "tt10567444",
     "source": "exact_year",
@@ -5764,6 +5794,12 @@
     "source": "exact",
     "title": "The Ballad of Little Jo",
     "year": "1993"
+  },
+  "the beach|2000": {
+    "imdbID": "tt0163978",
+    "source": "exact",
+    "title": "The Beach",
+    "year": "2000"
   },
   "the bend in the river|2025": {
     "imdbID": "tt37969239",
@@ -6593,6 +6629,12 @@
     "title": "The Pollen of Flowers",
     "year": "1972"
   },
+  "the practice of love|1985": {
+    "imdbID": "tt0089834",
+    "source": "exact",
+    "title": "The Practice of Love",
+    "year": "1985"
+  },
   "the producers|1967": {
     "imdbID": "tt0063462",
     "source": "exact",
@@ -6809,6 +6851,12 @@
     "title": "The SpongeBob Movie: Search for SquarePants",
     "year": "2025"
   },
+  "the star|2017": {
+    "imdbID": "tt4587656",
+    "source": "exact",
+    "title": "The Star",
+    "year": "2017"
+  },
   "the storm riders|1998": {
     "imdbID": "tt0165499",
     "source": "exact_year",
@@ -6856,6 +6904,12 @@
     "source": "exact",
     "title": "The Taking of Pelham 123",
     "year": "2009"
+  },
+  "the taking of pelham one two three|1974": {
+    "imdbID": "tt0072251",
+    "source": "exact",
+    "title": "The Taking of Pelham One Two Three",
+    "year": "1974"
   },
   "the taste of tea|2004": {
     "imdbID": "tt0413893",
@@ -7199,12 +7253,6 @@
     "title": "Tokyo Pop",
     "year": "1988"
   },
-  "tom and jerry: forbidden compass|2026": {
-    "imdbID": "tt37185884",
-    "source": "exact_year",
-    "title": "Tom and Jerry: Forbidden Compass",
-    "year": "2026"
-  },
   "tommy|1975": {
     "imdbID": "tt0073812",
     "source": "exact",
@@ -7432,6 +7480,12 @@
     "source": "exact_year",
     "title": "Two Women",
     "year": "1960"
+  },
+  "ulysses' gaze|1995": {
+    "imdbID": "tt0114863",
+    "source": "exact",
+    "title": "Ulysses' Gaze",
+    "year": "1995"
   },
   "uncut gems|2019": {
     "imdbID": "tt5727208",
@@ -7708,6 +7762,12 @@
     "source": "exact",
     "title": "Who Framed Roger Rabbit",
     "year": "1988"
+  },
+  "who killed vincent chin?|1987": {
+    "imdbID": "tt0096440",
+    "source": "exact",
+    "title": "Who Killed Vincent Chin?",
+    "year": "1987"
   },
   "who moves america|2026": {
     "imdbID": "tt28303275",
