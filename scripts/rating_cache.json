@@ -827,6 +827,12 @@
     "title": "Body Double",
     "year": "1984"
   },
+  "body heat|1981": {
+    "imdbID": "tt0082089",
+    "source": "exact",
+    "title": "Body Heat",
+    "year": "1981"
+  },
   "bodyguard|1948": {
     "imdbID": "tt0040178",
     "source": "exact_year",
@@ -1511,12 +1517,6 @@
     "title": "Deadlock",
     "year": "2021"
   },
-  "dear you|2026": {
-    "imdbID": "tt41791573",
-    "source": "exact_year",
-    "title": "Dear You",
-    "year": "2026"
-  },
   "death in venice|1971": {
     "imdbID": "tt0067445",
     "source": "exact_year",
@@ -1792,12 +1792,6 @@
     "source": "exact",
     "title": "Dust in the Wind",
     "year": "1986"
-  },
-  "e.t. the extra-terrestrial|1982": {
-    "imdbID": "tt0083866",
-    "source": "exact",
-    "title": "E.T. the Extra-Terrestrial",
-    "year": "1982"
   },
   "east side, west side|1927": {
     "imdbID": "tt0017841",
@@ -2371,7 +2365,7 @@
   },
   "ghost world|2001": {
     "imdbID": "tt0162346",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Ghost World",
     "year": "2001"
   },
@@ -2554,6 +2548,12 @@
     "source": "exact",
     "title": "Gummo",
     "year": "1997"
+  },
+  "ha ha shanghai|2001": {
+    "imdbID": "tt0279846",
+    "source": "exact",
+    "title": "Ha Ha Shanghai",
+    "year": "2001"
   },
   "hadestown: the musical|2026": {
     "imdbID": "tt36307021",
@@ -2855,17 +2855,17 @@
     "title": "Howl's Moving Castle",
     "year": "2004"
   },
+  "hud|1963": {
+    "imdbID": "tt0057163",
+    "source": "exact",
+    "title": "Hud",
+    "year": "1963"
+  },
   "hundreds of beavers": {
     "imdbID": "tt12818328",
     "source": "exact",
     "title": "Hundreds of Beavers",
     "year": "2022"
-  },
-  "hunger games: the ballad of songbirds and snakes|2023": {
-    "imdbID": "tt10545296",
-    "source": "exact",
-    "title": "The Hunger Games: The Ballad of Songbirds & Snakes",
-    "year": "2023"
   },
   "hungry|2026": {
     "imdbID": "tt34494076",
@@ -4064,6 +4064,12 @@
   "nausica of the valley of the wind|1984": {
     "imdbID": "tt0087544",
     "source": "exact",
+    "title": "Nausicaä of the Valley of the Wind",
+    "year": "1984"
+  },
+  "nausicaa of the valley of the wind|1984": {
+    "imdbID": "tt0087544",
+    "source": "search",
     "title": "Nausicaä of the Valley of the Wind",
     "year": "1984"
   },
@@ -6565,7 +6571,7 @@
   },
   "the nutty professor|1996": {
     "imdbID": "tt0117218",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Nutty Professor",
     "year": "1996"
   },
@@ -7006,12 +7012,6 @@
     "source": "exact_year",
     "title": "The Untouchables",
     "year": "1987"
-  },
-  "the uprising|2026": {
-    "imdbID": "tt36983905",
-    "source": "exact_year",
-    "title": "The Uprising",
-    "year": "2026"
   },
   "the vikings|1958": {
     "imdbID": "tt0052365",
