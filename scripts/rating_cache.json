@@ -503,6 +503,12 @@
     "title": "Aro berria",
     "year": "2025"
   },
+  "arsa|2024": {
+    "imdbID": "tt33484317",
+    "source": "exact",
+    "title": "Arsa",
+    "year": "2024"
+  },
   "art school confidential|2006": {
     "imdbID": "tt0364955",
     "source": "exact_year",
@@ -1739,12 +1745,6 @@
     "title": "Dracula: Pages from a Virgin's Diary",
     "year": "2002"
   },
-  "dreams in nightmares|2024": {
-    "imdbID": "tt32765596",
-    "source": "exact",
-    "title": "Dreams in Nightmares",
-    "year": "2024"
-  },
   "dressed to kill|1980": {
     "imdbID": "tt0080661",
     "source": "exact_year",
@@ -1780,6 +1780,12 @@
     "source": "exact_year",
     "title": "Drunken Noodles",
     "year": "2025"
+  },
+  "duck soup|1933": {
+    "imdbID": "tt0023969",
+    "source": "exact",
+    "title": "Duck Soup",
+    "year": "1933"
   },
   "dumplings|2004": {
     "imdbID": "tt0472458",
@@ -2153,6 +2159,12 @@
     "title": "Filipiñana",
     "year": "2026"
   },
+  "final fantasy: the spirits within|2001": {
+    "imdbID": "tt0173840",
+    "source": "exact",
+    "title": "Final Fantasy: The Spirits Within",
+    "year": "2001"
+  },
   "find your friends|2025": {
     "imdbID": "tt32275326",
     "source": "exact",
@@ -2404,6 +2416,12 @@
     "source": "exact",
     "title": "Ghost World",
     "year": "2001"
+  },
+  "ginger snaps|2000": {
+    "imdbID": "tt0210070",
+    "source": "exact_year",
+    "title": "Ginger Snaps",
+    "year": "2000"
   },
   "girl 6|1996": {
     "imdbID": "tt0116414",
@@ -2975,10 +2993,10 @@
     "title": "Ice Cream Man",
     "year": "2026"
   },
-  "idiots|2026": {
-    "imdbID": "tt6628920",
+  "if i go will they miss me|2026": {
+    "imdbID": "tt39151344",
     "source": "exact_year",
-    "title": "Idiots",
+    "title": "If I Go Will They Miss Me",
     "year": "2026"
   },
   "if on a winter s night|1999": {
@@ -3058,12 +3076,6 @@
     "source": "exact_year",
     "title": "Insidious: Out of the Further",
     "year": "2026"
-  },
-  "introduction|2021": {
-    "imdbID": "tt14035108",
-    "source": "exact",
-    "title": "Introduction",
-    "year": "2021"
   },
   "invisible adversaries|1977": {
     "imdbID": "tt0076204",
@@ -3623,6 +3635,12 @@
     "title": "Maa Inti Bangaaram",
     "year": "2026"
   },
+  "mac and me|1988": {
+    "imdbID": "tt0095560",
+    "source": "exact",
+    "title": "Mac and Me",
+    "year": "1988"
+  },
   "macbeth|2015": {
     "imdbID": "tt2884018",
     "source": "exact_year",
@@ -3640,6 +3658,12 @@
     "source": "exact",
     "title": "Mad Dog Morgan",
     "year": "1976"
+  },
+  "mad max: fury road|2015": {
+    "imdbID": "tt1392190",
+    "source": "exact",
+    "title": "Mad Max: Fury Road",
+    "year": "2015"
   },
   "maddie s secret|2025": {
     "imdbID": "tt37675037",
@@ -3718,6 +3742,12 @@
     "source": "exact_year",
     "title": "Manon",
     "year": "1949"
+  },
+  "manos: the hands of fate|1966": {
+    "imdbID": "tt0060666",
+    "source": "exact_year",
+    "title": "Manos: The Hands of Fate",
+    "year": "1966"
   },
   "many wars ago|1970": {
     "imdbID": "tt0066511",
@@ -4030,12 +4060,6 @@
     "source": "exact",
     "title": "Muppet Treasure Island",
     "year": "1996"
-  },
-  "mutiny|2026": {
-    "imdbID": "tt32338669",
-    "source": "exact_year",
-    "title": "Mutiny",
-    "year": "2026"
   },
   "my heart is that eternal rose|1989": {
     "imdbID": "tt0093944",
@@ -4985,6 +5009,12 @@
     "title": "Renoir",
     "year": "2012"
   },
+  "repo! the genetic opera|2008": {
+    "imdbID": "tt0963194",
+    "source": "exact_year",
+    "title": "Repo! The Genetic Opera",
+    "year": "2008"
+  },
   "report to mother|1986": {
     "imdbID": "tt0090634",
     "source": "exact",
@@ -5308,6 +5338,12 @@
     "source": "exact",
     "title": "Sholay",
     "year": "1975"
+  },
+  "showgirls|1995": {
+    "imdbID": "tt0114436",
+    "source": "exact_year",
+    "title": "Showgirls",
+    "year": "1995"
   },
   "shrek: 25th anniversary|2001": {
     "imdbID": "tt0126029",
@@ -6041,6 +6077,12 @@
     "title": "The Cook, the Thief, His Wife & Her Lover",
     "year": "1989"
   },
+  "the craft|1996": {
+    "imdbID": "tt0115963",
+    "source": "exact_year",
+    "title": "The Craft",
+    "year": "1996"
+  },
   "the creatures": {
     "imdbID": "tt37241413",
     "source": "exact_year",
@@ -6229,7 +6271,7 @@
   },
   "the faculty|1998": {
     "imdbID": "tt0133751",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Faculty",
     "year": "1998"
   },
@@ -6431,6 +6473,12 @@
     "title": "The Hunger",
     "year": "1983"
   },
+  "the incident|1967": {
+    "imdbID": "tt0061814",
+    "source": "exact_year",
+    "title": "The Incident",
+    "year": "1967"
+  },
   "the incomer|2026": {
     "imdbID": "tt36980182",
     "source": "exact",
@@ -6460,6 +6508,12 @@
     "source": "exact",
     "title": "The Kid",
     "year": "1921"
+  },
+  "the kingdom|2007": {
+    "imdbID": "tt0431197",
+    "source": "exact",
+    "title": "The Kingdom",
+    "year": "2007"
   },
   "the last blossom|2011": {
     "imdbID": "tt2557406",
@@ -6694,12 +6748,6 @@
     "source": "exact",
     "title": "The Panic in Needle Park",
     "year": "1971"
-  },
-  "the passion of the christ|2025": {
-    "imdbID": "tt5795232",
-    "source": "exact_year",
-    "title": "The Passion of the Christ: Resurrection",
-    "year": "2025"
   },
   "the peril at pincer point|2026": {
     "imdbID": "tt34874865",
@@ -7013,6 +7061,12 @@
     "title": "The Taste of Tea",
     "year": "2004"
   },
+  "the texas chain saw massacre|1974": {
+    "imdbID": "tt0072271",
+    "source": "exact_year",
+    "title": "The Texas Chain Saw Massacre",
+    "year": "1974"
+  },
   "the thing called love|1993": {
     "imdbID": "tt0108327",
     "source": "exact_year",
@@ -7054,6 +7108,12 @@
     "source": "search",
     "title": "Treasure of the Bitch Islands",
     "year": "1990"
+  },
+  "the treasure of the sierra madre|1948": {
+    "imdbID": "tt0040897",
+    "source": "exact",
+    "title": "The Treasure of the Sierra Madre",
+    "year": "1948"
   },
   "the trek|2008": {
     "imdbID": "tt1331074",
@@ -7349,12 +7409,6 @@
     "title": "Tokyo Pop",
     "year": "1988"
   },
-  "tom and jerry: forbidden compass|2026": {
-    "imdbID": "tt37185884",
-    "source": "exact_year",
-    "title": "Tom and Jerry: Forbidden Compass",
-    "year": "2026"
-  },
   "tommy|1975": {
     "imdbID": "tt0073812",
     "source": "exact",
@@ -7475,6 +7529,12 @@
     "title": "Trial of Hein",
     "year": "2026"
   },
+  "trick or treat|1986": {
+    "imdbID": "tt0092112",
+    "source": "exact_year",
+    "title": "Trick or Treat",
+    "year": "1986"
+  },
   "tristana|1970": {
     "imdbID": "tt0066491",
     "source": "search",
@@ -7540,6 +7600,12 @@
     "source": "exact_year",
     "title": "Turtles Can Fly",
     "year": "2004"
+  },
+  "twilight|2008": {
+    "imdbID": "tt1099212",
+    "source": "exact_year",
+    "title": "Twilight",
+    "year": "2008"
   },
   "twin peaks: fire walk with me|1992": {
     "imdbID": "tt0105665",
@@ -7906,6 +7972,12 @@
     "source": "exact",
     "title": "Withnail and I",
     "year": "1987"
+  },
+  "without blood|2024": {
+    "imdbID": "tt18398986",
+    "source": "exact",
+    "title": "Without Blood",
+    "year": "2024"
   },
   "wives: ten years after|1985": {
     "imdbID": "tt0089313",
