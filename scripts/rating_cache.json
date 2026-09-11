@@ -143,6 +143,12 @@
     "title": "A Man of His Time",
     "year": "2026"
   },
+  "a marble in the jar|2025": {
+    "imdbID": "tt39138061",
+    "source": "exact_year",
+    "title": "A Marble in the Jar",
+    "year": "2025"
+  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -2681,6 +2687,12 @@
     "title": "Hannibal",
     "year": "2001"
   },
+  "hanuman ansh|2026": {
+    "imdbID": "tt39390582",
+    "source": "exact_year",
+    "title": "Hanuman Ansh",
+    "year": "2026"
+  },
   "happy as lazzaro|2018": {
     "imdbID": "tt6752992",
     "source": "exact_year",
@@ -2825,11 +2837,23 @@
     "title": "Hell's Highway: The True Story of Highway Safety Films",
     "year": "2003"
   },
+  "hellbound: hellraiser ii|1988": {
+    "imdbID": "tt0095294",
+    "source": "exact_year",
+    "title": "Hellbound: Hellraiser II",
+    "year": "1988"
+  },
   "hellcat|2025": {
     "imdbID": "tt33045418",
     "source": "exact",
     "title": "Hellcat",
     "year": "2025"
+  },
+  "hellraiser|1987": {
+    "imdbID": "tt0093177",
+    "source": "exact_year",
+    "title": "Hellraiser",
+    "year": "1987"
   },
   "henry: portrait serial killer|1986": {
     "imdbID": "tt0099763",
@@ -3916,6 +3940,12 @@
     "source": "exact",
     "title": "Midnight Run",
     "year": "1988"
+  },
+  "mighty mary|2026": {
+    "imdbID": "tt41026232",
+    "source": "exact_year",
+    "title": "Mighty Mary",
+    "year": "2026"
   },
   "mikey and nicky|1976": {
     "imdbID": "tt0074901",
@@ -5069,6 +5099,12 @@
     "title": "Report to Mother",
     "year": "1986"
   },
+  "resident evil|2026": {
+    "imdbID": "tt35538033",
+    "source": "exact_year",
+    "title": "Resident Evil",
+    "year": "2026"
+  },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
     "source": "exact",
@@ -5831,6 +5867,12 @@
     "title": "Take Me Home",
     "year": "2011"
   },
+  "take me home|2013": {
+    "imdbID": "tt1261954",
+    "source": "exact_year",
+    "title": "Take Me Home",
+    "year": "2013"
+  },
   "takeover|2020": {
     "imdbID": "tt10567444",
     "source": "exact_year",
@@ -6580,6 +6622,12 @@
     "source": "exact",
     "title": "The Last Blossom",
     "year": "2011"
+  },
+  "the last first: winter k2|2026": {
+    "imdbID": "tt39150288",
+    "source": "exact",
+    "title": "The Last First: Winter K2",
+    "year": "2026"
   },
   "the last one for the road|2025": {
     "imdbID": "tt36491632",
