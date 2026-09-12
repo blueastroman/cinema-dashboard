@@ -635,6 +635,12 @@
     "title": "Basic Instinct",
     "year": "1992"
   },
+  "batman|1989": {
+    "imdbID": "tt0096895",
+    "source": "exact",
+    "title": "Batman",
+    "year": "1989"
+  },
   "battle royale|2000": {
     "imdbID": "tt0266308",
     "source": "exact",
@@ -5399,6 +5405,12 @@
     "title": "Shaolin Soccer",
     "year": "2001"
   },
+  "shaun the sheep: the beast of mossy bottom|2026": {
+    "imdbID": "tt36841161",
+    "source": "exact_year",
+    "title": "Shaun the Sheep: The Beast of Mossy Bottom",
+    "year": "2026"
+  },
   "she's the man|2006": {
     "imdbID": "tt0454945",
     "source": "exact_year",
@@ -6430,6 +6442,12 @@
     "source": "exact_year",
     "title": "The Ghost in the Invisible Bikini",
     "year": "1966"
+  },
+  "the gloria of your imagination|2025": {
+    "imdbID": "tt36687029",
+    "source": "exact_year",
+    "title": "The Gloria of your Imagination",
+    "year": "2025"
   },
   "the goalie's anxiety at the penalty kick|1972": {
     "imdbID": "tt0066773",
