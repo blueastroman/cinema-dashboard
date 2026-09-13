@@ -143,12 +143,6 @@
     "title": "A Man of His Time",
     "year": "2026"
   },
-  "a marble in the jar|2025": {
-    "imdbID": "tt39138061",
-    "source": "exact_year",
-    "title": "A Marble in the Jar",
-    "year": "2025"
-  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -232,6 +226,12 @@
     "source": "exact",
     "title": "Abel Raises Cain",
     "year": "2005"
+  },
+  "above the rim|1994": {
+    "imdbID": "tt0109035",
+    "source": "exact",
+    "title": "Above the Rim",
+    "year": "1994"
   },
   "adaptation.|2002": {
     "imdbID": "tt0268126",
@@ -461,6 +461,12 @@
     "title": "Amélie",
     "year": "2002"
   },
+  "an autumn's tale|1987": {
+    "imdbID": "tt0093426",
+    "source": "exact",
+    "title": "An Autumn's Tale",
+    "year": "1987"
+  },
   "andrei rublev|1966": {
     "imdbID": "tt0060107",
     "source": "exact_year",
@@ -484,6 +490,12 @@
     "source": "exact_year",
     "title": "Another World",
     "year": "2026"
+  },
+  "antigone|2020": {
+    "imdbID": "tt10260042",
+    "source": "exact",
+    "title": "Antigone",
+    "year": "2020"
   },
   "arabesque|1966": {
     "imdbID": "tt0060121",
@@ -526,6 +538,12 @@
     "source": "exact",
     "title": "Arsa",
     "year": "2024"
+  },
+  "arsenal|2017": {
+    "imdbID": "tt5580536",
+    "source": "exact",
+    "title": "Arsenal",
+    "year": "2017"
   },
   "art school confidential|2006": {
     "imdbID": "tt0364955",
@@ -958,6 +976,12 @@
     "source": "exact_year",
     "title": "Bridesmaids",
     "year": "2011"
+  },
+  "brief encounter|1945": {
+    "imdbID": "tt0037558",
+    "source": "exact",
+    "title": "Brief Encounter",
+    "year": "1945"
   },
   "brunello: the gracious visionary|2026": {
     "imdbID": "tt37107071",
@@ -1847,6 +1871,12 @@
     "title": "E.T. the Extra-Terrestrial",
     "year": "1982"
   },
+  "earth|2007": {
+    "imdbID": "tt0393597",
+    "source": "exact",
+    "title": "Earth",
+    "year": "2007"
+  },
   "east side, west side|1927": {
     "imdbID": "tt0017841",
     "source": "exact_year",
@@ -2518,6 +2548,12 @@
     "source": "exact_year",
     "title": "Godzilla vs. Hedorah",
     "year": "1971"
+  },
+  "godzilla vs. mechagodzilla|1974": {
+    "imdbID": "tt0071565",
+    "source": "search",
+    "title": "Godzilla vs. Mechagodzilla",
+    "year": "1974"
   },
   "gohan|2026": {
     "imdbID": "tt36958999",
@@ -3221,6 +3257,12 @@
     "title": "Ivan's Childhood",
     "year": "1962"
   },
+  "ivan|1932": {
+    "imdbID": "tt0023071",
+    "source": "exact",
+    "title": "Ivan",
+    "year": "1932"
+  },
   "jackass: best and last|2026": {
     "imdbID": "tt39316472",
     "source": "exact_year",
@@ -3899,6 +3941,12 @@
     "title": "Megalopolis",
     "year": "2024"
   },
+  "meishi street|2006": {
+    "imdbID": "tt1847646",
+    "source": "exact",
+    "title": "Meishi Street",
+    "year": "2006"
+  },
   "memento|2001": {
     "imdbID": "tt0209144",
     "source": "exact",
@@ -3910,6 +3958,12 @@
     "source": "exact_year",
     "title": "Memory of Princess Mumbi",
     "year": "2025"
+  },
+  "mermaids|1990": {
+    "imdbID": "tt0100140",
+    "source": "exact",
+    "title": "Mermaids",
+    "year": "1990"
   },
   "merrily we go to hell|1932": {
     "imdbID": "tt0023213",
@@ -3946,12 +4000,6 @@
     "source": "exact",
     "title": "Midnight Run",
     "year": "1988"
-  },
-  "mighty mary|2026": {
-    "imdbID": "tt41026232",
-    "source": "exact_year",
-    "title": "Mighty Mary",
-    "year": "2026"
   },
   "mikey and nicky|1976": {
     "imdbID": "tt0074901",
@@ -4361,6 +4409,12 @@
     "title": "No Other Choice",
     "year": "2026"
   },
+  "no other land|2024": {
+    "imdbID": "tt30953759",
+    "source": "exact",
+    "title": "No Other Land",
+    "year": "2024"
+  },
   "no picnic|1986": {
     "imdbID": "tt0091638",
     "source": "exact_year",
@@ -4475,9 +4529,21 @@
     "title": "On the Town",
     "year": "1949"
   },
+  "once upon a time in china iii|1992": {
+    "imdbID": "tt0108592",
+    "source": "exact",
+    "title": "Once Upon a Time in China III",
+    "year": "1992"
+  },
+  "once upon a time in china ii|1992": {
+    "imdbID": "tt0105839",
+    "source": "exact",
+    "title": "Once Upon a Time in China II",
+    "year": "1992"
+  },
   "once upon a time in china|1991": {
     "imdbID": "tt0103285",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Once Upon a Time in China",
     "year": "1991"
   },
@@ -4711,7 +4777,7 @@
   },
   "peggy sue got married|1986": {
     "imdbID": "tt0091738",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Peggy Sue Got Married",
     "year": "1986"
   },
@@ -4786,6 +4852,12 @@
     "source": "exact",
     "title": "Playtime",
     "year": "1967"
+  },
+  "poem of the sea|1958": {
+    "imdbID": "tt0053177",
+    "source": "exact",
+    "title": "Poem of the Sea",
+    "year": "1958"
   },
   "poetic justice|1993": {
     "imdbID": "tt0107840",
@@ -5405,12 +5477,6 @@
     "title": "Shaolin Soccer",
     "year": "2001"
   },
-  "shaun the sheep: the beast of mossy bottom|2026": {
-    "imdbID": "tt36841161",
-    "source": "exact_year",
-    "title": "Shaun the Sheep: The Beast of Mossy Bottom",
-    "year": "2026"
-  },
   "she's the man|2006": {
     "imdbID": "tt0454945",
     "source": "exact_year",
@@ -5566,6 +5632,12 @@
     "source": "exact_year",
     "title": "So This Is New York",
     "year": "1948"
+  },
+  "socrates|2018": {
+    "imdbID": "tt8026554",
+    "source": "exact",
+    "title": "Socrates",
+    "year": "2018"
   },
   "solaris|1972": {
     "imdbID": "tt0069293",
@@ -5989,7 +6061,7 @@
   },
   "the age of innocence|1993": {
     "imdbID": "tt0106226",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Age of Innocence",
     "year": "1993"
   },
@@ -6593,6 +6665,18 @@
     "title": "The Hunger",
     "year": "1983"
   },
+  "the illiac passion|1967": {
+    "imdbID": "tt0136261",
+    "source": "exact",
+    "title": "The Illiac Passion",
+    "year": "1967"
+  },
+  "the immigrant|2013": {
+    "imdbID": "tt1951181",
+    "source": "exact",
+    "title": "The Immigrant",
+    "year": "2013"
+  },
   "the incident|1967": {
     "imdbID": "tt0061814",
     "source": "exact_year",
@@ -7192,6 +7276,12 @@
     "source": "exact_year",
     "title": "The Taste of Tea",
     "year": "2004"
+  },
+  "the terminator|1984": {
+    "imdbID": "tt0088247",
+    "source": "exact",
+    "title": "The Terminator",
+    "year": "1984"
   },
   "the texas chain saw massacre|1974": {
     "imdbID": "tt0072271",
@@ -8020,6 +8110,12 @@
     "source": "exact_year",
     "title": "What's Up, Doc?",
     "year": "1972"
+  },
+  "when it was blue|2008": {
+    "imdbID": "tt0968334",
+    "source": "exact",
+    "title": "When It Was Blue",
+    "year": "2008"
   },
   "when marnie was there|2014": {
     "imdbID": "tt3398268",
