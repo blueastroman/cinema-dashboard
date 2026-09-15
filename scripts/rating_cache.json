@@ -143,12 +143,6 @@
     "title": "A Man of His Time",
     "year": "2026"
   },
-  "a marble in the jar|2025": {
-    "imdbID": "tt39138061",
-    "source": "exact_year",
-    "title": "A Marble in the Jar",
-    "year": "2025"
-  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -484,6 +478,12 @@
     "source": "exact",
     "title": "Angel Heart",
     "year": "1987"
+  },
+  "angel’s egg|1985": {
+    "imdbID": "tt0208502",
+    "source": "exact",
+    "title": "Angel's Egg",
+    "year": "1985"
   },
   "animal farm|2026": {
     "imdbID": "tt2467700",
@@ -1018,6 +1018,12 @@
     "source": "exact_year",
     "title": "Buddy",
     "year": "2026"
+  },
+  "bullet|2025": {
+    "imdbID": "tt28005512",
+    "source": "exact_year",
+    "title": "Bullet",
+    "year": "2025"
   },
   "bully|2001": {
     "imdbID": "tt0242193",
@@ -4211,6 +4217,12 @@
     "title": "Muppet Treasure Island",
     "year": "1996"
   },
+  "my brother's wedding|1983": {
+    "imdbID": "tt0087763",
+    "source": "exact_year",
+    "title": "My Brother's Wedding",
+    "year": "1983"
+  },
   "my heart is that eternal rose|1989": {
     "imdbID": "tt0093944",
     "source": "exact",
@@ -4643,6 +4655,12 @@
     "title": "Otello",
     "year": "1986"
   },
+  "other mommy|2026": {
+    "imdbID": "tt36586020",
+    "source": "exact_year",
+    "title": "Other Mommy",
+    "year": "2026"
+  },
   "our hero, balthazar|2025": {
     "imdbID": "tt36589928",
     "source": "exact_year",
@@ -4931,6 +4949,12 @@
     "title": "Ponyo",
     "year": "2008"
   },
+  "popstar: never stop stopping|2016": {
+    "imdbID": "tt3960412",
+    "source": "search",
+    "title": "Popstar: Never Stop Never Stopping",
+    "year": "2016"
+  },
   "possessions": {
     "imdbID": "tt3080074",
     "source": "exact",
@@ -5146,6 +5170,12 @@
     "source": "exact",
     "title": "Rebels of the Neon God",
     "year": "1992"
+  },
+  "red flag|2012": {
+    "imdbID": "tt2147048",
+    "source": "exact",
+    "title": "Red Flag",
+    "year": "2012"
   },
   "red sorghum": {
     "imdbID": "tt0093206",
@@ -5495,12 +5525,6 @@
     "title": "Shaolin Soccer",
     "year": "2001"
   },
-  "shaun the sheep: the beast of mossy bottom|2026": {
-    "imdbID": "tt36841161",
-    "source": "exact_year",
-    "title": "Shaun the Sheep: The Beast of Mossy Bottom",
-    "year": "2026"
-  },
   "she's the man|2006": {
     "imdbID": "tt0454945",
     "source": "exact_year",
@@ -5723,6 +5747,12 @@
     "title": "Space Jam",
     "year": "1996"
   },
+  "speed racer|2008": {
+    "imdbID": "tt0811080",
+    "source": "exact_year",
+    "title": "Speed Racer",
+    "year": "2008"
+  },
   "spider-man: brand new day|2026": {
     "imdbID": "tt22084616",
     "source": "exact_year",
@@ -5842,6 +5872,12 @@
     "source": "exact_year",
     "title": "Steel Magnolias",
     "year": "1989"
+  },
+  "still life / 三峡好人|2013": {
+    "imdbID": "tt2395417",
+    "source": "exact",
+    "title": "Still Life",
+    "year": "2013"
   },
   "stir of echoes|1999": {
     "imdbID": "tt0164181",
@@ -6244,6 +6280,12 @@
     "source": "exact_year",
     "title": "The Brink of War",
     "year": "2026"
+  },
+  "the cameraman|1928": {
+    "imdbID": "tt0018742",
+    "source": "exact_year",
+    "title": "The Cameraman",
+    "year": "1928"
   },
   "the changeling|1980": {
     "imdbID": "tt0080516",
