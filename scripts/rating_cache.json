@@ -1109,12 +1109,6 @@
     "title": "Carrie",
     "year": "1976"
   },
-  "cars|2006": {
-    "imdbID": "tt0317219",
-    "source": "exact_year",
-    "title": "Cars",
-    "year": "2006"
-  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -1457,6 +1451,12 @@
     "title": "Crazy Rich Asians",
     "year": "2018"
   },
+  "crimes of passion|1984": {
+    "imdbID": "tt0087100",
+    "source": "exact",
+    "title": "Crimes of Passion",
+    "year": "1984"
+  },
   "crooklyn|1994": {
     "imdbID": "tt0109504",
     "source": "exact_year",
@@ -1588,12 +1588,6 @@
     "source": "exact",
     "title": "Deadlock",
     "year": "2021"
-  },
-  "dear you|2026": {
-    "imdbID": "tt41791573",
-    "source": "exact_year",
-    "title": "Dear You",
-    "year": "2026"
   },
   "death in venice|1971": {
     "imdbID": "tt0067445",
@@ -2117,12 +2111,6 @@
     "title": "Eyes Wide Shut",
     "year": "1999"
   },
-  "fall 2: deadpoint|2026": {
-    "imdbID": "tt31192372",
-    "source": "exact_year",
-    "title": "Fall 2: Deadpoint",
-    "year": "2026"
-  },
   "fallen angels|1995": {
     "imdbID": "tt0112913",
     "source": "exact",
@@ -2314,12 +2302,6 @@
     "source": "exact_year",
     "title": "Force Majeure",
     "year": "2014"
-  },
-  "forgotten island|2026": {
-    "imdbID": "tt36583977",
-    "source": "exact_year",
-    "title": "Forgotten Island",
-    "year": "2026"
   },
   "four adventures of reinette and mirabelle|1987": {
     "imdbID": "tt0090565",
@@ -2572,6 +2554,12 @@
     "source": "search",
     "title": "Godzilla vs. Mechagodzilla",
     "year": "1974"
+  },
+  "godzilla vs. megalon|1973": {
+    "imdbID": "tt0070122",
+    "source": "exact_year",
+    "title": "Godzilla vs. Megalon",
+    "year": "1973"
   },
   "gohan|2026": {
     "imdbID": "tt36958999",
@@ -3899,12 +3887,6 @@
     "title": "Marcel the Shell with Shoes On",
     "year": "2021"
   },
-  "maremma|2026": {
-    "imdbID": "tt37537243",
-    "source": "exact_year",
-    "title": "Maremma",
-    "year": "2026"
-  },
   "margin call|2011": {
     "imdbID": "tt1615147",
     "source": "exact_year",
@@ -4019,12 +4001,6 @@
     "title": "Midnight Run",
     "year": "1988"
   },
-  "mighty mary|2026": {
-    "imdbID": "tt41026232",
-    "source": "exact_year",
-    "title": "Mighty Mary",
-    "year": "2026"
-  },
   "mikey and nicky|1976": {
     "imdbID": "tt0074901",
     "source": "exact_year",
@@ -4114,6 +4090,12 @@
     "source": "exact",
     "title": "Modern Romance",
     "year": "1981"
+  },
+  "mogwai burning|2010": {
+    "imdbID": "tt1720168",
+    "source": "exact",
+    "title": "Mogwai: Burning",
+    "year": "2010"
   },
   "mommie dearest|1981": {
     "imdbID": "tt0082766",
@@ -4673,12 +4655,6 @@
     "title": "Our Land",
     "year": "2025"
   },
-  "out of sight": {
-    "imdbID": "tt37022726",
-    "source": "exact_year",
-    "title": "Out of Sight",
-    "year": "2025"
-  },
   "out of the blue|1980": {
     "imdbID": "tt0081291",
     "source": "exact",
@@ -4810,6 +4786,12 @@
     "source": "exact_year",
     "title": "PAW Patrol: The Dino Movie",
     "year": "2026"
+  },
+  "pee-wee's big adventure|1985": {
+    "imdbID": "tt0089791",
+    "source": "exact",
+    "title": "Pee-wee's Big Adventure",
+    "year": "1985"
   },
   "peggy sue got married|1986": {
     "imdbID": "tt0091738",
@@ -4948,6 +4930,12 @@
     "source": "exact",
     "title": "Ponyo",
     "year": "2008"
+  },
+  "popstar: never stop never stopping|2016": {
+    "imdbID": "tt3960412",
+    "source": "exact",
+    "title": "Popstar: Never Stop Never Stopping",
+    "year": "2016"
   },
   "popstar: never stop stopping|2016": {
     "imdbID": "tt3960412",
@@ -5171,12 +5159,6 @@
     "title": "Rebels of the Neon God",
     "year": "1992"
   },
-  "red flag|2012": {
-    "imdbID": "tt2147048",
-    "source": "exact",
-    "title": "Red Flag",
-    "year": "2012"
-  },
   "red sorghum": {
     "imdbID": "tt0093206",
     "source": "exact",
@@ -5327,12 +5309,6 @@
     "title": "Rumble Fish",
     "year": "1983"
   },
-  "runner|2026": {
-    "imdbID": "tt31349844",
-    "source": "exact_year",
-    "title": "Runner",
-    "year": "2026"
-  },
   "ryuichi sakamoto | opus|2023": {
     "imdbID": "tt28490873",
     "source": "exact",
@@ -5392,12 +5368,6 @@
     "source": "exact_year",
     "title": "Samson et Dalila",
     "year": "1981"
-  },
-  "sardar 2|2026": {
-    "imdbID": "tt28541577",
-    "source": "exact_year",
-    "title": "Sardar 2",
-    "year": "2026"
   },
   "saw iii|2006": {
     "imdbID": "tt0489270",
@@ -6437,12 +6407,6 @@
     "title": "The Discreet Charm of the Bourgeoisie",
     "year": "1972"
   },
-  "the dog stars|2026": {
-    "imdbID": "tt21285562",
-    "source": "exact_year",
-    "title": "The Dog Stars",
-    "year": "2026"
-  },
   "the doors|1991": {
     "imdbID": "tt0101761",
     "source": "exact_year",
@@ -6821,6 +6785,12 @@
     "title": "The Last Witness",
     "year": "2018"
   },
+  "the lego batman movie|2017": {
+    "imdbID": "tt4116284",
+    "source": "exact",
+    "title": "The Lego Batman Movie",
+    "year": "2017"
+  },
   "the leopard|1963": {
     "imdbID": "tt0057091",
     "source": "exact",
@@ -6935,6 +6905,12 @@
     "title": "The Misfits",
     "year": "1961"
   },
+  "the musical|2026": {
+    "imdbID": "tt37775809",
+    "source": "exact_year",
+    "title": "The Musical",
+    "year": "2026"
+  },
   "the naked city|1948": {
     "imdbID": "tt0040636",
     "source": "exact_year",
@@ -7024,12 +7000,6 @@
     "source": "exact",
     "title": "The Panic in Needle Park",
     "year": "1971"
-  },
-  "the passion of the christ|2025": {
-    "imdbID": "tt5795232",
-    "source": "exact_year",
-    "title": "The Passion of the Christ: Resurrection",
-    "year": "2025"
   },
   "the peril at pincer point|2026": {
     "imdbID": "tt34874865",
@@ -7601,6 +7571,12 @@
     "title": "Thief",
     "year": "1981"
   },
+  "thiiird|2023": {
+    "imdbID": "tt23024058",
+    "source": "exact",
+    "title": "Thiiird",
+    "year": "2023"
+  },
   "this island": {
     "imdbID": "tt8689278",
     "source": "exact",
@@ -7768,6 +7744,12 @@
     "source": "exact_year",
     "title": "Toy Story 5",
     "year": "2026"
+  },
+  "traces of home|2021": {
+    "imdbID": "tt12824754",
+    "source": "exact",
+    "title": "Traces of Home",
+    "year": "2021"
   },
   "train to busan|2016": {
     "imdbID": "tt5700672",
@@ -8374,6 +8356,12 @@
     "source": "exact",
     "title": "Zachariah",
     "year": "1971"
+  },
+  "zodiac|2007": {
+    "imdbID": "tt0443706",
+    "source": "override",
+    "title": "Zodiac",
+    "year": "2007"
   },
   "zu: warriors from the magic mountain|1983": {
     "imdbID": "tt0086308",
