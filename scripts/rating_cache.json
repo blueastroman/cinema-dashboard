@@ -325,7 +325,7 @@
   },
   "akira|1988": {
     "imdbID": "tt0094625",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Akira",
     "year": "1988"
   },
@@ -955,7 +955,7 @@
   },
   "boogie nights|1997": {
     "imdbID": "tt0118749",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Boogie Nights",
     "year": "1997"
   },
@@ -2363,6 +2363,12 @@
     "title": "Forbidden Games",
     "year": "1952"
   },
+  "forbidden planet|1956": {
+    "imdbID": "tt0049223",
+    "source": "exact",
+    "title": "Forbidden Planet",
+    "year": "1956"
+  },
   "force majeure|2014": {
     "imdbID": "tt2121382",
     "source": "exact_year",
@@ -2542,6 +2548,12 @@
     "source": "exact_year",
     "title": "Ghost in the Cell",
     "year": "2026"
+  },
+  "ghost in the shell|2017": {
+    "imdbID": "tt1219827",
+    "source": "exact_year",
+    "title": "Ghost in the Shell",
+    "year": "2017"
   },
   "ghost world|2001": {
     "imdbID": "tt0162346",
@@ -3454,6 +3466,12 @@
     "source": "exact_year",
     "title": "Ju-on: The Curse",
     "year": "2000"
+  },
+  "juice|1992": {
+    "imdbID": "tt0104573",
+    "source": "exact",
+    "title": "Juice",
+    "year": "1992"
   },
   "jurassic park|1993": {
     "imdbID": "tt0107290",
@@ -5141,6 +5159,12 @@
     "title": "Love Possible",
     "year": "2012"
   },
+  "power trip|2025": {
+    "imdbID": "tt36334014",
+    "source": "exact_year",
+    "title": "Power Trip",
+    "year": "2025"
+  },
   "powwow people|2025": {
     "imdbID": "tt28730655",
     "source": "exact_year",
@@ -5440,6 +5464,12 @@
     "source": "exact",
     "title": "Roger & Me",
     "year": "1989"
+  },
+  "romancing the stone|1984": {
+    "imdbID": "tt0088011",
+    "source": "exact",
+    "title": "Romancing the Stone",
+    "year": "1984"
   },
   "rome, open city|1945": {
     "imdbID": "tt0038890",
@@ -6809,6 +6839,12 @@
     "title": "The Grandmaster",
     "year": "2013"
   },
+  "the great mouse detective|1986": {
+    "imdbID": "tt0091149",
+    "source": "exact",
+    "title": "The Great Mouse Detective",
+    "year": "1986"
+  },
   "the great silence|1968": {
     "imdbID": "tt0063032",
     "source": "exact",
@@ -7001,12 +7037,6 @@
     "title": "The Last Witness",
     "year": "2018"
   },
-  "the lego batman movie|2017": {
-    "imdbID": "tt4116284",
-    "source": "exact",
-    "title": "The Lego Batman Movie",
-    "year": "2017"
-  },
   "the leopard|1963": {
     "imdbID": "tt0057091",
     "source": "exact",
@@ -7156,6 +7186,12 @@
     "source": "exact_year",
     "title": "The Neon Demon",
     "year": "2016"
+  },
+  "the neverending story|1984": {
+    "imdbID": "tt0088323",
+    "source": "exact",
+    "title": "The NeverEnding Story",
+    "year": "1984"
   },
   "the new centurions|1972": {
     "imdbID": "tt0068997",
@@ -7582,12 +7618,6 @@
     "source": "exact_year",
     "title": "The Tin Drum",
     "year": "1979"
-  },
-  "the transformers: the movie|1986": {
-    "imdbID": "tt0092106",
-    "source": "exact_year",
-    "title": "The Transformers: The Movie",
-    "year": "1986"
   },
   "the trap": {
     "imdbID": "tt39093784",
