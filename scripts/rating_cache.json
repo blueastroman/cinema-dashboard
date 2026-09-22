@@ -149,6 +149,12 @@
     "title": "A Long Winter",
     "year": "2023"
   },
+  "a long winter|2026": {
+    "imdbID": "tt38220998",
+    "source": "exact",
+    "title": "A Long Winter",
+    "year": "2026"
+  },
   "a magnificent life": {
     "imdbID": "tt13968662",
     "source": "exact",
@@ -214,6 +220,12 @@
     "source": "exact",
     "title": "A Statement",
     "year": "2014"
+  },
+  "a statement|2026": {
+    "imdbID": "tt39373342",
+    "source": "exact",
+    "title": "A Statement",
+    "year": "2026"
   },
   "a streetcar named desire|1951": {
     "imdbID": "tt0044081",
@@ -413,11 +425,23 @@
     "title": "All That Heaven Allows",
     "year": "1955"
   },
+  "all the president's men|1976": {
+    "imdbID": "tt0074119",
+    "source": "exact",
+    "title": "All the President's Men",
+    "year": "1976"
+  },
   "allegro non troppo": {
     "imdbID": "tt0074121",
     "source": "exact",
     "title": "Allegro non troppo",
     "year": "1976"
+  },
+  "almost famous|2000": {
+    "imdbID": "tt0181875",
+    "source": "exact",
+    "title": "Almost Famous",
+    "year": "2000"
   },
   "alpha|2018": {
     "imdbID": "tt4244998",
@@ -574,6 +598,12 @@
     "source": "exact_year",
     "title": "Art School Confidential",
     "year": "2006"
+  },
+  "artificial|2020": {
+    "imdbID": "tt12535674",
+    "source": "exact",
+    "title": "Artificial",
+    "year": "2020"
   },
   "asco: without permission|2025": {
     "imdbID": "tt18263546",
@@ -743,6 +773,12 @@
     "title": "Behemoth",
     "year": "2011"
   },
+  "behemoth!|2026": {
+    "imdbID": "tt36415529",
+    "source": "exact",
+    "title": "Behemoth!",
+    "year": "2026"
+  },
   "belle de jour|1967": {
     "imdbID": "tt0061395",
     "source": "exact_year",
@@ -838,6 +874,12 @@
     "source": "exact_year",
     "title": "Bird of Paradise",
     "year": "1932"
+  },
+  "bitter christmas|2026": {
+    "imdbID": "tt28088049",
+    "source": "exact",
+    "title": "Bitter Christmas",
+    "year": "2026"
   },
   "black angel|1946": {
     "imdbID": "tt0038360",
@@ -1042,6 +1084,12 @@
     "source": "exact",
     "title": "Brief Encounter",
     "year": "1945"
+  },
+  "broadcast news|1987": {
+    "imdbID": "tt0092699",
+    "source": "exact",
+    "title": "Broadcast News",
+    "year": "1987"
   },
   "brunello: the gracious visionary|2026": {
     "imdbID": "tt37107071",
@@ -1495,7 +1543,7 @@
   },
   "cosi fan tutte|2005": {
     "imdbID": "tt0472300",
-    "source": "exact_year",
+    "source": "search",
     "title": "Cosi Fan Tutte",
     "year": "2005"
   },
@@ -1781,6 +1829,12 @@
     "title": "Diary of a Chambermaid",
     "year": "1964"
   },
+  "digger|2026": {
+    "imdbID": "tt31450459",
+    "source": "exact_year",
+    "title": "Digger",
+    "year": "2026"
+  },
   "dire duplicity|2026": {
     "imdbID": "tt39029658",
     "source": "exact_year",
@@ -1816,6 +1870,12 @@
     "source": "exact",
     "title": "Do You Love Me",
     "year": "1946"
+  },
+  "dog day afternoon|1975": {
+    "imdbID": "tt0072890",
+    "source": "exact",
+    "title": "Dog Day Afternoon",
+    "year": "1975"
   },
   "dog man|2025": {
     "imdbID": "tt10954718",
@@ -2171,6 +2231,12 @@
     "title": "Evita",
     "year": "1996"
   },
+  "evita|1997": {
+    "imdbID": "tt0116250",
+    "source": "exact",
+    "title": "Evita",
+    "year": "1997"
+  },
   "excalibur|1981": {
     "imdbID": "tt0082348",
     "source": "exact_year",
@@ -2212,6 +2278,12 @@
     "source": "exact",
     "title": "Fallen Angels",
     "year": "1995"
+  },
+  "fallen angels|1998": {
+    "imdbID": "tt0112913",
+    "source": "exact",
+    "title": "Fallen Angels",
+    "year": "1998"
   },
   "family movie|2026": {
     "imdbID": "tt34440913",
@@ -2488,6 +2560,12 @@
     "source": "exact_year",
     "title": "Funeral Parade of Roses",
     "year": "1969"
+  },
+  "funny face|1957": {
+    "imdbID": "tt0050419",
+    "source": "exact_year",
+    "title": "Funny Face",
+    "year": "1957"
   },
   "funny games|2007": {
     "imdbID": "tt0808279",
@@ -3353,6 +3431,12 @@
     "title": "Iron Boy",
     "year": "2016"
   },
+  "iron boy|2026": {
+    "imdbID": "tt36639956",
+    "source": "exact",
+    "title": "Iron Boy",
+    "year": "2026"
+  },
   "iron maiden: burning ambition|2026": {
     "imdbID": "tt36163614",
     "source": "exact_year",
@@ -3619,7 +3703,7 @@
   },
   "la fanciulla del west|1991": {
     "imdbID": "tt0255160",
-    "source": "exact_year",
+    "source": "exact",
     "title": "La fanciulla del West",
     "year": "1991"
   },
@@ -3833,6 +3917,12 @@
     "title": "London",
     "year": "2005"
   },
+  "london|2021": {
+    "imdbID": "tt0449061",
+    "source": "exact",
+    "title": "London",
+    "year": "2021"
+  },
   "lonely are the brave|1962": {
     "imdbID": "tt0056195",
     "source": "exact_year",
@@ -3925,7 +4015,7 @@
   },
   "macbeth|2015": {
     "imdbID": "tt2884018",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Macbeth",
     "year": "2015"
   },
@@ -4021,7 +4111,7 @@
   },
   "manon|1949": {
     "imdbID": "tt0041634",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Manon",
     "year": "1949"
   },
@@ -4849,7 +4939,7 @@
   },
   "otello|1986": {
     "imdbID": "tt0091699",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Otello",
     "year": "1986"
   },
@@ -4973,6 +5063,12 @@
     "title": "Parasomnia",
     "year": "2008"
   },
+  "paris is burning|1990": {
+    "imdbID": "tt0100332",
+    "source": "exact",
+    "title": "Paris Is Burning",
+    "year": "1990"
+  },
   "paris was a woman|1996": {
     "imdbID": "tt0114093",
     "source": "exact",
@@ -4987,7 +5083,7 @@
   },
   "parsifal|1982": {
     "imdbID": "tt0084476",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Parsifal",
     "year": "1982"
   },
@@ -5062,6 +5158,12 @@
     "source": "exact",
     "title": "Petite Maman",
     "year": "2021"
+  },
+  "petite maman|2022": {
+    "imdbID": "tt13204490",
+    "source": "exact",
+    "title": "Petite Maman",
+    "year": "2022"
   },
   "phantom beirut|1998": {
     "imdbID": "tt0185605",
@@ -5194,6 +5296,12 @@
     "source": "search",
     "title": "Love Possible",
     "year": "2012"
+  },
+  "possible love|2026": {
+    "imdbID": "tt37803364",
+    "source": "exact",
+    "title": "Possible Love",
+    "year": "2026"
   },
   "power trip|2025": {
     "imdbID": "tt36334014",
@@ -5635,7 +5743,7 @@
   },
   "samson et dalila|1981": {
     "imdbID": "tt0204610",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Samson et Dalila",
     "year": "1981"
   },
@@ -5839,7 +5947,7 @@
   },
   "silent night|2023": {
     "imdbID": "tt15799866",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Silent Night",
     "year": "2023"
   },
@@ -6274,12 +6382,6 @@
     "source": "exact_year",
     "title": "Take Me Home",
     "year": "2013"
-  },
-  "take off|2017": {
-    "imdbID": "tt6315524",
-    "source": "exact_year",
-    "title": "Take Off",
-    "year": "2017"
   },
   "takeover|2020": {
     "imdbID": "tt10567444",
@@ -6737,6 +6839,12 @@
     "title": "The Double",
     "year": "2013"
   },
+  "the double|2014": {
+    "imdbID": "tt1825157",
+    "source": "exact",
+    "title": "The Double",
+    "year": "2014"
+  },
   "the dreamed adventure|2026": {
     "imdbID": "tt21188986",
     "source": "exact",
@@ -7036,6 +7144,12 @@
     "source": "exact",
     "title": "The Incomer",
     "year": "2026"
+  },
+  "the insider|1999": {
+    "imdbID": "tt0140352",
+    "source": "exact",
+    "title": "The Insider",
+    "year": "1999"
   },
   "the invite|2026": {
     "imdbID": "tt14173636",
@@ -8333,6 +8447,12 @@
     "title": "Universal Soldier",
     "year": "1992"
   },
+  "unzipped|1995": {
+    "imdbID": "tt0114805",
+    "source": "exact_year",
+    "title": "Unzipped",
+    "year": "1995"
+  },
   "urban legend|1998": {
     "imdbID": "tt0146336",
     "source": "exact_year",
@@ -8680,6 +8800,12 @@
     "source": "exact_year",
     "title": "Yojimbo",
     "year": "1961"
+  },
+  "you had to be there|2009": {
+    "imdbID": "tt1538023",
+    "source": "search",
+    "title": "You Had to Be There",
+    "year": "2009"
   },
   "you're a big boy now|1966": {
     "imdbID": "tt0061209",
