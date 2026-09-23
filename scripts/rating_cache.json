@@ -611,6 +611,12 @@
     "title": "ASCO: Without Permission",
     "year": "2025"
   },
+  "atonement|2026": {
+    "imdbID": "tt36789083",
+    "source": "exact_year",
+    "title": "Atonement",
+    "year": "2026"
+  },
   "autumn sonata|1978": {
     "imdbID": "tt0077711",
     "source": "exact",
@@ -766,6 +772,12 @@
     "source": "exact_year",
     "title": "Before Sunrise",
     "year": "1995"
+  },
+  "begotten|1991": {
+    "imdbID": "tt0101420",
+    "source": "exact",
+    "title": "Begotten",
+    "year": "1991"
   },
   "behemoth!|2011": {
     "imdbID": "tt1566486",
@@ -2020,6 +2032,12 @@
     "source": "exact",
     "title": "Dust in the Wind",
     "year": "1986"
+  },
+  "dutchman|1966": {
+    "imdbID": "tt0060358",
+    "source": "exact_year",
+    "title": "Dutchman",
+    "year": "1966"
   },
   "e.t. the extra-terrestrial|1982": {
     "imdbID": "tt0083866",
@@ -5333,6 +5351,12 @@
     "title": "A Premarital Question",
     "year": "2016"
   },
+  "pretty peaches|1978": {
+    "imdbID": "tt0078112",
+    "source": "exact",
+    "title": "Pretty Peaches",
+    "year": "1978"
+  },
   "prick up your ears|1987": {
     "imdbID": "tt0093776",
     "source": "exact_year",
@@ -6382,6 +6406,12 @@
     "source": "exact_year",
     "title": "Take Me Home",
     "year": "2013"
+  },
+  "take off|2017": {
+    "imdbID": "tt6315524",
+    "source": "exact_year",
+    "title": "Take Off",
+    "year": "2017"
   },
   "takeover|2020": {
     "imdbID": "tt10567444",
