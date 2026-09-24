@@ -473,6 +473,12 @@
     "title": "American Dream",
     "year": "1990"
   },
+  "american graffiti|1973": {
+    "imdbID": "tt0069704",
+    "source": "exact",
+    "title": "American Graffiti",
+    "year": "1973"
+  },
   "american job|1996": {
     "imdbID": "tt0112345",
     "source": "exact",
@@ -2525,6 +2531,12 @@
     "title": "Franz",
     "year": "1972"
   },
+  "free leonard peltier|2025": {
+    "imdbID": "tt34966036",
+    "source": "exact",
+    "title": "Free Leonard Peltier",
+    "year": "2025"
+  },
   "freefall: a reckoning for boeing|2026": {
     "imdbID": "tt32889884",
     "source": "exact",
@@ -4457,6 +4469,12 @@
     "title": "Mountains of the Moon",
     "year": "1990"
   },
+  "mouse|2026": {
+    "imdbID": "tt13652154",
+    "source": "exact_year",
+    "title": "Mouse",
+    "year": "2026"
+  },
   "mr nobody against putin": {
     "imdbID": "tt34965515",
     "source": "exact",
@@ -5410,6 +5428,12 @@
     "source": "exact_year",
     "title": "Psycho",
     "year": "2026"
+  },
+  "pulp: a film about life, death & supermarkets|2014": {
+    "imdbID": "tt3265262",
+    "source": "exact",
+    "title": "Pulp: A Film About Life, Death & Supermarkets",
+    "year": "2014"
   },
   "pure scum|2025": {
     "imdbID": "tt32677155",
@@ -6989,6 +7013,12 @@
     "title": "The Furious",
     "year": "2026"
   },
+  "the getaway|2025": {
+    "imdbID": "tt32915061",
+    "source": "exact_year",
+    "title": "The Getaway",
+    "year": "2025"
+  },
   "the ghost in the invisible bikini|1966": {
     "imdbID": "tt0060457",
     "source": "exact_year",
@@ -8296,6 +8326,12 @@
     "source": "exact_year",
     "title": "Trees Lounge",
     "year": "1996"
+  },
+  "tremors|1990": {
+    "imdbID": "tt0100814",
+    "source": "exact",
+    "title": "Tremors",
+    "year": "1990"
   },
   "trial of hein|2026": {
     "imdbID": "tt33522697",
