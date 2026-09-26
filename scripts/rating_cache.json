@@ -347,6 +347,12 @@
     "title": "Akira",
     "year": "1988"
   },
+  "alanis|2018": {
+    "imdbID": "tt7297954",
+    "source": "exact",
+    "title": "Alanis",
+    "year": "2018"
+  },
   "ali: fear eats the soul|1974": {
     "imdbID": "tt0071141",
     "source": "exact_year",
@@ -427,7 +433,7 @@
   },
   "all that heaven allows|1955": {
     "imdbID": "tt0047811",
-    "source": "exact_year",
+    "source": "exact",
     "title": "All That Heaven Allows",
     "year": "1955"
   },
@@ -436,6 +442,12 @@
     "source": "exact",
     "title": "All the President's Men",
     "year": "1976"
+  },
+  "all we imagine as light|2024": {
+    "imdbID": "tt32086077",
+    "source": "exact",
+    "title": "All We Imagine as Light",
+    "year": "2024"
   },
   "allegro non troppo": {
     "imdbID": "tt0074121",
@@ -514,6 +526,12 @@
     "source": "exact",
     "title": "Amélie",
     "year": "2002"
+  },
+  "an autumn afternoon|1962": {
+    "imdbID": "tt0056444",
+    "source": "exact",
+    "title": "An Autumn Afternoon",
+    "year": "1962"
   },
   "an autumn's tale|1987": {
     "imdbID": "tt0093426",
@@ -1943,6 +1961,12 @@
     "title": "Donnie Brasco",
     "year": "1997"
   },
+  "donnie darko|2001": {
+    "imdbID": "tt0246578",
+    "source": "exact",
+    "title": "Donnie Darko",
+    "year": "2001"
+  },
   "dont look back|1967": {
     "imdbID": "tt0061589",
     "source": "exact_year",
@@ -2164,6 +2188,12 @@
     "source": "exact_year",
     "title": "Elijah Peel",
     "year": "2026"
+  },
+  "elisa my life|1977": {
+    "imdbID": "tt0075983",
+    "source": "exact",
+    "title": "Elisa, My Life",
+    "year": "1977"
   },
   "elisa|2025": {
     "imdbID": "tt37660578",
@@ -2447,6 +2477,12 @@
     "title": "Finian's Rainbow",
     "year": "1968"
   },
+  "fireball 500|1966": {
+    "imdbID": "tt0060415",
+    "source": "exact_year",
+    "title": "Fireball 500",
+    "year": "1966"
+  },
   "first blood|1982": {
     "imdbID": "tt0083944",
     "source": "exact_year",
@@ -2728,6 +2764,12 @@
     "source": "exact",
     "title": "Girl 6",
     "year": "1996"
+  },
+  "girl interrupted|1999": {
+    "imdbID": "tt0172493",
+    "source": "exact",
+    "title": "Girl, Interrupted",
+    "year": "1999"
   },
   "girlfriends|1978": {
     "imdbID": "tt0077613",
@@ -3233,11 +3275,23 @@
     "title": "Hope",
     "year": "2026"
   },
+  "horror of dracula|1958": {
+    "imdbID": "tt0051554",
+    "source": "exact",
+    "title": "Horror of Dracula",
+    "year": "1958"
+  },
   "horsegirls|2026": {
     "imdbID": "tt13652006",
     "source": "exact_year",
     "title": "Horsegirls",
     "year": "2026"
+  },
+  "hostel|2005": {
+    "imdbID": "tt0450278",
+    "source": "exact",
+    "title": "Hostel",
+    "year": "2005"
   },
   "hot spot|2026": {
     "imdbID": "tt14119302",
@@ -3743,6 +3797,12 @@
     "title": "La belle noiseuse",
     "year": "1991"
   },
+  "la bola negra|2026": {
+    "imdbID": "tt35511966",
+    "source": "exact_year",
+    "title": "La bola negra",
+    "year": "2026"
+  },
   "la fanciulla del west|1991": {
     "imdbID": "tt0255160",
     "source": "exact",
@@ -3779,6 +3839,12 @@
     "title": "La Notte",
     "year": "1961"
   },
+  "la raulito|1975": {
+    "imdbID": "tt0072068",
+    "source": "exact",
+    "title": "La Raulito",
+    "year": "1975"
+  },
   "labyrinth|2026": {
     "imdbID": "tt38507195",
     "source": "exact_year",
@@ -3790,6 +3856,12 @@
     "source": "exact",
     "title": "Lady in the Water",
     "year": "2006"
+  },
+  "lady|2026": {
+    "imdbID": "tt38111477",
+    "source": "exact_year",
+    "title": "Lady",
+    "year": "2026"
   },
   "landscape in the mist|1988": {
     "imdbID": "tt0096288",
@@ -4421,6 +4493,12 @@
     "title": "Mommie Dearest",
     "year": "1981"
   },
+  "mommy is coming|2012": {
+    "imdbID": "tt2170509",
+    "source": "exact",
+    "title": "Mommy Is Coming",
+    "year": "2012"
+  },
   "monkey business|1952": {
     "imdbID": "tt0044916",
     "source": "exact_year",
@@ -4439,6 +4517,12 @@
     "title": "Monty Python and the Holy Grail",
     "year": "1975"
   },
+  "moonlight|2016": {
+    "imdbID": "tt4975722",
+    "source": "exact",
+    "title": "Moonlight",
+    "year": "2016"
+  },
   "moonrise kingdom|2012": {
     "imdbID": "tt1748122",
     "source": "exact_year",
@@ -4450,6 +4534,12 @@
     "source": "exact",
     "title": "Moonstruck",
     "year": "1987"
+  },
+  "morvern callar|2002": {
+    "imdbID": "tt0300214",
+    "source": "exact",
+    "title": "Morvern Callar",
+    "year": "2002"
   },
   "mother mary|2026": {
     "imdbID": "tt27200708",
@@ -4697,6 +4787,12 @@
     "title": "Night Nurse",
     "year": "1931"
   },
+  "night on earth|1991": {
+    "imdbID": "tt0102536",
+    "source": "exact",
+    "title": "Night on Earth",
+    "year": "1991"
+  },
   "nightborn|2026": {
     "imdbID": "tt34383465",
     "source": "exact",
@@ -4768,6 +4864,12 @@
     "source": "exact_year",
     "title": "No Picnic",
     "year": "1986"
+  },
+  "no skin off my ass|1991": {
+    "imdbID": "tt0102544",
+    "source": "exact",
+    "title": "No Skin Off My Ass",
+    "year": "1991"
   },
   "nora prentiss|1947": {
     "imdbID": "tt0039666",
@@ -5183,6 +5285,12 @@
     "title": "Peppermint Candy",
     "year": "1999"
   },
+  "peppermint frappé|1967": {
+    "imdbID": "tt0062113",
+    "source": "exact",
+    "title": "Peppermint Frappé",
+    "year": "1967"
+  },
   "perfume: the story of a murderer|2006": {
     "imdbID": "tt0396171",
     "source": "exact",
@@ -5575,7 +5683,7 @@
   },
   "red flag|2012": {
     "imdbID": "tt2147048",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Red Flag",
     "year": "2012"
   },
@@ -5717,6 +5825,12 @@
     "title": "Rosebush Pruning",
     "year": "2026"
   },
+  "rosemary's baby|1968": {
+    "imdbID": "tt0063522",
+    "source": "exact",
+    "title": "Rosemary's Baby",
+    "year": "1968"
+  },
   "rose|2011": {
     "imdbID": "tt2043979",
     "source": "exact",
@@ -5746,6 +5860,12 @@
     "source": "exact_year",
     "title": "Runner",
     "year": "2026"
+  },
+  "rushmore|1999": {
+    "imdbID": "tt0128445",
+    "source": "exact",
+    "title": "Rushmore",
+    "year": "1999"
   },
   "ryuichi sakamoto | opus|2023": {
     "imdbID": "tt28490873",
@@ -5860,6 +5980,12 @@
     "source": "exact_year",
     "title": "Scream 7",
     "year": "2026"
+  },
+  "screamplay|1984": {
+    "imdbID": "tt0088067",
+    "source": "exact_year",
+    "title": "Screamplay",
+    "year": "1984"
   },
   "scream|2025": {
     "imdbID": "tt35615464",
@@ -6353,6 +6479,12 @@
     "title": "Stray Dogs",
     "year": "2013"
   },
+  "stray dogs|2014": {
+    "imdbID": "tt3119416",
+    "source": "exact",
+    "title": "Stray Dogs",
+    "year": "2014"
+  },
   "stress is three|1968": {
     "imdbID": "tt0063651",
     "source": "exact",
@@ -6533,6 +6665,12 @@
     "title": "Tetro",
     "year": "2009"
   },
+  "tetsuo: the iron man|1989": {
+    "imdbID": "tt0096251",
+    "source": "exact",
+    "title": "Tetsuo: The Iron Man",
+    "year": "1989"
+  },
   "tha rae: the exorcist|2025": {
     "imdbID": "tt37741473",
     "source": "exact_year",
@@ -6550,6 +6688,12 @@
     "source": "exact_year",
     "title": "The 36th Chamber of Shaolin",
     "year": "1978"
+  },
+  "the addams family|1991": {
+    "imdbID": "tt0101272",
+    "source": "exact",
+    "title": "The Addams Family",
+    "year": "1991"
   },
   "the age of innocence|1993": {
     "imdbID": "tt0106226",
@@ -6653,6 +6797,12 @@
     "title": "The Birdcage",
     "year": "1996"
   },
+  "the blackcoat's daughter|2015": {
+    "imdbID": "tt3286052",
+    "source": "exact",
+    "title": "The Blackcoat's Daughter",
+    "year": "2015"
+  },
   "the blade|1995": {
     "imdbID": "tt0112800",
     "source": "exact",
@@ -6688,6 +6838,12 @@
     "source": "exact",
     "title": "The Breakfast Club",
     "year": "1985"
+  },
+  "the brides of dracula|1960": {
+    "imdbID": "tt0053677",
+    "source": "exact",
+    "title": "The Brides of Dracula",
+    "year": "1960"
   },
   "the bridge on the river kwai|1957": {
     "imdbID": "tt0050212",
@@ -6749,6 +6905,12 @@
     "title": "The City of Lost Children",
     "year": "1995"
   },
+  "the city of the dead|1960": {
+    "imdbID": "tt0053719",
+    "source": "exact_year",
+    "title": "The City of the Dead",
+    "year": "1960"
+  },
   "the conformist|1970": {
     "imdbID": "tt0065571",
     "source": "exact_year",
@@ -6778,6 +6940,12 @@
     "source": "exact_year",
     "title": "The Great Annual Party of the Creatures of the Moon",
     "year": "2025"
+  },
+  "the curse of frankenstein|1957": {
+    "imdbID": "tt0050280",
+    "source": "exact",
+    "title": "The Curse of Frankenstein",
+    "year": "1957"
   },
   "the cycle of love|2025": {
     "imdbID": "tt38063160",
@@ -7007,6 +7175,12 @@
     "title": "The Fix",
     "year": "2024"
   },
+  "the flavor of green tea over rice|1952": {
+    "imdbID": "tt0044982",
+    "source": "exact",
+    "title": "The Flavor of Green Tea Over Rice",
+    "year": "1952"
+  },
   "the foul king|2000": {
     "imdbID": "tt0261552",
     "source": "exact",
@@ -7072,6 +7246,12 @@
     "source": "exact_year",
     "title": "The Goonies",
     "year": "1985"
+  },
+  "the gorgon|1965": {
+    "imdbID": "tt0058155",
+    "source": "exact",
+    "title": "The Gorgon",
+    "year": "1965"
   },
   "the gospel according to st matthew": {
     "imdbID": "tt0058715",
@@ -7157,6 +7337,12 @@
     "title": "The Holy Mountain",
     "year": "1975"
   },
+  "the hound of the baskervilles|1959": {
+    "imdbID": "tt0052905",
+    "source": "exact",
+    "title": "The Hound of the Baskervilles",
+    "year": "1959"
+  },
   "the hunchback of notre dame|1996": {
     "imdbID": "tt0116583",
     "source": "exact",
@@ -7215,6 +7401,12 @@
     "imdbID": "tt36980182",
     "source": "exact",
     "title": "The Incomer",
+    "year": "2026"
+  },
+  "the influencer project|2026": {
+    "imdbID": "tt42643242",
+    "source": "exact_year",
+    "title": "The Influencer Project",
     "year": "2026"
   },
   "the insider|1999": {
@@ -7456,6 +7648,12 @@
     "source": "exact",
     "title": "The Night Is Short, Walk on Girl",
     "year": "2017"
+  },
+  "the nightmare before christmas|1993": {
+    "imdbID": "tt0107688",
+    "source": "exact",
+    "title": "The Nightmare Before Christmas",
+    "year": "1993"
   },
   "the ninth gate|1999": {
     "imdbID": "tt0142688",
@@ -7726,6 +7924,12 @@
     "source": "exact",
     "title": "The Seventh Seal",
     "year": "1957"
+  },
+  "the shining|1980": {
+    "imdbID": "tt0081505",
+    "source": "exact",
+    "title": "The Shining",
+    "year": "1980"
   },
   "the shooting|1966": {
     "imdbID": "tt0062262",
@@ -8369,6 +8573,12 @@
     "title": "Trog",
     "year": "1970"
   },
+  "tron|1982": {
+    "imdbID": "tt0084827",
+    "source": "exact",
+    "title": "Tron",
+    "year": "1982"
+  },
   "trouble in paradise|1932": {
     "imdbID": "tt0023622",
     "source": "exact_year",
@@ -8579,6 +8789,12 @@
     "title": "Vengeance Is Mine",
     "year": "1984"
   },
+  "vera|2022": {
+    "imdbID": "tt12802546",
+    "source": "search",
+    "title": "Vera",
+    "year": "2022"
+  },
   "verity|2026": {
     "imdbID": "tt32261958",
     "source": "exact_year",
@@ -8614,6 +8830,12 @@
     "source": "exact_year",
     "title": "Violent Saturday",
     "year": "1955"
+  },
+  "virgina|1991": {
+    "imdbID": "tt0105761",
+    "source": "exact",
+    "title": "Virgina",
+    "year": "1991"
   },
   "vive l'amour|1994": {
     "imdbID": "tt0109066",
