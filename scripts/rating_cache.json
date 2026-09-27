@@ -2621,6 +2621,12 @@
     "title": "Fruitvale Station",
     "year": "2013"
   },
+  "fucktoys|2025": {
+    "imdbID": "tt35515220",
+    "source": "exact_year",
+    "title": "Fucktoys",
+    "year": "2025"
+  },
   "full alert|1997": {
     "imdbID": "tt0134664",
     "source": "exact_year",
@@ -2737,7 +2743,7 @@
   },
   "ghost in the shell|2017": {
     "imdbID": "tt1219827",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Ghost in the Shell",
     "year": "2017"
   },
@@ -3701,6 +3707,12 @@
     "title": "Just Like Weather",
     "year": "1986"
   },
+  "kama sutra: a tale of love|1996": {
+    "imdbID": "tt0116743",
+    "source": "exact",
+    "title": "Kama Sutra: A Tale of Love",
+    "year": "1996"
+  },
   "kangaroo island|2024": {
     "imdbID": "tt26669836",
     "source": "exact",
@@ -4504,6 +4516,12 @@
     "source": "exact_year",
     "title": "Monkey Business",
     "year": "1952"
+  },
+  "monster house|2006": {
+    "imdbID": "tt0385880",
+    "source": "exact",
+    "title": "Monster House",
+    "year": "2006"
   },
   "monte carlo|2011": {
     "imdbID": "tt1067774",
@@ -6875,6 +6893,12 @@
     "title": "The Brink of War",
     "year": "2026"
   },
+  "the cable guy|1996": {
+    "imdbID": "tt0115798",
+    "source": "exact",
+    "title": "The Cable Guy",
+    "year": "1996"
+  },
   "the cameraman|1928": {
     "imdbID": "tt0018742",
     "source": "exact_year",
@@ -7601,6 +7625,12 @@
     "title": "The Misfits",
     "year": "1961"
   },
+  "the monster squad|1987": {
+    "imdbID": "tt0093560",
+    "source": "exact",
+    "title": "The Monster Squad",
+    "year": "1987"
+  },
   "the musical|2026": {
     "imdbID": "tt37775809",
     "source": "exact_year",
@@ -8122,6 +8152,12 @@
     "source": "exact_year",
     "title": "The Trek",
     "year": "2008"
+  },
+  "the trial of alec baldwin|2025": {
+    "imdbID": "tt38633147",
+    "source": "exact_year",
+    "title": "The Trial of Alec Baldwin",
+    "year": "2025"
   },
   "the triplets of belleville|2003": {
     "imdbID": "tt0286244",
@@ -9118,6 +9154,12 @@
     "source": "exact_year",
     "title": "You're a Big Boy Now",
     "year": "1966"
+  },
+  "you've got mail|1998": {
+    "imdbID": "tt0128853",
+    "source": "exact",
+    "title": "You've Got Mail",
+    "year": "1998"
   },
   "young frankenstein|1974": {
     "imdbID": "tt0072431",
