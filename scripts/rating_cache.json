@@ -6011,6 +6011,12 @@
     "title": "Scream",
     "year": "2025"
   },
+  "seduction: the cruel woman|1985": {
+    "imdbID": "tt0090252",
+    "source": "exact",
+    "title": "Seduction: The Cruel Woman",
+    "year": "1985"
+  },
   "see no evil|1971": {
     "imdbID": "tt0067727",
     "source": "exact_year",
@@ -8500,6 +8506,12 @@
     "source": "exact_year",
     "title": "Top Gun",
     "year": "1986"
+  },
+  "torture dungeon|1969": {
+    "imdbID": "tt0066475",
+    "source": "exact_year",
+    "title": "Torture Dungeon",
+    "year": "1969"
   },
   "total recall|1990": {
     "imdbID": "tt0100802",
