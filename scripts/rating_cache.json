@@ -137,6 +137,12 @@
     "title": "A Fistful of Dollars",
     "year": "1967"
   },
+  "a generation|1955": {
+    "imdbID": "tt0048500",
+    "source": "exact_year",
+    "title": "A Generation",
+    "year": "1955"
+  },
   "a letter to three wives|1949": {
     "imdbID": "tt0041587",
     "source": "exact_year",
@@ -646,6 +652,12 @@
     "source": "exact_year",
     "title": "ASCO: Without Permission",
     "year": "2025"
+  },
+  "ashes and diamonds|1958": {
+    "imdbID": "tt0052080",
+    "source": "exact",
+    "title": "Ashes and Diamonds",
+    "year": "1958"
   },
   "atonement|2026": {
     "imdbID": "tt36789083",
@@ -2019,6 +2031,12 @@
     "imdbID": "tt14113634",
     "source": "exact_year",
     "title": "Drishyam 3",
+    "year": "2026"
+  },
+  "drishyam: the conclusion|2026": {
+    "imdbID": "tt27050858",
+    "source": "exact_year",
+    "title": "Drishyam: The Conclusion",
     "year": "2026"
   },
   "drive|2011": {
@@ -3509,6 +3527,12 @@
     "title": "Inland Empire",
     "year": "2006"
   },
+  "innocent sorcerers|1960": {
+    "imdbID": "tt0054119",
+    "source": "exact",
+    "title": "Innocent Sorcerers",
+    "year": "1960"
+  },
   "insidious: out of the further|2026": {
     "imdbID": "tt32393988",
     "source": "exact_year",
@@ -4084,6 +4108,12 @@
     "source": "exact",
     "title": "Lost Highway",
     "year": "1997"
+  },
+  "lotna|1959": {
+    "imdbID": "tt0053019",
+    "source": "exact_year",
+    "title": "Lotna",
+    "year": "1959"
   },
   "louie bluie|1985": {
     "imdbID": "tt0089507",
@@ -6029,6 +6059,12 @@
     "title": "Seeing Red",
     "year": "1983"
   },
+  "sense and sensibility|2026": {
+    "imdbID": "tt13609648",
+    "source": "exact_year",
+    "title": "Sense and Sensibility",
+    "year": "2026"
+  },
   "senso|1954": {
     "imdbID": "tt0047469",
     "source": "exact",
@@ -6346,6 +6382,12 @@
     "source": "exact_year",
     "title": "Splash City",
     "year": "2026"
+  },
+  "spring breakers|2012": {
+    "imdbID": "tt2101441",
+    "source": "exact",
+    "title": "Spring Breakers",
+    "year": "2012"
   },
   "spy": {
     "imdbID": "tt35522920",
@@ -6718,6 +6760,12 @@
     "source": "exact",
     "title": "The Addams Family",
     "year": "1991"
+  },
+  "the adventures of prince achmed|1926": {
+    "imdbID": "tt0015532",
+    "source": "exact_year",
+    "title": "The Adventures of Prince Achmed",
+    "year": "1926"
   },
   "the age of innocence|1993": {
     "imdbID": "tt0106226",
@@ -7156,6 +7204,12 @@
     "source": "exact_year",
     "title": "The Eternal Daughter",
     "year": "2022"
+  },
+  "the exorcist|1973": {
+    "imdbID": "tt0070047",
+    "source": "exact",
+    "title": "The Exorcist",
+    "year": "1973"
   },
   "the exterminating angel|1962": {
     "imdbID": "tt0056732",
@@ -8249,6 +8303,12 @@
     "title": "The Wedding Banquet",
     "year": "1993"
   },
+  "the wedding|2020": {
+    "imdbID": "tt10709742",
+    "source": "exact",
+    "title": "The Wedding",
+    "year": "2020"
+  },
   "the weed eaters|2025": {
     "imdbID": "tt35667902",
     "source": "exact_year",
@@ -8290,6 +8350,12 @@
     "source": "exact_year",
     "title": "The Wizard of the Kremlin",
     "year": "2025"
+  },
+  "the women|1939": {
+    "imdbID": "tt0032143",
+    "source": "exact_year",
+    "title": "The Women",
+    "year": "1939"
   },
   "the wrestler and the clown": {
     "imdbID": "tt0050206",
