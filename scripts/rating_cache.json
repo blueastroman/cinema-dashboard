@@ -1283,6 +1283,12 @@
     "title": "Cars",
     "year": "2006"
   },
+  "casino royale|2006": {
+    "imdbID": "tt0381061",
+    "source": "exact",
+    "title": "Casino Royale",
+    "year": "2006"
+  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -1793,6 +1799,12 @@
     "title": "Death Valley",
     "year": "2021"
   },
+  "death wish|1974": {
+    "imdbID": "tt0071402",
+    "source": "exact_year",
+    "title": "Death Wish",
+    "year": "1974"
+  },
   "decision to leave|2022": {
     "imdbID": "tt12477480",
     "source": "exact_year",
@@ -2290,6 +2302,12 @@
     "source": "exact",
     "title": "Everything Everywhere All at Once",
     "year": "2022"
+  },
+  "everything for sale|1969": {
+    "imdbID": "tt0065226",
+    "source": "exact",
+    "title": "Everything for Sale",
+    "year": "1969"
   },
   "everytime|2026": {
     "imdbID": "tt41592057",
@@ -3213,6 +3231,12 @@
     "imdbID": "tt33045418",
     "source": "exact",
     "title": "Hellcat",
+    "year": "2025"
+  },
+  "hello beautiful|2025": {
+    "imdbID": "tt9018874",
+    "source": "exact_year",
+    "title": "Hello Beautiful",
     "year": "2025"
   },
   "hellraiser|1987": {
@@ -5449,7 +5473,7 @@
   },
   "poltergeist|1982": {
     "imdbID": "tt0084516",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Poltergeist",
     "year": "1982"
   },
@@ -6995,6 +7019,12 @@
     "title": "The Conformist",
     "year": "1970"
   },
+  "the conjuring|2013": {
+    "imdbID": "tt1457767",
+    "source": "exact",
+    "title": "The Conjuring",
+    "year": "2013"
+  },
   "the conversation|1974": {
     "imdbID": "tt0071360",
     "source": "exact_year",
@@ -7090,6 +7120,12 @@
     "source": "exact",
     "title": "The Departed",
     "year": "2006"
+  },
+  "the deputy|2026": {
+    "imdbID": "tt29494959",
+    "source": "exact_year",
+    "title": "The Deputy",
+    "year": "2026"
   },
   "the descent|2005": {
     "imdbID": "tt0435625",
@@ -7384,6 +7420,12 @@
     "source": "exact_year",
     "title": "The Happy Time",
     "year": "1952"
+  },
+  "the haunting|1999": {
+    "imdbID": "tt0171363",
+    "source": "exact",
+    "title": "The Haunting",
+    "year": "1999"
   },
   "the headless woman|2008": {
     "imdbID": "tt1221141",
@@ -7811,6 +7853,12 @@
     "title": "The Peril at Pincer Point",
     "year": "2026"
   },
+  "the phantom of the opera|2004": {
+    "imdbID": "tt0293508",
+    "source": "exact",
+    "title": "The Phantom of the Opera",
+    "year": "2004"
+  },
   "the piano|1993": {
     "imdbID": "tt0107822",
     "source": "exact_year",
@@ -8104,12 +8152,6 @@
     "source": "override",
     "title": "The Stranger",
     "year": "2025"
-  },
-  "the stunt driver|2026": {
-    "imdbID": "tt34611096",
-    "source": "exact_year",
-    "title": "The Stunt Driver",
-    "year": "2026"
   },
   "the substance|2024": {
     "imdbID": "tt17526714",
@@ -9034,6 +9076,12 @@
     "source": "search",
     "title": "Wet Hot American Summer",
     "year": "2001"
+  },
+  "whalefall|2026": {
+    "imdbID": "tt28535715",
+    "source": "exact_year",
+    "title": "Whalefall",
+    "year": "2026"
   },
   "what do we see when we look at the sky?|2021": {
     "imdbID": "tt14035154",
