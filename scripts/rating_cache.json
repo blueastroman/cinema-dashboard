@@ -551,6 +551,12 @@
     "title": "Andrei Rublev",
     "year": "1966"
   },
+  "andré leon talley: style is forever|2025": {
+    "imdbID": "tt39216435",
+    "source": "exact",
+    "title": "André Leon Talley: Style Is Forever",
+    "year": "2025"
+  },
   "angel heart|1987": {
     "imdbID": "tt0092563",
     "source": "exact",
@@ -586,6 +592,12 @@
     "source": "exact_year",
     "title": "Appofeniacs",
     "year": "2025"
+  },
+  "april x|2026": {
+    "imdbID": "tt30850718",
+    "source": "exact_year",
+    "title": "April X",
+    "year": "2026"
   },
   "arabesque|1966": {
     "imdbID": "tt0060121",
@@ -1283,12 +1295,6 @@
     "title": "Cars",
     "year": "2006"
   },
-  "casino royale|2006": {
-    "imdbID": "tt0381061",
-    "source": "exact",
-    "title": "Casino Royale",
-    "year": "2006"
-  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -1361,12 +1367,6 @@
     "title": "ChaO",
     "year": "2025"
   },
-  "charlie harper|2026": {
-    "imdbID": "tt27739255",
-    "source": "exact_year",
-    "title": "Charlie Harper",
-    "year": "2026"
-  },
   "charlie the wonderdog|2026": {
     "imdbID": "tt29612071",
     "source": "exact_year",
@@ -1405,7 +1405,7 @@
   },
   "chronovisor|2026": {
     "imdbID": "tt39196981",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Chronovisor",
     "year": "2026"
   },
@@ -1697,6 +1697,12 @@
     "title": "Dacoit: A Love Story",
     "year": "2025"
   },
+  "danton|1983": {
+    "imdbID": "tt0083789",
+    "source": "exact_year",
+    "title": "Danton",
+    "year": "1983"
+  },
   "dao|2026": {
     "imdbID": "tt32358921",
     "source": "exact",
@@ -1979,17 +1985,17 @@
     "title": "Don't Torture a Duckling",
     "year": "1972"
   },
+  "don't trouble the trouble|2026": {
+    "imdbID": "tt31841170",
+    "source": "exact_year",
+    "title": "Don't Trouble the Trouble",
+    "year": "2026"
+  },
   "donnie brasco": {
     "imdbID": "tt0119008",
     "source": "exact",
     "title": "Donnie Brasco",
     "year": "1997"
-  },
-  "donnie darko|2001": {
-    "imdbID": "tt0246578",
-    "source": "exact",
-    "title": "Donnie Darko",
-    "year": "2001"
   },
   "dont look back|1967": {
     "imdbID": "tt0061589",
@@ -2771,12 +2777,6 @@
     "title": "Ghost Dog: The Way of the Samurai",
     "year": "1999"
   },
-  "ghost in the cell|2026": {
-    "imdbID": "tt9000310",
-    "source": "exact_year",
-    "title": "Ghost in the Cell",
-    "year": "2026"
-  },
   "ghost in the shell|2017": {
     "imdbID": "tt1219827",
     "source": "exact",
@@ -3335,12 +3335,6 @@
     "title": "Horsegirls",
     "year": "2026"
   },
-  "hostel|2005": {
-    "imdbID": "tt0450278",
-    "source": "exact",
-    "title": "Hostel",
-    "year": "2005"
-  },
   "hot spot|2026": {
     "imdbID": "tt14119302",
     "source": "exact_year",
@@ -3808,6 +3802,12 @@
     "source": "exact_year",
     "title": "Kontinental '25",
     "year": "2025"
+  },
+  "korczak|1990": {
+    "imdbID": "tt0099949",
+    "source": "exact_year",
+    "title": "Korczak",
+    "year": "1990"
   },
   "korean kanakaraju|2026": {
     "imdbID": "tt32474264",
@@ -4888,6 +4888,12 @@
     "source": "exact_year",
     "title": "Nimrods",
     "year": "2026"
+  },
+  "ninja scroll|1993": {
+    "imdbID": "tt0107692",
+    "source": "exact",
+    "title": "Ninja Scroll",
+    "year": "1993"
   },
   "nirvanna the band the show the movie": {
     "imdbID": "tt35522483",
@@ -6923,6 +6929,12 @@
     "title": "The Boy and the Heron",
     "year": "2023"
   },
+  "the boy friend|1971": {
+    "imdbID": "tt0066858",
+    "source": "exact",
+    "title": "The Boy Friend",
+    "year": "1971"
+  },
   "the brady bunch movie|1995": {
     "imdbID": "tt0112572",
     "source": "exact_year",
@@ -7733,12 +7745,6 @@
     "title": "The Monster Squad",
     "year": "1987"
   },
-  "the musical|2026": {
-    "imdbID": "tt37775809",
-    "source": "exact_year",
-    "title": "The Musical",
-    "year": "2026"
-  },
   "the naked city|1948": {
     "imdbID": "tt0040636",
     "source": "exact_year",
@@ -8152,6 +8158,12 @@
     "source": "override",
     "title": "The Stranger",
     "year": "2025"
+  },
+  "the stunt driver|2026": {
+    "imdbID": "tt34611096",
+    "source": "exact_year",
+    "title": "The Stunt Driver",
+    "year": "2026"
   },
   "the substance|2024": {
     "imdbID": "tt17526714",
@@ -9185,6 +9197,12 @@
     "title": "Who's Afraid of Virginia Woolf?",
     "year": "1966"
   },
+  "whore|1991": {
+    "imdbID": "tt0103253",
+    "source": "exact",
+    "title": "Whore",
+    "year": "1991"
+  },
   "wicker|2026": {
     "imdbID": "tt29611136",
     "source": "exact_year",
@@ -9238,6 +9256,12 @@
     "source": "exact",
     "title": "Woman of Fire",
     "year": "1971"
+  },
+  "women in love|1970": {
+    "imdbID": "tt0066579",
+    "source": "exact",
+    "title": "Women in Love",
+    "year": "1970"
   },
   "women on the verge of a nervous breakdown|1988": {
     "imdbID": "tt0095675",
