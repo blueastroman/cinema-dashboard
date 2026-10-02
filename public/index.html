@@ -3924,7 +3924,9 @@ let membershipDefaults = {
   alamo: 'all',
   regal: 'all',
 };
-const MOVIE_BLURB_STORAGE_KEY = 'cinema_movie_blurbs';
+// Reviews are identity-sensitive. A new namespace prevents copy generated for
+// an older movie record from surviving a metadata refresh.
+const MOVIE_BLURB_STORAGE_KEY = 'cinema_movie_blurbs_identity_v2';
 const POSTER_TINT_STORAGE_KEY = 'cinema_poster_tints';
 const BLURB_MAX_CONCURRENT_REQUESTS = 3;
 const BLURB_MAX_VISIBLE_CHARS = 340;
@@ -4976,9 +4978,45 @@ function getDisplayReason(movie) {
 }
 
 function getMovieBlurbKey(movie) {
+  const id = cleanDisplayText(movie?.id);
+  if (id) return id;
+  return getLegacyMovieBlurbKey(movie);
+}
+
+function getLegacyMovieBlurbKey(movie) {
   const title = cleanDisplayText(movie?.title);
   const year = cleanDisplayText(movie?.ratings?.year);
   return `${title}-${year}`;
+}
+
+function hasVerifiedCloudOverrideIdentity(movie, override) {
+  const movieImdbID = cleanDisplayText(movie?.ratings?.imdbID || movie?.ratings?.imdbId).toLowerCase();
+  const overrideImdbID = cleanDisplayText(override?.imdbID).toLowerCase();
+  return Boolean(movieImdbID && overrideImdbID && movieImdbID === overrideImdbID);
+}
+
+function cloudBlurbMatchesMovie(movie, override) {
+  if (!hasVerifiedCloudOverrideIdentity(movie, override)) return false;
+  const text = cleanDisplayText(override?.text).toLowerCase();
+  const reference = `${getMovieBlurbPremiseText(movie)} ${getMovieBlurbConsensusText(movie)}`.toLowerCase();
+  const unsupportedClaims = [
+    [/\bremak(?:e|es|ing|ed)\b/i, /\bremak(?:e|es|ing|ed)\b/i],
+    [/\bmeta(?:-|\s)?joke\b/i, /\bmeta\b|\bremak(?:e|es|ing|ed)\b/i],
+    [/\bshot(?:-|\s)?for(?:-|\s)?shot\b/i, /\bshot(?:-|\s)?for(?:-|\s)?shot\b/i],
+  ];
+  return unsupportedClaims.every(([claim, support]) => !claim.test(text) || support.test(reference));
+}
+
+function getIdentityBoundCacheEntry(cache, movie) {
+  const direct = cache?.[getMovieBlurbKey(movie)];
+  if (direct) {
+    if (direct.cloud && !cloudBlurbMatchesMovie(movie, direct)) return null;
+    return direct;
+  }
+  const legacy = cache?.[getLegacyMovieBlurbKey(movie)];
+  if (!legacy) return null;
+  if (legacy.cloud && !cloudBlurbMatchesMovie(movie, legacy)) return null;
+  return hasVerifiedCloudOverrideIdentity(movie, legacy) ? legacy : null;
 }
 
 function loadStoredMovieBlurbs() {
@@ -4997,7 +5035,7 @@ function saveStoredMovieBlurbs() {
 }
 
 function getStoredMovieBlurb(movie) {
-  const entry = movieBlurbCache[getMovieBlurbKey(movie)];
+  const entry = getIdentityBoundCacheEntry(movieBlurbCache, movie);
   if (!entry || typeof entry !== 'object') return null;
   const text = formatMovieBlurbText(entry.text);
   if (!text) return null;
@@ -5242,7 +5280,7 @@ function primeMovieBlurbCache(movies) {
     if (!reason) continue;
     const key = getMovieBlurbKey(movie);
     if (!key) continue;
-    const existing = movieBlurbCache[key];
+    const existing = getIdentityBoundCacheEntry(movieBlurbCache, movie);
     if (existing?.text && existing.source !== 'fallback') continue;
     movieBlurbCache = {
       ...movieBlurbCache,
@@ -8326,7 +8364,12 @@ async function loadBlurbsFromCloud() {
     let changedBlurbs = false;
     data.forEach(r => {
       if (r.movie_key && r.text) {
-        movieBlurbCache[r.movie_key] = { text: r.text, source: r.source || 'manual' };
+        movieBlurbCache[r.movie_key] = {
+          text: r.text,
+          source: r.source || 'manual',
+          imdbID: r.imdb_id_override || null,
+          cloud: true,
+        };
         changedBlurbs = true;
       }
       if (r.movie_key && r.prestige_tag) {
@@ -8351,14 +8394,13 @@ async function loadBlurbsFromCloud() {
 function applyScoreOverrides() {
   allMovies.forEach(movie => {
     const key = getMovieBlurbKey(movie);
-    const ov = cloudScoreOverrides[key];
-    if (!ov) return;
+    const ov = cloudScoreOverrides[key] || cloudScoreOverrides[getLegacyMovieBlurbKey(movie)];
+    if (!ov || !hasVerifiedCloudOverrideIdentity(movie, ov)) return;
     if (ov.rt) movie.ratings.rt = ov.rt;
     if (ov.cinemaScore) movie.ratings.cinemaScore = ov.cinemaScore;
     if (ov.lb) movie.ratings.letterboxd = ov.lb;
     if (ov.rtUrl) movie.ratings.rtUrl = ov.rtUrl;
     if (ov.letterboxdUrl) movie.ratings.letterboxdUrl = ov.letterboxdUrl;
-    if (ov.imdbID) movie.ratings.imdbID = ov.imdbID;
     if (ov.poster) movie.ratings.poster = ov.poster;
   });
 }
