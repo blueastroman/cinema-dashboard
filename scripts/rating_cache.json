@@ -473,6 +473,12 @@
     "title": "Alpha",
     "year": "2018"
   },
+  "altered states|1980": {
+    "imdbID": "tt0080360",
+    "source": "exact",
+    "title": "Altered States",
+    "year": "1980"
+  },
   "alyonka|1962": {
     "imdbID": "tt0054619",
     "source": "exact",
@@ -1997,6 +2003,12 @@
     "title": "Donnie Brasco",
     "year": "1997"
   },
+  "donnie darko|2001": {
+    "imdbID": "tt0246578",
+    "source": "exact_year",
+    "title": "Donnie Darko",
+    "year": "2001"
+  },
   "dont look back|1967": {
     "imdbID": "tt0061589",
     "source": "exact_year",
@@ -2777,6 +2789,12 @@
     "title": "Ghost Dog: The Way of the Samurai",
     "year": "1999"
   },
+  "ghost in the cell|2026": {
+    "imdbID": "tt9000310",
+    "source": "exact_year",
+    "title": "Ghost in the Cell",
+    "year": "2026"
+  },
   "ghost in the shell|2017": {
     "imdbID": "tt1219827",
     "source": "exact",
@@ -3334,6 +3352,12 @@
     "source": "exact_year",
     "title": "Horsegirls",
     "year": "2026"
+  },
+  "hostel|2005": {
+    "imdbID": "tt0450278",
+    "source": "exact_year",
+    "title": "Hostel",
+    "year": "2005"
   },
   "hot spot|2026": {
     "imdbID": "tt14119302",
@@ -4066,6 +4090,12 @@
     "source": "exact_year",
     "title": "Linda Linda Linda",
     "year": "2005"
+  },
+  "lisztomania|1975": {
+    "imdbID": "tt0073298",
+    "source": "exact",
+    "title": "Lisztomania",
+    "year": "1975"
   },
   "little shop of horrors|1986": {
     "imdbID": "tt0091419",
@@ -6461,6 +6491,12 @@
     "title": "Stan & Ollie",
     "year": "2018"
   },
+  "stand and deliver|1988": {
+    "imdbID": "tt0094027",
+    "source": "exact",
+    "title": "Stand and Deliver",
+    "year": "1988"
+  },
   "stand by me|1986": {
     "imdbID": "tt0092005",
     "source": "exact",
@@ -7745,6 +7781,12 @@
     "title": "The Monster Squad",
     "year": "1987"
   },
+  "the musical|2026": {
+    "imdbID": "tt37775809",
+    "source": "exact_year",
+    "title": "The Musical",
+    "year": "2026"
+  },
   "the naked city|1948": {
     "imdbID": "tt0040636",
     "source": "exact_year",
@@ -7798,6 +7840,12 @@
     "source": "exact",
     "title": "The Ninth Gate",
     "year": "1999"
+  },
+  "the north|2025": {
+    "imdbID": "tt35331003",
+    "source": "exact_year",
+    "title": "The North",
+    "year": "2025"
   },
   "the nutty professor|1996": {
     "imdbID": "tt0117218",
