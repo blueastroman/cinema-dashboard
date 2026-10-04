@@ -1313,12 +1313,6 @@
     "title": "Cars",
     "year": "2006"
   },
-  "casino royale|2006": {
-    "imdbID": "tt0381061",
-    "source": "exact",
-    "title": "Casino Royale",
-    "year": "2006"
-  },
   "castle in the sky|1986": {
     "imdbID": "tt0092067",
     "source": "exact",
@@ -3641,6 +3635,12 @@
     "title": "Insidious: Out of the Further",
     "year": "2026"
   },
+  "introduction|2021": {
+    "imdbID": "tt14035108",
+    "source": "exact",
+    "title": "Introduction",
+    "year": "2021"
+  },
   "invisible adversaries|1977": {
     "imdbID": "tt0076204",
     "source": "exact",
@@ -4159,7 +4159,7 @@
   },
   "little shop of horrors|1986": {
     "imdbID": "tt0091419",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Little Shop of Horrors",
     "year": "1986"
   },
@@ -4601,6 +4601,12 @@
     "title": "Mississippi Mermaid",
     "year": "1969"
   },
+  "misty green|2026": {
+    "imdbID": "tt34385184",
+    "source": "exact_year",
+    "title": "Misty Green",
+    "year": "2026"
+  },
   "mitti de putt|2026": {
     "imdbID": "tt39120291",
     "source": "exact_year",
@@ -4768,6 +4774,12 @@
     "source": "exact",
     "title": "Muppet Treasure Island",
     "year": "1996"
+  },
+  "musk|2026": {
+    "imdbID": "tt27041231",
+    "source": "exact_year",
+    "title": "Musk",
+    "year": "2026"
   },
   "my brother's wedding|1983": {
     "imdbID": "tt0087763",
@@ -5530,6 +5542,12 @@
     "source": "override",
     "title": "Planet of the Apes",
     "year": "1968"
+  },
+  "playing with fire: an ecosexual emergency|2025": {
+    "imdbID": "tt36997965",
+    "source": "exact_year",
+    "title": "Playing with Fire: An Ecosexual Emergency",
+    "year": "2025"
   },
   "playtime|1967": {
     "imdbID": "tt0062136",
@@ -7967,6 +7985,12 @@
     "title": "The Others",
     "year": "2001"
   },
+  "the others|2026": {
+    "imdbID": "tt40116294",
+    "source": "exact_year",
+    "title": "The others",
+    "year": "2026"
+  },
   "the outfit": {
     "imdbID": "tt14114802",
     "source": "exact",
@@ -8434,6 +8458,12 @@
     "source": "exact",
     "title": "The Truman Show",
     "year": "1998"
+  },
+  "the twilight saga: breaking dawn – part 1|2011": {
+    "imdbID": "tt1324999",
+    "source": "exact",
+    "title": "The Twilight Saga: Breaking Dawn - Part 1",
+    "year": "2011"
   },
   "the umbrellas of cherbourg|1964": {
     "imdbID": "tt0058450",
