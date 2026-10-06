@@ -323,6 +323,12 @@
     "title": "After Hours",
     "year": "1985"
   },
+  "afterimage|2017": {
+    "imdbID": "tt5186236",
+    "source": "exact",
+    "title": "Afterimage",
+    "year": "2017"
+  },
   "afterpiece|2026": {
     "imdbID": "tt38798617",
     "source": "exact_year",
@@ -406,6 +412,12 @@
     "source": "exact_year",
     "title": "All About Eve",
     "year": "1950"
+  },
+  "all about lily chou-chou|2001": {
+    "imdbID": "tt0297721",
+    "source": "exact",
+    "title": "All About Lily Chou-Chou",
+    "year": "2001"
   },
   "all about my mother|1999": {
     "imdbID": "tt0185125",
@@ -2183,6 +2195,12 @@
     "title": "Earth",
     "year": "2007"
   },
+  "earth|2009": {
+    "imdbID": "tt0393597",
+    "source": "exact_year",
+    "title": "Earth",
+    "year": "2009"
+  },
   "east side, west side|1927": {
     "imdbID": "tt0017841",
     "source": "exact_year",
@@ -2380,6 +2398,12 @@
     "source": "exact",
     "title": "Everytime",
     "year": "2026"
+  },
+  "evil dead 2|1987": {
+    "imdbID": "tt3297314",
+    "source": "exact",
+    "title": "Evil Dead 2",
+    "year": "1987"
   },
   "evil dead burn|2026": {
     "imdbID": "tt31170389",
@@ -2699,6 +2723,12 @@
     "title": "Freefall: A Reckoning for Boeing",
     "year": "2026"
   },
+  "fresh meat|2025": {
+    "imdbID": "tt29669887",
+    "source": "exact_year",
+    "title": "Fresh Meat",
+    "year": "2025"
+  },
   "friday foster|1975": {
     "imdbID": "tt0073019",
     "source": "exact_year",
@@ -2932,6 +2962,12 @@
     "source": "exact",
     "title": "Godzilla Minus One",
     "year": "2023"
+  },
+  "godzilla minus zero|2026": {
+    "imdbID": "tt34384661",
+    "source": "exact_year",
+    "title": "Godzilla Minus Zero",
+    "year": "2026"
   },
   "godzilla vs. biollante|1989": {
     "imdbID": "tt0097444",
@@ -3797,6 +3833,12 @@
     "title": "Jaws",
     "year": "1975"
   },
+  "jeepers creepers|2001": {
+    "imdbID": "tt0263488",
+    "source": "exact",
+    "title": "Jeepers Creepers",
+    "year": "2001"
+  },
   "jennifer's body|2009": {
     "imdbID": "tt1131734",
     "source": "exact",
@@ -4402,6 +4444,18 @@
     "source": "exact_year",
     "title": "Mamma Mia!",
     "year": "2008"
+  },
+  "man of iron|1981": {
+    "imdbID": "tt0082222",
+    "source": "exact",
+    "title": "Man of Iron",
+    "year": "1981"
+  },
+  "man of marble|1977": {
+    "imdbID": "tt0075902",
+    "source": "exact",
+    "title": "Man of Marble",
+    "year": "1977"
   },
   "manhood|2003": {
     "imdbID": "tt0316219",
@@ -7355,6 +7409,12 @@
     "title": "The Diary of a Chambermaid",
     "year": "1946"
   },
+  "the disciple|2021": {
+    "imdbID": "tt11423784",
+    "source": "exact",
+    "title": "The Disciple",
+    "year": "2021"
+  },
   "the discreet charm of the bourgeoisie|1972": {
     "imdbID": "tt0068361",
     "source": "exact_year",
@@ -8099,11 +8159,23 @@
     "title": "The Practice of Love",
     "year": "1985"
   },
+  "the princess bride|1987": {
+    "imdbID": "tt0093779",
+    "source": "exact_year",
+    "title": "The Princess Bride",
+    "year": "1987"
+  },
   "the producers|1967": {
     "imdbID": "tt0063462",
     "source": "exact",
     "title": "The Producers",
     "year": "1967"
+  },
+  "the promised land|2023": {
+    "imdbID": "tt20561198",
+    "source": "exact",
+    "title": "The Promised Land",
+    "year": "2023"
   },
   "the prophet|1968": {
     "imdbID": "tt0063464",
@@ -9137,6 +9209,12 @@
     "title": "Urban Legend",
     "year": "1998"
   },
+  "urgh! a music war|1981": {
+    "imdbID": "tt0138902",
+    "source": "exact",
+    "title": "Urgh! A Music War",
+    "year": "1981"
+  },
   "utamaro and his five women|1946": {
     "imdbID": "tt0039074",
     "source": "exact_year",
@@ -9244,6 +9322,12 @@
     "source": "exact",
     "title": "Wake in Fright",
     "year": "1971"
+  },
+  "walesa: man of hope|2013": {
+    "imdbID": "tt2113820",
+    "source": "exact",
+    "title": "Walesa: Man of Hope",
+    "year": "2013"
   },
   "walk the walk|1970": {
     "imdbID": "tt0235011",
