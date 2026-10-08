@@ -1529,6 +1529,12 @@
     "title": "Clockwatchers",
     "year": "1997"
   },
+  "closure|2007": {
+    "imdbID": "tt0480011",
+    "source": "exact",
+    "title": "Closure",
+    "year": "2007"
+  },
   "cloud atlas|2012": {
     "imdbID": "tt1371111",
     "source": "exact",
@@ -5501,6 +5507,12 @@
     "title": "Palestine 36",
     "year": "2026"
   },
+  "pan's labyrinth|2007": {
+    "imdbID": "tt0457430",
+    "source": "search",
+    "title": "Pan's Labyrinth",
+    "year": "2007"
+  },
   "panda|2024": {
     "imdbID": "tt28630624",
     "source": "search",
@@ -7187,6 +7199,12 @@
     "title": "The Big Lebowski",
     "year": "1998"
   },
+  "the birch wood|1970": {
+    "imdbID": "tt0068321",
+    "source": "exact",
+    "title": "The Birch Wood",
+    "year": "1970"
+  },
   "the bird with the crystal plumage|1970": {
     "imdbID": "tt0065143",
     "source": "exact",
@@ -7997,6 +8015,12 @@
     "title": "The Magic Faraway Tree",
     "year": "2026"
   },
+  "the maids of wilko|1979": {
+    "imdbID": "tt0079696",
+    "source": "exact",
+    "title": "The Maids of Wilko",
+    "year": "1979"
+  },
   "the maltese falcon|1941": {
     "imdbID": "tt0033870",
     "source": "exact",
@@ -8326,6 +8350,12 @@
     "source": "exact",
     "title": "The Rock",
     "year": "1996"
+  },
+  "the room|2025": {
+    "imdbID": "tt39284795",
+    "source": "exact_year",
+    "title": "The Room",
+    "year": "2025"
   },
   "the root": {
     "imdbID": "tt19063048",
