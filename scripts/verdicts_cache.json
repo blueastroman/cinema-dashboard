@@ -961,13 +961,13 @@
     "generated_at": "2026-05-08T17:04:54.488592"
   },
   "tt0114436": {
-    "verdict": "DEPENDS",
-    "reason": "Verhoeven's excess has cult appeal and the Alamo crowd makes it an event. Don't go for substance; go for spectacle and company.",
-    "generated_at": "2026-09-30T17:53:16.426312",
+    "verdict": "SKIP",
+    "reason": "Skip it; Verhoeven's film collapses under its own excess and doesn't improve on the big screen. The 131-minute runtime punishes what little narrative exists.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "5ed2513867b07b3764ed166bb366db0ab3e602a9600ce6b0cdd485e368ceaed5"
+    "source_hash": "c260c40f3ad3447dbc72429667911f1b3599c857781c2910b62d4018846d9a37"
   },
   "tt38235625": {
     "verdict": "SKIP",
@@ -4149,7 +4149,11 @@
   "tt39284795": {
     "verdict": "SKIP",
     "reason": "Skip this low-budget relationship drama that mistakes obvious conflict for insight. Ibinola's direction never finds a visual language beyond static therapy session setups.",
-    "generated_at": "2026-06-03T17:09:22.943668"
+    "generated_at": "2026-10-08T18:36:25.877250",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "e03765be45c61c42a9cf084fba5f045ce6f36da7d979747b8ab3ffa69a62bae6"
   },
   "chum": {
     "verdict": "SKIP",
@@ -4599,12 +4603,12 @@
   },
   "tt33764258": {
     "verdict": "WATCH",
-    "reason": "Nolan's 172-minute mythic epic on a big screen is worth the trip. 70mm and IMAX options at Union Square and Kips Bay make this essential theatrical.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Nolan on a 172-minute epic in 70mm is worth the trip. Catch it in the largest format available—the theatrical scale is the whole point.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "12901e41203f714abfe71cf3d0b822b6877822435ab9dc26554b2ee69dcd242d"
+    "source_hash": "85bbca433bdffe030c0a7a4a48e26821ae2638776285363e1b0804d0bc85d752"
   },
   "the-phantom-of-liberty-le-fantome-de-la-liberte": {
     "verdict": "WATCH",
@@ -6261,12 +6265,12 @@
   },
   "tt22084616": {
     "verdict": "WATCH",
-    "reason": "Cretton's Spider-Man film earns a theatrical trip with real action craft. The 4DX format amplifies the physical stakes of a hero pushed to his limit.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Cretton brings a sharp new angle to the character after the multiverse mess. The premise of a forgotten Peter forced into full-time vigilantism has real bite.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "46778935b87ea8d50bf66433be7e030e6566a66714270c2e0c0fc133002335f5"
+    "source_hash": "339fcdb4d1d0461abd51212e537481c3b7a2b3bf2b78d4cd28c3443670add109"
   },
   "tinsman-road-with-live-q-a": {
     "verdict": "DEPENDS",
@@ -7276,12 +7280,12 @@
   },
   "tt35298123": {
     "verdict": "WATCH",
-    "reason": "Schoenbrun's metafictional horror-comedy justifies the trip on 35mm. The premise—a director chasing an actress into psychological obsession—plays sharper on a big screen.",
-    "generated_at": "2026-10-01T18:12:46.379788",
+    "reason": "Schoenbrun's collision of horror, sex, and meta-filmmaking deserves a big screen. The psychological tangle between director and actor plays best in a theater.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "6f49d2458666fa5ebeb3d6da0b75dbd33ab092f6234c831ea694b8e244eff11a"
+    "source_hash": "700a7acbbdaca5b53bab90e009d4f54204b8d4034c6ee9ad25361adc3ad5dea1"
   },
   "tt34383465": {
     "verdict": "DEPENDS",
@@ -8869,12 +8873,12 @@
   },
   "tt32588798": {
     "verdict": "SKIP",
-    "reason": "Skip it; the execution doesn't justify the premise. Bier's direction can't salvage a cursed-family story that collapses under its own melodrama.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Skip it; the premise doesn't justify a theatrical trip and the execution fell flat. Susanne Bier's direction can't salvage a thin, predictable curse-breaking narrative.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "147f9aedced06568b78ca5044517bc3cfcb3393e639469758546ccaa1bb53581"
+    "source_hash": "39af9aab7517a67feae85fd9444d99114a68fce72df27891fff206e31f3e843c"
   },
   "tt10957044": {
     "verdict": "SKIP",
@@ -10282,12 +10286,12 @@
   },
   "tt36107185": {
     "verdict": "WATCH",
-    "reason": "A debut feature about desire and vertigo set among Pompeii's ruins deserves the big screen. Film at Lincoln Center is the place to see it.",
-    "generated_at": "2026-10-02T17:38:10.603340",
+    "reason": "A rare debut that justifies the hype—Pompeii's ruins become a stage for teenage vertigo and desire. Atlan's control of mood and image demands the big screen at Lincoln Center.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "b73e4168642e2a28f0a8f612783b99f6f961ab3f026e0242ecb720a2f4f2789e"
+    "source_hash": "8de6c7d4350b295b6782ede7c450362e227d853d3b2598e66bf622c46755362f"
   },
   "tt0415160": {
     "verdict": "SKIP",
@@ -10327,12 +10331,12 @@
   },
   "tt21188986": {
     "verdict": "WATCH",
-    "reason": "Valeska Grisebach's first action film deserves the big screen at Lincoln Center. A 167-minute immersion in desire and danger from a director working at the height of her powers.",
-    "generated_at": "2026-09-30T17:53:16.426312",
+    "reason": "Grisebach's first action film earns top marks for direction and visual ambition. Lincoln Center is the right venue for a 167-minute work that privileges image over plot momentum.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "92ae0e03cef4ff0205fb0d66dfa3c72afc6a006e469d0f17d4341b95bfe7a487"
+    "source_hash": "6203f1ad0fdd35e7d49effd3951bd76d08abba3e318d730c9076a5a65453492a"
   },
   "bitter-christmas": {
     "verdict": "DEPENDS",
@@ -10345,12 +10349,12 @@
   },
   "tt35410859": {
     "verdict": "WATCH",
-    "reason": "Mungiu's latest justifies the trip for his precise direction of moral complexity. Two and a half hours examining a family caught between systems, shot with his trademark rigor.",
-    "generated_at": "2026-10-06T18:07:42.571554",
+    "reason": "Watch it. Mungiu builds juridical pressure with the precision that made 4 Months, 3 Weeks and 2 Days essential—this is a filmmaker at full command.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "95cb51d9dbe8555e5f1466fe8d93c7b5adc2ae310fbf03e87c7f00aec15dbe39"
+    "source_hash": "cbff852216b2c21b479e67b6595153c09bb6f892bf6820550ffc00f1d7518f3e"
   },
   "tt0417741": {
     "verdict": "DEPENDS",
@@ -11028,13 +11032,13 @@
     "source_hash": "3bf2cda5250a511de49166d17d6f614799fe91002c526c8505cef223f5927ef4"
   },
   "tt7526136": {
-    "verdict": "WATCH",
-    "reason": "Worth the trip for a survival story with real stakes and intimate scale. Ayer shoots wilderness action with tactile detail that demands the big screen.",
-    "generated_at": "2026-10-06T18:07:42.571554",
+    "verdict": "DEPENDS",
+    "reason": "David Ayer delivers solid survival action, but the film works best in 4DX if you want the wilderness to punish you. At a regular multiplex, it's a competent watch at home.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "4e6f4c2169b5d3627d77294de78d856cab7c9991085a8dea848642a8d6847aa7"
+    "source_hash": "117c9f363654dcb89414b93fe66ce0cde91cfe89ce731500fff9e5a3dd0ed195"
   },
   "tt0088178": {
     "verdict": "WATCH",
@@ -11101,12 +11105,12 @@
   },
   "tt35538033": {
     "verdict": "WATCH",
-    "reason": "Zach Cregger delivers a 90-minute action-horror blast with real craft. Catch it in IMAX or 4DX—the format amplifies the creature carnage.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Zach Cregger brings sharp genre instincts to a survival premise that plays for laughs and scares. The 90-minute runtime keeps the action lean and means you're home before midnight.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "7122e1d653715e4439c056d0b6a74c5fd46a44d35f14240e946c82f377c114f0"
+    "source_hash": "c9f3417aeadafec1b162da10a00272533d311efbf6c01184ed40aa7d57bf47d1"
   },
   "tt0481797": {
     "verdict": "SKIP",
@@ -11236,12 +11240,12 @@
   },
   "tt1230385": {
     "verdict": "WATCH",
-    "reason": "Na Hong-jin's brutal chase film earns the trip to Metrograph. The DCP restoration sharpens every collision and close call across two-plus hours of propulsive Korean cinema.",
-    "generated_at": "2026-09-30T17:53:16.426312",
+    "reason": "Na Hong-jin's kinetic action thriller demands a theater. The DCP restoration at Metrograph makes this the right time to catch two hours of relentless pursuit and collision.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "b65f03080fa79229f4fdb1b65965e3548f407eb5653ee654b06a0438e75a038b"
+    "source_hash": "6efc4859ae0899f23659fc32f9156254e6687c9b4b48dbe822e16f65fd0c084c"
   },
   "nausicaa-of-the-valley-of-the-wind": {
     "verdict": "WATCH",
@@ -11920,12 +11924,12 @@
   },
   "tt39151344": {
     "verdict": "WATCH",
-    "reason": "A debut feature that earns its acclaim through precise observation of grief and inheritance rather than sentiment. Walter Thompson-Hernandez builds the supernatural around a boy's longing for his father with the restraint of someone who understands that the uncanny works best when rooted in real emotional distance.",
-    "generated_at": "2026-09-24T16:40:55.040412",
+    "reason": "A rare debut feature that uses magical realism to explore fatherhood and Black identity with real depth. Thompson-Hernandez's control of image and tone justifies the trip.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
-    "prompt_version": "2026-07-05",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "2ade2506a0f1c9f04f7a57da3349c712777e71fc04e38a686ae5ac273c1a1f3e"
+    "source_hash": "237e64ca2b2f5c2d8c25c99a4085ef2914e66556675d98133d7864f2006fecb2"
   },
   "tt0023969": {
     "verdict": "WATCH",
@@ -12181,12 +12185,12 @@
   },
   "tt35856037": {
     "verdict": "WATCH",
-    "reason": "Bassam Tariq's crime drama earns its hype—a rare film that lets faith and violence coexist without preaching. Catch it on 35mm at Angelika or Lincoln Square before it leaves.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Watch it; Tariq brings real stakes to a hitman's moral crisis across Houston. The 35mm print at Angelika or Empire rewards the film's visual intensity on a big screen.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "1455c4005e8e2310b100995b48bf2adb95c8b5add97102167409abef7905e4a2"
+    "source_hash": "156c354a91e4368b3b6bf90e7dbd766abe62ae1ee138d35df5581f1b20d977d2"
   },
   "your-mother-your-mother-your-mother-live-q-a-and-performance": {
     "verdict": "WATCH",
@@ -12280,12 +12284,12 @@
   },
   "tt39390582": {
     "verdict": "SKIP",
-    "reason": "A 2026 release date means this film does not exist yet and cannot be evaluated for theatrical exhibition tonight. No runtime, critical information, or venue details are available to make a ticket recommendation.",
-    "generated_at": "2026-09-21T17:58:54.847072",
+    "reason": "Skip it; no critical data, no theatrical format advantage, and a 2026 release date suggests this submission is premature or erroneous. Revisit when the film actually opens.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
-    "prompt_version": "2026-07-05",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "23facbf9d558097a846904ea624ea6758d5dc951ddec9d1e615f44f86afde924"
+    "source_hash": "43b0f760d2a414c5dbccbd66838edd5948ae30dff03a085a134fec9cb140c8a8"
   },
   "tt39138061": {
     "verdict": "DEPENDS",
@@ -13035,13 +13039,13 @@
     "source_hash": "b87f1ccf758cb934df0ac9bb70ae56ca81c056d4d1aea89529776bfe672e8787"
   },
   "tt34385184": {
-    "verdict": "DEPENDS",
-    "reason": "Rock's directorial debut has uneven execution, but the premise about a stalled career's second act has real weight. The runtime stays lean enough to respect your evening.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "verdict": "SKIP",
+    "reason": "Skip it; Rock's directorial debut struggles to balance comedy and drama about a stalled career. The 103-minute runtime tests patience on a premise that doesn't justify the length.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "c8b0aa006f01c4dad2139b80fb756cf5160ef1415e05689ba143f5b1ebc4d228"
+    "source_hash": "16e55768edd0e8de12f1f16711ac7a43c937ebec64a62e6cd1e039f553ba24ea"
   },
   "tt0478337": {
     "verdict": "DEPENDS",
@@ -13081,12 +13085,12 @@
   },
   "tt4154796": {
     "verdict": "WATCH",
-    "reason": "Three hours well spent on a franchise finale that actually sticks the landing. IMAX or 4DX amplifies the spectacle; regular screens work fine if you just want closure.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Three hours well spent on a spectacle designed for the big screen. IMAX or 4DX amplifies the final battle sequences that justify the runtime.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "2db4699526ff9546841f2545fd9c7ac9bed9e530e3f4c3d7d040e2c953ad5d5c"
+    "source_hash": "a1a61dc23b7a42c36531817df2d644f5272700a956345e4e398d75f913edea6a"
   },
   "tt0112857": {
     "verdict": "WATCH",
@@ -13567,12 +13571,12 @@
   },
   "tt31450459": {
     "verdict": "SKIP",
-    "reason": "Skip it; Iñárritu's satirical swing misfires badly at a 51% split verdict. The premise relies on tonal control that the film simply doesn't execute.",
-    "generated_at": "2026-10-04T16:37:49.674430",
+    "reason": "Skip it; Iñárritu's satire misfires badly. The premise collapses under its own weight at 106 minutes.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "be73a1099d65911585f095a786735b7b7a7724b3bc2faeb28602d3e867d14d87"
+    "source_hash": "d690cc7dc236be1ed71ab6ff4d0291edbdbb0468fedac30bcdea06c03e38a11b"
   },
   "you-can-see-everything": {
     "verdict": "WATCH",
@@ -13585,12 +13589,12 @@
   },
   "tt36789083": {
     "verdict": "WATCH",
-    "reason": "A serious film about moral reckoning that demands theatrical attention. Reed Van Dyk directs a marine's attempt to face the Iraqi family he fired on, unflinching and unresolved.",
-    "generated_at": "2026-10-06T18:07:42.571554",
+    "reason": "A serious reckoning with American military violence that earns its runtime. Reed Van Dyk directs with the kind of moral weight that demands a theater seat, not a smaller screen.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "5060c46070ee91437fd6dcbffda960b65b2161a9f228acc77a7a6b2a1e5b0efc"
+    "source_hash": "778042c7396b21e752e1d49ced09e6022d76c142472787a292722fd8b725ccc1"
   },
   "tt0101420": {
     "verdict": "WATCH",
@@ -13657,12 +13661,12 @@
   },
   "tt29870331": {
     "verdict": "WATCH",
-    "reason": "Go see it; a sharp horror film about deepfakes hitting hard at 90 minutes. Chris Marrs Piliero finds real dread in a timely premise without padding.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "A sharp horror film about deepfakes that doesn't waste time—90 minutes of escalating dread. Marrs Piliero finds genuine terror in a timely premise without padding.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "888c4fd6cc111ff022ce775a7839bb553ad7398b4c40c47b3c2b81f7c0d7f382"
+    "source_hash": "72be1ddc4e8e78f79232a5df544ca3efc9a810f859e958239650f6245177f607"
   },
   "tt29611136": {
     "verdict": "WATCH",
@@ -14386,12 +14390,12 @@
   },
   "tt30850718": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise doesn't justify sitting through a descent into madness in a post-Soviet cityscape. The execution flatlines where it needs tension.",
-    "generated_at": "2026-10-06T18:07:42.571554",
+    "reason": "Skip it; the premise doesn't justify a theatrical trip to a multiplex. The execution struggles to earn its high-concept setup.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "9894385ad225aa5c480764ec32add8d4cb91d6635304233d70f79d707cc998d1"
+    "source_hash": "e3f021f11e07209f5830f283a6ab0675dfc29660f665e52a379afee9eaf3ff02"
   },
   "tt35331003": {
     "verdict": "WATCH",
@@ -14431,12 +14435,12 @@
   },
   "tt0080360": {
     "verdict": "WATCH",
-    "reason": "Ken Russell's 1980 sci-fi horror remains visually fearless and genuinely strange. The sensory-deprivation sequences and practical effects still unsettle on a big screen.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "reason": "Ken Russell's delirious 1980 trip deserves a big screen. The sensory deprivation and hallucinogenic sequences hit harder in a theater than anywhere else.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "ab320b6c0efaf57c259bf9b49ff5455bff1106630f21df99713c9499ec522137"
+    "source_hash": "8ea4af0bdd289bcd54bb0352664cfcf0fef825374ce9190c73c01b5b10185ad0"
   },
   "tt39850240": {
     "verdict": "DEPENDS",
@@ -14458,12 +14462,12 @@
   },
   "tt0114609": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise is thin and the execution uneven across its four stories. A 1995 horror anthology doesn't hold up well enough to justify the trip tonight.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "reason": "Skip it; the uneven horror-anthology format and dated effects don't justify a theater trip. Streaming at home lets you skip the weaker segments without losing anything.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "b31c55b8e8d1712584c9f0f8dda0c7a918c191787b639b976138cf7f025dc798"
+    "source_hash": "3d869327d93a39e815f50338d6f2282606d862e713317775651a1501f83b2ab3"
   },
   "tt0099949": {
     "verdict": "WATCH",
@@ -14494,12 +14498,12 @@
   },
   "tt27041231": {
     "verdict": "WATCH",
-    "reason": "Gibney's documentary on a consequential and polarizing figure is essential viewing. A major filmmaker tackling one of the most scrutinized people alive demands a theater trip.",
-    "generated_at": "2026-10-04T16:37:49.674430",
+    "reason": "Gibney brings his investigative rigor to a figure who demands scrutiny. The access and unvarnished framing make this essential viewing on a big screen.",
+    "generated_at": "2026-10-08T18:36:25.877250",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "3b37bd96cfdfef25cb19deaa9317cdde4fc4a633d995deb63bffeb688e06a76b"
+    "source_hash": "7d1340f40992dfe1831973f0d2eb1a598270de0a874fc335655e6051666368ef"
   },
   "tt0083789": {
     "verdict": "WATCH",
@@ -14761,5 +14765,23 @@
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
     "source_hash": "d67e28ef4b0f3262d6cb9b710b3f6bc5afdfe7c74811661dc5d21454407b74b9"
+  },
+  "making-marie-antoinette": {
+    "verdict": "WATCH",
+    "reason": "Eleanor Coppola's behind-the-scenes doc captures Sofia directing her breakthrough film—rare access to a major artist at work. Ninety minutes of pure filmmaking craft, no filler.",
+    "generated_at": "2026-10-08T18:36:25.877250",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "08ac7406a5e2b7301890824869b1e5daf86d003e233714f28674e487dc0d2713"
+  },
+  "tt34384900": {
+    "verdict": "DEPENDS",
+    "reason": "Rachel Morrison's directorial debut has real charm but hasn't found its footing yet. Wait for word-of-mouth unless you're committed to a debut romance on a big screen tonight.",
+    "generated_at": "2026-10-08T18:36:25.877250",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "c2dcdafb54e06a44bcd2ee5959abb8184c77ba48adfa68ff6efcd241221774e8"
   }
 }
