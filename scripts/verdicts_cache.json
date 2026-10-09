@@ -2498,12 +2498,12 @@
   },
   "tt0073629": {
     "verdict": "WATCH",
-    "reason": "A midnight-movie institution that demands the theater experience and the crowd. Jim Sharman's 1975 cult classic plays best with an audience ready to participate.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "A cult classic that demands the midnight-movie theater experience with a live crowd. Jim Sharman's 1975 musical is built for audience participation and collective absurdity.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "0c81c73203c498f05dd86b421d73581d205c6e1c9afce75a2e8f5c02b9de1bbd"
+    "source_hash": "707fe96aade27c165beb1bb74dcadb9d13cb8f6c32cddf74437f26cdbe3ab97e"
   },
   "tt0049456": {
     "verdict": "WATCH",
@@ -4603,12 +4603,12 @@
   },
   "tt33764258": {
     "verdict": "WATCH",
-    "reason": "Nolan on a 172-minute epic in 70mm is worth the trip. Catch it in the largest format available—the theatrical scale is the whole point.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "Nolan's 172-minute epic demands the big screen—catch it in 70mm if you can. The format and scope justify the theatrical commitment.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "85bbca433bdffe030c0a7a4a48e26821ae2638776285363e1b0804d0bc85d752"
+    "source_hash": "70842eda72f9aa52abbf08e432c6a4d7da7f79ffd54aca172eb66d41ad16fc22"
   },
   "the-phantom-of-liberty-le-fantome-de-la-liberte": {
     "verdict": "WATCH",
@@ -8873,12 +8873,12 @@
   },
   "tt32588798": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise doesn't justify a theatrical trip and the execution fell flat. Susanne Bier's direction can't salvage a thin, predictable curse-breaking narrative.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "Skip it; the execution doesn't justify the premise. Bier's direction can't salvage a thin story about witches breaking a lovelessness curse.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "39af9aab7517a67feae85fd9444d99114a68fce72df27891fff206e31f3e843c"
+    "source_hash": "c17dbf3dddfd5d2a11e6724808c9ba3118fc80c52b2a2367a39ae406e2c75149"
   },
   "tt10957044": {
     "verdict": "SKIP",
@@ -10385,12 +10385,12 @@
   },
   "tt0066993": {
     "verdict": "WATCH",
-    "reason": "Russell's fever dream of religious hysteria demands the 35mm restoration at IFC. The unhinged formal control and baroque excess justify the trip.",
-    "generated_at": "2026-10-02T17:38:10.603340",
+    "reason": "Russell's baroque provocation demands the restored 35mm print at a repertory house. This is the only way to see what he actually made.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "a70a23ee51f53f15b16b80635d7602b81b829db9e3f8e0697f459684c78f40ee"
+    "source_hash": "171ca08018c878954786ed0f869a89cf147c956a7fb2012a2b9b69e38cbd0597"
   },
   "tt2217458": {
     "verdict": "DEPENDS",
@@ -10438,13 +10438,13 @@
     "source_hash": "aed3ae31ab832d7974d29cab39235e90752bff75bb3a6730fb579e5cf9b951a2"
   },
   "tt37740247": {
-    "verdict": "DEPENDS",
-    "reason": "A quietly moving family portrait, but the runtime and single-day structure limit its theatrical urgency. Sompot's restraint rewards patient viewers at Lincoln Center.",
-    "generated_at": "2026-10-02T17:38:10.603340",
+    "verdict": "WATCH",
+    "reason": "A rare theatrical screening of a major new work from a significant filmmaker. Sompot's intimate family drama demands the collective experience of a cinema audience.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "3f5a97b16f5289b697bfb9cd7cd931184bd492861c2b5c442634bc7f7e78bfea"
+    "source_hash": "980a0d8d71a57098d51b0ff7131c3949d782dc144373e57c968f130309d3d639"
   },
   "tt28712064": {
     "verdict": "WATCH",
@@ -10628,12 +10628,12 @@
   },
   "tt39150234": {
     "verdict": "WATCH",
-    "reason": "John Wilson's deadpan absurdism makes even a concrete doc sing. A perfect 100-minute palate cleanser about nothing and everything at once.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "reason": "John Wilson's deadpan conceptual comedy deserves the big screen. A Hallmark workshop pitch about concrete is absurdist filmmaking at its sharpest.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "bf0cebe9bf3b9a51fbb26270e18760439100946816992c6dd7ccf03f234b3618"
+    "source_hash": "74b000b242b3feada51f2e4d57185b9cbac406db9366c4a8680cbecb2bb17e5c"
   },
   "tt0097493": {
     "verdict": "WATCH",
@@ -11033,12 +11033,12 @@
   },
   "tt7526136": {
     "verdict": "DEPENDS",
-    "reason": "David Ayer delivers solid survival action, but the film works best in 4DX if you want the wilderness to punish you. At a regular multiplex, it's a competent watch at home.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "David Ayer doing survival action with a dog has merit, but the premise is thin. Catch it in 4DX if you want the wilderness immersion; streaming works fine otherwise.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "117c9f363654dcb89414b93fe66ce0cde91cfe89ce731500fff9e5a3dd0ed195"
+    "source_hash": "d18f11b7bf6795644e6f1bf3be59ad7bdcd396502dda4e429aacfe824daa8c1e"
   },
   "tt0088178": {
     "verdict": "WATCH",
@@ -11105,12 +11105,12 @@
   },
   "tt35538033": {
     "verdict": "WATCH",
-    "reason": "Zach Cregger brings sharp genre instincts to a survival premise that plays for laughs and scares. The 90-minute runtime keeps the action lean and means you're home before midnight.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "Zach Cregger's horror-action hybrid earns the trip on a big screen. The 90-minute runtime and creature-heavy premise demand theatrical immersion, especially in IMAX or 4DX.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "c9f3417aeadafec1b162da10a00272533d311efbf6c01184ed40aa7d57bf47d1"
+    "source_hash": "0e08e25ca51098cb938334bc937c5a1de019bff33e8c083e3b4f89cc50c5f66a"
   },
   "tt0481797": {
     "verdict": "SKIP",
@@ -11510,12 +11510,12 @@
   },
   "tt32261958": {
     "verdict": "SKIP",
-    "reason": "Skip it; the adaptation mishandles the source material's psychological tension. Michael Showalter's direction flattens what should be unsettling into melodrama.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Skip it; the premise relies on shock-value twists that don't survive the 114-minute runtime. Showalter's direction can't overcome the thin material beneath the sensationalism.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "c76cc64ac97e31801353b0ca2d0ec8ef00055cb9edfebd16fbe8c8d9028ad731"
+    "source_hash": "69d4e7259ac78c3fb5dda3694a590aacd3a089056f2cf507478618d1c0d4dcff"
   },
   "tt0025862": {
     "verdict": "WATCH",
@@ -11996,12 +11996,12 @@
   },
   "tt0094721": {
     "verdict": "WATCH",
-    "reason": "Tim Burton's comic deadpan is in peak form here, and Metrograph's 35mm print restores the practical effects to their ghoulish glory. See it on film.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "reason": "Burton's comic horror is best on the big screen. Metrograph is showing the 35mm print.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "5a35527d442f2c5afd7019983375e3cb80d2ffddaf24668a8c6bc24a63ab0a47"
+    "source_hash": "74d6d9c2b45128972d2ffb4416f940b919520049aee7b9a17f02fa71d84f4877"
   },
   "tt0092112": {
     "verdict": "DEPENDS",
@@ -12905,12 +12905,12 @@
   },
   "cameron-winter-at-carnegie-hall": {
     "verdict": "WATCH",
-    "reason": "Paul Thomas Anderson shot a 72-minute concert film on 35mm and 16mm—go for the image alone. Winter's voice and songwriting merit the big screen, and this is the only way to see it.",
-    "generated_at": "2026-09-30T17:53:16.426312",
+    "reason": "Paul Thomas Anderson shot a 72-minute concert film on 35mm and 16mm for a performer whose album dominated year-end lists. See it theatrical before it vanishes.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "066e55b63b6d6da69f17553df6f00429e6b9126e16bcaae09bf491db6002e619"
+    "source_hash": "2df141e2f7499170815dfeaa5d05afb427be590d1a84c8e086610a3e1c88e578"
   },
   "tt36687029": {
     "verdict": "WATCH",
@@ -12968,12 +12968,12 @@
   },
   "tt0111094": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise is thin and the execution doesn't hold up. Ritchie's direction can't salvage what amounts to a forgettable sports comedy from thirty years ago.",
-    "generated_at": "2026-10-07T18:40:51.772032",
+    "reason": "Skip it; the premise is thin and the execution doesn't justify the trip. Ritchie's 1994 sports comedy hasn't aged into anything worth seeking out.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "d85842ae424752e5e45870619afba1aa3773f714c3aa2d45c67c4baf7015ebd0"
+    "source_hash": "b83d4dc5cde602e2b6c5e1349319053e6da0d232189a8ea36c723c027af7c2d1"
   },
   "tt0146336": {
     "verdict": "SKIP",
@@ -13085,12 +13085,12 @@
   },
   "tt4154796": {
     "verdict": "WATCH",
-    "reason": "Three hours well spent on a spectacle designed for the big screen. IMAX or 4DX amplifies the final battle sequences that justify the runtime.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "Three hours of payoff for a decade of storytelling demands the biggest screen you can find. IMAX or 4DX will amplify the spectacle that justifies the runtime.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "a1a61dc23b7a42c36531817df2d644f5272700a956345e4e398d75f913edea6a"
+    "source_hash": "eee87e2d9553a20057d5436303255299f6f30862c24b8d94ad1c2f942c913313"
   },
   "tt0112857": {
     "verdict": "WATCH",
@@ -13688,12 +13688,12 @@
   },
   "tt31183803": {
     "verdict": "SKIP",
-    "reason": "Skip it; the premise is solid but the execution doesn't justify the trip. At 95 minutes, this frontier drama should move faster than it does.",
-    "generated_at": "2026-10-01T18:12:46.379788",
+    "reason": "Skip it; the premise doesn't justify the trip and the execution doesn't land. A 95-minute family drama about frontier choices plays better at home than on a theater seat.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "f81b777f9eb9264d91509923a7978f6ec022590eee6dff6f1ecddd70508c5c06"
+    "source_hash": "6d257fecb00e919459138fc876c64ce69147d13c262e894c14259bd7166a446e"
   },
   "tt32086077": {
     "verdict": "WATCH",
@@ -14003,12 +14003,12 @@
   },
   "tt42643242": {
     "verdict": "SKIP",
-    "reason": "Skip it; the stalker-thriller premise is executed without conviction or originality. A 95-minute horror film about online obsession needs sharper direction than this delivers.",
-    "generated_at": "2026-10-04T16:37:49.674430",
+    "reason": "Skip it; the premise is thin and the execution doesn't justify the trip. A 95-minute stalker thriller with a middling critical record has better options waiting at home.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "15ed9489d437f9a7e94d683e42b5336f0218cbb8522ff147770f805f4f5c6d51"
+    "source_hash": "ee994950067d23a1d547d52e10e6208908ed0b529ac11d1c300ee1cc07a690c8"
   },
   "tt0015532": {
     "verdict": "WATCH",
@@ -14408,12 +14408,12 @@
   },
   "tt0074360": {
     "verdict": "WATCH",
-    "reason": "A masterpiece of post-Franco Spanish cinema demands to be seen on film. Metrograph's 35mm print restores Saura's precise control of light and shadow to their full force.",
-    "generated_at": "2026-10-03T15:58:30.668521",
+    "reason": "Essential Saura on 35mm at a theater built for this work. A masterpiece about childhood resilience under Franco's shadow that demands the big screen.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "181d04d5f8457dd7dbb91651c08f1bd142e0be5c7e2faaa8693278b8e5459be3"
+    "source_hash": "fe3eb63c6515c074d4649320b7ebddb1ed7441bdbe8fe7a388d36b7fbe20b903"
   },
   "tt0076578": {
     "verdict": "WATCH",
@@ -14498,12 +14498,12 @@
   },
   "tt27041231": {
     "verdict": "WATCH",
-    "reason": "Gibney brings his investigative rigor to a figure who demands scrutiny. The access and unvarnished framing make this essential viewing on a big screen.",
-    "generated_at": "2026-10-08T18:36:25.877250",
+    "reason": "Gibney at full throttle on a subject who demands unflinching scrutiny. A major documentarian tackling the most consequential tech figure of our time warrants the trip.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "7d1340f40992dfe1831973f0d2eb1a598270de0a874fc335655e6051666368ef"
+    "source_hash": "d8382ba61faebc1e09b2146da329cd2c5916833a7c3a18d77f22d9335d59a9a2"
   },
   "tt0083789": {
     "verdict": "WATCH",
@@ -14624,12 +14624,12 @@
   },
   "tt1051904": {
     "verdict": "DEPENDS",
-    "reason": "Skip the multiplexes; it's decent family fun with Stine's monsters loose on screen. Jack Black steals scenes as a fictionalized version of the author.",
-    "generated_at": "2026-10-06T18:07:42.571554",
+    "reason": "Fun family film with solid craft, but 103 minutes tests young attention spans. Rob Letterman keeps the pace brisk enough for a weekend matinee if you have kids in tow.",
+    "generated_at": "2026-10-09T18:08:34.714371",
     "model": "claude-haiku-4-5-20251001",
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
-    "source_hash": "31bcc10a17c76d98c3fd4d68755282d5f2045bc6278afb584b01f40bd4f355a7"
+    "source_hash": "b2801dac59dd9a41e357ed4a1da0dedf4841e9d502e0bdd39155877643ea8d0c"
   },
   "tt0075902": {
     "verdict": "WATCH",
@@ -14783,5 +14783,59 @@
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
     "source_hash": "c2dcdafb54e06a44bcd2ee5959abb8184c77ba48adfa68ff6efcd241221774e8"
+  },
+  "tt0084628": {
+    "verdict": "WATCH",
+    "reason": "Marker's masterpiece of philosophical travel and montage demands the big screen. The DCP restoration at Metrograph brings decades of accumulated texture into sharp focus.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "68b2bd11b0073d47395177009d2028791d7564a9471cc81867df9af6483cbeec"
+  },
+  "tt2378281": {
+    "verdict": "DEPENDS",
+    "reason": "Skip it unless you're in the mood for broad comedy-drama that swings for the heart. Derbez's performance carries the film, but the tonal shifts test your patience over two hours.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "4c6f683e9ddf8f244962eb32b168ef9937690f8ee3a0bdfa4c8e6e4e123be27a"
+  },
+  "tt29256561": {
+    "verdict": "SKIP",
+    "reason": "Skip it; the premise doesn't justify a theater trip for a middling action thriller. Renny Harlin's direction rarely transcends the standard shoot-and-explode formula.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "f6a5653caca581530c4d469961f7bd536a6a72728e028556e34079e8f014a011"
+  },
+  "tt0480011": {
+    "verdict": "SKIP",
+    "reason": "Skip it; the premise of revenge fantasy doesn't justify an 80-minute slog through thin execution. This obscure 2007 thriller has no theatrical urgency or venue draw.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "be3214a5e6ae7f3a6670ff04e41a8b92d86b91ec43fefea66856a323ccf76e17"
+  },
+  "tt14371256": {
+    "verdict": "DEPENDS",
+    "reason": "Waititi's first straight drama has genuine warmth but runs long for its sentiment. The emotional core depends entirely on whether you buy a robot as a conduit for human connection.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "77cdc96d62e14904360115f7a7806f8f3bb7db72e01fb4598c02aeea3c25d7a1"
+  },
+  "tt31456607": {
+    "verdict": "SKIP",
+    "reason": "Skip it; no critical consensus or theatrical urgency supports the trip. The premise rests on a tabloid scandal from 2007 that doesn't warrant a two-hour drama now.",
+    "generated_at": "2026-10-09T18:08:34.714371",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "dcc09152ad2a5df436fdf99e19a2ec0a0cc81464b03951c38449cde1620d0b36"
   }
 }
