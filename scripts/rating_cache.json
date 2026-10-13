@@ -187,9 +187,15 @@
   },
   "a nightmare on elm street 3: dream warriors|1987": {
     "imdbID": "tt0093629",
-    "source": "exact_year",
+    "source": "exact",
     "title": "A Nightmare on Elm Street 3: Dream Warriors",
     "year": "1987"
+  },
+  "a nightmare on elm street|1984": {
+    "imdbID": "tt0087800",
+    "source": "exact",
+    "title": "A Nightmare on Elm Street",
+    "year": "1984"
   },
   "a prayer for the dying|2026": {
     "imdbID": "tt31183803",
@@ -3445,9 +3451,15 @@
   },
   "hellraiser|1987": {
     "imdbID": "tt0093177",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Hellraiser",
     "year": "1987"
+  },
+  "henry: portrait of a serial killer|1986": {
+    "imdbID": "tt0099763",
+    "source": "exact",
+    "title": "Henry: Portrait of a Serial Killer",
+    "year": "1986"
   },
   "henry: portrait serial killer|1986": {
     "imdbID": "tt0099763",
@@ -3850,6 +3862,12 @@
     "source": "exact",
     "title": "It Ends",
     "year": "2025"
+  },
+  "it follows|2015": {
+    "imdbID": "tt3235888",
+    "source": "exact",
+    "title": "It Follows",
+    "year": "2015"
   },
   "it's a mad, mad, mad, mad world|1963": {
     "imdbID": "tt0057193",
@@ -5291,6 +5309,12 @@
     "title": "O Brother, Where Art Thou?",
     "year": "2000"
   },
+  "o brother where art thou?|2001": {
+    "imdbID": "tt0190590",
+    "source": "exact",
+    "title": "O Brother, Where Art Thou?",
+    "year": "2001"
+  },
   "obsession|2026": {
     "imdbID": "tt37287335",
     "source": "exact_year",
@@ -6113,6 +6137,12 @@
     "title": "Red Sorghum",
     "year": "1988"
   },
+  "redline|2010": {
+    "imdbID": "tt1483797",
+    "source": "exact",
+    "title": "Redline",
+    "year": "2010"
+  },
   "remake|2003": {
     "imdbID": "tt0334226",
     "source": "exact",
@@ -6196,6 +6226,12 @@
     "source": "exact_year",
     "title": "Road to Everywhere",
     "year": "2026"
+  },
+  "rocky|1976": {
+    "imdbID": "tt0075148",
+    "source": "exact_year",
+    "title": "Rocky",
+    "year": "1976"
   },
   "roger & me|1989": {
     "imdbID": "tt0098213",
@@ -6346,6 +6382,12 @@
     "source": "exact",
     "title": "Samson et Dalila",
     "year": "1981"
+  },
+  "samson|1961": {
+    "imdbID": "tt0055401",
+    "source": "exact_year",
+    "title": "Samson",
+    "year": "1961"
   },
   "sans soleil|1983": {
     "imdbID": "tt0084628",
@@ -6550,6 +6592,12 @@
     "source": "exact",
     "title": "Shrek",
     "year": "2001"
+  },
+  "siberian lady macbeth|1962": {
+    "imdbID": "tt0055447",
+    "source": "exact",
+    "title": "Siberian Lady Macbeth",
+    "year": "1962"
   },
   "sid and nancy|1986": {
     "imdbID": "tt0091954",
@@ -7186,6 +7234,12 @@
     "source": "exact",
     "title": "The Aristocats",
     "year": "1970"
+  },
+  "the ashes|1965": {
+    "imdbID": "tt0060847",
+    "source": "exact_year",
+    "title": "The Ashes",
+    "year": "1965"
   },
   "the asphalt jungle|1950": {
     "imdbID": "tt0042208",
@@ -7876,6 +7930,12 @@
     "source": "exact",
     "title": "The Hound of the Baskervilles",
     "year": "1959"
+  },
+  "the house with laughing windows|1976": {
+    "imdbID": "tt0074287",
+    "source": "exact",
+    "title": "The House with Laughing Windows",
+    "year": "1976"
   },
   "the hunchback of notre dame|1996": {
     "imdbID": "tt0116583",
