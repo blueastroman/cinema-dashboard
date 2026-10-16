@@ -15102,5 +15102,50 @@
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
     "source_hash": "b5d467956a0f03249ffde6c4f84264b1ace98f8abfd175ffddbfa86820116223"
+  },
+  "tt43656794": {
+    "verdict": "WATCH",
+    "reason": "Eleanor Coppola's behind-the-scenes doc captures Sofia directing her breakthrough film—rare access to a major artist at work. Ninety minutes of pure filmmaking craft, no filler.",
+    "generated_at": "2026-10-16T16:14:45.708492",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "7519684859d0c3dab0c5ebe61a0d05993518e9fd39e3958db87c6d0d7d0e5f14"
+  },
+  "tt44879019": {
+    "verdict": "WATCH",
+    "reason": "Paul Thomas Anderson shot a 72-minute concert film on 35mm and 16mm for a performer whose album dominated year-end lists. See it theatrical before it vanishes.",
+    "generated_at": "2026-10-16T16:14:45.708492",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "fa898d4f8ef3e00b2b94ec9a3efd385a509ee01dbbbb3ebe5111b0da96fbc0ee"
+  },
+  "tt46055956": {
+    "verdict": "WATCH",
+    "reason": "Ozzy's final performance at Villa Park deserves the big screen as a farewell document. Captured 17 days before his death, this is a rare live record of a rock legend's last stand.",
+    "generated_at": "2026-10-16T16:14:45.708492",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "036630e16a769f1834b1d524901c4ab3e7776394a35c4716f598d519bc359bae"
+  },
+  "tt46000907": {
+    "verdict": "WATCH",
+    "reason": "Go if you want the full pyrotechnic assault on a big screen in 4K. Paul Dugdale's direction and the 65,000-capacity crowd energy justify the theatrical trip over any stream.",
+    "generated_at": "2026-10-16T16:14:45.708492",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "2ecc7fa67f6e994b71045648b5a58086100f6dbea23fdbbd7b7b6c4e2d3d813c"
+  },
+  "tt43655467": {
+    "verdict": "DEPENDS",
+    "reason": "Cohen's directorial debut has charm but struggles with uneven pacing over 89 minutes. The Alamo Drafthouse crowd will make it fun; watch it there or skip the trip.",
+    "generated_at": "2026-10-16T16:14:45.708492",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "93df1ca9268a575af815a6b0d513af749c45669dd8519156ec78a13ff0e9618e"
   }
 }
