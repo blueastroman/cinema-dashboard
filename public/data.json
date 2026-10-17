@@ -19628,7 +19628,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A rare theatrical return of Na Hong-jin's masterwork—mystery and dread that deepens with every viewing. The 156-minute runtime demands a big screen and Metrograph's DCP projection."
+      }
     },
     {
       "id": "tt0037638",
@@ -19712,7 +19716,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "See this '70s masterclass in procedural tension on the big screen. The 35mm print at Metrograph restores every detail of the subway car and the city streets above it."
+      }
     },
     {
       "id": "tt36482679",
@@ -20094,7 +20102,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A rare 35mm screening of a vital contemporary rereading of Sophocles that refuses easy answers. Deraspe's social realism cuts deeper than the source material's abstractions."
+      }
     },
     {
       "id": "tt0097493",
@@ -20136,7 +20148,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Dark comedy perfection that still cuts like a blade. Metrograph's DCP presentation honors the film's acid-bright palette and vicious wit."
+      }
     },
     {
       "id": "tt39026593",
@@ -20222,7 +20238,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Watch this. A firsthand account of an erased chapter of military history—the kind of documentary that restores what official channels buried."
+      }
     },
     {
       "id": "tt36583977",
@@ -21443,7 +21463,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Wong Kar-Wai's neon-soaked masterpiece deserves the big screen. Metrograph's DCP restoration makes the color and design sing in ways no streaming option can match."
+      }
     },
     {
       "id": "tt0212712",
@@ -21485,7 +21509,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Wong Kar-Wai's color and movement are worth the big screen and the runtime. Metrograph's DCP print restores the visual density that makes this film breathe."
+      }
     },
     {
       "id": "tt0851578",
@@ -21527,7 +21555,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Satoshi Kon's dream-logic masterpiece demands the big screen and 35mm print. Metrograph's restoration captures the anarchic visual energy that defines this film."
+      }
     },
     {
       "id": "tt0038109",
@@ -25719,7 +25751,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "The 1989 film dulls King's premise through flat pacing and uneven scares. Mary Lambert's direction fails to sustain dread across 103 minutes of standard horror mechanics."
+      }
     },
     {
       "id": "tt0172493",
@@ -28950,7 +28986,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "Danny Boyle's tropical adventure doesn't justify the trip. The 35mm print can't salvage a premise that fails to engage on any level."
+      }
     },
     {
       "id": "tt5580536",
@@ -28992,7 +29032,11 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "verdict": "SKIP",
+        "reason": "Skip it; this 92-minute action thriller has no redeeming execution or theatrical urgency. The 35mm print doesn't salvage a fundamentally broken film."
+      }
     },
     {
       "id": "aerograd",
@@ -29034,7 +29078,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "art-cinema-for-tots-how-to-play-a-film",
@@ -29076,7 +29123,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "members-only-the-parallax-view",
@@ -29118,7 +29168,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "robocop-the-director-s-cut",
@@ -29160,7 +29213,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0105761",
@@ -29288,7 +29344,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ace-presents-rosemary-s-baby",
@@ -29332,7 +29391,10 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "after-winter-comes-spring",
@@ -29374,7 +29436,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "bread-day-preceded-by-the-train-stop",
@@ -29416,7 +29481,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0074312",
@@ -29500,7 +29568,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0075983",
@@ -29584,7 +29655,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ghost-in-the-shell-30th-anniversary-remaster",
@@ -29626,7 +29700,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "hugo-3d-screening",
@@ -29668,7 +29745,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "je-t-aime-je-t-aime",
@@ -29710,7 +29790,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "news-from-home-interior-ny-subway-14th-street",
@@ -29752,7 +29835,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "nous-we",
@@ -29794,7 +29880,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "saturday-afternoon-cartoons-time-for-halloween",
@@ -29836,7 +29925,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "shchors",
@@ -29878,7 +29970,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "something-special-willy-milly",
@@ -29920,7 +30015,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-great-experiment",
@@ -30032,7 +30130,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt41839344",
@@ -30138,7 +30239,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0074287",
@@ -30272,7 +30376,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "my-undesirable-friends-part-ii-exile-chapters-4-5",
@@ -30344,7 +30451,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0055447",
@@ -30468,7 +30578,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0055401",
@@ -30612,7 +30725,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "sweet-rush",
@@ -30670,7 +30786,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ashes-diamonds",
@@ -30708,7 +30827,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0255160",
@@ -32170,7 +32292,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-3-gay-liberation-on",
@@ -32220,7 +32345,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ec-battleship-potemkin",
@@ -32267,7 +32395,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-4-women-s-lib",
@@ -32318,7 +32449,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ec-old-and-new",
@@ -32365,7 +32499,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-5-broughton-ec",
@@ -32415,7 +32552,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ec-october",
@@ -32462,7 +32602,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-6-erotic-fantasy",
@@ -32509,7 +32652,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-7-pattern-films-part-1",
@@ -32560,7 +32706,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "multi-media-resource-center-pgm-8-pattern-films-part-2",
@@ -32611,7 +32760,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ec-ivan-the-terrible-parts-1-2",
@@ -32658,7 +32810,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "rosalyn-drexler-who-does-she-think-she-is",
@@ -32705,7 +32860,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "met-opera-macbeth",
@@ -32826,7 +32984,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "yuri-on-ice",
@@ -32962,7 +33123,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "cabin-fever-director-s-cut",
@@ -32997,7 +33161,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "fallen-angels-by-noel-coward",
@@ -33088,7 +33255,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "wildwood-fan-first-screening",
@@ -33179,7 +33349,10 @@
       ],
       "special_formats": [
         "RPX"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "matloub-3a2eleyain",
@@ -33254,7 +33427,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt32324552",
@@ -33366,7 +33542,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt47598037",
@@ -33625,7 +33804,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt33477484",

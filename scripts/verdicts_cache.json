@@ -15147,5 +15147,14 @@
     "prompt_version": "2026-09-29-grounded-short-reviews",
     "cache_schema_version": 2,
     "source_hash": "93df1ca9268a575af815a6b0d513af749c45669dd8519156ec78a13ff0e9618e"
+  },
+  "tt44766123": {
+    "verdict": "WATCH",
+    "reason": "Essential testimony from the people who built Israel's targeting systems, shot in the dark on Tel Aviv rooftops. The 80-minute runtime keeps the weight intact without padding.",
+    "generated_at": "2026-10-17T15:08:05.141264",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "8c14a9a9d5b73ad6b3318255c9e56dc317e92803f34c4a61a522b1868bc2d192"
   }
 }
