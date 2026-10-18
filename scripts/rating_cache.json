@@ -1253,6 +1253,12 @@
     "title": "Brunello: The Gracious Visionary",
     "year": "2026"
   },
+  "bts world tour 'arirang' in buenos aires: live viewing|2026": {
+    "imdbID": "tt45591705",
+    "source": "exact_year",
+    "title": "BTS World Tour 'Arirang' in Buenos Aires: Live Viewing",
+    "year": "2026"
+  },
   "bts world tour `arirang` in busan: live viewing|2026": {
     "imdbID": "tt42867738",
     "source": "exact_year",
@@ -1582,6 +1588,12 @@
     "source": "exact_year",
     "title": "Class of 1984",
     "year": "1982"
+  },
+  "class of nuke ‘em high|1986": {
+    "imdbID": "tt0090849",
+    "source": "exact",
+    "title": "Class of Nuke 'Em High",
+    "year": "1986"
   },
   "classical period|2018": {
     "imdbID": "tt7967600",
@@ -2741,6 +2753,12 @@
     "title": "First Blood",
     "year": "1982"
   },
+  "first we bombed new mexico|2023": {
+    "imdbID": "tt29377914",
+    "source": "exact",
+    "title": "First We Bombed New Mexico",
+    "year": "2023"
+  },
   "fiume o morte!|2025": {
     "imdbID": "tt34383611",
     "source": "exact_year",
@@ -2897,6 +2915,12 @@
     "title": "Fucktoys",
     "year": "2025"
   },
+  "fugs film!|2025": {
+    "imdbID": "tt38675979",
+    "source": "exact_year",
+    "title": "Fugs Film!",
+    "year": "2025"
+  },
   "full alert|1997": {
     "imdbID": "tt0134664",
     "source": "exact_year",
@@ -3034,6 +3058,12 @@
     "source": "exact_year",
     "title": "Ginger Snaps",
     "year": "2000"
+  },
+  "ginger snaps|2001": {
+    "imdbID": "tt0210070",
+    "source": "exact",
+    "title": "Ginger Snaps",
+    "year": "2001"
   },
   "girl 6|1996": {
     "imdbID": "tt0116414",
@@ -4759,7 +4789,7 @@
   },
   "megalopolis|2024": {
     "imdbID": "tt10128846",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Megalopolis",
     "year": "2024"
   },
@@ -5656,6 +5686,12 @@
     "source": "exact",
     "title": "Outcome",
     "year": "2024"
+  },
+  "outrider|2015": {
+    "imdbID": "tt4083038",
+    "source": "search",
+    "title": "Outrider",
+    "year": "2015"
   },
   "over your dead body|2026": {
     "imdbID": "tt34685692",
@@ -7127,12 +7163,6 @@
     "title": "Stray Dogs",
     "year": "2014"
   },
-  "street fighter|2026": {
-    "imdbID": "tt27419420",
-    "source": "exact_year",
-    "title": "Street Fighter",
-    "year": "2026"
-  },
   "stress is three|1968": {
     "imdbID": "tt0063651",
     "source": "exact",
@@ -7180,6 +7210,12 @@
     "source": "exact_year",
     "title": "Supergirl",
     "year": "2026"
+  },
+  "suspicion|1941": {
+    "imdbID": "tt0034248",
+    "source": "exact",
+    "title": "Suspicion",
+    "year": "1941"
   },
   "suspiria": {
     "imdbID": "tt0076786",
@@ -8290,6 +8326,12 @@
     "source": "exact",
     "title": "The Leopard",
     "year": "1963"
+  },
+  "the lighthouse|2019": {
+    "imdbID": "tt7984734",
+    "source": "exact",
+    "title": "The Lighthouse",
+    "year": "2019"
   },
   "the limits of control|2009": {
     "imdbID": "tt1135092",
@@ -9809,6 +9851,12 @@
     "title": "Vive L'Amour",
     "year": "1994"
   },
+  "waitress!|1982": {
+    "imdbID": "tt0083312",
+    "source": "exact",
+    "title": "Waitress!",
+    "year": "1982"
+  },
   "wake in fright|1971": {
     "imdbID": "tt0067541",
     "source": "exact",
@@ -10135,7 +10183,7 @@
   },
   "young frankenstein|1974": {
     "imdbID": "tt0072431",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Young Frankenstein",
     "year": "1974"
   },
