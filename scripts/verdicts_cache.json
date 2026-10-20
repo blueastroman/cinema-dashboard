@@ -219,7 +219,11 @@
   "tt0073076": {
     "verdict": "WATCH",
     "reason": "One of the greatest documentaries ever made deserves the big screen treatment. The Maysles brothers capture intimate decay with a cinematic eye that rewards theatrical viewing.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-10-20T16:28:48.251473",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "ad0e9a1a0802f0a6c308e95a8f504a76cb916db7a0ab4e76ffc04776686dbab5"
   },
   "tt13874422": {
     "verdict": "DEPENDS",
