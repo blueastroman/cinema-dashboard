@@ -119,6 +119,12 @@
     "title": "A Brighter Summer Day",
     "year": "1991"
   },
+  "a bronx tale|1993": {
+    "imdbID": "tt0106489",
+    "source": "exact_year",
+    "title": "A Bronx Tale",
+    "year": "1993"
+  },
   "a clockwork orange": {
     "imdbID": "tt0066921",
     "source": "exact",
@@ -857,6 +863,12 @@
     "title": "Basic Instinct",
     "year": "1992"
   },
+  "batman returns|1992": {
+    "imdbID": "tt0103776",
+    "source": "exact_year",
+    "title": "Batman Returns",
+    "year": "1992"
+  },
   "batman: mask of the phantasm|1993": {
     "imdbID": "tt0106364",
     "source": "exact",
@@ -1030,6 +1042,12 @@
     "source": "exact",
     "title": "Birds of War",
     "year": "2026"
+  },
+  "birth|2004": {
+    "imdbID": "tt0337876",
+    "source": "exact_year",
+    "title": "Birth",
+    "year": "2004"
   },
   "bitter christmas|2026": {
     "imdbID": "tt28088049",
@@ -1294,6 +1312,12 @@
     "source": "exact_year",
     "title": "Buddy",
     "year": "2026"
+  },
+  "bugged!|1996": {
+    "imdbID": "tt0115775",
+    "source": "search",
+    "title": "Bugged",
+    "year": "1996"
   },
   "bullet|2025": {
     "imdbID": "tt28005512",
@@ -1750,6 +1774,12 @@
     "source": "exact_year",
     "title": "Compulsion",
     "year": "1959"
+  },
+  "constantine|2005": {
+    "imdbID": "tt0360486",
+    "source": "exact",
+    "title": "Constantine",
+    "year": "2005"
   },
   "conversation piece|1974": {
     "imdbID": "tt0071585",
@@ -2248,6 +2278,12 @@
     "source": "exact",
     "title": "Dr. Jack",
     "year": "1922"
+  },
+  "dr. strangelove|2012": {
+    "imdbID": "tt8207486",
+    "source": "exact",
+    "title": "Dr. Strangelove",
+    "year": "2012"
   },
   "dracula: pages from a virgin's diary|2002": {
     "imdbID": "tt0293113",
@@ -3293,6 +3329,12 @@
     "title": "Grave of the Fireflies",
     "year": "1989"
   },
+  "green room|2016": {
+    "imdbID": "tt4062536",
+    "source": "exact_year",
+    "title": "Green Room",
+    "year": "2016"
+  },
   "gregg allman: the music of my soul|2026": {
     "imdbID": "tt40210973",
     "source": "exact_year",
@@ -3718,6 +3760,12 @@
     "source": "exact_year",
     "title": "House of 1000 Corpses",
     "year": "2003"
+  },
+  "how the grinch stole christmas|2000": {
+    "imdbID": "tt0170016",
+    "source": "exact_year",
+    "title": "How the Grinch Stole Christmas",
+    "year": "2000"
   },
   "how to divorce during the war|2026": {
     "imdbID": "tt29009930",
@@ -4247,6 +4295,12 @@
     "title": "KPop Demon Hunters",
     "year": "2025"
   },
+  "kung fu soccer|2026": {
+    "imdbID": "tt36103784",
+    "source": "exact_year",
+    "title": "Kung Fu Soccer",
+    "year": "2026"
+  },
   "kwaidan|1964": {
     "imdbID": "tt0058279",
     "source": "exact_year",
@@ -4516,12 +4570,6 @@
     "source": "exact",
     "title": "Little Shop of Horrors",
     "year": "1986"
-  },
-  "little women|2019": {
-    "imdbID": "tt3281548",
-    "source": "exact",
-    "title": "Little Women",
-    "year": "2019"
   },
   "living the land|2025": {
     "imdbID": "tt32110302",
@@ -4816,6 +4864,12 @@
     "source": "exact_year",
     "title": "Marriage Story",
     "year": "2019"
+  },
+  "married to the mob|1988": {
+    "imdbID": "tt0095593",
+    "source": "exact_year",
+    "title": "Married to the Mob",
+    "year": "1988"
   },
   "mars attacks!|1996": {
     "imdbID": "tt0116996",
@@ -5266,6 +5320,12 @@
     "source": "exact_year",
     "title": "Namaslay",
     "year": "2026"
+  },
+  "national lampoon's christmas vacation|1989": {
+    "imdbID": "tt0097958",
+    "source": "exact_year",
+    "title": "National Lampoon's Christmas Vacation",
+    "year": "1989"
   },
   "national theatre live: all my sons|2019": {
     "imdbID": "tt9382224",
@@ -6005,6 +6065,12 @@
     "title": "Pitfall",
     "year": "2025"
   },
+  "planes, trains & automobiles|1987": {
+    "imdbID": "tt0093748",
+    "source": "exact_year",
+    "title": "Planes, Trains & Automobiles",
+    "year": "1987"
+  },
   "planet of the apes": {
     "imdbID": "tt0063442",
     "source": "override",
@@ -6689,6 +6755,12 @@
     "title": "School on Fire",
     "year": "1988"
   },
+  "scooby-doo 2: monsters unleashed|2004": {
+    "imdbID": "tt0331632",
+    "source": "exact",
+    "title": "Scooby-Doo 2: Monsters Unleashed",
+    "year": "2004"
+  },
   "score|1973": {
     "imdbID": "tt0069236",
     "source": "exact_year",
@@ -7265,6 +7337,12 @@
     "title": "Stray Dogs",
     "year": "2014"
   },
+  "street fighter|2026": {
+    "imdbID": "tt27419420",
+    "source": "exact_year",
+    "title": "Street Fighter",
+    "year": "2026"
+  },
   "stress is three|1968": {
     "imdbID": "tt0063651",
     "source": "exact",
@@ -7745,6 +7823,12 @@
     "title": "The Brood",
     "year": "1979"
   },
+  "the cabin in the woods|2012": {
+    "imdbID": "tt1259521",
+    "source": "exact",
+    "title": "The Cabin in the Woods",
+    "year": "2012"
+  },
   "the cable guy|1996": {
     "imdbID": "tt0115798",
     "source": "exact",
@@ -7822,6 +7906,12 @@
     "source": "exact",
     "title": "The Cook, the Thief, His Wife & Her Lover",
     "year": "1989"
+  },
+  "the cook, the thief, his wife, & her lover|1990": {
+    "imdbID": "tt0097108",
+    "source": "exact_year",
+    "title": "The Cook, the Thief, His Wife & Her Lover",
+    "year": "1990"
   },
   "the craft|1996": {
     "imdbID": "tt0115963",
@@ -8507,6 +8597,12 @@
     "title": "The Magic Faraway Tree",
     "year": "2026"
   },
+  "the magnificent ambersons|1942": {
+    "imdbID": "tt0035015",
+    "source": "exact_year",
+    "title": "The Magnificent Ambersons",
+    "year": "1942"
+  },
   "the maids of wilko|1979": {
     "imdbID": "tt0079696",
     "source": "exact",
@@ -8753,6 +8849,12 @@
     "title": "The Pink Panther",
     "year": "2006"
   },
+  "the polar express|2004": {
+    "imdbID": "tt0338348",
+    "source": "exact_year",
+    "title": "The Polar Express",
+    "year": "2004"
+  },
   "the pollen of flowers|1972": {
     "imdbID": "tt2171927",
     "source": "exact",
@@ -8860,6 +8962,12 @@
     "source": "exact",
     "title": "The Rock",
     "year": "1996"
+  },
+  "the room returns|2025": {
+    "imdbID": "tt25274490",
+    "source": "exact_year",
+    "title": "The Room Returns!",
+    "year": "2025"
   },
   "the room|2025": {
     "imdbID": "tt39284795",
@@ -8993,6 +9101,12 @@
     "title": "The Silence",
     "year": "2025"
   },
+  "the skin i live in|2011": {
+    "imdbID": "tt1189073",
+    "source": "exact_year",
+    "title": "The Skin I Live In",
+    "year": "2011"
+  },
   "the sky trembles and the earth is afraid and the two eyes are not brothers|2015": {
     "imdbID": "tt4881172",
     "source": "exact",
@@ -9022,6 +9136,12 @@
     "source": "exact_year",
     "title": "The SpongeBob Movie: Search for SquarePants",
     "year": "2025"
+  },
+  "the spy who loved me|1977": {
+    "imdbID": "tt0076752",
+    "source": "exact",
+    "title": "The Spy Who Loved Me",
+    "year": "1977"
   },
   "the star|2017": {
     "imdbID": "tt4587656",
@@ -9677,6 +9797,12 @@
     "title": "Trog",
     "year": "1970"
   },
+  "tromeo and juliet|1997": {
+    "imdbID": "tt0114733",
+    "source": "exact",
+    "title": "Tromeo and Juliet",
+    "year": "1997"
+  },
   "tron|1982": {
     "imdbID": "tt0084827",
     "source": "exact",
@@ -9718,6 +9844,12 @@
     "source": "exact",
     "title": "True Romance",
     "year": "1993"
+  },
+  "true stories|1986": {
+    "imdbID": "tt0092117",
+    "source": "exact_year",
+    "title": "True Stories",
+    "year": "1986"
   },
   "trust me, i'm a doctor|2026": {
     "imdbID": "tt31456607",
@@ -9790,6 +9922,12 @@
     "source": "exact_year",
     "title": "Two Women",
     "year": "1960"
+  },
+  "udta teer|2026": {
+    "imdbID": "tt31806773",
+    "source": "exact_year",
+    "title": "Udta Teer",
+    "year": "2026"
   },
   "ulysses' gaze|1995": {
     "imdbID": "tt0114863",
@@ -9977,6 +10115,12 @@
     "title": "Vive L'Amour",
     "year": "1994"
   },
+  "volver|2006": {
+    "imdbID": "tt0887791",
+    "source": "exact_year",
+    "title": "Volver",
+    "year": "2006"
+  },
   "waitress!|1982": {
     "imdbID": "tt0083312",
     "source": "exact",
@@ -10102,6 +10246,12 @@
     "source": "exact_year",
     "title": "What's Up, Doc?",
     "year": "1972"
+  },
+  "when harry met sally...|1989": {
+    "imdbID": "tt0098635",
+    "source": "exact_year",
+    "title": "When Harry Met Sally...",
+    "year": "1989"
   },
   "when it was blue|2008": {
     "imdbID": "tt0968334",
