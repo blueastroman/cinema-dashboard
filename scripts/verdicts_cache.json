@@ -398,7 +398,11 @@
   "tt1259521": {
     "verdict": "DEPENDS",
     "reason": "Clever horror deconstruction that works but is not urgent viewing. Goddard's meta-commentary plays fine at home and the scares lose punch on repeat viewings.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-10-21T16:48:21.592263",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "71b9eaf930ce3adcc58e58ba9c80c00a0800862333d8abf0675902721d282db3"
   },
   "tt0070544": {
     "verdict": "WATCH",
