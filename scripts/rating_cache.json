@@ -2143,7 +2143,7 @@
   },
   "detour|1946": {
     "imdbID": "tt0037638",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Detour",
     "year": "1946"
   },
@@ -6539,12 +6539,6 @@
     "title": "Report to Mother",
     "year": "1986"
   },
-  "resident evil|2026": {
-    "imdbID": "tt35538033",
-    "source": "exact_year",
-    "title": "Resident Evil",
-    "year": "2026"
-  },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
     "source": "exact",
@@ -7241,6 +7235,12 @@
     "title": "St. Michael Had a Rooster",
     "year": "1972"
   },
+  "stake land|2011": {
+    "imdbID": "tt1464580",
+    "source": "exact",
+    "title": "Stake Land",
+    "year": "2011"
+  },
   "stalker|1979": {
     "imdbID": "tt0079944",
     "source": "override",
@@ -7378,12 +7378,6 @@
     "source": "exact",
     "title": "Stray Dogs",
     "year": "2014"
-  },
-  "street fighter|2026": {
-    "imdbID": "tt27419420",
-    "source": "exact_year",
-    "title": "Street Fighter",
-    "year": "2026"
   },
   "stress is three|1968": {
     "imdbID": "tt0063651",
@@ -7600,6 +7594,12 @@
     "source": "exact_year",
     "title": "Terrestrial",
     "year": "2026"
+  },
+  "terror firmer|1999": {
+    "imdbID": "tt0169299",
+    "source": "exact",
+    "title": "Terror Firmer",
+    "year": "1999"
   },
   "tetro|2009": {
     "imdbID": "tt0964185",
@@ -8356,6 +8356,12 @@
     "source": "exact_year",
     "title": "The Happy Time",
     "year": "1952"
+  },
+  "the harder they come|1972": {
+    "imdbID": "tt0070155",
+    "source": "exact_year",
+    "title": "The Harder They Come",
+    "year": "1972"
   },
   "the haunting|1999": {
     "imdbID": "tt0171363",
@@ -10414,6 +10420,12 @@
     "source": "exact_year",
     "title": "Willy Wonka & the Chocolate Factory in Shared Reality",
     "year": "2025"
+  },
+  "wishmaster|1997": {
+    "imdbID": "tt0120524",
+    "source": "exact",
+    "title": "Wishmaster",
+    "year": "1997"
   },
   "withnail and i|1987": {
     "imdbID": "tt0094336",
