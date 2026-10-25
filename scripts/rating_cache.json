@@ -1523,6 +1523,12 @@
     "title": "Casualties of War",
     "year": "1989"
   },
+  "cat people|1942": {
+    "imdbID": "tt0034587",
+    "source": "exact",
+    "title": "Cat People",
+    "year": "1942"
+  },
   "catvideofest 2026|2026": {
     "imdbID": "tt39676060",
     "source": "exact",
@@ -3323,6 +3329,12 @@
     "title": "Godzilla vs. Megalon",
     "year": "1973"
   },
+  "godzilla|2014": {
+    "imdbID": "tt0831387",
+    "source": "exact",
+    "title": "Godzilla",
+    "year": "2014"
+  },
   "gohan|2026": {
     "imdbID": "tt36958999",
     "source": "exact_year",
@@ -3797,6 +3809,12 @@
     "title": "His Girl Friday",
     "year": "1940"
   },
+  "hocus pocus|1993": {
+    "imdbID": "tt0107120",
+    "source": "exact",
+    "title": "Hocus Pocus",
+    "year": "1993"
+  },
   "hokum|2026": {
     "imdbID": "tt35672862",
     "source": "exact_year",
@@ -3970,6 +3988,12 @@
     "source": "exact_year",
     "title": "I Saw the TV Glow",
     "year": "2024"
+  },
+  "i sell the dead|2009": {
+    "imdbID": "tt0902290",
+    "source": "exact",
+    "title": "I Sell the Dead",
+    "year": "2009"
   },
   "i shot andy warhol|1996": {
     "imdbID": "tt0116594",
@@ -6659,12 +6683,6 @@
     "title": "Report to Mother",
     "year": "1986"
   },
-  "resident evil|2026": {
-    "imdbID": "tt35538033",
-    "source": "exact_year",
-    "title": "Resident Evil",
-    "year": "2026"
-  },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
     "source": "exact",
@@ -7762,6 +7780,12 @@
     "source": "exact",
     "title": "Terrifier 2",
     "year": "2022"
+  },
+  "terrifier 3|2024": {
+    "imdbID": "tt27911000",
+    "source": "exact",
+    "title": "Terrifier 3",
+    "year": "2024"
   },
   "terrifier|2018": {
     "imdbID": "tt4281724",
@@ -10091,6 +10115,12 @@
     "title": "Trial of Hein",
     "year": "2026"
   },
+  "trick 'r treat|2015": {
+    "imdbID": "tt0862856",
+    "source": "exact",
+    "title": "Trick 'r Treat",
+    "year": "2015"
+  },
   "trick or treat|1986": {
     "imdbID": "tt0092112",
     "source": "exact_year",
@@ -10744,6 +10774,12 @@
     "source": "exact",
     "title": "Women on the Verge of a Nervous Breakdown",
     "year": "1988"
+  },
+  "wto/99|2025": {
+    "imdbID": "tt35670909",
+    "source": "exact_year",
+    "title": "Wto/99",
+    "year": "2025"
   },
   "yes": {
     "imdbID": "tt39328163",
