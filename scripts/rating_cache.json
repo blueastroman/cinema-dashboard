@@ -1115,6 +1115,12 @@
     "title": "Black Orpheus",
     "year": "1959"
   },
+  "blackout|2024": {
+    "imdbID": "tt27940442",
+    "source": "exact",
+    "title": "Blackout",
+    "year": "2024"
+  },
   "blade ii|2002": {
     "imdbID": "tt0187738",
     "source": "exact_year",
@@ -3947,6 +3953,12 @@
     "title": "How to Divorce During the War",
     "year": "2026"
   },
+  "how to rob a bank|2026": {
+    "imdbID": "tt35866986",
+    "source": "exact_year",
+    "title": "How to Rob a Bank",
+    "year": "2026"
+  },
   "how to stuff a wild bikini|1965": {
     "imdbID": "tt0059287",
     "source": "exact_year",
@@ -5105,6 +5117,12 @@
     "title": "Medea",
     "year": "1988"
   },
+  "meet me in st. louis|1944": {
+    "imdbID": "tt0037059",
+    "source": "exact",
+    "title": "Meet Me in St. Louis",
+    "year": "1944"
+  },
   "megalopolis|2024": {
     "imdbID": "tt10128846",
     "source": "exact",
@@ -5447,6 +5465,12 @@
     "title": "Musk",
     "year": "2026"
   },
+  "my architect|2003": {
+    "imdbID": "tt0373175",
+    "source": "exact",
+    "title": "My Architect",
+    "year": "2003"
+  },
   "my brother's wedding|1983": {
     "imdbID": "tt0087763",
     "source": "exact_year",
@@ -5536,6 +5560,12 @@
     "source": "search",
     "title": "National Theatre Live: All My Sons",
     "year": "2019"
+  },
+  "national theatre live: golden boy|2026": {
+    "imdbID": "tt44475956",
+    "source": "exact",
+    "title": "National Theatre Live: Golden Boy",
+    "year": "2026"
   },
   "national theatre live: inter alia|2025": {
     "imdbID": "tt36364878",
@@ -5866,6 +5896,12 @@
     "source": "exact_year",
     "title": "On a String",
     "year": "2025"
+  },
+  "on her majesty's secret service|1969": {
+    "imdbID": "tt0064757",
+    "source": "exact",
+    "title": "On Her Majesty's Secret Service",
+    "year": "1969"
   },
   "on the road|2012": {
     "imdbID": "tt0337692",
@@ -6275,6 +6311,12 @@
     "title": "Phantom of the Paradise",
     "year": "1974"
   },
+  "pickup on south street|1953": {
+    "imdbID": "tt0046187",
+    "source": "exact_year",
+    "title": "Pickup on South Street",
+    "year": "1953"
+  },
   "pillion": {
     "imdbID": "tt32321317",
     "source": "exact",
@@ -6510,7 +6552,7 @@
     "year": "1983"
   },
   "psycho|2026": {
-    "imdbID": "tt41334106",
+    "imdbID": "tt43742609",
     "source": "exact_year",
     "title": "Psycho",
     "year": "2026"
@@ -6736,6 +6778,12 @@
     "source": "exact",
     "title": "Report to Mother",
     "year": "1986"
+  },
+  "resident evil|2026": {
+    "imdbID": "tt35538033",
+    "source": "exact_year",
+    "title": "Resident Evil",
+    "year": "2026"
   },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
@@ -7612,6 +7660,12 @@
     "source": "exact",
     "title": "Stray Dogs",
     "year": "2014"
+  },
+  "street fighter|2026": {
+    "imdbID": "tt27419420",
+    "source": "exact_year",
+    "title": "Street Fighter",
+    "year": "2026"
   },
   "stress is three|1968": {
     "imdbID": "tt0063651",
@@ -8699,6 +8753,12 @@
     "title": "The Hound of the Baskervilles",
     "year": "1959"
   },
+  "the house with a clock in its walls|2018": {
+    "imdbID": "tt2119543",
+    "source": "exact",
+    "title": "The House with a Clock in Its Walls",
+    "year": "2018"
+  },
   "the house with laughing windows|1976": {
     "imdbID": "tt0074287",
     "source": "exact",
@@ -8734,6 +8794,12 @@
     "source": "exact",
     "title": "The Hunger Games: Mockingjay - Part 2",
     "year": "2015"
+  },
+  "the hunger games: sunrise on the reaping|2026": {
+    "imdbID": "tt32558705",
+    "source": "exact_year",
+    "title": "The Hunger Games: Sunrise on the Reaping",
+    "year": "2026"
   },
   "the hunger games|2012": {
     "imdbID": "tt1392170",
@@ -10420,6 +10486,12 @@
     "source": "exact_year",
     "title": "Utamaro and His Five Women",
     "year": "1946"
+  },
+  "v for vendetta|2006": {
+    "imdbID": "tt0434409",
+    "source": "exact",
+    "title": "V for Vendetta",
+    "year": "2006"
   },
   "vacances|2025": {
     "imdbID": "tt38551380",
