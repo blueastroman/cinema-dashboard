@@ -4524,7 +4524,11 @@
   "tt0046187": {
     "verdict": "WATCH",
     "reason": "Essential Fuller at his most visceral and politically charged. The subway pickpocketing sequence alone justifies the big screen experience.",
-    "generated_at": "2026-06-10T14:39:30.709832"
+    "generated_at": "2026-10-28T18:03:31.261711",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "20a3faed2f7af3daa23879e945d172512cd13efdd16b514c4a913c2f692a416c"
   },
   "tt30056610": {
     "verdict": "SKIP",
