@@ -3227,6 +3227,12 @@
     "title": "Genealogy",
     "year": "1979"
   },
+  "gentle monster|2026": {
+    "imdbID": "tt37020296",
+    "source": "exact",
+    "title": "Gentle Monster",
+    "year": "2026"
+  },
   "gentlemen prefer blondes|1953": {
     "imdbID": "tt0045810",
     "source": "exact_year",
@@ -4127,6 +4133,18 @@
     "title": "In the Mouth of Madness",
     "year": "1994"
   },
+  "in the mouth|2025": {
+    "imdbID": "tt35069832",
+    "source": "exact_year",
+    "title": "In the Mouth",
+    "year": "2025"
+  },
+  "in transit|2026": {
+    "imdbID": "tt21275854",
+    "source": "exact_year",
+    "title": "In Transit",
+    "year": "2026"
+  },
   "in viaggio: the travels of pope francis|2022": {
     "imdbID": "tt21374930",
     "source": "exact_year",
@@ -4333,7 +4351,7 @@
   },
   "jfk|1991": {
     "imdbID": "tt0102138",
-    "source": "exact_year",
+    "source": "exact",
     "title": "JFK",
     "year": "1991"
   },
@@ -6155,6 +6173,12 @@
     "title": "Paper Tiger",
     "year": "1975"
   },
+  "paper tiger|2026": {
+    "imdbID": "tt34385689",
+    "source": "exact_year",
+    "title": "Paper Tiger",
+    "year": "2026"
+  },
   "paprika|2007": {
     "imdbID": "tt0851578",
     "source": "exact",
@@ -6778,12 +6802,6 @@
     "source": "exact",
     "title": "Report to Mother",
     "year": "1986"
-  },
-  "resident evil|2026": {
-    "imdbID": "tt35538033",
-    "source": "exact_year",
-    "title": "Resident Evil",
-    "year": "2026"
   },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
@@ -7660,12 +7678,6 @@
     "source": "exact",
     "title": "Stray Dogs",
     "year": "2014"
-  },
-  "street fighter|2026": {
-    "imdbID": "tt27419420",
-    "source": "exact_year",
-    "title": "Street Fighter",
-    "year": "2026"
   },
   "stress is three|1968": {
     "imdbID": "tt0063651",
@@ -10210,6 +10222,12 @@
     "source": "exact_year",
     "title": "Trapped",
     "year": "1949"
+  },
+  "trauma or, monsters all|2026": {
+    "imdbID": "tt37808582",
+    "source": "exact",
+    "title": "Trauma or, Monsters All",
+    "year": "2026"
   },
   "travis|2008": {
     "imdbID": "tt1332471",
