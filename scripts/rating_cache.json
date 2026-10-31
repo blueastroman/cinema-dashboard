@@ -1,4 +1,10 @@
 {
+  "#cult|2026": {
+    "imdbID": "tt36915004",
+    "source": "exact_year",
+    "title": "#CULT",
+    "year": "2026"
+  },
   "... and the pursuit of happiness|1986": {
     "imdbID": "tt0092561",
     "source": "exact",
@@ -223,7 +229,7 @@
   },
   "a separation|2011": {
     "imdbID": "tt1832382",
-    "source": "exact_year",
+    "source": "exact",
     "title": "A Separation",
     "year": "2011"
   },
@@ -785,6 +791,12 @@
     "title": "Avatar Aang: The Last Airbender",
     "year": "2026"
   },
+  "avedon|2026": {
+    "imdbID": "tt41593493",
+    "source": "exact",
+    "title": "Avedon",
+    "year": "2026"
+  },
   "avengers: doomsday|2026": {
     "imdbID": "tt21357150",
     "source": "exact_year",
@@ -838,6 +850,12 @@
     "source": "exact_year",
     "title": "Bad Counselors",
     "year": "2026"
+  },
+  "bait|2025": {
+    "imdbID": "tt33365145",
+    "source": "exact_year",
+    "title": "Bait",
+    "year": "2025"
   },
   "ball of fire|1941": {
     "imdbID": "tt0033373",
@@ -2447,6 +2465,12 @@
     "title": "Drive",
     "year": "2025"
   },
+  "drummer boy|2026": {
+    "imdbID": "tt10098420",
+    "source": "exact_year",
+    "title": "Drummer Boy",
+    "year": "2026"
+  },
   "drunken master ii|1994": {
     "imdbID": "tt0111512",
     "source": "exact",
@@ -3241,7 +3265,7 @@
   },
   "gentlemen prefer blondes|1953": {
     "imdbID": "tt0045810",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Gentlemen Prefer Blondes",
     "year": "1953"
   },
@@ -3743,6 +3767,12 @@
     "title": "Heat Lightning",
     "year": "1934"
   },
+  "heated rivalry|2014": {
+    "imdbID": "tt1325007",
+    "source": "search",
+    "title": "Heated Rivalry",
+    "year": "2014"
+  },
   "heathers|1989": {
     "imdbID": "tt0097493",
     "source": "exact",
@@ -4163,6 +4193,12 @@
     "title": "In Which Annie Gives It Those Ones",
     "year": "1989"
   },
+  "incendies|2011": {
+    "imdbID": "tt1255953",
+    "source": "exact",
+    "title": "Incendies",
+    "year": "2011"
+  },
   "india: matri bhumi|1959": {
     "imdbID": "tt0052923",
     "source": "exact_year",
@@ -4366,6 +4402,12 @@
     "source": "exact_year",
     "title": "Jimmy",
     "year": "2013"
+  },
+  "jimmy|2026": {
+    "imdbID": "tt31179962",
+    "source": "exact_year",
+    "title": "Jimmy",
+    "year": "2026"
   },
   "jin-roh: the wolf brigade|1999": {
     "imdbID": "tt0193253",
@@ -5038,6 +5080,12 @@
     "source": "exact",
     "title": "Man of Marble",
     "year": "1977"
+  },
+  "mandy|2018": {
+    "imdbID": "tt6998518",
+    "source": "exact",
+    "title": "Mandy",
+    "year": "2018"
   },
   "manhood|2003": {
     "imdbID": "tt0316219",
@@ -5975,6 +6023,12 @@
     "title": "Once Upon a Time in the Middle East",
     "year": "2026"
   },
+  "once upon a time in the west|1969": {
+    "imdbID": "tt0064116",
+    "source": "exact",
+    "title": "Once Upon a Time in the West",
+    "year": "1969"
+  },
   "once upon a time... in hollywood|2019": {
     "imdbID": "tt7131622",
     "source": "search",
@@ -6136,6 +6190,12 @@
     "source": "exact",
     "title": "Paddington in Peru",
     "year": "2024"
+  },
+  "paging hezbollah|2026": {
+    "imdbID": "tt47647390",
+    "source": "exact_year",
+    "title": "Paging Hezbollah",
+    "year": "2026"
   },
   "painters painting|1972": {
     "imdbID": "tt0207645",
@@ -6707,6 +6767,12 @@
     "title": "Rashomon",
     "year": "1950"
   },
+  "rashomon|1951": {
+    "imdbID": "tt0042876",
+    "source": "exact",
+    "title": "Rashomon",
+    "year": "1951"
+  },
   "rate it x|1986": {
     "imdbID": "tt0141769",
     "source": "exact",
@@ -6814,6 +6880,12 @@
     "source": "exact",
     "title": "Report to Mother",
     "year": "1986"
+  },
+  "resident evil|2026": {
+    "imdbID": "tt35538033",
+    "source": "exact_year",
+    "title": "Resident Evil",
+    "year": "2026"
   },
   "reversal of fortune|1990": {
     "imdbID": "tt0100486",
@@ -7000,6 +7072,12 @@
     "source": "exact_year",
     "title": "Salomé",
     "year": "2013"
+  },
+  "salò or the 120 days of sodom|1976": {
+    "imdbID": "tt0073650",
+    "source": "exact",
+    "title": "Salò, or the 120 Days of Sodom",
+    "year": "1976"
   },
   "sambizanga": {
     "imdbID": "tt0069214",
@@ -7330,6 +7408,12 @@
     "source": "exact_year",
     "title": "Sisters",
     "year": "1972"
+  },
+  "six suspects|1965": {
+    "imdbID": "tt10010142",
+    "source": "exact",
+    "title": "Six Suspects",
+    "year": "1965"
   },
   "six the musical live!|2025": {
     "imdbID": "tt35391146",
@@ -7690,6 +7774,12 @@
     "source": "exact",
     "title": "Stray Dogs",
     "year": "2014"
+  },
+  "street fighter|2026": {
+    "imdbID": "tt27419420",
+    "source": "exact_year",
+    "title": "Street Fighter",
+    "year": "2026"
   },
   "stress is three|1968": {
     "imdbID": "tt0063651",
@@ -8711,6 +8801,12 @@
     "title": "The Handmaiden",
     "year": "2016"
   },
+  "the handmaiden|2017": {
+    "imdbID": "tt4016934",
+    "source": "exact",
+    "title": "The Handmaiden",
+    "year": "2017"
+  },
   "the hand|1981": {
     "imdbID": "tt0082497",
     "source": "search",
@@ -8963,6 +9059,12 @@
     "title": "The Last Run",
     "year": "1971"
   },
+  "the last temptation of becky|2026": {
+    "imdbID": "tt40210362",
+    "source": "exact_year",
+    "title": "The Last Temptation of Becky",
+    "year": "2026"
+  },
   "the last winter|2008": {
     "imdbID": "tt0454864",
     "source": "exact",
@@ -8980,6 +9082,12 @@
     "source": "exact",
     "title": "The Leopard",
     "year": "1963"
+  },
+  "the liberation|2018": {
+    "imdbID": "tt8005270",
+    "source": "exact",
+    "title": "The Liberation",
+    "year": "2018"
   },
   "the lighthouse|2019": {
     "imdbID": "tt7984734",
@@ -9071,6 +9179,12 @@
     "title": "The Man Who Shot Liberty Valance",
     "year": "1962"
   },
+  "the manchurian candidate|2004": {
+    "imdbID": "tt0368008",
+    "source": "exact",
+    "title": "The Manchurian Candidate",
+    "year": "2004"
+  },
   "the march of fools|1975": {
     "imdbID": "tt0398727",
     "source": "exact",
@@ -9112,6 +9226,12 @@
     "source": "exact_year",
     "title": "The Misfits",
     "year": "1961"
+  },
+  "the mongoose|2026": {
+    "imdbID": "tt13611778",
+    "source": "exact_year",
+    "title": "The Mongoose",
+    "year": "2026"
   },
   "the monster squad|1987": {
     "imdbID": "tt0093560",
@@ -9299,6 +9419,12 @@
     "title": "The Piano",
     "year": "1993"
   },
+  "the piano|1994": {
+    "imdbID": "tt0107822",
+    "source": "exact",
+    "title": "The Piano",
+    "year": "1994"
+  },
   "the pink panther|2006": {
     "imdbID": "tt0383216",
     "source": "exact_year",
@@ -9443,6 +9569,12 @@
     "title": "The Root",
     "year": "2022"
   },
+  "the sacrifice|1986": {
+    "imdbID": "tt0091670",
+    "source": "exact",
+    "title": "The Sacrifice",
+    "year": "1986"
+  },
   "the salt path|2026": {
     "imdbID": "tt27766440",
     "source": "exact_year",
@@ -9553,7 +9685,7 @@
   },
   "the silence of the lambs|1991": {
     "imdbID": "tt0102926",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Silence of the Lambs",
     "year": "1991"
   },
@@ -10361,6 +10493,12 @@
     "title": "Trust Me, I'm a Doctor",
     "year": "2026"
   },
+  "tu hai meri kiran|2026": {
+    "imdbID": "tt33321821",
+    "source": "exact_year",
+    "title": "Tu Hai Meri Kiran",
+    "year": "2026"
+  },
   "tucker: the man and his dream|1988": {
     "imdbID": "tt0096316",
     "source": "exact_year",
@@ -10444,6 +10582,12 @@
     "source": "exact",
     "title": "Uncut Gems",
     "year": "2019"
+  },
+  "under the skin|2014": {
+    "imdbID": "tt1441395",
+    "source": "exact",
+    "title": "Under the Skin",
+    "year": "2014"
   },
   "underland|2025": {
     "imdbID": "tt36590141",
