@@ -1295,6 +1295,12 @@
     "title": "Boyhood",
     "year": "2014"
   },
+  "boyz n the hood|1991": {
+    "imdbID": "tt0101507",
+    "source": "exact",
+    "title": "Boyz n the Hood",
+    "year": "1991"
+  },
   "bram stoker's dracula|2007": {
     "imdbID": "tt13629658",
     "source": "search",
@@ -2953,7 +2959,7 @@
   },
   "filipiñana|2026": {
     "imdbID": "tt29512008",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Filipiñana",
     "year": "2026"
   },
@@ -5483,6 +5489,12 @@
     "title": "Motor City",
     "year": "2026"
   },
+  "moulin rouge!|2001": {
+    "imdbID": "tt0203009",
+    "source": "exact_year",
+    "title": "Moulin Rouge!",
+    "year": "2001"
+  },
   "mountains of the moon|1990": {
     "imdbID": "tt0100196",
     "source": "exact_year",
@@ -5788,6 +5800,12 @@
     "source": "exact_year",
     "title": "Nimrods",
     "year": "2026"
+  },
+  "nina hagen = punk + glory|1999": {
+    "imdbID": "tt0220666",
+    "source": "exact",
+    "title": "Nina Hagen = Punk + Glory",
+    "year": "1999"
   },
   "ninja scroll|1993": {
     "imdbID": "tt0107692",
@@ -7785,12 +7803,6 @@
     "imdbID": "tt48391060",
     "source": "exact_year",
     "title": "Stray Kids World Tour 'RUN IT' LIVE VIEWING",
-    "year": "2026"
-  },
-  "street fighter|2026": {
-    "imdbID": "tt27419420",
-    "source": "exact_year",
-    "title": "Street Fighter",
     "year": "2026"
   },
   "stress is three|1968": {
