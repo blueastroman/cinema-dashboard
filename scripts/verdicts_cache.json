@@ -611,7 +611,11 @@
   "tt0071615": {
     "verdict": "WATCH",
     "reason": "Essential viewing for Jodorowsky's most accessible surreal masterpiece. The alchemical imagery and practical effects create a hallucinatory experience that demands the big screen.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-11-03T19:13:43.253626",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "8e0279842cf7cea6d670797a420c310a44c33ec20df8f9b405ef253cbac1cf39"
   },
   "tt0095243": {
     "verdict": "WATCH",
