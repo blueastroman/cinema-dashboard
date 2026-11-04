@@ -1177,7 +1177,7 @@
   },
   "blow out|1981": {
     "imdbID": "tt0082085",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Blow Out",
     "year": "1981"
   },
@@ -2315,6 +2315,12 @@
     "title": "Disclosure Day",
     "year": "2026"
   },
+  "disco|2025": {
+    "imdbID": "tt32243366",
+    "source": "exact_year",
+    "title": "Disco",
+    "year": "2025"
+  },
   "dj ahmet": {
     "imdbID": "tt34964187",
     "source": "exact",
@@ -3227,6 +3233,12 @@
     "title": "Gamer Girls",
     "year": "2025"
   },
+  "game|2026": {
+    "imdbID": "tt35039939",
+    "source": "exact_year",
+    "title": "Game",
+    "year": "2026"
+  },
   "gandahar|1987": {
     "imdbID": "tt0095525",
     "source": "exact",
@@ -3436,6 +3448,12 @@
     "source": "exact",
     "title": "GoldenEye",
     "year": "1995"
+  },
+  "goldfinger|1965": {
+    "imdbID": "tt0058150",
+    "source": "exact",
+    "title": "Goldfinger",
+    "year": "1965"
   },
   "gone with the wind|1939": {
     "imdbID": "tt0031381",
@@ -4246,6 +4264,12 @@
     "source": "exact",
     "title": "Instructions Not Included",
     "year": "2013"
+  },
+  "interstellar|2014": {
+    "imdbID": "tt0816692",
+    "source": "exact",
+    "title": "Interstellar",
+    "year": "2014"
   },
   "introduction|2021": {
     "imdbID": "tt14035108",
@@ -5087,11 +5111,11 @@
     "title": "Man of Marble",
     "year": "1977"
   },
-  "mandy|2018": {
-    "imdbID": "tt6998518",
-    "source": "exact",
-    "title": "Mandy",
-    "year": "2018"
+  "manhattan by numbers|1993": {
+    "imdbID": "tt0107508",
+    "source": "exact_year",
+    "title": "Manhattan by Numbers",
+    "year": "1993"
   },
   "manhood|2003": {
     "imdbID": "tt0316219",
@@ -5195,12 +5219,6 @@
     "title": "Medea",
     "year": "1969"
   },
-  "medea|1988": {
-    "imdbID": "tt0095607",
-    "source": "exact_year",
-    "title": "Medea",
-    "year": "1988"
-  },
   "meet me in st. louis|1944": {
     "imdbID": "tt0037059",
     "source": "exact",
@@ -5284,12 +5302,6 @@
     "source": "exact_year",
     "title": "Mikey and Nicky",
     "year": "1976"
-  },
-  "millennium mambo|2001": {
-    "imdbID": "tt0283283",
-    "source": "exact",
-    "title": "Millennium Mambo",
-    "year": "2001"
   },
   "millionaires' express|1986": {
     "imdbID": "tt0091091",
@@ -6281,6 +6293,12 @@
     "title": "Paprika",
     "year": "2007"
   },
+  "paradise lost|2026": {
+    "imdbID": "tt43658893",
+    "source": "exact_year",
+    "title": "Paradise Lost",
+    "year": "2026"
+  },
   "paranoid park|2007": {
     "imdbID": "tt0842929",
     "source": "exact",
@@ -6556,6 +6574,12 @@
     "source": "search",
     "title": "Popstar: Never Stop Never Stopping",
     "year": "2016"
+  },
+  "portrait of a lady on fire|2020": {
+    "imdbID": "tt8613070",
+    "source": "exact",
+    "title": "Portrait of a Lady on Fire",
+    "year": "2020"
   },
   "possessions": {
     "imdbID": "tt3080074",
@@ -6862,6 +6886,12 @@
     "source": "exact",
     "title": "Red Sorghum",
     "year": "1988"
+  },
+  "red-headed woman|1932": {
+    "imdbID": "tt0023385",
+    "source": "exact",
+    "title": "Red-Headed Woman",
+    "year": "1932"
   },
   "redline|2010": {
     "imdbID": "tt1483797",
@@ -7216,6 +7246,12 @@
     "source": "exact_year",
     "title": "Scream",
     "year": "2025"
+  },
+  "seconds|1966": {
+    "imdbID": "tt0060955",
+    "source": "exact",
+    "title": "Seconds",
+    "year": "1966"
   },
   "seduction: the cruel woman|1985": {
     "imdbID": "tt0090252",
@@ -8440,6 +8476,12 @@
     "source": "exact_year",
     "title": "The Cook, the Thief, His Wife & Her Lover",
     "year": "1990"
+  },
+  "the correspondent|2026": {
+    "imdbID": "tt31728562",
+    "source": "exact_year",
+    "title": "The Correspondent",
+    "year": "2026"
   },
   "the craft|1996": {
     "imdbID": "tt0115963",
@@ -10187,6 +10229,12 @@
     "title": "Thiiird",
     "year": "2023"
   },
+  "this is england|2007": {
+    "imdbID": "tt0480025",
+    "source": "exact",
+    "title": "This Is England",
+    "year": "2007"
+  },
   "this island": {
     "imdbID": "tt8689278",
     "source": "exact",
@@ -10797,6 +10845,12 @@
     "imdbID": "tt40856286",
     "source": "exact_year",
     "title": "Vibe",
+    "year": "2026"
+  },
+  "victorian psycho|2026": {
+    "imdbID": "tt34374553",
+    "source": "exact_year",
+    "title": "Victorian Psycho",
     "year": "2026"
   },
   "vincere|2009": {
