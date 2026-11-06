@@ -14325,7 +14325,11 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "One of cinema's great paranoia films—see it on 35mm at Metrograph. Polanski's control of suspense and Mia Farrow's performance define the modern horror picture."
+      }
     },
     {
       "id": "tt0101640",
@@ -14958,7 +14962,11 @@
       ],
       "prestige_tags": [
         "CRITERION COLLECTION"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Essential Ozu on 35mm at Metrograph. A masterwork about marriage and compromise that demands the big screen."
+      }
     },
     {
       "id": "tt27541205",
@@ -17207,7 +17215,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Anderson's deadpan comedy about adolescent obsession holds up perfectly on the big screen. Metrograph is showing the DCP restored, which sharpens every witty frame and musical cue."
+      }
     },
     {
       "id": "tt0107822",
@@ -17793,7 +17805,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Saura's 1969 film belongs in a theater, especially this restoration at Metrograph. The escalating games between the couple demand the intensity of a big screen."
+      }
     },
     {
       "id": "tt0091670",
@@ -19858,7 +19874,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Park Chan-wook's revenge masterpiece demands the big screen. Metrograph's DCP presentation locks in the angular compositions and color that make this film sing."
+      }
     },
     {
       "id": "tt0100469",
@@ -20664,7 +20684,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A rare DCP screening of a 67-minute cult landmark at Metrograph. Tsukamoto's body-horror visionary work demands the big screen."
+      }
     },
     {
       "id": "tt34890576",
@@ -21905,7 +21929,11 @@
       ],
       "prestige_tags": [
         "CRITERION COLLECTION"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "Jarmusch's five-city taxi anthology is a minor classic worth seeing in 35mm. Metrograph's print captures the deadpan humor and nocturnal intimacy that define the film."
+      }
     },
     {
       "id": "tt0120663",
@@ -26821,7 +26849,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0074312",
@@ -26947,7 +26978,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "mat-as-pi-eiro-presents-hermia-helena",
@@ -26989,7 +27023,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0915749",
@@ -27073,7 +27110,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ace-presents-ghost-world",
@@ -27115,7 +27155,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt26731970",
@@ -27199,7 +27242,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "dragon-superman",
@@ -27241,7 +27287,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-1",
@@ -27283,7 +27332,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-2",
@@ -27325,7 +27377,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-3",
@@ -27367,7 +27422,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "in-bed-with-victoria",
@@ -27409,7 +27467,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "les-rendez-vous-d-anna",
@@ -27451,7 +27512,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "lorraine-o-grady-rivers-first-draft-performance",
@@ -27493,7 +27557,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "members-only-preview-all-of-a-sudden",
@@ -27535,7 +27602,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "moonlight-superman",
@@ -27577,7 +27647,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt1682940",
@@ -27661,7 +27734,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt10010142",
@@ -27745,7 +27821,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0085635",
@@ -27839,7 +27918,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt4697724",
@@ -27965,7 +28047,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt44475956",
@@ -28091,7 +28176,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "avedon-open-captioning",
@@ -28159,7 +28247,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt41593493",
@@ -28343,7 +28434,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "fjord-open-captioning",
@@ -28401,7 +28495,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-red-balloon",
@@ -28439,7 +28536,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0107508",
@@ -28521,7 +28621,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0255160",
@@ -30582,7 +30685,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "Skip the trip unless you're deep into NOFX or need a loud, sweaty night out. A 131-minute band doc works better as a home viewing with pause buttons for the jokes."
+      }
     },
     {
       "id": "megalopolis-new-year-s-day-celebration",
@@ -31599,7 +31706,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "girls-bite-back-road-movie-gudrun-gut-in-person",
@@ -31649,7 +31759,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "last-stop-for-the-circular-ticket",
@@ -31698,7 +31811,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "einsturzende-neubauten-liebeslieder-gudrun-gut-in-person-on-fri-nov-6",
@@ -31760,7 +31876,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "it-ll-be-ok-alles-wird-gut",
@@ -31828,7 +31947,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "riots-and-love",
@@ -31878,7 +32000,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "white-snail-filmmakers-in-person-on-sat-nov-7",
@@ -31955,7 +32080,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "whisper-shout-fl-stern-schreien",
@@ -32023,7 +32151,10 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-battle-of-tuntenhaus",
@@ -32085,7 +32216,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "berlin-super-80-films-from-the-west-german-underground",
@@ -32128,7 +32262,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0220666",
@@ -32229,7 +32366,10 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "hamlet-in-the-rented-world-a-fragment-cobra-woman",
@@ -32282,7 +32422,10 @@
         "16mm",
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "bored-teenagers",
@@ -32332,7 +32475,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-creation-of-the-humanoids-sins-of-the-fleshapoids",
@@ -32379,7 +32525,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "postcolonial-motion-taxis-and-travelogues",
@@ -32426,7 +32575,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "narrow-rooms-drunken-noodles",
@@ -32474,7 +32626,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ramayana-part-1",
@@ -33009,7 +33164,10 @@
         "IMAX",
         "RPX",
         "ScreenX"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt10098420",
@@ -33541,7 +33699,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt48391060",
@@ -33816,7 +33977,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt1325007",
