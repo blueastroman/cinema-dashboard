@@ -587,6 +587,12 @@
     "title": "American Psycho",
     "year": "2000"
   },
+  "american sniper|2015": {
+    "imdbID": "tt2179136",
+    "source": "exact",
+    "title": "American Sniper",
+    "year": "2015"
+  },
   "american summer|2025": {
     "imdbID": "tt6523546",
     "source": "exact_year",
@@ -879,6 +885,12 @@
     "imdbID": "tt39150008",
     "source": "exact_year",
     "title": "Barbara Forever",
+    "year": "2026"
+  },
+  "barbara|2026": {
+    "imdbID": "tt36825944",
+    "source": "exact_year",
+    "title": "Barbara",
     "year": "2026"
   },
   "bardi|2018": {
@@ -1276,6 +1288,12 @@
     "source": "exact",
     "title": "Bound",
     "year": "1996"
+  },
+  "bound|2025": {
+    "imdbID": "tt39307893",
+    "source": "exact_year",
+    "title": "Bound",
+    "year": "2025"
   },
   "bountiful summer": {
     "imdbID": "tt0042930",
@@ -2141,6 +2159,12 @@
     "title": "Dead Mountaineer's Hotel",
     "year": "1979"
   },
+  "dead of night|2026": {
+    "imdbID": "tt34385315",
+    "source": "exact_year",
+    "title": "Dead of Night",
+    "year": "2026"
+  },
   "dead ringers|1988": {
     "imdbID": "tt0094964",
     "source": "exact",
@@ -2512,6 +2536,12 @@
     "source": "exact_year",
     "title": "Dune: Part Three",
     "year": "2026"
+  },
+  "dune: part two|2024": {
+    "imdbID": "tt15239678",
+    "source": "exact",
+    "title": "Dune: Part Two",
+    "year": "2024"
   },
   "dune|1984": {
     "imdbID": "tt0087182",
@@ -3149,6 +3179,12 @@
     "title": "Friday Foster",
     "year": "1975"
   },
+  "friday the 13th part vi: jason lives|1986": {
+    "imdbID": "tt0091080",
+    "source": "exact",
+    "title": "Friday the 13th Part VI: Jason Lives",
+    "year": "1986"
+  },
   "friday the 13th|1980": {
     "imdbID": "tt0080761",
     "source": "exact",
@@ -3393,6 +3429,12 @@
     "imdbID": "tt27613895",
     "source": "exact_year",
     "title": "GOAT",
+    "year": "2026"
+  },
+  "god with us|2026": {
+    "imdbID": "tt38060517",
+    "source": "exact_year",
+    "title": "God with Us",
     "year": "2026"
   },
   "god's country|2022": {
@@ -4523,6 +4565,12 @@
     "title": "Just Like Weather",
     "year": "1986"
   },
+  "kaili blues|2016": {
+    "imdbID": "tt4613272",
+    "source": "exact",
+    "title": "Kaili Blues",
+    "year": "2016"
+  },
   "kama sutra: a tale of love|1996": {
     "imdbID": "tt0116743",
     "source": "exact",
@@ -4534,6 +4582,12 @@
     "source": "exact",
     "title": "Kangaroo Island",
     "year": "2024"
+  },
+  "keane|2004": {
+    "imdbID": "tt0420291",
+    "source": "exact",
+    "title": "Keane",
+    "year": "2004"
   },
   "khalifa|2026": {
     "imdbID": "tt22797990",
@@ -4715,6 +4769,12 @@
     "title": "Lady in the Water",
     "year": "2006"
   },
+  "lady killer|1933": {
+    "imdbID": "tt0024239",
+    "source": "exact",
+    "title": "Lady Killer",
+    "year": "1933"
+  },
   "lady|2026": {
     "imdbID": "tt38111477",
     "source": "exact_year",
@@ -4846,6 +4906,12 @@
     "source": "exact_year",
     "title": "Let's Make Love",
     "year": "1960"
+  },
+  "leviathan|2015": {
+    "imdbID": "tt2802154",
+    "source": "exact",
+    "title": "Leviathan",
+    "year": "2015"
   },
   "leviticus|2026": {
     "imdbID": "tt39143902",
@@ -5597,6 +5663,12 @@
     "title": "Muppet Treasure Island",
     "year": "1996"
   },
+  "museum hours|2012": {
+    "imdbID": "tt2268732",
+    "source": "exact",
+    "title": "Museum Hours",
+    "year": "2012"
+  },
   "musk|2026": {
     "imdbID": "tt27041231",
     "source": "exact_year",
@@ -5752,6 +5824,12 @@
     "source": "exact_year",
     "title": "Nausicaä of the Valley of the Wind",
     "year": "1984"
+  },
+  "nayak (the hero)|2001": {
+    "imdbID": "tt0291376",
+    "source": "search",
+    "title": "Nayak: The Real Hero",
+    "year": "2001"
   },
   "nazarin|1959": {
     "imdbID": "tt0051983",
@@ -6551,6 +6629,12 @@
     "title": "Poetic Justice",
     "year": "1993"
   },
+  "poetry|2011": {
+    "imdbID": "tt1287878",
+    "source": "exact",
+    "title": "Poetry",
+    "year": "2011"
+  },
   "point blank": {
     "imdbID": "tt32525217",
     "source": "exact_year",
@@ -6958,6 +7042,12 @@
     "source": "exact_year",
     "title": "Remember My Name",
     "year": "1978"
+  },
+  "remember|2025": {
+    "imdbID": "tt38985261",
+    "source": "exact_year",
+    "title": "Remember",
+    "year": "2025"
   },
   "renoir|2012": {
     "imdbID": "tt2150332",
@@ -7541,6 +7631,12 @@
     "title": "Six: The Musical Live!",
     "year": "2025"
   },
+  "sketch|2025": {
+    "imdbID": "tt26238710",
+    "source": "exact_year",
+    "title": "Sketch",
+    "year": "2025"
+  },
   "slc punk|1998": {
     "imdbID": "tt0133189",
     "source": "exact",
@@ -7570,6 +7666,12 @@
     "source": "exact",
     "title": "Smithereens",
     "year": "1982"
+  },
+  "smokin' aces|2007": {
+    "imdbID": "tt0475394",
+    "source": "exact",
+    "title": "Smokin' Aces",
+    "year": "2007"
   },
   "snake eyes|1998": {
     "imdbID": "tt0120832",
@@ -7654,6 +7756,12 @@
     "source": "exact_year",
     "title": "Spa Weekend",
     "year": "2026"
+  },
+  "space cadet|2025": {
+    "imdbID": "tt26446095",
+    "source": "exact_year",
+    "title": "Space Cadet",
+    "year": "2025"
   },
   "space jam|1996": {
     "imdbID": "tt0117705",
@@ -7750,6 +7858,12 @@
     "source": "override",
     "title": "Stalker",
     "year": "1979"
+  },
+  "stalker|1980": {
+    "imdbID": "tt0079944",
+    "source": "override",
+    "title": "Stalker",
+    "year": "1980"
   },
   "stan & ollie|2018": {
     "imdbID": "tt3385524",
@@ -7889,6 +8003,12 @@
     "title": "Stray Kids World Tour 'RUN IT' LIVE VIEWING",
     "year": "2026"
   },
+  "street fighter|2026": {
+    "imdbID": "tt27419420",
+    "source": "exact_year",
+    "title": "Street Fighter",
+    "year": "2026"
+  },
   "stress is three|1968": {
     "imdbID": "tt0063651",
     "source": "exact",
@@ -7912,6 +8032,12 @@
     "source": "exact",
     "title": "Suicide Note",
     "year": "2016"
+  },
+  "summer holidays|2026": {
+    "imdbID": "tt43089752",
+    "source": "exact_year",
+    "title": "Summer Holidays",
+    "year": "2026"
   },
   "summer tour|2025": {
     "imdbID": "tt38066155",
@@ -8038,6 +8164,12 @@
     "source": "exact",
     "title": "Tampopo",
     "year": "1985"
+  },
+  "tangles|2026": {
+    "imdbID": "tt22183852",
+    "source": "exact",
+    "title": "Tangles",
+    "year": "2026"
   },
   "tarzan and his mate|1934": {
     "imdbID": "tt0025862",
@@ -8188,6 +8320,12 @@
     "source": "exact",
     "title": "The Age of Innocence",
     "year": "1993"
+  },
+  "the angry birds movie|2026": {
+    "imdbID": "tt32557122",
+    "source": "exact_year",
+    "title": "The Angry Birds Movie 3",
+    "year": "2026"
   },
   "the apartment|1960": {
     "imdbID": "tt0053604",
@@ -9101,6 +9239,12 @@
     "title": "The Insider",
     "year": "1999"
   },
+  "the inugami family|1976": {
+    "imdbID": "tt0074691",
+    "source": "exact",
+    "title": "The Inugami Family",
+    "year": "1976"
+  },
   "the invite|2026": {
     "imdbID": "tt14173636",
     "source": "exact_year",
@@ -9352,6 +9496,12 @@
     "source": "exact_year",
     "title": "The Misfits",
     "year": "1961"
+  },
+  "the misfits|2025": {
+    "imdbID": "tt38772545",
+    "source": "exact_year",
+    "title": "The Misfits",
+    "year": "2025"
   },
   "the mongoose|2026": {
     "imdbID": "tt13611778",
@@ -10265,6 +10415,12 @@
     "title": "They Shoot Horses, Don't They?",
     "year": "1969"
   },
+  "theydream|2026": {
+    "imdbID": "tt39150095",
+    "source": "exact_year",
+    "title": "TheyDream",
+    "year": "2026"
+  },
   "thief|1981": {
     "imdbID": "tt0083190",
     "source": "exact",
@@ -10367,6 +10523,12 @@
     "title": "Time and Water",
     "year": "2026"
   },
+  "time indefinite|1993": {
+    "imdbID": "tt0108341",
+    "source": "exact",
+    "title": "Time Indefinite",
+    "year": "1993"
+  },
   "tinsman road|2023": {
     "imdbID": "tt13259900",
     "source": "exact",
@@ -10402,6 +10564,12 @@
     "source": "exact",
     "title": "Tokyo Pop",
     "year": "1988"
+  },
+  "tokyo sonata|2008": {
+    "imdbID": "tt0938341",
+    "source": "exact",
+    "title": "Tokyo Sonata",
+    "year": "2008"
   },
   "tommy|1975": {
     "imdbID": "tt0073812",
@@ -10486,6 +10654,12 @@
     "source": "exact",
     "title": "Traces of Home",
     "year": "2021"
+  },
+  "traces of justice|2026": {
+    "imdbID": "tt38188218",
+    "source": "exact_year",
+    "title": "Traces of Justice",
+    "year": "2026"
   },
   "train to busan|2016": {
     "imdbID": "tt5700672",
@@ -11182,6 +11356,12 @@
     "source": "exact",
     "title": "Wild at Heart",
     "year": "1990"
+  },
+  "wild boys of the road|1933": {
+    "imdbID": "tt0024772",
+    "source": "exact",
+    "title": "Wild Boys of the Road",
+    "year": "1933"
   },
   "wild horse nine|2026": {
     "imdbID": "tt15799564",
