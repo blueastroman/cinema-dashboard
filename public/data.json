@@ -11926,7 +11926,11 @@
       ],
       "prestige_tags": [
         "CRITERION COLLECTION"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "See it theatrically while you can—this is Tarkovsky's most immersive film. The sound design and long takes demand the focus that only a darkened theater provides."
+      }
     },
     {
       "id": "tt0075404",
@@ -14968,7 +14972,11 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "verdict": "WATCH",
+        "reason": "A rare theatrical screening of one of the great horror films of the 2010s. Mitchell's precise direction and unsettling sound design demand the big screen and dark room."
+      }
     },
     {
       "id": "tt0117589",
@@ -20660,7 +20668,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "David Ayer doing survival action with a dog has merit, but the premise is thin. Catch it in 4DX if you want the wilderness immersion; streaming works fine otherwise."
+      }
     },
     {
       "id": "tt0084777",
@@ -27784,7 +27796,11 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "verdict": "DEPENDS",
+        "reason": "Skip the Alamo unless you want arcade-bar atmosphere with your action film. The tournament setup and revenge subplot work better at home without the noise."
+      }
     },
     {
       "id": "tt0084725",
@@ -29077,7 +29093,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0125713",
@@ -29161,7 +29180,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "je-t-aime-je-t-aime",
@@ -29203,7 +29225,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "mat-as-pi-eiro-presents-hermia-helena",
@@ -29245,7 +29270,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "members-only-preview-all-of-a-sudden",
@@ -29287,7 +29315,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt1682940",
@@ -29413,7 +29444,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ace-presents-day-night-day-night",
@@ -29455,7 +29489,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ace-presents-ghost-world",
@@ -29497,7 +29534,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt26731970",
@@ -29581,7 +29621,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "blue-chinese-series",
@@ -29623,7 +29666,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "dragon-superman",
@@ -29665,7 +29711,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-1",
@@ -29707,7 +29756,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-2",
@@ -29749,7 +29801,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "gunvor-nelson-program-3",
@@ -29791,7 +29846,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0024239",
@@ -29875,7 +29933,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "lorraine-o-grady-rivers-first-draft-performance",
@@ -29917,7 +29978,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "michael-mann-s-manhunter-the-final-cut",
@@ -29959,7 +30023,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "moonlight-superman",
@@ -30001,7 +30068,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0291376",
@@ -30085,7 +30155,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt10010142",
@@ -30169,7 +30242,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "still-life-train-trains-2-a-bypass",
@@ -30211,7 +30287,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0085635",
@@ -30305,7 +30384,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt4697724",
@@ -30431,7 +30513,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0040000",
@@ -30515,7 +30600,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt44475956",
@@ -30641,7 +30729,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "avedon-open-captioning",
@@ -30709,7 +30800,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt41593493",
@@ -30881,7 +30975,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "fjord-open-captioning",
@@ -30939,7 +31036,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-red-balloon",
@@ -30977,7 +31077,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0107508",
@@ -31059,7 +31162,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0255160",
@@ -34641,7 +34747,10 @@
       ],
       "special_formats": [
         "35mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "it-ll-be-ok-alles-wird-gut",
@@ -34709,7 +34818,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "riots-and-love",
@@ -34759,7 +34871,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "white-snail-filmmakers-in-person-on-sat-nov-7",
@@ -34836,7 +34951,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "whisper-shout-fl-stern-schreien",
@@ -34904,7 +35022,10 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-battle-of-tuntenhaus",
@@ -34966,7 +35087,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "berlin-super-80-films-from-the-west-german-underground",
@@ -35009,7 +35133,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt0220666",
@@ -35110,7 +35237,10 @@
       "special_formats": [
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "hamlet-in-the-rented-world-a-fragment-cobra-woman",
@@ -35163,7 +35293,10 @@
         "16mm",
         "35mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "bored-teenagers",
@@ -35213,7 +35346,10 @@
       "special_formats": [
         "16mm",
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "the-creation-of-the-humanoids-sins-of-the-fleshapoids",
@@ -35260,7 +35396,10 @@
       ],
       "special_formats": [
         "16mm"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "einsturzende-neubauten-liebeslieder-gudrun-gut-in-person-on-fri-nov-6",
@@ -35307,7 +35446,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "postcolonial-motion-taxis-and-travelogues",
@@ -35354,7 +35496,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "narrow-rooms-drunken-noodles",
@@ -35402,7 +35547,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "hold-me-tight-serre-moi-fort",
@@ -35450,7 +35598,10 @@
       ],
       "special_formats": [
         "DCP"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ramayana-part-1",
@@ -35981,7 +36132,10 @@
         "4DX",
         "IMAX",
         "ScreenX"
-      ]
+      ],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "ghost-soldier",
@@ -36325,7 +36479,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt48391060",
@@ -36457,7 +36614,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt43634235",
@@ -36595,7 +36755,10 @@
           "special_formats": []
         }
       ],
-      "special_formats": []
+      "special_formats": [],
+      "verdict": {
+        "reason": "Showtimes review pending."
+      }
     },
     {
       "id": "tt1325007",

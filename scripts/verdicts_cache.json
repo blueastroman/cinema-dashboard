@@ -12,7 +12,11 @@
   "tt0079944": {
     "verdict": "WATCH",
     "reason": "See it theatrically while you can—this is Tarkovsky's most immersive film. The sound design and long takes demand the focus that only a darkened theater provides.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-11-07T17:35:41.172733",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "e09514513212591db02368a9d26a7eaa2ee8cc3ba3728b0def51913e73ae2339"
   },
   "tt0413893": {
     "verdict": "DEPENDS",
