@@ -537,7 +537,11 @@
   "tt0103074": {
     "verdict": "WATCH",
     "reason": "Landmark feminist road movie that still packs a punch three decades later. Scott's direction turns the final act into genuine American mythology.",
-    "generated_at": "2026-05-08T17:04:54.488592"
+    "generated_at": "2026-11-08T17:43:33.995965",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "a714b2d56f4da906fbd1da9d2f759e9d35835055c9eb57220232cc4f149ac596"
   },
   "tt2911666": {
     "verdict": "WATCH",
