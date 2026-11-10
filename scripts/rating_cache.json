@@ -1085,6 +1085,12 @@
     "title": "Billie Eilish: Hit Me Hard and Soft - The Tour Live in 3D",
     "year": "2026"
   },
+  "billy joel tonight|1976": {
+    "imdbID": "tt32505060",
+    "source": "search",
+    "title": "Billy Joel: Tonight",
+    "year": "1976"
+  },
   "billy liar|1963": {
     "imdbID": "tt0056868",
     "source": "exact_year",
@@ -1798,6 +1804,12 @@
     "source": "exact",
     "title": "Clouds of Sils Maria",
     "year": "2014"
+  },
+  "cloverfield|2008": {
+    "imdbID": "tt1060277",
+    "source": "exact",
+    "title": "Cloverfield",
+    "year": "2008"
   },
   "club kid|2026": {
     "imdbID": "tt38058097",
@@ -7703,6 +7715,12 @@
     "title": "So This Is New York",
     "year": "1948"
   },
+  "so this is paris|1926": {
+    "imdbID": "tt0017409",
+    "source": "exact_year",
+    "title": "So This Is Paris",
+    "year": "1926"
+  },
   "socrates|2018": {
     "imdbID": "tt8026554",
     "source": "exact",
@@ -8674,6 +8692,12 @@
     "source": "exact_year",
     "title": "The Correspondent",
     "year": "2026"
+  },
+  "the court jester|1956": {
+    "imdbID": "tt0049096",
+    "source": "exact_year",
+    "title": "The Court Jester",
+    "year": "1956"
   },
   "the craft|1996": {
     "imdbID": "tt0115963",
@@ -10331,6 +10355,12 @@
     "title": "The Wife",
     "year": "2017"
   },
+  "the wild bunch|1969": {
+    "imdbID": "tt0065214",
+    "source": "exact",
+    "title": "The Wild Bunch",
+    "year": "1969"
+  },
   "the wind rises|2013": {
     "imdbID": "tt2013293",
     "source": "exact",
@@ -10486,6 +10516,12 @@
     "source": "exact",
     "title": "Three Colors: White",
     "year": "1994"
+  },
+  "threeasfour: full circle|2026": {
+    "imdbID": "tt42042387",
+    "source": "exact",
+    "title": "ThreeASFOUR: Full Circle",
+    "year": "2026"
   },
   "throne of blood|1957": {
     "imdbID": "tt0050613",
