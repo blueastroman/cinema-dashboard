@@ -359,6 +359,12 @@
     "title": "After Hours",
     "year": "1985"
   },
+  "after hours|2026": {
+    "imdbID": "tt42007261",
+    "source": "exact_year",
+    "title": "After Hours",
+    "year": "2026"
+  },
   "afterimage|2017": {
     "imdbID": "tt5186236",
     "source": "exact",
@@ -580,6 +586,12 @@
     "source": "exact",
     "title": "American Job",
     "year": "1996"
+  },
+  "american movie|2000": {
+    "imdbID": "tt0181288",
+    "source": "exact",
+    "title": "American Movie",
+    "year": "2000"
   },
   "american psycho|2000": {
     "imdbID": "tt0144084",
@@ -2129,6 +2141,12 @@
     "title": "Daughters of Darkness",
     "year": "1971"
   },
+  "daughters of the dust|1991": {
+    "imdbID": "tt0104057",
+    "source": "exact",
+    "title": "Daughters of the Dust",
+    "year": "1991"
+  },
   "david|2026": {
     "imdbID": "tt42081961",
     "source": "exact_year",
@@ -3004,6 +3022,12 @@
     "source": "exact_year",
     "title": "Fences",
     "year": "2016"
+  },
+  "festive fun with peppa cinema experience|2026": {
+    "imdbID": "tt46666063",
+    "source": "exact_year",
+    "title": "Festive Fun with Peppa Cinema Experience",
+    "year": "2026"
   },
   "fiddler on the roof|1971": {
     "imdbID": "tt0067093",
@@ -4432,6 +4456,12 @@
     "source": "exact_year",
     "title": "It's a Mad Mad Mad Mad World",
     "year": "1963"
+  },
+  "it’s a wonderful life|1947": {
+    "imdbID": "tt0038650",
+    "source": "exact",
+    "title": "It's a Wonderful Life",
+    "year": "1947"
   },
   "ivan's childhood|1962": {
     "imdbID": "tt0056111",
@@ -7085,6 +7115,12 @@
     "title": "Renoir",
     "year": "2012"
   },
+  "repo man|1984": {
+    "imdbID": "tt0087995",
+    "source": "exact",
+    "title": "Repo Man",
+    "year": "1984"
+  },
   "repo! the genetic opera|2008": {
     "imdbID": "tt0963194",
     "source": "exact_year",
@@ -7126,6 +7162,12 @@
     "source": "exact_year",
     "title": "Ringu",
     "year": "1998"
+  },
+  "rise of the guardians|2012": {
+    "imdbID": "tt1446192",
+    "source": "exact",
+    "title": "Rise of the Guardians",
+    "year": "2012"
   },
   "river’s edge|1986": {
     "imdbID": "tt0091860",
@@ -10003,7 +10045,7 @@
   },
   "the shop around the corner|1940": {
     "imdbID": "tt0033045",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Shop Around the Corner",
     "year": "1940"
   },
@@ -11131,7 +11173,7 @@
   },
   "victorian psycho|2026": {
     "imdbID": "tt34374553",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Victorian Psycho",
     "year": "2026"
   },
