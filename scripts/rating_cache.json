@@ -395,6 +395,12 @@
     "title": "Agon",
     "year": "2012"
   },
+  "agora|2026": {
+    "imdbID": "tt42504816",
+    "source": "exact_year",
+    "title": "Agora",
+    "year": "2026"
+  },
   "akira|1988": {
     "imdbID": "tt0094625",
     "source": "exact",
@@ -5123,6 +5129,18 @@
     "title": "Love of Your Life",
     "year": "2026"
   },
+  "lucid|2026": {
+    "imdbID": "tt33306263",
+    "source": "exact_year",
+    "title": "Lucid",
+    "year": "2026"
+  },
+  "lunar sway|2026": {
+    "imdbID": "tt32492478",
+    "source": "exact_year",
+    "title": "Lunar Sway",
+    "year": "2026"
+  },
   "lust for life|1956": {
     "imdbID": "tt0049456",
     "source": "exact_year",
@@ -6107,6 +6125,12 @@
     "title": "Obsession",
     "year": "2026"
   },
+  "oca|2025": {
+    "imdbID": "tt37675049",
+    "source": "exact_year",
+    "title": "Oca",
+    "year": "2025"
+  },
   "occupational hazard: the first coral reefers|2026": {
     "imdbID": "tt33499383",
     "source": "exact_year",
@@ -6648,6 +6672,12 @@
     "year": "2025"
   },
   "planes, trains & automobiles|1987": {
+    "imdbID": "tt0093748",
+    "source": "exact_year",
+    "title": "Planes, Trains & Automobiles",
+    "year": "1987"
+  },
+  "planes, trains and automobiles|1987": {
     "imdbID": "tt0093748",
     "source": "exact_year",
     "title": "Planes, Trains & Automobiles",
@@ -11182,6 +11212,12 @@
     "source": "exact_year",
     "title": "Vincere",
     "year": "2009"
+  },
+  "violent night 2|2026": {
+    "imdbID": "tt32432428",
+    "source": "exact_year",
+    "title": "Violent Night 2",
+    "year": "2026"
   },
   "violent saturday|1955": {
     "imdbID": "tt0048790",
