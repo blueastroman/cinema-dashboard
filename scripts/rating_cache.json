@@ -143,11 +143,11 @@
     "title": "A Bronx Tale",
     "year": "1993"
   },
-  "a clockwork orange": {
+  "a clockwork orange|1972": {
     "imdbID": "tt0066921",
     "source": "exact",
     "title": "A Clockwork Orange",
-    "year": "1971"
+    "year": "1972"
   },
   "a fish called wanda|1988": {
     "imdbID": "tt0095159",
@@ -2092,6 +2092,12 @@
     "source": "exact_year",
     "title": "Cyclone",
     "year": "1987"
+  },
+  "cyclops|2008": {
+    "imdbID": "tt1210344",
+    "source": "exact",
+    "title": "Cyclops",
+    "year": "2008"
   },
   "código marcos|2025": {
     "imdbID": "tt34671414",
@@ -10373,6 +10379,12 @@
     "title": "The Vikings",
     "year": "1958"
   },
+  "the vile|2025": {
+    "imdbID": "tt37371373",
+    "source": "exact_year",
+    "title": "The Vile",
+    "year": "2025"
+  },
   "the wailing|2016": {
     "imdbID": "tt5215952",
     "source": "exact",
@@ -11674,12 +11686,6 @@
     "source": "exact",
     "title": "Zidane: A 21st Century Portrait",
     "year": "2006"
-  },
-  "zi|2026": {
-    "imdbID": "tt39150111",
-    "source": "exact",
-    "title": "Zi",
-    "year": "2026"
   },
   "zodiac|2007": {
     "imdbID": "tt0443706",
