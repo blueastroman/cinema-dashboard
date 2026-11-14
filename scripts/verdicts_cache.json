@@ -2300,7 +2300,11 @@
   "tt36243564": {
     "verdict": "SKIP",
     "reason": "Skip this generic thriller that wastes a solid setup. Prasad never builds real suspense beyond the obvious ride-share paranoia.",
-    "generated_at": "2026-05-13T14:57:21.896381"
+    "generated_at": "2026-11-14T17:50:53.423012",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "37d75331a6d9173de8514b078bab4ffca1d1d64580f7066044c838bf1ddf84da"
   },
   "tt35050712": {
     "verdict": "SKIP",
@@ -3595,7 +3599,11 @@
   "tt0045891": {
     "verdict": "WATCH",
     "reason": "See this CinemaScope pioneer on the biggest screen you can find. The wide-format photography that defined 1950s moviegoing deserves proper theatrical presentation.",
-    "generated_at": "2026-05-27T16:07:46.447362"
+    "generated_at": "2026-11-14T17:50:53.423012",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_version": "2026-09-29-grounded-short-reviews",
+    "cache_schema_version": 2,
+    "source_hash": "6dfe5a815d38116f638d428b77c5500d12972e0541dc816bcd19d8c3255ba76b"
   },
   "tt0067093": {
     "verdict": "DEPENDS",
