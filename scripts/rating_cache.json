@@ -8359,7 +8359,7 @@
   },
   "tally brown, new york|1979": {
     "imdbID": "tt0163324",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Tally Brown, New York",
     "year": "1979"
   },
@@ -9628,6 +9628,12 @@
     "source": "exact_year",
     "title": "The Long Goodbye",
     "year": "1973"
+  },
+  "the lord of the rings: the fellowship of the ring|2001": {
+    "imdbID": "tt0120737",
+    "source": "exact",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": "2001"
   },
   "the lost boys|1987": {
     "imdbID": "tt0093437",
