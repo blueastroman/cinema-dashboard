@@ -1067,6 +1067,12 @@
     "title": "Best in Show",
     "year": "2025–"
   },
+  "best pancakes in the county|2027": {
+    "imdbID": "tt38258118",
+    "source": "exact",
+    "title": "Best Pancakes in the County",
+    "year": "2027"
+  },
   "bethlehem kudumba unit|2026": {
     "imdbID": "tt37535100",
     "source": "exact_year",
@@ -3073,7 +3079,7 @@
   },
   "female trouble|1974": {
     "imdbID": "tt0072979",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Female Trouble",
     "year": "1974"
   },
@@ -9340,6 +9346,12 @@
     "source": "exact_year",
     "title": "The Hole",
     "year": "2001"
+  },
+  "the holiday|2006": {
+    "imdbID": "tt0457939",
+    "source": "exact_year",
+    "title": "The Holiday",
+    "year": "2006"
   },
   "the holy mountain|1975": {
     "imdbID": "tt0071615",
