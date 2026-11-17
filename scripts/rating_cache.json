@@ -1469,6 +1469,12 @@
     "title": "Bugged",
     "year": "1996"
   },
+  "bugsy|1991": {
+    "imdbID": "tt0101516",
+    "source": "exact",
+    "title": "Bugsy",
+    "year": "1991"
+  },
   "bullet|2025": {
     "imdbID": "tt28005512",
     "source": "exact_year",
@@ -2525,6 +2531,12 @@
     "title": "Double Freedom",
     "year": "2026"
   },
+  "double impact|1991": {
+    "imdbID": "tt0101764",
+    "source": "exact",
+    "title": "Double Impact",
+    "year": "1991"
+  },
   "double indemnity|1944": {
     "imdbID": "tt0036775",
     "source": "exact",
@@ -3454,6 +3466,12 @@
     "source": "exact",
     "title": "Gentlemen Prefer Blondes",
     "year": "1953"
+  },
+  "germany, year zero|1949": {
+    "imdbID": "tt0039417",
+    "source": "exact_year",
+    "title": "Germany Year Zero",
+    "year": "1949"
   },
   "ghost dog: the way of the samurai|1999": {
     "imdbID": "tt0165798",
@@ -4907,6 +4925,12 @@
     "title": "Lady Killer",
     "year": "1933"
   },
+  "lady windermere's fan|1926": {
+    "imdbID": "tt0016004",
+    "source": "exact_year",
+    "title": "Lady Windermere's Fan",
+    "year": "1926"
+  },
   "lady|2026": {
     "imdbID": "tt38111477",
     "source": "exact_year",
@@ -5086,6 +5110,12 @@
     "source": "exact_year",
     "title": "Littermates",
     "year": "2026"
+  },
+  "little fugitive|1953": {
+    "imdbID": "tt0046004",
+    "source": "exact_year",
+    "title": "Little Fugitive",
+    "year": "1953"
   },
   "little odessa|1995": {
     "imdbID": "tt0110365",
