@@ -113,6 +113,12 @@
     "title": "9 to 5",
     "year": "1980"
   },
+  "a beautiful mind|2002": {
+    "imdbID": "tt0268978",
+    "source": "exact",
+    "title": "A Beautiful Mind",
+    "year": "2002"
+  },
   "a better tomorrow iii: love and death in saigon|1989": {
     "imdbID": "tt0098691",
     "source": "exact",
@@ -166,6 +172,12 @@
     "source": "exact_year",
     "title": "A Fistful of Dollars",
     "year": "1967"
+  },
+  "a fox under a pink moon|2022": {
+    "imdbID": "tt18163224",
+    "source": "exact",
+    "title": "A Fox Under a Pink Moon",
+    "year": "2022"
   },
   "a generation|1955": {
     "imdbID": "tt0048500",
@@ -1201,7 +1213,7 @@
   },
   "blade ii|2002": {
     "imdbID": "tt0187738",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Blade II",
     "year": "2002"
   },
@@ -1516,6 +1528,12 @@
     "source": "exact",
     "title": "Caché",
     "year": "2005"
+  },
+  "calamity|1982": {
+    "imdbID": "tt0082599",
+    "source": "exact",
+    "title": "Calamity",
+    "year": "1982"
   },
   "caliber 9|1972": {
     "imdbID": "tt0067429",
@@ -4085,6 +4103,12 @@
     "title": "Hercules in the Haunted World",
     "year": "1961"
   },
+  "hershey|2026": {
+    "imdbID": "tt17055444",
+    "source": "exact_year",
+    "title": "Hershey",
+    "year": "2026"
+  },
   "hexed|2026": {
     "imdbID": "tt38077943",
     "source": "exact_year",
@@ -6029,6 +6053,12 @@
     "title": "Naza",
     "year": "2026"
   },
+  "nelly and monsieur arnaud|1995": {
+    "imdbID": "tt0113947",
+    "source": "exact_year",
+    "title": "Nelly & Monsieur Arnaud",
+    "year": "1995"
+  },
   "neon genesis evangelion: death & rebirth|1997": {
     "imdbID": "tt0169880",
     "source": "exact_year",
@@ -6040,6 +6070,12 @@
     "source": "search",
     "title": "Nesting",
     "year": "2012"
+  },
+  "network|1976": {
+    "imdbID": "tt0074958",
+    "source": "exact",
+    "title": "Network",
+    "year": "1976"
   },
   "never after dark|2026": {
     "imdbID": "tt38589433",
@@ -7216,6 +7252,12 @@
     "source": "exact",
     "title": "Red Flag",
     "year": "2012"
+  },
+  "red snow|2021": {
+    "imdbID": "tt12059016",
+    "source": "exact",
+    "title": "Red Snow",
+    "year": "2021"
   },
   "red sorghum": {
     "imdbID": "tt0093206",
@@ -8953,7 +8995,7 @@
   },
   "the dark crystal|1982": {
     "imdbID": "tt0083791",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Dark Crystal",
     "year": "1982"
   },
@@ -9166,6 +9208,12 @@
     "source": "exact",
     "title": "The Fan",
     "year": "1996"
+  },
+  "the fast and the furious: tokyo drift|2006": {
+    "imdbID": "tt0463985",
+    "source": "exact",
+    "title": "The Fast and the Furious: Tokyo Drift",
+    "year": "2006"
   },
   "the fast and the furious|2001": {
     "imdbID": "tt0232500",
@@ -10661,6 +10709,12 @@
     "title": "The Women",
     "year": "1939"
   },
+  "the world's end|2013": {
+    "imdbID": "tt1213663",
+    "source": "exact",
+    "title": "The World's End",
+    "year": "2013"
+  },
   "the wrestler and the clown": {
     "imdbID": "tt0050206",
     "source": "exact",
@@ -11326,6 +11380,12 @@
     "source": "exact_year",
     "title": "Van Gogh",
     "year": "1991"
+  },
+  "vanilla sky|2001": {
+    "imdbID": "tt0259711",
+    "source": "exact",
+    "title": "Vanilla Sky",
+    "year": "2001"
   },
   "vanya on 42nd street|1994": {
     "imdbID": "tt0111590",
