@@ -7579,7 +7579,7 @@
   },
   "scarface|1983": {
     "imdbID": "tt0086250",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Scarface",
     "year": "1983"
   },
@@ -9251,6 +9251,12 @@
     "title": "The Flavor of Green Tea Over Rice",
     "year": "1952"
   },
+  "the flowers of st. francis|1950": {
+    "imdbID": "tt0042477",
+    "source": "search",
+    "title": "The Flowers of St. Francis",
+    "year": "1950"
+  },
   "the foul king|2000": {
     "imdbID": "tt0261552",
     "source": "exact",
@@ -10198,6 +10204,12 @@
     "source": "exact",
     "title": "The Root",
     "year": "2022"
+  },
+  "the rossellinis|2020": {
+    "imdbID": "tt12749696",
+    "source": "exact_year",
+    "title": "The Rossellinis",
+    "year": "2020"
   },
   "the sacrifice|1986": {
     "imdbID": "tt0091670",
