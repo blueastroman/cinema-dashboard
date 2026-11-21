@@ -215,6 +215,12 @@
     "title": "A Man of His Time",
     "year": "2026"
   },
+  "a man walks down the street|2025": {
+    "imdbID": "tt33502346",
+    "source": "exact_year",
+    "title": "A Man Walks Down the Street",
+    "year": "2025"
+  },
   "a master builder|2013": {
     "imdbID": "tt2276069",
     "source": "exact",
@@ -293,6 +299,12 @@
     "title": "A Streetcar Named Desire",
     "year": "1951"
   },
+  "a tale of the wind|1988": {
+    "imdbID": "tt0096337",
+    "source": "exact",
+    "title": "A Tale of the Wind",
+    "year": "1988"
+  },
   "a tale of two sisters|2003": {
     "imdbID": "tt0365376",
     "source": "exact_year",
@@ -316,6 +328,12 @@
     "source": "exact",
     "title": "A Woman's Torment",
     "year": "1977"
+  },
+  "aakasamlo oka tara|2026": {
+    "imdbID": "tt33044571",
+    "source": "exact_year",
+    "title": "Aakasamlo Oka Tara",
+    "year": "2026"
   },
   "abel raises cain|2005": {
     "imdbID": "tt0437780",
@@ -1000,6 +1018,12 @@
     "source": "exact_year",
     "title": "Ice Beast",
     "year": "2026"
+  },
+  "beauty and the beast|1991": {
+    "imdbID": "tt0101414",
+    "source": "exact",
+    "title": "Beauty and the Beast",
+    "year": "1991"
   },
   "beavis and butt-head do america|1996": {
     "imdbID": "tt0115641",
@@ -2044,6 +2068,12 @@
     "source": "search",
     "title": "Cosi Fan Tutte",
     "year": "2005"
+  },
+  "cowboys & aliens|2025": {
+    "imdbID": "tt35933906",
+    "source": "exact_year",
+    "title": "Cowboys & Aliens",
+    "year": "2025"
   },
   "coyote vs. acme|2026": {
     "imdbID": "tt1756855",
@@ -3257,6 +3287,12 @@
     "title": "Forbidden Planet",
     "year": "1956"
   },
+  "forbidden planet|1958": {
+    "imdbID": "tt0049223",
+    "source": "exact",
+    "title": "Forbidden Planet",
+    "year": "1958"
+  },
   "force majeure|2014": {
     "imdbID": "tt2121382",
     "source": "exact_year",
@@ -3340,6 +3376,12 @@
     "source": "exact",
     "title": "From Dusk Till Dawn",
     "year": "1996"
+  },
+  "from russia with love|1964": {
+    "imdbID": "tt0057076",
+    "source": "exact",
+    "title": "From Russia with Love",
+    "year": "1964"
   },
   "from up on poppy hill|2011": {
     "imdbID": "tt1798188",
@@ -3496,6 +3538,12 @@
     "source": "exact_year",
     "title": "Germany Year Zero",
     "year": "1949"
+  },
+  "gertrud|1964": {
+    "imdbID": "tt0058138",
+    "source": "exact",
+    "title": "Gertrud",
+    "year": "1964"
   },
   "ghost dog: the way of the samurai|1999": {
     "imdbID": "tt0165798",
@@ -3772,6 +3820,12 @@
     "source": "exact_year",
     "title": "Gregg Allman: The Music of My Soul",
     "year": "2026"
+  },
+  "gremlins 2: the new batch|1990": {
+    "imdbID": "tt0099700",
+    "source": "exact",
+    "title": "Gremlins 2: The New Batch",
+    "year": "1990"
   },
   "grey gardens|1975": {
     "imdbID": "tt0073076",
@@ -4259,6 +4313,12 @@
     "title": "How to Stuff a Wild Bikini",
     "year": "1965"
   },
+  "howard the duck|1986": {
+    "imdbID": "tt0091225",
+    "source": "exact",
+    "title": "Howard the Duck",
+    "year": "1986"
+  },
   "howl's moving castle|2004": {
     "imdbID": "tt0347149",
     "source": "exact",
@@ -4393,7 +4453,7 @@
   },
   "imitation of life|1959": {
     "imdbID": "tt0052918",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Imitation of Life",
     "year": "1959"
   },
@@ -4715,6 +4775,12 @@
     "title": "Josephine",
     "year": "1978"
   },
+  "journey to the beginning of time|1955": {
+    "imdbID": "tt0047930",
+    "source": "exact",
+    "title": "A Journey to the Beginning of Time",
+    "year": "1955"
+  },
   "ju-on: the curse|2000": {
     "imdbID": "tt0330500",
     "source": "exact_year",
@@ -4786,6 +4852,12 @@
     "source": "exact_year",
     "title": "King Kong vs. Godzilla",
     "year": "1962"
+  },
+  "king kong|2005": {
+    "imdbID": "tt0360717",
+    "source": "exact",
+    "title": "King Kong",
+    "year": "2005"
   },
   "kinki|2014": {
     "imdbID": "tt4190550",
@@ -5375,6 +5447,12 @@
     "title": "Magic Hour",
     "year": "2015"
   },
+  "magnolia|2000": {
+    "imdbID": "tt0175880",
+    "source": "exact",
+    "title": "Magnolia",
+    "year": "2000"
+  },
   "making marie antoinette|2026": {
     "imdbID": "tt43656794",
     "source": "exact_year",
@@ -5578,6 +5656,12 @@
     "source": "exact_year",
     "title": "Metropolis",
     "year": "2025"
+  },
+  "metropolitan|1990": {
+    "imdbID": "tt0100142",
+    "source": "exact",
+    "title": "Metropolitan",
+    "year": "1990"
   },
   "miami vice|2006": {
     "imdbID": "tt0430357",
@@ -6719,6 +6803,12 @@
     "title": "Pastorale",
     "year": "1975"
   },
+  "pather panchali|1955": {
+    "imdbID": "tt0048473",
+    "source": "exact",
+    "title": "Pather Panchali",
+    "year": "1955"
+  },
   "paw patrol: the dino movie|2026": {
     "imdbID": "tt29356163",
     "source": "exact_year",
@@ -7354,6 +7444,12 @@
     "source": "exact_year",
     "title": "Revolutionary America",
     "year": "2026"
+  },
+  "rewind & play|2022": {
+    "imdbID": "tt17555566",
+    "source": "exact",
+    "title": "Rewind & Play",
+    "year": "2022"
   },
   "richard iii": {
     "imdbID": "tt0114279",
@@ -7991,6 +8087,12 @@
     "title": "Some Kind of Heaven",
     "year": "2020"
   },
+  "some like it hot|1959": {
+    "imdbID": "tt0053291",
+    "source": "exact",
+    "title": "Some Like It Hot",
+    "year": "1959"
+  },
   "something wild|1986": {
     "imdbID": "tt0091983",
     "source": "override",
@@ -8008,6 +8110,12 @@
     "source": "exact_year",
     "title": "Sonic the Hedgehog 3",
     "year": "2024"
+  },
+  "sorcerer|1977": {
+    "imdbID": "tt0076740",
+    "source": "exact",
+    "title": "Sorcerer",
+    "year": "1977"
   },
   "sorry to bother you|2018": {
     "imdbID": "tt5688932",
@@ -8074,6 +8182,12 @@
     "source": "exact",
     "title": "Spellbound",
     "year": "1945"
+  },
+  "spider-man \"brand new\" brand new day|2026": {
+    "imdbID": "tt22084616",
+    "source": "search",
+    "title": "Spider-Man: Brand New Day",
+    "year": "2026"
   },
   "spider-man: brand new day|2026": {
     "imdbID": "tt22084616",
@@ -9011,6 +9125,12 @@
     "title": "The Dark Knight",
     "year": "2008"
   },
+  "the day he arrives|2011": {
+    "imdbID": "tt1922561",
+    "source": "exact",
+    "title": "The Day He Arrives",
+    "year": "2011"
+  },
   "the dead pit|1989": {
     "imdbID": "tt0122037",
     "source": "exact_year",
@@ -9749,6 +9869,12 @@
     "title": "The Lost Patrol",
     "year": "1934"
   },
+  "the lost world|1925": {
+    "imdbID": "tt0016039",
+    "source": "exact",
+    "title": "The Lost World",
+    "year": "1925"
+  },
   "the love parade": {
     "imdbID": "tt0020112",
     "source": "exact",
@@ -9868,6 +9994,12 @@
     "source": "exact_year",
     "title": "The Mosquito Bowl",
     "year": "2026"
+  },
+  "the muppet christmas carol|1992": {
+    "imdbID": "tt0104940",
+    "source": "exact",
+    "title": "The Muppet Christmas Carol",
+    "year": "1992"
   },
   "the music lovers|1971": {
     "imdbID": "tt0066109",
@@ -11853,6 +11985,12 @@
     "imdbID": "tt42204235",
     "source": "exact_year",
     "title": "XI: Thou shalt not be indifferent",
+    "year": "2026"
+  },
+  "yeh prem mol liya|2026": {
+    "imdbID": "tt38907401",
+    "source": "exact_year",
+    "title": "Yeh Prem Mol Liya",
     "year": "2026"
   },
   "yes": {
