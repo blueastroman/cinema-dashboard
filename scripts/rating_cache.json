@@ -1043,6 +1043,12 @@
     "title": "Before Sunrise",
     "year": "1995"
   },
+  "beginners|2011": {
+    "imdbID": "tt1532503",
+    "source": "exact",
+    "title": "Beginners",
+    "year": "2011"
+  },
   "begotten|1991": {
     "imdbID": "tt0101420",
     "source": "exact",
@@ -1810,6 +1816,12 @@
     "source": "exact",
     "title": "Chungking Express",
     "year": "1996"
+  },
+  "citizen kane|1941": {
+    "imdbID": "tt0033467",
+    "source": "exact",
+    "title": "Citizen Kane",
+    "year": "1941"
   },
   "citizen ruth|1996": {
     "imdbID": "tt0115906",
@@ -3885,6 +3897,12 @@
     "imdbID": "tt36307021",
     "source": "exact_year",
     "title": "Hadestown: The Musical",
+    "year": "2026"
+  },
+  "hadoota|2026": {
+    "imdbID": "tt43638234",
+    "source": "exact_year",
+    "title": "Hadoota",
     "year": "2026"
   },
   "hairspray|2007": {
@@ -6202,6 +6220,12 @@
     "source": "exact",
     "title": "Next of Kin",
     "year": "1989"
+  },
+  "night at the museum|2025": {
+    "imdbID": "tt36460964",
+    "source": "exact_year",
+    "title": "Night at the Museum in Denmark",
+    "year": "2025"
   },
   "night nurse|1931": {
     "imdbID": "tt0022208",
@@ -9395,6 +9419,12 @@
     "title": "The Furious",
     "year": "2026"
   },
+  "the further mis-adventures of cliff booth|2026": {
+    "imdbID": "tt36408401",
+    "source": "exact_year",
+    "title": "The Further Mis-Adventures of Cliff Booth",
+    "year": "2026"
+  },
   "the general|1927": {
     "imdbID": "tt0017925",
     "source": "exact",
@@ -9790,6 +9820,12 @@
     "source": "exact_year",
     "title": "The Last Temptation of Becky",
     "year": "2026"
+  },
+  "the last waltz|1978": {
+    "imdbID": "tt0077838",
+    "source": "exact",
+    "title": "The Last Waltz",
+    "year": "1978"
   },
   "the last winter|2008": {
     "imdbID": "tt0454864",
