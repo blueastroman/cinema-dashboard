@@ -2735,6 +2735,12 @@
     "title": "E.T. the Extra-Terrestrial",
     "year": "1982"
   },
+  "earth girls are easy|1989": {
+    "imdbID": "tt0097257",
+    "source": "exact",
+    "title": "Earth Girls Are Easy",
+    "year": "1989"
+  },
   "earth|2007": {
     "imdbID": "tt0393597",
     "source": "exact",
@@ -9061,7 +9067,7 @@
   },
   "the conversation|1974": {
     "imdbID": "tt0071360",
-    "source": "exact_year",
+    "source": "exact",
     "title": "The Conversation",
     "year": "1974"
   },
