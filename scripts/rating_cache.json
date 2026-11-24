@@ -6953,6 +6953,12 @@
     "title": "Pinocchio: Unstrung",
     "year": "2026"
   },
+  "pinocchio|1940": {
+    "imdbID": "tt0032910",
+    "source": "exact_year",
+    "title": "Pinocchio",
+    "year": "1940"
+  },
   "pitfall|2025": {
     "imdbID": "tt32338122",
     "source": "exact_year",
@@ -8446,6 +8452,12 @@
     "source": "exact",
     "title": "Stress Is Three",
     "year": "1968"
+  },
+  "stromboli|1950": {
+    "imdbID": "tt0041931",
+    "source": "exact_year",
+    "title": "Stromboli",
+    "year": "1950"
   },
   "stuart little|1999": {
     "imdbID": "tt0164912",
@@ -9976,6 +9988,12 @@
     "source": "exact",
     "title": "The Marching Band",
     "year": "2024"
+  },
+  "the marriage circle|1924": {
+    "imdbID": "tt0015119",
+    "source": "exact_year",
+    "title": "The Marriage Circle",
+    "year": "1924"
   },
   "the master 2012|2012": {
     "imdbID": "tt27701660",
