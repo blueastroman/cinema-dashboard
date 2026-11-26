@@ -311,6 +311,12 @@
     "title": "A Tale of Two Sisters",
     "year": "2003"
   },
+  "a tale of winter|1992": {
+    "imdbID": "tt0104008",
+    "source": "exact",
+    "title": "A Tale of Winter",
+    "year": "1992"
+  },
   "a talent for murder|2026": {
     "imdbID": "tt14129116",
     "source": "exact_year",
@@ -1235,6 +1241,12 @@
     "title": "Black Girl",
     "year": "1966"
   },
+  "black narcissus|1947": {
+    "imdbID": "tt0039192",
+    "source": "exact",
+    "title": "Black Narcissus",
+    "year": "1947"
+  },
   "black orpheus|1959": {
     "imdbID": "tt0053146",
     "source": "exact",
@@ -1648,6 +1660,12 @@
     "source": "exact_year",
     "title": "Carolina Caroline",
     "year": "2026"
+  },
+  "carol|2016": {
+    "imdbID": "tt2402927",
+    "source": "exact",
+    "title": "Carol",
+    "year": "2016"
   },
   "carrie|1976": {
     "imdbID": "tt0074285",
@@ -2443,7 +2461,7 @@
   },
   "detour|1946": {
     "imdbID": "tt0037638",
-    "source": "exact_year",
+    "source": "exact",
     "title": "Detour",
     "year": "1946"
   },
@@ -3101,11 +3119,11 @@
     "title": "Family Movie",
     "year": "2026"
   },
-  "fantasia": {
-    "imdbID": "tt36596439",
-    "source": "exact_year",
-    "title": "Faces Found: Pareidolia Fantasia",
-    "year": "2025"
+  "fantasia|1941": {
+    "imdbID": "tt0032455",
+    "source": "exact",
+    "title": "Fantasia",
+    "year": "1941"
   },
   "fantastic planet|1973": {
     "imdbID": "tt0070544",
@@ -4492,6 +4510,12 @@
     "source": "exact",
     "title": "If on a Winter's Night",
     "year": "1999"
+  },
+  "ikiru|1956": {
+    "imdbID": "tt0044741",
+    "source": "exact",
+    "title": "Ikiru",
+    "year": "1956"
   },
   "images|1972": {
     "imdbID": "tt0068732",
@@ -6077,6 +6101,12 @@
     "title": "My Name Ain't Suzie",
     "year": "1985"
   },
+  "my neighbor totoro|1990": {
+    "imdbID": "tt0096283",
+    "source": "exact",
+    "title": "My Neighbor Totoro",
+    "year": "1990"
+  },
   "my night at maud's|1969": {
     "imdbID": "tt0064612",
     "source": "exact",
@@ -6977,6 +7007,12 @@
     "title": "Phantom of the Paradise",
     "year": "1974"
   },
+  "phantom thread|2018": {
+    "imdbID": "tt5776858",
+    "source": "exact",
+    "title": "Phantom Thread",
+    "year": "2018"
+  },
   "pickup on south street|1953": {
     "imdbID": "tt0046187",
     "source": "exact_year",
@@ -7738,6 +7774,12 @@
     "source": "exact",
     "title": "Sans Soleil",
     "year": "1983"
+  },
+  "saraband|2003": {
+    "imdbID": "tt0299478",
+    "source": "exact",
+    "title": "Saraband",
+    "year": "2003"
   },
   "saw iii|2006": {
     "imdbID": "tt0489270",
@@ -9533,6 +9575,12 @@
     "title": "The Godfather",
     "year": "1972"
   },
+  "the gold rush|1925": {
+    "imdbID": "tt0015864",
+    "source": "exact",
+    "title": "The Gold Rush",
+    "year": "1925"
+  },
   "the good the bad and the ugly|1967": {
     "imdbID": "tt0060196",
     "source": "exact_year",
@@ -9707,6 +9755,12 @@
     "title": "The Housemaid",
     "year": "2025"
   },
+  "the hudsucker proxy|1994": {
+    "imdbID": "tt0110074",
+    "source": "exact",
+    "title": "The Hudsucker Proxy",
+    "year": "1994"
+  },
   "the hunchback of notre dame|1996": {
     "imdbID": "tt0116583",
     "source": "exact",
@@ -9843,6 +9897,12 @@
     "imdbID": "tt0095488",
     "source": "exact",
     "title": "The Lair of the White Worm",
+    "year": "1988"
+  },
+  "the land before time|1988": {
+    "imdbID": "tt0095489",
+    "source": "exact",
+    "title": "The Land Before Time",
     "year": "1988"
   },
   "the las vegas story|1952": {
@@ -9988,6 +10048,12 @@
     "source": "exact",
     "title": "The Love Parade",
     "year": "1929"
+  },
+  "the machine to kill bad people|1952": {
+    "imdbID": "tt0040559",
+    "source": "exact_year",
+    "title": "The Machine to Kill Bad People",
+    "year": "1952"
   },
   "the magic faraway tree|2026": {
     "imdbID": "tt7734244",
@@ -10727,6 +10793,12 @@
     "title": "The Texas Chain Saw Massacre",
     "year": "1974"
   },
+  "the thin man|1934": {
+    "imdbID": "tt0025878",
+    "source": "exact",
+    "title": "The Thin Man",
+    "year": "1934"
+  },
   "the thing called love|1993": {
     "imdbID": "tt0108327",
     "source": "exact_year",
@@ -10757,6 +10829,12 @@
     "title": "The Toxic Avenger",
     "year": "2025"
   },
+  "the train|1965": {
+    "imdbID": "tt0059825",
+    "source": "exact",
+    "title": "The Train",
+    "year": "1965"
+  },
   "the transformers: the movie|1986": {
     "imdbID": "tt0092106",
     "source": "exact_year",
@@ -10786,6 +10864,12 @@
     "source": "exact",
     "title": "The Treasure of the Sierra Madre",
     "year": "1948"
+  },
+  "the tree of life|2011": {
+    "imdbID": "tt0478304",
+    "source": "exact",
+    "title": "The Tree of Life",
+    "year": "2011"
   },
   "the trek|2008": {
     "imdbID": "tt1331074",
@@ -11437,7 +11521,7 @@
   },
   "true stories|1986": {
     "imdbID": "tt0092117",
-    "source": "exact_year",
+    "source": "exact",
     "title": "True Stories",
     "year": "1986"
   },
