@@ -199,7 +199,7 @@
   },
   "a long winter|2026": {
     "imdbID": "tt38220998",
-    "source": "exact",
+    "source": "exact_year",
     "title": "A Long Winter",
     "year": "2026"
   },
@@ -346,6 +346,12 @@
     "source": "exact",
     "title": "Abel Raises Cain",
     "year": "2005"
+  },
+  "above the below|2026": {
+    "imdbID": "tt29634374",
+    "source": "exact_year",
+    "title": "Above the Below",
+    "year": "2026"
   },
   "above the rim|1994": {
     "imdbID": "tt0109035",
@@ -928,6 +934,12 @@
     "source": "exact_year",
     "title": "Bad Counselors",
     "year": "2026"
+  },
+  "bad santa|2003": {
+    "imdbID": "tt0307987",
+    "source": "exact",
+    "title": "Bad Santa",
+    "year": "2003"
   },
   "bait|2025": {
     "imdbID": "tt33365145",
@@ -3299,6 +3311,12 @@
     "title": "Flashdance",
     "year": "1983"
   },
+  "flavia|2026": {
+    "imdbID": "tt11662534",
+    "source": "exact_year",
+    "title": "Flavia",
+    "year": "2026"
+  },
   "flow|2024": {
     "imdbID": "tt4772188",
     "source": "exact_year",
@@ -3886,6 +3904,12 @@
     "source": "exact",
     "title": "Gremlins 2: The New Batch",
     "year": "1990"
+  },
+  "gremlins|2025": {
+    "imdbID": "tt36751695",
+    "source": "exact_year",
+    "title": "Gremlins",
+    "year": "2025"
   },
   "grey gardens|1975": {
     "imdbID": "tt0073076",
@@ -4663,7 +4687,7 @@
   },
   "iron boy|2026": {
     "imdbID": "tt36639956",
-    "source": "exact",
+    "source": "exact_year",
     "title": "Iron Boy",
     "year": "2026"
   },
@@ -7427,6 +7451,12 @@
     "title": "Raw",
     "year": "2016"
   },
+  "ray gunn|2026": {
+    "imdbID": "tt18270542",
+    "source": "exact_year",
+    "title": "Ray Gunn",
+    "year": "2026"
+  },
   "razor|2026": {
     "imdbID": "tt39286108",
     "source": "exact_year",
@@ -9537,6 +9567,12 @@
     "imdbID": "tt36408401",
     "source": "exact_year",
     "title": "The Further Mis-Adventures of Cliff Booth",
+    "year": "2026"
+  },
+  "the gallerist|2026": {
+    "imdbID": "tt34382912",
+    "source": "exact_year",
+    "title": "The Gallerist",
     "year": "2026"
   },
   "the general|1927": {
@@ -12040,6 +12076,12 @@
     "source": "exact",
     "title": "Whistle Stop",
     "year": "1946"
+  },
+  "white christmas|1954": {
+    "imdbID": "tt0047673",
+    "source": "exact",
+    "title": "White Christmas",
+    "year": "1954"
   },
   "white material|2009": {
     "imdbID": "tt1135952",
